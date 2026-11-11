@@ -1,0 +1,295 @@
+\section{The fluctuation covariance and the step}\label{sec:covariance}
+
+We return to the setting of Section~\ref{sec:fluctuations}: $W=V^0$ is the base configuration of the step, $U'=U_{k+1}(V')$, and $\eps=B_3\eps'_1$. The objects of Section~\ref{sec:coarse-action} are taken at this $W$ and $U'$.
+
+\subsection{The quadratic form of the step}\label{ss:34.1}
+
+\begin{lemma}[Expansion in the variables $\mathfrak F$]\label{lem:step-quadratic}
+Let $r_2=\min(cL^{-2d-2},\,cL^{-d}a'_1)$ with $c>0$ small, depending only on $d$, $G$, $L$ and $r_1=c_6/4$ of Proposition~\ref{prop:coarse-action} (the proof needs $2cL^{-2d-2}\le\frac12r_L$, $2cL^{-2d-2}\le\frac12c_0L^{-1}$ with $c_0$ of Lemma~\ref{lem:exp-gauge}(c), $CL^{-d-2}c\le\frac14r_1$ and $Cc\le\frac12$), $a'_1$ as in Lemma~\ref{lem:composition}(c), and assume $4(C_*+1)L^{-2}\eps'_1\le a'_1$. For complex fields $Z$ on $\mathfrak F$ with $|Z|_\infty\le r_2$ put
+\[
+F(Z)=\mathcal S(\hat Z(Z))+\Phi_W(Z),
+\]
+with $\Phi_W$ as in Lemma~\ref{lem:exp-gauge}(c). Then $F$ is analytic, $F(Z)=S(U_k(e^{\ii\hat Z(Z)}W))+\Phi_W(Z)$ for real $Z$, and
+\[
+F(Z)=S(U')+\tfrac12\Delta_k(Z,Z)+\mathcal V(Z)+G_3(Z),
+\]
+\[
+\Delta_k(Z,Z)=\Delta^0(\hat Z^1Z,\hat Z^1Z)+2\ip{\omega_0}{\hat Z^2(Z)}+\|\mathfrak G_WZ\|^2 .
+\]
+Here $\mathcal V$ is the remainder of the coarse action,
+\[
+\mathcal S(\hat Z(Z))=S(U')+\tfrac12\Delta^0(\hat Z^1Z,\hat Z^1Z)+\ip{\omega_0}{\hat Z^2(Z)}+\mathcal V(Z),
+\]
+$G_3$ is the remainder of the gauge fixing (Lemma~\ref{lem:exp-gauge}(c)), and $|\mathcal V(Z)|+|G_3(Z)|\le C_L|Z|_\infty\|Z\|^2$. For complex $Z$, $\|\mathfrak G_WZ\|^2$ stands for the bilinear form $\ip{\mathfrak G_WZ}{\mathfrak G_WZ}$. It involves only inner bonds, so $\|\mathfrak G_WZ\|=\|\mathfrak G_W\hat Z^1Z\|$. In particular $F$ has no linear term.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:step-quadratic}
+By Lemma~\ref{lem:eliminate}, $\hat Z$ is analytic on $|Z|_\infty\le2r_2\le r_L$ with $|\hat Z(Z)|_\infty\le CL^d|Z|_\infty\le r_1/2$, so $\mathcal S\circ\hat Z$ is analytic on the disc of radius $2r_2$ by Proposition~\ref{prop:coarse-action}(a). Since $2r_2\le\frac12c_0L^{-1}$ for $c$ small, $\Phi_W$ is analytic there by Lemma~\ref{lem:exp-gauge}(c). For real $Z$ the configuration $e^{\ii\hat Z(Z)}W$ satisfies the one-step constraint, and its curvature is at most $2(C_*+1)L^{-2}\eps'_1+CL^dr_2\le a'_1$. Here $|\hat Z|_\infty\le CL^d|Z|_\infty$, so $CL^dr_2\le a'_1/2$ by the choice of $r_2$, and we assume $4(C_*+1)L^{-2}\eps'_1\le a'_1$. By Lemma~\ref{lem:composition}(c), $\mathcal S(\hat Z(Z))\ge\mathcal S(0)=S(U')$, so $d(\mathcal S\circ\hat Z)(0)=\ip{\omega_0}{\hat Z^1\cdot}=0$. By Lemma~\ref{lem:exp-gauge}(c), $\Phi_W(0)=0$ and $d\Phi_W(0)=0$. The second-order term of $\mathcal S\circ\hat Z$ follows from $\hat Z(tZ)=t\hat Z^1Z+t^2\hat Z^2(Z)+O(t^3)$ and Proposition~\ref{prop:coarse-action}(d); that of $\Phi_W$ is $\frac12\ip{\mathfrak G_WZ}{\mathfrak G_WZ}$. For the remainder $\mathcal V$, $\nabla(\mathcal S\circ\hat Z)(Z)=d\hat Z(Z)^T\omega(\hat Z(Z))$. The analyticity of $\hat Z$ and the bound $|\hat Z(Z)|_\infty\le r_1/2$ hold on the larger disc $|Z|_\infty\le2cL^{-2d-2}$, since only the first term of the minimum defining $r_2$ enters them. By Proposition~\ref{prop:coarse-action}(c) and the locality of $\hat Z$ (range $2L$), $d^2(\mathcal S\circ\hat Z)$ has a kernel bounded by $C_Le^{-\gamma_1|b-b'|}$ on this larger disc. The argument of Proposition~\ref{prop:coarse-action}(d), applied to $\mathcal S\circ\hat Z$ on this disc with $d(\mathcal S\circ\hat Z)(0)=0$, gives the bound on $\mathcal V$. Its constant $C_L$ depends on $cL^{-2d-2}$, but not on $a'_1$. The bound on $G_3$ is Lemma~\ref{lem:exp-gauge}(c). Finally, the contours of the families $G(y,x)$ consist of inner bonds, on which $\hat Z^1Z=Z$.
+\end{proof}
+
+This is the quadratic form \cite[(53)--(54)]{BalUV3}, \cite[(2.5)--(2.8)]{BalYM4I}. The term $2\ip{\omega_0}{\hat Z^2}$ comes from the curvature of the constraint set and is Ba\l aban's term $-\ip{H_1\hat D^{(2)}(A)}J$. The term $\|\mathfrak G_WZ\|^2$ is the quadratic part of the gauge fixing, Ba\l aban's $\sum_{y,x}\frac12|B'(y,x)|^2$ in \cite[(2.5)]{BalYM4I}, and $G_3$ is his block-local remainder $G_3$.
+
+\subsection{Coercivity}\label{ss:34.2}
+
+The lower bound for $\Delta_k$ is proved in two steps:
+\begin{itemize}
+\item at the trivial background, a Poincar\'e inequality for the curl, the linearized averaged contour variables and the linearized constraint, combined with Proposition~\ref{prop:eff-action-gauge};
+\item at a regular background, an IMS localization on the unit lattice, as in Section~\ref{sec:reg-gauge}.
+\end{itemize}
+Let $q^{\rm pl}$ be the linearized constraint at the trivial base, \eqref{eq:q-plain}, and $\mathfrak G_1$ the linearized averaged contour variables at $W=1$, the means of the line integrals (Lemma~\ref{lem:avg-transport}(b)). We use the norms
+\[
+\|\mathfrak G_1B\|^2=\sum_{y\in\T'}\sum_{x\in B'(y)}|\mathfrak G_1B(y,x)|^2,\quad\|q^{\rm pl}B\|^2=\sum_c|q^{\rm pl}B(c)|^2,\quad\|\dl B\|^2=\sum_p|\dl B(p)|^2,
+\]
+the sums running over the positively oriented bonds $c$ of $\T'$ and the plaquettes $p$ of $\T$. Here $\dl B(p)=B(\partial p)$ is the unit-lattice curl, and $B(\Gamma)=\sum_{b\in\Gamma}\pm B(b)$ is the line integral along a contour.
+
+\begin{lemma}[Poincar\'e inequality for one step]\label{lem:poincare-step}
+There is $C_{\rm P}$, depending only on $d$ and $L$, such that every real field $B$ on the bonds of $\T$ satisfies
+\[
+\|B\|^2\le C_{\rm P}\big(\|\dl B\|^2+\|\mathfrak G_1B\|^2+\|q^{\rm pl}B\|^2\big).
+\]
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:poincare-step}
+All estimates are local in a pair of neighbouring blocks. For $y\in\T'$ let $\mathcal P(y)$ be the set of plaquettes of $\T$ with all corners in $B'(y)$, and for a bond $c$ of $\T'$ let $\mathcal P(c)$ be the set of plaquettes with all corners in $B'(c_-)\cup B'(c_+)$. Put
+\[
+g_y=\max_{x\in B'(y)}|\mathfrak G_1B(y,x)|,\qquad\delta_y=\max_{p\in\mathcal P(y)}|\dl B(p)|,\qquad\delta_c=\max_{p\in\mathcal P(c)}|\dl B(p)| .
+\]
+
+\emph{(i) Contours.} Let $x\in B'(y)$ and $\Gamma,\Gamma'\in G(y,x)$. By the abelian identity of Lemma~\ref{lem:stokes-avg}(i) (applied with $Y=1$), $B(\Gamma)-B(\Gamma')$ is a sum of at most $\frac32(L-1)^2$ values $\pm\dl B(p)$, $p\in\mathcal P(y)$. Since $\mathfrak G_1B(y,x)$ is the mean of the $B(\Gamma')$,
+\[
+|B(\Gamma)-\mathfrak G_1B(y,x)|\le\tfrac32(L-1)^2\delta_y .
+\]
+
+\emph{(ii) Inner bonds.} Let $b=(x,x')$ with $x,x'\in B'(y)$. As in the proof of Lemma~\ref{lem:stokes-avg}(ii), there are $\Gamma_0\in G(y,x)$ and $\Gamma'_0\in G(y,x')$ with $\Gamma'_0=\Gamma_0b$ in the groupoid of contours. Hence $B(b)=B(\Gamma'_0)-B(\Gamma_0)$, and by (i)
+\[
+|B(b)|\le2g_y+3(L-1)^2\delta_y .
+\]
+
+\emph{(iii) Differences of crossing bonds.} Let $c=(y,y')$ with $y'=y+Le_\mu$. Let $\mathsf F=\{x\in B'(y):x_\mu=y_\mu+\frac{L-1}2\}$ be the face of $B'(y)$ towards $y'$, and $b_x=(x,x+e_\mu)$ for $x\in\mathsf F$. These are the $L^{d-1}$ crossing bonds between $B'(y)$ and $B'(y')$, and $b_0(c)$ is one of them. For $x,\tilde x\in\mathsf F$ choose $\Gamma_x\in G(y,x)$, $\Gamma_{\tilde x}\in G(y,\tilde x)$, $\Gamma'\in G(y',x+e_\mu)$ and $\tilde\Gamma'\in G(y',\tilde x+e_\mu)$. The closed contour
+\[
+\Gamma_x\,b_x\,\Gamma'^{-1}\,\tilde\Gamma'\,b_{\tilde x}^{-1}\,\Gamma_{\tilde x}^{-1}
+\]
+has at most $8L$ bonds and lies in the box $B'(y)\cup B'(y')$, of side at most $2L$. By Lemma~\ref{lem:stokes}(iii) it is spanned by at most $16dL^2$ plaquettes of $\mathcal P(c)$. The abelian Stokes formula and (i) give
+\[
+\begin{aligned}
+|B(b_x)-B(b_{\tilde x})|&\le|B(\Gamma_x)-B(\Gamma_{\tilde x})|+|B(\Gamma')-B(\tilde\Gamma')|+16dL^2\delta_c\\
+&\le2g_y+2g_{y'}+\big(6(L-1)^2+16dL^2\big)\delta_c .
+\end{aligned}
+\]
+
+\emph{(iv) The mean over the face.} Let $m_c=L^{1-d}\sum_{\tilde x\in\mathsf F}B(b_{\tilde x})$. For $x\in B'(y)$ the straight segment $[x,x(c)]$ consists of $L$ bonds in the direction $\mu$. Exactly one of them is crossing, namely $b_{\tilde x}$ with $\tilde x$ the point of $\mathsf F$ on the line of $x$. The other $L-1$ are inner bonds of $B'(y)$ or $B'(y')$. Each $\tilde x\in\mathsf F$ arises from the $L$ points of $B'(y)$ on its line. Hence
+\[
+L^{-d}\sum_{x\in B'(y)}B([x,x(c)])=m_c+L^{-d}\sum_{x\in B'(y)}{\sum_b}'B(b),
+\]
+where $\sum'$ runs over the inner bonds of $[x,x(c)]$. Since $x\mapsto x(c)$ maps $B'(y)$ onto $B'(y')$, \eqref{eq:q-plain} gives
+\[
+m_c=q^{\rm pl}B(c)-L^{-d}\sum_{x\in B'(y)}\mathfrak G_1B(y,x)+L^{-d}\sum_{x'\in B'(y')}\mathfrak G_1B(y',x')-L^{-d}\sum_{x\in B'(y)}{\sum_b}'B(b).
+\]
+So $|m_c|\le|q^{\rm pl}B(c)|+g_y+g_{y'}+(L-1)\beta_c$, where $\beta_c$ is the maximum of $|B|$ over the inner bonds of $B'(y)\cup B'(y')$. By (ii), $\beta_c\le2\max(g_y,g_{y'})+3(L-1)^2\delta_c$.
+
+\emph{(v) Conclusion.} Since $B(b_x)-m_c=L^{1-d}\sum_{\tilde x\in\mathsf F}(B(b_x)-B(b_{\tilde x}))$, (iii) and (iv) give, for every crossing bond $b_x$ of $c$,
+\[
+|B(b_x)|\le|q^{\rm pl}B(c)|+C_L\big(g_y+g_{y'}+\delta_c\big).
+\]
+Every bond of $\T$ is inner, or crossing between the blocks of exactly one bond $c$ of $\T'$. Square the bounds of (ii) and (v), and use $g_y^2\le\sum_{x\in B'(y)}|\mathfrak G_1B(y,x)|^2$ and $\delta_y^2\le\delta_c^2\le\sum_{p\in\mathcal P(c)}|\dl B(p)|^2$ for $y=c_\pm$. A block contains at most $dL^d$ bonds, a bond $c$ has $L^{d-1}$ crossing bonds, every $y\in\T'$ is an endpoint of $2d$ bonds of $\T'$, and every plaquette lies in $\mathcal P(c)$ for at most $2d$ bonds $c$. Summing over the bonds of $\T$ gives the claim, with $C_{\rm P}$ depending only on $d$ and $L$.
+\end{proof}
+
+The term $\|\mathfrak G_1B\|^2$ cannot be dropped: if $\lambda$ is a function on $\T$ with $\lambda|_{\T'}=0$, then $B=d\lambda$ satisfies $\dl B=0$ and, by \eqref{eq:q-plain}, $q^{\rm pl}B(c)=\lambda(c_+)-\lambda(c_-)=0$, while $\mathfrak G_1B(y,x)=\lambda(x)$. A numerical computation at $W=1$, for $d=4$ and $L=3$, gives the smallest eigenvalue of the form of the lemma at the momenta tested; the minimum over these samples is about $0.030$, with reciprocal about $33$ (Appendix~\ref{app:numerics}). These finite samples do not certify the minimum over all momenta or a uniform constant of that size. The uniformity of $C_{\rm P}$ in the size of the torus follows from the proof, in which every estimate is local in a pair of neighbouring blocks. Dropping any one of the three terms gives a zero mode.
+
+\begin{lemma}[Local comparison]\label{lem:local-comparison}
+Let $M'\ge\max(M,L)$ be an integer and $z$ a point of the torus (not necessarily of $\T$). Assume $n\ge80M'$ and $\eps\le\eps_{\rm cmp}(M')$, where $\eps_{\rm cmp}(M')>0$ depends only on $M'$, $d$, $L$, $G$, $a$, $\alpha$ and $M$, and is fixed in the proof. There are a real gauge transformation $u$ on $\Lam_{40M'}(z)$ and $C_{M'}$ such that, for every real field $B$ on the bonds of $\T$ starting in $\Lam_{M'}(z)$, with $B^u=R(u)B$:
+\[
+\big|\ip B{(\boldsymbol\Gamma_\pi-a)B}-\ip{B^u}{\bD B^u}\big|\le\big(C_{M'}\eps+Ce^{-\gamma M'}\big)\|B\|^2,
+\]
+\[
+\big|\|\mathfrak G_WB\|-\|\mathfrak G_1B^u\|\big|\le C_{M'}\eps\|B\|,\qquad\big|\|l^{\rm pl}B\|-\|q^{\rm pl}B^u\|\big|\le C_{M'}\eps\|B\| .
+\]
+Here $\bD=\boldsymbol\Gamma(1)-a$ is the operator of Proposition~\ref{prop:eff-action-gauge}, and $C,\gamma$ do not depend on $M'$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:local-comparison}
+The configuration $U'$ is $3\eps$-regular on every cube $\Lam_{4M+2}(z'')$ (Section~\ref{sec:local-gauges}). Let $z_0\in\Tf$ with $|z-z_0|_\infty\le\eta$, so that $\Lam_{40M'}(z)\subset\Lam_{40M'+1}(z_0)$. Apply Lemma~\ref{lem:large-cubes} with $r=4M+2\ge18$, $R=40M'+1$ and $\sigma=3\eps$, on the cube $\Lam_R(z_0)$. Its hypothesis $C_E(R/r)^pR\sigma\le1$ is the first condition defining $\eps_{\rm cmp}(M')$. The boxes in its proof have sides at most $3R=120M'+3<80M'L\le Ln$, the side of $\T$, so they do not wrap around the torus. This gives a real gauge $u$ on $\Lam_{40M'}(z)$ with $U'^u=e^{\ii\eta A}$ and $\|A\|_{1,\alpha}\le C(40M'/M)^p\eps$. Extend $u$ to a real gauge transformation $\tilde u$ of $\Tf$. Then $\boldsymbol\Gamma_\pi(U'^{\tilde u})=R(\tilde u)\boldsymbol\Gamma_\pi(U')R(\tilde u)^{-1}$, by Proposition~\ref{prop:linearized-averages}(f) and Proposition~\ref{prop:covariance}.
+
+Let $\chi$ be a smooth cutoff equal to $1$ on $\Lam_{20M'}(z)$ and $0$ outside $\Lam_{30M'}(z)$, and put $U^\natural=e^{\ii\eta\chi A}$. It satisfies (B) with parameter $C_{M'}\eps$. The second condition defining $\eps_{\rm cmp}(M')$ is that $C_{M'}\eps$ lies below the thresholds of Parts~II and~III. The configuration $U^\natural$ coincides with $U'^{\tilde u}$ on $\Lam_{20M'}(z)$. By Theorem~\ref{thm:reg-locality}(b), the kernels of $\boldsymbol\Gamma_\pi(U'^{\tilde u})$ and $\boldsymbol\Gamma_\pi(U^\natural)$ on $\Lam_{M'}(z)$ differ by at most $C\sum_{w}e^{-\gamma(|y-w|+|w-y'|)}$, summed over $w$ within $10M$ of the complement of $\Lam_{20M'}(z)$. These $w$ are at distance at least $9M'$ from $\Lam_{M'}(z)$, which gives the error $Ce^{-\gamma M'}$ after a Schur bound.
+
+By Part~II at the background $U^\natural$, with the averaging pair $(Q'_k(U^\natural),\bQ_k(U^\natural))$ (Remark~\ref{rem:general-averaging}), $\boldsymbol\Gamma_\pi(U^\natural)-\boldsymbol\Gamma(1)$ has decay $(C_{M'}\eps,\gamma)$. This follows from Theorem~\ref{thm:cov-min}(a) and Lemma~\ref{lem:perturbed-inverse}. This proves the first bound.
+
+By Lemma~\ref{lem:avg-local-gauge}, whose hypotheses, together with those of Lemma~\ref{lem:avg-transport}(e) used below, are the third condition defining $\eps_{\rm cmp}(M')$, $W^{\tilde u}=e^{\ii B_W}$ on the bonds of the blocks $B'(y)$ that meet $\Lam_{3M'}(z)$, with $|B_W|\le C_{M'}\eps$; here we use that $U'$ has curvature at most $\eps$ in the units of step $k$. By Lemma~\ref{lem:avg-transport}(d), $\mathfrak G_{W^{\tilde u}}B^u(y,x)=R(\tilde u(y))\,\mathfrak G_WB(y,x)$, so $\|\mathfrak G_WB\|=\|\mathfrak G_{W^{\tilde u}}B^u\|$. The value $\mathfrak G_{W^{\tilde u}}B^u(y,x)$ depends only on $B^u$ on the bonds of $B'(y)$, and vanishes unless $B'(y)$ meets $\Lam_{M'+1}(z)$. By Lemma~\ref{lem:avg-transport}(e), in the units of step $k$, $|\mathfrak G_{W^{\tilde u}}B^u(y,x)-\mathfrak G_1B^u(y,x)|\le CL^2C_{M'}\eps\max|B^u|$, the maximum over the bonds of $B'(y)$. Summing the squares over $y$ and $x$ gives the second bound.
+
+For the third, the covariance of the averaging (Lemma~\ref{lem:one-step-basic}(b)) gives $e^{\ii R(\tilde u)Z}W^{\tilde u}=(e^{\ii Z}W)^{\tilde u}$ and $\mathfrak a'((e^{\ii Z}W)^{\tilde u})(c)=\tilde u(c_-)\,\mathfrak a'(e^{\ii Z}W)(c)\,\tilde u(c_+)^{-1}$. So $\ell_c$ at the base $W^{\tilde u}$ and the field $R(\tilde u)Z$ is $R(\tilde u(c_-))\ell_c(Z)$, and $l^{\rm pl}(W^{\tilde u})B^u(c)=R(\tilde u(c_-))\,l^{\rm pl}(W)B(c)$. Hence $\|l^{\rm pl}B\|=\|l^{\rm pl}(W^{\tilde u})B^u\|$. In $l^{\rm pl}(W^{\tilde u})=Lp'(W^{\tilde u})$ (Lemma~\ref{lem:eliminate}(a)), the transports $R(W^{\tilde u}(\cdot))$ along contours of at most $2L$ bonds, the transports $R(W^{\tilde u}(c_-,x))$ and $R(W'^{\tilde u}(c))$, and the weights of Lemma~\ref{lem:avg-transport} are within $C_{M'}\eps$ of their values at $W=1$, by Lemma~\ref{lem:group-average}(e), Lemma~\ref{lem:avg-transport}(e) and Lemma~\ref{lem:one-step-basic}(a). The remainder $r'$ is bounded by $CL^2\eps\max|B|$, by Lemma~\ref{lem:one-step-expansion}(b), since $L^2\eps$ bounds the curvature of $U'$ in the units of step $k+1$. So $(l^{\rm pl}(W^{\tilde u})-q^{\rm pl})B^u(c)$ is a combination of at most $C_L$ values of $B^u$ on the bonds of $B'(c_-)\cup B'(c_+)$, with coefficients at most $C_{M'}\eps$. This gives the third bound.
+\end{proof}
+
+\begin{theorem}[Coercivity on the constraint set]\label{thm:step-coercive}
+There are $c_L>0$, depending only on $d$ and $L$, and $M'_L\ge\max(M,L)$ and $\eps_L>0$, depending only on $d$, $L$, $G$, $a$, $\alpha$ and $M$, such that, if $\eps\le\eps_L$ and $n\ge80M'_L$,
+\[
+\ip B{(\boldsymbol\Gamma_\pi-a)B}+\|\mathfrak G_WB\|^2\ge c_L\|B\|^2\qquad\text{for all real }B\in\mathcal Z.
+\]
+One may take $c_L=\frac12\min(c_D,1)\,C_{\rm P}^{-1}$. The proof does not use that $U'$ is critical.
+\end{theorem}
+
+\begin{proof}\hasdetail{thm:step-coercive}
+Let $\{\chi_j\}$ be the partition of Lemma~\ref{lem:partition} at scale $M'$, restricted to the unit lattice, acting on bond fields through $b_-$. Put $K=\boldsymbol\Gamma_\pi-a$ and $K_{\mathfrak G}=\mathfrak G_W^T\mathfrak G_W$, both real symmetric operators on fields on all bonds of $\T$.
+
+\emph{IMS.} $K$ is bounded with decay $(C,\gamma)$ (Theorem~\ref{thm:reg-min}). By Lemma~\ref{lem:IMS} and the argument of Lemma~\ref{lem:double-comm} for kernels, $\sum_j(\chi_j(x)-\chi_j(x'))^2|K(x,x')|\le CM'^{-2}|x-x'|^2|K(x,x')|$, so
+\[
+\ip BKB\ge\sum_j\ip{\chi_jB}{K\chi_jB}-CM'^{-2}\|B\|^2 .
+\]
+The kernel of $K_{\mathfrak G}$ vanishes unless the two bonds lie in a common block $B'(y)$, and it is bounded by $C_L$, since $\mathfrak G_W$ is block-local with bounded entries (Lemma~\ref{lem:avg-transport}(c)). The kernel of $\sum_j[\chi_j,[\chi_j,K_{\mathfrak G}]]$ is $\sum_j(\chi_j(b_-)-\chi_j(b'_-))^2K_{\mathfrak G}(b,b')$, and $\sum_j(\chi_j(x)-\chi_j(x'))^2\le C(L/M')^2$ for $|x-x'|_\infty\le L$, by Lemma~\ref{lem:partition}(c),(d). By Lemma~\ref{lem:IMS} and the Schur test,
+\[
+\|\mathfrak G_WB\|^2\ge\sum_j\|\mathfrak G_W\chi_jB\|^2-C_L(L/M')^2\|B\|^2 .
+\]
+
+\emph{Local bounds.} Each $\chi_jB$ is supported on bonds starting in a cube $\Lam_{M'}(z_j)$. Let $u_j$ be the gauge of Lemma~\ref{lem:local-comparison} at $z_j$, and $c'=\min(c_D,1)$. By Lemma~\ref{lem:local-comparison} and $\|\mathfrak G_1\|\le C_L$,
+\[
+\ip{\chi_jB}{K\chi_jB}+\|\mathfrak G_W\chi_jB\|^2\ge\ip{(\chi_jB)^{u_j}}{\bD(\chi_jB)^{u_j}}+\|\mathfrak G_1(\chi_jB)^{u_j}\|^2-\delta_1\|\chi_jB\|^2,
+\]
+with $\delta_1=C_{M'}\eps+Ce^{-\gamma M'}$. By Proposition~\ref{prop:eff-action-gauge} and Lemma~\ref{lem:poincare-step}, with $\|(\chi_jB)^{u_j}\|=\|\chi_jB\|$, the right side is at least
+\[
+c'\big(\|\dl(\chi_jB)^{u_j}\|^2+\|\mathfrak G_1(\chi_jB)^{u_j}\|^2\big)-\delta_1\|\chi_jB\|^2\ge c'C_{\rm P}^{-1}\|\chi_jB\|^2-c'\|q^{\rm pl}(\chi_jB)^{u_j}\|^2-\delta_1\|\chi_jB\|^2 .
+\]
+Moreover $\|q^{\rm pl}(\chi_jB)^{u_j}\|^2\le2\|l^{\rm pl}\chi_jB\|^2+2C_{M'}^2\eps^2\|\chi_jB\|^2$.
+
+\emph{The constraint.} $(l^{\rm pl}B)(c)$ depends only on $B$ on the bonds of $B'(c_-)\cup B'(c_+)$, with coefficients bounded by $C_L$, and $|\chi_j(b_-)-\chi_j(c_-)|\le CL/M'$ for these bonds. Writing $(l^{\rm pl}\chi_jB)(c)=\chi_j(c_-)(l^{\rm pl}B)(c)+\sum_bl^{\rm pl}(c,b)(\chi_j(b_-)-\chi_j(c_-))B(b)$ and using the bounded overlap of the $\chi_j$, we get $\sum_j\|l^{\rm pl}\chi_jB\|^2\le2\|l^{\rm pl}B\|^2+C_L(L/M')^2\|B\|^2$. For $B\in\mathcal Z$, $l^{\rm pl}B=0$.
+
+\emph{Conclusion.} Summing over $j$ with $\sum_j\|\chi_jB\|^2=\|B\|^2$,
+\[
+\ip BKB+\|\mathfrak G_WB\|^2\ge\Big(c'C_{\rm P}^{-1}-CM'^{-2}-C_L(L/M')^2-Ce^{-\gamma M'}-C_{M'}\eps\Big)\|B\|^2 .
+\]
+Choose $M'=M'_L\ge\max(M,L)$ so large that the terms independent of $\eps$ are at most $\frac14c'C_{\rm P}^{-1}$. Then choose $\eps_L\le\eps_{\rm cmp}(M'_L)$, below the threshold of Corollary~\ref{cor:parts-apply} for Theorem~\ref{thm:reg-min} (which gives the decay of $K$ used in the IMS step), with $C_{M'_L}\eps_L\le\frac14c'C_{\rm P}^{-1}$, and put $c_L=\frac12c'C_{\rm P}^{-1}$. Lemma~\ref{lem:local-comparison} applies, since $n\ge80M'_L$ and $\eps\le\eps_{\rm cmp}(M'_L)$. Criticality of $U'$ was not used.
+\end{proof}
+
+\begin{remark}[Gauge directions]\label{x:34.5}
+At the base of the step, the first two terms of $\Delta_k$ vanish in the directions of the $\mathcal G'$-orbit of $W$. Indeed, let $\lambda$ be a real function on $\T$ with $\lambda|_{\T'}=0$. For small real $t$, $W^{e^{\ii t\lambda}}=e^{\ii Y_t}W$ with $Y_t=-tD_W\lambda+O(t^2)$, where $D_W\lambda(b)=R(W(b))\lambda(b_+)-\lambda(b_-)$. These configurations satisfy the constraint, so $Y_t=\hat Z(Y_t|_{\mathfrak F})$ by the uniqueness in Lemma~\ref{lem:eliminate}(c), and $\mathcal S(Y_t)=S(U')$ by gauge invariance. Since $d(\mathcal S\circ\hat Z)(0)=0$, the second derivative in $t$ gives $\Delta^0(\hat Z^1Z,\hat Z^1Z)+2\ip{\omega_0}{\hat Z^2(Z)}=0$ for $Z=D_W\lambda|_{\mathfrak F}$. In these directions the coercivity of $\Delta_k$ comes from the gauge fixing alone; at $W=1$, $\mathfrak G_1d\lambda(y,x)=\lambda(x)$. Theorem~\ref{thm:step-coercive} does not distinguish these directions, and the bound $CL^{3d+1}\eps$ on the term with $\omega_0$ below is a perturbation at every base.
+\end{remark}
+
+\subsection{The fluctuation covariance}\label{ss:34.3}
+
+\begin{corollary}[Fluctuation covariance]\label{cor:covariance}
+Let $\eps\le\eps_L$ and $CL^{3d+1}\eps\le\frac14c_L$. Then $\Delta_k$, as an operator on real fields on $\mathfrak F$, is symmetric with
+\[
+\tfrac14c_L\|Z\|^2\le\Delta_k(Z,Z)\le C_L\|Z\|^2 .
+\]
+It has decay $(C_L,\gamma_1)$, and $C_k=\Delta_k^{-1}$ has decay $(C'_L,\gamma_C)$. Moreover:
+\begin{enumerate}[label=(\alph*)]
+\item \emph{(Gauge covariance.)} For every real gauge transformation $u$ on $\Tf$, replacing $(W,U')$ by $(W^{u|_\T},U'^u)$ replaces $\Delta_k$ by $R(u)\Delta_kR(u)^{-1}$, where $R(u)$ acts on fields on $\mathfrak F$ bondwise by the orthogonal maps $R(u(b_-))$. Hence $C_k$ and $C_k^{\pm1/2}$ are replaced by $R(u)C_kR(u)^{-1}$ and $R(u)C_k^{\pm1/2}R(u)^{-1}$.
+\item \emph{(Lattice covariance.)} For every $r\in\mathfrak S_{k+1}$, replacing $(W,U')$ by $(rW,rU')$ replaces $\Delta_k$, $C_k$ and $C_k^{\pm1/2}$ by their conjugates by $r_W$, the map of Proposition~\ref{prop:hessian}(e), which maps fields on $\mathfrak F$ orthogonally onto fields on $\mathfrak F$.
+\item \emph{(Complex bases.)} For complex base configurations $\hat W=e^{\ii\hat\beta}W$ with $|\hat\beta|_\infty\le c'_L$, where $c'_L\le r_1/4$ is a small constant, define
+\[
+\Delta_k(\hat W)(Z,Z)=\Delta^0(\hat W)\big(\hat Z^1_{\hat W}Z,\hat Z^1_{\hat W}Z\big)+2\ip{\omega_0(\hat W)}{\hat Z^2_{\hat W}(Z)}+\ip{\mathfrak G_{\hat W}Z}{\mathfrak G_{\hat W}Z},
+\]
+with the objects of Proposition~\ref{prop:base-dependence}, the elimination of Lemma~\ref{lem:eliminate} at the base $\hat W$, i.e.\ for $\ell_c(Z)=\ell\big(\mathfrak a'(e^{\ii Z}\hat W)(c)\,\mathfrak a'(\hat W)(c)^{-1}\big)$, and $\mathfrak G_{\hat W}$ of Definition~\ref{def:avg-transport}. Then:
+\begin{itemize}
+\item $\Delta_k(\hat W)$ and $C_k(\hat W)$ are analytic in $\hat\beta$;
+\item $\Rea\Delta_k(\hat W)(Z,\bar Z)\ge\frac18c_L\|Z\|^2$;
+\item the decay bounds persist, and
+\[
+|\partial_{\hat\beta(c)}\Delta_k(\hat W)(b,b')|+|\partial_{\hat\beta(c)}C_k(\hat W)(b,b')|\le C_Le^{-\gamma_C\tau(c,b,b')} .
+\]
+\end{itemize}
+\end{enumerate}
+\end{corollary}
+
+Throughout the note, $C_k$ denotes this covariance. The nonlinear remainder of the averaging in Proposition~\ref{prop:Q-expansion}, which enters $\Delta^0$ through Proposition~\ref{prop:hessian}(a), is written $\Cav_k$.
+
+\begin{proof}\hasdetail{cor:covariance}
+Let $B=\hat Z^1Z$. Then $B\in\mathcal Z$, $\|B\|\ge\|Z\|$, and $\|\mathfrak G_WZ\|=\|\mathfrak G_WB\|$ (Lemma~\ref{lem:step-quadratic}). By Proposition~\ref{prop:hessian}(b) and Theorem~\ref{thm:step-coercive},
+\[
+\Delta^0(B,B)+\|\mathfrak G_WB\|^2\ge\ip B{(\boldsymbol\Gamma_\pi-a)B}+\|\mathfrak G_WB\|^2-C\eps\|B\|^2\ge(c_L-C\eps)\|B\|^2\ge\tfrac12c_L\|Z\|^2,
+\]
+for $\eps_L$ small. By Lemma~\ref{lem:eliminate}(d) and $|\omega_0|\le C\eps$, $|2\ip{\omega_0}{\hat Z^2(Z)}|\le CL^{3d+1}\eps\|Z\|^2\le\frac14c_L\|Z\|^2$. The upper bound and the decay follow from Proposition~\ref{prop:hessian}(c), the locality of $\hat Z^1$, $\hat Z^2$, and the block-locality of $\mathfrak G_W$. Lemma~\ref{lem:CT-bounded} gives the decay of $C_k$.
+
+(a) By Proposition~\ref{prop:hessian}(d), $\Delta^0$ and $\omega_0$ are covariant. The elimination is covariant: by Lemma~\ref{lem:one-step-basic}(b), $e^{\ii R(\tilde u)\hat Z(Z)}W^{\tilde u}=(e^{\ii\hat Z(Z)}W)^{\tilde u}$ satisfies the constraint for $V'^{u|_{\T'}}$, with $\tilde u=u|_\T$. Its values are $R(\tilde u)Z$ on $\mathfrak F$ and $R(\tilde u(b_0(c)_-))\zeta_c(Z)$ on $b_0(c)$, of the same size. By the uniqueness in Lemma~\ref{lem:eliminate}(c), $\hat Z_{W^{\tilde u}}(R(\tilde u)Z)=R(\tilde u)\hat Z_W(Z)$, so $\hat Z^1$ and $\hat Z^2$ are covariant. By Lemma~\ref{lem:avg-transport}(d), $\|\mathfrak G_{W^{\tilde u}}R(\tilde u)Z\|=\|\mathfrak G_WZ\|$. Hence $\Delta_k(W^{\tilde u},U'^u)(R(u)Z,R(u)Z)=\Delta_k(W,U')(Z,Z)$. The maps $R(u)$ are orthogonal, so the functional calculus commutes with the conjugation.
+
+(b) The same argument, with Proposition~\ref{prop:hessian}(e) for $\Delta^0$ and $\omega_0$ (note $\mathfrak S_{k+1}\subset\mathfrak S_k$), with Lemma~\ref{lem:avg-transport}(d) for $\mathfrak G$, and with the covariance of the elimination under $r$. For the latter, $e^{\ii r_W\hat Z(Z)}(rW)=r(e^{\ii\hat Z(Z)}W)$ satisfies the constraint for $rV'=\mathfrak a'(rW)$, by Lemma~\ref{lem:one-step-basic}(d) and Lemma~\ref{lem:reversal}. Since $r$ maps $\mathfrak F$ onto $\mathfrak F$ and the bonds $b_0(c)$ onto the bonds $b_0(rc)$, uniqueness gives $\hat Z_{rW}(r_WZ)=r_W\hat Z_W(Z)$. All ingredients of (b) are intrinsic: the coarse action, the averaging and $\mathfrak G$. The comparison with $\boldsymbol\Gamma_\pi$ in the lower bound is not used for (b); $\boldsymbol\Gamma_\pi$ is not covariant under reflections at curved backgrounds (Remark~\ref{rem:symmetry-reflections}).
+
+(c) For complex bases, $e^{\ii Z}\hat W=e^{\ii(Z\star\hat\beta)}W$ with $Z\star\hat\beta=\ell(e^{\ii Z}e^{\ii\hat\beta})$ bondwise. So $\ell_c$ at the base $\hat W$ is $\ell\big(e^{\ii\ell_c(Z\star\hat\beta)}e^{-\ii\ell_c(\hat\beta)}\big)$, with $\ell_c$ at the base $W$, an analytic function of $(Z,\hat\beta)$ on the bonds of $B'(c_-)\cup B'(c_+)$ for $|Z|_\infty+|\hat\beta|_\infty\le cL^{-1}$ (Lemma~\ref{lem:eliminate}(a)). Its derivative with respect to $Z(b_0(c))$ differs from that at $\hat\beta=0$ by at most $C_L|\hat\beta|_\infty$, by the Cauchy estimate. So for $c'_L$ small the contraction of Lemma~\ref{lem:eliminate}(c) works at $\hat W$, and $\zeta_c$, $\hat Z$, $\hat Z^1$, $\hat Z^2$ at $\hat W$ are analytic in $\hat\beta$, with the bounds of Lemma~\ref{lem:eliminate}. By \eqref{eq:base-regular}, $W\in\mathfrak U_k(b)$ with $b=\frac18\eps_M$, so $8bL^2=\frac18r_M\le\frac14r_M$. Lemma~\ref{lem:avg-transport}(f), with $\delta=1$, $\delta_j=L$ and $\beta=\hat\beta$, therefore applies for $L|\hat\beta|_\infty\le c$: the families of $\hat W$ satisfy the hypothesis of Definition~\ref{def:avg-transport}, and $|\mathfrak G_{\hat W}Z(y,x)-\mathfrak G_WZ(y,x)|\le CL^2|\hat\beta|_\infty\max|Z|$, the maximum over the bonds of $B'(y)$. The weights and transports of $\mathfrak G_{\hat W}$ are holomorphic in $\hat\beta$ (Lemma~\ref{lem:avg-transport}(a)), and $\mathfrak G_{\hat W}Z(y,x)$ depends only on $\hat\beta$ and $Z$ on the bonds of $B'(y)$. So $\mathfrak G_{\hat W}-\mathfrak G_W$ is block-local with entries bounded by $CL^2|\hat\beta|_\infty$. Together with Proposition~\ref{prop:base-dependence}, this shows that $\Delta_k(\hat W)-\Delta_k(W)$ has decay $(C_L|\hat\beta|_\infty,\gamma_1)$ and derivatives with tree decay; the derivatives of the gauge-fixing term are block-local. The lower bound follows for $c'_L$ small. Lemma~\ref{lem:CT-bounded}, in the complex form of Section~\ref{sec:perturbation}, gives the decay of $C_k(\hat W)$. Finally $\partial C_k=-C_k(\partial\Delta_k)C_k$, and $\tau(c,b_1,b_2)+|b-b_1|+|b_2-b'|\ge\tau(c,b,b')$ gives the tree bound.
+\end{proof}
+
+\begin{remark}[The constants do not depend on $M$]\label{rem:step-M}
+The constants $c_L$, $C_L$, $C'_L$, $\gamma_1$, $\gamma_C$ and $c'_L$ of Theorem~\ref{thm:step-coercive} and Corollary~\ref{cor:covariance}, and the constant $C_L$ of Theorem~\ref{thm:step}, do not depend on $M\ge M_0$:
+\begin{itemize}
+\item $c_L=\frac12\min(c_D,1)\,C_{\rm P}^{-1}$, with the absolute constant $c_D$ of Proposition~\ref{prop:eff-action-gauge} and $C_{\rm P}$ of Lemma~\ref{lem:poincare-step}, which depends only on $d$ and $L$.
+\item The upper bound and the decay $(C_L,\gamma_1)$ of $\Delta_k$ come from Proposition~\ref{prop:hessian}(c), that is, Proposition~\ref{prop:coarse-action}(c) at $B=0$, from the locality of $\hat Z^1$ and $\hat Z^2$, and from the block-locality of $\mathfrak G_W$ (Lemma~\ref{lem:avg-transport}). The constants of Proposition~\ref{prop:coarse-action} come from Theorem~\ref{thm:variational}, whose constants may be taken independent of $M\ge M_0$ (the paragraph after the theorem), from Propositions~\ref{prop:action} and~\ref{prop:Q-expansion} (the first assumes only $(1,\eps)$-regularity; the proofs of Sections~\ref{sec:averaging} and~\ref{sec:adapted} do not use $M$, see Section~\ref{sec:AB-proof}, Setting; Lemma~\ref{lem:eliminate} depends only on $d$ and $G$), and from $r_1=c_6/4$. The comparison of Proposition~\ref{prop:hessian}(b) uses Lemma~\ref{lem:X-coercive}, whose constant comes from Theorem~\ref{thm:reg-coercive} and does not depend on $M\ge M_0$.
+\item $C'_L$ and $\gamma_C$ come from these by Lemma~\ref{lem:CT-bounded}. The radius $c'_L\le r_1/4$ and the bounds at complex bases, through Proposition~\ref{prop:base-dependence}, are of the same kind.
+\item The constant $C_L$ of Theorem~\ref{thm:step}(d) comes from the proof of Lemma~\ref{lem:step-quadratic}, on the disc $|Z|_\infty\le2cL^{-2d-2}$, where $c$ depends only on $d$, $G$, $L$ and $c_6$, none of which involves $M$, and from Lemma~\ref{lem:exp-gauge}(c).
+\end{itemize}
+The parameter $M$ enters this part only through thresholds and radii: through $M'_L\ge M$; through the constant $C_{M'}$ and the factor $e^{CM}$ of Theorem~\ref{thm:reg-locality}(b) in Lemma~\ref{lem:local-comparison}, which are absorbed by the choice of $M'_L$ and of $\eps_L\le\eps_{\rm cmp}(M'_L)$; and through $a'_1$, $a_{\rm step}$ and $r_2$, which involve the constants $a_1$, $B_3$ of Theorem~\ref{thm:balaban} and $a_\delta$ of Proposition~\ref{prop:sharp-curvature}.
+\end{remark}
+
+The fluctuation field lives on the unit lattice $\T$, where all operators are bounded. So the decay of the covariance follows from Combes--Thomas directly. In particular we do not need Ba\l aban's representation of the axial-gauge covariance through Landau-gauge operators on the fine lattice \cite[(3.183)--(3.185)]{BalBackground}. The fine-lattice Green functions of Parts~I--III enter only through $\Delta^0$, i.e.\ through the coarse effective action. Ba\l aban's covariance $(C^*\Delta_kC)^{-1}$ on the bonds other than the $b_0(c)$ \cite[(2.5)--(2.7)]{BalYM4II} corresponds to $C_k$.
+
+\subsection{The determinant}\label{ss:34.4}
+
+The Gaussian integral over the variables on $\mathfrak F$ produces the factor $\det(\Delta_k)^{-1/2}$, which depends on the background. We write its logarithm as a sum of local densities.
+
+\begin{proposition}[Determinant densities]\label{prop:det-densities}
+For real bases let
+\[
+\log\Delta_k=\int_0^\infty\Big(\frac1{1+t}-(\Delta_k+t)^{-1}\Big)dt,\qquad\ell_k(b)=\operatorname{tr}_{\mathfrak g}\big[(\log\Delta_k)(b,b)\big],\quad b\in\mathfrak F .
+\]
+Then $\log\det\Delta_k=\sum_{b\in\mathfrak F}\ell_k(b)$, and:
+\begin{enumerate}[label=(\alph*)]
+\item $\log\Delta_k$ has decay $(C_L,\gamma_C/2)$; in particular $|\ell_k(b)|\le C_L$;
+\item $\ell_k(b)$ is invariant under real gauge transformations of $(W,U')$;
+\item for complex bases $\hat W=e^{\ii\hat\beta}W$ as in Corollary~\ref{cor:covariance}(c), the same integral defines $\ell_k(b)$ analytically, and $|\partial_{\hat\beta(c)}\ell_k(b)|\le C_Le^{-\gamma_C|b-c|/2}$;
+\item for $r\in\mathfrak S_{k+1}$, $\ell_k(rb;rW,rU')=\ell_k(b;W,U')$, where $\ell_k(-b):=\ell_k(b)$. In particular, at the trivial base $W=1$, $U'=1$, $\ell_k(b)$ depends only on the orbit of $b$ under the translations of $\T'$ and the hyperoctahedral group about the points of $\T'$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}\hasdetail{prop:det-densities}
+(a) For $t\ge0$, $\Delta_k+t$ has decay $(C_L+t,\gamma_1)$ and is bounded below by $\frac14c_L+t$. By Lemma~\ref{lem:CT-bounded} its inverse has decay $(C(c_L/4+t)^{-1},\gamma_C)$, with $\gamma_C$ independent of $t$, since the ratio of the lower bound to the decay constant does not degenerate as $t\to\infty$. The integrand equals $(\Delta_k-1)(1+t)^{-1}(\Delta_k+t)^{-1}$, which has decay $(C_L(1+t)^{-1}(c_L/4+t)^{-1},\gamma_C/2)$ and is integrable. For a positive symmetric matrix the integral is the logarithm, and $\operatorname{Tr}\log=\log\det$.
+
+(b) By Corollary~\ref{cor:covariance}(a), $\log\Delta_k$ is conjugated by the orthogonal map $R(u)$, which acts bondwise. So the diagonal blocks are conjugated by orthogonal maps of $\mathfrak g$, and their traces are invariant.
+
+(c) For complex bases, $\Rea(\Delta_k+t)\ge\frac18c_L+t$, so the integral converges. It is analytic and agrees with the logarithm for real bases. The derivative is $\int_0^\infty(\Delta_k+t)^{-1}(\partial\Delta_k)(\Delta_k+t)^{-1}dt$. By the tree bound of Corollary~\ref{cor:covariance}(c) for $\partial\Delta_k$, its diagonal kernel at $b$ is bounded by $C_L\sum_{b_1,b_2}e^{-\gamma_C(|b-b_1|+|b_2-b|)}e^{-\gamma_1\tau(c,b_1,b_2)}(c_L/8+t)^{-2}$, which integrates to $C_Le^{-\gamma_C|b-c|/2}$.
+
+(d) By Corollary~\ref{cor:covariance}(b), $\log\Delta_k(rW,rU')=r_W\log\Delta_k(W,U')\,r_W^{-1}$. The map $r_W$ sends a field supported on $b$ to a field supported on $rb$, acting on the value by an orthogonal map of $\mathfrak g$. So the diagonal block at $rb$ is conjugate to that at $b$, and the traces agree. At the trivial base, $r1=1$ for all $r$.
+\end{proof}
+
+Proposition~\ref{prop:det-densities} is the starting point of the analysis of Ba\l aban's normalization factor \cite[(61)--(63)]{BalUV3}. What remains is to show that $\ell_k(b;W)-\ell_k(b;1)$ is a gauge-invariant function of the background near $b$, up to exponentially small terms, and that it is small. This requires the comparison of $\Delta_k$ at bases that differ by a large amount far from $b$. It is part of the localization of the background dependence. This is carried out in Part~VIII (Section~\ref{sec:det-local}) with Dirichlet approximants, and in Part~IX with weakened random walks.
+
+\subsection{One step as a Gaussian integral}\label{ss:34.5}
+
+\begin{theorem}[One small-field step]\label{thm:step}
+There are $a_{\rm step}>0$ and $r_2>0$, depending only on $d$, $L$, $G$, $a$, $\alpha$ and $M$, and $C_L$, depending only on $d$, $L$, $G$, $a$ and $\alpha$, with the following property. Let $k\ge1$. Let $V'$ be real on $\T'$ with curvature at most $\eps'_1\le a_{\rm step}$ in the units of step $k+1$. Let $W=V^0$, $U'$ and the fluctuation coordinates be as above, and let $w\le r_2$. Let $\rho$ be a density of the form \eqref{eq:rho-form} on $\mathfrak U_k(\tilde h)$, with $a_1\ge\tilde h\ge2(C_*+1)L^{-2}\eps'_1+4w$, and let $g=g_k$. Then
+\[
+\begin{aligned}
+T^{\rm gf}(\chi^{\rm w}\rho)(V')={}&\mathcal N_k\exp\Big(-\frac1{g^2}S(U')-\frac12\sum_{b\in\mathfrak F}\ell_k(b)+\sum_c\log\mathfrak j_c\Big)\\
+&\times\int d\mu_{C_k}(Y)\,\chi^{\rm w}\big(\hat Z(gY)\big)\exp\Big(-\frac{(\mathcal V+G_3)(gY)}{g^2}+\mathfrak J(gY)+\mathfrak E\big(e^{\ii\hat Z(gY)}W\big)\Big),
+\end{aligned}
+\]
+where the integrand vanishes unless $g|Y(b)|\le w$ for all $b\in\mathfrak F$, as in Proposition~\ref{prop:exact-step}, and:
+\begin{enumerate}[label=(\alph*)]
+\item $\mathcal N_k=z(g)^{-|\T\setminus\T'|}(2\pi g^2)^{|\mathfrak F|\dim\mathfrak g/2}\,\sigma(0)^{|\mathfrak F|}\,L^{(d-1)\dim\mathfrak g\,|\mathcal B(\T')|}$ does not depend on the background; $|\mathcal B(\T')|$ is the number of bonds of $\T'$;
+\item $\mathfrak j_c=L^{-(d-1)\dim\mathfrak g}\mathsf J_c(0)=1+O(L^d\mathsf a)$ is a local function of the base near $c$;
+\item $d\mu_{C_k}$ is the Gaussian measure with the covariance $C_k$ of Corollary~\ref{cor:covariance};
+\item $\mathcal V$ and $G_3$ are analytic for complex $|Z|_\infty\le r_2$, of third order, with $|g^{-2}(\mathcal V+G_3)(gY)|\le C_Lg|Y|_\infty\|Y\|^2$; $G_3$ is a sum of terms localized in single blocks $B'(y)$;
+\item $\mathfrak J(Z)=\sum_{b\in\mathfrak F}\log(\sigma(Z(b))/\sigma(0))+\sum_c\log(\mathsf J_c(Z)/\mathsf J_c(0))$ is a sum of local analytic terms, bounded by $C|Z(b)|^2$ and by $CL^{2d+1}|Z|_\infty$ respectively, with $|Z|_\infty$ over $\mathfrak F$ (equivalently by $CL^{d+1}w$ on the support of $\chi^{\rm w}$, where all $|\hat Z(b)|\le w$);
+\item $\mathfrak E(e^{\ii\hat Z(Z)}W)=\mathfrak E\big(e^{\ii\eta A_*(\hat Z(Z))}U'\big)$, where $\mathfrak E(U)$ denotes the gauge-invariant function $\mathfrak E_k$ expressed through the background field.
+\end{enumerate}
+Since $|\mathfrak F|=d|\T\setminus\T'|$ and $z(g)=\sigma(0)(2\pi g^2)^{\dim\mathfrak g/2}(1+O(g^2))$, the powers of $g$ in $\mathcal N_k$ are those of $(d-1)|\T\setminus\T'|\dim\mathfrak g$ Gaussian variables. In $d=4$ the action $S$ does not change under the change of units (Section~\ref{sec:rg-step}), so the exponent $-g_k^{-2}S(U')$ keeps its form in the units of step $k+1$. The coupling $g_{k+1}$ of the next step is not produced by the change of units; it is determined by the extraction of the marginal coefficient $\beta$ from the effective density, in a later part.
+\end{theorem}
+
+\begin{proof}\hasdetail{thm:step}
+Choose $a_{\rm step}$ so small that $4(C_*+1)L^{-2}a_{\rm step}\le a'_1$, and that Lemma~\ref{lem:composition}, Lemma~\ref{lem:eliminate} (with $L^d\mathsf a\le c$), Theorem~\ref{thm:step-coercive} and Corollary~\ref{cor:covariance} apply with $\eps=B_3\eps'_1$. Let $r_2$ be as in Lemma~\ref{lem:step-quadratic}; then $r_2\le r_L$. By Proposition~\ref{prop:exact-step}, $T^{\rm gf}(\chi^{\rm w}\rho)(V')$ is $z^{-|\T\setminus\T'|}$ times an integral over $Z$ on $\mathfrak F$, with the weight $e^{-g^{-2}\Phi_W(Z)}$. By \eqref{eq:chi-w-support}, the configuration $e^{\ii\hat Z(Z)}W$ has curvature at most $2(C_*+1)L^{-2}\eps'_1+4w\le\tilde h$ on the support of $\chi^{\rm w}$, which bounds all bonds including $b_0(c)$. So \eqref{eq:rho-form} applies, and $e^{-g^{-2}\Phi_W(Z)}\rho(e^{\ii\hat Z}W)=\exp(-g^{-2}F(Z)+\mathfrak E)$ with $F$ as in Lemma~\ref{lem:step-quadratic}. Since $\mathfrak j_c=L^{-(d-1)\dim\mathfrak g}\mathsf J_c(0)$ by~(b), write $\mathsf J_c(Z)=L^{(d-1)\dim\mathfrak g}\mathfrak j_c\cdot\mathsf J_c(Z)/\mathsf J_c(0)$ and $\sigma(Z(b))=\sigma(0)\,\sigma(Z(b))/\sigma(0)$. The Gaussian integral
+\[
+\int\prod_{b\in\mathfrak F}dZ(b)\,e^{-\frac1{2g^2}\Delta_k(Z,Z)}f(Z)=(2\pi g^2)^{|\mathfrak F|\dim\mathfrak g/2}(\det\Delta_k)^{-1/2}\int d\mu_{C_k}(Y)f(gY)
+\]
+and Proposition~\ref{prop:det-densities} give the formula. (d) follows from Lemma~\ref{lem:step-quadratic} and Lemma~\ref{lem:exp-gauge}(c). (e) follows from $\sigma(Z)/\sigma(0)=1+O(|Z|^2)$ and Proposition~\ref{prop:exact-step}. (f) is gauge invariance: by Theorem~\ref{thm:variational}(c), $U_k(e^{\ii\hat Z}W)$ and $e^{\ii\eta A_*(\hat Z)}U'$ differ by a real gauge transformation of $\Tf$, which need not lie in $\mathfrak G_0$. For the count, $|\mathfrak F|=d|\T|-d|\T'|$, since every bond of $\T'$ removes one bond $b_0(c)$.
+\end{proof}
+
+Theorem~\ref{thm:step} is stated for $k\ge1$, because Sections~\ref{sec:coarse-action} and~\ref{sec:covariance} use the $k$-step operators of Parts~II--V. For $k=0$ the corresponding representation, with its own constants $a^{(0)}_{\rm step}$, $r^{(0)}_2$ and the lower bound $\frac12C_{\rm P}^{-1}$ in place of $\frac14c_L$, is Lemma~\ref{lem:first-step-formula}.
+
+\begin{remark}[The one-loop term does not depend on the gauge fixing]\label{rem:one-loop-intrinsic}
+The prefactor of Theorem~\ref{thm:step} contains the one-loop term of the step, $-\frac12\log\det\Delta_k+\sum_c\log\mathfrak j_c$, a function of $U'$. Up to a constant independent of $V'$, it is the one-loop term of the intrinsic integral $T(\one_{\mathscr N}e^{-S(U_k)/g^2})(V')$ over a $\mathcal G'$-invariant neighbourhood $\mathscr N\subset\mathfrak M\cap\mathfrak U_k(a'_1)$ of the minimal configuration $W$, which involves no gauge fixing. We take $\mathscr N$ inside the $\mathcal G'$-saturation of $\{e^{\ii Z}W:|Z|_\infty<r_L\}$, as $\mathscr O$ in the proof of Lemma~\ref{lem:ol-one-step}. On this saturation $\mathfrak a'$ is a submersion, by the argument of Proposition~\ref{prop:exact-step} and since $\mathfrak a'(V^u)=\mathfrak a'(V)$ for $u\in\mathcal G'$; so the integral has a density at $V'$ (Section~\ref{sec:rg-step}). The inclusion in $\mathfrak U_k(a'_1)$ is needed: there $S(U_k)$ is defined and Lemma~\ref{lem:composition}(c) applies, while $\eps_M$ is much larger than $a'_1$. The argument, in outline, is as follows. By Lemma~\ref{lem:gf-step-invariance}(iv) the integral equals $T^{\rm gf}(\one_{\mathscr N}e^{-S(U_k)/g^2})(V')$. In the coordinates of Proposition~\ref{prop:exact-step}, the exponent $F$ has the unique, nondegenerate minimum $Z=0$: by Lemma~\ref{lem:composition}(c), $\mathcal S\circ\hat Z$ is minimal exactly on the $\mathcal G'$-orbit of $W$, and on this orbit $\Phi_W$ vanishes only at $W$, by Lemma~\ref{lem:exp-gauge}(c) and $W^u(y,x)=W(y,x)u(x)^{-1}$. Laplace's method as $g\to0$ then gives the prefactor of Theorem~\ref{thm:step}, up to factors $1+o(1)$ and the background-independent $\mathcal N_k$. Off the coordinate patch, the contribution is exponentially small: away from the $\mathcal G'$-orbit of $W$, $S(U_k)$ exceeds $S(U')$ by Lemma~\ref{lem:composition}(c); on the orbit, at $W^u$ with $|u(x)-1|\ge w$ for a fixed radius $w>0$, the factor of $x$ in $\mathrm{gf}_W$ is at most $z^{-1}e^{-w^2/2g^2}$. The two-radius estimate in the proof of Lemma~\ref{lem:ol-one-step} carries out this part, and the composite version of this statement is Proposition~\ref{prop:ol-composition}. Any other gauge fixing gives the same function of $V'$ up to a constant. A numerical check, for $d=2$, $G=SU(2)$, $L=3$ and four coarse fields, compares Laplace's method with the exponential gauge fixing over all bonds to Laplace's method in a tree gauge, which has no Faddeev--Popov determinant either. The two agree up to a constant that comes from the normalizations of the computation, as predicted for a gauge fixing without Faddeev--Popov determinant; Appendix~\ref{app:numerics} gives the details.
+\end{remark}
+
+\begin{remark}[What Parts~VIII--X have to do]\label{x:34.11}
+Theorem~\ref{thm:step} is exact on the small-field set. The analysis of its Gaussian integral is the content of Parts~VIII--X:
+\begin{itemize}
+\item a cluster expansion, in Part~X, of the Gaussian integral of Theorem~\ref{thm:step} (with the cutoff $\chi^{\rm w}(\hat Z(gY))$ and the exponent $-g^{-2}(\mathcal V+G_3)(gY)+\mathfrak J(gY)+\mathfrak E(e^{\ii\hat Z(gY)}W)$), which requires a localized (random-walk) representation of $C_k$ and of the coefficients of $\mathcal V$; the gauge-fixing remainder $G_3$ is already localized in single blocks;
+\item the localization of the dependence on the background of the densities $\ell_k(b)$, of $\mathfrak j_c$ and of the new activities;
+\item the normalization at $U'=1$, which removes the vacuum energy, and the proof that the remainder is of second order in the curvature of the background.
+\end{itemize}
+The inputs proved here are the coercivity and decay of $C_k$ (Corollary~\ref{cor:covariance}), the tree decay of the derivatives of the coarse action (Proposition~\ref{prop:coarse-action}) and of its dependence on the base (Proposition~\ref{prop:base-dependence}), and the analyticity of all ingredients in a complex neighbourhood.
+\end{remark}

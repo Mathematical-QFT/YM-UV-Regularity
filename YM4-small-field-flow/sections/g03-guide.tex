@@ -1,0 +1,114 @@
+% A guide to the proof, Sections G11--G14 (readability layer). Unnumbered: no numbered sections,
+% theorems or displays. Every informal statement cites the result it paraphrases.
+\gsection{The order of the parameters}\label{g:parameters}
+
+\input{figures/fig-G-parameters}
+
+The parameters of Parts~VII--XI are chosen in a fixed order, and each may depend only on those chosen before it (Remark~\ref{rem:parameters}). The order is stated in Remark~\ref{rem:parameters}, completed by Remarks~\ref{rem:domain-constants}, \ref{rem:step-M} and~\ref{rem:flow-constants}, and, for the constants of Parts~V and~VI, by the proofs of Theorems~\ref{thm:variational} and~\ref{thm:balaban}. The parameter ledger of the companion collects the constants with their dependencies; Table~\ref{tab:G-parameters} follows it, and Figure~\ref{fig:G-parameters} shows the chain. Three facts make the order acyclic.
+\begin{itemize}
+\item Every lower bound on $M$ uses only quantities fixed before $M$ (Remark~\ref{rem:parameters}(4)). Several constants of Part~VII do not depend on $M$ (Remark~\ref{rem:step-M}).
+\item The domain constants are fixed after $M$ and $M'$, and the cap $\bar\delta$ on the size of the complex references comes before the threshold $\eps_{\max}$ and the radius $\delta_P$ (Remark~\ref{rem:domain-constants}).
+\item Every condition on $\gamma$ is an upper bound by quantities fixed before $\gamma$, and remains true when $\gamma$ decreases (Remark~\ref{rem:parameters}(6)). The constants of the flow do not depend on the couplings or on the torus (Theorem~\ref{thm:sf-flow}).
+\end{itemize}
+The torus satisfies (T0)--(T2) at every scale once $n_K\ge n_{\min}$ and $\ell L^N$ is a power of $L$, and $n_{\min}$ depends on the parameters up to stage~(4) (Remark~\ref{rem:parameters}, Section~\ref{subsec:tf-scales}).
+
+\begin{table}[tbp]
+\centering\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{|p{0.06\textwidth}|p{0.33\textwidth}|p{0.33\textwidth}|p{0.16\textwidth}|}
+\hline
+Stage & Parameters and their role & Main conditions & Fixed in\tabularnewline
+\hline
+(0) & \raggedright $d=4$; the group $G$; the averaging coefficient $a$; the H\"older exponent $\alpha$; the functions $p$, $p_0$ and, in Theorem~\ref{thm:ol-uv}, the exponent $q$. Then the constants of Parts~I--III that do not depend on $L$ or $M$ (Remark~\ref{rem:uniformity-limits}(b)) and of the interior estimates, among them $M_0$, and $C_*$ & \raggedright $\alpha\le\frac12$ from Section~\ref{sec:weak-background} on; $C_*$ does not depend on $L$ & \raggedright \S\ref{subsec:flow-parameters}, Thm.~\ref{thm:reg-coercive}, Prop.~\ref{prop:sharp-curvature}\tabularnewline
+(1) & \raggedright the rate $\kappa_n$ of the activity norms, after the constants $\kappa_0$, $K_0$ of $d_M$ and $C_d$ of the polymer expansion & \raggedright $\kappa_n\ge2(1+C_d+\kappa_0)$ & \raggedright Rem.~\ref{rem:parameters}(1)\tabularnewline
+(2) & \raggedright the block factor $L$, odd. Then the constants of $L$ alone, among them $c_L$ and $\beta_\infty$; the constants of Part~V ($\theta_0$, $c_6$, $C_6$, $\gamma'$); the constants of Part~VII that do not depend on $M$ ($C_L$, $c'_L$) & \raggedright $L\ge C3^d+3$ (reblocking); $L^2\ge8(C_*+1)$ (thresholds of consecutive steps) & \raggedright Rem.~\ref{rem:parameters}(2), Thm.~\ref{thm:variational}, Rem.~\ref{rem:step-M}\tabularnewline
+(3) & \raggedright the weakening rate $\kappa$ and the loss $\delta$ of Part~IX; $\kappa'_w=\kappa-C\delta$ and $\kappa_2=3^{-d}\kappa'_w$ & \raggedright three rate conditions, which make every source decay at the rate $\kappa_n$ after reblocking & \raggedright Rem.~\ref{rem:parameters}(3)\tabularnewline
+(4) & \raggedright $\rho$; the thresholds $M_1$, $M_1^{(0)}$, $M'_1$; the grid size $M$. Then the constants of $M$: $a_1$, $B_3$, $a_2$, $B_5$, $a_\delta$, $r_2$, $a_{\rm step}$, the constants of Theorem~\ref{thm:weak-bg}; then $\delta_*$, $C_W$, and $c''_L$. Then the scale $M'$ of the step; then $n_*$, $n_{\min}$ & \raggedright $M>32(L+1)$, a power of $L$, $M\ge\max(M_0,5L,M_1,M_1^{(0)},M'_1,64)$, $M\ge16r$; $C_{\rm AB}c''_L\le c'_L$, $C_{\rm cmp}c''_L\le\delta_*$; $M'\ge M'_L$; (T0)--(T2) & \raggedright Rem.~\ref{rem:parameters}(4), Thm.~\ref{thm:balaban}, proofs of Prop.~\ref{prop:dirichlet-hessian}(c) and Lemma~\ref{lem:coercive-general}, \S\ref{subsec:tf-scales}\tabularnewline
+(5) & \raggedright the domain constants: the cap $\bar\delta$, the threshold $\eps_{\max}$, the radii $\delta_P$, $\delta_{P,0}$ of the complex references, $c_a$, $\delta_1\le\delta_0$, $\theta_r$; $\delta_1^\flat=\frac14\delta_1$; then $m_0$; the constants of the step quantities & \raggedright $\bar\delta\le\min(\delta_{AB},1/C_{\rm cx})$; $\delta_P\le\bar\delta$, $\delta_P\le c''_L$; (DC1)--(DC6) & \raggedright Rem.~\ref{rem:domain-constants}, Rem.~\ref{rem:parameters}(5), Prop.~\ref{prop:complex-ext}\tabularnewline
+(5$'$) & \raggedright the constants of the flow: $B_{\rm new}$, $B_{\rm new}^{(0)}$, then $\mathsf K=2\max(B_{\rm new},B^{(0)}_{\rm new})$; $C_{\rm old}$, $C_\beta$, $C_{\rm ex}$, $C_{\rm new}$, $C^{(0)}_{\rm new}$; $c_{\rm F}$; $C_2$, $C_3$ of (F2), (F3) & \raggedright none; they do not depend on the couplings or the torus & \raggedright Rem.~\ref{rem:flow-constants}(i),(ii), Prop.~\ref{prop:flow-F}\tabularnewline
+(6) & \raggedright the bound $\gamma\le g_p$ on the couplings & \raggedright ($\Gamma$1)--($\Gamma$4); for Theorem~\ref{thm:ol-uv} also $\gamma\le e^{-3q}$ and $C_3\gamma^2p_0(\gamma)^6\le\frac12\beta_\infty$ & \raggedright Rem.~\ref{rem:parameters}(6), Rem.~\ref{rem:flow-constants}\tabularnewline
+(7) & \raggedright $g_{\rm uv}$, $C$ and $m_1$ of the ultraviolet limit & \raggedright $g_{\rm uv}$ small & \raggedright Thm.~\ref{thm:ol-uv}\tabularnewline
+\hline
+\end{tabular}
+\caption{The order of the parameters. Stage (5$'$) lies between stages (5) and (6) of Remark~\ref{rem:parameters}. The constants $\delta_*$, $C_W$ and $c''_L$ depend on $M$ and are fixed after it (proofs of Proposition~\ref{prop:dirichlet-hessian}(c) and Lemma~\ref{lem:coercive-general}); $c''_L$ enters the choice of $\delta_P$ (Proposition~\ref{prop:complex-ext}).}\label{tab:G-parameters}
+\end{table}
+
+\paragraph{The named constants.} The constants that recur in the statements are the following.
+\begin{itemize}
+\item $a_1$, $B_3$: background fields exist for real coarse configurations of curvature at most $\eps_1\le a_1$, and they have curvature and current at most $B_3\eps_1$ (Theorem~\ref{thm:balaban}).
+\item $C_*$: the curvature of a background field is at most $(C_*+\delta)$ times that of the coarse configuration, with $C_*$ independent of $L$ (Proposition~\ref{prop:sharp-curvature}). Hence the condition $L^2\ge8(C_*+1)$.
+\item $\theta_0$, $c_6$, $C_6$: the class $\mathfrak U(\theta_0)$ of configurations of small curvature and current in which the critical orbit is unique, the threshold $\eps+\beta\le c_6$ on the reference and the data, and the constant of the bounds (Theorem~\ref{thm:variational}).
+\item $a_{\rm step}$, $r_2$, $c_L$: the curvature threshold of the coarse configuration and the bound on the fluctuation cutoff in Theorem~\ref{thm:K}, and the coercivity constant of the step, from a Poincar\'e inequality for one step (Theorem~\ref{thm:K}(ii), Lemma~\ref{lem:poincare-step}).
+\item $h_k=p(g_k)g_k$, $w$, $p_0$: the three cutoffs of the small-field step (Table~\ref{tab:G-cutoffs}).
+\item $\kappa_2$: the decay rate of the one-loop pieces, $|\mathfrak e(X)|\le Ce^{-(\kappa_2-1)|X|}$ (Proposition~\ref{prop:one-loop-polymer}).
+\item $\mathsf K$, $C_\beta$, $C_{\rm old}$: the bound of every generation, the bound $|\beta_j|\le C_\beta\mathsf K$, and the bound $C_{\rm old}\mathsf K$ of the old activities (Theorem~\ref{thm:N}, Proposition~\ref{prop:old-activities}).
+\item $m_0$: the age after which the marginal part of a generation is extracted (Definition~\ref{def:polymer-classes}); $m_1$: the number of last steps for which Theorem~\ref{thm:ol-uv} gives the lower half of the analogue of (0.31) only up to a constant.
+\end{itemize}
+
+\paragraph{Where in the note.} Remarks~\ref{rem:parameters}, \ref{rem:domain-constants}, \ref{rem:step-M} and~\ref{rem:flow-constants}; the proofs of Theorems~\ref{thm:variational} and~\ref{thm:balaban}; Section~\ref{subsec:tf-scales}.
+
+\paragraph{In the companion.} The chapter on the parameter ledger. Its tables list the constants of Parts~VII--XI, and those of Parts~I--VI that these Parts use, with their definitions, dependencies, conditions and uses, and it checks that the order has no cycle.
+
+\gsection{Notation}\label{g:notation}
+
+The notation index is Appendix~\ref{app:notation}. It lists the symbols used across several Parts with their meanings and the places of their definitions. Letters with several meanings are listed with all of them, and the index says how the meanings are kept apart. Appendix~\ref{app:notation} also lists the named conditions, such as (A1)--(A11), (L1)--(L5), (DC1)--(DC6) and ($\Gamma$1)--($\Gamma$4), and the operators, and it gives the former names of the renamed symbols. Remark~\ref{rem:notation-flow} collects the notation of Sections~\ref{sec:step-quantities}--\ref{sec:flow4}.
+
+\gsection{Comparison with Ba\l aban and Dimock}\label{g:comparison}
+
+The note follows Ba\l aban's renormalization group for four-dimensional lattice Yang--Mills theory \cite{BalPropI,BalPropII,BalAvg,BalReg,BalBackground,BalVar,BalYM4I,BalYM4II}, and, for the small-field step in polymer form, Dimock's account of Ba\l aban's method \cite{DimockI}. Table~\ref{tab:G-comparison} lists where it follows them and where it differs. The comparison is restricted to what the note states about these papers.
+
+\begin{table}[tbp]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.0}\setlength{\tabcolsep}{4pt}
+\begin{tabular}{|p{0.15\textwidth}|p{0.32\textwidth}|p{0.31\textwidth}|p{0.14\textwidth}|}
+\hline
+Item & Ba\l aban, Dimock & This note & Where\tabularnewline
+\hline
+\raggedright coercivity at $U=1$ & \raggedright momentum space \cite{BalPropI} & \raggedright position space; one Fourier lower bound & \raggedright Thm.~\ref{thm:gauge-coercive}, Cor.~\ref{cor:QKQ-lower}\tabularnewline
+\raggedright positivity at regular backgrounds & \raggedright \cite[Theorem~3.11]{BalBackground} and local axial-gauge estimates \cite[Lemma~2.4]{BalPropII} & \raggedright IMS localization and the coercivity of Part~I & \raggedright Thm.~\ref{thm:reg-coercive}, \S\ref{sec:outlook}\tabularnewline
+\raggedright Dirichlet operators & \raggedright Dirichlet operators on domains \cite{BalBackground} & \raggedright a mass term near the boundary (\S\ref{sec:outlook}); in the note, Dirichlet conditions for all components (Rem.~\ref{rem:L3-domains}) & \raggedright Thm.~\ref{thm:G}(ii), Rem.~\ref{rem:L3-domains}\tabularnewline
+\raggedright averaging & \raggedright symmetric averaging \cite[(0.3)--(0.12)]{BalYM4I} & \raggedright the same; its linearization has $E=0$ & \raggedright \S\ref{sec:averaging}, Cor.~\ref{cor:parts-apply}\tabularnewline
+\raggedright axial-to-Landau chart & \raggedright \cite[Theorem~2]{BalReg} & \raggedright torus version, with a recursive correspondence map & \raggedright Thm.~\ref{thm:correspondence}, Thm.~\ref{thm:chart}\tabularnewline
+\raggedright induction over $k$ & \raggedright nested domains $\Omega_j$ \cite[Sect.~F]{BalVar} & \raggedright on the torus, by a change of the reference (splicing) & \raggedright Lemma~\ref{lem:improvement}, Thm.~\ref{thm:balaban}\tabularnewline
+\raggedright gauges on large cubes & \raggedright bounds linear in the size \cite[(9), (10)]{BalVar} & \raggedright polynomial bounds & \raggedright Rem.~\ref{rem:large-cubes}\tabularnewline
+\raggedright gauge fixing of the step & \raggedright exponential gauge fixing \cite[(0.14)--(0.19)]{BalYM4I}, Faddeev--Popov identity \cite[(0.15)--(0.16)]{BalYM4I}, weights relative to $1$ & \raggedright the same, relative to the base $W$ & \raggedright Lemma~\ref{lem:exp-gauge} and after it\tabularnewline
+\raggedright small-field cutoffs & \raggedright fixed $\eps_0$ for the domain; cutoff \cite[(2.9)]{BalYM4I} with fixed $\eps_1$ or depending on the coupling; white noise \cite[(2.10)]{BalYM4I}, \cite[(206)]{DimockI} & \raggedright $h_k=p(g_k)g_k$ and $p_0(g_k)$ depend on the coupling, as in \cite{DimockI}; the domain shrinks with the coupling & \raggedright Rem.~\ref{rem:sf-flow}(a)\tabularnewline
+\raggedright volume-type localization & \raggedright random walks with weakening parameters (Ba\l aban, Dimock); boundary estimates for Dirichlet propagators \cite{BalGreen,BalPropI,BalBackground} & \raggedright the same walks; pointwise bounds through interior $L^p$ estimates and tiers, without boundary estimates & \raggedright \S\S\ref{sec:nested-walks}--\ref{sec:tiers}\tabularnewline
+\raggedright step in polymer form & \raggedright Dimock's scheme \cite{DimockI}: weakened step quantities, Mayer and polymer expansion with the two cutoffs; domain constants independent of the coupling \cite[(1.11)--(1.16)]{BalYM4I} & \raggedright the same & \raggedright \S\S\ref{sec:step-quantities}--\ref{sec:cluster}, Rem.~\ref{rem:domain-constants}\tabularnewline
+\raggedright generations & \raggedright \cite[(0.22)--(0.30)]{BalYM4I}; activities and $\beta_{j+1}$ smooth in one coupling on $[0,\gamma]$ & \raggedright the same form; they depend on $(g_0,\dots,g_{j-1})$, continuously & \raggedright Rem.~\ref{rem:sf-flow}(a), Prop.~\ref{prop:flow-continuity}\tabularnewline
+\raggedright extraction & \raggedright a gauge common to a cube of scale $k$; fifth order, Ward identities; gain exponential in $L^{k-j}$ \cite[(0.27)]{BalYM4I} & \raggedright a complex gauge per polymer; second order; gain $L^{-m}$ for the large polymers & \raggedright \S\ref{sec:extraction}\tabularnewline
+\raggedright later-scale bounds (0.29) & \raggedright asserted in his Theorem~1, not among the inductive assumptions of his Theorem~3 & \raggedright proved in the induction & \raggedright Thm.~\ref{thm:sf-flow}(d), Rem.~\ref{rem:sf-flow}(a)\tabularnewline
+\raggedright the coefficient $\beta_j$ & \raggedright vacuum polarization of the generations \cite[(1.20)--(1.22)]{BalYM4I} & \raggedright period density of the symmetrized generation on the torus; as the torus grows it converges, at fixed couplings and without a rate, to the coefficient that Ba\l aban's definition assigns to these generations & \raggedright Prop.~\ref{prop:period-iso}, Prop.~\ref{prop:beta-identification}\tabularnewline
+\raggedright ultraviolet limit & \raggedright \cite[Theorem~2]{BalYM4I}, for $SU(2)$: (0.31) & \raggedright compact simple $G$; the analogue of (0.31), for the couplings of the small-field flow, for $K-k\ge m_1$; the lower half up to a constant for the last $m_1$ steps & \raggedright Thm.~\ref{thm:ol-uv}\tabularnewline
+\raggedright vacuum energy & \raggedright \cite[Theorem~24]{DimockI} & \raggedright the same bound; one counterterm $E_0$ & \raggedright Prop.~\ref{prop:vacuum}\tabularnewline
+\raggedright large fields & \raggedright \cite{DimockII,DimockIII} & \raggedright not treated & \raggedright Rem.~\ref{rem:sf-reference}(d)\tabularnewline
+\hline
+\end{tabular}
+\caption{The note compared with Ba\l aban's and Dimock's papers, as the note describes them.}\label{tab:G-comparison}
+\end{table}
+
+\paragraph{The generations and the couplings.} Two differences in the flow need a word. First, Ba\l aban's generation of scale $j$ depends only on the coupling $g_{j-1}$, while the generation of the note depends on the sequence $(g_0,\dots,g_{j-1})$ (Proposition~\ref{prop:beta-identification}(b)). The note builds each generation from the step that creates it, applied to the density of the flow, whose old activities depend on all earlier couplings (Theorem~\ref{thm:gen-step}, Proposition~\ref{prop:flow-continuity}). Second, only continuity in the couplings is proved; it is what the exit argument of Theorem~\ref{thm:ol-uv} needs (Corollary~\ref{cor:bare-continuity}).
+
+\paragraph{What Dimock's scheme contributes.} From \cite{DimockI} the note takes the organization of the small-field step: the step quantities as functions of weakening parameters that factorize over polymers, the Mayer and polymer expansion of the fluctuation integral with cutoffs on the fluctuation field and on the white noise (Section~\ref{sec:intro}, the paragraph on Part~X), the tree length $d_M$ of the polymer grid (Section~\ref{subsec:flow-norm}), the coupling-dependent small-field domain (Remark~\ref{rem:sf-flow}(a)), and the bound on the vacuum energy (proof of Proposition~\ref{prop:vacuum}). Dimock's papers treat the large-field stage in \cite{DimockII,DimockIII}; the note does not (Section~\ref{sec:intro}, the paragraph after Theorem~\ref{thm:L}).
+
+\paragraph{Where in the note.} The paragraph ``Relation to Ba\l aban's construction'' of Section~\ref{sec:outlook}; Remark~\ref{rem:sf-flow}(a); the opening of Section~\ref{sec:extraction}; Proposition~\ref{prop:beta-identification}; the paragraph after Theorem~\ref{thm:ol-uv}.
+
+\paragraph{In the companion.} The chapters on the second half of Part~X and on the second half of Part~XI.
+
+\gsection{Where the hard parts are}\label{g:hard}
+
+These are the places to check first. Each rests on an idea specific to the problem, or on a long estimate on which much depends.
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Dirichlet conditions for all components} (Section~\ref{sec:reg-gauge}, Remark~\ref{rem:L3-domains}). The weakened walks need bounded local commutators. With only the interior divergence in the gauge-field Dirichlet operators, the normal components on the crossing bonds would be free, and the commutator term would be of order $\eta^{-1/2}M^{-1}$; the hypothesis of Lemma~\ref{lem:step-small} would fail uniformly in $\eta$ (Remark~\ref{rem:L3-domains}).
+\item \emph{Pointwise bounds for the weakened operators} (Sections~\ref{sec:pointwise-weak}--\ref{sec:tiers}). The background map needs pointwise $C^{1,\beta}$ bounds for $\bH(s)$ and $\bC(s)$, while the walks give $L^2$ bounds. In four dimensions $L^2$ data lie at the endpoint $p=\frac d2$ of the interior estimates, so the regularity is raised in tiers, through block $L^4$ (Lemma~\ref{lem:endpoint-factors}, Theorems~\ref{thm:tier-walk} and~\ref{thm:HC-pointwise}).
+\item \emph{Complex references} (Section~\ref{sec:complex-references}). The activities must be analytic in the background. So the results of Parts~VIII and~IX that the step uses, the expansion of the action (Proposition~\ref{prop:action}) and the averaged backgrounds of Part~IV are extended to complex references; the coercivity constants and the decay rates are fixed numbers, independent of the size of the complex part, and the other constants change by at most a factor $2$ (Propositions~\ref{prop:AB} and~\ref{prop:complex-ext}). The order $\bar\delta$, $\eps_{\max}$, $\delta_P$ of the constants avoids a circle (Remark~\ref{rem:domain-constants}).
+\item \emph{The curvature constant $C_*$} (Proposition~\ref{prop:sharp-curvature}). That $C_*$ does not depend on $L$ is what makes the small-field sets of consecutive steps compatible, through $L^2\ge8(C_*+1)$ (Remark~\ref{rem:parameters}(2)).
+\item \emph{No term linear in $p$} (Lemma~\ref{lem:ol-symmetry}, Remark~\ref{rem:ol-remains}(b)). A term linear in the momentum in the vacuum polarization is of Chern--Simons type; under the change of scale it would produce relevant terms of order one per step (Remark~\ref{rem:marginal-orders}). The one-loop terms are exactly invariant under the translations and under $B_4$, by the symmetry of Ba\l aban's averaging; so their vacuum polarizations have no linear term and their marginal tensors are isotropic.
+\item \emph{Exact isotropy of $\beta$} (Proposition~\ref{prop:period-iso}). The extraction cancels a generation against a multiple of $S$, so the period density must be exactly proportional to that of $S$. The step does not produce covariant families; the symmetrization over the grid symmetries does, at the price of a smaller domain (Lemma~\ref{lem:symmetrization}).
+\item \emph{The extraction} (Lemma~\ref{lem:later-normal-form}, Proposition~\ref{prop:extraction}). The normal form of a later-scale configuration on a small polymer, in a complex gauge chosen per polymer, with a remainder smaller by $L^{-\alpha m}$.
+\item \emph{(F2) and (F3)} (Proposition~\ref{prop:flow-F}). (F2) rests on the torus independence of the one-loop pieces and of the Jacobian terms (Proposition~\ref{prop:one-loop-local}, Lemma~\ref{lem:OL}), on the infinite-volume minimizer (Proposition~\ref{prop:ol-IM}) and on the infinite-volume limits of the second variations (Lemma~\ref{lem:ol-limits}) (Remark~\ref{rem:ol-remains}(a)). (F3) rests on parity and on Cauchy estimates in a complex coupling inserted in the fluctuation only (proof of Proposition~\ref{prop:flow-F}).
+\end{enumerate}
+
+\paragraph{Where in the note.} The results cited in the list.
+
+\paragraph{In the companion.} The chapters on Parts~IX, X and~XI expand these places step by step.

@@ -1,0 +1,19 @@
+N1(c): d=2, SU(2), L=3, coarse 3x3, fine 9x9, flux 1 quanta: fine plaquette angle 0.1551, coarse 1.3963; U(1) direction -0.664 -0.646 0.377; seed 5
+  fine plaquettes = exp(i theta n.sigma/2): 6.9e-16
+  1. coarse plaquettes of V = a(U_F) vs exp(i L^2 theta n.sigma/2): 5.6e-16
+     S(U_F) = 0.487143530818 = |T_fine| (2 - 2 cos(theta/2)) = 0.487143530818
+  2. |grad S(U_F)| over all 162 bonds and colours = 5.1e-16: U_F is critical on its fibre, with multiplier 0; constraint residual 0.0e+00
+     Hessian of S on the 270 free-link variables: 1 s
+  3. without the constraint (tree-gauge slice only): inertia (neg, zero, pos) = (4, 28, 238)
+     on ker(d cons) (dim 216 = 270 - 54): inertia (neg, zero, pos) = (0, 0, 216), smallest |pivot| 2.553e-01, smallest eigenvalue 0.132631   [5 s]
+     comparison at U = 1: inertia (0, 0, 216), smallest eigenvalue 0.153013   [11 s]
+  4. start 0: U_F times random SU(2) noise of amplitude 0.12, projected onto the fibre
+     it  0: S = 2.17945147963460  |dX| = 9.46e-01  mu = 0
+     it  1: S = 0.77524239159709  |dX| = 5.16e-01  mu = 0
+     it  2: S = 0.48737598563209  |dX| = 2.01e-01  mu = 0
+     it  3: S = 0.48714353396870  |dX| = 9.03e-03  mu = 0
+     it  4: S = 0.48714353081771  |dX| = 3.88e-05  mu = 0
+     it  5: S = 0.48714353081771  |dX| = 8.33e-10  mu = 0
+     it  6: S = 0.48714353081771  |dX| = 1.21e-15  mu = 0
+     minimum S = 0.487143530818, S(U_F) = 0.487143530818, difference 1.6e-14;  constraint residual 3.3e-16;  tree-gauge representatives: |U_min - U_F| = 7.8e-16;  fine plaquette traces vs 2cos(theta/2): 3.1e-15   [44 s]
+[55 s]

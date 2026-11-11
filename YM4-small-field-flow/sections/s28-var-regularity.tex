@@ -1,0 +1,187 @@
+\section{The Euler--Lagrange equation and regularity of the minimizer}\label{sec:var-regularity}
+
+Let $A_*$ be the critical point of $\Phi|_{\mathcal M_V}$ constructed in Section~\ref{sec:var-solution}, and $U_*=\mathsf U(A_*)$. In this section we show that $U_*$ is a critical point of $S|_{\mathfrak B(V)}$, derive its Euler--Lagrange equation, and prove the second-order bounds and the regularity of $U_*$. The key input is a gauge covariance property of the gauge-adapted averaging.
+
+\subsection{Covariance of the gauge-adapted averaging}\label{ss:27.1}
+
+\begin{lemma}\label{lem:Q-covariance}
+Let $\tilde U$ be a small real fine relative configuration and $g$ a real gauge transformation close to $1$.
+\begin{enumerate}[label=(\alph*)]
+\item $\mathcal Q(\tilde U)=\big((\tilde UU_0)^{(k)}\big)^{\mathsf w_k(\tilde U)|_\T}\,W_k^{-1}$.
+\item $\mathcal Q(\tilde U^{(g)})=\mathcal Q(\tilde U)^{(h_{\tilde U}(g))}$, with $h_{\tilde U}(g)=\big(\mathsf w_k(\tilde U^{(g)})\,g\,\mathsf w_k(\tilde U)^{-1}\big)|_\T$.
+\item $h_1(g)=\mathfrak M^{(k)}(g)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) By Theorem~\ref{thm:correspondence}(a), $\mathcal Q(\tilde U)=(\tilde U^{(\mathsf w_k)})^{[k]}=((\tilde UU_0)^{\mathsf w_k})^{(k)}W_k^{-1}$, and $\mathfrak a^{(k)}$ is covariant (Lemma~\ref{lem:one-step-basic}). (b) Both $\mathsf w_k(\tilde U^{(g)})$ and $\mathsf w_k(\tilde U)g^{-1}$ move $\tilde U^{(g)}$ into the axial gauge. Everything is real, so Theorem~\ref{thm:correspondence}(b) applies, and $\mathsf w_k(\tilde U)g^{-1}=\mathcal E^{(k)}(h')\,\mathsf w_k(\tilde U^{(g)})$ for some $h'$ on $\T$. Hence
+\[
+(\tilde U^{(g)})^{(\mathsf w_k(\tilde U^{(g)}))}=\big(\tilde U^{(\mathsf w_k(\tilde U))}\big)^{(\mathcal E^{(k)}(h')^{-1})},
+\]
+and taking $k$-fold relative averages gives $\mathcal Q(\tilde U^{(g)})=\mathcal Q(\tilde U)^{(h'^{-1})}$ with $h'^{-1}=h_{\tilde U}(g)$. (c) By Theorem~\ref{thm:correspondence}(e), $\mathsf w_k(1^{(g)})=\mathcal E^{(k)}(\mathfrak M^{(k)}(g))g^{-1}$, and $\mathsf w_k(1)=1$.
+\end{proof}
+
+For a real fine field $A$ with $|A|_{C^1}$ small, and scalar fields $\lambda$ on $\Tf$ and $\mu$ on $\T$, define the linear maps
+\[
+\begin{aligned}
+\Xi_A\lambda&=\tfrac{d}{dt}\Big|_{0}\mathcal A_t,\qquad e^{\ii\eta\mathcal A_t}=(e^{\ii\eta A})^{(e^{\ii t\lambda})},\\
+\Theta_A\lambda&=-\ii\tfrac{d}{dt}\Big|_{0}h_{e^{\ii\eta A}}(e^{\ii t\lambda}),\qquad
+\Lambda_A\mu=\tfrac{d}{dt}\Big|_0\ell\big(\mathcal Q(e^{\ii\eta A})^{(e^{\ii t\mu})}\big).
+\end{aligned}
+\]
+Differentiating Lemma~\ref{lem:Q-covariance}(b) gives
+\begin{equation}\label{eq:dQ-gauge}
+d\mathcal Q(A)\,\Xi_A\lambda=\Lambda_A\Theta_A\lambda .
+\end{equation}
+By \eqref{eq:gauge-formula}, $\Xi_A\lambda=-D_{U_0}\lambda+\ii[\lambda(b_-),A(b)]+\eta\,\mathfrak b'$ with $|\mathfrak b'|\le C|A||D\lambda|$. By Lemma~\ref{lem:Q-covariance}(c) and the proof of Proposition~\ref{prop:linearized-averages}(b), $\Theta_0=Q'$. The definitions of $\Xi_A$, $\Theta_A$, $\Lambda_A$ make sense for complex $A$ with $|A|_\infty$ small, by the same formulas, and they are analytic in $A$ (see below). Lemma~\ref{lem:Q-covariance} is stated for real configurations only, because Theorem~\ref{thm:correspondence}(b) is. Both sides of \eqref{eq:dQ-gauge} are analytic in $A$ and agree for real $A$, so \eqref{eq:dQ-gauge} also holds for complex $A$, by analytic continuation. By the definition of $h_{\tilde U}$ in Lemma~\ref{lem:Q-covariance}(b), with $\mathsf w=\mathsf w_k(e^{\ii\eta A})$ evaluated at $y\in\T$,
+\[
+\Theta_A\lambda(y)=R(\mathsf w(y))\lambda(y)-\ii\,\big(d\mathsf w_k(A)[\Xi_A\lambda]\big)(y)\,\mathsf w(y)^{-1}.
+\]
+By Proposition~\ref{prop:Q-expansion}(d), $\mathsf w_k(e^{\ii\eta A})(y)$ is analytic and bounded for complex $A$ with $|A|_\infty\le c_3$. So, by the Cauchy estimate, $|d\mathsf w_k(A)[h]|\le C|h|_\infty$ for $|A|_\infty\le c_3/2$. By \eqref{eq:gauge-formula}, $\Xi_A\lambda$ is analytic in $A$ with $|\Xi_A\lambda|_\infty\le C|\lambda|_{C^1}$. Hence $\Theta_A$ is analytic in $A$ on $\{|A|_\infty\le c\}$, with $|\Theta_A\lambda|_\infty\le C|\lambda|_{C^1}$ there. The Cauchy estimate in $A$ gives $|\Theta_A\lambda-Q'\lambda|_\infty\le C|A|_\infty|\lambda|_{C^1}$.
+
+\subsection{The Euler--Lagrange equation}\label{ss:27.2}
+
+\begin{proposition}[{\cite[(171), (178)]{BalVar}}]\label{prop:euler-lagrange}
+There is a unique unit-lattice field $\omega$ with
+\[
+\nabla\Phi(A_*)=d\mathcal Q(A_*)^T\omega .
+\]
+Moreover $\Lambda_{A_*}^T\omega=0$, and $|\omega|_\infty\le C(\eps+\beta)$.
+\end{proposition}
+
+\begin{proof}
+\emph{Transversality.} Consider the map $\mathcal O\lambda=(\Theta_{A_*}\lambda,\,RD^T\Xi_{A_*}\lambda)$. For $A_*=0$ it is $\mathcal O_0\lambda=(Q'\lambda,-RD^TD\lambda)$, which is invertible with inverse $(g,f)\mapsto H'g-G'(f+RD^TDH'g)$, for $f\in\ran R$. Indeed, $\lambda=H'g+\lambda_0$ with $\lambda_0\in\cN(Q')$ and $D^TD\lambda_0=-f-RD^TDH'g\in\ran R$, and $\lambda_0=G'D^TD\lambda_0$ by Proposition~\ref{prop:cov-R}(c). By Lemma~\ref{lem:sup-bounds}, the inverse is bounded from sup norms to $|\cdot|_{C^1}$. Moreover $|\mathcal O\lambda-\mathcal O_0\lambda|\le C|A_*|_{C^1}|\lambda|_{C^1}$ by the bounds above, since $|D^T[\lambda,A_*]|\le C(|D\lambda||A_*|+|\lambda||\nabla A_*|)$. Hence $\mathcal O$ is invertible.
+
+\emph{Orthogonality.} The tangent space of $\mathcal M_V$ at $A_*$ is $\ker RD^T\cap\ker d\mathcal Q(A_*)$. Let $k\in\ker d\mathcal Q(A_*)$, and let $\lambda=\mathcal O^{-1}(0,RD^Tk)$. Then $\Theta_{A_*}\lambda=0$, so $d\mathcal Q(A_*)\Xi_{A_*}\lambda=0$ by \eqref{eq:dQ-gauge}, and $RD^T(k-\Xi_{A_*}\lambda)=0$. Thus $k-\Xi_{A_*}\lambda$ is tangent to $\mathcal M_V$, and $\ip{\nabla\Phi(A_*)}{k-\Xi_{A_*}\lambda}=0$ since $A_*$ is critical. Moreover $\ip{\nabla\Phi(A_*)}{\Xi_{A_*}\lambda}=0$, because $\Phi$ is gauge invariant: $\Phi(\mathcal A_t)=\Phi(A_*)$. Therefore $\nabla\Phi(A_*)\perp\ker d\mathcal Q(A_*)$. Since $d\mathcal Q(A_*)$ is onto, $\nabla\Phi(A_*)=d\mathcal Q(A_*)^T\omega$ for exactly one $\omega$.
+
+\emph{The multiplier.} For every $\lambda$, gauge invariance and \eqref{eq:dQ-gauge} give $0=\ip{\nabla\Phi(A_*)}{\Xi\lambda}=\ip\omega{\Lambda\Theta\lambda}=\ip{\Lambda^T\omega}{\Theta\lambda}$. Since $\Theta_{A_*}$ is onto (it is a small perturbation of $Q'$, which has the right inverse $H'$), $\Lambda^T\omega=0$.
+
+\emph{Bound on $\omega$.} For a bond $c$ of $\T$ and $\beta_0\in\mathfrak g$ with $|\beta_0|=1$, let
+\[
+\varphi=\bH\big(I+d\Cav_k(A_*)\bH\big)^{-1}\delta_c\beta_0 ,
+\]
+so that $d\mathcal Q(A_*)\varphi=\delta_c\beta_0$. By Proposition~\ref{prop:Q-expansion} and Lemma~\ref{lem:sup-bounds} (weighted version), $|\varphi(x)|+|\nabla\varphi(x)|\le Ce^{-\gamma'|x-c|}$. Then, by Proposition~\ref{prop:action},
+\[
+\operatorname{tr}(\beta_0\,\omega(c))=\ip\varphi{\nabla\Phi(A_*)}=\ip\varphi{J+\nabla\mathcal N(A_*)}+\ip{D\varphi}{DA_*}.
+\]
+Hence $|\omega(c)|\le C\big(\eps+C(\eps+\beta)^2+C(\eps+\beta)\big)$, since $|A_*|_{C^1}\le C(\eps+\beta)$.
+\end{proof}
+
+\subsection{The constructed point is critical}\label{ss:27.3}
+
+\begin{proposition}\label{prop:critical}
+$U_*$ is a critical point of $S|_{\mathfrak B(V)}$.
+\end{proposition}
+
+\begin{proof}
+Let $\mathsf w_*=\mathsf w_k(e^{\ii\eta A_*})$ and $U_\flat=e^{\ii\eta A_*}U_0$, so that $U_*=U_\flat^{\mathsf w_*}$. Let $U(t)$ be a smooth curve in $\mathfrak B(V)$ with $U(0)=U_*$. For small $t$ write $U(t)^{\mathsf w_*^{-1}}=e^{\ii\eta\mathcal A(t)}U_0$ with $\mathcal A(0)=A_*$. Then $S(U(t))=\Phi(\mathcal A(t))$. Moreover $(e^{\ii\eta\mathcal A(t)}U_0)^{(k)}=V^{\mathsf w_*|_\T^{-1}}$ does not depend on $t$. By Lemma~\ref{lem:Q-covariance}(a),
+\[
+\mathcal Q(e^{\ii\eta\mathcal A(t)})=V^{g(t)}W_k^{-1}=\mathcal Q(e^{\ii\eta A_*})^{(g(t))},\qquad g(t)=\mathsf w_k(e^{\ii\eta\mathcal A(t)})|_\T\,\mathsf w_*|_\T^{-1},
+\]
+with $g(0)=1$. Differentiating at $t=0$ gives $d\mathcal Q(A_*)\mathcal A'(0)=\Lambda_{A_*}\mu$ with $\mu=-\ii g'(0)$. By Proposition~\ref{prop:euler-lagrange},
+\[
+\tfrac{d}{dt}S(U(t))\big|_{t=0}=\ip{\nabla\Phi(A_*)}{\mathcal A'(0)}=\ip\omega{\Lambda_{A_*}\mu}=\ip{\Lambda_{A_*}^T\omega}\mu=0.\qedhere
+\]
+\end{proof}
+
+\subsection{Second-order bounds and regularity}\label{ss:27.4}
+
+\begin{proposition}\label{prop:minimizer-regularity}
+\begin{enumerate}[label=(\alph*)]
+\item $|\Lap_{U_0}A_*|_\infty+\sup_y\Hol{\nabla\tilde A_{*,y}}{B(y)}\le C(\eps+\beta)$.
+\item $U_*\in\mathfrak U(C(\eps+\beta))$.
+\item $U_*$ is $(M,\eps+C(\eps+\beta))$-regular.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) By Proposition~\ref{prop:action} and Proposition~\ref{prop:euler-lagrange},
+\[
+D^TDA_*=d\mathcal Q(A_*)^T\omega-J-\nabla\mathcal N(A_*).
+\]
+Here $d\mathcal Q(A_*)^T\omega=\bQ^T\omega+d\Cav_k(A_*)^T\omega$ is bounded by $C|\omega|$, by the kernel bounds of Proposition~\ref{prop:Q-expansion}(c). Hence $|D^TDA_*|_\infty\le C(\eps+\beta)$. Since $RD^TA_*=0$, $\Lap_{U_0}A_*=D^TDA_*+DP_\cV D^TA_*$, and the second term is bounded by $C|A_*|_\infty$ (Lemma~\ref{lem:sup-bounds}(b)). The H\"older bound follows as in Proposition~\ref{prop:a-priori}.
+
+(b) $U_*$ is gauge equivalent to $U_\flat=e^{\ii\eta A_*}U_0$. By \eqref{eq:plaquette-product}, $U_\flat(\partial p)=e^{\ii\eta^2\zeta_p(A_*)}U_0(\partial p)$ with $|\zeta_p(A_*)|\le C|A_*|_{C^1}$. Hence $|F_{U_\flat}|\le C\eps+C(\eps+\beta)$. By Proposition~\ref{prop:action}(d), $J_{U_\flat}=\Psi(A_*)^{-T}\nabla\Phi(A_*)$, which is bounded by $C|\omega|\le C(\eps+\beta)$.
+
+(c) Let $\hat\Lam$ be a cube as in Definition~\ref{def:regular}, and $u$ a real gauge transformation with $U_0^u=e^{\ii\eta A_0}$ on $\hat\Lam$, where $|A_0|,|\partial A_0|,[\partial A_0]_\alpha\le\eps$. Then
+\[
+U_\flat^u=e^{\ii\eta R(u)A_*}e^{\ii\eta A_0}=e^{\ii\eta(A_0+R(u)A_*+\eta\mathfrak c)}\quad\text{on }\hat\Lam,
+\]
+where $\mathfrak c=\mathfrak c(a,b)=\eta^{-2}\big(\ell(e^{\ii\eta a}e^{\ii\eta b})-\eta a-\eta b\big)$ with $a=R(u)A_*$ and $b=A_0$. In this gauge, $\partial a$ differs from $R(u)\nabla A_*$ by at most $C\eps|A_*|$. Since $|A_*|_{C^1}\le K'(\eps+\beta)$ (Section~\ref{sec:var-solution}), $|a|+|\partial a|\le C(\eps+\beta)$; moreover $|b|+|\partial b|\le2\eps$.
+
+\emph{The term $\eta\mathfrak c$.} The function $(X,Y)\mapsto\ell(e^{\ii X}e^{\ii Y})-X-Y$ is analytic near $0$ and vanishes if $X=0$ or $Y=0$. So $\mathfrak c(a,b)=\mathfrak m(\eta a,\eta b)[a,b]$, where $\mathfrak m(X,Y)$ is a bilinear map depending analytically on $(X,Y)$. Hence $|\mathfrak c|\le C|a||b|$, and the chain rule for lattice differences gives $|\partial\mathfrak c|\le C(|a|+|\partial a|)(|b|+|\partial b|)\le C\eps(\eps+\beta)$. So $|\eta\mathfrak c|+|\partial(\eta\mathfrak c)|\le C\eta\eps(\eps+\beta)$. Distinct points of $\Tf$ have distance at least $\eta$, so the H\"older quotients of $\partial(\eta\mathfrak c)$ are at most $2\eta^{-\alpha}\cdot C\eta\eps(\eps+\beta)\le C\eps(\eps+\beta)$. The bound \eqref{eq:lattice-trick} alone gives only $|\partial(\eta\mathfrak c)|\le2|\mathfrak c|$, without the factor $\eta$.
+
+\emph{The term $a$.} Let $\Lam_3(z')\subset\hat\Lam$, and let $x\ne x'$ be points of $\Lam_3(z')$. If $|x-x'|_\infty\ge\frac12$, the H\"older quotient of $\partial a$ at $x,x'$ is at most $4\sup|\partial a|\le C(\eps+\beta)$. If $|x-x'|_\infty<\frac12$, the points of the two differences lie in a common cube $\Lam_1(z_i)$ with $z_i$ on a grid of spacing $\frac12$, as in Remark~\ref{rem:cubes}. Let $u''$ be a gauge of Definition~\ref{def:regular} on a cube $\Lam_{4M+2}(z'')\supset\Lam_3(z_i)$, with $U_0^{u''}=e^{\ii\eta A''}$ and $|A''|,|\partial A''|\le\eps$. By (a), in the form on unit cubes (Theorem~\ref{thm:variational}(c) and Remark~\ref{rem:cubes}), the H\"older quotient of $\partial(R(u'')A_*)$ on $\Lam_1(z_i)$ is at most $C(\eps+\beta)$. On the box $O=\Lam_1(z_i)\cap\hat\Lam$ put $h=u(u'')^{-1}$. Then
+\[
+h(b_+)=e^{-\ii\eta A_0(b)}\,h(b_-)\,e^{\ii\eta A''(b)}\qquad\text{for the bonds }b\text{ of }O .
+\]
+So $\partial h(b)=\eta^{-1}\big(e^{-\ii\eta A_0(b)}h(b_-)e^{\ii\eta A''(b)}-h(b_-)\big)$ is linear in $A_0(b)$ and $A''(b)$, with coefficients that are analytic functions of $h(b_-)$, $\eta A_0(b)$ and $\eta A''(b)$, since $e^{\ii X}-1=X\int_0^1\ii e^{\ii tX}\,dt$. Hence $|\partial h|\le C\eps$. One more difference brings in $\partial A_0$, $\partial A''$ and $\partial h$, each with a bounded factor, so $|\partial\partial h|\le C\eps$; no factor $\eta^{-1}$ appears. The transformation $h$ is unitary, so $R(h)$ is an isometry, and no smallness of $h$ itself is used. Since $a=R(h)R(u'')A_*$ on $O$, the discrete product rule along a coordinate path from $x$ to $x'$ in $O$ gives
+\[
+|\partial a(x)-\partial a(x')|\le\Big(\Hol{\partial(R(u'')A_*)}{\Lam_1(z_i)}+C\eps\big(|A_*|_\infty+|\nabla A_*|_\infty\big)\Big)|x-x'|^\alpha\le C(\eps+\beta)|x-x'|^\alpha .
+\]
+All points used here lie in the box spanned by the points of the two differences, which lies in $O$.
+
+So $A_0+a+\eta\mathfrak c$ satisfies the three bounds of Definition~\ref{def:regular} on $\hat\Lam$, with $\eps+C(\eps+\beta)$ in place of $\eps$. Hence $U_\flat$, and therefore $U_*$, is $(M,\eps+C(\eps+\beta))$-regular.
+\end{proof}
+
+\subsection{Analyticity and decay}\label{ss:27.5}
+
+\begin{proposition}\label{prop:analyticity}
+The map $B\mapsto A_*(B)$ extends analytically to complex $B$ with $\eps+|B|_\infty<c_6$, with the $C^1$ bound of Theorem~\ref{thm:variational}(c). The second-order and H\"older bounds are claimed for real $B$ only. For real and complex $B$, if $\delta B$ is supported on the bond $c$, then $|dA_*(B)\delta B(x)|+|\nabla(dA_*(B)\delta B)(x)|\le Ce^{-\gamma'|x-c|}|\delta B|$.
+\end{proposition}
+
+\begin{proof}
+Lemma~\ref{lem:linearizing}, Lemma~\ref{lem:V-bounds}(a) and Proposition~\ref{prop:contraction} hold verbatim for complex $B$ and complex $A_1$; reality was used only in the minimality argument. This gives the bound $|A_*(B)|_{C^1}\le C(\eps+|B|)$. The fixed point of the contraction $\mathcal T$ is the uniform limit of iterates that are analytic in $B$, hence analytic. For real $B$ it is the real solution, by uniqueness.
+
+For the decay we first prove a block bound. The argument holds for complex $A'=A_1+\bH B$ with $|A_1|_{C^1}\le\rho_2$. For a fine field $h$ put $a_y(h)=|h|_{B(y)}+|\nabla h|_{B(y)}$, with $|\cdot|_{B(y)}$ as in \eqref{eq:d2D-mixed}. The map $h\mapsto d\nabla\mathcal V(A')h$ is obtained by differentiating the formula for $\nabla\mathcal V$ in the proof of Lemma~\ref{lem:V-bounds}. Its ingredients are the following.
+\begin{itemize}
+\item \emph{The terms with $d^2\mathcal D$.} They add up to $(d^2\mathcal D(A')[h,\cdot])^T\omega'$, with $\omega'=-\bH^T\big(J+D^TDA+\nabla\mathcal N(A)\big)$ and $A=A'-\bH\mathcal D(A')$, as in the proof of Lemma~\ref{lem:V-bounds}(b). There $|\omega'|_\infty\le C(\eps+\rho_2)$, and \eqref{eq:d2D-mixed} bounds these terms. The $\ell^2$ bound on $d^2\mathcal D$ in Lemma~\ref{lem:linearizing} would not suffice: it gives no bound on this fine-lattice field that is pointwise and uniform in $\eta$.
+\item \emph{The local term $d\nabla\mathcal N(A)[Lh]$}, with $L=I-\bH\,d\mathcal D(A')$. The value $\nabla\mathcal N(A)(b)$ depends on $A$ only on the bonds of the plaquettes that contain $b$ (proof of Proposition~\ref{prop:action}). So, for $b$ starting in $B(y)$, $d\nabla\mathcal N(A)k(b)=d\nabla\mathcal N(A)(\chi_yk)(b)$, where $\chi_y$ is a smooth function equal to $1$ on $\Lam_{3/2}(c_y)$ and to $0$ outside $\Lam_2(c_y)$; its differences are bounded by an absolute constant. Proposition~\ref{prop:action}(b) gives $|d\nabla\mathcal N(A)g|_\infty\le C(\eps+\rho_2)|g|_{C^1}$ for every fine field $g$. Hence $|d\nabla\mathcal N(A)k|_{B(y)}\le C(\eps+\rho_2)\max_{|y'-y|_\infty\le3}a_{y'}(k)$.
+\item \emph{The operators $\bH$, $D\bH$, $\bH^T=\boldsymbol\Gamma_\pi\bQ\bG$ and $(D\bH)^T$.} They satisfy block bounds with exponential decay, by the block form of the pointwise bounds in the proof of Lemma~\ref{lem:sup-bounds}, as in the proof of \eqref{eq:d2D-mixed}.
+\item \emph{The operator $D^TD\bH$.} By the first identity in the proof of Lemma~\ref{lem:V-bounds}, $D^TD\bH=\bQ^T(\boldsymbol\Gamma_\pi-a)+S^T\mathfrak F^TD\bH$, with $S^T=DRG'$ bounded by Lemma~\ref{lem:sup-bounds}(a),(b). So it satisfies a block bound of the same kind.
+\item \emph{The operators $d\mathcal D$ and $d\mathcal D^T$.} Their kernel $K_{\mathcal D}$ is bounded by $C\rho_2e^{-\gamma|c_--b_-|}$ (Lemma~\ref{lem:linearizing}).
+\end{itemize}
+Every term of $d\nabla\mathcal V(A')h$ is a composition of these ingredients, and it contains at least one factor of size $C(\eps+\rho_2)$: $\omega'$, $d\mathcal D$, $d\mathcal D^T$ or $d\nabla\mathcal N$. Hence
+\begin{equation}\label{eq:dgradV-block}
+|d\nabla\mathcal V(A')h|_{B(y)}\le C(\eps+\rho_2)\sum_{y'}e^{-\gamma|y-y'|}a_{y'}(h)\qquad\text{for all }y\in\T .
+\end{equation}
+Now let $|f|_c=\sup_xe^{\gamma'|x-c|}|f(x)|$ and $|f|_{c,1}=|f|_c+|\nabla f|_c$. By Lemma~\ref{lem:sup-bounds} (weighted version), $|\bC f|_{c,1}\le C|f|_c$ and $|\bH\delta B|_{c,1}\le C|\delta B|$ for $\delta B$ supported on $c$. Block bounds pass to the weighted norms when $\gamma'\le\gamma/2$, by $e^{\gamma'|x-c|}\le e^{\gamma'|x-x'|}e^{\gamma'|x'-c|}$. So \eqref{eq:dgradV-block} gives $|d\nabla\mathcal V(A')h|_c\le C(\eps+\rho_2)|h|_{c,1}$. Differentiating \eqref{eq:fixed-point},
+\[
+\delta A_1=-\bC\,d\nabla\mathcal V(A')\big[\delta A_1+\bH\delta B\big].
+\]
+The operator on the right has norm at most $\frac12$ in $|\cdot|_{c,1}$. Hence $|\delta A_1|_{c,1}\le C|\delta B|$, and $\delta A_*=(I-\bH\,d\mathcal D)(\delta A_1+\bH\delta B)$ obeys the same bound.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:variational}}\label{ss:27.6}
+
+(a) Uniqueness was shown after Proposition~\ref{prop:contraction}. Existence: $U_*\in\mathfrak B(V)$ by construction; it is critical by Proposition~\ref{prop:critical}; and it lies in $\mathfrak U(\theta_0)$ by Proposition~\ref{prop:minimizer-regularity}(b), provided $C(\eps+\beta)\le\theta_0$, i.e.\ $c_6\le\theta_0/C$. (b) is Proposition~\ref{prop:minimality}. (c) follows from Proposition~\ref{prop:contraction} and Proposition~\ref{prop:minimizer-regularity}(a). (d) is Proposition~\ref{prop:euler-lagrange}. (e) is Proposition~\ref{prop:minimizer-regularity}(b), (c). (f) is Proposition~\ref{prop:analyticity}. (g) was noted after the statement, and (h) is proved in Section~\ref{subsec:var-symmetry} below. The constants are fixed in the following order. First $B_1$, $C_H$, $C_C$, $K$, $r_2^{\rm V}$, $r_3$ and $c_7$, which do not depend on $\theta_0$. Then $\theta_0$, subject to $\theta_0\le\min(c_4/3,c_7)$, $\rho_1\le r_2^{\rm V}/2$, $C\rho_1<1$ (Lemma~\ref{lem:reduction}(a)) and $\rho_2+C_H\beta\le r_3$, all for $\eps+\beta\le\theta_0$; these are conditions on $\theta_0$ alone, since $\rho_1$ and $\rho_2$ are then at most $C\theta_0$. For the Dirichlet version of the contraction in Section~\ref{sec:interaction-local} (Proposition~\ref{prop:map-compare}(a), where $\eps+|B|_\infty\le r_4\le\theta_0$), $\theta_0$ also satisfies $4C_{\rm map}S_{\gamma_{\rm map}/4}(1+8B_1+C_H+K)\theta_0\le1$, with $S_\gamma=\sum_{z\in\Z^d}e^{-\gamma|z|}$ as in Section~\ref{sec:decay}. Here $C_{\rm map}$ and $\gamma_{\rm map}$ are the constant and the rate of the kernel $K(y,y')=C_{\rm map}(\eps+\rho_2)e^{-\gamma_{\rm map}|y-y'|/2}$ in the proof of that proposition; they come from Theorem~\ref{thm:ID} and \eqref{eq:dgradV-block}, and depend neither on $\theta_0$ nor on $M$. Since $\eps+\rho_2\le(1+8B_1+C_H+K)\theta_0$ for $\eps+|B|_\infty\le\theta_0$, this gives $\sum_{y'}K(y,y')e^{\gamma'|y-y'|}\le\frac14$ for $\gamma'\le\gamma_{\rm map}/4$. This condition is not used on the main line. Finally $c_6\le\min\big(c_4/3,\,c_7,\,\theta_0,\,\theta_0/C,\,B_1\theta_0/K',\,\min(\theta_0,c_1)/(20d),\,\min(c_3,c_5)/C_6\big)$. The condition with $20d$ is used for $k=0$ in Corollary~\ref{cor:analytic}. The last one is used in Proposition~\ref{prop:coarse-action}: there $|A_*(B)|_{C^1}\le C_6(\eps+|B|_\infty)\le\min(c_3,c_5)$, so that Propositions~\ref{prop:action} and~\ref{prop:Q-expansion} apply at $A_*(B)$ for complex $B$. The constant $C_6$ of (c)--(f) holds for all $\eps+\beta$ below thresholds fixed before $c_6$, so it does not depend on $c_6$.\qed
+
+\subsection{Lattice symmetry}\label{subsec:var-symmetry}
+
+\begin{proof}[Proof of Theorem~\ref{thm:variational}(h)]\hasdetail{thm:variational}
+Let $r\in\mathfrak S_k$. Recall that $r$ acts on configurations by $(rU)(b)=U(r^{-1}b)$, on scalar fields by $(r\lambda)(x)=\lambda(r^{-1}x)$, and on Lie fields relative to $U_0$ by $r_{U_0}$, with $A(-b)=-R(U_0(b))^{-1}A(b)$ on reversed bonds (Proposition~\ref{prop:linearized-averages}(g)). With this convention $e^{\ii\eta\,r_{U_0}A}\,rU_0=r(e^{\ii\eta A}U_0)$, as in the proof of Lemma~\ref{lem:current}(b).
+
+\emph{The hypotheses at $rU_0$.} Let $u$ be a gauge on the cube of $z$ as in Definition~\ref{def:regular}, with $U_0^u=e^{\ii\eta A}$. Then $ru$ is such a gauge on the cube of $rz$, and $(rU_0)^{ru}=r(U_0^u)=e^{\ii\eta\,rA}$, where $(rA)(b)=A(r^{-1}b)$ and $A(-b)=-A(b)$. The map $r$ is an isometry of $\Tf$. It maps the cube $\hat\Lam$ of $z$ onto the cube of $rz$, and the cubes $\Lam_3(z')$ onto the cubes $\Lam_3(rz')$. It maps a difference of $A$, together with the points it involves, onto a difference of $rA$ and the points it involves, up to sign. More precisely, for each pair $(\mu,\nu)$ there are a pair $(\mu',\nu')$, a sign and a vector $w$ such that $\partial_{\nu'}(rA)_{\mu'}(rx+w)=\pm\partial_\nu A_\mu(x)$ for all $x$; for instance, for the reflection in the direction $\nu$, $\partial_\nu(rA)_\mu(rx-\eta e_\nu)=-\partial_\nu A_\mu(x)$ if $\mu\ne\nu$, and $\partial_\nu(rA)_\nu(rx-2\eta e_\nu)=\partial_\nu A_\nu(x)$. Since $|rx-rx'|=|x-x'|$, and the norms of Definition~\ref{def:regular} are taken over the differences that involve only points of the cube in question, $rA$ obeys the bounds of Definition~\ref{def:regular} with the same $\eps$. So $rU_0$ is $(M,\eps)$-regular. By Lemma~\ref{lem:current}(b), $|J_{rU_0}|_\infty=|J_{U_0}|_\infty\le\eps$. By Proposition~\ref{prop:linearized-averages}(g), $W_k(rU_0)=rW_k$. Write $V=XW_k$ with the relative configuration $X=e^{\ii B}$. Then $rV=(rX)(rW_k)$ and $rX=e^{\ii\,r_{W_k}B}$, by the convention for reversed bonds, and $|r_{W_k}B|_\infty=|B|_\infty$, since $R(W_k(c))$ is unitary.
+
+\emph{The critical orbit.} The map $U\mapsto rU$ maps $\mathfrak B(V)$ onto $\mathfrak B(rV)$, since $\mathfrak a^{(k)}(rU)=r\,\mathfrak a^{(k)}(U)$ (Lemma~\ref{lem:one-step-basic}) and $\mathfrak U_0(c_1)$ is invariant under $\mathfrak S_k$. It maps $\mathfrak U(\theta_0)$ onto itself, because $|F_{rU}(p)|=|F_U(r^{-1}p)|$ and $|J_{rU}|_\infty=|J_U|_\infty$. It preserves $S$ (Section~\ref{sec:action}), so it maps critical points of $S|_{\mathfrak B(V)}$ to critical points of $S|_{\mathfrak B(rV)}$. Since $r$ maps $\T$ onto $\T$, $r(U^u)=(rU)^{ru}$ with $ru\in\mathfrak G_0$ for $u\in\mathfrak G_0$; so $r$ maps $\mathfrak G_0$-orbits onto $\mathfrak G_0$-orbits. By (a), it maps the critical orbit for $V$ onto the critical orbit for $rV$.
+
+\emph{Scalar operators.} On scalar fields, $D_{rU_0}r=r_{U_0}D_{U_0}$. Indeed, by the convention for reversed bonds, $(D_{U_0}\lambda)(c)=\eta^{-1}\big(R(U_0(c))\lambda(c_+)-\lambda(c_-)\big)$ holds for both orientations of a bond $c$, and therefore $(D_{rU_0}r\lambda)(c)=(D_{U_0}\lambda)(r^{-1}c)$. The maps $r$ and $r_{U_0}$ preserve the bilinear pairings, so $r^T=r^{-1}$, $r_{U_0}^T=r_{U_0}^{-1}$, and $D^T_{rU_0}r_{U_0}=rD^T_{U_0}$. Together with $Q'_k(rU_0)r=rQ'_k(U_0)$ (Proposition~\ref{prop:linearized-averages}(g)), this shows that every operator built from $D$, $D^T$, $Q'$, $Q'^T$ by sums, products, transposes and inverses is covariant. In particular $G'(rU_0)r=rG'(U_0)$, $P_\cV(rU_0)r=rP_\cV(U_0)$ and $R(rU_0)r=rR(U_0)$.
+
+\emph{The Landau representative.} Let $\mathcal S_V(U_0)$ and $\mathsf U_{U_0}$ be as in Corollary~\ref{cor:parametrization}, with $\theta=\theta_0$; the subscript and the second argument indicate the reference. Let $A\in\mathcal S_V(U_0)$. Then $r_{U_0}A$ is real, $|r_{U_0}A|_\infty=|A|_\infty$, and $R(rU_0)D^T_{rU_0}r_{U_0}A=r\,R(U_0)D^T_{U_0}A=0$. Moreover $e^{\ii\eta\,r_{U_0}A}\,rU_0=r(e^{\ii\eta A}U_0)\in\mathfrak U(\theta_0)$, and, by Proposition~\ref{prop:linearized-averages}(g),
+\[
+\mathcal Q(e^{\ii\eta\,r_{U_0}A};rU_0)=r\,\mathcal Q(e^{\ii\eta A};U_0)=r(VW_k^{-1})=(rV)(rW_k)^{-1}.
+\]
+So $r_{U_0}$ maps $\mathcal S_V(U_0)$ into $\mathcal S_{rV}(rU_0)$, and onto it, by the same argument for $r^{-1}$. By Proposition~\ref{prop:linearized-averages}(g) and its proof, $\mathsf w_k(e^{\ii\eta\,r_{U_0}A};rU_0)=r\,\mathsf w_k(e^{\ii\eta A};U_0)$ and $(rX)^{(rg)}=r(X^{(g)})$. Hence $\mathsf U_{rU_0}(r_{U_0}A)=r\,\mathsf U_{U_0}(A)$. Now $A_*=A_*(B;U_0)$ lies in $\mathcal S_V(U_0)$: it lies in $\mathcal M_V$, so $|A_*|_\infty<\rho_1\le2B_1c_4\le r_u$, and $e^{\ii\eta A_*}U_0$ is gauge equivalent to $U_*\in\mathfrak U(\theta_0)$. The configuration $\mathsf U_{U_0}(A_*)=U_*$ is the averaged axial representative of the critical orbit for $V$. By Corollary~\ref{cor:parametrization}, $A_*$ is the only element of $\mathcal S_V(U_0)$ that $\mathsf U_{U_0}$ maps to it, and the same holds at $(rU_0,rV)$. The configuration $rU_*$ lies in the critical orbit for $rV$, by the previous step, and it is averaged axial relative to $rU_0$, by Proposition~\ref{prop:linearized-averages}(g). So it is the averaged axial representative of that orbit, and it equals $\mathsf U_{rU_0}(r_{U_0}A_*)$ with $r_{U_0}A_*\in\mathcal S_{rV}(rU_0)$. Hence $A_*(r_{W_k}B;rU_0)=r_{U_0}A_*(B;U_0)$ for real $B$. For complex $B$, both sides are analytic in $B$ on the connected set $\{\eps+|B|_\infty<c_6\}$, by (f), and this set is invariant under $r_{W_k}$. They agree for real $B$, hence everywhere.
+
+\emph{The multiplier.} By $e^{\ii\eta\,r_{U_0}A}\,rU_0=r(e^{\ii\eta A}U_0)$ and $S\circ r=S$, $\Phi_{rU_0}(r_{U_0}A)=\Phi_{U_0}(A)$. Since $r_{U_0}$ preserves the pairing, $\nabla\Phi_{rU_0}(r_{U_0}A)=r_{U_0}\nabla\Phi_{U_0}(A)$. On relative configurations at scale $k$, $\ell((rX)(c))=(r_{W_k}\ell X)(c)$, by Lemma~\ref{lem:log-estimates}(d). So differentiating the identity for $\mathcal Q$ gives $d\mathcal Q_{rU_0}(r_{U_0}A)\,r_{U_0}=r_{W_k}\,d\mathcal Q_{U_0}(A)$. Therefore
+\[
+\nabla\Phi_{rU_0}(r_{U_0}A_*)=r_{U_0}\,d\mathcal Q_{U_0}(A_*)^T\omega=d\mathcal Q_{rU_0}(r_{U_0}A_*)^T\,r_{W_k}\omega ,
+\]
+and the uniqueness in (d) gives $\omega(r_{W_k}B;rU_0)=r_{W_k}\,\omega(B;U_0)$.
+\end{proof}
+
+The proof uses only the action, the averaging, the Landau gauge condition and the correspondence transformation. It does not use the covariance of the operators of Parts~II and~III that are built from the covariant derivative on gauge fields; see Proposition~\ref{prop:symmetry}.
+
+\begin{remark}[What is used, and what is not]\label{x:27.6}
+The proof uses Parts~II and~III only through the pointwise bounds of Lemma~\ref{lem:sup-bounds}, the identities for $\bH$ and $\bC$, and the coercivity on $\cX$ (Lemma~\ref{lem:X-coercive}). All of these hold at $(M,\eps)$-regular backgrounds. The random-walk expansion is not used. The reference $U_0$ enters only through its regularity and through $|J_{U_0}|\le\eps$. The theorem does not use the induction over $k$. In Ba\l aban's scheme the reference comes from that induction, and the bound on the regularity of the minimizer, $\eps+C_6(\eps+\beta)$, has to be improved to a bound depending only on the curvature of $V$. This is the local improvement of \cite[Sect.~F]{BalVar}, carried out in Part~VI (Lemma~\ref{lem:improvement}).
+\end{remark}

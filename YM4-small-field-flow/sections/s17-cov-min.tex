@@ -1,0 +1,124 @@
+\section{Minimizer and fluctuation operators with a background}\label{sec:cov-min}
+
+We keep the assumptions of Section~\ref{sec:cov-gauge} and write $\bQ_\pi=\bQ(U)\Pi$. Let
+\[
+\cX(U)=\{A:\ \bQ(U)A=0,\ R(U)D^TA=0\}=\mathcal S(U)\cap\ker\bQ_\pi ,
+\]
+the tangent space of the constraint set in Ba\l aban's gauge \cite[(100)]{BalVar}.
+
+\begin{theorem}[Minimizer and constrained Green function]\label{thm:cov-min}
+For $\eps\le\eps_0$:
+\begin{enumerate}[label=(\alph*)]
+\item $\bQ_\pi\bG\bQ_\pi^T$ differs from $\bQ\bG\bQ^*$ by an operator with decay $(C\eps,\gamma)$. Its inverse $\boldsymbol\Gamma_\pi$ exists and has decay $(C,\gamma)$.
+\item The minimizer map $\bH(U)=\bG\bQ_\pi^T\boldsymbol\Gamma_\pi$ satisfies $\bQ(U)\bH=I$, $RD^T\bH=0$ and $\Pi\bH=\bH$. For real $U$, real symmetric $W$ and real data $B$, $\bH B$ is real, and it is the unique minimizer of $q_U(A,A)$ among real $A$ with $\bQ(U)A=B$ and $R(U)D^TA=0$. $\bH$ and $\partial\bH$ have decay $(C,\gamma)$, and
+\[
+|\bH B|_{B(y)}+|\partial\bH B|_{B(y)}+\Hol{\partial\bH B}{B(y)}\le C\sum_{y'}e^{-\gamma|y-y'|}|B|_{y'} .
+\]
+\item The constrained Green function
+\[
+\bC(U)=\bG-DG'RG'D^T-\bH\bQ_\pi\bG
+\]
+is transpose-symmetric and maps into $\cX(U)$. For every $J$, $\bC J$ is the unique $A\in\cX(U)$ with
+\[
+q_U(A',A)=\mathrm b(A',J)\qquad\text{for all }A'\in\cX(U).
+\]
+\item $\bC$ and $\partial\bC$ have decay $(C,\gamma)$, and for $J$ supported in $B(y')$,
+\[
+|\bC J|_{B(y)}+|\partial\bC J|_{B(y)}+\Hol{\bC J}{B(y)}\le Ce^{-\gamma|y-y'|}|J|_{B(y')} .
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) $\bQ_\pi-\bQ=(\bQ(U)-\bQ)-E(U)S$, and $ES=EG'RD^T$ has decay $(C\eps,\gamma)$. Together with Theorem~\ref{thm:cov-gauge}(b), every term of the difference has decay $(C\eps,\gamma)$. Since $\bQ\bG\bQ^*\ge c_F$ (Proposition~\ref{prop:QGQ-gauge}), Lemma~\ref{lem:perturbed-inverse} applies.
+
+(b) $\bQ_\pi\bH=I$. By Theorem~\ref{thm:cov-gauge}(d), $RD^T\bH=(\bQ_\pi\bG DR)^T\boldsymbol\Gamma_\pi=0$. Hence $\bH B\in\mathcal S$, so $\Pi\bH=\bH$ and $\bQ\bH=\bQ_\pi\bH=I$.
+
+For the minimization, let $U$, $W$ and $B$ be real, let $A\in\mathcal S$ be real with $\bQ A=B$, and put $h=A-\bH B\in\cX(U)$. All operators are real, so $\bH B$ and $h$ are real. Then $\mathrm b(h,\mathfrak A_\pi\bH B)=\mathrm b(\bQ\Pi h,\boldsymbol\Gamma_\pi B)=0$. Lemma~\ref{lem:Api-identities}(b) gives
+\[
+q_U(A,A)=q_U(\bH B,\bH B)+q_U(h,h),\qquad q_U(h,h)=\ip h{\mathfrak A_\pi h}\ge\tfrac{c_g}2\|h\|^2 ,
+\]
+for real fields. The bound on $q_U(h,h)$ is the coercivity of $\mathfrak A_\pi$ from Lemma~\ref{lem:CT-stable}.
+
+Decay is a composition. For the pointwise bound, $\bH B=\bG J$ with $J=\bQ_\pi^T\boldsymbol\Gamma_\pi B$. Now
+\[
+\bQ_\pi^T=\Pi^T\bQ^T=\bQ^T-DRG'\,(D^T\bQ^T),\qquad D^T\bQ(U)^T=(\bQ D)^T=Q'^TD_V^T+E^T
+\]
+by Lemma~\ref{lem:cov-avg}(c). So $D^T\bQ^T\omega$ is bounded on each block by $C\max|\omega|$ over neighbouring points. By Theorem~\ref{thm:cov-scalar}(b), $DRG'$ maps bounded fields to bounded fields. Hence $|J|_{B(y'')}\le C\sum e^{-\gamma|y''-y'|}|B|_{y'}$, and the sum form of Theorem~\ref{thm:cov-gauge}(c) concludes.
+
+(c) Symmetry is clear. Since $\bQ_\pi DG'R=\bQ\Pi DG'R=0$,
+\[
+\bQ_\pi\bC=\bQ_\pi\bG-0-\bQ_\pi\bG=0 .
+\]
+By Theorem~\ref{thm:cov-gauge}(d) and $D^TDG'R=R$,
+\[
+RD^T\bC=RG'D^T-R\,RG'D^T-0=0 .
+\]
+So $\bC J\in\mathcal S\cap\ker\bQ_\pi=\cX$. For $A'\in\cX$, Lemma~\ref{lem:Api-identities}(b) gives $q_U(A',\bC J)=\mathrm b(A',\mathfrak A_\pi\bC J)$. By Lemma~\ref{lem:Api-identities}(a) with $h=G'D^TJ$,
+\[
+\mathfrak A_\pi\bC J=J-DR\,G'D^TJ-\bQ_\pi^T\boldsymbol\Gamma_\pi\bQ_\pi\bG J .
+\]
+The last two terms are $\mathrm b$-orthogonal to $\cX$: $\mathrm b(A',DRh)=\mathrm b(RD^TA',h)=0$ and $\mathrm b(A',\bQ_\pi^T\omega)=\mathrm b(\bQ A',\omega)=0$.
+
+For uniqueness, suppose $A\in\cX$ and $q_U(A',A)=0$ for all $A'\in\cX$. Then $\mathfrak A_\pi A$ annihilates $\cX=\ker(RD^T)\cap\ker\bQ_\pi$, so $\mathfrak A_\pi A=DR\theta+\bQ_\pi^T\omega$ for some $\theta,\omega$. Hence $A=DG'R\theta+\bG\bQ_\pi^T\omega$. Applying $RD^T$ gives $0=R\theta$, so $A=\bG\bQ_\pi^T\omega$. Applying $\bQ_\pi$ gives $0=\boldsymbol\Gamma_\pi^{-1}\omega$, so $\omega=0$.
+
+(d) For the decay, the first and third terms of $\bC$ are compositions of operators with decay. For the middle term, Theorem~\ref{thm:cov-gauge}(d) and $R^2=R$ give $DG'RG'D^T=\bG\,DR\,G'D^T$. Hence $\partial DG'RG'D^T=(\partial\bG D)\,R\,(G'D^T)$, and $\partial\bG D$ has decay: on scalar fields $D_\mu=-S_\mu\partial^*_\mu+T_\mu$, with $S_\mu$ the shift by $\eta$, so $\partial\bG D$ is $\partial\bG\partial^*$ up to local bounded factors. No second derivatives of $G'$ are needed. For the pointwise bounds write $\bC J=\bG J-D\sigma-\bH(\bQ_\pi\bG J)$ with $\sigma=G'RG'D^TJ$. The first and third terms are controlled by Theorem~\ref{thm:cov-gauge}(c) and part (b), since $\bQ_\pi\bG J$ is a bounded unit-lattice field decaying away from $y'$.
+
+By Proposition~\ref{prop:cov-R}(c), $\sigma\in\cN(Q'(U))$ and $D^TD\sigma=h:=RG'D^TJ$. By Theorem~\ref{thm:cov-scalar}(b) and Proposition~\ref{prop:cov-R}(e), $h$ is bounded and H\"older on cubes, with bounds $Ce^{-\gamma\operatorname{dist}}|J|_{B(y')}$. The local $L^2$ norms of $\sigma$ decay by composition. First, $-\Lap\sigma=h-(D^TD+\Lap)\sigma$, and Lemma~\ref{lem:bootstrap} of type $1$ bounds $|\sigma|$, $|\partial\sigma|$ and $[\partial\sigma]_\alpha$ on blocks. Next, by \eqref{eq:DTD-normal} and the Leibniz rule,
+\[
+(D^TD+\Lap)\sigma=\sum_\mu\big(a_\mu\partial^*_\mu\sigma+(\partial^*_\mu a_\mu)S_\mu^{-1}\sigma\big)+b\sigma .
+\]
+The right-hand side is bounded and H\"older on $\Lam_2(z)$, with constants $C\eps$ times the bounds just obtained. This uses the H\"older bounds on cubes (Remark~\ref{rem:cubes}) and $[\partial a_\mu]_\alpha+[b]_\alpha\le C\eps$ from Lemma~\ref{lem:cov-expansion}; this uses the H\"older condition on $\partial A$ in (B), as does the curvature bound used in the pointwise admissibility argument of Theorem~\ref{thm:cov-gauge}. Theorem~\ref{thm:local-regularity}(c) now bounds $|\partial\partial\sigma|$, and hence $|\partial D\sigma|\le|\partial\partial\sigma|+|\partial(T\sigma)|$. The H\"older bound on $\bC J$ follows from the bound on $|\partial\bC J|$.
+\end{proof}
+
+\begin{remark}[Comparison with \cite{BalBackground}]\label{x:16.2}
+Ba\l aban's operators $G_1$, $H_1$ and $\mathfrak G$ \cite[(3.128), (3.129), (3.153)]{BalBackground} correspond to $\bG(U)$, $\bH(U)$ and $\bC(U)$. His gauge-invariant extension $\Delta_\pi$, with correction $\Delta'_\pi$, corresponds to $\Pi^T\mathfrak B\Pi$, i.e.\ to the term $\mathcal K_1$. Our $W$ plays the role of his curvature term $\Delta'$ \cite[(3.10)]{BalBackground} and of the term $-2\langle HC^{(2)}(A),J\rangle$ of \cite[(3.128)]{BalBackground}; we do not use that these terms belong to $\cW$ (Section~\ref{sec:background}). For his averaging $E=0$, so there is no $\mathcal K_2$.
+\end{remark}
+
+\subsection{Analyticity and gauge covariance}\label{ss:16.1}
+
+\begin{proposition}\label{prop:covariance}
+\begin{enumerate}[label=(\alph*)]
+\item All operators of Sections~\ref{sec:cov-scalar}--\ref{sec:cov-min} are analytic functions of $A$ on the open set where (B) holds with $\eps<\eps_0$, and of $W$ in the ball of $\cW(\eps_0,\gamma_W)$. All bounds are uniform there. By the Cauchy estimates, on the smaller set where (B) holds with $\eps\le\eps_0/2$, the derivatives of order $m$ with respect to $A$, in directions $\delta A$ obeying (B) with $\eps=1$, satisfy the decay and pointwise bounds of the operators themselves, with constants multiplied by $m!\,(C/\eps_0)^m$. The factor $\eps$ in the comparisons with $U=1$ is not preserved. If $W=W(A)$ is an analytic function of $A$ with values in the ball of $\cW(\eps_0,\gamma_W)$, the operators are analytic functions of $A$; otherwise only the joint analyticity in $(A,W)$ is claimed.
+\item Let $u:\Tf\to G$ be a gauge transformation, and suppose $W(U^u)=R(u)W(U)R(u)^{-1}$. Then
+\begin{align*}
+G'(U^u)&=R(u)G'(U)R(u)^{-1}, & R(U^u)&=R(u)R(U)R(u)^{-1},\\
+\Pi(U^u)&=R(u)\Pi(U)R(u)^{-1}, & \bG(U^u)&=R(u)\bG(U)R(u)^{-1},\\
+\bH(U^u)&=R(u)\bH(U)R(u|_\T)^{-1}, & \bC(U^u)&=R(u)\bC(U)R(u)^{-1}.
+\end{align*}
+Consequently, let $U$ satisfy (B), let $W\in\cW(\eps,\gamma_W)$ in this gauge, and let $u$ be $G$-valued. At $U^u$, with the potential $R(u)WR(u)^{-1}$, the $L^2$ block bounds and the pointwise bounds of Sections~\ref{sec:cov-scalar}--\ref{sec:cov-min} hold with $\partial$ replaced by $D_{U^u}$, and the H\"older bounds hold after transforming back by $R(u)^{-1}$, i.e.\ in the gauge in which (B) holds. A bound comparing an operator with its value at $U=1$ transfers only as a comparison with the transformed reference: for example, $G'(U^u)-G'(1^u)=R(u)\big(G'(U)-G'(1)\big)R(u)^{-1}$ has decay $(C\eps,\gamma)$. It does not transfer as a comparison with $G'(1)$.
+\end{enumerate}
+\end{proposition}
+
+In (b), $R(u)$ is the adjoint action of the gauge transformation $u$ (Section~\ref{ss:12.1}), applied pointwise, while $R(U)$ and $R(U^u)$ are the projections of Proposition~\ref{prop:cov-R}.
+
+\begin{proof}
+(a) Each operator is built from $R(e^{\ii\eta A})$ by sums, products and inverses. The inverses exist, with uniform bounds, on the indicated set, so the operators are analytic there. (b) follows from Lemma~\ref{lem:cov-avg}(d) and the definitions, which are built from $D$, $Q'$, $\bQ$, $W$ by gauge-covariant operations. For $G$-valued $u$, $R(u)$ is an isometry, and it acts pointwise, so it commutes with the localization projections $\one_y$. The derivative bounds transfer because $D_{U^u}R(u)=R(u)D_U$ (Lemma~\ref{lem:cov-avg}(d)) and $D_U=\partial+T$ with $T$ local of size $C\eps$ in the gauge of (B) (Lemma~\ref{lem:cov-expansion}). For the last claim, let $G$ be non-abelian, and let $x$ and $z=x+\eta e_\mu$ lie in different blocks with $R(u(x)u(z)^{-1})\ne1$. The coefficient of $\lambda(z)$ in $(\mathfrak A'(1^u)\lambda)(x)$ is $-\eta^{-2}R(u(x)u(z)^{-1})$, and in $(\mathfrak A'(1)\lambda)(x)$ it is $-\eta^{-2}$, because $Q'^TQ'$ has no matrix elements between different blocks (Lemma~\ref{lem:cov-avg}(a)). So $G'(1^u)\ne G'(1)$, although $1^u$ is gauge equivalent to $1$, which satisfies (B) for every $\eps>0$.
+\end{proof}
+
+\subsection{What the variational problem needs}\label{subsec:checklist}
+
+We list the input of Ba\l aban's proof of the variational theorem \cite{BalVar}, specialized to a single torus with the small-field condition everywhere, and indicate where it is provided in this paper.
+
+\emph{Linear input (Parts~II and~III).}
+\begin{itemize}
+\item The minimizer map $H(U_0)$ and its bounds \cite[(45), (46)]{BalVar}: Theorem~\ref{thm:cov-min}(b), and Theorem~\ref{thm:reg-min} at regular backgrounds.
+\item The fluctuation operator $\mathfrak G=G_1\mathfrak P^*$ and the bounds of \cite[Theorem~3.13]{BalBackground} used in \cite[(110)--(120)]{BalVar}: Theorem~\ref{thm:cov-min}(c),(d) and Theorem~\ref{thm:reg-min}. In Part~V the additional quadratic terms of \cite[(79)]{BalVar} are not put into the operator; they are treated as part of the nonlinearity.
+\item The Neumann series for operators with exponential decay \cite[(68)--(71)]{BalVar}: Lemma~\ref{lem:neumann}.
+\item The scalar operators $G'(U_0)$, $H'(U_0)$ and the projection $R(U_0)$ entering the Landau gauge condition \cite[(21)]{BalVar} and the gauge-fixing theorem \cite[(1.91)--(1.100)]{BalReg}: Theorem~\ref{thm:cov-scalar}, Proposition~\ref{prop:cov-R}, Theorem~\ref{thm:reg-scalar}.
+\item The Feynman-gauge operator $G(U_0)=\fA_F^{-1}=(D^TD+DRD^T+a\bQ^T\bQ)^{-1}$ of \cite[(1.58)]{BalReg}: Lemma~\ref{lem:sup-bounds}(c).
+\end{itemize}
+
+\emph{Nonlinear input (Part~IV).}
+\begin{itemize}
+\item The nonlinear averaging, the regularity of averaged configurations \cite[Props.~1, 2]{BalAvg}, in the symmetric four-dimensional form \cite[(0.3)--(0.12)]{BalYM4I}: Section~\ref{sec:averaging}.
+\item The axial gauge, in the averaged form \cite[pp.~253--254]{BalYM4I}, the modified averaging and its composition \cite[Sect.~C]{BalAvg}, the expansion $\mathcal Q(e^{\ii\eta A})=e^{\ii(\bQ A+C(A))}$ with quadratic remainder \cite[Props.~3--5]{BalAvg}: Section~\ref{sec:adapted}. That the linearization of Ba\l aban's averaging satisfies $E=0$ \cite[(3.114)--(3.115)]{BalBackground} is Proposition~\ref{prop:linearized-averages}(b).
+\item The expansion of the Wilson action \cite[(25)--(40)]{BalVar}: Proposition~\ref{prop:action}.
+\item The passage from the axial gauge to the Landau gauge \cite[Theorem~2]{BalReg}: Theorem~\ref{thm:chart}, from the averaged axial gauge.
+\end{itemize}
+
+\emph{The variational theorem relative to a reference (Part~V).} The linearizing transformation, the contraction, uniqueness, minimality, the second-order bounds, analyticity and the expansion \cite[Sects.~C--E, G]{BalVar}: Theorem~\ref{thm:variational}.
+
+\emph{The induction (Part~VI).} The trivial extension and the induction over $k$ \cite[Sect.~A, (11)--(14)]{BalVar}, and the local improvement of the regularity constants \cite[Sect.~F]{BalVar}: Lemma~\ref{lem:trivial-extension}, Lemma~\ref{lem:improvement} and Theorem~\ref{thm:balaban}. The derivation of local regularity from gauge-invariant conditions on the curvature \cite[Sect.~F, Prop.~6]{BalReg}: Corollary~\ref{cor:regularity}. Analyticity around the background field \cite[Sect.~G]{BalVar}: Corollary~\ref{cor:analytic}.
+
+\emph{Not provided.} The nested domains $\Omega_j$ and large fields, and gauges on cubes of size of order $\eps_1^{-1}$ with linear bounds (Section~\ref{sec:outlook}).

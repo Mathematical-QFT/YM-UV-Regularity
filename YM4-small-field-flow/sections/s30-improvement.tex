@@ -1,0 +1,115 @@
+\section{Localized bounds and the local improvement}\label{sec:improvement}
+
+\subsection{Localized bounds for the relative problem}\label{ss:29.1}
+
+Theorem~\ref{thm:variational} bounds the solution in sup norms over the whole torus. Its proof gives more. By the first-order formula and the Euler--Lagrange equation, the solution near a point is controlled by the data near that point, up to exponentially decaying contributions from far away and a quadratic error.
+
+In the setting of Theorem~\ref{thm:variational}, let $A_*$ and $\omega$ be as there. For $y\in\T$ let $c_y=y$ be the centre of $B(y)$, and let $u_y$ be any real gauge transformation in which $U_0$ satisfies (B) on $\Lam_4(c_y)$ with parameter $C\eps$; write $\tilde A_{*,y}=R(u_y)A_*$. The bounds below hold uniformly in the choice of $u_y$. Put
+\[
+\mathsf b(y)=\max\{|B(c)|:\ |c_--y|_\infty\le1\},\qquad \mathsf j(y)=\max\{|J_{U_0}(b)|:\ b_-\in B(y)\},
+\]
+\begin{multline*}
+\mathsf N(y)=|A_*|_{\Lam_1(c_y)}+|\nabla A_*|_{\Lam_1(c_y)}+|\Lap_{U_0}A_*|_{\Lam_1(c_y)}\\
++\Hol{\partial\tilde A_{*,y}}{\Lam_1(c_y)}+\max\{|\omega(c)|:\ |c_--y|_\infty\le2\},
+\end{multline*}
+where $c$ runs over the bonds of $\T$.
+
+\begin{proposition}[Localized bounds]\label{prop:localized}
+There are $C_7,\gamma_7>0$, independent of $k$, $n$, $\eta$ and $U_0$, such that, under the hypotheses of Theorem~\ref{thm:variational}, for every $y\in\T$:
+\begin{enumerate}[label=(\alph*)]
+\item $\displaystyle\mathsf N(y)\le C_7\sum_{y'\in\T}e^{-\gamma_7|y-y'|}\big(\mathsf b(y')+\mathsf j(y')\big)+C_7(\eps+\beta)^2$;
+\item the configuration $U_\flat=e^{\ii\eta A_*}U_0$, which is gauge equivalent to the minimizer $U_*$, satisfies
+\[
+|F_{U_\flat}(p)|\le|F_{U_0}(p)|+C_7\mathsf N(y),\qquad|J_{U_\flat}(b)|\le C_7\mathsf N(y)
+\]
+for all plaquettes $p$ and bonds $b$ with base point in $B(y)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Throughout, sums of products of exponentially decaying kernels are again exponentially decaying, with a smaller rate; $\gamma_7$ is the rate obtained at the end. We use the pointwise bounds of Parts~II and~III at $U_0$, which hold by Corollary~\ref{cor:parts-apply}, on cubes $\Lam_1(z)$ instead of blocks (Remark~\ref{rem:cubes}).
+
+\emph{Step 1: first derivatives.} By Theorem~\ref{thm:variational}(c), $A_*=\bH B-\bC J_{U_0}+\mathcal R$ with $|\mathcal R|_{C^1}\le C(\eps+\beta)^2$. By the pointwise bounds of Theorem~\ref{thm:reg-min} (Theorem~\ref{thm:cov-min}(b),(d)),
+\[
+\begin{aligned}
+|\bH B|_{\Lam_1(c_y)}+|\nabla\bH B|_{\Lam_1(c_y)}&\le C\sum_{y'}e^{-\gamma|y-y'|}\mathsf b(y'),\\
+|\bC J_{U_0}|_{\Lam_1(c_y)}+|\nabla\bC J_{U_0}|_{\Lam_1(c_y)}&\le C\sum_{y'}e^{-\gamma|y-y'|}\mathsf j(y').
+\end{aligned}
+\]
+Let $\mathsf N_1(y)=|A_*|_{\Lam_1(c_y)}+|\nabla A_*|_{\Lam_1(c_y)}$. Then $\mathsf N_1(y)$ is bounded by the right-hand side of (a).
+
+\emph{Step 2: the multiplier.} By the proof of Proposition~\ref{prop:euler-lagrange}, for every bond $c$ of $\T$ and $\beta_0\in\mathfrak g$ with $|\beta_0|=1$,
+\[
+\operatorname{tr}(\beta_0\,\omega(c))=\ip\varphi{J_{U_0}+\nabla\mathcal N(A_*)}+\ip{D\varphi}{DA_*},
+\]
+with $|\varphi(x)|+|\nabla\varphi(x)|\le Ce^{-\gamma'|x-c_-|}$. Moreover $|\nabla\mathcal N(A_*)|_\infty\le C(\eps+|A_*|_\infty)|A_*|_{C^1}\le C(\eps+\beta)^2$ by Proposition~\ref{prop:action}(a). Hence
+\[
+|\omega(c)|\le C\sum_{y'}e^{-\gamma'|c_--y'|}\big(\mathsf j(y')+\mathsf N_1(y')\big)+C(\eps+\beta)^2 .
+\]
+
+\emph{Step 3: second order.} By Propositions~\ref{prop:action} and~\ref{prop:euler-lagrange},
+\[
+D^TDA_*=d\mathcal Q(A_*)^T\omega-J_{U_0}-\nabla\mathcal N(A_*).
+\]
+By Proposition~\ref{prop:Q-expansion}(c), the kernel of $d\mathcal Q(A_*)^T=\bQ^T+d\Cav_k(A_*)^T$ connects a bond $b$ only to bonds $c$ with $b_-\in S_c$. Hence $|d\mathcal Q(A_*)^T\omega|_{\Lam_1(c_y)}\le C\max\{|\omega(c)|:|c_--y|_\infty\le2\}$. Since $RD^TA_*=0$, we have $\Lap_{U_0}A_*=D^TDA_*+DP_\cV D^TA_*$. The second term is bounded on $\Lam_1(c_y)$ by $C\sum_{y'}e^{-\gamma|y-y'|}|A_*|_{B(y')}$, by the pointwise bound on $\partial P_\cV D^T$ in Proposition~\ref{prop:cov-R}(e) (Theorem~\ref{thm:reg-scalar}(g)) and $D=\partial+T$. This bounds $|\Lap_{U_0}A_*|_{\Lam_1(c_y)}$. For the H\"older quotient, write $\Lap_{U_0}$ in the gauge $u_y$ in the normal form of Lemma~\ref{lem:cov-expansion}. Then $-\Lap\tilde A_{*,y}=R(u_y)\Lap_{U_0}A_*-\sum_\mu\partial^*_\mu(a_\mu\tilde A_{*,y})-b\tilde A_{*,y}$ on $\Lam_3(c_y)$, with $|a_\mu|+[a_\mu]_\alpha+|b|\le C\eps$. Theorem~\ref{thm:local-regularity}(d) gives
+\[
+\Hol{\partial\tilde A_{*,y}}{\Lam_1(c_y)}\le C\Big(|\Lap_{U_0}A_*|_{\Lam_2(c_y)}+\max_{|y'-y|_\infty\le3}\mathsf N_1(y')\Big).
+\]
+The cube $\Lam_2(c_y)$ is covered by the cubes $\Lam_1(c_{y'})$ with $|y'-y|_\infty\le1$; the values of $\omega$ that enter there are bounded by Step~2 for all bonds. Combining Steps 1--3 gives (a).
+
+(b) By \eqref{eq:plaquette-product}, $U_\flat(\partial p)=e^{\ii\eta^2\zeta_p(A_*)}U_0(\partial p)$ with $|\zeta_p(A_*)|\le C(|A_*|+|\nabla A_*|)$ on the bonds of $p$. Lemma~\ref{lem:log-estimates}(b) gives the bound on the curvature. By Proposition~\ref{prop:action}(d) and Proposition~\ref{prop:euler-lagrange}, $J_{U_\flat}=\Psi(A_*)^{-T}d\mathcal Q(A_*)^T\omega$. As in Step 3, this is bounded at $b$ by $C\max\{|\omega(c)|:|c_--y|_\infty\le2\}$.
+\end{proof}
+
+\subsection{The local improvement}\label{ss:29.2}
+
+\begin{lemma}[Local improvement]\label{lem:improvement}
+There are $\eps_{\rm imp}>0$, $C_{\rm imp}\ge1$ and an integer $n_0$, depending only on $d$, $L$, $G$, $a$, $\alpha$ and $M$, with the following property. Let $k\ge1$, $n\ge n_0$, and let $V\in\mathfrak U_k(\eps_1)$ be a real configuration on $\T$. Let $U\in\mathfrak B(V)$ be a critical point of $S|_{\mathfrak B(V)}$. Suppose that $U$ is $(M,\eps_0)$-regular and $U\in\mathfrak U(\eps_0)$, with $\eps_0\le\eps_{\rm imp}$. Then $U$ is $(M,\eps_0')$-regular and $U\in\mathfrak U(\eps_0')$, where
+\[
+\eps_0'=C_{\rm imp}\eps_1+\tfrac12\eps_0 .
+\]
+If $\eps_0'>1$, the regularity conclusion is read as $(M,1)$-regularity; it gives the three bounds of Definition~\ref{def:regular} with $\eps_0'$ in place of $\eps$.
+\end{lemma}
+
+The point is that $C_{\rm imp}$ does not depend on $\eps_0$. Iterating the lemma brings the regularity parameter down to $2C_{\rm imp}\eps_1$, whatever the a priori bound, as long as the latter is at most $\eps_{\rm imp}$.
+
+\begin{proof}
+If $\eps_1>2\eps_0$ there is nothing to prove, since then $\eps'_0\ge\eps_0$. So let $\eps_1\le2\eps_0$.
+
+\emph{Choice of constants.} Let $C_7,\gamma_7$ be as in Proposition~\ref{prop:localized}, $C_8,q$ as in Lemma~\ref{lem:adapted-gauge}, and $C_9$ as in Lemma~\ref{lem:splice}. Put
+\[
+K_R=2C_9\big(1+C_8R^q\big),\qquad S_1=\sum_{w\in\Z^d}e^{-\gamma_7|w|}(1+|w|),\qquad T(t)=\sum_{w\in\Z^d,\,|w|_\infty>t}e^{-\gamma_7|w|},
+\]
+and $K_1=\max(5,C_7)$. Fix an integer $R\ge64(M+1)$ with
+\[
+K_1C_7K_R\,T(R/8)\le\tfrac14 ;
+\]
+this is possible because $K_R$ grows polynomially and $T$ decays exponentially. Let $n_0=4R+16$. Choose $\eps_{\rm imp}$ so small that $K_1C_7K_R^2\eps_{\rm imp}\le\frac14$, $K_R\eps_{\rm imp}\le c_6$, $\eps_{\rm imp}\le\theta_0$, $C_8R^q\eps_{\rm imp}\le1$ and $C_9(1+C_8R^q)\eps_{\rm imp}\le c_1$.
+
+\emph{Step 1: the adapted gauge.} Fix $y\in\T$. By Lemma~\ref{lem:adapted-gauge} there is a real gauge transformation $u$ on $\Lam_R(y)$ with $U^u=e^{\ii\eta A}$, $\|A\|_{1,\alpha;\Lam_R(y)}\le s:=C_8R^q\eps_0$, and $V^u(c)=e^{\ii B_y(c)}$ with $|B_y(c)|\le d(|c_--y|_\infty+1)\eps_1$ for the bonds of $\T$ in $\Lam_R(y)$.
+
+\emph{Step 2: the spliced reference.} Let $U^\sharp$ be the spliced configuration of Definition~\ref{def:splice}, built with this $u$. By Lemma~\ref{lem:splice}, $U^\sharp$ is $(M,\eps^\sharp)$-regular with $|J_{U^\sharp}|\le\eps^\sharp$, where $\eps^\sharp=C_9(\eps_0+s)$. Moreover $V(c)W^\sharp(c)^{-1}=e^{\ii B^\sharp(c)}$ with $|B^\sharp|_\infty\le\beta^\sharp:=C_9(\eps_0+s)$, where $W^\sharp=(U^\sharp)^{(k)}$. Then $\eps^\sharp+\beta^\sharp\le K_R\eps_0\le c_6$. So Theorem~\ref{thm:variational} applies with the reference $U^\sharp$ and the coarse configuration $V$.
+
+\emph{Step 3: identification.} By Theorem~\ref{thm:variational}(a), $S|_{\mathfrak B(V)}$ has exactly one critical orbit in $\mathfrak B(V)\cap\mathfrak U(\theta_0)$. Since $U$ is critical and lies in $\mathfrak U(\eps_0)\subset\mathfrak U(\theta_0)$, it belongs to this orbit. Hence $U=(e^{\ii\eta A^\sharp_*}U^\sharp)^v$ for a real gauge transformation $v$, where $A^\sharp_*$ is the Landau representative relative to $U^\sharp$. Applying $u$, we get on the bonds of $\Lam_{R/4}(y)$, where $(U^\sharp)^u=1$,
+\[
+U^{uv^{-1}}=e^{\ii\eta\tilde A},\qquad\tilde A=R(u)A^\sharp_* .
+\]
+In this gauge $\nabla_{U^\sharp}$ is the ordinary difference, and $u$ is a gauge in which $U^\sharp$ satisfies (B) near every block in $\Lam_{R/4-4}(y)$.
+
+\emph{Step 4: the data near $y$.} Apply Proposition~\ref{prop:localized} with reference $U^\sharp$. Let $y'\in\T$ with $|y'-y|_\infty\le R/4-3$. Every bond $c$ with $|c_--y'|_\infty\le1$ has $B(c_-)\cup B(c_+)\subset\Lam_{R/4}(y)$. So, by Lemma~\ref{lem:splice}(c), $(W^\sharp)^u(c)=1$, and
+\[
+|B^\sharp(c)|=|\ell(V^u(c))|=|B_y(c)|\le d(|y'-y|_\infty+2)\eps_1 .
+\]
+Moreover $\mathsf j(y')=0$ by Lemma~\ref{lem:splice}(b). For the remaining $y'$ we only use $\mathsf b(y')+\mathsf j(y')\le K_R\eps_0$. Let $y_1\in\T$ with $|y_1-y|_\infty\le4M+4$. For $|y'-y|_\infty>R/4-3$ we have $|y_1-y'|_\infty>R/8$, because $R\ge64(M+1)$. Therefore
+\[
+\mathsf N(y_1)\le C_7dS_1(4M+7)\,\eps_1+C_7K_R\,T(R/8)\,\eps_0+C_7K_R^2\eps_0^2 .
+\]
+
+\emph{Step 5: conclusion.} Let $z\in\Tf$, and choose $y\in\T$ with $|z-y|_\infty\le1$. Then $\Lam_{4M+2}(z)\subset\Lam_{4M+3}(y)\subset\Lam_{R/4-4}(y)$. By Step 3, $U^{uv^{-1}}=e^{\ii\eta\tilde A}$ on $\Lam_{4M+2}(z)$. On it, $|\tilde A|$, $|\partial\tilde A|$ and the H\"older quotients of $\partial\tilde A$ on cubes $\Lam_1(c_{y_1})$ are bounded by $\mathsf N(y_1)$, with the gauge $u_{y_1}=u$. Put $H=\max_{|y_1-y|_\infty\le4M+4}\mathsf N(y_1)$. Let $x\ne x'$ be points of a cube $\Lam_3(z')\subset\Lam_{4M+2}(z)$. If $|x-x'|_\infty<\frac12$, then in each coordinate $x$ and $x'$ differ by a multiple of $\eta=1/N$ less than $\frac12$, hence by at most $\frac{N-1}{2N}$, since $N$ is odd. A difference involves points at most $2\eta$ beyond its base point in each coordinate (for $\partial_\mu\tilde A_\mu$, the point $x+2\eta e_\mu$). So the points of the two differences span, in each coordinate, an interval of length at most $\frac{N-1}{2N}+\frac2N=\frac{N+3}{2N}\le1$, since $N\ge3$. The centres $c$ with $|p-c|_\infty\le1$ for all these points $p$ form, in each coordinate, a closed interval of length at least $1$. The block centres form a grid of spacing $1$, so one of them lies in it: these points lie in a common cube $\Lam_1(c_{y_1})$, and then $|y_1-y|_\infty\le4M+4$. If $|x-x'|_\infty\ge\frac12$, the H\"older quotient is at most $4\sup|\partial\tilde A|$. Hence $|\tilde A|\le H$, $|\partial\tilde A|\le H$, and the H\"older quotients of $\partial\tilde A$ on the cubes $\Lam_3(z')\subset\Lam_{4M+2}(z)$ are at most $4H$. These are the three bounds of Definition~\ref{def:regular}, and each is at most $K_1H$, since $K_1\ge5$. By Proposition~\ref{prop:localized}(b), with $F_{U^\sharp}=0$ near $y$, the curvature and the current of $U$ on the plaquettes and bonds based in $B(y)$ are bounded by $C_7\mathsf N(y)$. All these quantities are gauge invariant. Every plaquette and bond is based in some block, and every $z$ is close to some $y$. With the choice of $R$ and $\eps_{\rm imp}$, Step~4 gives the lemma with $C_{\rm imp}=K_1C_7dS_1(4M+7)$:
+\[
+K_1\max\mathsf N\le C_{\rm imp}\eps_1+\tfrac14\eps_0+\tfrac14\eps_0 .\qedhere
+\]
+\end{proof}
+
+\begin{remark}[Comparison with {\cite[Sect.~F]{BalVar}}]\label{x:29.3}
+The structure of the argument is Ba\l aban's: near a point the minimizer equals, up to small errors, $\bH$ applied to the coarse field in a gauge centred at the point (for us the gauge of the contours $\Gamma^{\rm co}$ of Section~\ref{sec:local-gauges}); the latter grows only linearly with the distance, with slope given by the curvature of $V$, while $\bH$ decays exponentially. Compare \cite[(159)--(167)]{BalVar}. The difference is in how the problem is localized. Ba\l aban formulates a new variational problem on a nested sequence of cubes around the point. The configuration is frozen outside, and the problem is solved relative to the trivial configuration. Here the problem is not changed. Only the reference configuration is changed, and Theorem~\ref{thm:variational} is applied once more on the torus. This is possible because that theorem is uniform in the reference. The splicing is a purely geometric operation (Lemma~\ref{lem:splice}). As in \cite[(166)]{BalVar}, the quadratic error forces the a priori bound to be small in terms of the localization radius.
+\end{remark}

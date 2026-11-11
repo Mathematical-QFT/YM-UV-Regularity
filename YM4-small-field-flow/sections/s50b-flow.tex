@@ -1,0 +1,432 @@
+\section{The small-field flow in generation form}\label{sec:flow4}
+
+This section puts Sections~\ref{sec:generations} and~\ref{sec:extraction} into the step of Section~\ref{sec:cluster}, and iterates the step. The old generations, each with its counterterm $-\beta_jS$, are grouped into old activities that are bounded uniformly in $k$ (Definition~\ref{def:old-activities}, Proposition~\ref{prop:old-activities}), and the new terms of the step form a raw generation (Lemma~\ref{lem:raw-new}), whose symmetrization is the new generation and whose coefficient $\beta_{k+1}$ fixes the next coupling. Theorem~\ref{thm:gen-step} and Proposition~\ref{prop:gen-one} show that one step preserves the generation form, under the condition on $\gamma$ of Remark~\ref{rem:flow-constants}. Section~\ref{subsec:flow4-flow} iterates them over all scales on the given torus: the flow theorem (Theorem~\ref{thm:sf-flow}), the continuity in the couplings (Proposition~\ref{prop:flow-continuity}, Corollary~\ref{cor:bare-continuity}) and the stability bound (Corollary~\ref{cor:sf-stability}).
+
+\paragraph{Setting.} Here $d=4$, and $G$ is compact, connected and simple. The parameters are chosen as in Remark~\ref{rem:parameters}(1)--(5), with the domain conditions (DC1)--(DC6) of Remark~\ref{rem:domain-constants}, and $\delta_1^\flat=\frac14\delta_1$. The torus has $n_K\ge n_{\min}$, so (T0)--(T2) hold at every scale $k\le K$ (Lemma~\ref{lem:torus}(a)). Objects of scale $k$ are read in the units of scale $k$ unless said otherwise. For a domain $P$ of scale $k$, $\mathcal U(P)=\mathcal U(P;\theta_r,\delta_1,\delta_0)$ and $\mathcal U^\flat(P)=\mathcal U(P;\theta_r,\delta_1^\flat,\delta_0)$ are the domains of Section~\ref{sec:generations}, taken at scale $k$. For a family $E$ indexed by the polymers $X$ of scale $j$ and a number $\beta$ we write $(E-\beta S)(U)=\sum_XE(X,U)-\beta S(U)$.
+
+\begin{readingbox}[Recall from Sections~\ref{sec:det-local}--\ref{sec:extraction}]
+\begin{itemize}
+\item \emph{Domains.} $\mathcal U(P;\theta_r,\delta_1,\delta_0)$ are the graded domains of Definition~\ref{def:graded}, with the domain constants and the conditions (DC1)--(DC6) of Remark~\ref{rem:domain-constants}. The raw output of a step is bounded on the domains $\mathcal U$, the generations on the smaller domains $\mathcal U^\flat$, and a symmetry of the grid maps $\mathcal U^\flat(X)$ into $\mathcal U(rX)$ \eqref{eq:flat-in-full}.
+\item \emph{Generations.} A generation $E$ of scale $j$ is a family of normalized graded activities $E(X,\cdot)$ on $\mathcal U^\flat(X)$, indexed by the polymers $X$ of scale $j$, with the grid covariance (G2), the invariance (G3) of its sum $\Phi_E$ under the lattice symmetries, and the covariance (G4) under the symmetries of the grid; its norm is $\|E\|_j=\sup_Xe^{\kappa_nd_j(X)}\|E(X)\|$ (Definition~\ref{def:generation}). Its coefficient $\beta_E$ is defined by $\bar T_E=\beta_E\bar T_S$ (Proposition~\ref{prop:period-iso}).
+\item \emph{Old polymers at a later scale $k$.} They are recent, small or large (Definition~\ref{def:polymer-classes}). $\cX^{\rm sm}_j(\Box)$ is the set of the small polymers of scale $j$ based in the grid cube $\Box$; their sum minus $\beta_jS_\Box$ is extracted in Proposition~\ref{prop:extraction}, and the other polymers are bounded in Lemma~\ref{lem:large-later}.
+\item \emph{The step.} Theorem~\ref{thm:sf-step} takes old activities $\mathcal E_k(X)$, graded activities with a margin of dependence $r_E$, that satisfy $\sup|\mathcal E_k(X,\cdot)|\le\|\mathcal E_k\|e^{-\kappa_n\mathsf d(X)}$ (the paragraph before Proposition~\ref{prop:localized-pieces}). Here they are the grouped activities of Definition~\ref{def:old-activities}, with $r_E=0$ (Remark~\ref{rem:extension}). The enlarged closure $\hat Y$ is that of Remark~\ref{rem:reblock-margins}.
+\end{itemize}
+$\mathsf K$ is the bound on the generations (Remark~\ref{rem:flow-constants}); it is unrelated to the number $K$ of steps, and the two meet in the condition $g_0^{-2}\ge\gamma^{-2}+KC_\beta\mathsf K$ of Theorem~\ref{thm:sf-flow}.
+\end{readingbox}
+
+\subsection{The old activities}\label{subsec:flow4-old}
+
+At scale $k$ an old generation $E^{(j)}$, $j\le k$, is split as in Remark~\ref{rem:old-later}: the small polymers of each grid cube $\Box$ of scale $k$, compared with $\beta_jS_\Box$ (Proposition~\ref{prop:extraction}), and the other polymers, grouped by their closures (Lemma~\ref{lem:large-later}).
+
+\begin{definition}[Old activities]\label{def:old-activities}
+Let $1\le k\le K$. For $1\le j\le k$ let $E^{(j)}$ be a generation of scale $j$ with (G1)--(G4) and $\|E^{(j)}\|_j<\infty$, and let $\beta_j=\beta_{E^{(j)}}$ be its coefficient (Proposition~\ref{prop:period-iso}). For a grid cube $\Box$ and a polymer $Y$ of scale $k$ let
+\[
+\Psi^{(j)}_\Box=\sum_{X\in\cX^{\rm sm}_j(\Box)}E^{(j)}(X,\cdot)-\beta_jS_\Box,\qquad E^{(j),\rm ne}_Y=\sum_{X\text{ not small at scale }k:\ \operatorname{cl}_kX=Y}E^{(j)}(X,\cdot)
+\]
+be the activities of Proposition~\ref{prop:extraction} and of Section~\ref{subsec:extraction-other} for $E=E^{(j)}$. The \emph{old activities of step $k$} are the functions
+\[
+\mathcal E_k(Y)=\sum_{j=1}^k\Big(\one_{\{Y=\Box^+\}}\Psi^{(j)}_\Box+E^{(j),\rm ne}_Y\Big),
+\]
+indexed by the polymers $Y$ of scale $k$. Here $\one_{\{Y=\Box^+\}}\Psi^{(j)}_\Box$ is $\Psi^{(j)}_\Box$ if $Y=\Box^+$ for a grid cube $\Box$ of scale $k$, and $0$ otherwise.
+\end{definition}
+
+The set $\Box^+$ is the union of the $3^4$ grid cubes of scale $k$ centred at the points of $c+M\{-1,0,1\}^4$, where $c$ is the centre of $\Box$ (Section~\ref{subsec:flow-norm}). These cubes are distinct, since $n_k\ge8LM$, and they are $*$-connected; so $\Box^+$ is a polymer of scale $k$. It determines $\Box$, the cube of $\Box^+$ whose centre is the centre of $\Box^+$. So the indicator picks at most one cube $\Box$.
+
+For the recent generations, $k-j<m_0$, no polymer of scale $j$ is small at scale $k$ (Definition~\ref{def:polymer-classes}). Then $\Psi^{(j)}_\Box=-\beta_jS_\Box$, and all polymers of $E^{(j)}$ enter the second term. So the counterterms of the recent generations are carried by the polymers $\Box^+$ as well. For the newest generation, $j=k$, the closure $\operatorname{cl}_kX$ is $X$, and $E^{(k),\rm ne}_Y=E^{(k)}(Y,\cdot)$. The grouping is necessary, and the counterterm $-\beta_jS_\Box$ is never separated from the small polymers of $\Box$ of the same generation: $\sum_{j\le k}\beta_j$ is not bounded uniformly in $k$, so the counterterms cannot be old activities of their own (Remark~\ref{rem:extraction}(c)).
+
+\begin{proposition}[Old activities]\label{prop:old-activities}
+Let $1\le k\le K$ and $\mathsf K>0$. For $1\le j\le k$ let $E^{(j)}$ be a generation of scale $j$ with (G1)--(G4) and $\|E^{(j)}\|_j\le\mathsf K$, with $\beta_j=\beta_{E^{(j)}}$, and let $\mathcal E_k$ be the old activities of Definition~\ref{def:old-activities}.
+\begin{enumerate}[label=(\alph*)]
+\item Each $\mathcal E_k(Y)$ is a normalized graded activity at $Y$ on $\mathcal U^\flat(Y)=\mathcal U(Y;\theta_r,\delta_1^\flat,\delta_0)$, in the units of scale $k$, real at real configurations.
+\item For every polymer $Y$ of scale $k$,
+\[
+\sup_{\mathcal U^\flat(Y)}|\mathcal E_k(Y,\cdot)|\le C_{\rm old}\,\mathsf K\,e^{-\kappa_nd_k(Y)},\qquad C_{\rm old}=C_{\rm ex}\Big(m_0+\frac1{1-L^{-\alpha}}\Big)e^{15\kappa_n}+2C_{\rm ne},
+\]
+with $C_{\rm ex}$ of Proposition~\ref{prop:extraction} and $C_{\rm ne}=3^dK_0L^{5m_0}$ of Lemma~\ref{lem:large-later}. The constant $C_{\rm old}$ depends only on the parameters of Remark~\ref{rem:parameters}(1)--(5). It does not depend on $k$, $K$, the torus, the couplings or $\mathsf K$.
+\item Let $U$ be a configuration that lies in $\mathcal U^\flat(Y)$ for every polymer $Y$ of scale $k$; for instance a background field $U_k(V)$, $V\in\mathfrak U_k(h)$, at an admissible threshold $h$. Then
+\[
+\sum_Y\mathcal E_k(Y,U)=\sum_{j=1}^k\big(E^{(j)}-\beta_jS\big)(U),
+\]
+the sum on the left running over the polymers $Y$ of scale $k$.
+\item \emph{(The hypothesis of the step.)} The family $\mathcal E_k$ satisfies the hypothesis on the old activities stated before Proposition~\ref{prop:localized-pieces}, at step $k$, with $r_E=0$, $P=Y$, $\mathsf d=d_k$, the domains $\mathcal U^\flat(Y)$, and $C_{\rm old}\mathsf K$ in place of $\|\mathcal E_k\|$. Let $Y'\supset Y$ be a polymer of scale $k+1$, and let $U'$ be the extension of a point of the domain $\mathcal U(Y')$ of scale $k+1$ (Section~\ref{sec:step-quantities}, Setting). Under (Q1) and (Q3) at step $k$, Proposition~\ref{prop:composed} applies to $\mathcal E_k(Y)$ at $U'$, with $\zeta=w$, with $\delta_1^\flat$ in place of $\delta_1$ and with the slack $\frac18\delta_1$. Then $\tau\le C_PL^dg_kp_{0,k}/\delta_1$, and $\epsilon_{\rm m}\le C_P\tau\,C_{\rm old}\mathsf K$ in Proposition~\ref{prop:localized-pieces}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}\hasdetail{prop:old-activities}
+(a) Let $Y$ be a polymer of scale $k$. Each $E^{(j),\rm ne}_Y$ is a normalized graded activity at $Y$ on $\mathcal U^\flat(Y)$, by Lemma~\ref{lem:large-later}(a). It is real at real configurations. Indeed, every $X$ in its sum lies in $Y$; a real point of $\mathcal U^\flat(Y)$ of scale $k$ lies in $\mathcal U^\flat(X)$ of scale $j$, by Remark~\ref{rem:domain-constants}(i) with $\delta_1^\flat$ in place of $\delta_1$; and $E^{(j)}(X,\cdot)$ is real at the real points of $\mathcal U^\flat(X)$, by (G1). If $Y=\Box^+$, each $\Psi^{(j)}_\Box$ is a normalized graded activity at $\Box^+$ on $\mathcal U^\flat(\Box^+)$, real at real configurations, by Proposition~\ref{prop:extraction}. So $\mathcal E_k(Y)$ is a finite sum of functions of $U|_Y$, each holomorphic on an open set that contains $\{U|_Y:U\in\mathcal U^\flat(Y)\}$. It is holomorphic on the intersection of these open sets, and it is invariant under real gauge transformations on $\mathcal U^\flat(Y)$, normalized and real at real configurations.
+
+(b) Let $U\in\mathcal U^\flat(Y)$. By Lemma~\ref{lem:large-later}(d), $\sum_{j=1}^k|E^{(j),\rm ne}_Y(U)|\le2C_{\rm ne}\mathsf K\,e^{-\kappa_nd_k(Y)}$. If $Y$ is not of the form $\Box^+$, this is the bound. Let $Y=\Box^+$. By Remark~\ref{rem:extraction}(d),
+\[
+\sum_{j=1}^k|\Psi^{(j)}_\Box(U)|\le C_{\rm ex}\mathsf K\Big(m_0+\frac1{1-L^{-\alpha}}\Big).
+\]
+This includes the recent generations, for which $\Psi^{(j)}_\Box=-\beta_jS_\Box$ is bounded by $|\beta_j|\le C_\beta\mathsf K$ (Proposition~\ref{prop:period-iso}(b)) and by $|S_\Box|\le6C_sM^4$ on $\mathcal U(\Box^+)\supset\mathcal U^\flat(\Box^+)$ (Lemma~\ref{lem:plaquette-family}(c)); these are the bounds in the proof of Proposition~\ref{prop:extraction} for $m<m_0$. The closed cube filled by each cube of $\Box^+$ contains a corner of the closed cube filled by $\Box$, and a path along $15$ edges of the latter visits its $16$ corners; so $d_k(\Box^+)\le15$. Hence $\sum_j|\Psi^{(j)}_\Box(U)|\le C_{\rm ex}(m_0+(1-L^{-\alpha})^{-1})e^{15\kappa_n}\mathsf K\,e^{-\kappa_nd_k(\Box^+)}$, and (b) follows.
+
+(c) This is the decomposition of Remark~\ref{rem:old-later}, summed over $j$. A polymer $X$ of scale $j\le k$ is either small at scale $k$, and then based in exactly one grid cube $\Box$ of scale $k$, or not small, and then $\operatorname{cl}_kX$ is exactly one polymer of scale $k$ (Section~\ref{subsec:flow-norm}, Lemma~\ref{lem:grid-nesting}(c)). In the first case $X\subset\Box^+$ (Lemma~\ref{lem:small-polymers}(b)), and $U\in\mathcal U^\flat(\Box^+)$ lies in $\mathcal U^\flat(X)$ of scale $j$; in the second case $X\subset\operatorname{cl}_kX$, and the same holds. So every term $E^{(j)}(X,U)$ is defined, and it occurs exactly once on the left. The functions $S_\Box$ add up to $S$, and each $\beta_jS_\Box$ occurs once, in $\mathcal E_k(\Box^+)$. All sums are finite. The background fields $U_k(V)$ lie in every $\mathcal U^\flat(Y)$ by the paragraph before Definition~\ref{def:generation}, at scale $k$.
+
+(d) The polymers of scale $k$ are the connected unions of boxes of the paving, which is the polymer grid of scale $k$ at step $k$ (Section~\ref{subsec:cl-loc}); the rest of the hypothesis is (a) and (b). The set $Y^{(3)}$ lies within distance $3L^{-1}\le1$ of $Y'$ in the units of step $k+1$, where the extension equals the point of $\mathcal U(Y')$ (Remark~\ref{rem:bg-to-graded}). So the paragraph after Proposition~\ref{prop:composed} applies with $X=Y$: the slack is at least $\frac18\delta_1$, and $\tau\le C_PL^dg_kp_{0,k}/\delta_1$ for $\zeta=w$. The bound on $\epsilon_{\rm m}$ is the definition $\epsilon_{\rm m}=C_P\tau\|\mathcal E_k\|$ of Proposition~\ref{prop:localized-pieces}, with $\|\mathcal E_k\|\le C_{\rm old}\mathsf K$.
+\end{proof}
+
+The old activities are of order $\mathsf K$ per grid cube, uniformly in $k$; in the step they are small only through the composed activities, whose size $\tau$ is proportional to $g_kp_{0,k}$. This is Ba\l aban's mechanism \cite[(2.41)]{BalYM4II}: the activities are not contracted, and smallness comes from the fluctuation cutoff.
+
+\subsection{The new generation of a step}\label{subsec:flow4-new}
+
+Let $0\le k<K$, and consider the step from scale $k$ to scale $k+1$, in the units of step $k$ (Sections~\ref{sec:step-quantities}--\ref{sec:cluster}; Proposition~\ref{prop:first-step} for $k=0$). Its new terms are:
+\begin{itemize}
+\item the one-loop pieces $\mathfrak e(X,\cdot)$, for the polymers $X$ of scale $k$ (Proposition~\ref{prop:one-loop-polymer}; at $k=0$ they are built from $\Delta_0$, Proposition~\ref{prop:first-step}(c));
+\item the Jacobian terms $\log\mathfrak j_c$, for the positively oriented bonds $c$ of $\T^{(k+1)}$ (Proposition~\ref{prop:jacobians});
+\item the outputs $E^\#(Y)=E^\#_{\rm p}(Y)+E^\#_{\rm m}(Y)$ of Corollary~\ref{cor:two-classes}, for the polymers $Y$ of scale $k$; at $k=0$, $E^\#_{\rm m}=0$.
+\end{itemize}
+The paving of the step is the polymer grid of scale $k$ (Section~\ref{subsec:cl-loc}), so the polymers of the step are the polymers of scale $k$. The pieces and the outputs are defined at every reference of Section~\ref{sec:step-quantities} (Remark~\ref{rem:source-free}). For a polymer $Y'$ of scale $k+1$ and a point $U$ of the domain $\mathcal U(Y')$ of scale $k+1$, the outputs $E^\#(Y,U)$ with $\hat Y=Y'$ are those of the restricted system of Remark~\ref{rem:extension} for $Y'$, at the extension of $U$; they do not depend on the extension. Here $\hat Y$ is the union of the grid cubes of scale $k+1$ that meet $Y^{(r')}$ (Remark~\ref{rem:reblock-margins}), and $\bar X=\operatorname{cl}_{k+1}X$ (Section~\ref{subsec:flow-reblock}). For a bond $c$ of $\T^{(k+1)}$ let $Y'_c$ be the union of the grid cubes of scale $k+1$ that meet $B'(c_-)\cup B'(c_+)$. A grid cube of scale $k+1$ is a union of blocks of $\T^{(k+1)}$ (Section~\ref{subsec:flow-norm}), so each block lies in exactly one of them, and two neighbouring blocks lie in equal or face-adjacent ones. Hence $Y'_c$ is a polymer of scale $k+1$ with at most two cubes, and $d_{k+1}(Y'_c)=0$, since a point of a common face meets both closed cubes. Each polymer $X$, each bond $c$ and each polymer $Y$ of scale $k$ determines exactly one polymer $\bar X$, $Y'_c$, $\hat Y$ of scale $k+1$.
+
+\begin{definition}[The raw new generation]\label{def:raw-new}
+Let $g_k$ be the coupling of the step, and let $\mathcal E_k$ be old activities of step $k$ as in Lemma~\ref{lem:raw-new} below ($\mathcal E_k=0$ if $k=0$). The \emph{raw new generation} of the step from scale $k$ to scale $k+1$ is the family $E'=E'^{(k+1)}[\mathcal E_k,g_k]$, indexed by the polymers $Y'$ of scale $k+1$, with
+\[
+E'(Y',U)=\sum_{X:\,\bar X=Y'}\mathfrak e(X,U)+\sum_{c:\,Y'_c=Y'}\log\mathfrak j_c(U)+\sum_{Y:\,\hat Y=Y'}\big(E^\#(Y,U)-E^\#(Y,1)\big)
+\]
+for $U\in\mathcal U(Y')$, the domain of scale $k+1$. Here $\mathfrak e$, $\log\mathfrak j_c$ and $E^\#$ are the new terms of the step at the coupling $g_k$, with the old activities $\mathcal E_k$. The sums run over the polymers $X$ and $Y$ of scale $k$ and the positively oriented bonds $c$ of $\T^{(k+1)}$. The family $E'$ is read as a family of scale $k+1$, in the units of scale $k+1$.
+\end{definition}
+
+The family $E'$ is defined by the step at the coupling $g_k$, with the cutoffs $w$ and $p_{0,k}$ of step $k$. It does not involve the coupling $g_{k+1}$ or any threshold of scale $k+1$.
+
+\begin{lemma}[The raw new generation]\label{lem:raw-new}
+Let $0\le k<K$, and let $E'$ be the raw new generation of the step from scale $k$ to scale $k+1$. For $k\ge1$, assume the following. The density $\rho$ of the step is as in Theorem~\ref{thm:step}, at the threshold $\tilde h=h_k$ and the coupling $g=g_k$, with $\mathfrak E(V)=\sum_Y\mathcal E_k(Y,U_k(V))$ for $V\in\mathfrak U_k(h_k)$. The old activities $\mathcal E_k(Y)$ are indexed by the polymers $Y$ of scale $k$, and they are normalized graded activities at $Y$ on $\mathcal U^\flat(Y)$, real at real configurations, with $\sup_{\mathcal U^\flat(Y)}|\mathcal E_k(Y,\cdot)|\le\|\mathcal E_k\|e^{-\kappa_nd_k(Y)}$. The hypotheses of Theorem~\ref{thm:sf-step} hold for them at step $k$, except those that involve the curvature bound $\eps'_1$ of $V'$, namely (Q2) and $\eps'_1\le a_{\rm step}$, which are assumed in~(c); $\epsilon_{\rm p}$ and $\epsilon_{\rm m}$ are those of Proposition~\ref{prop:localized-pieces}. For $k=0$, let $\rho=\exp(-g_0^{-2}S)$, and assume the hypotheses of Proposition~\ref{prop:first-step} in the same sense, with $\epsilon_{\rm p}$ of the first step and $\epsilon_{\rm m}=0$.
+\begin{enumerate}[label=(\alph*)]
+\item Each $E'(Y',\cdot)$ is a normalized graded activity at $Y'$ on $\mathcal U(Y')=\mathcal U(Y';\theta_r,\delta_1,\delta_0)$, in the units of scale $k+1$, and it is real at real configurations. That is, $E'$ has (G1) with the domains $\mathcal U(Y')$ in place of $\mathcal U^\flat(Y')$.
+\item With $\|\cdot\|^{\rm raw}_{k+1}$ of Definition~\ref{def:symmetrization},
+\[
+\|E'\|^{\rm raw}_{k+1}\le B_{\rm new}+C_{\rm new}(\epsilon_{\rm p}+\epsilon_{\rm m}),\qquad B_{\rm new}=\max\big(1,\ 3^dK_0L^dC_{\mathfrak e}+2dM^4C_{\rm jac}\big).
+\]
+Here $C_{\mathfrak e}$ is a constant with $|\mathfrak e(X,U)|\le C_{\mathfrak e}e^{-(\kappa_2-1)|X|}$ for all polymers $X$ and all $U\in\mathcal U(X;c_a,c_a,c_a)$ (Proposition~\ref{prop:one-loop-polymer}(b)), $C_{\rm jac}$ is the bound $C$ on $|\log\mathfrak j_c|$ of Proposition~\ref{prop:jacobians}(c), and $K_0$ is that of \eqref{eq:dM-facts}. The constant $C_{\rm new}$, given in the proof, depends only on the parameters of Remark~\ref{rem:parameters}(1)--(5). At $k=0$ the same holds with the constants of the first step (Proposition~\ref{prop:first-step}, end of the proof); we write $B^{(0)}_{\rm new}$ and $C^{(0)}_{\rm new}$ for them.
+\item Let $h'$ be an admissible threshold with $h'\le a_{\rm step}$ ($h'\le a^{(0)}_{\rm step}$ if $k=0$) such that (Q2) holds with $\eps'_1=h'$ and $\tilde h=h_k$. Let $V'\in\mathfrak U_{k+1}(h')$ and $U'=U_{k+1}(V')$. Then $U'\in\mathcal U(Y')$ for every polymer $Y'$ of scale $k+1$, and
+\[
+\begin{aligned}
+T_{\rm sf}(\rho)(V')=\mathcal N_kN_\chi\exp\Big(&-\frac1{g_k^2}S(U')-\frac12\sum_b\ell_k(b;1)+\sum_YE^\#(Y,1)\\
+&+\mathfrak E(U')+\sum_{Y'}E'(Y',U')\Big),
+\end{aligned}
+\]
+with $\mathfrak E(U')$ the function $\mathfrak E$ expressed through the background field, as in Theorem~\ref{thm:step}(f); $\mathfrak E=0$ if $k=0$.
+\item In~(c), suppose moreover that $\rho(rV)=\rho(V)$ for all $V$ and all $r\in\mathfrak S_{k+1}$, and that $V'\mapsto\mathfrak E(U_{k+1}(V'))$ is invariant under $\mathfrak S_{k+1}$ on $\mathfrak U_{k+1}(h')$. Then $E'$ has (G3) at the threshold $h'$: the function $\Phi_{E'}(V')=\sum_{Y'}E'(Y',U_{k+1}(V'))$ is invariant under $\mathfrak S_{k+1}$ on $\mathfrak U_{k+1}(h')$. So $E'$ is a raw generation of scale $k+1$ at threshold $h'$ (Definition~\ref{def:symmetrization}).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:raw-new}
+Let $Y'$ be a polymer of scale $k+1$ and $U\in\mathcal U(Y')$, the domain of scale $k+1$, read in the units of step $k$. By Remark~\ref{rem:domain-constants}(i), for every domain $P\subset Y'$ of scale $k$, $U$ lies in $\mathcal U(P;L^{-2}\theta_r,L^{-2}\delta_1,L^{-1}\delta_0)$ with the same real part, hence in $\mathcal U(P;c_a,c_a,c_a)$ by (DC1). For $k\ge1$ and an old polymer $P=Y\subset Y'$, Proposition~\ref{prop:old-activities}(d) applies at the extension of $U$, with the slack $\frac18\delta_1$; its proof uses only the properties of the old activities assumed here, and (Q1), (Q3). The pieces of Proposition~\ref{prop:localized-pieces}, the outputs of Corollary~\ref{cor:two-classes}, their bounds and the analyticity statements of Theorem~\ref{thm:sf-step} use (Q1) and (Q3) only, through Lemma~\ref{lem:white-noise}; (Q2) enters only the identification of Proposition~\ref{prop:small-field-step}, i.e.\ part~(c).
+
+(a) \emph{Locality.} The piece $\mathfrak e(X,\cdot)$ depends only on $U$ on the bonds of $X\subset\bar X$ (Proposition~\ref{prop:one-loop-polymer}(b)). The term $\log\mathfrak j_c$ depends only on $U$ on the bonds of $B'(c_-)\cup B'(c_+)\subset Y'_c$ (Proposition~\ref{prop:jacobians}(c)). The output $E^\#(Y)$ with $\hat Y=Y'$ depends on the reference only on $Y^{(r')}\subset Y'$ (Theorem~\ref{thm:mayer}(a) and the collar inclusions of Remark~\ref{rem:extension}), where the extension equals $U$. So $E'(Y',U)$ is a function of $U|_{Y'}$.
+
+\emph{Holomorphy.} The pieces $\mathfrak e(X,\cdot)$ and the terms $\log\mathfrak j_c$ are graded activities on the domains $\mathcal U(P;c_a,c_a,c_a)$, $P=X$ and $P=B'(c_-)\cup B'(c_+)$ (Propositions~\ref{prop:one-loop-polymer}(b) and~\ref{prop:jacobians}(c); at $k=0$ with Proposition~\ref{prop:first-step}(c)). By the inclusions above they are holomorphic functions of $U|_{Y'}$ near every point of $\{U|_{Y'}:U\in\mathcal U(Y')\}$. For the outputs, let $U_0\in\mathcal U(Y')$, fix a representation $(U_r,A_0)$ of $U_0$ on $Y'^{(3)}$, and let $U|_{Y'}$ vary near $U_0|_{Y'}$, with the same real part $U_r$. The extension $\tilde U=e^{\ii\eta\chi A}U_r$ of Remark~\ref{rem:bg-to-graded} depends holomorphically on $U|_{Y'}$. By Remark~\ref{rem:domain-constants}(ii) it is a complex reference of size $\delta_c<\delta_P$, whose real part is $(M,B_5\theta_r)$-regular with current at most $L^{-3}\theta_r$; at $k=0$, $\delta_c<\delta_{P,0}$ by (DC4). For $k\ge1$, Proposition~\ref{prop:composed} applies at $\tilde U$ to every old activity $\mathcal E_k(Y)$ with $Y\subset Y'$, by the first paragraph; these are the only old activities of the restricted system for $Y'$. By Theorem~\ref{thm:sf-step}, $E^\#_{\rm p}(Y)$ and $E^\#_{\rm m}(Y)$ are analytic in the reference at such references, and by Remark~\ref{rem:extension} the outputs with $\hat Y=Y'$ do not depend on the extension. As in Remark~\ref{rem:bg-to-graded}, $U|_{Y'}\mapsto E^\#(Y,U)$ is therefore holomorphic near $U_0|_{Y'}$.
+
+\emph{Gauge invariance and normalization.} Let $u$ be a real gauge transformation. Then $U^u\in\mathcal U(Y')$, with the representation $(U_r^u,R(u)A)$, and its extension is $\tilde U^u$, since the cutoff $\chi$ is scalar. All terms are invariant under real gauge transformations of the reference (Theorem~\ref{thm:sf-step}). Moreover $\mathfrak e(X,1)=0$ (Proposition~\ref{prop:one-loop-polymer}(b)), $\mathfrak j_c=1$ at the trivial base (Proposition~\ref{prop:jacobians}(b)), and the outputs are normalized by the subtraction of $E^\#(Y,1)$. So $E'(Y',1)=0$.
+
+\emph{Reality.} Let $U\in\mathcal U(Y')$ be real, with a representation $(U_r,A)$ on $Y'^{(3)}$. Then $A$ is real. Indeed, $e^{\ii\eta A(b)}=U(b)U_r(b)^{-1}\in G$, and $|\eta A(b)|<\delta_0\le c_a$, which is small by (DC1) and (DC5); so $\eta A(b)=\ell(e^{\ii\eta A(b)})\in\mathfrak g$ (Lemma~\ref{lem:log-estimates}(a),(d) and the choice of $c_G$ in Section~\ref{sec:averaging}). Since the bounds of Definition~\ref{def:graded} are strict, there is $t_0>1$ such that, for $z\in\C$ with $|z|<t_0$, the configuration $U_z$ equal to $e^{\ii\eta zA}U_r$ on the bonds of $Y'^{(3)}$ and to $U_r$ elsewhere lies in $\mathcal U(Y')$, with the representation $(U_r,zA)$. The function $\varphi(z)=E'(Y',U_z)$ is holomorphic there, by (a). For real $z$ the configuration $U_z$ is real. For real $z$ near $0$ its curvature and current are less than $\theta_r$ everywhere, since they are at $z=0$ and the torus is finite. Then $U_z\in\mathcal U(Y')$ with the representation $(U_z,0)$, and its extension is $U_z$ itself, a real reference of Section~\ref{sec:step-quantities} (Remark~\ref{rem:domain-constants}(ii)). At real references all terms of Theorem~\ref{thm:sf-step} are real, and so is $E^\#(Y,1)$. So $\varphi$ is real on an interval of real $z$ around $0$, hence $\varphi(z)=\overline{\varphi(\bar z)}$ for $|z|<t_0$, and $\varphi(1)=E'(Y',U)$ is real.
+
+(b) Let $U\in\mathcal U(Y')$.
+
+\emph{One-loop pieces.} By Proposition~\ref{prop:one-loop-polymer}(b) and $|X|^2e^{-|X|}\le1$, a constant $C_{\mathfrak e}$ as stated exists; at $k=0$, by Proposition~\ref{prop:first-step}(c). Here $|X|=|X|_M$. By \eqref{eq:dM-facts}, $d_k(X)\le c_\sharp(|X|_M-1)$ with $c_\sharp=\sqrt d$. By Remark~\ref{rem:parameters}(3), $(\kappa_2-1)/c_\sharp\ge\kappa_n+\kappa_0+2$, with $\kappa_2=3^{-d}\kappa'_w$. Hence
+\[
+\sup_{\mathcal U(\bar X)}|\mathfrak e(X,\cdot)|\le C_{\mathfrak e}e^{-(\kappa_2-1)|X|}\le C_{\mathfrak e}e^{-(\kappa_n+\kappa_0+2)d_k(X)},
+\]
+the supremum being over the domain of scale $k+1$ at $\bar X$. Lemma~\ref{lem:reblocking} with $\kappa=\kappa_n+\kappa_0+2$, whose reblocked rate is $L(\kappa_n+1)\ge\kappa_n$, gives
+\[
+\sum_{X:\,\bar X=Y'}|\mathfrak e(X,U)|\le3^dK_0L^dC_{\mathfrak e}\,e^{-\kappa_nd_{k+1}(Y')} .
+\]
+
+\emph{Jacobians.} By Proposition~\ref{prop:jacobians}(c), $|\log\mathfrak j_c(U)|\le C_{\rm jac}$. If $Y'_c=Y'$, then $c_-$ lies in one of the at most two cubes of $Y'$, each of which contains $M^4$ points of $\T^{(k+1)}$, and $c$ has one of $d$ directions. So at most $2dM^4$ bonds $c$ have $Y'_c=Y'$, and they exist only if $d_{k+1}(Y')=0$. Hence $\sum_{c:\,Y'_c=Y'}|\log\mathfrak j_c(U)|\le2dM^4C_{\rm jac}e^{-\kappa_nd_{k+1}(Y')}$.
+
+\emph{Outputs.} The bounds of Corollary~\ref{cor:two-classes} hold at the extension of $U$ and at $1$, uniformly, since both are references of the Setting with the slack $\frac18\delta_1$ for the old activities. They hold for the restricted system, whose input pieces are the pieces $E(Z)$ with $Z\subset Y'$, defined and bounded at the extension by Proposition~\ref{prop:old-activities}(d), and $0$ otherwise. Since $e^{\lambda(d_k(Y)+c_\natural)}\ge e^{\lambda d_k(Y)}$, they give, for every polymer $Y$ of scale $k$,
+\[
+|E^\#_{\rm p}(Y)|\le A\epsilon_{\rm p}e^{-\lambda_{\rm p}d_k(Y)},\qquad|E^\#_{\rm m}(Y)|\le4A\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)}e^{-\lambda_{\rm m}d_k(Y)},
+\]
+with $A$ the constant of Theorem~\ref{thm:mayer} (not the field of a representation), $\lambda_{\rm p}=(\kappa'_w-2)/c'_\sharp-C_d\ge\kappa_n+\kappa_0+2$ (Remark~\ref{rem:parameters}(3)) and $\lambda_{\rm m}=\kappa_n-1-C_d\ge\kappa_0+1$ (Remark~\ref{rem:parameters}(1)). Each $E^\#(Y)$ depends on the data only on $Y^{(r')}$. Apply the reblocking bound of the paragraph on the rates in Remark~\ref{rem:parameters}, with $\lambda=\kappa_n+\kappa_0+2$ for the pure class and $\lambda=\lambda_{\rm m}$ for the mixed class. In both cases $\lambda-\kappa_0\le\kappa_n+2$, so the constant there is at most $C_{\rm rb}=3^dK_0L^de^{C(\kappa_n+2)3^d}$, with $C$ of Remark~\ref{rem:reblock-margins}, and the rate after reblocking is at least $\kappa_n$. With the factor $2$ for the subtraction of $E^\#(Y,1)$,
+\[
+\begin{aligned}
+\sum_{Y:\,\hat Y=Y'}|E^\#(Y,U)-E^\#(Y,1)|&\le2C_{\rm rb}A\big(\epsilon_{\rm p}+4e^{c_\natural(\kappa_n-1)}\epsilon_{\rm m}\big)e^{-\kappa_nd_{k+1}(Y')}\\
+&\le C_{\rm new}(\epsilon_{\rm p}+\epsilon_{\rm m})e^{-\kappa_nd_{k+1}(Y')},\qquad C_{\rm new}=8C_{\rm rb}A\,e^{c_\natural(\kappa_n-1)} .
+\end{aligned}
+\]
+Here $d_{LM}(\hat Y)$ in the units of step $k$ is $d_{k+1}(\hat Y)$ (Section~\ref{subsec:flow-reblock}). Adding the three bounds and taking the supremum over $U$ and $Y'$ gives (b). At $k=0$ there is no mixed class, and the constants are those of the first step.
+
+(c) Since $h'$ is admissible, $U'\in\mathcal U^\flat(Y')\subset\mathcal U(Y')$ for every $Y'$, by the paragraph before Definition~\ref{def:generation} at scale $k+1$. The hypotheses of Theorem~\ref{thm:sf-step} on the thresholds hold with $\eps'_1=h'$: (Q2), $h_k\le a_1$ by admissibility, and $h'\le a_{\rm step}$. So the formula of Theorem~\ref{thm:sf-step} (Proposition~\ref{prop:first-step} at $k=0$) holds at the real critical reference $U'$. At $U'$ no extension is needed, and the outputs of the restricted systems are those of the full system (Remark~\ref{rem:extension}). Each polymer $X$, each bond $c$ and each polymer $Y$ of scale $k$ occurs in exactly one term $E'(Y',U')$. So
+\[
+\sum_X\mathfrak e(X,U')+\sum_c\log\mathfrak j_c(U')+\sum_YE^\#(Y,U')=\sum_{Y'}E'(Y',U')+\sum_YE^\#(Y,1),
+\]
+which gives (c).
+
+(d) The set $\mathfrak U_{k+1}(h')$ is invariant under $\mathfrak S_{k+1}$. By the symmetry statement of Theorem~\ref{thm:sf-step} (Proposition~\ref{prop:first-step} at $k=0$), since $\rho\circ r=\rho$, the sum
+\[
+\sum_X\mathfrak e(X,U')+\sum_c\log\mathfrak j_c(U')+\mathfrak E(U')+\sum_YE^\#(Y,U'),\qquad U'=U_{k+1}(V'),
+\]
+is invariant under $V'\mapsto rV'$, $r\in\mathfrak S_{k+1}$, on $\mathfrak U_{k+1}(h')$. By (c), it equals $\Phi_{E'}(V')+\mathfrak E(U_{k+1}(V'))+\sum_YE^\#(Y,1)$. The last term does not depend on $V'$, and the second is invariant by hypothesis. So $\Phi_{E'}(rV')=\Phi_{E'}(V')$. The function $\Phi_{E'}$ does not depend on the element $U_{k+1}(V')$ of the minimal orbit, since each $E'(Y',\cdot)$ is invariant under real gauge transformations, by (a). With (a), $E'$ is a raw generation of scale $k+1$ at threshold $h'$.
+\end{proof}
+
+\subsection{The constants of the flow}\label{subsec:flow4-constants}
+
+\begin{remark}[The constants of the flow and the condition on $\gamma$]\label{rem:flow-constants}
+The constants introduced in this section are fixed after the parameters (1)--(5) of Remark~\ref{rem:parameters} and before the bound $\gamma$ of~(6), in the following order. This completes the order of Remark~\ref{rem:parameters}.
+\begin{enumerate}[label=(\roman*)]
+\item The constants $B_{\rm new}$ and $B^{(0)}_{\rm new}$ of Lemma~\ref{lem:raw-new}(b). They depend only on $d$, $G$, $a$, $\alpha$, $L$, $M$, $M'$, $\kappa$, $\delta$ and $\rho$, through the one-loop and Jacobian bounds (Propositions~\ref{prop:one-loop-polymer}(b), \ref{prop:jacobians}(c) and~\ref{prop:first-step}) and through $K_0$. They do not depend on the domain constants, on $m_0$, on the couplings or on the torus. Then
+\[
+\mathsf K=2\max\big(B_{\rm new},B^{(0)}_{\rm new}\big).
+\]
+\item The constants $C_{\rm old}$ of Proposition~\ref{prop:old-activities}(b), $C_\beta=18d^2K_0M^{-2}(\delta_1^\flat)^{-2}$ of Proposition~\ref{prop:period-iso}(b), and $C_{\rm new}$, $C^{(0)}_{\rm new}$ of Lemma~\ref{lem:raw-new}(b). They depend on the parameters of Remark~\ref{rem:parameters}(1)--(5), and not on $\mathsf K$, the couplings or the torus.
+\item The bound $\gamma\le g_p$ on the couplings. For $g\in(0,\gamma]$ put $p=p(g)$, $p_0=p_0(g)$, $w=C_wL^dC_Tgp_0$, $\tau=C_PL^dgp_0/\delta_1$ (the bound of Proposition~\ref{prop:old-activities}(d)), $\epsilon_{\rm p}=C_Pgp_0^3$ and $\epsilon_{\rm m}=C_P\tau C_{\rm old}\mathsf K$; let $\epsilon^{(0)}_{\rm p}$ be $\epsilon_{\rm p}$ with the constants of the first step. The bound $\gamma$ is so small that, for every $g\in(0,\gamma]$:
+\begin{enumerate}[label=($\Gamma$\arabic*)]
+\item $C_\beta\mathsf K\gamma^2\le\frac34$;
+\item the conditions of Remark~\ref{rem:parameters}(6) on the couplings hold, for the steps $k\ge1$ and for the first step, with the bound $C_{\rm old}\mathsf K$ on the old activities. That is: $\gamma p(\gamma)$ is an admissible threshold, and $\gamma p(\gamma)\le\min(a_{\rm step},a^{(0)}_{\rm step})$; (Q1) and $2g\le r_t$ hold; $\tau<\frac12$, which is (Q3); $8C_wL^dC_Tp_0\le p$; $\epsilon_{\rm p}\le\frac12\epsilon_*$; and $\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)}\le\frac14\epsilon_*$;
+\item $C_{\rm new}(\epsilon_{\rm p}+\epsilon_{\rm m})\le B_{\rm new}$ and $C^{(0)}_{\rm new}\epsilon^{(0)}_{\rm p}\le B^{(0)}_{\rm new}$;
+\item\label{eq:gamma-F} $2gp_0(g)\le c_{\rm F}$, where
+\[
+c_{\rm F}=\min\Big(\frac{R_P}{2C_wL^dC_T},\ \frac{\delta_1}{2C_PL^d},\ \frac{\delta_1\epsilon_*}{4C_P^2L^dC_{\rm old}\mathsf K\,e^{c_\natural(\kappa_n-1)}}\Big)
+\]
+is the largest number such that the conditions $w\le\frac12R_P$ (part of (Q1)), $\tau<\frac12$ and $\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)}\le\frac14\epsilon_*$ of ($\Gamma$2) hold whenever $gp_0$ is replaced in $w$, $\tau$, $\epsilon_{\rm m}$ by a number less than $c_{\rm F}$. It is used only in Proposition~\ref{prop:flow-F}, at complex couplings $t$ with $|t|p_0(g)<c_{\rm F}$.
+\end{enumerate}
+\end{enumerate}
+Theorem~\ref{thm:ol-uv} adds two conditions, for $p_0(g)=(\log g^{-1})^q$: $\gamma\le e^{-3q}$ and $C_3\gamma^2p_0(\gamma)^6\le\frac12\beta_\infty$, with $C_3$ of Proposition~\ref{prop:flow-F} and $\beta_\infty$ of Theorem~\ref{thm:ol-log}. These constants are fixed before $\gamma$ as well.
+\emph{Feasibility.} Since $p_0\ge1$, $gp_0\le gp_0^3$; and $r_t\ge cp_0^{-3}$ with $c$ fixed before $\gamma$ (Proposition~\ref{prop:pure-sources}). So each condition in ($\Gamma$1)--($\Gamma$4) follows if $\gamma$, $\gamma p(\gamma)$, $\sup_{0<g\le\gamma}gp_0(g)^3$ and $\sup_{0<g\le\gamma}p_0(g)/p(g)$ are small enough, depending on the constants of (i), (ii) and on the parameters of Remark~\ref{rem:parameters}(1)--(5). These four quantities tend to $0$ as $\gamma\to0$, by the properties of $p$ and $p_0$ (Section~\ref{subsec:flow-parameters}). The constants in ($\Gamma$1)--($\Gamma$4) do not depend on $\gamma$, so there is no circularity. Condition ($\Gamma$3) is the condition on $\gamma$ under which the new generation is bounded by $\mathsf K$: with Lemma~\ref{lem:raw-new}(b) it gives $\|E'\|^{\rm raw}_{k+1}\le2B_{\rm new}\le\mathsf K$.
+
+\emph{Consequences.} Let $\gamma$ satisfy ($\Gamma$1)--($\Gamma$3).
+\begin{itemize}
+\item If $|\beta|\le C_\beta\mathsf K$ and $g\in(0,\gamma]$, then $g^{-2}-\beta\ge g^{-2}(1-C_\beta\mathsf Kg^2)\ge\frac14g^{-2}>0$, by ($\Gamma$1). So the number $g'>0$ with $g'^{-2}=g^{-2}-\beta$ satisfies $g'\le2g$.
+\item Let $g_k\in(0,\gamma]$, and let $h'\in(0,\min(2h_k,\gamma p(\gamma))]$. Then $h'$ is an admissible threshold with $h'\le a_{\rm step}$, and (Q2) holds at step $k$ with $\eps'_1=h'$ and $\tilde h=h_k$. Indeed, $2(C_*+1)L^{-2}h'\le4(C_*+1)L^{-2}h_k\le\frac12h_k$, by $L^2\ge8(C_*+1)$, and $4w\le\frac12h_k$, by $8C_wL^dC_Tp_0\le p$. In particular $h'=h_k$ is such a threshold. So is $h'=h_{k+1}$ if $g_{k+1}\in(0,\gamma]$ and $g_{k+1}\le2g_k$, since then $h_{k+1}\le2h_k$ (Section~\ref{subsec:flow-parameters}) and $h_{k+1}\le\gamma p(\gamma)$. The same holds at $k=0$, with $a^{(0)}_{\rm step}$.
+\end{itemize}
+\end{remark}
+
+\subsection{One step}\label{subsec:flow4-step}
+
+\begin{definition}[Generation form]\label{def:gen-form}
+Let $\mathsf K$ be as in Remark~\ref{rem:flow-constants}. Let $1\le k\le K$, and let $g_1,\dots,g_k\in(0,\gamma]$ with $g_{i+1}\le2g_i$ for $1\le i<k$, with the thresholds $h_i=p(g_i)g_i$. A density $\rho_k$ on the real configurations on $\T^{(k)}$ has the \emph{generation form at scale $k$} if there are, for $1\le j\le k$, generations $E^{(j)}$ of scale $j$ at the thresholds $h_j$ (Definition~\ref{def:generation}) with $\|E^{(j)}\|_j\le\mathsf K$, and numbers $\mathcal Z_k>0$ and $\eps_k\in\R$, such that, with $\beta_j=\beta_{E^{(j)}}$ (Proposition~\ref{prop:period-iso}),
+\[
+\rho_k(V)=\mathcal Z_k\exp\Big(-\frac1{g_k^2}S\big(U_k(V)\big)-\eps_k|\T^{(k)}|+\sum_{j=1}^k\big(E^{(j)}-\beta_jS\big)\big(U_k(V)\big)\Big)\qquad\text{for }V\in\mathfrak U_k(h_k),
+\]
+and $\rho_k(V)=0$ for the other configurations $V$.
+\end{definition}
+
+The right side is well defined. By Lemma~\ref{lem:later-small-field}(c),(d), $U_k(V)\in\mathcal U^\flat(X)$ for every polymer $X$ of every scale $j\le k$, the sums do not depend on the element $U_k(V)$ of the minimal orbit, and they are invariant under real gauge transformations and under $\mathfrak S_k$. The same holds for $S(U_k(V))$, by Theorem~\ref{thm:balaban}(c). The form is \eqref{eq:rho-k} with $\mathfrak E_k(V)=\sum_{j\le k}(E^{(j)}-\beta_jS)(U_k(V))$, which is normalized, since $U_k(1)=1$. The definition does not require the recursion $g_j^{-2}=g_{j-1}^{-2}-\beta_j$ for the couplings; the theorem below uses it to define the next coupling. The first density $\rho_0$ has no generations and is positive on all configurations; it is treated in Proposition~\ref{prop:gen-one}.
+
+\begin{theorem}[One step in generation form]\label{thm:gen-step}
+Let $\mathsf K=2\max(B_{\rm new},B^{(0)}_{\rm new})$, and let $\gamma$ satisfy ($\Gamma$1)--($\Gamma$3) of Remark~\ref{rem:flow-constants}. Let $1\le k<K$, let $g_1,\dots,g_k\in(0,\gamma]$ with $g_{i+1}\le2g_i$ for $1\le i<k$, and let $\rho_k$ have the generation form at scale $k$, with generations $E^{(1)},\dots,E^{(k)}$, coefficients $\beta_j=\beta_{E^{(j)}}$ and constants $\mathcal Z_k$, $\eps_k$. Let $\mathcal E_k$ be the old activities of Definition~\ref{def:old-activities}, and let $E'=E'^{(k+1)}[\mathcal E_k,g_k]$ be the raw new generation (Definition~\ref{def:raw-new}) of the step from scale $k$ to scale $k+1$.
+\begin{enumerate}[label=(\alph*)]
+\item \emph{(The step.)} $\rho_k(rV)=\rho_k(V)$ for all $V$ and all $r\in\mathfrak S_{k+1}$. Up to the constant $\mathcal Z_ke^{-\eps_k|\T^{(k)}|}$, $\rho_k$ is a density as in Theorem~\ref{thm:step} at the threshold $\tilde h=h_k$, with $\mathfrak E(V)=\sum_Y\mathcal E_k(Y,U_k(V))$ for $V\in\mathfrak U_k(h_k)$. The hypotheses of Theorem~\ref{thm:sf-step} other than (Q2) hold at step $k$, with the old activities $\mathcal E_k$, $\|\mathcal E_k\|\le C_{\rm old}\mathsf K$ and $\epsilon_{\rm m}\le C_P\tau C_{\rm old}\mathsf K$; (Q2) holds with $\eps'_1=h'$ for every threshold $h'$ as in~(b).
+\item \emph{(The raw generation.)} $E'$ has (G1) on the domains $\mathcal U(Y')$ of scale $k+1$, and
+\[
+\|E'\|^{\rm raw}_{k+1}\le B_{\rm new}+C_{\rm new}(\epsilon_{\rm p}+\epsilon_{\rm m})\le\mathsf K .
+\]
+For every threshold $h'\in(0,\min(2h_k,\gamma p(\gamma))]$, $E'$ has (G3) at threshold $h'$; so it is a raw generation of scale $k+1$ at threshold $h'$ (Definition~\ref{def:symmetrization}). The family $E'$ does not depend on $g_{k+1}$ or on any threshold of scale $k+1$.
+\item \emph{(The new generation and the coupling.)} The symmetrization $E^{(k+1)}=E'^{\rm sym}$ (Definition~\ref{def:symmetrization}) is a generation of scale $k+1$ at every threshold $h'$ as in~(b). It has (G1)--(G4), and $\|E^{(k+1)}\|_{k+1}\le\mathsf K$. The coefficient $\beta_{k+1}=\beta_{E^{(k+1)}}$ of Proposition~\ref{prop:period-iso} is real, with $|\beta_{k+1}|\le C_\beta\mathsf K$. The number $g_{k+1}>0$ with
+\[
+g_{k+1}^{-2}=g_k^{-2}-\beta_{k+1}
+\]
+satisfies $g_{k+1}\le2g_k$.
+\item \emph{(Generation form at scale $k+1$.)} Suppose that $g_{k+1}\le\gamma$. Then (Q2) holds at step $k$ with $\eps'_1=h_{k+1}$, $E^{(k+1)}$ is a generation of scale $k+1$ at threshold $h_{k+1}$, and
+\[
+\rho_{k+1}=\one_{\mathfrak U_{k+1}(h_{k+1})}T_{\rm sf}(\rho_k)
+\]
+has the generation form at scale $k+1$, with the generations $E^{(1)},\dots,E^{(k+1)}$ and the constants
+\[
+\mathcal Z_{k+1}=\mathcal Z_k\,\mathcal N_kN_\chi\,e^{-\frac12\sum_b\ell_k(b;1)},\qquad\eps_{k+1}|\T^{(k+1)}|=\eps_k|\T^{(k)}|-\sum_Y\big(E^\#_{\rm p}(Y,1)+E^\#_{\rm m}(Y,1)\big).
+\]
+These are the recursions of Section~\ref{subsec:tf-vacuum}, and Proposition~\ref{prop:vacuum}(a) bounds the increment $\delta_k$ of \eqref{eq:vacuum-flow}, with $\epsilon_{\rm m}\le C_P\tau C_{\rm old}\mathsf K$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}\hasdetail{thm:gen-step}
+(a) By Remark~\ref{rem:later-symmetry}, $\rho_k(rV)=\rho_k(V)$ for all $V$ and all $r\in\mathfrak S_k\supset\mathfrak S_{k+1}$; it uses the thresholds $h_j$ of the generations and $g_{i+1}\le2g_i$. The generations satisfy the hypotheses of Proposition~\ref{prop:old-activities}. By its part~(c) at $U=U_k(V)$, $V\in\mathfrak U_k(h_k)$, and since $h_k$ is admissible,
+\[
+\sum_{j\le k}\big(E^{(j)}-\beta_jS\big)\big(U_k(V)\big)=\sum_Y\mathcal E_k\big(Y,U_k(V)\big)=\mathfrak E(V).
+\]
+This function is gauge invariant (Definition~\ref{def:gen-form} and the paragraph after it). It is bounded on $\mathfrak U_k(h_k)$ (Remark~\ref{rem:old-later}), and continuous there, hence measurable: near every point, Corollary~\ref{cor:analytic} gives a continuous choice of $U_k(V)$, and the sums consist of finitely many holomorphic terms and of $S$. Moreover $h_k\le a_1$ by admissibility. So $\rho_k/(\mathcal Z_ke^{-\eps_k|\T^{(k)}|})$ is a density of the form \eqref{eq:rho-form} on $\mathfrak U_k(h_k)$, as in Theorem~\ref{thm:step}. By Proposition~\ref{prop:old-activities}(a),(b),(d), the old activities $\mathcal E_k$ satisfy the hypothesis on old activities of Theorem~\ref{thm:sf-step}, with $\|\mathcal E_k\|\le C_{\rm old}\mathsf K$ and the slack $\frac18\delta_1$. The step uses the identity between $\mathfrak E$ and the old activities only at $s=1$, at real critical references and for real $\xi$, where the composed configuration $U_B=e^{\ii\eta A_*(1;B)}U'$, $B=\hat Z(Z)$, is a real gauge transform of an element $U_k(e^{\ii\hat Z(Z)}W)$ of the minimal orbit of $e^{\ii\hat Z(Z)}W$, with $e^{\ii\hat Z(Z)}W\in\mathfrak U_k(h_k)$ on the support of the cutoffs (Remark~\ref{rem:symmetrization-flow}(a), Theorem~\ref{thm:variational}(c), (Q2)). The transformation need not lie in $\mathfrak G_0$. The domains $\mathcal U^\flat(Y)$ and the old activities are invariant under real gauge transformations (Definition~\ref{def:graded}, Proposition~\ref{prop:old-activities}(a)), so $U_B$ lies in every $\mathcal U^\flat(Y)$ and $\mathcal E_k(Y,U_B)=\mathcal E_k(Y,U_k(e^{\ii\hat Z(Z)}W))$. So, by the identity above, applied at $e^{\ii\hat Z(Z)}W$ and at $V^0$, where $U'=U_k(V^0)$ and $V^0\in\mathfrak U_k(h_k)$ (Lemma~\ref{lem:composition}, (Q2)),
+\[
+\sum_Yf(Y;1,Z)=\mathfrak E\big(e^{\ii\hat Z(Z)}W\big)-\mathfrak E(U'),
+\]
+with $f$ of Proposition~\ref{prop:composed}, which is the term of $\delta\mathcal E(\xi)$ in Proposition~\ref{prop:small-field-step}. The hypotheses of Theorem~\ref{thm:sf-step} on the coupling, (Q1)--(Q3), $2g_k\le r_t$, $\epsilon_{\rm p}\le\frac12\epsilon_*$ and $\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)}\le\frac14\epsilon_*$, hold by ($\Gamma$2) at $g=g_k$; for (Q2) see~(b). The conditions on the rates in Proposition~\ref{prop:localized-pieces} and Corollary~\ref{cor:two-classes} are Remark~\ref{rem:parameters}(1),(3), and (DC5) and $\alpha\le\frac12$ hold by Remark~\ref{rem:parameters}(4),(5).
+
+(b) By (a), Lemma~\ref{lem:raw-new} applies, with $\|\mathcal E_k\|\le C_{\rm old}\mathsf K$. Its parts (a) and (b), with ($\Gamma$3), give (G1) on the domains $\mathcal U(Y')$ and $\|E'\|^{\rm raw}_{k+1}\le B_{\rm new}+C_{\rm new}(\epsilon_{\rm p}+\epsilon_{\rm m})\le2B_{\rm new}\le\mathsf K$. Let $h'\in(0,\min(2h_k,\gamma p(\gamma))]$. By Remark~\ref{rem:flow-constants}, consequences, $h'$ is admissible, $h'\le a_{\rm step}$, and (Q2) holds with $\eps'_1=h'$. We check the hypotheses of Lemma~\ref{lem:raw-new}(d). The first is (a). For the second, let $V'\in\mathfrak U_{k+1}(h')$ and $U'=U_{k+1}(V')$. Then $S(U_{k+1}(rV'))=S(U')$ for $r\in\mathfrak S_{k+1}$, by Theorem~\ref{thm:balaban}(c) at scale $k+1$. For $j\le k$, apply Lemma~\ref{lem:later-small-field}(d) with the later scale $k+1$, with $h'$ in place of $h$ and $h_j$ in place of $h'$. Its hypothesis on $h_j$ holds: for $j=k$, $2(C_*+1)L^{-2}h'\le\frac12h_k$ by the consequences in Remark~\ref{rem:flow-constants}; for $j<k$, Lemma~\ref{lem:later-small-field}(c) and $h'\le2h_k$ give $2(C_*+1)L^{-2(k+1-j)}h'\le2L^{-2}h_j\le h_j$. So $V'\mapsto\sum_XE^{(j)}(X,U_{k+1}(V'))$ is invariant under $\mathfrak S_{k+1}$ on $\mathfrak U_{k+1}(h')$. Moreover $\mathfrak E(U')$, the function $\mathfrak E$ expressed through the background field (Theorem~\ref{thm:step}(f)), is $\mathfrak E(V^0)$, since $U'=U_k(V^0)$ (Lemma~\ref{lem:composition}(b)). Here $V^0\in\mathfrak U_k(2(C_*+1)L^{-2}h')\subset\mathfrak U_k(h_k)$, by Lemma~\ref{lem:composition}(a) and (Q2). So the identity in~(a) gives
+\[
+\mathfrak E(U')=\sum_{j\le k}\big(E^{(j)}-\beta_jS\big)(U'),
+\]
+and $V'\mapsto\mathfrak E(U_{k+1}(V'))$ is invariant under $\mathfrak S_{k+1}$ on $\mathfrak U_{k+1}(h')$. Lemma~\ref{lem:raw-new}(d) gives (G3) at threshold $h'$. The last statement of (b) is the paragraph after Definition~\ref{def:raw-new}.
+
+(c) Let $h'$ be as in (b). By (b), $E'$ is a raw generation of scale $k+1$ at threshold $h'$, and (DC6) holds. Lemma~\ref{lem:symmetrization}(a) shows that $E^{(k+1)}=E'^{\rm sym}$ is a generation of scale $k+1$ at threshold $h'$, with (G1)--(G4), and that $\|E^{(k+1)}\|_{k+1}\le\|E'\|^{\rm raw}_{k+1}\le\mathsf K$. By Proposition~\ref{prop:period-iso}(a),(b), $\beta_{k+1}$ is real and $|\beta_{k+1}|\le C_\beta\mathsf K$. By the first consequence in Remark~\ref{rem:flow-constants}, with $g=g_k$ and $\beta=\beta_{k+1}$, $g_k^{-2}-\beta_{k+1}\ge\frac14g_k^{-2}>0$, so $g_{k+1}$ is defined and $g_{k+1}\le2g_k$.
+
+(d) Since $g_{k+1}\in(0,\gamma]$ and $g_{k+1}\le2g_k$, the threshold $h'=h_{k+1}$ is as in (b) (Remark~\ref{rem:flow-constants}, consequences). So (Q2) holds with $\eps'_1=h_{k+1}$, and, by (c), $E^{(k+1)}$ is a generation of scale $k+1$ at threshold $h_{k+1}$. Let $V'\in\mathfrak U_{k+1}(h_{k+1})$ and $U'=U_{k+1}(V')$. Since $T_{\rm sf}$ is linear, Lemma~\ref{lem:raw-new}(c) with $h'=h_{k+1}$ gives $T_{\rm sf}(\rho_k)(V')$, with the factor $\mathcal Z_ke^{-\eps_k|\T^{(k)}|}$. In its formula, $\mathfrak E(U')=\sum_{j\le k}(E^{(j)}-\beta_jS)(U')$, as shown in the proof of~(b) with $h'=h_{k+1}$; $\sum_{Y'}E'(Y',U')=\sum_{Y'}E^{(k+1)}(Y',U')$, by Lemma~\ref{lem:symmetrization}(b) at scale $k+1$ and threshold $h_{k+1}$; and $-g_k^{-2}S(U')=-g_{k+1}^{-2}S(U')-\beta_{k+1}S(U')$. With the constants $\mathcal Z_{k+1}$ and $\eps_{k+1}$ as stated, this gives
+\[
+\rho_{k+1}(V')=\mathcal Z_{k+1}\exp\Big(-\frac1{g_{k+1}^2}S(U')-\eps_{k+1}|\T^{(k+1)}|+\sum_{j=1}^{k+1}\big(E^{(j)}-\beta_jS\big)(U')\Big)
+\]
+for $V'\in\mathfrak U_{k+1}(h_{k+1})$, and $\rho_{k+1}(V')=0$ otherwise. The generations $E^{(j)}$, $j\le k$, are unchanged: they are generations of scale $j$ at the thresholds $h_j$, with norms at most $\mathsf K$. With (c), and since $g_1,\dots,g_{k+1}\in(0,\gamma]$ with $g_{i+1}\le2g_i$, this is the generation form at scale $k+1$. The constant $\mathcal Z_{k+1}$ is positive, and $\eps_{k+1}$ is real, since the $E^\#(Y,1)$ are real (Theorem~\ref{thm:sf-step}, at the real critical reference $U'=1$). Proposition~\ref{prop:vacuum}(a) applies to the step, with $\epsilon_{\rm m}\le C_P\tau C_{\rm old}\mathsf K$ by~(a).
+\end{proof}
+
+\begin{proposition}[The first generation]\label{prop:gen-one}
+Let $\mathsf K$ and $\gamma$ be as in Theorem~\ref{thm:gen-step}, let $g_0\in(0,\gamma]$ and $\eps_0\in\R$, and let $\rho_0=\exp(-g_0^{-2}S-\eps_0|\T^{(0)}|)$, so that $\eps_0|\T^{(0)}|=E_0$. Then (b)--(d) of Theorem~\ref{thm:gen-step} hold for $k=0$, with $\rho_0$ in place of $\rho_k$, with the raw new generation $E'$ of the first step (Definition~\ref{def:raw-new} with $k=0$), with $B^{(0)}_{\rm new}$, $C^{(0)}_{\rm new}$ and $\epsilon^{(0)}_{\rm p}$ in place of $B_{\rm new}$, $C_{\rm new}$ and $\epsilon_{\rm p}$, with $\epsilon_{\rm m}=0$, and with $\mathcal Z_0=1$. Here $E^{(1)}=E'^{\rm sym}$, $\beta_1=\beta_{E^{(1)}}$ and $g_1^{-2}=g_0^{-2}-\beta_1$; if $g_1\le\gamma$, then $\rho_1=\one_{\mathfrak U_1(h_1)}T_{\rm sf}(\rho_0)$ has the generation form at scale $1$, with
+\[
+\mathcal Z_1=\mathcal N_0N_\chi\,e^{-\frac12\sum_b\ell_0(b;1)},\qquad\eps_1|\T^{(1)}|=\eps_0|\T^{(0)}|-\sum_YE^\#_{\rm p}(Y,1).
+\]
+\end{proposition}
+
+\begin{proof}\hasdetail{prop:gen-one}
+The proof of Theorem~\ref{thm:gen-step}(b)--(d) applies, with the following changes. There are no old activities: $\mathfrak E=0$, there are no composed activities and no mixed class, and (Q3) is void (Proposition~\ref{prop:first-step}). Part~(a) of the theorem is replaced by three facts. First, $e^{\eps_0|\T^{(0)}|}\rho_0$ is of the form \eqref{eq:rho-form} with $\mathfrak E_0=0$ on all configurations, so at the threshold $\tilde h=h_0\le a_1$ (proof of Proposition~\ref{prop:first-step}). Second, $\rho_0(rV)=\rho_0(V)$ for all $V$ and all $r\in\mathfrak S_1$, since $S(rV)=S(V)$: $r$ permutes the plaquettes, and $(rV)(\partial(rp))$ is conjugate to $V(\partial p)^{\pm1}$ (Section~\ref{sec:action}; proof of Lemma~\ref{lem:plaquette-family}(b)). Third, the hypotheses of Proposition~\ref{prop:first-step}, (Q1), (Q2) and $2g_0\le r_t$ at $k=0$, hold by ($\Gamma$2) and the consequences in Remark~\ref{rem:flow-constants}, with $\eps'_1=h'$ for every threshold $h'\in(0,\min(2h_0,\gamma p(\gamma))]$; in particular $h'\le a^{(0)}_{\rm step}$. So Lemma~\ref{lem:raw-new} applies at $k=0$, with the constants of the first step, and the second hypothesis of its part~(d) is void. In~(d), $\mathcal Z_0=1$ and $E^\#_{\rm m}=0$ give the constants $\mathcal Z_1$ and $\eps_1$.
+\end{proof}
+
+\begin{remark}[On Theorem~\ref{thm:gen-step}]\label{rem:gen-step}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{The symmetrization.} The properties (G2) and (G4) of $E^{(k+1)}$ hold by construction, so they need no further check on the step, and the flow carries $E^{(k+1)}$, not $E'$, from scale $k+1$ on (Remark~\ref{rem:symmetrization-flow}(a)).
+\item \emph{No circularity in $g_{k+1}$.} The order is $E'$, $E^{(k+1)}$, $\beta_{k+1}$, $g_{k+1}$, $h_{k+1}$, and (G3) for $E'$ holds already at the threshold $h_k$.
+\item \emph{Free coupling sequences.} Parts (a)--(c) do not use the recursion $g_j^{-2}=g_{j-1}^{-2}-\beta_j$; so they define the generations for free coupling sequences (Proposition~\ref{prop:flow-continuity}(a)).
+\end{enumerate}
+\end{remark}
+
+\subsection{The flow over all scales}\label{subsec:flow4-flow}
+
+This subsection iterates Theorem~\ref{thm:gen-step}. Throughout, $\mathsf K=2\max(B_{\rm new},B^{(0)}_{\rm new})$, $\gamma$ satisfies ($\Gamma$1)--($\Gamma$3) of Remark~\ref{rem:flow-constants}, and $n_K\ge n_{\min}$, as in the Setting. For $0\le k\le K$ let $\Sigma_k$ be the set of the sequences $\pi=(g_0,\dots,g_k)\in(0,\gamma]^{k+1}$ with $g_{i+1}\le2g_i$ for $0\le i<k$.
+
+\begin{proposition}[Free coupling sequences and continuity]\label{prop:flow-continuity}
+Let $0\le k<K$ and $\pi=(g_0,\dots,g_k)\in\Sigma_k$. Let $E^{(1)}=E'^{\rm sym}$ with $E'=E'^{(1)}[0,g_0]$, and, for $1\le j\le k$, $E^{(j+1)}=E'^{\rm sym}$ with $E'=E'^{(j+1)}[\mathcal E_j,g_j]$ (Definition~\ref{def:raw-new}), where $\beta_i=\beta_{E^{(i)}}$ and $\mathcal E_j$ are the old activities of step $j$ built from the $E^{(i)}$ and $\beta_i$ with $i\le j$ (Definition~\ref{def:old-activities}). We write $E^{(j)}[\pi]$ and $\beta_j[\pi]$ when the dependence on the couplings matters. The couplings are the entries of $\pi$; they are not computed from the $\beta_j$.
+\begin{enumerate}[label=(\alph*)]
+\item \emph{(Free sequences.)} The recursion is defined. For $1\le j\le k+1$, $E^{(j)}$ is a generation of scale $j$ at every threshold $h'\in(0,\min(2h_{j-1},\gamma p(\gamma))]$, with (G1)--(G4) and $\|E^{(j)}\|_j\le\mathsf K$; for $j\le k$ these thresholds include $h_j$. The coefficient $\beta_j$ is real, with $|\beta_j|\le C_\beta\mathsf K$. Both $E^{(j)}$ and $\beta_j$ depend only on $(g_0,\dots,g_{j-1})$. For $k\ge1$, $E^{(k+1)}$ is the new generation that Theorem~\ref{thm:gen-step}(c) produces from a density in generation form at scale $k$ with the generations $E^{(1)},\dots,E^{(k)}$, the coupling $g_k$ and any constants $\mathcal Z_k>0$, $\eps_k\in\R$; for $k=0$, $E^{(1)}$ is that of Proposition~\ref{prop:gen-one}, for any $\eps_0\in\R$.
+\item \emph{(Continuity.)} For every polymer $X$ of scale $k+1$ and every $U\in\mathcal U^\flat(X)$ of scale $k+1$, the functions $\pi\mapsto E^{(k+1)}[\pi](X,U)$ and $\pi\mapsto\beta_{k+1}[\pi]$ are continuous on $\Sigma_k$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}\hasdetail{prop:flow-continuity}
+(a) By induction on $j$. For $j=1$ this is Proposition~\ref{prop:gen-one} at the coupling $g_0$, i.e.\ part~(c) of Theorem~\ref{thm:gen-step} at $k=0$. Let $1\le j\le k$, and assume the claims for $E^{(1)},\dots,E^{(j)}$. For $1\le i\le j$, $g_i\le2g_{i-1}$ gives $h_i\le2h_{i-1}$ (Section~\ref{subsec:flow-parameters}), and $h_i\le\gamma p(\gamma)$; so $E^{(i)}$ is a generation at the threshold $h_i$. Let $\mathcal Z_j>0$ and $\eps_j\in\R$. The density of Definition~\ref{def:gen-form} with the generations $E^{(1)},\dots,E^{(j)}$, the coupling $g_j$ and the constants $\mathcal Z_j$, $\eps_j$ is defined, and has the generation form at scale $j$, since the conditions of that definition on $g_1,\dots,g_j$ hold for $\pi\in\Sigma_k$. Theorem~\ref{thm:gen-step}(a)--(c) applies at $k=j$; these parts do not use the recursion for the couplings (Remark~\ref{rem:gen-step}(c)). By its part~(c), $E^{(j+1)}$ is a generation of scale $j+1$ at every threshold $h'\in(0,\min(2h_j,\gamma p(\gamma))]$, with (G1)--(G4) and norm at most $\mathsf K$, and $\beta_{j+1}$ is real with $|\beta_{j+1}|\le C_\beta\mathsf K$. The raw generation $E'^{(j+1)}[\mathcal E_j,g_j]$ is determined by $g_j$ and the old activities $\mathcal E_j$ (Definition~\ref{def:raw-new} and the paragraph after it), and $\mathcal E_j$ is determined by $E^{(1)},\dots,E^{(j)}$ and $\beta_1,\dots,\beta_j$. So $E^{(j+1)}$ and $\beta_{j+1}$ depend only on $(g_0,\dots,g_j)$, and not on $\mathcal Z_j$, $\eps_j$; this is the last statement for $j=k$.
+
+(b) Let $\pi_0\in\Sigma_k$. Besides dominated convergence and the Weierstrass test, we use one elementary fact~($*$). Let $\mathcal A\subset\C^n$ be open, and let $f_\pi$, $\pi\in\Sigma_k$, be holomorphic on $\mathcal A$ with $|f_\pi|\le B$, such that $\pi\mapsto f_\pi(A)$ is continuous at $\pi_0$ for every $A\in\mathcal A$. Then $f_\pi(A_\pi)\to f_{\pi_0}(A_0)$ whenever $\pi\to\pi_0$ and $A_\pi\to A_0\in\mathcal A$: if the closed polydisc of radius $2r$ about $A_0$ lies in $\mathcal A$, Cauchy's estimates give $|f_\pi(A)-f_\pi(A_0)|\le nB|A-A_0|_\infty/r$ on the polydisc of radius $r$, uniformly in $\pi$. The continuity of $p_0$ (Section~\ref{subsec:flow-parameters}) is used only in Steps~2 and~3, through the white-noise cutoff, which is sharp. We argue by induction on $k$. By (a), $E^{(k+1)}[\pi]$ depends on $\pi$ through $g_k$ and, for $k\ge1$, through the old activities $\mathcal E_k$, which are built from the $E^{(j)}[\pi]$ and $\beta_j[\pi]$ with $j\le k$. For $k\ge1$ we assume that (b) holds with $j-1$ in place of $k$, for $1\le j\le k$.
+
+\emph{Step 1: the old activities} ($k\ge1$). Let $Y$ be a polymer of scale $k$, and let $U_r$ be a real configuration with $|F_{U_r}|,|J_{U_r}|<\theta_r$. Let $\mathcal A^\flat(Y;U_r)$ be the set of the $\mathfrak g^c$-valued fields $A$ on the bonds of $Y^{(3)}$ with $|A|<\delta_0$ and $|\nabla A|_{Y^{(3)}}+[\nabla A]_{\alpha,Y^{(3)}}<\delta_1^\flat$, with $\nabla$ taken with respect to $U_r$. It is open, since the torus is finite and the bounds are strict. For $A\in\mathcal A^\flat(Y;U_r)$ let $U_A$ equal $e^{\ii\eta A}U_r$ on the bonds of $Y^{(3)}$ and $U_r$ elsewhere; then $U_A\in\mathcal U^\flat(Y)$. So $f_\pi(A)=\mathcal E_k[\pi](Y,U_A)$ is holomorphic on $\mathcal A^\flat(Y;U_r)$ (Definition~\ref{def:graded}), with $|f_\pi|\le C_{\rm old}\mathsf K$ (Proposition~\ref{prop:old-activities}(b)). By Definition~\ref{def:old-activities}, $f_\pi(A)$ is a finite sum of values $E^{(j)}[\pi](X,U_A)$, with $X\subset Y$ of scale $j\le k$, and of numbers $\beta_j[\pi]S_\Box(U_A)$; and $U_A$ lies in $\mathcal U^\flat(X)$ of scale $j$, by Remark~\ref{rem:domain-constants}(i) with $\delta_1^\flat$ in place of $\delta_1$. By the induction hypothesis, $\pi\mapsto f_\pi(A)$ is continuous on $\Sigma_k$. By~($*$), $(\pi,A)\mapsto\mathcal E_k[\pi](Y,U_A)$ is continuous on $\Sigma_k\times\mathcal A^\flat(Y;U_r)$.
+
+\emph{Step 2: the pieces.} Let $g^0_k$ be the last entry of $\pi_0$. Fix a polymer $Y'$ of scale $k+1$ and a point $U\in\mathcal U(Y')$ of scale $k+1$, or $U=1$, and let $\tilde U=e^{\ii\eta A'}U_r$ be its extension (Section~\ref{sec:step-quantities}, Setting), which does not depend on $\pi$. For $\pi\in\Sigma_k$ consider the pieces $E_{\rm p}(Z)$ and $E_{\rm m}(Z)$, $Z\subset Y'$, of the restricted system at $\tilde U$ (Proposition~\ref{prop:localized-pieces}, Remark~\ref{rem:extension}), as functions of the white noise $\xi$ with $|\xi|_\infty\le p_0(g_k)$. Fix $\xi$ with $|\xi|_\infty<p_0(g^0_k)$. Since $p_0$ is continuous, $|\xi|_\infty<p_0(g_k)$ for $\pi$ near $\pi_0$, so the pieces at $\pi$, which depend on $\xi$ only on the bonds of $Z^{(r')}$, are defined at $\xi$. We show that they converge to those at $\pi_0$. By Lemma~\ref{lem:localization}, each piece is a finite sum of terms $f_{\rm loc}(Y_0,Z)=\int_{[0,1]^S}\partial_{s_S}f(s(Z,t))\,dt$, with $S$ the set of boxes of $Z\setminus Y_0$ and $f$ one of the functions localized in Proposition~\ref{prop:localized-pieces}. The coordinates of $s(Z,t)$ lie in $[0,1]$, and the circles of radius $1$ about them lie in $\mathbb D_{\kappa'}$, since $e^{\kappa'}\ge e>2$. Cauchy's formula on these circles writes $f_{\rm loc}(Y_0,Z)$ as an integral of $f$ over a compact set, against a bounded kernel that does not depend on $\pi$. The functions $f$ are bounded uniformly in $\pi$, by the bounds of Section~\ref{sec:step-quantities}, Lemma~\ref{lem:white-noise} and ($\Gamma$2) at $g_k$. By dominated convergence, it suffices to show that $\pi\mapsto f(s)$ is continuous at $\pi_0$ for every $s\in\mathbb D_{\kappa'}$. Put $Z_\pi(s)=g_kC_k^{1/2}(s)\xi$, with $C_k^{1/2}(s)$ at the reference $\tilde U$ (Corollary~\ref{cor:weak-covariance}); it does not depend on $\pi$ otherwise, and $|Z_\pi(s)|_\infty\le g_kC_Tp_0(g_k)\le\frac12r_I$ by (Q1).
+\begin{itemize}
+\item The interaction, gauge-fixing and Jacobian functions of a box $\Box$ are $g_k^{-2}\sum_pv_p(s;Z_\pi(s))$, $g_k^{-2}\sum_{y,x}\varphi_{y,x}(Z_\pi(s))$ and $\mathfrak J_\Box(Z_\pi(s))$, with the sums over the plaquettes and the pairs $(y,x)$ of $\Box$ (Section~\ref{sec:step-quantities}). Here $v_p(s;\cdot)$, $\varphi_{y,x}$ and the terms of $\mathfrak J$ are analytic for $|Z|_\infty<r_I$ (Propositions~\ref{prop:interaction-pieces}(a), \ref{prop:gf-pieces}(a) and~\ref{prop:jacobians}(a)), and do not depend on $\pi$. So these functions are continuous in $\pi$.
+\item The composed activities are $f(Y;s,Z_\pi(s))=\mathcal E_k[\pi](Y,e^{\ii\eta A_*(s;\hat Z(Z_\pi(s)))}\tilde U)-\mathcal E_k[\pi](Y,\tilde U)$, for the old polymers $Y\subset Y'$. On the bonds of $Y^{(3)}$ the composed configuration is $e^{\ii\eta A_\pi}U_r$, with $A_\pi=A_*(s;\hat Z(Z_\pi(s)))\oplus A'$ combined bondwise by the Baker--Campbell--Hausdorff formula, and $A_\pi\in\mathcal A^\flat(Y;U_r)$ (proof of Proposition~\ref{prop:composed}(a), applied with $\delta_1^\flat$ in place of $\delta_1$ as in Proposition~\ref{prop:old-activities}(d)); likewise $A'\in\mathcal A^\flat(Y;U_r)$. The maps $A_*(s;\cdot)$ and $\hat Z$ at the reference $\tilde U$ do not depend on $\pi$, and they are continuous. So $A_\pi\to A_{\pi_0}$. Since $\mathcal E_k(Y)$ depends only on the bonds of $Y$, Step~1 gives the continuity of $f(Y;s,Z_\pi(s))$ at $\pi_0$.
+\end{itemize}
+At $k=0$ there are no composed activities, and the pieces of the first step are of the same form, with $A_*(s;B)$ replaced by $B$ (Proposition~\ref{prop:first-step}(a)).
+
+\emph{Step 3: the outputs.} The outputs $E^\#(Y)=E^\#_{\rm p}(Y)+E^\#_{\rm m}(Y)$ of the restricted system, $\hat Y=Y'$, are the outputs of Theorem~\ref{thm:mayer} for the system of all its pieces (Corollary~\ref{cor:two-classes} at $\lambda=1$). By ($\Gamma$2), this system satisfies the hypothesis of Theorem~\ref{thm:mayer} with $\kappa=\kappa_n-1\ge C_d$ and $\epsilon=\epsilon_{\rm p}+\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)}\le\epsilon_*$, for every $\pi\in\Sigma_k$. By the proof of that theorem, $E^\#(Y)=\sum_{\mathcal C}\phi^T(\mathcal C)\prod_{\Gamma\in\mathcal C}k(\Gamma)$, the sum running over the clusters $\mathcal C$ with $\bigcup_{\Gamma\in\mathcal C}\operatorname{supp}\Gamma=Y$, with $k(\Gamma)=\int\prod_{Z\in\Gamma}K(Z)\,d\mu^*$ and $K(Z)=e^{E(Z)}-1$. The measure $d\mu^*$ is the product over the bonds $b\in\mathfrak F$ of the standard Gaussian measure on $\mathfrak g$, restricted to $|\xi(b)|\le p_0(g_k)$ and normalized (Proposition~\ref{prop:small-field-step}). So $k(\Gamma)$ is an integral over the finitely many bonds of $\mathfrak F$ in $\bigcup_{Z\in\Gamma}Z^{(r')}$, with respect to the standard Gaussian measure, of $\prod_bN_1(p_0(g_k))^{-1}\one(|\xi(b)|\le p_0(g_k))\prod_{Z\in\Gamma}K(Z)$, where $N_1(p)$ is the standard Gaussian mass of $\{|\xi(b)|\le p\}$, continuous in $p$, and $N_1(p_0)\ge N_1(1)>0$. As $\pi\to\pi_0$ this integrand converges at every $\xi$ with $|\xi(b)|\ne p_0(g^0_k)$ for all these bonds: by Step~2 if $|\xi|_\infty<p_0(g^0_k)$, and since the cutoff vanishes eventually otherwise. The remaining set has measure zero, and the integrand is bounded by $N_1(1)^{-n_\Gamma}(2\epsilon_*)^{|\Gamma|}$, with $n_\Gamma$ the number of these bonds. By dominated convergence, $k(\Gamma)$ is continuous at $\pi_0$. The proof of Theorem~\ref{thm:mayer} bounds $|k(\Gamma)|$ by $\bar k(\Gamma)=\prod_{Z\in\Gamma}2\epsilon_*e^{-\kappa(\mathsf d(Z)+c_\natural)}$, which does not depend on $\pi$, and verifies \eqref{eq:KP} for the activities $\bar k$. So the Koteck\'y--Preiss theorem gives $\sum_{\mathcal C}|\phi^T(\mathcal C)|\prod_{\Gamma\in\mathcal C}\bar k(\Gamma)<\infty$, the sum running over the clusters that contain an object incompatible with a box of $Y$. By the Weierstrass test, $E^\#(Y)$ at $\tilde U$ is continuous at $\pi_0$.
+
+\emph{Step 4: the generation.} By Definition~\ref{def:raw-new},
+\[
+E'[\pi](Y',U)=\sum_{X:\,\bar X=Y'}\mathfrak e(X,U)+\sum_{c:\,Y'_c=Y'}\log\mathfrak j_c(U)+\sum_{Y:\,\hat Y=Y'}\big(E^\#(Y,\tilde U)-E^\#(Y,1)\big),
+\]
+a finite sum. The one-loop pieces $\mathfrak e(X,\cdot)$ and the Jacobian terms $\log\mathfrak j_c$ do not depend on $\pi$: they are functions of the reference, defined through the fluctuation operator $\Delta_k$ ($\Delta_0$ at $k=0$) and the elimination at the base (Propositions~\ref{prop:one-loop-polymer}, \ref{prop:jacobians}(b) and~\ref{prop:first-step}(b)), which involve neither the coupling, nor the cutoff, nor the old activities. So, by Step~3, $\pi\mapsto E'[\pi](Y',U)$ is continuous on $\Sigma_k$, for every polymer $Y'$ of scale $k+1$ and every $U\in\mathcal U(Y')$. Let $X$ be a polymer of scale $k+1$ and $U\in\mathcal U^\flat(X)$. By \eqref{eq:flat-in-full}, each term of $E^{(k+1)}(X,U)=|\mathfrak S^{\rm grid}_{k+1}|^{-1}\sum_rE'(r^{-1}X,r^{-1}U)$ is a value of $E'$ at a point of $\mathcal U(r^{-1}X)$. This gives the continuity of $\pi\mapsto E^{(k+1)}[\pi](X,U)$.
+
+\emph{Step 5: the coefficient.} Let $F^*=F^{12,a}$ be as in the proof of Proposition~\ref{prop:period-iso}(b). By that proof and Lemma~\ref{lem:period-density}(c), $\beta_{k+1}=2\bar T_{E^{(k+1)}}(F^*)=2n_{k+1}^{-4}\sum_Xc^X(F^*)$, a finite sum over the polymers $X$ of scale $k+1$ that are not wrapping. With the origin at the lift of a point of $X$, $t\mapsto E^{(k+1)}(X,V^X_{t,F^*})$ is holomorphic for $|t|<t_X=\delta_1^\flat/(dD_X)$ and bounded by $\mathsf K$ there (Lemma~\ref{lem:period-density}(a), $|F^*|=1$). So $c^X(F^*)=(2\pi\ii)^{-1}\oint_{|t|=t_X/2}E^{(k+1)}(X,V^X_{t,F^*})\,t^{-3}\,dt$. By Step~4 and dominated convergence, $c^X(F^*)$, and hence $\beta_{k+1}$, is continuous at $\pi_0$.
+\end{proof}
+
+\begin{corollary}[Continuity in the bare coupling]\label{cor:bare-continuity}
+Let $g_0\in(0,\gamma]$. Define $g_j$ by $g_j^{-2}=g_{j-1}^{-2}-\beta_j[(g_0,\dots,g_{j-1})]$, for as long as $g_1,\dots,g_{j-1}\in(0,\gamma]$. For $0\le k\le K$ let $\mathsf B_k$ be the set of the $g_0\in(0,\gamma]$ for which $g_1,\dots,g_k$ are defined and lie in $(0,\gamma]$; so $\mathsf B_0=(0,\gamma]$. Let $1\le k\le K$.
+\begin{enumerate}[label=(\alph*)]
+\item For $g_0\in\mathsf B_{k-1}$, $(g_0,\dots,g_{k-1})\in\Sigma_{k-1}$, $g_k$ is defined, $g_k\le2g_{k-1}$, and $|g_j^{-2}-g_0^{-2}|\le jC_\beta\mathsf K$ for $j\le k$. The set $\mathsf B_k$ contains the interval $(0,(\gamma^{-2}+kC_\beta\mathsf K)^{-1/2}]$.
+\item The map $g_0\mapsto g_k$ is continuous on $\mathsf B_{k-1}$. Hence $\mathsf B_k=\{g_0\in\mathsf B_{k-1}:g_k\le\gamma\}$ is closed in $(0,\gamma]$, and $g_0\mapsto(g_1,\dots,g_k)$ is continuous on $\mathsf B_k$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}\hasdetail{cor:bare-continuity}
+(a) By induction on $k$. Let $g_0\in\mathsf B_{k-1}$. For $1\le i<k$, $g_0\in\mathsf B_{i-1}$, so $g_i\le2g_{i-1}$ by (a) at $i$; hence $(g_0,\dots,g_{k-1})\in\Sigma_{k-1}$. So $|\beta_k|\le C_\beta\mathsf K$ by Proposition~\ref{prop:flow-continuity}(a), and the first consequence in Remark~\ref{rem:flow-constants} gives $g_{k-1}^{-2}-\beta_k\ge\frac14g_{k-1}^{-2}>0$; so $g_k$ is defined, and $g_k\le2g_{k-1}$. Moreover $g_j^{-2}-g_0^{-2}=-\sum_{i\le j}\beta_i$ has modulus at most $jC_\beta\mathsf K$. If $g_0^{-2}\ge\gamma^{-2}+kC_\beta\mathsf K$, the same induction gives $g_j^{-2}\ge g_0^{-2}-jC_\beta\mathsf K\ge\gamma^{-2}$, i.e.\ $g_j\le\gamma$, for $j\le k$; so $g_0\in\mathsf B_k$.
+
+(b) By induction on $k$; assume (b) at every $i<k$. On $\mathsf B_{k-1}$ the map $g_0\mapsto(g_0,\dots,g_{k-1})\in\Sigma_{k-1}$ is continuous, since each $g_i$, $i<k$, is continuous on $\mathsf B_{i-1}\supset\mathsf B_{k-1}$; and $\beta_k$ is continuous on $\Sigma_{k-1}$, by Proposition~\ref{prop:flow-continuity}(b) with $k-1<K$ in place of $k$. So $g_k=(g_{k-1}^{-2}-\beta_k)^{-1/2}$ is continuous on $\mathsf B_{k-1}$, since $g_{k-1}^{-2}-\beta_k\ge\frac14g_{k-1}^{-2}>0$. Hence $\mathsf B_k=\{g_0\in\mathsf B_{k-1}:g_k\le\gamma\}$ is closed in $\mathsf B_{k-1}$, which is closed in $(0,\gamma]$, and $g_0\mapsto(g_1,\dots,g_k)$ is continuous on $\mathsf B_k$.
+\end{proof}
+
+\begin{theorem}[The four-dimensional small-field flow]\label{thm:sf-flow}
+Let $d=4$, let $G$ be compact, connected and simple, let the parameters be chosen as in Remark~\ref{rem:parameters}, with the constants of Remark~\ref{rem:flow-constants}(i),(ii) and with $\gamma$ satisfying ($\Gamma$1)--($\Gamma$3), and let $n_K\ge n_{\min}$, so that the torus satisfies (T0)--(T2) at every scale $k\le K$ (Lemma~\ref{lem:torus}(a)). Let $g_0\in(0,\gamma]$, $E_0\in\R$ and $\rho_0=\exp(-g_0^{-2}S-E_0)$. Let $E^{(j)}$, $\beta_j$ and $g_j$ be the generations, coefficients and couplings of Proposition~\ref{prop:flow-continuity} and Corollary~\ref{cor:bare-continuity}, i.e.\ of the recursion of Proposition~\ref{prop:gen-one} and Theorem~\ref{thm:gen-step}, and let $\rho_j=\one_{\mathfrak U_j(h_j)}T_{\rm sf}(\rho_{j-1})$ as long as $g_1,\dots,g_j\le\gamma$. Let $1\le k\le K$ with $g_1,\dots,g_k\le\gamma$. Then (a)--(e) hold at $k$, whatever the later couplings; (f) holds if $g_1,\dots,g_K\le\gamma$, in particular if $g_0^{-2}\ge\gamma^{-2}+KC_\beta\mathsf K$ (Corollary~\ref{cor:bare-continuity}(a)).
+\begin{enumerate}[label=(\alph*)]
+\item \emph{(Generation form; \cite[(0.22)--(0.24)]{BalYM4I}.)} For $V\in\mathfrak U_k(h_k)$, with $U_k=U_k(V)$,
+\[
+\rho_k(V)=\mathcal Z_k\exp\Big(-\frac1{g_k^2}S(U_k)-\eps_k|\T^{(k)}|+\sum_{j=1}^k\big(E^{(j)}-\beta_jS\big)(U_k)\Big),
+\]
+and $\rho_k(V)=0$ for the other configurations $V$. The density $\rho_k$ is invariant under real gauge transformations and under $\mathfrak S_k$.
+\item \emph{(Creation scale; \cite[(0.25)]{BalYM4I}.)} Each $E^{(j)}$, $j\le k$, is a generation of scale $j$ at the threshold $h_j$, with (G1)--(G4), and $\|E^{(j)}\|_j\le\mathsf K$: $\sup_{\mathcal U^\flat(X)}|E^{(j)}(X,\cdot)|\le\mathsf Ke^{-\kappa_nd_j(X)}$ for every polymer $X$ of scale $j$, on the domains of scale $j$, whose constants do not depend on the coupling.
+\item \emph{(The coefficients.)} The period density of $E^{(j)}$ is exactly isotropic,
+\[
+\bar T_{E^{(j)}}(F)=\beta_j\bar T_S(F)=\tfrac12\beta_j\sum_{\mu<\nu}\operatorname{tr}\big(F_{\mu\nu}^2\big)
+\]
+for all curvature data $F$ in $\mathfrak g^c$, with no topological and no anisotropic part. The number $\beta_j$ is real, and $|\beta_j|\le C_\beta\mathsf K$.
+\item \emph{(Later scales; \cite[(0.28)--(0.30)]{BalYM4I}.)} Let $j\le k$ and $m=k-j$. For every grid cube $\Box$ of scale $k$ and every $U\in\mathcal U^\flat(\Box^+)$ of scale $k$,
+\[
+\Big|\sum_{X\in\cX^{\rm sm}_j(\Box)}E^{(j)}(X,U)-\beta_jS_\Box(U)\Big|\le
+\begin{cases}C_{\rm ex}\mathsf K\,L^{-\alpha m},&m\ge m_0,\\ C_{\rm ex}\mathsf K,&m<m_0,\end{cases}
+\]
+the other polymers satisfy the bound of Lemma~\ref{lem:large-later}(a), and the old activities that of Proposition~\ref{prop:old-activities}(b). For every $V\in\mathfrak U_k(h_k)$,
+\[
+\begin{aligned}
+&\Big|\sum_{j=1}^k\big(E^{(j)}-\beta_jS\big)\big(U_k(V)\big)\Big|\le C_{\rm lat}\mathsf K\,|\T^{(k)}|,\\
+&C_{\rm lat}=M^{-4}\Big(C_{\rm ex}\Big(m_0+\frac1{1-L^{-\alpha}}\Big)+2K_0L^{5m_0}\Big).
+\end{aligned}
+\]
+\item \emph{(Couplings.)} For $1\le j\le k$, $|g_j^{-2}-g_{j-1}^{-2}|=|\beta_j|\le C_\beta\mathsf K$ and $\frac34g_{j-1}\le g_j\le2g_{j-1}$. The step from scale $j-1$ to scale $j$ satisfies the hypotheses of Theorem~\ref{thm:sf-step} (of Proposition~\ref{prop:first-step} if $j=1$), with the old activities $\mathcal E_{j-1}$, and (Q1)--(Q3) with $\eps'_1=h_j$.
+\item \emph{(Vacuum.)} $\mathcal Z_0=1$, $\eps_0|\T^{(0)}|=E_0$, and for $0\le k<K$
+\[
+\mathcal Z_{k+1}=\mathcal Z_k\,\mathcal N_kN_\chi\,e^{-\frac12\sum_b\ell_k(b;1)},\qquad\eps_{k+1}=L^4\eps_k+\delta_k,\qquad|\delta_k|\le C_{\rm vac}\big(g_k^2p_{0,k}^6+g_kp_{0,k}\big),
+\]
+with $\delta_k$ of \eqref{eq:vacuum-flow}, which does not depend on $E_0$. There is exactly one $E_0$ with $\eps_K=0$. For this $E_0$, $|\eps_k|\le C'_{\rm vac}g_kp_{0,k}$ for $0\le k\le K$; in particular $|E_0|\le C'_{\rm vac}g_0p_0(g_0)|\T^{(0)}|$.
+\end{enumerate}
+Here $C_\beta$ and $C_{\rm ex}$ are the constants of Proposition~\ref{prop:period-iso}(b) and Proposition~\ref{prop:extraction}, and $C_{\rm vac}$, $C'_{\rm vac}$ are given in the proof. All of them depend only on the parameters of Remark~\ref{rem:parameters}(1)--(5) ($C'_{\rm vac}$ also on the function $p_0$), and not on $k$, $K$, $N$, the torus or the couplings.
+\end{theorem}
+
+\begin{proof}\hasdetail{thm:sf-flow}
+\emph{Induction.} Let $1\le k\le K$ with $g_1,\dots,g_k\le\gamma$. We show by induction on $k'\le k$ that $\rho_{k'}$ has the generation form at scale $k'$ (Definition~\ref{def:gen-form}), with the generations $E^{(1)},\dots,E^{(k')}$, the couplings $g_1,\dots,g_{k'}\in(0,\gamma]$, $g_{i+1}\le2g_i$ for $0\le i<k'$, and the constants $\mathcal Z_{k'}$, $\eps_{k'}$ of the recursions in~(f). For $k'=1$, apply Proposition~\ref{prop:gen-one} with $\eps_0=E_0/|\T^{(0)}|$. It gives $g_1\le2g_0$, and, since $g_1\le\gamma$, the generation form of $\rho_1$ with $\mathcal Z_1$ and $\eps_1$. Let $1\le k'<k$, and assume the claim at $k'$. Then Theorem~\ref{thm:gen-step} applies to $\rho_{k'}$, and it produces $E^{(k'+1)}$ and $\beta_{k'+1}$ (Proposition~\ref{prop:flow-continuity}(a)). Its part~(c) gives $g_{k'+1}\le2g_{k'}$. Since $g_{k'+1}\le\gamma$, its part~(d) gives the generation form of $\rho_{k'+1}$ at scale $k'+1$, with $\mathcal Z_{k'+1}$ and $\eps_{k'+1}$. The couplings after $g_k$ do not enter. The torus hypotheses at all scales are those of the Setting.
+
+(a) This is the generation form. The invariance is the paragraph after Definition~\ref{def:gen-form} and Remark~\ref{rem:later-symmetry}.
+
+(b) The generations of Definition~\ref{def:gen-form} are generations at the thresholds $h_j$ with norm at most $\mathsf K$, and (G1)--(G4) hold by Theorem~\ref{thm:gen-step}(c) and Proposition~\ref{prop:gen-one}. The domain constants are those of Remark~\ref{rem:domain-constants}.
+
+(c) Proposition~\ref{prop:period-iso}(a),(b), with $\|E^{(j)}\|_j\le\mathsf K$, and Lemma~\ref{lem:period-density}(d) for $\bar T_S$.
+
+(d) The first bound is Proposition~\ref{prop:extraction} for $E=E^{(j)}$. Let $V\in\mathfrak U_k(h_k)$. Since $h_k$ is admissible, $U_k(V)$ lies in $\mathcal U^\flat(Y)$ for every polymer $Y$ of scale $k$, in particular for $Y=\Box^+$ (the paragraph before Definition~\ref{def:generation}, at scale $k$). So Remark~\ref{rem:old-later} applies at $U=U_k(V)$; there are $|\T^{(k)}|/M^4$ grid cubes of scale $k$, and its bound is the last one.
+
+(e) The recursion holds by construction, and $|\beta_j|\le C_\beta\mathsf K$ by (c). The upper bound $g_j\le2g_{j-1}$ was shown in the induction. By ($\Gamma$1) and $g_{j-1}\le\gamma$,
+\[
+g_j^{-2}\le g_{j-1}^{-2}+C_\beta\mathsf K\le\big(1+C_\beta\mathsf K\gamma^2\big)g_{j-1}^{-2}\le\tfrac74g_{j-1}^{-2},
+\]
+so $g_j\ge(\frac47)^{1/2}g_{j-1}\ge\frac34g_{j-1}$. The hypotheses of the step are Theorem~\ref{thm:gen-step}(a),(d) for $j\ge2$. For $j=1$ they are the third fact in the proof of Proposition~\ref{prop:gen-one}, with $h'=h_1\le\min(2h_0,\gamma p(\gamma))$.
+
+(f) The recursions for $\mathcal Z_k$ and $\eps_k$ are those of Theorem~\ref{thm:gen-step}(d) and Proposition~\ref{prop:gen-one}, i.e.\ those of Section~\ref{subsec:tf-vacuum}. By (e) at every $k\le K$, the hypotheses of Proposition~\ref{prop:vacuum} hold. By its part~(a), the $\delta_k$ do not depend on $E_0$, $|\delta^{\rm p}_k|\le L^4M^{-4}C_Pg_k^2p_{0,k}^6$, and $|\delta^{\rm m}_k|\le4AL^4M^{-4}\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)}$, with $\delta^{\rm m}_0=0$. By Theorem~\ref{thm:gen-step}(a) and Proposition~\ref{prop:old-activities}(d), $\epsilon_{\rm m}\le C_P\tau C_{\rm old}\mathsf K$ with $\tau\le C_PL^4g_kp_{0,k}/\delta_1$. This gives the bound on $\delta_k$ with
+\[
+C_{\rm vac}=L^4M^{-4}\max\big(C_P,\ 4AC_P^2L^4C_{\rm old}\mathsf K\,\delta_1^{-1}e^{c_\natural(\kappa_n-1)}\big),
+\]
+where $C_P$ is the largest of the constants so denoted in Propositions~\ref{prop:pure-sources}, \ref{prop:localized-pieces} and~\ref{prop:old-activities}(d), at $k=0$ and at $k\ge1$ (Section~\ref{sec:step-quantities}, Setting). Proposition~\ref{prop:vacuum}(b) gives the unique $E_0$ with $\eps_K=0$.
+
+Put $\bar p_5=\sup_{0<g\le g_p}gp_0(g)^5$. It is finite. Indeed, $g^{1/5}p_0(g)\to0$ as $g\to0$ (Section~\ref{subsec:flow-parameters}), so $gp_0(g)^5\le1$ for $g\le g'$ with some $g'>0$; and $gp_0(g)^5\le g_pp_0(g')^5$ for $g'\le g\le g_p$, since $p_0$ is decreasing \eqref{eq:p0-standing}. So $g^2p_0^6=gp_0\cdot gp_0^5\le\bar p_5\,gp_0$, and $|\delta_j|\le C_{\rm vac}(1+\bar p_5)g_jp_{0,j}$ for $j<K$. Let $0\le k<K$ and $0\le m<K-k$. If $g_{k+m}\le g_k$, then $g_{k+m}p_0(g_{k+m})\le g_kp_0(g_k)$, since $gp_0(g)$ is increasing. Otherwise $p_0(g_{k+m})\le p_0(g_k)$, since $p_0$ is decreasing (both by \eqref{eq:p0-standing}), and $g_{k+m}\le2^mg_k$ by (e). In both cases
+\[
+g_{k+m}p_{0,k+m}\le2^mg_kp_{0,k}\le L^{2m}g_kp_{0,k}=L^{dm/2}g_kp_{0,k}.
+\]
+So the hypothesis of Proposition~\ref{prop:vacuum}(c) holds with $D_k=C_{\rm vac}(1+\bar p_5)g_kp_{0,k}$, and $|\eps_k|\le2L^{-4}D_k$. This is the bound with $C'_{\rm vac}=2L^{-4}C_{\rm vac}(1+\bar p_5)$; for $k=K$, $\eps_K=0$. Finally $E_0=\eps_0|\T^{(0)}|$.
+\end{proof}
+
+The next corollary bounds the partition function of the small-field model per volume. It adapts the argument of \cite{DimockI} (Remark~\ref{rem:sf-reference}(a)), with the bound of Theorem~\ref{thm:sf-flow}(d) in place of a small activity norm.
+
+\begin{corollary}[Small-field stability]\label{cor:sf-stability}
+In the situation of Theorem~\ref{thm:sf-flow}, with $g_1,\dots,g_K\le\gamma$, put
+\[
+I_K=\int_{\mathfrak U_K(h_K)}\exp\Big(-\frac1{g_K^2}S\big(U_K(V)\big)+\sum_{j=1}^K\big(E^{(j)}-\beta_jS\big)\big(U_K(V)\big)\Big)\prod_bdV(b),
+\]
+the integral over the configurations $V$ on $\T^{(K)}$, with the normalized Haar measure on each positively oriented bond. It does not depend on $E_0$. The partition function of the small-field model is
+\[
+\int\rho_K(V)\prod_bdV(b)=\mathcal Z_Ke^{-\eps_K|\T^{(K)}|}I_K,
+\]
+which is $\mathcal Z_KI_K$, with the explicit product $\mathcal Z_K$ of normalizations, for the $E_0$ with $\eps_K=0$. Moreover
+\[
+e^{-c|\T^{(K)}|}\le I_K\le e^{c|\T^{(K)}|},\qquad c=C_{\rm lat}\mathsf K+3(C_*+1)^2p(g_K)^2+4\dim\mathfrak g\,\log\frac1{c_Vh_K},
+\]
+with $C_{\rm lat}$ of Theorem~\ref{thm:sf-flow}(d), $C_*$ of Proposition~\ref{prop:sharp-curvature}, and $c_V\in(0,1]$ depending only on $G$. The constant $c$ depends on $g_K$, through $p(g_K)$ and $h_K=p(g_K)g_K$, and on the parameters, but not on $N$, $K$, the torus or $g_0,\dots,g_{K-1}$.
+\end{corollary}
+
+\begin{proof}\hasdetail{cor:sf-stability}
+The identity is Theorem~\ref{thm:sf-flow}(a) at $k=K$. The generations and the couplings do not depend on $E_0$, by Proposition~\ref{prop:flow-continuity}(a) and Corollary~\ref{cor:bare-continuity}, so neither does $I_K$. Let $V\in\mathfrak U_K(h_K)$, $U=U_K(V)$, and use the units of scale $K$; the fine lattice has spacing $\eta=L^{-K}$, and $|\T^{(K)}|=n_K^4$.
+\begin{itemize}
+\item \emph{Activities.} By Theorem~\ref{thm:sf-flow}(d) at $k=K$, $|\sum_{j\le K}(E^{(j)}-\beta_jS)(U)|\le C_{\rm lat}\mathsf K|\T^{(K)}|$.
+\item \emph{Action.} For real $U$ every plaquette term is $\operatorname{Re}\operatorname{tr}(1-U(\partial p))$ (Section~\ref{sec:action}), which is nonnegative, since the eigenvalues of $U(\partial p)$ have modulus $1$; so $S(U)\ge0$. Since $h_K$ is admissible, Proposition~\ref{prop:sharp-curvature} with $\delta=1$ gives $U\in\mathfrak U_0((C_*+1)h_K)$. So for every plaquette $p$ of $\Tf$, $Y_p=\ell(U(\partial p))\in\mathfrak g$ satisfies $|Y_p|\le\eta^2(C_*+1)h_K$, and $s_p(U)=\operatorname{tr}(1-\cos Y_p)\le\frac12\operatorname{tr}(Y_p^2)=\frac12|Y_p|^2$, since $1-\cos x\le\frac12x^2$ for the eigenvalues of $Y_p$. There are $6(n_K/\eta)^4$ positively oriented plaquettes. Hence $g_K^{-2}S(U)\le3(C_*+1)^2h_K^2g_K^{-2}|\T^{(K)}|=3(C_*+1)^2p(g_K)^2|\T^{(K)}|$.
+\item \emph{Volume.} The Haar measure of $\mathfrak U_K(h_K)$ is at most $1$. For the lower bound let $\sigma$ be the density of the Haar measure in exponential coordinates (Section~\ref{subsec:exact-formula}), and choose $c'_V\le\frac18c_G$ such that $\sigma\ge\frac12\sigma(0)$ on $\{|Z|\le c'_V\}$. Let $V$ be a configuration on $\T^{(K)}$ with $|\ell(V(b))|\le c'_Vh_K$ for every bond $b$. By Lemma~\ref{lem:log-estimates}(b), $|\ell(V(\partial p))|\le4c'_Vh_K\le h_K$, and $|V(\partial p)-1|\le8c'_Vh_K\le c_G$ by Lemma~\ref{lem:log-estimates}(a); since the spacing of $\T^{(K)}$ is $1$, the curvature of $V$ is at most $h_K$, and $V\in\mathfrak U_K(h_K)$. By Lemma~\ref{lem:log-estimates}(d), the set of the $u\in G$ with $|\ell(u)|\le c'_Vh_K$ is $\{e^{\ii Z}:Z\in\mathfrak g,\ |Z|\le c'_Vh_K\}$, whose Haar measure is at least $\frac12\sigma(0)\omega(c'_Vh_K)^{\dim\mathfrak g}$, with $\omega$ the volume of the unit ball of $\mathfrak g$. With $c_V=c'_V\min(1,(\frac12\sigma(0)\omega)^{1/\dim\mathfrak g})$ this is at least $(c_Vh_K)^{\dim\mathfrak g}$. There are $4|\T^{(K)}|$ positively oriented bonds, so the Haar measure of $\mathfrak U_K(h_K)$ is at least $(c_Vh_K)^{4\dim\mathfrak g|\T^{(K)}|}$.
+\end{itemize}
+Here $h_K\le1$, since admissible thresholds are less than $\theta_r\le c_a\le1$, and so $\log(c_Vh_K)^{-1}\ge0$. The three bounds give $I_K\le e^{C_{\rm lat}\mathsf K|\T^{(K)}|}$ and
+\[
+I_K\ge\exp\Big(-C_{\rm lat}\mathsf K|\T^{(K)}|-3(C_*+1)^2p(g_K)^2|\T^{(K)}|\Big)(c_Vh_K)^{4\dim\mathfrak g|\T^{(K)}|}=e^{-c|\T^{(K)}|}.\qedhere
+\]
+\end{proof}
+
+\begin{remark}[On Theorem~\ref{thm:sf-flow}]\label{rem:sf-flow}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Ba\l aban's theorems.} The theorem is the analogue, for the small-field model on the given torus, of Ba\l aban's Theorem~3 \cite{BalYM4I}, with his hypothesis $0<g_k\le\gamma$ for $k\le K$; no asymptotic behaviour of the couplings is assumed \cite[p.~259]{BalYM4I}. Item~(d) is his representation (0.28), with the bounds (0.29) and their consequence (0.30). His (0.29) bounds each term of scale $j$ in (0.28) by $O(1)(L^j\eta)^{4+\alpha}e^{-\kappa d_j(X)}$, where $L^k\eta=1$ in the units of scale $k$; summed over the $L^{4(k-j)}$ grid cubes of scale $j$ in a grid cube of scale $k$, this is the gain $L^{-\alpha(k-j)}$ of~(d). His Theorem~1 asserts (0.22)--(0.24) with terms satisfying (0.29), but (0.29) is not among the inductive assumptions (1.1)--(1.22) of his Theorem~3. Two features of his inductive assumptions are not reproduced. First, his activities and his coefficients $\beta_{j+1}$ are smooth, or analytic, functions of a single coupling on $[0,\gamma]$ \cite[pp.~263--264]{BalYM4I}. Here $E^{(j)}$ and $\beta_j$ depend on the sequence $(g_0,\dots,g_{j-1})$, and only their continuity is proved (Proposition~\ref{prop:flow-continuity}). Second, his small-field domain has a fixed constant $\eps_0$ \cite[p.~259]{BalYM4I}, and his fluctuation cutoff \cite[(2.9)]{BalYM4I} has either a fixed constant $\eps_1$ or, as an alternative that he also carries through, a bound depending on the coupling. Here both the threshold $h_k=p(g_k)g_k$ and the white-noise bound $p_0(g_k)$ depend on the coupling, as in \cite{DimockI}. So the small-field domain of the note shrinks with the coupling, unlike Ba\l aban's. The domains of (b) and (d) are fixed, as in \cite[(1.11)--(1.16)]{BalYM4I}.
+\item \emph{Part~XI.} The coefficient $\beta_j$ is defined by the period density of the symmetrized generation, and (c) holds. Its comparison, at fixed couplings and as the torus grows, with the coefficient that Ba\l aban's definition \cite[(1.20)--(1.22)]{BalYM4I} assigns to the generations is Proposition~\ref{prop:beta-identification}, which rests on Section~\ref{sec:gen-locality}. The hypotheses (F1)--(F3) of Theorem~\ref{thm:ol-uv} are proved in Proposition~\ref{prop:flow-F}: (F1) rests on Proposition~\ref{prop:flow-continuity}, (F2) on the torus independence of the one-loop parts of the generations (Lemma~\ref{lem:OL}), and (F3) on a parity argument.
+\item \emph{The vacuum.} The order $g_kp_{0,k}$ in (f) comes from the mixed class. The parity argument in the proof of (F3) of Proposition~\ref{prop:flow-F}, applied to $\sum_YE^\#(Y,1)$, would give $|\delta_k|=O(g_k^2p_{0,k}^6)$ under ($\Gamma$4); it is not needed here.
+\item \emph{The torus and the model.} All bounds are uniform in $N$ and $K$, given $n_K\ge n_{\min}$; wrapping polymers are bounded at all later scales by Lemma~\ref{lem:torus}(c)--(e). The flow is that of the small-field model (Remark~\ref{rem:sf-reference}(c)); the large-field stage is not treated.
+\end{enumerate}
+\end{remark}

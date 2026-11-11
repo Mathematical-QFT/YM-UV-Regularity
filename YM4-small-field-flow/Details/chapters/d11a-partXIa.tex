@@ -1,0 +1,978 @@
+\section{Part XI, first half: the composite one-loop term, the Landau chart and the vacuum polarization}\label{d11a:sec}
+
+This chapter expands Sections~\Nref{sec:ol-composite}--\Nref{sec:ol-vacpol} of the note. Each Detail names in its heading the result of the note that it expands, and ends with a status.
+
+\subsection{Guide and conventions}\label{d11a:guide}
+
+\paragraph{The main line.} Theorem~\Nref{thm:M} and Theorem~\Nref{thm:ol-cumulative} use from these sections:
+\begin{itemize}
+\item the one-loop term $\Gamma^{(1)}_k$ (Proposition~\Nref{prop:ol-laplace}), the one-step relation (Lemma~\Nref{lem:ol-one-step}) and the composition (Proposition~\Nref{prop:ol-composition});
+\item the lattice symmetry (Lemma~\Nref{lem:ol-symmetry}), the change of scale (Lemma~\Nref{lem:ol-pullback}) and the cumulative tensor (Corollary~\Nref{cor:ol-cumulative});
+\item the Landau-chart formula (Theorem~\Nref{thm:ol-chart}, Corollary~\Nref{cor:ol-ghost}, Lemma~\Nref{lem:ol-offshell});
+\item the torus limit (Lemma~\Nref{lem:ol-torus-limit}), the coarse map (Lemma~\Nref{lem:ol-coarse-map}) and the reduction to the Feynman part (Proposition~\Nref{prop:ol-reduction}).
+\end{itemize}
+The infinite-volume framework (Lemmas~\Nref{lem:ol-folding}--\Nref{lem:ol-liouville}, Proposition~\Nref{prop:ol-IM}, Corollary~\Nref{cor:ol-umklapp}) serves all of them. Remark~\Nref{rem:ol-numerical} is not used in any proof.
+
+\paragraph{How the pieces combine.} The aim of Part~XI is the growth of the cumulative one-loop coefficient, $k\beta_\infty+O(1)$ with $\beta_\infty=\frac{11C_A}{24\pi^2T_\rho}\log L$ (Theorem~\Nref{thm:ol-cumulative}). The note obtains it by the following chain.
+\begin{enumerate}[label=(\arabic*)]
+\item The one-loop term $\Gamma^{(1)}_k$ of the composite $k$-step map (Proposition~\Nref{prop:ol-laplace}) is, up to a constant, the sum of the one-loop terms $\Gamma^{\rm step}_j$ of the steps (Proposition~\Nref{prop:ol-composition}).
+\item By gauge invariance and lattice symmetry, the marginal tensor of each of these functions is a multiple of $\delta_{\mu\nu}|p|^2-p_\mu p_\nu$ (Lemma~\Nref{lem:ol-symmetry}), and, under the convergence hypothesis of Corollary~\Nref{cor:ol-cumulative}, the tensors of the steps add up to that of $\Gamma^{(1)}_k$.
+\item Through the Landau-chart formula (Theorem~\Nref{thm:ol-chart}) and the torus limit (Lemma~\Nref{lem:ol-torus-limit}), the marginal tensor of $\Gamma^{(1)}_k$ is the $p^2$-tensor $T_{\rm fine}$ of a vacuum polarization on the fine lattice (Lemma~\Nref{lem:ol-coarse-map}).
+\item $T_{\rm fine}$ is the Feynman-gauge tensor $T_{\rm F}$ up to $O(1)$, uniformly in $k$ (Proposition~\Nref{prop:ol-reduction}).
+\item The coefficient $\beta_{\rm F}$ of $T_{\rm F}$ is a function of $\eta=L^{-k}$ alone (Lemma~\Nref{lem:ol-scaling}), and $\beta_{\rm F}=k\beta_\infty+O(1)$ (Theorem~\Nref{thm:ol-log}).
+\end{enumerate}
+This chapter expands (1)--(4). Step~(5) and the conclusion are expanded in Section~\ref{d11b}, where Detail~\ref{d11b:ol-cumulative} assembles the chain.
+
+\paragraph{What this chapter adds.} The points where this chapter gives a new argument for a step that the note compresses are collected in Subsection~\ref{d11a:findings}. None of them changes a statement of the note.
+
+\paragraph{Conventions.}
+\begin{itemize}
+\item \emph{Fibre measures.} Let $\mathcal U$ be an open set of real fine configurations on which $U\mapsto U^{(k)}$ is defined and a submersion. For a coarse configuration $V'$ let $\mu_{V'}$ be the measure on $\mathfrak B(V')\cap\mathcal U$ induced by the two Haar measures (paragraph after \Neqref{eq:rg-map}). It is characterized by the coarea identity
+\begin{equation}\label{d11a:coarea}
+\int\prod_bdU(b)\,F(U)=\int\prod_cdV'(c)\int F\,d\mu_{V'}\qquad(F\in C_c(\mathcal U)),
+\end{equation}
+together with the continuity of $V'\mapsto\int F\,d\mu_{V'}$. In the note,
+\[
+\int\prod_bdU(b)\prod_c\delta\big(U^{(k)}(c)V(c)^{-1}\big)F(U)\quad\text{means}\quad\int F\,d\mu_V .
+\] This also makes sense for bounded Borel functions $F$ defined only on $\mathfrak B(V)\cap\mathcal U$, for instance $F=\one_{\mathscr N_r(V)}e^{-S/g^2}$ in $I_k(V;g,r)$.
+\item \emph{Smoothing} (paragraph after Definition~\Nref{def:gf-step}). Let $\delta_n\ge0$ be a continuous class function on $G$ with $\delta_n(u^{-1})=\delta_n(u)$, $\int_G\delta_n=1$ and support in $\{|\ell(u)|\le1/n\}$. Put $\delta_n(V',V'')=\prod_c\delta_n(V'(c)V''(c)^{-1})$. For $F\in C_c(\mathcal U)$, \eqref{d11a:coarea} gives
+\[
+\int dU\,\delta_n(U^{(k)},V)F(U)=\int dV'\,\delta_n(V',V)\Phi_F(V')\longrightarrow\Phi_F(V)=\int F\,d\mu_V ,
+\]
+since $\Phi_F(V')=\int F\,d\mu_{V'}$ is continuous. Identities between integrals with $\delta$-functions are proved for $\delta_n$ and then pass to the limit.
+\item \emph{Constants.} The note's names are used. The global order of choices and the disambiguation of names are in the parameter ledger (Section~\ref{sec:ledger}). The local order needed here is in Detail~\ref{d11a:A14a}. The letter $r_0$ denotes the radius of Proposition~\Nref{prop:ol-laplace} ($r_0=r_u$); the locality range of the paragraph ``Background derivatives'' of Section~\Nref{subsec:ol-vp-function} is written $r_{\rm loc}$ here.
+\item \emph{Haar measures} are normalized, so $\operatorname{vol}\mathcal G_\T=1$. The density of the Haar measure in exponential coordinates is $\sigma$ (Section~\Nref{subsec:exact-formula}), with $d(e^{\ii Z})=\sigma(Z)\,dZ$ and $\delta(e^{\ii w})=\delta(w)/\sigma(w)$.
+\end{itemize}
+
+\subsection{Imported results}\label{d11a:imports}
+
+Each entry gives the statement in the form used here, its hypotheses, where it is used, and the check that the hypotheses hold there. Results of Parts~I--VI are background and are not re-proved. Results of Parts~VII--X are expanded in Sections~\ref{d7:sec}--\ref{xb:sec}, and Lemmas~\Nref{lem:ol-scaling} and~\Nref{lem:ol-linear-average} in Section~\ref{d11b}.
+
+\paragraph{I.1. Part~I.} All constants are independent of the side $n\ge8$ of the torus. Those marked $(\eta)$ are also independent of $\eta=L^{-k}$.
+\begin{itemize}
+\item Lemma~\Nref{lem:hodge}: $d^*d+dd^*=-\Lap$ componentwise on gauge fields. Lemma~\Nref{lem:avg}(b),(d): $Q_0Q_0^*=I$, $\bQ d=\dl Q_0$; moreover $Q_01=1$. Lemma~\Nref{lem:symbols}(a): $\frac2\pi|q|\le|\hat q|\le|q|$ on the Brillouin zone.
+\item Corollary~\Nref{cor:scalar-coercive} $(\eta)$: $\ip f{(-\Lap+aQ_\sigma^*Q_\sigma)f}\ge c_0(\|f\|^2+\|\partial f\|^2)$, with $c_0=\min(1,a)/(2+2C_P)$ and $C_P$ absolute. Corollary~\Nref{cor:QKQ-lower} $(\eta)$: $Q_\sigma(-\Lap+2a)^{-1}Q_\sigma^*\ge c_F$, $c_F$ explicit (called $c_{\rm QGQ}$ in Lemma~\Nref{lem:ol-bloch}). Theorem~\Nref{thm:gauge-coercive} $(\eta)$: $\ip A{\bL_aA}\ge c_g(\|A\|^2+\|\partial A\|^2)$, $c_g$ depending only on $a$. These are background here.
+\item Proposition~\Nref{prop:R}: $M\ge c_F^2$; $R=I-P_\cV$ is the orthogonal projection onto $\cW=\cV^\perp$; $\cV$ contains the constants; $Q_0G_0h=0$ and $-\Lap G_0h=h$ for $h\in\cW$; decay of $P_\cV$.
+\item Proposition~\Nref{prop:QGQ-gauge} $(\eta)$: $c_F\le\bQ\bG\bQ^*\le2c_g^{-1}$. Theorem~\Nref{thm:H-gauge}: $\bH=\bG\bQ^*\boldsymbol\Gamma$, $\bQ\bH=I$, $Rd^*\bH=0$, and $\bH B$ is the unique minimizer of $\|dA\|^2$ on $\{\bQ A=B,\ Rd^*A=0\}$. Proposition~\Nref{prop:eff-action-gauge}: $\bD=\boldsymbol\Gamma-a$, $\ip B{\bD B}=\|d\bH B\|^2$, and $c_D\|\dl B\|^2\le\ip B{\bD B}\le C_D\|\dl B\|^2$ with absolute $c_D,C_D$ $(\eta)$.
+\item The decay statements behind Corollary~\Nref{cor:ol-part-one}: Theorem~\Nref{thm:scalar-green}(a), Propositions~\Nref{prop:QGQ}, \Nref{prop:eff-action-scalar} and \Nref{prop:C-scalar}(d), Theorem~\Nref{thm:H-scalar}(a), Proposition~\Nref{prop:R}(e), Theorem~\Nref{thm:gauge-green}(a), Proposition~\Nref{prop:QGQ-gauge}, Theorems~\Nref{thm:H-gauge}(c) and~\Nref{thm:C-gauge}(c), Proposition~\Nref{prop:eff-action-gauge}, in the sense of Definition~\Nref{def:decay}, with the calculus of Lemma~\Nref{lem:decay-calculus}(b),(d). Here the constants may depend on $\eta$.
+\end{itemize}
+\emph{Check.} Section~\Nref{sec:ol-vacpol} needs uniformity in $k$ only through $c_0$, $c_g$, $c_F$ and $C_D$, which carry $(\eta)$. Corollary~\Nref{cor:ol-part-one} and Lemma~\Nref{lem:ol-bloch} need only uniformity in $n$.
+
+\paragraph{I.2. Parts~II--III.} Proposition~\Nref{prop:cov-R}(b),(c): $R(U)$ is the orthogonal projection onto $\cW(U)$, with kernel $\cV(U)$, and $Q'G'R=0$, $D^TDG'R=R$. Hence $\cW=X\cN(Q')$ with $X=D^TD$. Indeed $\cW\subset X\cN(Q')$, since $h=X(G'h)$ with $G'h\in\cN(Q')$. Conversely, for $\lambda\in\cN(Q')$ we have $G'X\lambda=G'(\fA'-aQ'^TQ')\lambda=\lambda$, so $\ip{G'Q'^T\omega}{X\lambda}=\ip{\omega}{Q'\lambda}=0$, i.e.\ $X\lambda\in\cV^\perp=\cW$. Theorem~\Nref{thm:cov-min}(b): the minimizer map at $W=0$. Theorem~\Nref{thm:reg-scalar}(a),(c), through Corollary~\Nref{cor:parts-apply}: $\fA'>0$ and $M'>0$ at $(M,\eps)$-regular references with $\eps\le\eps_0$. \emph{Used in} Theorem~\Nref{thm:ol-chart} and Corollary~\Nref{cor:ol-ghost} at $U_k(V)$, with $\eps=B_3a_1$. Here $B_3a_1\le\frac12c_6\le\frac12c_7$ (choice of $a_1$ in the proof of Theorem~\Nref{thm:balaban}, and the order of constants at the end of the proof of Theorem~\Nref{thm:variational}), and Lemma~\Nref{lem:Lstar-coercive} chooses $c_7$ below the thresholds of Theorems~\Nref{thm:reg-scalar} and~\Nref{thm:reg-coercive}; so $\eps=B_3a_1$ lies below them.
+
+\paragraph{I.3. Part~IV.}
+\begin{itemize}
+\item Lemma~\Nref{lem:log-estimates} (with $c_G\le\frac14$), Lemma~\Nref{lem:group-average}(a),(e), and Lemma~\Nref{lem:one-step-basic}(a)--(d) with its consequences: covariance $\mathfrak a^{(k)}(U^u)=\mathfrak a^{(k)}(U)^{u|_\T}$ under real gauge transformations of any size, lattice covariance, and locality.
+\item \Neqref{eq:avg-contour-gauge}: $V^u(y,x)=u(y)V(y,x)u(x)^{-1}$ for real $u$. \Neqref{eq:Y2-law} for relative configurations. The averaging domain (Definition~\Nref{def:avg-domain}) is invariant under real gauge transformations (paragraph after Definition~\Nref{def:avg-domain}). The blocks are nested: $B^{(j)}(y)$ is the disjoint union of the $B^{(j-1)}(x)$, $x\in B_j(y)$ (Section~\Nref{sec:averaging}).
+\item Lemma~\Nref{lem:axial}(a)--(c), Definition~\Nref{def:adapted}, Theorem~\Nref{thm:correspondence}(a),(b),(e), and Lemma~\Nref{lem:one-step-expansion}(a),(f) (locality in the relative field).
+\item Proposition~\Nref{prop:Q-expansion}: for $a\le c_3$ and $|A|_\infty\le c_3$, $\ell\mathcal Q_j(e^{\ii\eta A})=\delta_j(\bQ_jA+\Cav_j(A))$, with $|B_j|_\infty\le2|A|_\infty$, $|\Cav_j(A)|\le C|A|^2_\infty$ and the kernel bounds~(c). Proposition~\Nref{prop:linearized-averages}(a)--(g).
+\item Lemma~\Nref{lem:current}(b), Proposition~\Nref{prop:action}(a),(c),(d), Theorem~\Nref{thm:chart}, Corollary~\Nref{cor:parametrization}, Proposition~\Nref{prop:a-priori}.
+\end{itemize}
+\emph{Check.} At the references $U_0=U_k(V)$ of the setting, the curvature is at most $B_3a_1\le\theta_0\le c_4/3\le c_1$ (proof of Theorem~\Nref{thm:chart}, Section~\Nref{subsec:reduction}, and the choice of $a_1$ in the proof of Theorem~\Nref{thm:balaban}), so these results apply.
+
+\paragraph{I.4. Parts~V--VI.}
+\begin{itemize}
+\item Theorem~\Nref{thm:variational}(a)--(c),(f)--(h), for $\eps+\beta\le c_6$. Part~(f) is imported as stated. Lemma~\Nref{lem:reduction}(a)--(c), with $\mathcal M_V=\{A\ \text{real}:RD^TA=0,\ \ell\mathcal Q(e^{\ii\eta A})=B,\ |A|_{C^1}<\rho_1\}$, $\rho_1=2B_1(\eps+\theta_0+\beta)$ (Section~\Nref{subsec:reduction}).
+\item Proposition~\Nref{prop:minimality} and Lemma~\Nref{lem:Lstar-coercive}, for $\eps+\beta\le c_7$ and $\theta_0\le c_7$. The order of constants at the end of the proof of Theorem~\Nref{thm:variational} gives $c_6\le\min(c_7,\theta_0)$.
+\item Lemma~\Nref{lem:Q-covariance}, \Neqref{eq:dQ-gauge} with the maps $\Xi_A,\Theta_A,\Lambda_A$ defined after Lemma~\Nref{lem:Q-covariance}, and Proposition~\Nref{prop:euler-lagrange} with its proof: $\mathcal O_0\lambda=(Q'\lambda,-RD^TD\lambda)$ is invertible.
+\item Lemma~\Nref{lem:units}. Its proof is the pure change of units: curvatures are multiplied by $L^2$ and currents by $L^3$, without hypotheses.
+\item Theorem~\Nref{thm:balaban}, with $a_1$ chosen in its proof so that $C^{\rm units}_LB_3a_1\le\min(c_6,1)$, $B_3a_1\le\theta_0$ and $B_3a_1\le c'_3$. Since $C^{\rm units}_L\ge2$, $B_3a_1\le\frac12c_6$. Corollary~\Nref{cor:analytic}.
+\end{itemize}
+
+\paragraph{I.5. Part~VII.}
+\begin{itemize}
+\item \Neqref{eq:rg-map} with the density paragraph; \Neqref{eq:rho-form}; Lemma~\Nref{lem:composition}; Proposition~\Nref{prop:symmetry}(b),(c); Remark~\Nref{rem:symmetry-reflections}.
+\item The set $\mathfrak M$ (Section~\Nref{sec:fluctuations}), $\phi(u)=e^{-|u-1|^2/2g^2}$ on $G$, $z(g)=\sigma(0)(2\pi g^2)^{\dim\mathfrak g/2}(1+O(g^2))$, and $\mathrm{gf}_W$ (Definition~\Nref{def:gauge-fixing}). Lemma~\Nref{lem:exp-gauge}(a)--(c), $\chi^{\rm w}$ (Definition~\Nref{def:chi-w}, $w\le\frac12c_G$) and \Neqref{eq:chi-w-support}. $T^{\rm gf}$ (Definition~\Nref{def:gf-step}), Lemma~\Nref{lem:gf-step-invariance}(i),(iv), Lemma~\Nref{lem:eliminate}(c),(d), and Proposition~\Nref{prop:exact-step} (needs $w\le r_L$).
+\item Proposition~\Nref{prop:hessian}(a), only for the formula of $q_2$. Lemma~\Nref{lem:step-quadratic}, Theorem~\Nref{thm:step-coercive}, Corollary~\Nref{cor:covariance}: $\frac14c_L\|Z\|^2\le\Delta_k(Z,Z)\le C_L\|Z\|^2$, and covariance~(a),(b). Proposition~\Nref{prop:det-densities}. Theorem~\Nref{thm:step}, whose proof uses $\rho$ only on $\operatorname{supp}\chi^{\rm w}$; this is Detail~\ref{d7:step}.
+\end{itemize}
+
+\paragraph{I.6. Parts~IX--X.}
+\begin{itemize}
+\item Lemma~\Nref{lem:local-inventory}(c), for the support of $\mathcal C^c_U$.
+\item Proposition~\Nref{prop:AB}. \emph{Hypotheses:} $U_r$ real, $U_r\in\mathfrak U_0(a)$ with $a\le c'_3$, and $U=e^{\ii\eta A'}U_r$ with $|A'|_\infty\le\delta_c<\delta_{AB}$; here $c'_3\le c_3$ and $\delta_{AB}$ depend only on $d,L,G$. \emph{Conclusions used:} (ii) Lemma~\Nref{lem:one-step-expansion}(a),(f) at the complex backgrounds $W_{j-1}(U)$; (iii) Proposition~\Nref{prop:Q-expansion}(a)--(d) at $U$; (iv) Proposition~\Nref{prop:linearized-averages}(d); and (vi) holomorphy of $W_j(U)$, $\bQ_k(U)$, $Q'_k(U)$, $D_{W_k(U)}$ and of $\Cav_k$ jointly. All bounds are uniform in $k$, $\eta$ and $j\le k$. \emph{Used at} $U_r=1$ (Lemmas~\Nref{lem:ol-offshell}(a) and~\Nref{lem:ol-kernel-bounds}), where $a=0$, and at $U_r=U_0^\circ$ (Theorem~\Nref{thm:ol-chart}), where the hypothesis holds by the choice of $a_1$ in the proof of Theorem~\Nref{thm:balaban} (Detail~\ref{d11a:E11}).
+\item Proposition~\Nref{prop:jacobians}(b),(d). Proposition~\Nref{prop:first-step}(b). Lemma~\Nref{lem:first-step-formula}(a)--(d), with the constants paragraph of its proof, which is expanded in Detail~\ref{xb:d-k0-formula}.
+\end{itemize}
+
+\paragraph{I.7. Part~XI, second half.} Lemma~\Nref{lem:ol-scaling}, with the operators $X_{\rm V},X_{\rm S}$ and the trigonometric symbols of Section~\Nref{subsec:ol-lattice-integral}; Lemma~\Nref{lem:ol-linear-average}(a),(b). Both are expanded in Section~\ref{d11b}.
+
+\paragraph{I.8. Textbook facts}, used in their standard form:
+\begin{itemize}
+\item the analytic implicit function theorem;
+\item the coarea formula at submersion points;
+\item the identity theorem for real-analytic functions on a connected manifold;
+\item a smooth image of a manifold of lower dimension is a null set;
+\item Laplace's method: if $F\ge F(x_*)+c|x-x_*|^2$ near a nondegenerate minimum $x_*$, then $\int e^{-F/g^2}\varsigma\,dx=(2\pi g^2)^{N/2}e^{-F(x_*)/g^2}\det(\partial^2F(x_*))^{-1/2}\varsigma(x_*)(1+o(1))$;
+\item Jacobi's identity $\det X_{11}=\det X\cdot\det((X^{-1})_{22})$ for a positive matrix in an orthogonal decomposition;
+\item H\"older's inequality for Schatten norms in finite dimensions;
+\item Schur's lemma for the adjoint representation of a compact simple Lie group, which is absolutely irreducible;
+\item for $X\in\mathfrak g$ with $\|\operatorname{ad}X\|<2\pi$, the centralizer of $e^{\ii X}$ in $\mathfrak g$ is that of $X$.
+\end{itemize}
+
+\subsection{The composite one-loop term}\label{d11a:composite}
+
+Throughout this subsection $k\ge1$ is fixed, the torus is fixed and satisfies the setting of Section~\Nref{sec:ol-composite}, and constants may depend on the torus; no uniformity in the torus is claimed.
+
+\paragraph{Notation of Section~\Nref{sec:ol-composite}.} The Details below use the objects of the Setting of that section: a \emph{small-field} configuration $V$ (the two conditions of the Setting); its minimal orbit $\mathscr M(V)$ (Theorem~\Nref{thm:balaban}), with an element $U_k(V)$, which is the reference $U_0$; the group $\mathfrak G_0=\{u:u|_\T=1\}$, which acts freely; the set $\mathcal S_V=\mathcal S_V(U_0)$ of the real $A$ with $|A|_\infty\le r_u$, $RD^TA=0$, $e^{\ii\eta A}U_0\in\mathfrak U(\theta)$ and $\mathcal Q(e^{\ii\eta A})=VW_k^{-1}$, $W_k=U_0^{(k)}$, which reads $\mathcal Q(e^{\ii\eta A})=1$ when $U_0=U_k(V)$, with the chart $A\mapsto\mathsf U(A)=\mathsf U_{U_0}(A)$ of Corollary~\Nref{cor:parametrization} and $S(\mathsf U(A))=\Phi(A)$; and the fibre integral $I_k(V;g,r)$ over the neighbourhoods $\mathscr N_r(V)$ (Lemma~\Nref{lem:ol-chart-covariance}). In Proposition~\Nref{prop:ol-laplace} and its proof, $q_2$ is the Hessian of $\Phi$ on the tangent space $\cX=\{h:\bQ_kh=0,\ RD^Th=0\}$, $\varsigma_V$ is the density of the measure in the chart, and $\Gamma^{(1)}_k=-\frac12\log\det(q_2|_\cX)+\log\varsigma_V(0)$ up to a constant. $\Gamma^{\rm step}_j$ is defined in the paragraph ``The one-loop terms of the steps'' (Detail~\ref{d11a:A13}). The other symbols, such as $\mathcal K_0$, $\Sigma$, (N1), (N2), $w$ and $w'$, are those of the proofs of Proposition~\Nref{prop:ol-laplace} and Lemma~\Nref{lem:ol-one-step}, whose paragraphs the Details follow.
+
+\begin{detail}[Setting of Section~\Nref{sec:ol-composite}]\label{d11a:A1}\Ntarget{sec:ol-composite}
+\begin{step}[$\mathfrak G_0$ acts freely]
+Let $u\in\mathfrak G_0$ with $U^u=U$. Then $u(b_+)=U(b)^{-1}u(b_-)U(b)$ for every bond. Since $u=1$ at the points of $\T$ and $\Tf$ is connected, induction along paths gives $u=1$.
+\end{step}
+\begin{step}[$\theta=\theta_0$ is allowed]
+Let $V$ be small field. At $j=k-1$ the configuration of the setting is $U_k(V)^{(k)}=V$. The hypothesis of Lemma~\Nref{lem:composition} at this scale bounds the curvature of $V$ by $\eps'_1\le a_1/(2C_*+2)\le\frac12a_1$. For $k=1$, the threshold $a^{(0)}_{\rm step}$ of Lemma~\Nref{lem:first-step-formula} contains the same condition (constants paragraph of its proof). So $V\in\mathfrak U_k(\frac12a_1)$. Theorem~\Nref{thm:balaban}(b) with $\eps_1=\frac12a_1$ gives $U_0:=U_k(V)\in\mathfrak U(\frac12B_3a_1)$. It also shows that $U_0$ is $(M,\frac12B_3a_1)$-regular, hence $(M,B_3a_1)$-regular. By the choice of $a_1$, $B_3a_1\le\theta_0$, so $U_0\in\mathfrak U(\frac12\theta_0)$ and $\theta'=\frac12\theta_0<\theta_0$ serves.
+\end{step}
+\begin{step}[Corollary~\Nref{cor:parametrization} applies]
+Take $\eps=B_3a_1$ and $\beta=0$; then $V=U_0^{(k)}=W_k$. The current satisfies $|J_{U_0}|_\infty\le\frac12B_3a_1\le\eps$, since $U_0\in\mathfrak U(\frac12B_3a_1)$. By the choice of $a_1$, $C^{\rm units}_LB_3a_1\le c_6$, where $C^{\rm units}_L\ge2$ is the constant of Lemma~\Nref{lem:units} (not that of Theorem~\Nref{thm:step}); so $\eps\le\frac12c_6$. With $c_6\le\frac13c_4$ and $\theta\le\theta_0\le\frac13c_4$ (Section~\Nref{subsec:reduction}), $\eps+\theta+\beta\le\frac12c_4<c_4$.
+\end{step}
+\begin{step}[Admissible pairs]
+For $V\in\mathfrak U_k(a_1)$ the same steps with $\eps_1=a_1$ give that every $U_0\in\mathscr M(V)$ lies in $\mathfrak U(B_3a_1)$ and is $(M,B_3a_1)$-regular, with $\eps=B_3a_1\le\frac12c_6$. Admissibility adds $\mathscr M(V)\subset\mathfrak U(\theta')$ for some $\theta'<\theta$, which makes $0$ an interior point of the chart domain. The torus threshold $n_*$ contains the condition $n\ge n_0$ of Theorem~\Nref{thm:balaban} (setting of Section~\Nref{sec:generations}).
+\end{step}
+\status{Expanded. Step~4 expands the note's ``by the same argument''.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-chart-covariance}(a)]\label{d11a:A2}\Ntarget{lem:ol-chart-covariance}
+Write $v=u|_\T$ and $W_j=W_j(U_0)$. The convention $(U^g)^u=U^{ug}$ holds; $R(u)$ acts on Lie fields and relative configurations by $R(u(b_-))$ and is orthogonal for the trace pairings.
+\begin{step}[The hypotheses]
+Regularity (Definition~\Nref{def:regular}) is a condition on local gauges, so it is invariant. $J_{U_0^u}=R(u)J_{U_0}$ (Lemma~\Nref{lem:current}(b)) has the same norm. $W_j(U_0^u)=W_j^{u|_{\T^{(j)}}}$ (Lemma~\Nref{lem:one-step-basic}, consequence). Moreover $V^v(c)W_k^v(c)^{-1}=v(c_-)\,V(c)W_k(c)^{-1}\,v(c_-)^{-1}$. For unitary $v(c_-)$, Lemma~\Nref{lem:log-estimates}(d) gives the same norm of the logarithm. So $\eps$ and $\beta$ are unchanged.
+\end{step}
+\begin{step}[Relative objects]
+Let $X$ be a relative configuration at scale $j-1$, relative to $W=W_{j-1}$. Bondwise, $(R(u)X)\,W^u=(XW)^u$. Apply \Neqref{eq:avg-contour-gauge} to $(XW)^u$ and to $W^u$:
+\[
+(R(u)X)_{W^u}(y,x)=u(y)(XW)(y,x)u(x)^{-1}\cdot u(x)W(y,x)^{-1}u(y)^{-1}=u(y)X_W(y,x)u(y)^{-1}.
+\]
+By Lemma~\Nref{lem:one-step-basic}(b), $\overline{R(u)X}=\mathfrak a_j((XW)^u)(W_j^u)^{-1}=R(u)\overline X$. Both $(R(u)X)^{(ugu^{-1})}$ and $R(u)(X^{(g)})$ represent $((XW)^u)^{ugu^{-1}}=(XW)^{ug}=((XW)^g)^u$, so they are equal.
+\end{step}
+\begin{step}[$\tau$, $\mathcal E_j$ and $g_X$]
+By Lemma~\Nref{lem:log-estimates}(d), $\tau_{R(u)X}=u\,\tau_Xu^{-1}$ at the points of $\T^{(j)}$. The axial condition $X_W(y,x)=1$ is preserved. At the background $W^u$, $\mathcal E_j(uhu^{-1})(x)=R(W^u(y,x))^{-1}(u(y)h(y)u(y)^{-1})=u(x)\,\mathcal E_j(h)(x)\,u(x)^{-1}$. The transformation $ug_Xu^{-1}$ equals $\tau_{R(u)X}^{-1}$ on $\T^{(j)}$ and makes $R(u)X$ axial, by Step~2. Since $\kappa(ug_Xu^{-1}(y))=\kappa(g_X(y))\le2$, the uniqueness in Lemma~\Nref{lem:axial}(a) gives $g_{R(u)X}=ug_Xu^{-1}$.
+\end{step}
+\begin{step}[Induction over the scales]
+By Definition~\Nref{def:adapted} and Steps~2--3, $\tilde{\mathfrak a}_j(R(u)X)=\overline{R(u)(X^{(g_X)})}=R(u)\tilde{\mathfrak a}_j(X)$. Since $\mathcal Q_0=\mathrm{id}$ and $\mathsf w_0=1$, induction gives
+\[
+\begin{aligned}
+\mathcal Q_j(R(u)U_1;U_0^u)&=R(u)\mathcal Q_j(U_1;U_0),\\
+\mathsf w_j(R(u)U_1;U_0^u)&=u\,\mathcal E^{(j-1)}(g_{X_{j-1}})u^{-1}\cdot u\,\mathsf w_{j-1}u^{-1}=u\,\mathsf w_j\,u^{-1}.
+\end{aligned}
+\]
+For $U_1=e^{\ii\eta A}$ with $|A|_\infty\le c_3$ all maps are defined (Proposition~\Nref{prop:Q-expansion}). Moreover $R(u)U_1=e^{\ii\eta R(u)A}$ with $|R(u)A|_\infty=|A|_\infty$. Only the linear part of Proposition~\Nref{prop:linearized-averages}(f) was used, so there is no circularity.
+\end{step}
+\begin{step}[The gauge condition]
+From $D_U\lambda(b)=\eta^{-1}(R(U(b))\lambda(b_+)-\lambda(b_-))$ one reads off $D_{U^u}R(u)=R(u)D_U$, and the same holds for the curl. With Proposition~\Nref{prop:linearized-averages}(f) and the orthogonality of $R(u)$, every operator built from $D$, $D^T$, $Q'_k$, $Q'^T_k$ by sums, products, transposes and inverses is covariant. Indeed, $(R(u)XR(u')^{-1})^T=R(u')X^TR(u)^{-1}$ and $(R(u)XR(u')^{-1})^{-1}=R(u')X^{-1}R(u)^{-1}$. This covers $G'=(D^TD+aQ'^TQ')^{-1}$, $T=G'Q'^T$, $P_\cV=T(T^TT)^{-1}T^T$ and $R=I-P_\cV$, so $R_{U_0^u}D^T_{U_0^u}R(u)=R(u)R_{U_0}D^T_{U_0}$.
+\end{step}
+\begin{step}[The chart]
+Let $A\in\mathcal S_V(U_0)$. Then $R(u)A$ is real with $|R(u)A|_\infty=|A|_\infty$, and $R_{U_0^u}D^T_{U_0^u}R(u)A=0$. Bondwise, $e^{\ii\eta R(u)A}U_0^u=(e^{\ii\eta A}U_0)^u\in\mathfrak U(\theta)$. By Step~4, $\mathcal Q(e^{\ii\eta R(u)A};U_0^u)=R(v)(VW_k^{-1})=V^v(W_k^v)^{-1}$. So $R(u)\mathcal S_V(U_0)\subset\mathcal S_{V^v}(U_0^u)$. By Step~1 the roles of $(U_0,u)$ and $(U_0^u,u^{-1})$ can be exchanged, which gives equality. Finally, with $\mathsf w=\mathsf w_k(e^{\ii\eta A};U_0)$, the relative action at $U_0^u$ gives $\mathsf U_{U_0^u}(R(u)A)=((e^{\ii\eta A}U_0)^u)^{u\mathsf wu^{-1}}=(e^{\ii\eta A}U_0)^{u\mathsf w}=\mathsf U_{U_0}(A)^u$.
+\end{step}
+\status{Expanded. Step~5 expands the note's ``as in the proof of Theorem~\Nref{thm:variational}(h)'', and the exchange in Step~6 its ``the same argument for $u^{-1}$''.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-chart-covariance}(b),(c)]\label{d11a:A3}\Ntarget{lem:ol-chart-covariance}
+\begin{step}[(b)]
+By Theorem~\Nref{thm:balaban}(a), $\mathscr M(V)$ is one $\mathfrak G_0$-orbit, so two references differ by $u\in\mathfrak G_0$, with $v=1$. By (a), the configurations $\mathsf U(A)$ for the reference $U_k(V)^u$ are the $\mathsf U(A')^u$ with $|A'|_\infty=|A|_\infty$; they have the same $\mathfrak G_0$-orbits. For general real $u$: curvature is covariant, so $V^v\in\mathfrak U_k(a_1)$. By Theorem~\Nref{thm:variational}(g) and Theorem~\Nref{thm:balaban}(a), $\mathscr M(V^v)=\mathscr M(V)^u\subset\mathfrak U(\theta')$. Since $(U^w)^u=(U^u)^{uwu^{-1}}$ and $u\mathfrak G_0u^{-1}=\mathfrak G_0$, $u$ maps $\mathfrak G_0$-orbits onto $\mathfrak G_0$-orbits.
+\end{step}
+\begin{step}[(c), definition of $\varrho$]
+For $U\in\mathcal D_{\mathcal K_0}$ the orbit $U\mathfrak G_0$ lies in $\mathfrak B(V)\cap\mathfrak U(\theta)$, with $V=U^{(k)}$, since $\mathfrak U(\theta)$ is gauge invariant. Lemma~\Nref{lem:axial}(c) gives one axial representative. By Corollary~\Nref{cor:parametrization} it is $\mathsf U_{U_0}(A)$ for exactly one $A$. By (a), a change of reference $U_0\mapsto U_0^u$, $u\in\mathfrak G_0$, replaces $A$ by $R(u)A$, which has the same norm. Since $\mathsf w_k(1)=1$, $\mathsf U_{U_0}(0)=U_0$, and $0\in\mathcal S_V$ because $U_0\in\mathfrak U(\theta')$. So $\varrho(U)=0$ if and only if $U\in U_0\mathfrak G_0=\mathscr M(V)$.
+\end{step}
+\begin{step}[(c)(i), continuity of the representative]
+By Lemma~\Nref{lem:axial}(a),(b), the axial representative of $U\mathfrak G_0$ relative to $U_0$ is $U^g$, where $g$ is built scale by scale from $g|_\T=1$ by $g(x)=W_{i-1}(y,x)^{-1}g(y)U^{(i-1)}(y,x)$ for $x\in B_i(y)$. Here $U^{(i-1)}$ is the average of the configuration already transformed at the coarser scales. Each factor is a composition of group operations, $\ell$, $\exp$ and the holomorphic group average $M$ (Lemma~\Nref{lem:group-average}(a)). So the representative is continuous in $(U,U_0)\in\mathfrak U_0(c_1)^2$. The same holds for $D_{U_0}$, $Q'_k(U_0)$ and $R_{U_0}$: the matrices inverted, $\fA'$ and $T^TT=M'$, are invertible at all references considered (I.2).
+\end{step}
+\begin{step}[(c)(ii), the union of minimal orbits]
+Let $U_n\in\mathscr M(V_n)$, $V_n\in\mathcal K_0$. Pass to a subsequence with $V_n\to V$ and fix $U_0\in\mathscr M(V)$. For large $n$, $V_n(c)=e^{\ii B_n(c)}V(c)$ with real $B_n\to0$. Corollary~\Nref{cor:analytic} applies with $\beta=\frac12c_6$, since $B_3a_1+\beta\le c_6$. So $U_n=\mathsf U_{U_0}(A_*(B_n))^{u_n}$ with $u_n\in\mathfrak G_0$ and $A_*(B_n)\to0$. By compactness of $\mathfrak G_0$, a subsequence $u_n\to u$, and $U_n\to U_0^u\in\mathscr M(V)$. Hence $\mathcal R=\bigcup_{V\in\mathcal K_0}\mathscr M(V)$ is sequentially compact, hence compact.
+\end{step}
+\begin{step}[(c)(iii) and continuity of $\varrho$]
+The conditions $|A|_\infty\le r_u$, $R_{U_0}D_{U_0}^TA=0$, $e^{\ii\eta A}U_0\in\mathfrak U(\theta)$ and $\mathcal Q(e^{\ii\eta A};U_0)=1$ are closed in $(U_0,A)$, by Step~3. So $\Sigma$ is a closed subset of the compact $\mathcal R\times\{|A|_\infty\le r_u\}$. The map $F(U_0,A)=(U_0,\mathsf U_{U_0}(A))$ is continuous, and it is injective by Corollary~\Nref{cor:parametrization}. A continuous injection of a compact space into a Hausdorff space is a homeomorphism onto its image. Now let $U_n\to U$ in $\mathcal D_{\mathcal K_0}$, and let $U_{0,n}\in\mathscr M(U_n^{(k)})$. Every subsequence has a further subsequence with $U_{0,n}\to U_0\in\mathscr M(U^{(k)})$, by Step~4. Along it, the representatives converge by Step~3. The limit $(U_0,\mathsf U_{U_0}(A))$ lies in $F(\Sigma)$, so $A_n\to A$ and $\varrho(U_n)\to\varrho(U)$.
+\end{step}
+\begin{step}[(c), neighbourhoods]
+$\mathscr N_r(V)=\{\varrho<r\}$ is relatively open in the compact $\mathfrak B(V)\cap\mathfrak U(\theta)$, hence Borel. The compact sets $K_r=\{\varrho\le r\}$ decrease to $\varrho^{-1}(0)=\mathscr M(V)$. If $\mathcal V\supset\mathscr M(V)$ is open, the compact sets $K_r\setminus\mathcal V$ decrease to $\emptyset$, so one of them is empty.
+\end{step}
+\status{Expanded. Step~3 expands the note's ``applied as in the proof of Lemma~\Nref{lem:axial}(b)''.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-fibre-mass}]\label{d11a:A5}\Ntarget{lem:ol-fibre-mass}
+\begin{step}[Bound on $\mathcal S_V$]
+Let $A\in\mathcal S_V$. The configuration $\mathsf U(A)$ lies in $\mathfrak U(\theta_0)$ and is axial, and $A$ satisfies (i), (ii) of Theorem~\Nref{thm:chart} for it, with $|A|_\infty\le r_u$. By the uniqueness there, the bound of Theorem~\Nref{thm:chart} applies: $|A|_{C^1}\le B_1(\eps+\theta_0)=\frac12\rho_1$. So $\mathcal S_V$ is a compact subset of $\mathcal M_V$ (I.4).
+\end{step}
+\begin{step}[Submersion]
+By the proof of Lemma~\Nref{lem:reduction}(a), $A\mapsto\ell\mathcal Q(e^{\ii\eta A})$ is a submersion on the slice near $\mathcal M_V$. By Theorem~\Nref{thm:correspondence}(a), $\mathsf U(A)^{(k)}=\mathcal Q(e^{\ii\eta A})W_k$ for $|A|_\infty\le c_3$. The map $A\mapsto\mathsf U(A)$ is analytic. By the chain rule the differential of $U\mapsto U^{(k)}$ at $\mathsf U(A)$ is onto. Since $(U^u)^{(k)}=U^{(k)}$ for $u\in\mathfrak G_0$, and every point of $\mathfrak B(V)\cap\mathfrak U(\theta_0)$ is such a $U^u$ (Corollary~\Nref{cor:parametrization}), the map is a submersion on this compact set. Submersion is an open condition, so it holds on an open neighbourhood $\mathcal U$.
+\end{step}
+\begin{step}[Finite mass, uniformly]
+Near each point of $\mathcal U$ there are analytic coordinates $(y,z)$ with $U^{(k)}=z$, in the coordinates of the coarse group. In them $\prod_bdU(b)=h(y,z)\,dy\,dz$ and $\prod_cdV'(c)=\varsigma(z)\,dz$ with continuous positive $h$ and $\varsigma$. By \eqref{d11a:coarea}, $\mu_{V'}=h(y,z)\varsigma(z)^{-1}dy$ on $\{z=z(V')\}$. Choose such charts with relatively compact domains, finitely many covering the compact set $\mathcal D=\{U\in\mathfrak U(\theta_0):U^{(k)}\in\mathcal K_0\}$. On each chart $h/\varsigma$ is bounded, so the masses $\mu_V(\mathfrak B(V)\cap\mathfrak U(\theta_0))$, $V\in\mathcal K_0$, are bounded by some $m$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:ol-laplace}]\label{d11a:A6}\Ntarget{prop:ol-laplace}
+The note first treats a single $V$ (``The constraint set'' to ``Laplace's method'') and then the uniformity in $V$ (items (i)--(vi)). The single-$V$ paragraphs are the case $V^\circ=V$, $B=0$ of (i)--(vi) (item~(vi) of the proof). So we write the uniform argument once and read off the single-$V$ statements at $B=0$. Fix $V^\circ$ in the set of the statement and $U_0\in\mathscr M(V^\circ)$. Put $\Phi(A)=S(e^{\ii\eta A}U_0)$, $f(A)=\ell\mathcal Q(e^{\ii\eta A})$ on the slice $\{RD^TA=0\}$, $\cX=\{h:\bQ_kh=0,\ RD^Th=0\}$, and let $\bH$ be the minimizer map at $U_0$ (Theorem~\Nref{thm:cov-min}(b) with $W=0$), so $\bQ_k\bH=I$ and $RD^T\bH=0$.
+\begin{step}[Dimension]
+The map $\mathcal C=(\bQ_k,RD^T)$ from fine gauge fields onto coarse gauge fields $\oplus\cW$ is onto. Given $(B,\mu)$, take $A=\bH B+D\lambda$ with $\lambda\in\cN(Q'_k)$ and $RD^TD\lambda=\mu$. Such a $\lambda$ exists because $\mathcal O_0$ is invertible (proof of Proposition~\Nref{prop:euler-lagrange}). Then $\bQ_kD\lambda=D_VQ'_k\lambda=0$ (Proposition~\Nref{prop:linearized-averages}(b)). So $N=\dim\cX=(d-1)(|\Tf|-|\T|)\dim\mathfrak g$, which is independent of $V$.
+\end{step}
+\begin{step}[(i) Coordinates]
+Proposition~\Nref{prop:Q-expansion} gives $f(A)=\bQ_kA+\Cav_k(A)$, analytic, with $df(0)=\bQ_k$. For $(x,B)\in\cX\times\{\text{coarse fields}\}$ near $(0,0)$, solve $f(x+\bH y)=B$. Since $\partial_yf(x+\bH y)|_0=\bQ_k\bH=I$, the analytic implicit function theorem gives a unique small analytic solution $y(x,B)$. Every slice field is $A=x+\bH y$ with $x=(I-\bH\bQ_k)A\in\cX$ and $y=\bQ_kA$. So $A(x,B)=x+\bH y(x,B)$ parametrizes $\mathcal S_V(U_0)$ near $0$, where $V=e^{\ii B}V^\circ$, by a neighbourhood of $0$ in the fixed space $\cX$. At $B=0$: $\partial_xy(0,0)=0$ and $\partial_x^2y(0,0)[x,x]=-d^2\Cav_k(0)[x,x]$, from the first two derivatives of $f(A(x,0))=0$.
+\end{step}
+\begin{step}[(ii) The phase; the constrained Hessian]
+$F(x,B)=\Phi(A(x,B))$ is analytic. Here $A_*(B)$, analytic by Corollary~\Nref{cor:analytic}, is critical for $\Phi$ on the constraint set (Lemma~\Nref{lem:reduction}(b)). So $x_*(B)=(I-\bH\bQ_k)A_*(B)$ is critical for $F(\cdot,B)$, and $F(x_*(B),B)=S(U_k(V))$. \emph{New argument for $H(0)=q_2|_\cX$.} By Proposition~\Nref{prop:action}, $\nabla\Phi(0)=J_{U_0}$ and $\nabla^2\Phi(0)=D^TD+d^2\mathcal N(0)$. By Lemma~\Nref{lem:Lstar-coercive}, $J_{U_0}=\bQ_k^T\omega_0$. With Step~2,
+\[
+\begin{aligned}
+\partial_x^2F(0,0)[x,x]&=\nabla^2\Phi(0)[x,x]+\ip{\bQ_k^T\omega_0}{\bH\,\partial_x^2y[x,x]}\\
+&=\|Dx\|^2+d^2\mathcal N(0)[x,x]-\ip{\omega_0}{d^2\Cav_k(0)[x,x]}=q_2(x,x).
+\end{aligned}
+\]
+The note's reference to Proposition~\Nref{prop:hessian} gives only this formula. The computation above is the missing step. The hypotheses of Lemma~\Nref{lem:Lstar-coercive} hold: $U_0$ is critical with $\beta=0$ and $A_*=0$, and $\eps=B_3a_1\le\frac12c_6\le\frac12c_7$ (I.4). So $q_2\ge\frac12c_*(\|h\|^2+\|Dh\|^2)$ on $\cX$. $H(B)=\partial_x^2F(x_*(B),B)$ is analytic in $B$. The third derivatives of $F$ are bounded on a compact neighbourhood of $(0,0)$. So there are $\delta,c_H>0$ with $F(x,B)-F(x_*(B),B)\ge c_H|x-x_*(B)|^2$ for $|x-x_*(B)|<\delta$ and $B$ small.
+\end{step}
+\begin{step}[Global quadratic growth at $B=0$]
+By Proposition~\Nref{prop:minimality}, $0$ is the unique minimum of $\Phi$ on $\mathcal S_{V^\circ}$. By Step~3 and the equivalence of norms on $\cX$, $\Phi\ge\Phi(0)+c|A|_\infty^2$ for $|A|_\infty\le r_1$. On the compact set $\mathcal S_{V^\circ}\cap\{|A|_\infty\ge r_1\}$, $\Phi-\Phi(0)\ge m_1>0$. Since $|A|_\infty\le r_u$ there, $\Phi\ge\Phi(0)+\min(c,m_1/r_u^2)|A|_\infty^2$ on all of $\mathcal S_{V^\circ}$. This is used in the Setting of Section~\Nref{sec:ol-chart}.
+\end{step}
+\begin{step}[(iii) The chart and the density]
+Let $\Upsilon(x,B,u)=\mathsf U_{U_0}(A(x,B))^u$, $u\in\mathfrak G_0$; it is analytic, and $\Upsilon^{(k)}=e^{\ii B}V^\circ$.
+\begin{itemize}
+\item \emph{At $B=0$, $(x,u)\mapsto\Upsilon$ is an immersion.} Let $\gamma(t)=\mathsf U(A(tx,0))$. Then $S(\gamma(t))=F(tx,0)$, so $\frac{d^2}{dt^2}S(\gamma)|_0=q_2(x,x)$. Here $U_0$ minimizes $S$ on $\mathfrak B(V^\circ)\cap\mathfrak U(\theta)$ and is interior to $\mathfrak U(\theta)$, so it is a critical point of $S|_{\mathfrak B(V^\circ)}$ with Hessian $\mathrm{Hess}\ge0$. $S$ is constant on $U_0\mathfrak G_0$, so $\mathrm{Hess}(\xi,\xi)=0$ for $\xi$ tangent to the orbit, and by Cauchy--Schwarz $\mathrm{Hess}(\xi,\cdot)=0$. If $d\mathsf U(0)x=-D_{U_0}\xi$ with $\xi|_\T=0$, then $q_2(x,x)=\mathrm{Hess}(D\xi,D\xi)=0$, so $x=0$. Then $D_{U_0}\xi=0$ with $\xi|_\T=0$ gives $\xi=0$ (Step~1 of Detail~\ref{d11a:A1}, linearized). By $\mathfrak G_0$-equivariance the differential is injective at every $(0,u)$, hence on $\{|x|<\delta'\}\times\mathfrak G_0$ by the tube lemma.
+\item \emph{Injectivity.} $\Upsilon(x,B,u)=\Upsilon(x',B',u')$ gives $B=B'$ (apply $(\cdot)^{(k)}$). Then two axial representatives of one $\mathfrak G_0$-orbit are equal (Lemma~\Nref{lem:axial}(c)), so $A(x,B)=A(x',B)$ (Corollary~\Nref{cor:parametrization}), hence $x=x'$ and, by freeness, $u=u'$.
+\item \emph{Dimension.} By Lemma~\Nref{lem:ol-chart-covariance}(c) the image at $B=0$ contains a neighbourhood of $\mathscr M(V^\circ)$ in $\mathfrak B(V^\circ)$. An injective immersion of a manifold of lower dimension has null image, so $\dim\cX+\dim\mathfrak G_0=\dim\mathfrak B(V^\circ)$. Since $U\mapsto U^{(k)}$ is a submersion there (Detail~\ref{d11a:A5}), $(x,B,u)$ has the dimension of the configurations. If $d\Upsilon$ kills a vector at $(0,0,u)$, its $B$-part vanishes, because $B\mapsto e^{\ii B}V^\circ$ is a local diffeomorphism, and then the vector vanishes. So $d\Upsilon$ is invertible there, hence on $\mathcal P\times\mathfrak G_0$ for a neighbourhood $\mathcal P$ of $(0,0)$, and $\Upsilon$ is an analytic diffeomorphism onto an open set.
+\item \emph{Density.} $\Upsilon^*\prod_bdU(b)=\mathsf h\,dx\,dB\,du$ with $\mathsf h>0$ analytic. Since $U^{(k)}=e^{\ii B}V^\circ$ and $\prod_cdV'(c)=\prod_c\sigma(B(c))\,dB$, \eqref{d11a:coarea} gives $\mu_V=\Upsilon_*(j(B)\mathsf h\,dx\,du)$ at $B=B(V)$, with $j(B)=\prod_c\sigma(B(c))^{-1}$. For $\mathfrak G_0$-invariant $\mathcal F$, $\int_{\Upsilon(\mathcal P\times\mathfrak G_0)}\mathcal F\,d\mu_V=\int\mathcal F(\mathsf U(A(x,B)))\varsigma(x,B)\,dx$ with $\varsigma=j(B)\int_{\mathfrak G_0}\mathsf h\,du>0$ analytic.
+\end{itemize}
+\end{step}
+\begin{step}[(iv) Laplace's method with a parameter]
+Put $x_*=x_*(B)$ and $\phi_g(y,B)=e^{-(F(x_*+gy,B)-F(x_*,B))/g^2}\varsigma(x_*+gy,B)$ for $g|y|<\delta$, and $0$ otherwise. By Step~3, $0\le\phi_g\le Ce^{-c_H|y|^2}$. Since $\partial_xF(x_*,B)=0$ and $F$, $\varsigma$ have bounded derivatives near $(0,0)$, Taylor's formula gives $\phi_g\to e^{-\frac12H(B)[y,y]}\varsigma(x_*,B)$, uniformly for $y$ in compact sets and $B$ small. By dominated convergence the integral over $\mathcal P_\delta(V)$ is $(2\pi g^2)^{N/2}e^{-S(U_k(V))/g^2}\det H(B)^{-1/2}\varsigma(x_*,B)(1+o(1))$, uniformly for $B$ small.
+\end{step}
+\begin{step}[(v) The rest]
+\begin{itemize}
+\item \emph{The set $\mathcal K_{V^\circ}$.} $\mathcal K_{V^\circ}=\{e^{\ii B}V^\circ\in\mathfrak U_k(a_1):|B|_\infty\le b_0\}$ is compact. It is $\mathfrak U_k(a_1)$ intersected with a neighbourhood of $V^\circ$, hence a relative neighbourhood. Its elements are admissible for $b_0$ small: their minimal orbits are gauge transforms of $e^{\ii\eta A_*(B)}U_0$, and curvature and current, which are gauge invariant in norm, are within $o(1)$ of those of $U_0\in\mathfrak U(\theta')$ as $B\to0$.
+\item \emph{The gap.} On the compact $\mathcal D=\{U\in\mathfrak U(\theta):U^{(k)}\in\mathcal K_{V^\circ}\}$, the function $\Delta S(U)=S(U)-S(U_k(U^{(k)}))$ is continuous, since $S(U_k(e^{\ii B}V^\circ))=\Phi(A_*(B))$. It is $\ge0$ and vanishes exactly on the minimal orbits (Proposition~\Nref{prop:minimality}). The function $\varrho$ of Lemma~\Nref{lem:ol-chart-covariance}(c), with $\mathcal K_0=\mathcal K_{V^\circ}$, is continuous with the same zero set. The set $\mathcal O_\delta=\Upsilon(\{|x-x_*(B)|<\delta,\ |B|_\infty<2b_0\}\times\mathfrak G_0)$ is open and contains these orbits. So $\Delta S\ge2c>0$ on the compact sets $\mathcal D\setminus\mathcal O_\delta$ and $\{U\in\mathcal D:\varrho\ge r\}$.
+\item \emph{Comparison.} Since $\Upsilon^{(k)}=e^{\ii B}V^\circ$, $\mathfrak B(V)\cap\mathcal O_\delta=\mathcal P_\delta(V)$. For $\delta,b_0$ small, $\mathcal P_\delta(V)\subset\mathfrak B(V)\cap\mathfrak U(\theta)$: its points are gauge transforms of $e^{\ii\eta A(x,B)}U_0$ with $A(x,B)$ small, so their curvature and current, whose norms are gauge invariant, are within $o(1)$ of those of $U_0\in\mathfrak U(\theta')$, $\theta'<\theta$. The symmetric difference satisfies $\mathscr N_r(V)\setminus\mathcal P_\delta(V)\subset\mathcal D\setminus\mathcal O_\delta$ and $\mathcal P_\delta(V)\setminus\mathscr N_r(V)\subset\{\varrho\ge r\}$. The masses are bounded by $m$ (Lemma~\Nref{lem:ol-fibre-mass}, with $\theta_0$; admissibility at $\theta$ implies it at $\theta_0$). So the difference is at most $me^{-(S(U_k(V))+2c)/g^2}$, a relative error $O(g^{-N}e^{-2c/g^2})$ by Step~6.
+\end{itemize}
+\end{step}
+\begin{step}[(vi) Conclusion]
+By Steps~6 and~7, uniformly on $\mathcal K_{V^\circ}$,
+\[
+I_k(V;g,r)=(2\pi g^2)^{N/2}e^{-S(U_k(V))/g^2}\det H(B)^{-1/2}\varsigma(x_*(B),B)(1+o(1)).
+\]
+At $V=V^\circ$ ($B=0$) this reads $\Gamma^{(1)}_k(V)=-\frac12\log\det(q_2|_\cX)+\log\varsigma_V(0)$, with $\varsigma_V(0)=\varsigma(0,0)$. If the reference is changed to an element of $\mathscr M(V)$ with $V\in\mathcal K_{V^\circ}$, the same expansion holds. Two expansions of one function with the same powers of $g$ have the same prefactor. So $\Gamma^{(1)}_k(V)=-\frac12\log\det H(B(V))+\log\varsigma(x_*(B(V)),B(V))$ up to the constant in $c_k(g)=(2\pi g^2)^{N/2}\times\mathrm{const}$. This is analytic in $V$, since $B(V)$, $x_*$, $H$ and $\varsigma$ are. The prefactor involves neither $r$ nor $\theta$. Gauge invariance: by Lemma~\Nref{lem:ol-chart-covariance}(b), $\mathscr N_r(V^v)=\mathscr N_r(V)^u$. The substitution $U\mapsto U^u$ preserves $\prod dU$ and $S$. It maps $\mu_V$ to $\mu_{V^v}$: the coarse map is intertwined with $V'\mapsto V'^v$, which preserves the coarse Haar measure, so the disintegrations correspond. Hence $I_k(V^v)=I_k(V)$. With $S(U_k(V^v))=S(U_k(V))$, the prefactors agree.
+\end{step}
+\status{Expanded; Step~3 is a New argument. The threshold of Lemma~\Nref{lem:Lstar-coercive} is verified in Step~3, and gauge invariance is in Step~8. The argument of Step~7 for $\mathcal P_\delta(V)\subset\mathfrak B(V)\cap\mathfrak U(\theta)$ is in item~(v) of the proof of Proposition~\Nref{prop:ol-laplace}.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-neighbourhood}]\label{d11a:A12}\Ntarget{lem:ol-neighbourhood}
+\begin{step}[Sets]
+Let $K_1$ be the set of $U\in\mathfrak B(V)\cap\mathfrak U(\theta_0)$ with some value of curvature or current of norm $\ge\theta$. Let $K_2=\{\varrho\ge r\}\subset\mathfrak B(V)\cap\mathfrak U(\theta)$. Both are compact and $\mathfrak G_0$-invariant. A point of $\mathscr N\setminus\mathscr N_r(V)$ lies outside $\mathfrak U(\theta)$, hence in $K_1$, or in $\mathfrak U(\theta)$ with $\varrho\ge r$, hence in $K_2$. Neither set meets $\mathscr M(V)\subset\mathfrak U(\theta')$.
+\end{step}
+\begin{step}[Gap and conclusion]
+Proposition~\Nref{prop:minimality} at the reference $U_k(V)$, with $\beta=0$, gives $S>S_*$ on $\mathfrak B(V)\cap\mathfrak U(\theta_0)\setminus\mathscr M(V)$. By compactness, $S\ge S_*+2c$ on $K_1\cup K_2$. The mass $m$ of $K_1\cup K_2$ is finite (Lemma~\Nref{lem:ol-fibre-mass}). By Proposition~\Nref{prop:ol-laplace}, $I_k\ge\frac12c_k(g)e^{-S_*/g^2+\Gamma^{(1)}_k(V)}$ with $c_k(g)=\mathrm{const}\cdot g^N$. So the integral over $\mathscr N\setminus\mathscr N_r(V)$ is a relative $O(g^{-N}e^{-2c/g^2})=O(e^{-c/g^2})$. The constant $c$ depends on $V$, $\theta$ and $r$ only, \emph{not on $\mathscr N$}. This uniformity is used in the Setting of Section~\Nref{sec:ol-chart}, where $\mathscr N$ depends on $g$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[The one-loop terms of the steps; Section~\Nref{sec:ol-composite}, paragraph ``The one-loop terms of the steps'']\label{d11a:A13}\Ntarget{sec:ol-composite}
+For $j\ge1$, Theorem~\Nref{thm:step} at the step $j\to j+1$ gives the prefactor $\mathcal N_j\exp(-g^{-2}S(U')+\Gamma^{\rm step}_j(U'))$. Here $\Gamma^{\rm step}_j=-\frac12\sum_{b\in\mathfrak F}\ell_j(b)+\sum_c\log\mathfrak j_c=-\frac12\log\det\Delta_j+\sum_c\log\mathfrak j_c$, by Proposition~\Nref{prop:det-densities}. For $j=0$ the same holds with $\Delta_0$ (Lemma~\Nref{lem:first-step-formula}(c),(d)). Remark~\Nref{rem:one-loop-intrinsic} is not used. The identification with $E'_{\rm ol}$ and $\beta^{\rm ol}_{j+1}$ is a forward reference to Section~\Nref{sec:ol-uv} and is expanded in Section~\ref{d11b}.
+\status{Expanded.}
+\end{detail}
+
+\paragraph{Lemma~\Nref{lem:ol-one-step}.} In Details~\ref{d11a:A14a}--\ref{d11a:A14k}, $k\ge2$, $V$ is small field, and the step from scale $k-1$ to scale $k$ is read in the units of step $k-1$. So $\T$, $\T'$ are the lattices of scales $k-1$ and $k$, $\mathcal G'=\{u:\T\to G,\ u|_{\T'}=1\}$, $U'=U_k(V)$ and $W=V^0=U'^{(k-1)}$.
+
+\begin{detail}[Lemma~\Nref{lem:ol-one-step}, constants]\label{d11a:A14a}\Ntarget{lem:ol-one-step}
+The constants are: $c_L$ of Theorem~\Nref{thm:step-coercive}; $C_L$, $r_2=\min(cL^{-2d-2},cL^{-d}a'_1)$ and $a_{\rm step}$ of Lemma~\Nref{lem:step-quadratic} and Theorem~\Nref{thm:step}; $C_M\ge1$ of Lemma~\Nref{lem:group-average}; $a'_1=\min(a_1,\theta_0L^{-3}B_3^{-1})$ of Lemma~\Nref{lem:composition}(c); $c_0$ of Lemma~\Nref{lem:exp-gauge}(c); $r_L$ of Lemma~\Nref{lem:eliminate}. The proof chooses
+\[
+w\le\min\big(r_2,\ c_L/(16C_L)\big),\qquad C_1=128C_M,\qquad w'=w/(C_1L).
+\]
+The following inequalities are used.
+\begin{enumerate}[label=(w\arabic*)]
+\item $8w\le a'_1$ and $16B_3w\le L^{-3}\theta_0$. The proof imposes these on $w$ (``We also take'', in the paragraph ``Notation'' of the proof). As the note remarks, they follow from $w\le r_2$ when $c\le\frac1{16}$ in $r_2$: $8w\le8cL^{-d}a'_1\le\frac12a'_1$ and $16B_3w\le16cL^{-d}B_3a'_1\le L^{-d-3}\theta_0$.
+\item $w\le r_2\le\frac12r_L$, since the proof of Lemma~\Nref{lem:step-quadratic} needs $2cL^{-2d-2}\le\frac12r_L$. So Proposition~\Nref{prop:exact-step} applies, and $r_L\le\frac18\eps_M$ gives \Neqref{eq:chi-w-support}.
+\item $w'<w\le\frac14c_0L^{-1}$, from $2cL^{-2d-2}\le\frac12c_0L^{-1}$, so Lemma~\Nref{lem:exp-gauge}(c) applies to fields with $|Z|\le w'$.
+\item $w\le\frac12c_G$, as Definition~\Nref{def:chi-w} needs: $r_L\le cL^{-2}\le r_M/64\le c_G/256$, since $r_M\le\frac14c_G$.
+\item $C_Lw\le c_L/16$.
+\end{enumerate}
+\emph{Order of choices.} First $L,M,a,\alpha$. Then $a_1,B_3,\theta_0$ (Part~VI), and $a_{\rm step},r_2,c_L,C_L$ (Part~VII). Then $w$ and $w'$. Then a radius $r'\le r_0$ at scale $k-1$, arbitrary, and a radius $r\le r_0$ at scale $k$, small depending on $V$. Finally $g\to0$. The torus is fixed throughout.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-one-step}, the region]\label{d11a:A14b}\Ntarget{lem:ol-one-step}
+\begin{step}[$\mathscr A\subset\mathfrak M$; ``the argument before \Neqref{eq:chi-w-support}'']
+Let $V_{k-1}=e^{\ii Z}W$ with $|Z(b)|\le s\le\frac18\eps_M$ on all bonds. Move the factors $W(b)$ in $V_{k-1}(\partial p)$ to the right. This writes $V_{k-1}(\partial p)$ as a product of four conjugates of $e^{\pm\ii Z(b)}$ and of $W(\partial p)$. By Lemma~\Nref{lem:log-estimates}(b), $|\ell(V_{k-1}(\partial p))|\le|\ell(W(\partial p))|+4s$. The sum of the logarithms is at most $\frac18\eps_M+4s\le c_G$. By \Neqref{eq:base-regular}, $|\ell(W(\partial p))|\le\frac18\eps_M$. With $s=w'$ this gives $\mathscr A\subset\mathfrak M$. Since $\mathfrak M$ is invariant under real gauge transformations, $\mathscr O\subset\mathfrak M$. The set $\mathscr O$ is a union of translates of the open $\mathscr A$, hence open, and it is $\mathcal G'$-invariant.
+\end{step}
+\begin{step}[$W$ and $\mathcal K_0$]
+By Lemma~\Nref{lem:composition}(a), $W\in\mathfrak U_{k-1}(2(C_*+1)L^{-2}\eps'_1)$. The proof of Theorem~\Nref{thm:step} assumes $4(C_*+1)L^{-2}a_{\rm step}\le a'_1$, so $W\in\mathfrak U_{k-1}(\frac12a'_1)$. In the units of step $k-1$ the spacing is $1$, so the curvature is $\ell(\cdot(\partial p))$. Step~1 with $s=w'$ gives $\mathcal K_0\subset\mathfrak U_{k-1}(\frac12a'_1+4w')$, since curvature is gauge invariant in norm. $\mathcal K_0$ is the image of the compact set $\mathcal G'\times\{|Z|_\infty\le w'\}$ under a continuous map, hence compact. A gauge transformation conjugates $V_{k-1}(b)W(b)^{-1}$ into $u(b_-)V_{k-1}(b)W(b)^{-1}u(b_-)^{-1}$ at the transformed base. So every point of $\mathscr O$ is within $w'$, bondwise in the logarithm, of the orbit of $V^0$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-one-step}, factorization]\label{d11a:A14c}\Ntarget{lem:ol-one-step}
+Let $\mu^{(k)}_V$, $\mu^{(k-1)}_{V_{k-1}}$ and $\mu^{\mathfrak a}_V$ be the fibre measures of $U\mapsto U^{(k)}$, $U\mapsto U^{(k-1)}$ and $V_{k-1}\mapsto\mathfrak a_k(V_{k-1})$. The claim is
+\begin{equation}\label{d11a:factor}
+\int F\,d\mu^{(k)}_V=\int d\mu^{\mathfrak a}_V(V_{k-1})\int F\,d\mu^{(k-1)}_{V_{k-1}} .
+\end{equation}
+This is needed for bounded Borel $F$ supported in $\mathscr N'$.
+\begin{step}[Submersions]
+$\mathfrak a_k$ is a submersion where $\chi^{\rm w}=1$ (Proposition~\Nref{prop:exact-step}), hence on $\mathscr A$. Since $\mathfrak a_k(V_{k-1}^u)=\mathfrak a_k(V_{k-1})$ for $u\in\mathcal G'$ and $V_{k-1}\mapsto V_{k-1}^u$ is a diffeomorphism, it is a submersion on $\mathscr O$. The map $U\mapsto U^{(k-1)}$ is a submersion near $\mathscr N'$, by Lemma~\Nref{lem:ol-fibre-mass} at scale $k-1$ for the admissible $V_{k-1}\in\mathcal K_0$. The composite $U^{(k)}=\mathfrak a_k(U^{(k-1)})$ is then a submersion near $\mathscr N'$.
+\end{step}
+\begin{step}[Continuous $F$, then Borel $F$]
+For $F$ continuous with compact support in this region, put $\Phi_F(V_{k-1})=\int F\,d\mu^{(k-1)}_{V_{k-1}}$, which is continuous. By \eqref{d11a:coarea} for $U\mapsto U^{(k-1)}$,
+\[
+\int dU\,\delta_n(U^{(k)},V)F(U)=\int dV_{k-1}\,\delta_n(\mathfrak a_k(V_{k-1}),V)\,\Phi_F(V_{k-1})
+\]
+exactly. As $n\to\infty$ both sides converge, to $\int F\,d\mu^{(k)}_V$ and to the right side of \eqref{d11a:factor}, by the smoothing convention for the two submersions. Both sides of \eqref{d11a:factor} are finite positive measures in $F$ on a fixed compact set, by Lemma~\Nref{lem:ol-fibre-mass}. They agree on continuous functions, so they agree on bounded Borel functions.
+\end{step}
+\status{New argument (the note says ``integrating out \ldots\ gives, exactly''). This is the use of \Neqref{eq:rg-map} for integrands supported in gauge orbits announced in the paragraph after that equation.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-one-step}, $\mathscr N'$, (N1), (N2)]\label{d11a:A14d}\Ntarget{lem:ol-one-step}
+\begin{step}[Admissibility on $\mathcal K_0$]
+Put $\theta_{k-1}=L^{-3}\theta_0\le\theta_0$. For $V_{k-1}\in\mathcal K_0$: $V_{k-1}\in\mathfrak U_{k-1}(\frac12a'_1+4w')\subset\mathfrak U_{k-1}(a'_1)\subset\mathfrak U_{k-1}(a_1)$, using (w1). Theorem~\Nref{thm:balaban}(b) with $\eps_1=\frac12a'_1+4w'$ and (w1) give $\mathscr M(V_{k-1})\subset\mathfrak U(B_3\eps_1)$, with $B_3\eps_1\le\frac12L^{-3}\theta_0+\frac14L^{-3}\theta_0=\frac34\theta_{k-1}$, since $B_3a'_1\le L^{-3}\theta_0$.
+\end{step}
+\begin{step}[(N1)]
+For $U\in\mathscr N'$, $U\in\mathscr N_{r'}(U^{(k-1)})\subset\mathfrak U(\theta_{k-1})$, in the units of step $k-1$. By the proof of Lemma~\Nref{lem:units}, in the units of step $k$ the curvatures are multiplied by $L^2$ and the currents by $L^3$. So $U\in\mathfrak U(L^3\theta_{k-1})=\mathfrak U(\theta_0)\subset\mathfrak U_0(c_1)$.
+\end{step}
+\begin{step}[(N2)]
+By Lemma~\Nref{lem:ol-chart-covariance}(c) at scale $k-1$ with $\mathcal K_0$, the function $\varrho_{k-1}$ is continuous on the compact set $\mathcal D=\{U\in\mathfrak U(\theta_{k-1}):U^{(k-1)}\in\mathcal K_0\}$, and $\mathscr N'=\{U\in\mathcal D:U^{(k-1)}\in\mathscr O,\ \varrho_{k-1}<r'\}$. This set is relatively open in $\mathcal D$, hence Borel. Let $\mathcal D^\circ$ be the set of $U$ with curvature and current $<\theta_{k-1}$ and $U^{(k-1)}\in\mathscr O$. It is open (strict inequalities for continuous functions; $\mathscr O$ open), and $\mathcal D^\circ\subset\mathcal D$. So $\mathscr N^\circ=\mathcal D^\circ\cap\{\varrho_{k-1}<r'\}$ is open and lies in $\mathscr N'$. Let $u\in\mathfrak G_0$ and $\tilde u=u|_\T\in\mathcal G'$. By Lemma~\Nref{lem:composition}(b) and Theorem~\Nref{thm:variational}(g), $U_k(V)^u\in\mathscr M_{k-1}((V^0)^{\tilde u})$, where $(V^0)^{\tilde u}\in\mathscr O$. So $\varrho_{k-1}(U_k(V)^u)=0$, and $U_k(V)^u\in\mathfrak U(\frac34\theta_{k-1})$ by Step~1, hence $U_k(V)^u\in\mathscr N^\circ$. By Lemma~\Nref{lem:ol-chart-covariance}(c) at scale $k$ with $\{V\}$, $\mathscr N_r(V)\subset\mathscr N^\circ\subset\mathscr N'$ for $r$ small.
+\end{step}
+\begin{step}[Reduction]
+By (N1), (N2) and Lemma~\Nref{lem:ol-neighbourhood}, $\int\one_{\mathscr N'}e^{-S/g^2}d\mu^{(k)}_V=I_k(V;g,r)(1+O(e^{-c/g^2}))$. By \eqref{d11a:factor}, the left side is $\int d\mu^{\mathfrak a}_V(V_{k-1})\,\one_{\mathscr O}(V_{k-1})\,I_{k-1}(V_{k-1};g,r')=T(\one_{\mathscr O}I_{k-1})(V)$, since the inner integral is over $\mathscr N_{r'}(V_{k-1})$ when $V_{k-1}\in\mathscr O$ and vanishes otherwise.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-one-step}, the inner integral and the gauge fixing]\label{d11a:A14f}\Ntarget{lem:ol-one-step}
+\begin{step}[$V^0$ is small field]
+By Lemma~\Nref{lem:composition}(b), $U_{k-1}(V^0)=U_k(V)$. So the intermediate configurations of $V^0$ at the scales $j<k-1$ are those of $V$, and the hypotheses of the setting hold. The torus conditions hold at every scale. The conditions are invariant under real gauge transformations, by Theorem~\Nref{thm:variational}(g) and the invariance of the curvature norms. This is the first claim.
+\end{step}
+\begin{step}[$\mathcal K_w$; ``as in the paragraph \ldots'', ``as for $\mathcal K_0$'']
+$\mathcal K_w$ is the $\mathcal G'$-saturation of $\{e^{\ii Z}W:|Z(b)|\le w\}$. By Detail~\ref{d11a:A14b} with $w$ in place of $w'$, it is compact, contains $\mathcal K_0$, $\mathscr O$ and $\operatorname{supp}\chi^{\rm w}$, and lies in $\mathfrak U_{k-1}(\frac12a'_1+4w)\subset\mathfrak U_{k-1}(a'_1)$ by (w1). Step~1 of Detail~\ref{d11a:A14d} with $w$ in place of $w'$ gives admissibility of $(V_{k-1},\theta_{k-1})$ on $\mathcal K_w$: $B_3(\frac12a'_1+4w)\le\frac12\theta_{k-1}+\frac14\theta_{k-1}$.
+\end{step}
+\begin{step}[Uniform expansion]
+Proposition~\Nref{prop:ol-laplace} at scale $k-1$, with $\theta_{k-1}$ (which does not change $\Gamma^{(1)}_{k-1}$), gives the expansion locally uniformly on the set of admissible $V_{k-1}\in\mathfrak U_{k-1}(a_1)$, which contains $\mathcal K_w$. Finitely many of the neighbourhoods cover $\mathcal K_w$. So $|\log(I_{k-1}/(c_{k-1}\rho))|\le\eps(g)\to0$ uniformly on $\mathcal K_w$. Since $T$ is positive, $T(\one_{\mathscr O}I_{k-1})=c_{k-1}(g)e^{O(\eps(g))}T(\one_{\mathscr O}\rho)$.
+\end{step}
+\begin{step}[Gauge fixing]
+$\rho$ is gauge invariant. For $S(U_{k-1}(\cdot))$ this follows from Theorem~\Nref{thm:variational}(g) with Theorem~\Nref{thm:balaban}(a) and the gauge invariance of $S$; for $\Gamma^{(1)}_{k-1}$ from Proposition~\Nref{prop:ol-laplace}. So $\one_{\mathscr O}\rho$ is $\mathcal G'$-invariant. It is bounded, since $\rho$ is continuous on the compact $\mathcal K_w$, and it vanishes outside $\mathscr O\subset\mathfrak M$. Lemma~\Nref{lem:gf-step-invariance}(iv) gives $T(\one_{\mathscr O}\rho)=T^{\rm gf}(\one_{\mathscr O}\rho)$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-one-step}, the term $R_1$]\label{d11a:A14h}\Ntarget{lem:ol-one-step}
+\begin{step}[Averaging over $\mathcal G'$; ``as in the proof of Lemma~\Nref{lem:exp-gauge}(a)'']
+$R_1=T^{\rm gf}(\one_{\mathscr O}(1-\chi^{\rm w})\rho)=\int dV_{k-1}\,h\,\mathrm{gf}_W(1-\chi^{\rm w})$. Here $h$ is $\mathcal G'$-invariant, by Lemma~\Nref{lem:one-step-basic}(b), since $\mathfrak a_k(V_{k-1}^u)=\mathfrak a_k(V_{k-1})$ for $u|_{\T'}=1$, and $\delta_n$ is used. Substitute $V_{k-1}\mapsto V_{k-1}^u$, which preserves $\prod dV_{k-1}(b)$, and average over $u\in\mathcal G'$ with Fubini. This gives $R_1=\int h\psi$. In the same way $T^{\rm gf}(\one_{\mathscr O}\rho)=\int h\int_{\mathcal G'}\mathrm{gf}_W(V_{k-1}^u)\,du=\int h$, by the identity $\int_{\mathcal G'}\mathrm{gf}_W(V^u)du=1$ on $\mathfrak M$ from that proof. As $\psi$ is invariant and $h$ vanishes off $\mathscr O$, it suffices to bound $\psi$ on $\mathscr A$.
+\end{step}
+\begin{step}[Small gauge transformations keep the cutoff]
+Let $V_{k-1}=e^{\ii Z}W\in\mathscr A$ and $u(x)\in N=\{e^{\ii K}:|K|\le w/4\}$ for all $x$. Then
+\[
+V_{k-1}^u(b)W(b)^{-1}=u(b_-)\,e^{\ii Z(b)}\,\big(W(b)u(b_+)^{-1}W(b)^{-1}\big).
+\]
+The three factors have logarithms of norms at most $\frac w4$, $w'$ and $\frac w4$; for the last use Lemma~\Nref{lem:log-estimates}(d) with unitary $W(b)$. The sum is $<w\le\frac12c_G$. Lemma~\Nref{lem:log-estimates}(b) gives $|\ell(V_{k-1}^u(b)W(b)^{-1})|<w$, so $\chi^{\rm w}(V_{k-1}^u)=1$.
+\end{step}
+\begin{step}[Large gauge values cost a Gaussian factor]
+Let $x\in B'(y)\setminus\{y\}$ with $u(x)\notin N$. Since $u(y)=1$, \Neqref{eq:avg-contour-gauge} gives $V_{k-1}^u(y,x)W(y,x)^{-1}=e^{\ii H}v^{-1}$, with $e^{\ii H}=V_{k-1}(y,x)W(y,x)^{-1}$ and $v=W(y,x)u(x)W(y,x)^{-1}\notin N$, as $N$ is conjugation invariant. By (w3) and the proof of Lemma~\Nref{lem:exp-gauge}(c), $|H|\le4C_ML|Z|_\infty\le4C_MLw'=w/32$. For $v\in G\setminus N$: if $|v-1|>c_G$, then $|v-1|>w/8$, because $w\le\frac12c_G$. Otherwise $|v-1|\le c_G\le\frac14$, $v=e^{\ii\ell(v)}$ with $\ell(v)\in\mathfrak g$, $|\ell(v)|>w/4$ and $|\ell(v)|\le2|v-1|$ (Lemma~\Nref{lem:log-estimates}(a)); so again $|v-1|>w/8$. Hence
+\[
+|e^{\ii H}v^{-1}-1|=|v^{-1}-e^{-\ii H}|\ge|v^{-1}-1|-|e^{-\ii H}-1|\ge\tfrac w8-2|H|\ge\tfrac w{16},
+\]
+using unitary invariance of the norm and Lemma~\Nref{lem:log-estimates}(a). With $\phi(g')=e^{-|g'-1|^2/2g^2}$ on $G$, the factor of $(y,x)$ in $\mathrm{gf}_W(V_{k-1}^u)$ is at most $z^{-1}e^{-w^2/(512g^2)}$.
+\end{step}
+\begin{step}[Summation]
+$\chi^{\rm w}\in\{0,1\}$, so Step~2 gives $1-\chi^{\rm w}(V_{k-1}^u)\le\sum_{x\in\T\setminus\T'}\one(u(x)\notin N)$. $\mathrm{gf}_W(V_{k-1}^u)$ is a product over $x\in\T\setminus\T'$ of factors, each of which integrates to $1$ over $u(x)\in G$. So
+\[
+\psi(V_{k-1})\le\sum_{x}\int_{u(x)\notin N}z^{-1}\phi\big(V_{k-1}(y,x)u(x)^{-1}W(y,x)^{-1}\big)\,du(x)\le|\T|\,z^{-1}e^{-w^2/(512g^2)}.
+\]
+Since $z(g)\ge\frac12\sigma(0)(2\pi g^2)^{\dim\mathfrak g/2}$ for $g$ small, $\psi\le\eps_1=C|\T|e^{-cw^2/g^2}$ for any $c<1/512$ and $g$ small. Hence $0\le R_1\le\eps_1T^{\rm gf}(\one_{\mathscr O}\rho)$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-one-step}, the term $R_2$]\label{d11a:A14i}\Ntarget{lem:ol-one-step}
+\begin{step}[The formula]
+$R_2=T^{\rm gf}(\chi^{\rm w}(1-\one_{\mathscr O})\rho)$. The function $(1-\one_{\mathscr O})\rho$ is measurable and bounded on $\operatorname{supp}\chi^{\rm w}\subset\mathcal K_w$. By (w2), Proposition~\Nref{prop:exact-step} applies. For real $Z$, Lemma~\Nref{lem:step-quadratic} gives $e^{-g^{-2}\Phi_W(Z)}\rho(e^{\ii\hat Z}W)=e^{-g^{-2}F(Z)}e^{\Gamma^{(1)}_{k-1}(e^{\ii\hat Z}W)}$ with $F=\mathcal S\circ\hat Z+\Phi_W$.
+\end{step}
+\begin{step}[Lower bound on $F$]
+On the support, $|\hat Z(b)|\le w$ on all bonds; since $\hat Z=Z$ on $\mathfrak F$, $|Z|_\infty\le w\le r_2$. By Lemma~\Nref{lem:step-quadratic} and Corollary~\Nref{cor:covariance},
+\[
+F(Z)\ge S(U')+\tfrac18c_L\|Z\|^2-C_L|Z|_\infty\|Z\|^2\ge S(U')+\tfrac1{16}c_L\|Z\|^2,
+\]
+by (w5). Here $\|Z\|^2=\sum_{b\in\mathfrak F}|Z(b)|^2$ with the unit weights of the lattice $\T$ in the units of step $k-1$, so $\|Z\|\ge|Z|_\infty$.
+\end{step}
+\begin{step}[Off the inner region]
+If $(1-\one_{\mathscr O})(e^{\ii\hat Z}W)\ne0$, then $e^{\ii\hat Z}W\notin\mathscr A$. So some bond has $|\hat Z(b)|=|\ell(e^{\ii\hat Z(b)})|\ge w'$ (Lemma~\Nref{lem:log-estimates}(d), $|\hat Z|\le w<\log2$). By Lemma~\Nref{lem:eliminate}(c),(d), $|\hat Z|_\infty\le CL^d|Z|_\infty$ with $C\ge1$, so $\|Z\|\ge|Z|_\infty\ge w'':=w'/(CL^d)$.
+\end{step}
+\begin{step}[The bound]
+The factors $\sigma(Z(b))$, $\mathsf J_c$ and $e^{\Gamma^{(1)}_{k-1}}$ are bounded on the domain by a constant $C_\T$ (continuity on a compact set). With $n=|\mathfrak F|\dim\mathfrak g$ and $a=c_L/(16g^2)$,
+\[
+\int_{\|Z\|\ge w''}e^{-a\|Z\|^2}dZ\le e^{-aw''^2/2}\int e^{-a\|Z\|^2/2}dZ=e^{-aw''^2/2}(2\pi/a)^{n/2}.
+\]
+So
+\[
+R_2\le C'_\T z^{-|\T\setminus\T'|}(2\pi g^2)^{n/2}e^{-S(U')/g^2}e^{-c_Lw''^2/(32g^2)}.
+\]
+By Detail~\ref{d11a:A14j}, $T^{\rm gf}(\chi^{\rm w}\rho)\ge\frac12\mathcal N_{k-1}e^{-S(U')/g^2+\Gamma^{\rm step}_{k-1}(U')+\Gamma^{(1)}_{k-1}(V^0)}$ for $g$ small, where $\mathcal N_{k-1}$ is $z^{-|\T\setminus\T'|}(2\pi g^2)^{n/2}$ times a constant (Theorem~\Nref{thm:step}(a)). Hence $R_2\le\eps_2T^{\rm gf}(\chi^{\rm w}\rho)$, with $\eps_2=C_\T e^{-c'_Lw^2/g^2}$ and $c'_Lw^2=c_Lw''^2/32$, i.e.\ $c'_L=c_L/(32C^2C_1^2L^{2d+2})$.
+\end{step}
+\begin{step}[The two-radius estimate]
+$T^{\rm gf}(\one_{\mathscr O}\rho)=T^{\rm gf}(\chi^{\rm w}\rho)+R_1-R_2$ with $0\le R_1\le\eps_1T^{\rm gf}(\one_{\mathscr O}\rho)$ and $0\le R_2\le\eps_2T^{\rm gf}(\chi^{\rm w}\rho)$. So $(1-\eps_1)T^{\rm gf}(\one_{\mathscr O}\rho)\le T^{\rm gf}(\chi^{\rm w}\rho)$ and $T^{\rm gf}(\one_{\mathscr O}\rho)\ge(1-\eps_2)T^{\rm gf}(\chi^{\rm w}\rho)$. That is, $T^{\rm gf}(\one_{\mathscr O}\rho)=T^{\rm gf}(\chi^{\rm w}\rho)(1+O(\eps_1+\eps_2))$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-one-step}, the outer integral]\label{d11a:A14j}\Ntarget{lem:ol-one-step}
+\begin{step}[Theorem~\Nref{thm:step} applies; ``which is all that Theorem~\Nref{thm:step} uses'']
+The hypotheses: the step is from scale $k-1\ge1$; the curvature of $V$ is at most $\eps'_1\le a_{\rm step}$ (small field); $w\le r_2$. Put $\tilde h=2(C_*+1)L^{-2}\eps'_1+4w\le\frac12a'_1+4w\le a_1$. By \Neqref{eq:chi-w-support}, $\operatorname{supp}\chi^{\rm w}\subset\mathfrak U_{k-1}(\tilde h)\cap\mathcal K_w$. On this set $\rho=\exp(-g^{-2}S(U_{k-1}(\cdot))+\mathfrak E)$ with $\mathfrak E=\Gamma^{(1)}_{k-1}$, which is gauge invariant, continuous and hence bounded and measurable. The proof of Theorem~\Nref{thm:step} uses $\rho$ only through Proposition~\Nref{prop:exact-step}, i.e.\ on $\operatorname{supp}\chi^{\rm w}$; see Detail~\ref{d7:step} and the proof of Theorem~\Nref{thm:step}. Its part~(f) is not used here.
+\end{step}
+\begin{step}[The limit $g\to0$]
+In the formula of Theorem~\Nref{thm:step}, on the support $g|Y(b)|\le w$ on $\mathfrak F$. Hence $g^{-2}|(\mathcal V+G_3)(gY)|\le C_Lg|Y|_\infty\|Y\|^2\le C_Lw\|Y\|^2\le\frac1{16}c_L\|Y\|^2$, by Theorem~\Nref{thm:step}(d) and (w5). Next $|\mathfrak J(gY)|\le CL^{d+1}w$ (Theorem~\Nref{thm:step}(e)), and $|\mathfrak E|\le\sup_{\mathcal K_w}|\Gamma^{(1)}_{k-1}|$. The Gaussian $d\mu_{C_k}$ has density proportional to $e^{-\frac12\ip Y{\Delta_kY}}$ with $\Delta_k\ge\frac14c_L$, i.e.\ $C\le4c_L^{-1}$. So the integrand is dominated by $Ce^{\frac1{16}c_L\|Y\|^2}$, which is integrable, since $\frac1{16}<\frac18$. Pointwise as $g\to0$: $g^{-2}(\mathcal V+G_3)(gY)\to0$, $\mathfrak J(gY)\to\mathfrak J(0)=0$, $\chi^{\rm w}(\hat Z(gY))\to1$, and $\mathfrak E(e^{\ii\hat Z(gY)}W)\to\mathfrak E(W)=\Gamma^{(1)}_{k-1}(V^0)$ by continuity. By dominated convergence the integral tends to $e^{\Gamma^{(1)}_{k-1}(V^0)}>0$. The prefactor is $\mathcal N_{k-1}\exp(-g^{-2}S(U_k(V))+\Gamma^{\rm step}_{k-1}(U_k(V)))$.
+\end{step}
+\status{Literal repetition of the proof of Theorem~\Nref{thm:step} on $\operatorname{supp}\chi^{\rm w}$ (Detail~\ref{d7:step}), and Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-one-step}, conclusion]\label{d11a:A14k}\Ntarget{lem:ol-one-step}
+Collecting Details~\ref{d11a:A14d}--\ref{d11a:A14j}, for $r$ small,
+\[
+I_k(V;g,r)=c_{k-1}(g)\,\mathcal N_{k-1}\exp\big(-g^{-2}S(U_k(V))+\Gamma^{(1)}_{k-1}(V^0)+\Gamma^{\rm step}_{k-1}(U_k(V))+o(1)\big).
+\]
+Proposition~\Nref{prop:ol-laplace} at scale $k$ gives $I_k=c_k(g)\exp(-g^{-2}S(U_k(V))+\Gamma^{(1)}_k(V)+o(1))$. Dividing, $D(V):=\Gamma^{(1)}_k(V)-\Gamma^{(1)}_{k-1}(V^0)-\Gamma^{\rm step}_{k-1}(U_k(V))$ equals $\log(c_{k-1}(g)\mathcal N_{k-1}/c_k(g))+o(1)$. The left side does not depend on $g$, and the first term on the right does not depend on $V$. So the limit $g\to0$ of the latter exists and equals $D(V)$ for every $V$; hence $D$ is a constant. Only Proposition~\Nref{prop:ol-laplace} at scale $k-1$ was used.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:ol-composition}]\label{d11a:A15}\Ntarget{prop:ol-composition}
+\begin{step}[$k=1$: the list of changes]
+The proof of Lemma~\Nref{lem:ol-one-step} is applied to $I_1(V;g,r)=T(\one_{\mathscr N_r(V)}e^{-S/g^2})(V)$, with $\rho=e^{-S/g^2}$, $\mathfrak E=0$ and $\Gamma^{(1)}_0:=0$, with the following changes.
+\begin{enumerate}[label=(\roman*)]
+\item Lemma~\Nref{lem:first-step-formula}(a) replaces Lemma~\Nref{lem:composition}: the base is $W=U_1(V)=U'$, $\mathfrak a'(W)=V$, and $W\in\mathfrak U_0(L^{-2}(C_*+1)\eps'_1)\subset\mathfrak U_0(\frac14a'_1)$. This uses $4(C_*+1)L^{-2}\eps'_1\le a'_1$, from the constants paragraph of the proof of Lemma~\Nref{lem:first-step-formula}.
+\item Lemma~\Nref{lem:first-step-formula}(b),(c) replace Lemma~\Nref{lem:step-quadratic} and Corollary~\Nref{cor:covariance}: $F=S(U')+\frac12\Delta_0+\mathcal V+G_3$, $|\mathcal V|+|G_3|\le C_L|Z|_\infty\|Z\|^2$ and $\frac12C_{\rm P}^{-1}\|Z\|^2\le\Delta_0$. This is $\frac14c^{(0)}_L\|Z\|^2\le\Delta_0$ with $c^{(0)}_L=2C_{\rm P}^{-1}$.
+\item Lemma~\Nref{lem:first-step-formula}(d) replaces Theorem~\Nref{thm:step}. It requires $\rho$ only on $\operatorname{supp}\chi^{\rm w}$, which is stated there.
+\item The constants $r^{(0)}_2$, $C_L$ and $a^{(0)}_{\rm step}$ of that lemma replace $r_2$, $C_L$, $a_{\rm step}$. The inequalities (w2)--(w5) of Detail~\ref{d11a:A14a} hold for $w\le\min(r^{(0)}_2,c^{(0)}_L/(16C_L))$: by the constants paragraph of the proof of Lemma~\Nref{lem:first-step-formula}, $2r^{(0)}_2\le\min(r_L,\frac12c_0L^{-1})$, which gives (w2), (w3) and (w4). (w1) is imposed on $w$, as at $k\ge2$. Alternatively it follows from $8C_wL^dr^{(0)}_2\le a'_1$ when $C_wL^d\ge2$, which holds without loss of generality since the constant $C_w$ there may be increased: $8w\le a'_1/(C_wL^d)\le\frac12a'_1$ and $16B_3w\le2B_3a'_1/(C_wL^d)\le L^{-3}\theta_0$. These constants are expanded in Detail~\ref{xb:d-k0-formula}.
+\item There is no inner integral, since $I_0=e^{-S/g^2}$; set $c_0(g):=1$. The region $\mathscr N'$ is replaced by the open set $\mathscr O$.
+\item (N1) for $\mathscr O$. For $V_0\in\mathscr O$, Detail~\ref{d11a:A14b} gives $V_0\in\mathfrak U_0(\frac14a'_1+4w')\subset\mathfrak U_0(a'_1)$. At $k=0$ the background is $V_0$ itself (the case $k=0$ in the proof of Theorem~\Nref{thm:balaban}). Its current is a combination of at most $4d$ values of $F^s$, so Theorem~\Nref{thm:balaban}(b) at $k=0$ gives $V_0\in\mathfrak U(B_3a'_1)$ in the units of step $0$. In the units of step $1$ this becomes $\mathfrak U(L^3B_3a'_1)\subset\mathfrak U(\theta_0)$.
+\item (N2) for $\mathscr O$. At $k=1$, $\mathfrak G_0=\mathcal G'$, and by Lemma~\Nref{lem:first-step-formula}(a), $\mathscr M(V)=\{W^u:u\in\mathcal G'\}\subset\mathscr O$. Lemma~\Nref{lem:ol-chart-covariance}(c) gives $\mathscr N_r(V)\subset\mathscr O$ for $r$ small.
+\item Lemma~\Nref{lem:gf-step-invariance}(iv), Lemma~\Nref{lem:exp-gauge} and Proposition~\Nref{prop:exact-step} hold at $k=0$ with $W=U'$. Lemma~\Nref{lem:first-step-formula}(a) gives the set of Lemma~\Nref{lem:composition} at $k=0$.
+\end{enumerate}
+With these changes, Details~\ref{d11a:A14c}, \ref{d11a:A14d} (Step~4), \ref{d11a:A14f} (Step~4), \ref{d11a:A14h}, \ref{d11a:A14i}, \ref{d11a:A14j} and~\ref{d11a:A14k} go through. This gives $\Gamma^{(1)}_1(V)=\Gamma^{\rm step}_0(U_1(V))+\mathrm{const}$.
+\end{step}
+\begin{step}[Induction]
+For $k\ge2$, Lemma~\Nref{lem:ol-one-step} gives that $V^0$ is small field and $\Gamma^{(1)}_k(V)=\Gamma^{(1)}_{k-1}(V^0)+\Gamma^{\rm step}_{k-1}(U_k(V))+\mathrm{const}$. By the induction hypothesis at $V^0$ and $U_{k-1}(V^0)=U_k(V)$ (Lemma~\Nref{lem:composition}(b)), the claim follows. Each $\Gamma^{\rm step}_j$ is evaluated at $U_k(V)$, read in the units of step $j$. It does not depend on the element of the minimal orbit (Detail~\ref{d11a:B5}).
+\end{step}
+\status{Literal repetition, with the changes (i)--(viii); Expanded.}
+\end{detail}
+
+\subsection{Marginal tensors and lattice symmetry}\label{d11a:marginal}
+
+\begin{detail}[Definition~\Nref{def:marginal-tensor} and the conventions]\label{d11a:B1}\Ntarget{def:marginal-tensor}
+\begin{step}[Lie algebra indices]
+For a constant gauge transformation $u\equiv g$, $(e^{\ii tB})^u=e^{\ii t\operatorname{Ad}_gB}$. So gauge invariance gives $\Pi_\Phi(x,y)\circ\operatorname{Ad}_g=\operatorname{Ad}_g\circ\Pi_\Phi(x,y)$, with $\Pi_\Phi(x,y)$ read as a map of $\mathfrak g$ through the trace form. Here $G$ is compact, connected and simple (setting of Section~\Nref{sec:flow4}). So $\mathfrak g^c$ is simple and the adjoint representation is absolutely irreducible. By Schur's lemma, $\Pi_\Phi(x,y)=\pi(x,y)I$, and the indices may be suppressed. For semisimple non-simple $G$ there would be one coefficient per simple factor.
+\end{step}
+\begin{step}[Change of convention]
+With $B(b)$ at $b_-$ instead of $m_b=b_-+\frac12e_\mu$, $\hat B_\mu$ is multiplied by $e^{\ii p_\mu/2}$. So $\Pi(p)_{\mu\nu}$ is multiplied by $e^{\ii(p_\mu-p_\nu)/2}=1+O(|p|)$. If $\Pi(p)=O(|p|^2)$ in one convention, the two differ by $O(|p|^3)$, and the tensors agree.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Remark~\Nref{rem:marginal-orders}]\label{d11a:B2}\Ntarget{rem:marginal-orders}
+Let $\Phi$ be real analytic and gauge invariant near $1$, with vanishing first variation $\Phi_1$ at $1$.
+\begin{step}[$\Pi_\Phi(B,\dl\lambda)=0$ on the torus]
+Let $u_s=e^{-\ii s\lambda}$ with $\lambda$ real. Then
+\[
+(e^{\ii tB})^{u_s}(c)=e^{-\ii s\lambda(c_-)}e^{\ii tB(c)}e^{\ii s\lambda(c_+)}=\exp\big(\ii(tB+s\,\dl\lambda+R(t,s))(c)\big),
+\]
+by Lemma~\Nref{lem:log-estimates}(c), with $R$ analytic, $R(t,0)=0$ and $R(0,s)=O(s^2)$. The function $\psi(t,s)=\Phi((e^{\ii tB})^{u_s})$ does not depend on $s$. Expand $\Phi(e^{\ii X})=\Phi(1)+\Phi_1[X]+\frac12\Pi_\Phi(X,X)+O(|X|^3)$. Since $\Phi_1=0$, $0=\partial_t\partial_s\psi(0,0)=\Pi_\Phi(B,\dl\lambda)$.
+\end{step}
+\begin{step}[Transversality and $\Pi_\Phi(0)=0$ in infinite volume]
+Step~1 for all periodic $\lambda$ is the kernel identity $\Pi_n\dl=0$, where $\Pi_n$ is the kernel on the torus of side $n$. Since $\dl$ is local, $(\Pi_n\dl)(b,x)$ is a finite sum, which converges to $(\Pi_\Phi\dl)(b,x)$; so $\Pi_\Phi\dl=0$. For $\lambda=e^{\ii p\cdot x}$, $(\dl\lambda)(c)=e^{\ii p\cdot m_c}\,\ii\hat p_\mu$, with $\hat p_\mu=2\sin(p_\mu/2)$; that is, $\dl\lambda=e_{p,\ii\hat p}$ in the notation of Corollary~\Nref{cor:ol-umklapp}. By Lemma~\Nref{lem:ol-folding}(a) the identity applies to this bounded field, and with the symmetry of the kernel, $\sum_\mu\hat p_\mu\Pi_\Phi(p)_{\mu\nu}=0$. $\Pi_\Phi(p)$ is analytic, so $\sum_\mu p_\mu\Pi_\Phi(0)_{\mu\nu}=O(|p|^2)$ for all $p$, and hence $\Pi_\Phi(0)=0$.
+\end{step}
+\begin{step}[The linear term]
+$\ii c\,\varepsilon_{\mu\nu\lambda\sigma}n_\sigma p_\lambda$ satisfies $\sum_\mu p_\mu\varepsilon_{\mu\nu\lambda\sigma}p_\lambda=0$. So it is transverse, and transversality does not exclude it. It is odd in $p$, so it is excluded by the evenness of Lemma~\Nref{lem:ol-symmetry}(c) (Detail~\ref{d11a:B7}).
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-symmetry}(a)]\label{d11a:B4}\Ntarget{lem:ol-symmetry}
+\begin{step}[$rV$ is small field]
+By Theorem~\Nref{thm:balaban}(c), $rV\in\mathfrak U_k(\eps_1)$ and $\mathscr M(rV)=r\mathscr M(V)$. So $U_k(rV)=(rU_k(V))^u$ with $u\in\mathfrak G_0$. Since $\mathfrak S_k\subset\mathfrak S_{j+1}$ ($\Z^4$-translations and $B_4$ about points of $\T$ preserve $L^{j+1-k}\Z^4$), Lemma~\Nref{lem:one-step-basic}(b),(d) give $U_k(rV)^{(j+1)}=(r(U_k(V)^{(j+1)}))^{u|}$. The conditions of the setting are curvature bounds, which are invariant. $\mathfrak U(\theta')$ is invariant: curvature is covariant, and $J_{rU}=r_UJ_U$ (Lemma~\Nref{lem:current}(b)).
+\end{step}
+\begin{step}[The integrals]
+Put $\mathscr N=\mathscr N_{r'}(V)\cup r^{-1}\mathscr N_{r'}(rV)$. The map $U\mapsto rU$ is a homeomorphism of $\mathfrak B(V)\cap\mathfrak U(\theta_0)$ onto $\mathfrak B(rV)\cap\mathfrak U(\theta_0)$, since $(rU)^{(k)}=rU^{(k)}$. It maps $\mathfrak G_0$-orbits to $\mathfrak G_0$-orbits, because $(rU)^{ru}=r(U^u)$ with $(ru)(x)=u(r^{-1}x)$ and $r\mathfrak G_0r^{-1}=\mathfrak G_0$. So Lemma~\Nref{lem:ol-neighbourhood} applies to $\mathscr N$ at $V$ and to $r\mathscr N$ at $rV$. The substitution $U=r\tilde U$ preserves $\prod dU$: it permutes the bonds, and on reversed bonds inverts the variable, which preserves the Haar measure. It preserves $S$. It maps $\mu_V$ to $\mu_{rV}$: with $\delta_n$, $\delta_n(r\tilde U^{(k)},rV)=\delta_n(\tilde U^{(k)},V)$. On a reversed bond the factor is $\delta_n(V'(c)^{-1}V(c))=\delta_n(V(c)V'(c)^{-1})=\delta_n(V'(c)V(c)^{-1})$, by conjugation and inversion invariance. So $I_k(rV;g,r')=I_k(V;g,r')(1+O(e^{-c/g^2}))$. With $S(U_k(rV))=S(U_k(V))$, Proposition~\Nref{prop:ol-laplace} gives $\Gamma^{(1)}_k(rV)-\Gamma^{(1)}_k(V)=o(1)$, and both are independent of $g$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-symmetry}(b)]\label{d11a:B5}\Ntarget{lem:ol-symmetry}
+\begin{step}[Independence of the representative]
+$\Gamma^{\rm step}_j(U')=-\frac12\log\det\Delta_j(W,U')+\sum_c\log\mathfrak j_c(W)$ (Detail~\ref{d11a:A13}). Another element of the minimal orbit is $U'^u$ with $u$ real, $u|_{\T'}=1$, and its base is $W^{u|_\T}$ (Lemma~\Nref{lem:one-step-basic}(b)). By Corollary~\Nref{cor:covariance}(a), $\Delta_j\mapsto R(u)\Delta_jR(u)^{-1}$ with orthogonal $R(u)$, so the determinant is unchanged. The $\mathfrak j_c$ are invariant (Proposition~\Nref{prop:jacobians}(b)). For $j=0$, Lemma~\Nref{lem:first-step-formula}(c) gives the same covariance.
+\end{step}
+\begin{step}[Lattice symmetry]
+Let $r\in\mathfrak S_{j+1}$. By Detail~\ref{d11a:B4} at scale $j+1$, $rV'$ is small field. By Proposition~\Nref{prop:symmetry}(b) with $j+1$ in place of $k$, $rU'$ lies in the minimal orbit of $rV'$. By Lemma~\Nref{lem:one-step-basic}(d) and $\mathfrak S_{j+1}\subset\mathfrak S_j$, its base is $rW$. Corollary~\Nref{cor:covariance}(b) gives $\Delta_j(rW,rU')=r_W\Delta_j(W,U')r_W^{-1}$, with $r_W$ orthogonal on the fields on $\mathfrak F$. Proposition~\Nref{prop:jacobians}(d) gives $\sum_c\log\mathfrak j_c(rW)=\sum_c\log\mathfrak j_c(W)$, also at $j=0$. With Step~1, $\Gamma^{\rm step}_j(U_{j+1}(rV'))=\Gamma^{\rm step}_j(rU')=\Gamma^{\rm step}_j(U')$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-symmetry}(c), the hypotheses on $\Phi$, and the second route]\label{d11a:B6}\Ntarget{lem:ol-symmetry}
+\begin{step}[The second-route identity]
+For $j\ge1$, Lemma~\Nref{lem:ol-one-step} at $k=j+1$ gives $\Psi_j(V'):=\Gamma^{\rm step}_j(U_{j+1}(V'))=\Gamma^{(1)}_{j+1}(V')-\Gamma^{(1)}_j(V_j(V'))+\kappa_j$, with $V_j(V')=U_{j+1}(V')^{(j)}=V^0$. For $j=0$, Proposition~\Nref{prop:ol-composition} at $k=1$ gives $\Psi_0=\Gamma^{(1)}_1+\kappa_0$. Configurations are carried between the units of different steps without change (Section~\Nref{sec:rg-step}). Neither identity uses Lemma~\Nref{lem:ol-symmetry}, so there is no circularity.
+\end{step}
+\begin{step}[Analyticity and gauge invariance]
+$\Gamma^{(1)}_{j+1}$ is analytic and gauge invariant (Proposition~\Nref{prop:ol-laplace}). Near $V'^\circ$, Corollary~\Nref{cor:analytic} gives $\mathsf U_{U'^\circ}(A_*(B))\in\mathscr M(e^{\ii B}V'^\circ)$, analytic in $B$. So $V_j$ has the local analytic representative $\mathsf U_{U'^\circ}(A_*(B))^{(j)}$. Other representatives differ by restrictions to $\T^{(j)}$ of elements of $\mathfrak G_0$ at scale $j+1$, under which $\Gamma^{(1)}_j$ is invariant. Hence $\Gamma^{(1)}_j\circ V_j$ is analytic. For a real $u$, Theorem~\Nref{thm:variational}(g) gives $V_j(V'^{u|})=V_j(V')^{u|_{\T^{(j)}}}$, so $\Psi_j$ is gauge invariant.
+\end{step}
+\begin{step}[Vanishing first variation]
+$\Phi_1[B]=\frac d{dt}\Phi(e^{\ii tB})|_0$ is linear. By invariance under constant gauge transformations, $\Phi_1[\operatorname{Ad}_gB]=\Phi_1[B]$. Write $\Phi_1[B]=\sum_c\operatorname{tr}(J(c)B(c))$ with $J(c)\in\mathfrak g$. Then $\operatorname{Ad}_gJ(c)=J(c)$ for all $g$, so $J(c)$ lies in the centre, which is $0$. Translation invariance of $\Pi_\Phi$ follows from (a) and (b) for the translations.
+\end{step}
+\begin{step}[The second route to (b)]
+For $r\in\mathfrak S_{j+1}$, $V_j(rV')$ is a gauge transform of $rV_j(V')$, by Theorem~\Nref{thm:balaban}(c) and Lemma~\Nref{lem:one-step-basic}(d). Part~(a) at the scales $j+1$ and $j$, together with the gauge invariance of $\Gamma^{(1)}_j$, gives (b) from Step~1. The remarks after the proof of Lemma~\Nref{lem:ol-symmetry}, on reflections at non-critical references and on the topological density, need no expansion.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-symmetry}(c), Fourier transform and tensor algebra]\label{d11a:B7}\Ntarget{lem:ol-symmetry}
+\begin{step}[Action on Lie fields]
+At $V=1$, $r(e^{\ii tB})=e^{\ii t\,r_1B}$ with $(r_1B)(b)=B(r^{-1}b)$ and $B(-b)=-B(b)$. Let $r(x)=Rx+v$. The bond with midpoint $m$ and direction $e_\nu$ goes to the bond with midpoint $r(m)$ and direction $Re_\nu=\pm e_{\sigma(\nu)}$. A minus sign means the positively oriented bond is the reverse, which carries $-B$. So, as a vector field on midpoints, $(r_1B)(r(m))=R\,B(m)$. With $p\cdot(Rm+v)=(R^Tp)\cdot m+p\cdot v$, $\widehat{r_1B}(p)=e^{-\ii p\cdot v}R\,\hat B(R^{-1}p)$.
+\end{step}
+\begin{step}[Covariance, reality, evenness]
+By (a) and (b), $\Pi_\Phi(r_1B,r_1B')=\Pi_\Phi(B,B')$. By the Plancherel formula with the sesquilinear extension, this is $\int\hat B(q)^*R^T\Pi_\Phi(Rq)R\,\hat B'(q)\,dq=\int\hat B(q)^*\Pi_\Phi(q)\hat B'(q)\,dq$; the phases cancel. Hence $\Pi_\Phi(Rq)=R\Pi_\Phi(q)R^T$. The kernel is real and symmetric, so $\Pi_\Phi(p)^T=\Pi_\Phi(-p)=\overline{\Pi_\Phi(p)}$. With $R=-1$ we get $\Pi_\Phi(-p)=\Pi_\Phi(p)$, so $\Pi_\Phi(p)$ is real symmetric.
+\end{step}
+\begin{step}[The tensor]
+Write $\Pi_\Phi=\Pi^{(1)}+\Pi^{(2)}+O(|p|^3)$; there is no constant term (Detail~\ref{d11a:B2}). Evenness kills $\Pi^{(1)}$. $T_{\mu\nu\kappa\lambda}$ is real and symmetric in $\kappa\lambda$ and in $\mu\nu$. Under the reflection of the axis $\alpha$, $T$ changes by $(-1)^{\#\{\alpha\text{ among }\mu,\nu,\kappa,\lambda\}}$, so $T$ vanishes unless every value occurs an even number of times. Permutations of the axes leave only the patterns: all equal, $a$; $\mu=\nu\ne\kappa=\lambda$, $b$; and $\mu=\kappa\ne\nu=\lambda$ or $\mu=\lambda\ne\nu=\kappa$, both $c$ by the symmetry in $\kappa\lambda$. Then $T(p)_{\mu\mu}=b|p|^2+(a-b)p_\mu^2$ and $T(p)_{\mu\nu}=2c\,p_\mu p_\nu$ for $\mu\ne\nu$. So $t_1=b$, $t_2=2c$, $t_3=a-b-2c$.
+\end{step}
+\begin{step}[Transversality]
+Since $\hat p_\mu=p_\mu+O(|p|^3)$, the cubic part of $\sum_\mu\hat p_\mu\Pi_\Phi(p)_{\mu\nu}=0$ is $(t_1+t_2)|p|^2p_\nu+t_3p_\nu^3=0$. At $p=e_\nu$ this gives $t_1+t_2+t_3=0$; at $p=e_\nu+e_\mu$, $\mu\ne\nu$, it gives $2(t_1+t_2)+t_3=0$. So $t_3=0$ and $t_2=-t_1$. Hence $T=t_1(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$, and its projection coefficient is $\beta_\Phi=t_1$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\subsection{Periodic operators, infinite volume and the change of scale}\label{d11a:infvol}
+
+\begin{detail}[Fields, cells and Lemma~\Nref{lem:ol-folding}]\label{d11a:C2}\Ntarget{lem:ol-folding}
+\begin{step}[Cells]
+$\delta^{-1}$ divides $N=L^k$ with $L$ odd, so $\delta^{-1}=m$ is odd. A coordinate $j/m$ is never in $\frac12+\Z$. So every base point is uniquely $x_0+a$ with $|x_{0,\mu}|<\frac12$ and $a\in\Z^4$, and $\Sigma=\bigsqcup_a(\Sigma_0+a)$.
+\end{step}
+\begin{step}[(a); ``as in (a)'' in (c)]
+For $|s-s'|\le n/4$ and $0\ne a\in n\Z^4$ we have $|a|\ge n$, so $|x(s)-x(s')-a|\ge|a|-n/4\ge\frac34|a|$. Then
+\[
+\sum_{a\ne0}Ce^{-\frac34\gamma|a|}\le Ce^{-\gamma n/2}\sum_{a\in\Z^4}e^{-\gamma|a|/4}=CS_{\gamma/4}e^{-\gamma n/2}.
+\]
+In (c) the same bound is applied to the representatives $A(n')\setminus\{0\}\subset n\Z^4\setminus\{0\}$. The product bound uses $|s-s'|+|s'-s''|\ge|s-s''|$. The adjoint kernel is $K^*(s',s)=w(s)w(s')^{-1}K(s,s')^*$, from $\ip f{Kg}=\sum_sw(s)\ip{f(s)}{(Kg)(s)}$.
+\end{step}
+\begin{step}[(d), (e); ``argue as in (a)'', ``follows as in (d)'', ``is clear'']
+For products on the torus, represent the sites $s'$ by $D_n=\{s':x(s')-x(s)\in(-\frac n2,\frac n2]^d\}$, on which $|s-s'|_n=|s-s'|$. Then $\sum_{s'\in D_n}C^2e^{-\gamma|s-s'|}e^{-\gamma|s'-s''|_n}\le C^2\sigma_\gamma e^{-\gamma|s-s''|_n/2}$, since $|s-s'|_n+|s'-s''|_n\ge|s-s''|_n$. For transposes, $X^{\sf T}_n(s',s)=X_n(s,s')^{\sf T}$ converges entrywise with the same bound, since $|s-s'|_n$ is symmetric.
+\end{step}
+\status{Expanded (Steps~1--3). The rest of the proof of Lemma~\Nref{lem:ol-folding} is complete in the note as written, and no other step of it is expanded here.}
+\end{detail}
+
+\begin{detail}[Corollary~\Nref{cor:ol-part-one}]\label{d11a:C3}\Ntarget{cor:ol-part-one}
+\begin{step}[From decay to kernel decay]
+Let $s$ lie in the support of $\one_y$ and $s'$ in that of $\one_{y'}$, so $|x(s)-y|,|x(s')-y'|\le\frac{\sqrt d}2$ and $|y-y'|\ge|s-s'|_n-\sqrt d$. For unit $e,e'\in E$,
+\[
+w(s)\,\ip{e'}{K(s,s')e}_E=\ip{\delta_se'}{K\delta_{s'}e}\le\|\one_yK\one_{y'}\|\,w(s)^{1/2}w(s')^{1/2}.
+\]
+Since $w(s')/w(s)\le\eta^{-d}$, $|K(s,s')|\le\eta^{-d/2}Ce^{\gamma\sqrt d}e^{-\gamma|s-s'|_n}$, uniformly in $n$.
+\end{step}
+\begin{step}[$P_\cV1=1$]
+On every torus, $(-\Lap+aQ_0^*Q_0)1=aQ_0^*1$, since $Q_01=1$. So $G_0Q_0^*1=a^{-1}1\in\cV$, and $P_\cV1=1$. The field $1$ is $n$-periodic for all $n$, so by Lemma~\Nref{lem:ol-folding}(a),(c) the limit satisfies $P_\cV1=1$.
+\end{step}
+\status{Expanded. The Part~I inputs are imported (I.1).}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-bloch}(d),(f),(g)]\label{d11a:C4}\Ntarget{lem:ol-bloch}
+\begin{step}[(f) The strip]
+For $q_\mu=u_\mu+\ii v_\mu$ with $|v_\mu|\le\frac14$,
+\[
+\operatorname{Re}4\eta^{-2}\sin^2(\eta q_\mu/2)=2\eta^{-2}\big(1-\cos(\eta u_\mu)\cosh(\eta v_\mu)\big)\ge-2\eta^{-2}\big(\cosh(\eta/4)-1\big).
+\]
+The function $\eta\mapsto2\eta^{-2}(\cosh(\eta/4)-1)=\sum_{m\ge1}2\eta^{2m-2}/(4^{2m}(2m)!)$ is increasing. Its value at $\eta=\frac13$ is below $0.0626<\frac1{15}$, and $\eta\le\frac13$ since $L\ge3$, $k\ge1$. So $\operatorname{Re}\varrho\ge1-\frac4{15}>\frac12$.
+\end{step}
+\begin{step}[(g), ``similarly for $\bL_a$'']
+Theorem~\Nref{thm:gauge-coercive} gives $\ip A{\bL_aA}\ge c_g(\|A\|^2+\|\partial A\|^2)=c_g\ip A{(1-\Lap)A}$ on every torus. By (e) this holds on $\ell^2$. So $\langle\partial\rangle^{-1}\bL_a\langle\partial\rangle^{-1}\ge c_g$, and its inverse, the positive operator $\langle\partial\rangle\bG\langle\partial\rangle$, is at most $c_g^{-1}$.
+\end{step}
+\status{Expanded, for the parts named in the heading. The proofs of Lemma~\Nref{lem:ol-bloch}(a)--(e), Lemmas~\Nref{lem:ol-trace-tools} and~\Nref{lem:ol-liouville}, and Proposition~\Nref{prop:ol-IM}(a),(b) are complete in the note as written, and no step of them is expanded here. The step that the proof of Lemma~\Nref{lem:ol-trace-tools} compresses as ``read off the kernels'' is the identity $\overline{e^{-\ii p\cdot\Delta x}}=e^{\ii p\cdot\Delta x}$ for real $p$.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:ol-IM}(c)--(e)]\label{d11a:C7}\Ntarget{prop:ol-IM}
+\begin{step}[(c)]
+$\bQ A_F=B_F$ is Lemma~\Nref{lem:ol-linear-average}(a) (imported, I.7). On $b=(x,x+\eta e_\nu)$, $A_F(b)=\frac12(m_b-x_0)^{\sf T}Fe_\nu$ does not involve $x_\nu$, since $F_{\nu\nu}=0$; so $\partial^*_\nu A_{F,\nu}=0$, $d^*A_F=0$ and $Rd^*A_F=0$. $dA_F=F$ is constant, so $d^*dA_F=0$. Part~(b) with $\omega=0$ applies.
+\end{step}
+\begin{step}[(d), polynomials of degree $\le2$]
+With $\Lap f(x)=\sum_\mu\eta^{-2}(f(x+\eta e_\mu)+f(x-\eta e_\mu)-2f(x))$: $-\Lap x_\mu^2=-2$, and $-\Lap$ annihilates $x_\mu x_\nu$ ($\mu\ne\nu$), $x_\mu$ and $1$. So $d^*d\varphi$ is constant, and $Rd^*d\varphi=0$ by $R1=0$.
+\end{step}
+\begin{step}[(e), exact identities]
+For $b_\pm=m_b\pm\frac12\eta t_b$ and $\varphi=\frac12(p\cdot x)(a\cdot x)$,
+\[
+\varphi(b_+)-\varphi(b_-)=\tfrac12\eta\big((p\cdot m_b)(a\cdot t_b)+(a\cdot m_b)(p\cdot t_b)\big)
+\]
+exactly; the terms quadratic in $\eta$ cancel. With $F_{\kappa\lambda}=(p_\kappa a_\lambda-p_\lambda a_\kappa)T$, $m^{\sf T}Ft=((p\cdot m)(a\cdot t)-(a\cdot m)(p\cdot t))T$, so $A_F+d\varphi\,T=(p\cdot m)(a\cdot t)T$. On the centred block $B(0)$, $\sum_tt=0$ and $\sum_tt_\mu t_\nu=0$ for $\mu\ne\nu$, by the reflection symmetry of the block. So $Q_0\varphi(y)=\varphi(y)+\frac12\sum_\mu p_\mu a_\mu\,\eta^d\sum_{t\in B(0)}t_\mu^2$, a constant shift, and $\dl Q_0\varphi=\dl\varphi$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Corollary~\Nref{cor:ol-umklapp}]\label{d11a:C8}\Ntarget{cor:ol-umklapp}
+On the midpoints $\delta(z+\frac12e_\mu)$ of a cell, $z\in\Z^4/\delta^{-1}\Z^4$, the functions $e^{\ii(p+2\pi\ell)\cdot m}$, $\ell\in\mathcal L$, are $e^{\ii p\cdot m}$ times the characters $z\mapsto e^{2\pi\ii\delta\ell\cdot z}$, up to constant phases. There are $\delta^{-4}=|\mathcal L|$ of them, the dimension of the $p$-quasi-periodic functions on these midpoints. So they form a basis. The coefficients are holomorphic in $p$ by the kernel decay. At $p=0$, $\mathbf Ke_{0,\eps}=e'_{0,\eps}$ gives $k_\ell(0)=\delta_{\ell0}I$. The derivative computation of the note, with the two hypotheses on $\mathbf K$, gives $(p\cdot\nabla)k_\ell(0)=0$.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-pullback}, the linearization]\label{d11a:D2}\Ntarget{lem:ol-pullback}
+\begin{step}[The minimal orbit near $V=1$]
+$U_0=1$ is in the minimal orbit of $V=1$, and it is $(M,\eps)$-regular with $J=0$ and $W_k=1$ for every $\eps\in(0,1]$. So Corollary~\Nref{cor:analytic} applies with every small $\eps>0$ (take $\eps_1>0$ small), and by uniqueness $A_*$ does not depend on $\eps$: $\mathsf U(A_*(B))\in\mathscr M(e^{\ii B})$, with $A_*$ analytic. The bounds below are uniform in $\eps$, and we let $\eps\to0$ in them. Theorem~\Nref{thm:variational}(c) gives $A_*=\bH B-\bC J_{U_0}+O((\eps+\beta)^2)=\bH B+O(|B|^2)$, so $dA_*(0)=\bH$. Here $\bH$ is the minimizer map of the form $\ip{DA}{DA'}$ at $U_0$ with $W=0$ (beginning of Section~\Nref{sec:var-solution}). At $U_0=1$: $E=0$ and $(Q'_k,\bQ_k)=(Q_0,\bQ)$ (Proposition~\Nref{prop:linearized-averages}(b),(c)), and $D=d$. By Theorem~\Nref{thm:cov-min}(b) it is the unique minimizer of $\|dA\|^2$ on $\{\bQ A=B,\ Rd^*A=0\}$, which is $\bH=\bG\bQ^*\boldsymbol\Gamma$ of Theorem~\Nref{thm:H-gauge}(b). The note's chain through $\bQ_\pi$ and $\fA_\pi=\bL_a$ gives the same; uniqueness suffices.
+\end{step}
+\begin{step}[The second variation]
+$U_k(V)$ is a gauge transform of $\mathsf U(A_*(B))$, which is a gauge transform of $e^{\ii\eta A_*(B)}$. With the covariance of the averaging and the gauge invariance of $\Phi$, $\Psi(V)=\Phi((e^{\ii\eta A_*(B)})^{(j+1)})$. The map $f(B)=(e^{\ii\eta A_*(B)})^{(j+1)}$ has $f(0)=1$. Its Lie field has derivative $N'^{-1}\bQ^{\rm pl}_{j+1}\bH$ in the units of scale $j+1$. Since $\Phi_1=0$, $d^2(\Phi\circ f)(0)=\Pi_\Phi[df,df]$. In kernels for the unweighted pairings this is $\Pi_\Psi=N'^{-2}\mathbf K^{\sf T}\Pi_\Phi\mathbf K$, $\mathbf K=\bQ^{\rm pl}_{j+1}\bH$.
+\end{step}
+\begin{step}[Infinite volume]
+$\bQ^{\rm pl}_{j+1}$ is local by Lemma~\Nref{lem:one-step-basic}(c). It commutes with the translations of $\Lam'$ by (d). So Lemma~\Nref{lem:ol-folding}(a),(c),(e), with Proposition~\Nref{prop:ol-IM}(a), give convergence with uniform decay to $N'^{-2}\mathbf K_\infty^{\sf T}\Pi_\Phi\mathbf K_\infty$. This is $\Z^4$-translation invariant because $\Lam'\supset\Z^4$.
+\end{step}
+\status{Expanded. That $W=0$ is the definition at the beginning of Section~\Nref{sec:var-solution}. The first-order formula of Theorem~\Nref{thm:variational}(c) and the analyticity~(f) are imported (I.4).}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-pullback}, images of linear fields]\label{d11a:D4}\Ntarget{lem:ol-pullback}
+\begin{step}[Units for Lemma~\Nref{lem:ol-linear-average}(b)]
+Let $\kappa=j+1$. In the units of scale $\kappa$, Lemma~\Nref{lem:ol-linear-average}(b) with $\kappa$ in place of $k$ gives $\bQ^{\rm pl}A_F=B_F$. Passing to the units of scale $k$ divides lengths by $N'$ and multiplies the Lie fields on both lattices by $N'$, since a configuration on spacing $\delta$ is $e^{\ii\delta B}$. The map $\bQ^{\rm pl}$ is the same linear map in both units, because both sides scale by $N'$. A linear field $\frac12m^{\sf T}Ft$ becomes $\frac12N'^2m'^{\sf T}Ft$, i.e.\ the linear field of $N'^2F$. Since $F$ is arbitrary, $\bQ^{\rm pl}_{j+1}A_F$ is the linear field of $F$ on $\Lam'$, in the units of scale $k$.
+\end{step}
+\begin{step}[\emph{New argument}: $\bQ^{\rm pl}_{j+1}(d\varphi\,T)=(d'\varphi)T$; ``by the gauge covariance in its proof'']
+Let $\varphi$ be real and periodic, $T\in\mathfrak g$, and $u_t=e^{-\ii t\varphi T}$. All values commute, so $1^{u_t}(b)=e^{\ii t(\varphi(b_+)-\varphi(b_-))T}=e^{\ii\eta t(d\varphi)(b)T}$ exactly. By Lemma~\Nref{lem:one-step-basic}(b), $(1^{u_t})^{(j+1)}=1^{u_t|_{\Lam'}}=e^{\ii N'^{-1}t(d'\varphi)T}$ exactly. Differentiating at $t=0$ gives the identity. It extends to complex $T$ and $\varphi$ by linearity. Since $\bQ^{\rm pl}_{j+1}$ has finite range, the value at a bond involves $\varphi$ on a finite set. Any polynomial agrees there with a periodic function on a large torus, so the identity holds for polynomials on $\eta\Z^4$.
+\end{step}
+\begin{step}[Conclusion]
+With $(p\cdot m)(a\cdot t)T=A_F+d\varphi\,T$ (Detail~\ref{d11a:C7}) on both lattices, $\mathbf K$ maps the fields $(p\cdot m)(a\cdot t)$ and the constants to the same fields, so Corollary~\Nref{cor:ol-umklapp} applies with $\delta=N'^{-1}$.
+\end{step}
+\status{New argument (Step~2); Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-pullback}, the tensor, and Corollary~\Nref{cor:ol-cumulative}]\label{d11a:D5}\Ntarget{lem:ol-pullback,cor:ol-cumulative}
+\begin{step}[Characters]
+For $\ell,\ell'\in\mathcal L$ and bonds of direction $\mu$ in a cell of $\Z^4$, the midpoints are $N'^{-1}(z+\frac12e_\mu)$ with $z\in\Z^4/N'\Z^4$. Then $\sum_me^{2\pi\ii(\ell'-\ell)\cdot m}=e^{\pi\ii(\ell'-\ell)_\mu/N'}\sum_ze^{2\pi\ii(\ell'-\ell)\cdot z/N'}=N'^d\delta_{\ell\ell'}$. Summing over $\mu$ gives $(e'_{-p-2\pi\ell,\eps},e'_{p+2\pi\ell',\eps'})_1=N'^d\delta_{\ell\ell'}\eps^{\sf T}\eps'$. Since $\mathbf K$ is real, $\mathbf Ke_{-p,\eps}$ has coefficients $\overline{k_\ell(p)}\eps$. Hence the factor $k_\ell(p)^*$ in $\Pi_\Psi(p)=N'^{d-2}\sum_\ell k_\ell(p)^*\Pi_\Phi((p+2\pi\ell)/N')k_\ell(p)$.
+\end{step}
+\begin{step}[Orders]
+For $\ell=0$, $k_0=I+O(|p|^2)$ and $\Pi_\Phi(p/N')=O(|p|^2)$, so the term is $N'^{d-2}T_\Phi(p/N')+O(|p|^3)=N'^{d-4}T_\Phi(p)+O(|p|^3)$. For $\ell\ne0$, $k_\ell=O(|p|^2)$ on both sides, and $\Pi_\Phi$ is bounded on the compact set of the momenta $(p+2\pi\ell)/N'$; so these terms are $O(|p|^4)$. In $d=4$, $N'^{d-4}=1$.
+\end{step}
+\begin{step}[Corollary~\Nref{cor:ol-cumulative}]
+By Lemma~\Nref{lem:composition}(b), iterated along the scales, $U_k(V)\in\mathscr M_{j+1}(V_{j+1}(V))$. With Detail~\ref{d11a:B5}, $\Gamma^{\rm step}_j(U_k(V))=\Gamma^{\rm step}_j(U_{j+1}(V_{j+1}(V)))$. So Proposition~\Nref{prop:ol-composition} reads $\Gamma^{(1)}_k=\sum_{j<k}\Psi_j\circ V_{j+1}+\mathrm{const}$. The small-field set contains a neighbourhood of $V=1$ on each torus: all intermediate configurations of $V=1$ are $1$, and they depend continuously on $V$ up to gauge. Second variations at $1$ are additive. By Lemma~\Nref{lem:ol-pullback} each term converges, and $T_{\Gamma^{(1)}_k}=\sum_jT_{\Psi_j}$. The form of the tensors is Lemma~\Nref{lem:ol-symmetry}(c).
+\end{step}
+\status{Expanded. The paragraph ``Relation to Ba\l aban's $\beta$-functions'' after Corollary~\Nref{cor:ol-cumulative} needs no expansion; (F2), (F3) and Proposition~\Nref{prop:beta-identification} are expanded in Section~\ref{d11b}.}
+\end{detail}
+
+\subsection{The Landau chart, the stabilizer count and ``All \texorpdfstring{$V$}{V}''}\label{d11a:chart}
+
+In Details~\ref{d11a:E1}--\ref{d11a:E9}, $V\in\mathfrak U_k(a_1)$ with $(V,\theta_0)$ admissible, $U_0\in\mathscr M(V)$, $\theta=\theta_0$, and $\rho_g=g^{1/2}\le\frac12\min(r_u,r_0)$. Here $\mathcal G$ and $\mathcal G_\T$ are the real gauge groups of $\Tf$ and $\T$, and $\mathcal B_\T$ is the set of positively oriented bonds of $\T$.
+
+\begin{detail}[Setting of Section~\Nref{sec:ol-chart}]\label{d11a:E1}\Ntarget{sec:ol-chart}
+\begin{step}[Inclusions and measurability]
+Let $A\in\mathcal S_V$ with $|A|_\infty<\rho_g$. Then $e^{\ii\eta A}U_0\in\Sigma_{\rho_g}$: $|A|_\infty<2\rho_g$, curvature and current are at most $\theta$, $RD^TA=0$, and $\mathcal Q=VW_k^{-1}=1$. Its gauge transform $\mathsf U(A)$, and the $\mathfrak G_0$-orbit of $\mathsf U(A)$, lie in $\mathscr N_{\rho_g}$. So $\mathscr N_{\rho_g}(V)\subset\mathscr N_{\rho_g}\cap\mathfrak B(V)\subset\mathfrak B(V)\cap\mathfrak U(\theta_0)$, the last by gauge invariance of $\mathfrak U(\theta_0)$. The set $\Sigma_{\rho_g}$ is the union of the compact sets $\{|A|_\infty\le\rho_g-1/m\}\cap\{\text{closed conditions}\}$. So $\mathscr N_{\rho_g}$ is $\sigma$-compact, hence Borel.
+\end{step}
+\begin{step}[The annulus]
+On $\mathscr N_{r_0}(V)\setminus\mathscr N_{\rho_g}(V)$, $S=\Phi(A)$ with $\rho_g\le|A|_\infty\le r_u$. So $S\ge S(U_0)+c\rho_g^2=S(U_0)+cg$, by Detail~\ref{d11a:A6}, Step~4. The mass is at most $C$ (Lemma~\Nref{lem:ol-fibre-mass}), and $I_k(V;g,r_0)\ge c'g^Ne^{-S(U_0)/g^2}$. Apply Lemma~\Nref{lem:ol-neighbourhood} to $\mathscr N=(\mathscr N_{\rho_g}\cap\mathfrak B(V))\cup\mathscr N_{r_0}(V)$. This set depends on $g$, but the constant there does not depend on $\mathscr N$ (Detail~\ref{d11a:A12}). It gives $\int_{\mathscr N}=I_k(1+O(e^{-c/g^2}))$. The difference between $\int_{\mathscr N}$ and $\int_{\mathscr N_{\rho_g}\cap\mathfrak B(V)}$ is at most the annulus integral, i.e.\ $I_k\cdot O(g^{-N}e^{-c/g})$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-smearing}]\label{d11a:E2}\Ntarget{lem:ol-smearing}
+Put $\delta^{\rm orb}_n(V')=\int_{\mathcal G_\T}dh\,\delta_n(V',V^h)$. Let $\mathcal U$ be a $\mathcal G$-invariant open set on which $U\mapsto U^{(k)}$ is a submersion.
+\begin{step}[The smoothed identity]
+Let $F\in C_c(\mathcal U)$ be $\mathcal G$-invariant. For $h\in\mathcal G_\T$ let $\hat h=\mathcal E^{(k)}(h)\in\mathcal G$, so $\hat h|_\T=h$. Substitute $U=W^{\hat h}$. Then $\prod dU=\prod dW$, $U^{(k)}=(W^{(k)})^h$ (Lemma~\Nref{lem:one-step-basic}(b)), and $F(U)=F(W)$. Moreover
+\[
+\delta_n\big((W^{(k)})^h,V^h\big)=\prod_c\delta_n\big(h(c_-)\,W^{(k)}(c)V(c)^{-1}\,h(c_-)^{-1}\big)=\delta_n(W^{(k)},V),
+\]
+since $\delta_n$ is a class function. So $\int dU\,\delta_n(U^{(k)},V^h)F=\int dU\,\delta_n(U^{(k)},V)F$ for every $h$. Integrating over $h$, with $\operatorname{vol}\mathcal G_\T=1$ and Fubini,
+\[
+\int dU\,\delta_n(U^{(k)},V)F(U)=\int dU\,\delta^{\rm orb}_n(U^{(k)})F(U).
+\]
+The same substitution without invariance of $F$ gives
+\[
+\int dU\,\delta_n(U^{(k)},V^h)F(U)=\int dW\,\delta_n(W^{(k)},V)F(W^{\hat h}).
+\]
+As $n\to\infty$ this is $\int F\,d\mu_{V^h}=\int F(W^{\hat h})\,d\mu_V(W)$. So the gauge map $W\mapsto W^{\hat h}$ pushes $\mu_V$ to $\mu_{V^h}$, and for bounded Borel invariant $F$, $\int F\,d\mu_V=\int dh\int F\,d\mu_{V^h}$.
+\end{step}
+\begin{step}[Invariance of $\delta^{\rm orb}_n$]
+For a fixed coarse $h'\in\mathcal G_\T$,
+\[
+\delta^{\rm orb}_n(V'^{h'})=\int dh\prod_c\delta_n\big(h'(c_-)V'(c)h'(c_+)^{-1}V^h(c)^{-1}\big)=\int dh\prod_c\delta_n\big(V'(c)\,V^{h'^{-1}h}(c)^{-1}\big),
+\]
+by conjugating each factor with $h'(c_-)^{-1}$, using $V^{h'^{-1}h}(c)^{-1}=h'(c_+)^{-1}V^h(c)^{-1}h'(c_-)$. Left invariance of the Haar measure gives $\delta^{\rm orb}_n(V'^{h'})=\delta^{\rm orb}_n(V')$.
+\end{step}
+\begin{step}[The second identity, pointwise]
+For $U\in\mathcal D_{\rho_g}$, $UU_0^{-1}=e^{\ii\eta A}$ with $|A|_\infty<2\rho_g\le r_u\le c_3$. So Lemma~\Nref{lem:Q-covariance}(a) applies: $\mathcal Q(UU_0^{-1})=(U^{(k)})^{h(U)}W_k^{-1}$ with $h(U)=\mathsf w_k(UU_0^{-1})|_\T$ and $W_k=V$. Bondwise, $\mathcal Q(UU_0^{-1})V=(U^{(k)})^{h(U)}$. By Step~2, $\delta^{\rm orb}_n(U^{(k)})=\delta^{\rm orb}_n(\mathcal Q(UU_0^{-1})V)$ for every $U\in\mathcal D_{\rho_g}$ and every $n$.
+\end{step}
+\status{New argument, by the smoothing convention of the paragraph after Definition~\Nref{def:gf-step}. No pullback of a distribution under a $U$-dependent gauge transformation is needed. The limit $n\to\infty$ is taken in Detail~\ref{d11a:E5}.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-slice}]\label{d11a:E3}\Ntarget{lem:ol-slice}
+\begin{step}[(a), injectivity and surjectivity]
+Restriction is injective, since $\mathfrak G_0$ acts freely. It maps into $\operatorname{Stab}(V)$, since $(U_0^s)^{(k)}=V^{s|_\T}$. Let $h\in\operatorname{Stab}_{\mathcal G_\T}(V)$ and $s=\mathcal E^{(k)}(h)$, which is real. The relative configuration $1$ is axial and lies in the averaging domain. By Lemma~\Nref{lem:axial}(b), the unique real $g$ with $g|_\T=h$ and $1^{(g)}\in\mathrm{Ax}_k$ is $\mathcal E^{(k)}(h)$; so $1^{(s)}\in\mathrm{Ax}_k$. Its iterated average is $(U_0^s)^{(k)}V^{-1}=V^hV^{-1}=1$, so $U_0^s\in\mathfrak B(V)$. Since $S(U_0^s)=S(U_0)$ and $U_0^s\in\mathfrak U(\theta_0)$, $U_0^s$ is a minimizer, hence in the unique critical orbit $U_0\mathfrak G_0$ (Theorem~\Nref{thm:balaban}(a)). Both $U_0^s$ and $U_0$ are axial representatives of this orbit, so $U_0^s=U_0$ (Lemma~\Nref{lem:axial}(c)).
+\end{step}
+\begin{step}[(a), equivariance under large stabilizer elements]
+Let $s\in\operatorname{Stab}_{\mathcal G}(U_0)$. Then $U_0(b)s(b_+)^{-1}U_0(b)^{-1}=s(b_-)^{-1}$, so $X^{(s)}(b)=s(b_-)X(b)s(b_-)^{-1}$; that is, the relative action is $R(s)$. Also $W_j^{s|}=W_j$ at every scale. So Detail~\ref{d11a:A2}, Steps~2--5, with $u=s$ and $U_0^u=U_0$, gives $\mathsf w_k(\tilde U^{(s)})=s\,\mathsf w_k(\tilde U)s^{-1}$, $\mathcal Q(\tilde U^{(s)})=\mathcal Q(\tilde U)^{(s|_\T)}$, and the covariance of the Landau condition. That argument nowhere uses that $u$ is close to $1$: it uses \Neqref{eq:avg-contour-gauge} for real $u$ of any size, Lemma~\Nref{lem:log-estimates}(d) for unitary conjugation, and the invariance of the averaging domain. Lemma~\Nref{lem:Q-covariance}, which is for $g$ near $1$, is not needed.
+\end{step}
+\begin{step}[(b)]
+The axial representatives $U'_i=(U_iU_0^{-1})^{(\mathsf w_k)}$ lie in one $\mathcal G$-orbit. By Lemma~\Nref{lem:axial}(b), $U'_2=U_1'^{(\mathcal E^{(k)}(h))}$ for some $h$. Their averages are $\mathcal Q(U_iU_0^{-1})=1$ (Theorem~\Nref{thm:correspondence}(a)), and $(U_1'^{(g)})^{[k]}=(U_1'^{[k]})^{(g|_\T)}$, so $h\in\operatorname{Stab}(V)$, and $s=\mathcal E^{(k)}(h)\in\operatorname{Stab}_{\mathcal G}(U_0)$ by (a). With $\tilde U_1=U_1U_0^{-1}=e^{\ii\eta A_1}$, we have $\tilde U_1^{(s)}=e^{\ii\eta R(s)A_1}$, which is Landau by Step~2. Moreover $(\tilde U_1^{(s)})^{(s\mathsf w s^{-1})}=\tilde U_1^{(s\mathsf w)}=(U'_1)^{(s)}=U'_2$, by $X^{(g)(h)}=X^{(hg)}$. So $\tilde U_1^{(s)}$ and $\tilde U_2$ both satisfy (i), (ii) of Theorem~\Nref{thm:chart} for $U'_2$, with $|A|_\infty<2\rho_g\le r_u$; also $U'_2U_0\in\mathfrak U(\theta)$ and $\beta=0$. By uniqueness, $U_2=U_1^s$.
+\end{step}
+\status{Expanded. Step~2 expands the note's ``read off from the definitions''.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:ol-FP}]\label{d11a:E5}\Ntarget{prop:ol-FP}
+Assume $\operatorname{Stab}_{\mathcal G_\T}(V)$ finite. The orbit $\mathcal O_V=\{V^h\}$ is a compact embedded submanifold.
+\begin{step}[The coarse condition $\varphi$]
+The tangent map of $h\mapsto V^h$ at $1$ is $\mu\mapsto-D_V\mu$, in the logarithmic coordinates of $V'V^{-1}$. Its kernel is $\ker D_V$, the Lie algebra of the stabilizer, which is $0$. Take $\varphi(V')=(D_V^TD_V)^{-1}D_V^T\ell(V'V^{-1})$, with the logarithm bondwise. Then $\varphi(V)=0$ and $\varphi'D_V=I$. Any other choice with $\varphi'D_V$ invertible gives the same result. By the inverse function theorem near each $s\in\operatorname{Stab}$, and by compactness of $\mathcal G_\T$, there is $\eps_V>0$ with the following property: the points of $\mathcal O_V$ within bondwise distance $\eps_V$ of $V$ are the $V^h$ with $h$ in small balls $B_s$ around the $s\in\operatorname{Stab}$, and $\varphi(V^h)=0$ there only for $h\in\operatorname{Stab}$. On $\mathcal D_{\rho_g}$, $|\ell\mathcal Q(e^{\ii\eta A})|_\infty\le2|A|_\infty<4\rho_g$ (Proposition~\Nref{prop:Q-expansion}(a)), and we take $4\rho_g<\eps_V$.
+\end{step}
+\begin{step}[The coarse limit]
+Let $\sigma_\varphi$ be the coarea measure $\delta(\varphi(V'))dV'$ on $\{\varphi=0\}$ near $V$. Then, for $G$ continuous near $V$,
+\[
+\lim_{n\to\infty}\int d\sigma_\varphi(V')\,\delta^{\rm orb}_n(V')G(V')=\frac{c_\T\,|\operatorname{Stab}_{\mathcal G_\T}(V)|}{|\det(\varphi'D_V)|}\,G(V),\qquad c_\T=\sigma(0)^{|\T|}.
+\]
+\emph{Proof.} The integrand is $\int dh\,\delta_n(V'(V^h)^{-1})G(V')$. For $n$ large only $h\in\bigcup_sB_s$ contribute, by Step~1. Near $(V,s)$ the map $(V',h)\mapsto V'(V^h)^{-1}$ (bondwise) from $\{\varphi=0\}\times B_s$ to $G^{\mathcal B_\T}$ is a local diffeomorphism. In logarithmic coordinates its differential is $(\xi,\mu)\mapsto\xi+D_V\mu$ on $\ker d\varphi\oplus\mathfrak g^\T$, which is invertible because $\varphi'D_V$ is. Change variables and use that $\delta_n$ is an approximate identity for the Haar measure, whose density at $1$ in these coordinates is $\sigma(0)^{|\mathcal B_\T|}$. The image of $\sigma_\varphi\times dh$ has density $\sigma(0)^{|\mathcal B_\T|+|\T|}/|\det\varphi'D_V|$ at $1$ with respect to Lebesgue measure; divided by the Haar density $\sigma(0)^{|\mathcal B_\T|}$, it gives $c_\T/|\det\varphi'D_V|$. To see this, write $P_\perp$ for the orthogonal projection onto $(\ker d\varphi)^\perp$. Then, at $V$, $\sigma_\varphi=\sigma(0)^{|\mathcal B_\T|}d\xi/|\det(d\varphi|_{(\ker d\varphi)^\perp})|$, since $dV'$ is the Haar measure, $dh=\sigma(0)^{|\T|}d\mu$, and $|\det(d\varphi|_\perp)|\cdot|\det(P_\perp D_V)|=|\det\varphi'D_V|$. Each $s$ contributes once.
+\end{step}
+\begin{step}[The zero count in a neighbourhood]
+The three bullets of the note show, for $g$ small depending on $V$: for every $U_1\in\mathcal D_{\rho_g}$, the zeros of $u\mapsto\chi(U_1^u)$ with $U_1^u\in\mathcal D_{\rho_g}$ lie in $\bigcup_sN_s$, and each $N_s$ contains exactly one zero $u_s(U_1)$, continuous in $U_1$, with $u_s=s$ on $\Sigma_{\rho_g}$. The compactness bullet uses only $U_n\to U_0$ and $U_n^{u_n}\in\mathcal D_{\rho_{g_n}}$, so it applies to $U_n\in\mathcal D_{\rho_{g_n}}$. Three facts are used. (i) For $g$ small, $\mathcal D_{\rho_g}$ lies in the neighbourhood $W$ of $U_0$ given by the implicit function theorem in the second bullet, since $\mathcal D_{\rho_g}$ shrinks to $U_0$ as $g\to0$. (ii) On the fixed torus and at fixed $\eta$, $|A|_\infty<2g^{1/2}$ forces curvature and current within $o(1)$ of those of $U_0\in\mathfrak U(\theta')$, $\theta'<\theta_0$. So for $g$ small the closed condition ``at most $\theta$'' in $\mathcal D_{\rho_g}$ is not binding, and $\mathcal D_{\rho_g}=\{e^{\ii\eta A}U_0:|A|_\infty<2\rho_g\}$ is open. (iii) The neighbourhood $\mathcal W$ below is chosen inside $\mathcal D_{\rho_g}$, so the compactness bullet applies to its points. Fix $\rho'<\rho_g$ and the compact set $K_{\rho'}=\{e^{\ii\eta A}U_0\in\Sigma:|A|_\infty\le\rho'\}$. For $U_1$ in a small neighbourhood $\mathcal W$ of $K_{\rho'}$, $U_1^{u_s(U_1)}$ is close to $U_1^s$, whose coordinate $R(s)A$ has norm $\le\rho'+o(1)<2\rho_g$. So all $|\operatorname{Stab}|$ zeros lie in $\mathcal D_{\rho_g}$ and are nondegenerate, and $n(U)=|\operatorname{Stab}|$ on $\mathcal G\cdot\mathcal W$. The map $(U_1,u)\mapsto\chi(U_1^u)$ is analytic: $\mathcal Q(e^{\ii\eta A})$ is analytic in $A$ for $|A|_\infty\le c_3$ (Proposition~\Nref{prop:Q-expansion}), and so are $A=\eta^{-1}\ell(UU_0^{-1})$, $\varphi$ and $(U_1,u)\mapsto U_1^u$. This gives the smoothness used in the second bullet.
+\end{step}
+\begin{step}[The computation for continuous $F$]
+Let $F$ be continuous and $\mathcal G$-invariant, with support in the saturation of a compact subset of $\mathcal W$. For such $U$ the Faddeev--Popov identity reads $\int_{\mathcal G}du\,\one_{\mathcal D}(U^u)\,\delta(\chi(U^u))\,|\det J_\chi(U^u)|=\sigma(0)^{|\Tf|}n(U)$. This is a finite-dimensional change of variables at the nondegenerate zeros, with $J_\chi$ the derivative along right translations. For $n$ large the support of $\delta^{\rm orb}_n(U^{(k)})F$ lies in $\mathcal G\cdot\mathcal W$. Insert the identity into Detail~\ref{d11a:E2}, Step~1. Use Fubini and the substitution $U\mapsto U^{u^{-1}}$. The quantities $\prod dU$, $F$, $n$ and $\delta^{\rm orb}_n(U^{(k)})$ are invariant, the last by Detail~\ref{d11a:E2}, Step~2. Then use the coordinates $U=e^{\ii\eta A}U_0$ on $\mathcal D$, with $\prod dU=c_\eta\sigma(A)dA$, and Detail~\ref{d11a:E2}, Step~3. This gives
+\[
+\int dU\,\delta_n(U^{(k)},V)F=\frac{c_\eta}{\sigma(0)^{|\Tf|}|\operatorname{Stab}|}\int dA\,\delta(RD^TA)\,\Theta(A)\,\big[\delta(\varphi(V'))\,\delta^{\rm orb}_n(V')\big]_{V'=\mathcal Q(e^{\ii\eta A})V},
+\]
+with $\Theta=\one_{\mathcal D}\sigma|\det J_\chi|F(e^{\ii\eta A}U_0)$. On the slice $\{RD^TA=0\}$, $A\mapsto\mathcal Q(e^{\ii\eta A})V$ is a submersion near $0$, with differential $\bQ_k$. By the coarea formula the right side is $\int d\sigma_\varphi(V')\,\delta^{\rm orb}_n(V')\tilde\Theta(V')$, where $\tilde\Theta(V')=\int dA\,\delta(RD^TA)\,\delta(\mathcal Q(e^{\ii\eta A})V,V')\,\Theta(A)$ is continuous. Step~2 gives the limit $c_\T|\operatorname{Stab}|\,\tilde\Theta(V)/|\det\varphi'D_V|$, and $\delta(\mathcal Q V,V)=\delta(\mathcal Q,1)$. By Detail~\ref{d11a:E7}, $|\det J_\chi|=|\det\varphi'D_V|\,|\det\mathcal O_A|$ where $\mathcal Q=1$. The factors $|\operatorname{Stab}|$ and $|\det\varphi'D_V|$ cancel. On the support, $|A|_\infty<\rho_g$ by Detail~\ref{d11a:E3}(b). So, with $c_0=c_\eta c_\T\sigma(0)^{-|\Tf|}$, which is independent of $V$,
+\begin{equation}\label{d11a:FP}
+\int F\,d\mu_V=c_0\int_{|A|_\infty<\rho_g}dA\,\delta\big(\mathcal Q(e^{\ii\eta A}),1\big)\,\delta(RD^TA)\,|\det\mathcal O_A|\,\sigma(A)\,F(e^{\ii\eta A}U_0).
+\end{equation}
+\end{step}
+\begin{step}[The indicator]
+Let $\mathfrak B^{\rm orb}=\{U:U^{(k)}\in\mathcal O_V\}$ and $\mathcal Y=\mathfrak B^{\rm orb}\cap\mathcal G\cdot\mathcal W$. Define Radon measures on $\mathcal Y$ by $\nu_L(F)=\int dh\int F\,d\mu_{V^h}$ and $\nu_R(F)=c_0\int_{\mathcal G}du\int d\lambda(A)\,F((e^{\ii\eta A}U_0)^u)$, where $d\lambda$ is the measure on the right of \eqref{d11a:FP}. Both are $\mathcal G$-invariant, by Step~1 of Detail~\ref{d11a:E2} and the invariance of $du$. For invariant $F$ they are the two sides of \eqref{d11a:FP}. For $F\in C_c(\mathcal Y)$, its $\mathcal G$-average $\bar F$ is invariant and continuous, and $\nu_{L,R}(F)=\nu_{L,R}(\bar F)$. Extend $\bar F$ to the configurations by Tietze's theorem, average over $\mathcal G$, and multiply by an invariant continuous cutoff equal to $1$ on $\operatorname{supp}\bar F$ and supported in the saturation of a compact subset of $\mathcal W$. The result is admissible in Step~4 and agrees with $\bar F$ on $\mathcal Y$. So $\nu_L=\nu_R$, and \eqref{d11a:FP} holds for bounded Borel invariant $F$ supported in $\mathcal G\cdot K_{\rho'}$. For $f=\one_{\mathscr N_{\rho_g}}e^{-S/g^2}$, let $\rho'\uparrow\rho_g$ and use monotone convergence on both sides.
+\end{step}
+\status{New argument. The statement of Proposition~\Nref{prop:ol-FP} is read with the left side as the fibre integral $\int f\,d\mu_V$. Here $f$ is a function on the $\mathcal G$-saturation of $\mathfrak B(V)$; the indicator of $\mathscr N_{\rho_g}$ is supported on a null set of the configuration space, so a density reading would give $0$. With this reading, which is the convention of \Neqref{eq:rg-map}, the proposition holds.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:ol-FP}, proof: the Faddeev--Popov operator]\label{d11a:E7}\Ntarget{prop:ol-FP}
+\begin{step}[Derivative along the orbit]
+At $U=e^{\ii\eta A}U_0$, the derivative of $t\mapsto\chi(U^{e^{\ii t\lambda}})$ at $0$ has second component $RD^T\Xi_A\lambda$ (definition of $\Xi_A$). For the first component, Lemma~\Nref{lem:Q-covariance}(b) gives $\mathcal Q(\tilde U^{(e^{\ii t\lambda})})=\mathcal Q(\tilde U)^{(h_{\tilde U}(e^{\ii t\lambda}))}$, with $h_{\tilde U}(e^{\ii t\lambda})=e^{\ii t\Theta_A\lambda+O(t^2)}$. So $\frac d{dt}\ell\mathcal Q=\Lambda_A\Theta_A\lambda$, which is \Neqref{eq:dQ-gauge}. On $\Sigma_{\rho_g}$, $\mathcal Q=1$, so $\Lambda_A\mu=\frac d{dt}\ell(V^{e^{\ii t\mu}}V^{-1})=-D_V\mu$. Hence $J_\chi=\operatorname{diag}(-\varphi'D_V,1)\circ\mathcal O_A$. At a zero $u=s$, $U_1^{e^{\ii\lambda}s}=(U_1^s)^{e^{\ii\lambda}}$ with $U_1^s\in\Sigma_{\rho_g}$, by the convention $(U^u)^v=U^{vu}$.
+\end{step}
+\begin{step}[The ghost]
+$\mathcal O_0\lambda=(Q'_k\lambda,-RD^TD\lambda)$ (proof of Proposition~\Nref{prop:euler-lagrange}). The source is $\ran Q'^T_k\oplus\cN(Q'_k)$, orthogonally since $Q'_kQ'^T_k=I$, and the target is coarse fields $\oplus\cW$. In these splittings $\mathcal O_0$ has the block form $\begin{pmatrix}I&0\\ *&-RD^TD|_{\cN(Q'_k)}\end{pmatrix}$. With $Q'^T_k$ an isometry, $|\det\mathcal O_0|=|\det(RD^TD:\cN(Q'_k)\to\cW)|$ in orthonormal frames. The dimensions agree: $\dim\cW=(|\Tf|-|\T|)\dim\mathfrak g=\dim\cN(Q'_k)$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Theorem~\Nref{thm:ol-chart}, finite stabilizer]\label{d11a:E8}\Ntarget{thm:ol-chart}
+\begin{step}[The slice integral]
+By Detail~\ref{d11a:E1} and \eqref{d11a:FP} with $f=\one_{\mathscr N_{\rho_g}}e^{-S/g^2}$, where $f(e^{\ii\eta A}U_0)=e^{-\Phi(A)/g^2}$ on $\Sigma_{\rho_g}$,
+\[
+I_k(V;g,r_0)(1+o(1))=c_0\int_{|A|_\infty<\rho_g}dA\,\delta(\mathcal Q,1)\,\delta(RD^TA)\,|\det\mathcal O_A|\,\sigma(A)\,e^{-\Phi(A)/g^2}.
+\]
+\end{step}
+\begin{step}[Laplace with a nonlinear constraint]
+The map $c(A)=(\ell\mathcal Q(e^{\ii\eta A}),RD^TA)$ is a submersion near $0$, with $dc(0)=\mathcal C=(\bQ_k,RD^T)$ onto (Detail~\ref{d11a:A6}, Step~1). Near $\ell\mathcal Q=0$, $\delta(\mathcal Q,1)=\delta(\ell\mathcal Q)\prod_c\sigma(\ell\mathcal Q(c))^{-1}$. By the coarea formula the measure is $\prod_c\sigma(0)^{-1}\,dS_\Sigma/\sqrt{\det(dc\,dc^T)}$ on $\Sigma$, to first order at $0$. In the chart $x\mapsto A(x,0)$ of Detail~\ref{d11a:A6}, Step~2, $dS_\Sigma=(1+O(|x|))dx$, and $\Phi(A(x,0))$ has Hessian $q_2|_\cX$ at $0$ (Step~3 there) and quadratic growth (Step~4 there). The cut $|A|_\infty<\rho_g=g^{1/2}$ removes $O(e^{-c/g})$. Laplace's method gives the term of order $g^0$
+\[
+\log\Big(|\det\mathcal O_0|\det(q_2|_\cX)^{-1/2}\det(\mathcal C\mathcal C^T)^{-1/2}\Big)+\mathrm{const},
+\]
+with $(2\pi g^2)^{N/2}$, $N=\dim\cX$, as in $c_k(g)$ of Proposition~\Nref{prop:ol-laplace}. The constants $c_0$, $\sigma(0)$ and $2\pi$ do not depend on $V$.
+\end{step}
+\begin{step}[The Gaussian formula]
+Let $L>0$ and $\mathcal C$ onto, with $n=\dim\ker\mathcal C+m$. The image of the Gaussian measure $e^{-\frac12\ip A{LA}}dA$ under $\mathcal C$ is Gaussian with covariance $\mathcal CL^{-1}\mathcal C^T$, so its density at $0$ is
+\[
+(2\pi)^{n/2}(\det L)^{-1/2}\cdot(2\pi)^{-m/2}\det(\mathcal CL^{-1}\mathcal C^T)^{-1/2}.
+\]
+By the coarea formula the same density is
+\[
+\frac{1}{\sqrt{\det\mathcal C\mathcal C^T}}\int_{\ker\mathcal C}e^{-\frac12\ip A{LA}}dA=(2\pi)^{(n-m)/2}\det(L|_{\ker\mathcal C})^{-1/2}\det(\mathcal C\mathcal C^T)^{-1/2}.
+\] Take $L=\bL_*=q_2+\mathcal C^T\operatorname{diag}(a,1)\mathcal C$, which equals $q_2$ on $\ker\mathcal C=\cX$. Then
+\[
+\det(q_2|_\cX)^{-1/2}\det(\mathcal C\mathcal C^T)^{-1/2}=\det\bL_*^{-1/2}\det(\mathcal C\bG_*\mathcal C^T)^{-1/2};
+\]
+the matrix $\operatorname{diag}(a,1)$ drops out. $\bL_*>0$: $U_0$ is critical with $\beta=0$ and $\eps=B_3a_1\le\frac12c_7$, so Lemma~\Nref{lem:Lstar-coercive} gives $\bL_*\ge\frac12c_*(\|h\|^2+\|Dh\|^2+\|D^Th\|^2)$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Theorem~\Nref{thm:ol-chart}, proof: gauge zero modes and the block structure]\label{d11a:E9}\Ntarget{thm:ol-chart}
+\begin{step}[$q_2D\lambda=0$ for $\lambda\in\cN(Q'_k)$]
+Let $L(A)=\Phi(A)-\ip{\omega_*}{\ell\mathcal Q(e^{\ii\eta A})}$. Gauge invariance gives $\ip{\nabla\Phi(A)}{\Xi_A\lambda}=0$, and by \Neqref{eq:dQ-gauge}, $\ip{d\mathcal Q(A)^T\omega_*}{\Xi_A\lambda}=\ip{\Lambda_A^T\omega_*}{\Theta_A\lambda}$. So $\ip{\nabla L(A)}{\Xi_A\lambda}=-\ip{\Lambda_A^T\omega_*}{\Theta_A\lambda}$ for all $A$ near $0$. Differentiate at $0$ in the direction $a$. Since $\nabla L(0)=0$ and $\Lambda_0^T\omega_*=0$ (Proposition~\Nref{prop:euler-lagrange}), $q_2(a,\Xi_0\lambda)=-\ip{(\partial_a\Lambda^T)\omega_*}{\Theta_0\lambda}$, which is $0$ for $\Theta_0\lambda=Q'_k\lambda=0$. As $\Xi_0\lambda=-D\lambda$, $q_2D\lambda=0$.
+\end{step}
+\begin{step}[$\mathcal C\bG_*\mathcal C^T=\bQ_k\bG_*\bQ_k^T\oplus I_\cW$]
+For $\lambda\in\cN(Q'_k)$, $\bQ_kD\lambda=D_VQ'_k\lambda=0$ (Proposition~\Nref{prop:linearized-averages}(b)). Then $\bL_*D\lambda=D(RD^TD\lambda)$, i.e.\ $\bG_*D\mu=D\lambda$ with $\mu=RD^TD\lambda\in\cW$. Every $\mu\in\cW$ arises in this way, because $RD^TD:\cN(Q'_k)\to\cW$ is invertible (Detail~\ref{d11a:E7}). For $\mu\in\cW$, $R\mu=\mu$, so $RD^T\bG_*DR\mu=\mu$ and $\bQ_k\bG_*DR\mu=\bQ_kD\lambda=0$. So the off-diagonal blocks vanish. Combining with Detail~\ref{d11a:E8} proves the formula of Theorem~\Nref{thm:ol-chart} at $V$ with a finite stabilizer.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Theorem~\Nref{thm:ol-chart}, ``All $V$'']\label{d11a:E11}\Ntarget{thm:ol-chart}
+\begin{step}[What is used of $V$]
+Details~\ref{d11a:E1}--\ref{d11a:E9} use: Lemma~\Nref{lem:ol-neighbourhood}, Proposition~\Nref{prop:ol-laplace} and Lemma~\Nref{lem:ol-fibre-mass}, for admissible $V$; Theorem~\Nref{thm:chart} and Lemma~\Nref{lem:ol-slice}, at $U_0\in\mathscr M(V)$, which is $(M,B_3a_1)$-regular; Theorem~\Nref{thm:balaban}(a),(b), for $V\in\mathfrak U_k(a_1)$; and Proposition~\Nref{prop:euler-lagrange} and Lemma~\Nref{lem:Lstar-coercive}, at a critical reference with $\beta=0$, $\eps=B_3a_1$. None needs $V$ small field.
+\end{step}
+\begin{step}[The ball]
+$V^\circ\in\mathfrak U_k(\frac12a_1)$ (Detail~\ref{d11a:A1}), and curvature is continuous, so there is a neighbourhood $\mathcal B\subset\mathfrak U_k(\frac34a_1)$. By Theorem~\Nref{thm:balaban}(b), $\mathscr M(V)\subset\mathfrak U(\frac34B_3a_1)\subset\mathfrak U(\frac34\theta_0)$ for $V\in\mathcal B$, so $(V,\theta_0)$ is admissible on $\mathcal B$.
+\end{step}
+\begin{step}[Density]
+$\operatorname{Stab}_{\mathcal G_\T}(V)$ is a closed subgroup of a compact group, with Lie algebra $\ker D_V$. It is finite iff $\ker D_V=0$ iff $\det(D_V^TD_V)\ne0$. With $\operatorname{Ad}_{V(c)}X=V(c)XV(c)^*$, this determinant is a real polynomial in the real and imaginary parts of the entries. On the connected real-analytic manifold $G^{\mathcal B_\T}$ ($G$ connected) it is not identically zero, by the example of the note: a spanning tree with $V=1$; $h_1=e^{\ii X_1}$ with $X_1$ regular and small; $h_2=e^{\ii X_2}$ with $X_2$ a small multiple of $\sum_{\alpha\ \rm simple}(E_\alpha+E_\alpha^*)$. Two off-tree bonds exist since $d|\T|-(|\T|-1)\ge2$. The kernel is $\{X:\operatorname{Ad}_{h_i}X=X\}=\mathfrak t\cap\ker\operatorname{ad}X_2=0$, using I.8 for small $X_i$ and $\alpha(Y)=0$ for all simple roots $\Rightarrow Y=0$. So the zero set has empty interior, and the $V\in\mathcal B$ with finite stabilizer are dense.
+\end{step}
+\begin{step}[Continuity of both sides]
+The left side is continuous (analytic) on $\mathcal B$, by Proposition~\Nref{prop:ol-laplace}. For the right side, Corollary~\Nref{cor:analytic} gives the analytic representative $\mathsf U_{U_0^\circ}(A_*(B))$ of $\mathscr M(e^{\ii B}V^\circ)$. The operators at $\mathsf U_{U_0^\circ}(A_*(B))$ are conjugates, by orthogonal maps (Detail~\ref{d11a:A2}), of those at $U_B=e^{\ii\eta A_*(B)}U_0^\circ$. Their dependence on $B$: $D$ and $d^2\mathcal N(0)$ are polynomial in the reference; $J_{U_B}$ is polynomial, and $\omega_0=(\bQ_k\bQ_k^T)^{-1}\bQ_kJ$ by $J=\bQ_k^T\omega_0$, with $\bQ_k\bQ_k^T>0$ since $\bQ_k\bH=I$. For $\bQ_k$, $Q'_k$ and $d^2\Cav_k(0)$ the note cites Proposition~\Nref{prop:AB}(vi) with $U_r=U_0^\circ$. That proposition assumes $U_r\in\mathfrak U_0(a)$ with $a\le c'_3$, where $c'_3\le c_3$ depends only on $d,L,G$ (setting of Section~\Nref{sec:AB-proof}). Here $U_0^\circ\in\mathfrak U(B_3a_1)\subset\mathfrak U_0(B_3a_1)$ (Theorem~\Nref{thm:balaban}(b)). The choice of $a_1$ in the proof of Theorem~\Nref{thm:balaban} contains $B_3a_1\le c'_3$; no other constraint implies it ($\theta_0\le\frac13c_4$ does not involve $c'_3$). The condition is acyclic, since $c'_3$ depends only on $d,L,G$ and $a_1$ is chosen after $L$, and the proof of Theorem~\Nref{thm:ol-chart} uses it here. So Proposition~\Nref{prop:AB}(vi) applies, and the right side is continuous. Invertibility at every $U_k(V)$, $V\in\mathcal B$: $\bL_*\ge\frac12c_*$ (Lemma~\Nref{lem:Lstar-coercive}); $\bQ_k\bG_*\bQ_k^T>0$; and the ghost is $\log\det\fA'+\frac12\log\det M'$ (Corollary~\Nref{cor:ol-ghost}), with $\fA',M'>0$ (I.2). The right side does not depend on the element of the minimal orbit, by the orthogonal conjugations.
+\end{step}
+\begin{step}[Conclusion, and the main line]
+Both sides are continuous on $\mathcal B$ and differ by the same constant on a dense set, so they differ by that constant at $V^\circ$. \emph{The main line does not need the condition $B_3a_1\le c'_3$.} It uses Theorem~\Nref{thm:ol-chart} only at $V$ near $1$: in Lemma~\Nref{lem:ol-offshell}(c) at $V_B$, and through it in Lemma~\Nref{lem:ol-torus-limit}(c) and Theorem~\Nref{thm:ol-cumulative}. There $V^\circ$ is near $1$, so $U_0^\circ$ has curvature at most $B_3\eps_1$, with $\eps_1\ll c'_3/B_3$ the curvature bound of $V^\circ$, and Proposition~\Nref{prop:AB} applies without it.
+\end{step}
+\status{Expanded. Step~4 uses the hypothesis $a\le c'_3$ of Proposition~\Nref{prop:AB} at $U_0^\circ$. It holds by the condition $B_3a_1\le c'_3$ in the choice of $a_1$ (proof of Theorem~\Nref{thm:balaban}), which the proof of Theorem~\Nref{thm:ol-chart} uses.}
+\end{detail}
+
+\begin{detail}[Corollary~\Nref{cor:ol-ghost}]\label{d11a:E12}\Ntarget{cor:ol-ghost}
+Let $X=D^TD$ and $P=1-Q'^TQ'$, the orthogonal projection onto $\cN(Q')$. $R$ is the orthogonal projection onto $\cW=X\cN(Q')$ (I.2), so $RXP=XP$. For $K=RX|_{\cN(Q')}$, $K^*K=PXRXP=PX^2P$. Moreover $\fA'P=XP$, since $Q'P=0$, so $PX^2P=(\fA'P)^*(\fA'P)=P\fA'^2P$. Jacobi's identity for the positive $\fA'^2$ in the decomposition $\cN(Q')\oplus\ran Q'^T$, in which $Q'^T$ is an isometry onto the second summand, gives $\det(P\fA'^2P|_{\cN(Q')})=\det\fA'^2\cdot\det(Q'\fA'^{-2}Q'^T)=(\det\fA')^2\det M'$. Then $|\det K|=\det(K^*K)^{1/2}$.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-offshell}]\label{d11a:E13}\Ntarget{lem:ol-offshell}
+\begin{step}[(a)]
+At $(A,\omega)=(0,0)$ the four operators are $\bL_a$, $\bQ\bG\bQ^*$, $-\Lap+aQ_0^*Q_0$ and $M$, which are positive (I.1). Their entries are analytic: polynomial for $D_U$ and $d^2\mathcal N_U(0)$; holomorphic for $|A|_\infty<\delta_{AB}$ for $\bQ_k$, $Q'_k$ and $d^2\Cav_k(0)$, by Proposition~\Nref{prop:AB}(vi) at $U_r=1$, where $a=0\le c'_3$; and linear in $\omega$. So positivity and analytic inverses persist nearby. Covariance: $S(e^{\ii\eta h}U^u)=S(e^{\ii\eta R(u)^{-1}h}U)$ and $R(u)$ is orthogonal, so $q_2^0(U^u)=R(u)q_2^0(U)R(u)^{-1}$. The nonlinear covariance $\mathcal Q(e^{\ii\eta R(u)h};U^u)=R(u|_\T)\mathcal Q(e^{\ii\eta h};U)$ is Detail~\ref{d11a:A2}, Step~4, at real references near $1$, which are regular on the fixed torus. It gives $\Cav_k(R(u)h;U^u)=R(u|_\T)\Cav_k(h;U)$ and $\mathcal C_{U^u}[R(u|_\T)\omega]=R(u)\mathcal C_U[\omega]R(u)^{-1}$.
+\end{step}
+\begin{step}[(b)]
+For $u\equiv g$ constant, $1^u=1$ and (a) give $\operatorname{Ad}_g$-invariance of the linear form $\widehat\Gamma_A[A]+\widehat\Gamma_\omega[\omega]$, so both vanish (trivial centre). For the mixed derivative, $u_s=e^{-\ii s\lambda}$ gives $1^{u_s}=e^{\ii\eta A_s}$ with $A_s=s\,d\lambda+O(s^2)$, since $\lambda(b_+)-\lambda(b_-)=\eta(d\lambda)(b)$. Differentiate $\widehat\Gamma(A_s,R(u_s|_\T)\omega')=\widehat\Gamma(0,\omega')$ in $\omega'$ at $0$ in the direction $\omega$, and then in $s$ at $0$. This gives $\widehat\Gamma_{A\omega}[d\lambda,\omega]+\widehat\Gamma_\omega[\partial_s(R(u_s)\omega)]=0$, and the second term vanishes.
+\end{step}
+\begin{step}[(c)]
+$U_B=e^{\ii\eta A_*(B)}$ lies in the minimal orbit of $V_B=(e^{\ii B})^h$ (Theorem~\Nref{thm:variational}(a)--(c),(g)). $V_B$ is small field for $B$ small: $e^{\ii B}$ is, by Detail~\ref{d11a:D5}, Step~3, and the conditions are gauge invariant. Apply Theorem~\Nref{thm:ol-chart} at $V_B$ with $U_0=U_B$. Lemma~\Nref{lem:Lstar-coercive} at $U_B$ gives $J_{U_B}=\bQ_k(U_B)^T\omega_*$. Apply $\bH^T$, with $\bH$ of Part~I. $\bQ_k(U_B)\bH\to\bQ\bH=I$ as $B\to0$ (Proposition~\Nref{prop:AB}(vi) at $U_r=1$), so it is invertible and $\omega_*=\omega_B$. Expansions: $A_*(B)=\bH B+O(|B|^2)$ (Detail~\ref{d11a:D2}). By Proposition~\Nref{prop:action}(a),(d) at the reference $1$ ($J=0$, $\eps=0$), $\Psi(A)^TJ_{e^{\ii\eta A}}=\nabla\Phi_1(A)=d^*dA+O(|A|^2)$ and $\Psi=1+O(\eta|A|)$. So $J_{U_B}=d^*d\bH B+O(|B|^2)$, on the fixed torus where the norms are equivalent. Since $\ip B{\bD B'}=\ip{d\bH B}{d\bH B'}$ with the inner products of Section~\Nref{sec:setup}, $\bH^Td^*d\bH=\bD$. Hence $\omega_B=\bD B+O(|B|^2)$.
+\end{step}
+\begin{step}[(d)]
+The chain rule for $(s,t)\mapsto\widehat\Gamma(A(s,t),\omega(s,t))$, with (b) removing $\widehat\Gamma_A[\partial_s\partial_tA]$ and $\widehat\Gamma_\omega[\partial_s\partial_t\omega]$. The last claim of~(d) is the same chain rule for $B\mapsto\widehat\Gamma(U_B,0)$: $\partial_s\partial_t\widehat\Gamma(U_{sB+tB'},0)=\widehat\Gamma_{AA}[\bH B,\bH B']+\widehat\Gamma_A[\partial_s\partial_tA]$, and the second term vanishes by (b).
+\end{step}
+\status{Expanded. The paragraph after Lemma~\Nref{lem:ol-offshell}, on the multiplier terms, is proved in Detail~\ref{d11a:F6}. Remark~\Nref{rem:ol-numerical} is not used by any proof, and it is not expanded.}
+\end{detail}
+
+\subsection{The vacuum polarization: coarse map, power counting and the torus limit}\label{d11a:vacpol}
+
+Units of scale $k$: fine lattice $\eta\Z^4$, unit lattice $\Z^4$, $\eta=L^{-k}\le\frac13$. ``Uniformly in $k$'' means: with constants independent of $k$, $\eta$ and $n$.
+
+\begin{detail}[Section~\Nref{sec:ol-vacpol}: conventions and Fourier multipliers]\label{d11a:F1}\Ntarget{sec:ol-vacpol}
+\begin{step}[Momenta]
+On $[-\pi/\eta,\pi/\eta]^4$, $\frac2\pi|q|\le|\hat q|\le|q|$ (Lemma~\Nref{lem:symbols}(a)). For all $q$, $|\hat q|\le2\sqrt d/\eta$, so $\eta\langle q\rangle\le\eta(1+|\hat q|)\le1+2\sqrt d$.
+\end{step}
+\begin{step}[Multipliers]
+With $\hat f(q)=\eta^d\sum_xf(x)e^{-\ii q\cdot x}$, $\|f\|^2=\int|\hat f|^2d^4q/(2\pi)^4$ over the fine zone. A translation-invariant $O\in\mathscr P$ acts by multiplication by $o(q)$, so $\|O\|=\sup_q\|o(q)\|$. Gauge fields are four copies of scalar fields via $b\mapsto b_-$, on which $\langle\partial\rangle$ acts with the scalar symbol $\langle q\rangle$. The kernel is $K(x,y)=(\eta/2\pi)^4\int e^{\ii q\cdot(x-y)}o(q)\,dq$. Since $(x-y)_\mu e^{\ii q\cdot(x-y)}=-\ii\partial_{q_\mu}e^{\ii q\cdot(x-y)}$ and $o$ is periodic, integration by parts gives the symbol $\ii\partial_{q_\mu}o$ of $[\hat x_\mu,O]$. On plane waves, $e^{-\ii p\cdot x}O(e^{\ii(q+p)\cdot x}\phi)=e^{\ii q\cdot x}o(q+p)\phi$, so $O^{(p)}$ has the symbol $o(q+p)$. The symbol of $\langle\partial\rangle^{-a}O\langle\partial\rangle^{-b}$ is $\langle q\rangle^{-a-b}o(q)$, which gives \Neqref{eq:ol-multiplier-order}.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-kernel-bounds}(a),(b): locality of the averaging at complex references]\label{d11a:F3}\Ntarget{lem:ol-kernel-bounds}
+Let $U_r$ be real, $U_r\in\mathfrak U_0(a)$ with $a\le c'_3$, and $U=e^{\ii\eta A'}U_r$ with $|A'|_\infty<\delta_{AB}$ (complex). Let $h$ be complex with $|h|_\infty\le c'_3$. For a bond $c$ of $\T^{(j)}$ put $S^{(j)}_c=B^{(j)}(c_-)\cup B^{(j)}(c_+)$, a set of fine points; for $j=k$, $S^{(k)}_c=S_c$. ``Depends only on data on $S$'' means: on the values of $h$, $A'$ and $U_r$ on the fine bonds with both endpoints in $S$.
+\begin{step}[The one-step formulas]
+The one-step average $\mathfrak a_j(Y)(c)$ is given by \Neqref{eq:one-step}. It involves $Y$ only on the contours of the families $G(y,x)$, $x\in B_j(c_\pm)$, the segments $[x,x(c)]$ and the loops $\Lambda_{c,x}$. These have both endpoints of each bond in $B_j(c_-)\cup B_j(c_+)$ (Lemma~\Nref{lem:one-step-basic}(c)). This is a property of the formula, and the same formula defines the complex backgrounds (Proposition~\Nref{prop:AB}(i), Lemma~\Nref{lem:AB-cov}). Likewise $\tau_X(y)$ and $g_X|_{B_j(y)}$ involve $X$ and $W_{j-1}$ only on the bonds of $B_j(y)$. And $\tilde{\mathfrak a}_j(X)(c)=\tau_X(c_-)^{-1}\overline X(c)R(W_j(c))(\tau_X(c_+))$ involves $X$ and $W_{j-1}$ only on the bonds of $B_j(c_-)\cup B_j(c_+)$, together with $W_j(c)$. This is Lemma~\Nref{lem:one-step-expansion}(a),(f), which holds at the complex backgrounds by Proposition~\Nref{prop:AB}(ii).
+\end{step}
+\begin{step}[Induction over the scales]
+Claim: for every $j\le k$ and every bond $c$ of $\T^{(j)}$, $W_j(U)(c)$ and $X_j(c)$, where $X_j=\mathcal Q_j(e^{\ii\eta h};U)$, depend only on data on $S^{(j)}_c$. For $j=0$, $S^{(0)}_c=\{c_-,c_+\}$, and the claim is trivial. Let $j\ge1$. By Step~1, $W_j(U)(c)=\mathfrak a_j(W_{j-1}(U))(c)$ and $X_j(c)=\tilde{\mathfrak a}_j(X_{j-1})(c)$ involve $W_{j-1}(U)$ and $X_{j-1}$ only on the scale-$(j-1)$ bonds $c'$ with both endpoints in $B_j(c_-)\cup B_j(c_+)$. By induction these depend only on data on $S^{(j-1)}_{c'}=B^{(j-1)}(c'_-)\cup B^{(j-1)}(c'_+)$. By the nesting of the blocks (Section~\Nref{sec:averaging}), $B^{(j)}(y)=\bigsqcup_{z\in B_j(y)}B^{(j-1)}(z)$. So $S^{(j-1)}_{c'}\subset S^{(j)}_c$, and a fine bond with both endpoints in $S^{(j-1)}_{c'}$ has both endpoints in $S^{(j)}_c$.
+\end{step}
+\begin{step}[Consequences]
+By Proposition~\Nref{prop:Q-expansion} at the reference $U$ (Proposition~\Nref{prop:AB}(iii)), $\ell X_k(c)=(\bQ_k(U)h+\Cav_k(h;U))(c)$. So $\Cav_k(h;U)(c)$, the kernel $K_U(c,\cdot)$ of $\bQ_k(U)=\partial_h\ell X_k|_{h=0}$, and $d^2\Cav_k(0)$ at $c$ are functions of the data on $S_c$ only. The same holds for $T_U(y,\cdot)$ of $Q'_k(U)$, a product of transports $R(W_i(\cdot,\cdot))$ along the chain in $B(y)$, with $B(y)$ in place of $S_c$. For $n\ge8$, $S_c$ lies in a cube of side $3<n/2$, so it does not wrap around the torus, and the formula is the same on every torus and on $\eta\Z^4$.
+\end{step}
+\begin{step}[Holomorphy and bounds; (b)]
+At $U_r=1$ ($a=0$), Proposition~\Nref{prop:AB}(iii),(vi) gives holomorphy in $A$ for $|A|_\infty<\delta_{AB}$, and $|K_U(c,b)|\le(1+Ca)e^{C_L\delta_c}\le C$ uniformly in $k$. For (b), replace $A_i$ by $A_i\one_{S_c}$, which is allowed by Step~3. If $\max_{S_c}|A_i|\le1$, then $(z_1,z_2)\mapsto K_{e^{\ii\eta(z_1A_1+z_2A_2)}}(c,b)$ is holomorphic and bounded by $C$ on $|z_1|+|z_2|<\delta_{AB}$. The closed polydisc $\{|z_1|,|z_2|\le\delta_{AB}/3\}$ lies in $\{|z_1|+|z_2|<\delta_{AB}\}$, and Cauchy's estimate on it bounds the derivatives of orders $1$ and $2$ at $0$ by $2C(3/\delta_{AB})^2$. Multilinearity gives the bound $C\prod_i\max_{S_c}|A_i|$.
+\end{step}
+\status{New argument for Step~2, the induction which the note compresses as ``the same induction as in the proof of Proposition~\Nref{prop:Q-expansion}(a)''. It is also the input of Lemma~\Nref{lem:gl-inventory}(i). Part~(c) of the lemma is the count in the note's proof: $2dN^d$ bonds start in $S_c$, and each fine bond lies in at most $2d$ sets $S_c$, which gives $\|Z\|\le2dC'$.}
+\end{detail}
+
+\begin{detail}[Background derivatives and vertices; Section~\Nref{subsec:ol-vp-function}]\label{d11a:F4}\Ntarget{subsec:ol-vp-function}
+\begin{step}[Locality]
+The elementary families have range $r_{\rm loc}$, an absolute number in the units of scale $k$. For $D_U$, the curl and $\mathcal F_U$ it is at most $2\eta$. For $\bQ_k$, $Q'_k$ and $\mathcal C^c_U$ it is at most $\operatorname{diam}S_c\le3\sqrt d$, by Detail~\ref{d11a:F3} and Lemma~\Nref{lem:local-inventory}(c). A derivative $L=\partial_bE$ has entries $L(t,t')\ne0$ only for $t,t'$ within $2r_{\rm loc}$ of $b_-$. So
+\[
+|(O_0LO_1)(s,s')|\le\sum_{t,t'}|O_0(s,t)||L(t,t')||O_1(t',s')|\le C_\eta e^{-\gamma(|x(s)-b_-|+|b_--x(s')|)},
+\]
+with $e^{4\gamma r_{\rm loc}}$ and the number of sites near $b$ absorbed into $C_\eta$. Then $\sum_be^{-\gamma(|x(s)-b_-|+|b_--x(s')|)}\le Ce^{-\gamma|s-s'|/2}$, so $\delta X[A]$ converges absolutely to a kernel with kernel decay; likewise $\delta^2X$. The inverses of admissible families are in $\mathscr P$ at $U=1$: $\bL_*(1)=\bL_a$, $\fA'(1)=-\Lap+aQ_0^*Q_0$ and $\bL_{\rm F}(1)=\langle\partial\rangle^2$ are bounded below (Lemma~\Nref{lem:ol-bloch}(d),(g)). Also $\bQ\bG\bQ^*$ and $M$ (Corollary~\Nref{cor:ol-part-one}).
+\end{step}
+\begin{step}[Vertices]
+$\delta X[A_{\pm p}]=e^{\pm\ii p\cdot\hat x}\mathsf V_1(\pm p)$. Under a shift by $a\in\Z^4$, $\partial_{b+a}X(s+a,s'+a)=\partial_bX(s,s')$ and $A_{p,\eps}(b+a)=e^{\ii p\cdot a}A_{p,\eps}(b)$. These phases cancel against those of $e^{-\ii p\cdot\hat x}$, so the vertices are periodic. Leibniz:
+\[
+\mathsf V_2^{YZ}(p)=\mathsf V_2^Y(p)Z+\mathsf V_1^Y(-p)^{(p)}\mathsf V_1^Z(p)+\mathsf V_1^Y(p)^{(-p)}\mathsf V_1^Z(-p)+Y\mathsf V_2^Z(p),
+\]
+from $\delta^2(YZ)[A,A']=\delta^2Y\,Z+\delta Y[A]\delta Z[A']+\delta Y[A']\delta Z[A]+Y\delta^2Z$ and $e^{-\ii p\cdot\hat x}\mathsf V e^{\ii p\cdot\hat x}=\mathsf V^{(p)}$. This is the step that the note compresses as ``similarly for $\mathsf V_2$''. For $\log\det X$, the second variation at $A_{-p,\bar\eps}$, $A_{p,\eps}$ is $\operatorname{Tr}(X^{-1}\delta^2X)-\operatorname{Tr}(X^{-1}\delta X[A_{-p}]X^{-1}\delta X[A_p])$, and
+\[
+X^{-1}e^{-\ii p\cdot\hat x}\mathsf V_1(-p)X^{-1}e^{\ii p\cdot\hat x}\mathsf V_1(p)=X^{-1}\mathsf V_1(-p)^{(p)}(X^{-1})^{(p)}\mathsf V_1(p),
+\]
+which is \Neqref{eq:ol-second-variation}.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-torus-limit}]\label{d11a:F6}\Ntarget{lem:ol-torus-limit}
+\begin{step}[(a), the torus kernels]
+On the torus
+\[
+\partial_b\partial_{b'}\log\det X=\operatorname{Tr}(X^{-1}\partial_b\partial_{b'}X)-\operatorname{Tr}(X^{-1}\partial_bX\,X^{-1}\partial_{b'}X).
+\]
+By \Neqref{eq:ol-derivative-products} and cyclicity, this is a sum of traces $\operatorname{Tr}(O_0L)$ and of
+\[
+\operatorname{Tr}(O_0LO_1L')=\sum_{s_1,\dots,s_4}\operatorname{tr}\big(O_0(s_4,s_1)L(s_1,s_2)O_1(s_2,s_3)L'(s_3,s_4)\big).
+\] Here $s_1,s_2$ are within $2r_{\rm loc}$ of $b$, and $s_3,s_4$ within $2r_{\rm loc}$ of $b'$. Periodizations of kernels with decay $(C,\gamma)$ have decay $(C',\gamma/2)$ in $|\cdot|_n$, uniformly in $n$: $\sum_ae^{-\gamma|x-a|}\le e^{-\gamma|x|_n/2}\sum_ae^{-\gamma|x-a|/2}$. So the kernels are bounded by $Ce^{-\gamma|b-b'|_n/2}$ uniformly. The entries of the $O_i$ converge by Lemma~\Nref{lem:ol-folding}(a), and those of $L,L'$ do not depend on $n$. So the kernels converge with uniform decay, to the same sums with the limits.
+\end{step}
+\begin{step}[(a), per cell]
+The summands are invariant under simultaneous shifts by $a\in\Z^4$, since the phases $e^{\mp\ii p\cdot b}$ cancel. The index set $\{(b,b',s_1,\ldots)\}$ carries a free $\Z^4$-action. Both ``$b$ in the cell'' and ``the first site $s$ in $\Sigma_0$'' select a fundamental domain, and the sum is absolutely convergent. So the two sums agree. Summing first over $b,b'$ produces $\delta X[A_{\mp p}]$ and $\delta^2X$, and Lemma~\Nref{lem:ol-trace-tools}(a) gives $S_X(p)$.
+\end{step}
+\begin{step}[(b)]
+$\Pi$ is the combination of the four $\Pi_X$. It is real and symmetric: it is a limit of Hessians of a real-analytic function of real $A$. On each torus, $\widehat\Gamma$ is gauge invariant near $1$ with vanishing first variation (Lemma~\Nref{lem:ol-offshell}(a),(b)). So Detail~\ref{d11a:B2}, Step~1, on the fine lattice gives $\Pi_nd=0$; the limit gives $\Pi d=0$. Then $\Pi(d\lambda)=(\Pi d)\lambda=0$ for $\lambda$ of polynomial growth, by Lemma~\Nref{lem:ol-folding}(a). The constant field $\eps_\mu$ on direction $\mu$ is $d(\eps\cdot x)$. For $\widehat\Gamma_{\rm F}$ (``the same argument applies''): $D_U^TD_U+\mathcal F_U$ is the Hessian of $S$ in the chart $e^{\ii\eta h}U$, which is covariant like $q_2^0$, and $D_UD_U^T$ is covariant by Detail~\ref{d11a:A2}, Step~5. The entries are polynomial, and $\bL_{\rm F}(1)=\fA'_{\rm F}(1)=\langle\partial\rangle^2>0$. So the proof of Lemma~\Nref{lem:ol-offshell}(a),(b) applies verbatim.
+\end{step}
+\begin{step}[(c), the multiplier terms]
+The kernel form follows from Lemma~\Nref{lem:ol-offshell}(d), with the unweighted transposes. $\Pi^{A\omega}_n$ and $\Pi^{\omega\omega}_n$ are traces as in Step~1, with $-\mathcal C^c_U$ as insertions, and they converge with uniform decay. For coarse kernels, $Ye_{p,\eps}=e_{p,Y(p)\eps}$, since a cell of $\Z^4$ has one bond per direction. Hence $(YY')(p)=Y(p)Y'(p)$, and $Y^{\sf T}(p)=Y(p)^*$ for real $Y$.
+\begin{itemize}
+\item $\|\bD(p)\|\le C_D|p|^2$. On every torus $0\le\bD\le C_D\dl^*\dl$ (Proposition~\Nref{prop:eff-action-gauge}). By Lemma~\Nref{lem:ol-bloch}(e), applied to $C_D\dl^*\dl-\bD$, this holds on $\ell^2$, and by (c) fibrewise. In the midpoint convention the Fourier transform at $p$ is the fibre at $\theta=p$, conjugated by a diagonal unitary. The symbol of $\dl^*\dl$ is $|\hat p|^2\delta_{\mu\nu}-\hat p_\mu\hat p_\nu\le|\hat p|^2\le|p|^2$.
+\item $(\Pi^{A\omega}\bH_\infty)(0)=0$. By Lemma~\Nref{lem:ol-offshell}(b), $\Pi^{A\omega}_nd=0$, hence $\Pi^{A\omega}d=0$, so $\Pi^{A\omega}$ kills the fine constants. These are $\bH_\infty$ of the coarse constants (Proposition~\Nref{prop:ol-IM}(e)). Analyticity gives $O(|p|)$.
+\item $\Pi^{\omega\omega}(p)$ is bounded near $0$.
+\end{itemize}
+So $\Xi(p)=O(|p|^2)O(|p|)+O(|p|)O(|p|^2)+O(|p|^4)=O(|p|^3)$. This also proves the paragraph after Lemma~\Nref{lem:ol-offshell}. Finally, $\Gamma^{(1)}_k$ is analytic and gauge invariant, its first variation vanishes (Detail~\ref{d11a:B6}, Step~3), and the limit is $\Z^4$-periodic. So the assumptions above Definition~\Nref{def:marginal-tensor} hold.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[The coarse map, Lemma~\Nref{lem:ol-coarse-map}, and hypothesis (a)]\label{d11a:F8}\Ntarget{lem:ol-coarse-map}
+\begin{step}[Grouping]
+Let $Y$ be periodic, $g$ $(-p)$-quasi-periodic and $f$ $p$-quasi-periodic. Then $(g,Yf)_1=(Y^{\sf T}g,f)_1$. Indeed, $\sum_{b\in{\rm cell}}g(b)\sum_{b'}Y(b,b')f(b')$ is unfolded by $g(b+a)f(b'+a)=g(b)f(b')$ and $Y(b+a,b'+a)=Y(b,b')$ to $\sum_{b'\in{\rm cell}}f(b')\sum_bY(b,b')g(b)$. So $\eps^{\sf T}(\bH^{\sf T}\Pi\bH)(p)\eps'=(\bH e_{-p,\eps},\Pi\bH e_{p,\eps'})_1$. Corollary~\Nref{cor:ol-umklapp} gives the double sum over $\mathcal L^2$.
+\end{step}
+\begin{step}[Orders]
+$\Pi e'_{0,\eps}=0$ gives $\Pi(2\pi\ell,0)=0$, and symmetry with Step~1 gives $\Pi(0,2\pi\ell)=0$. With analyticity in $p$: $\Pi(p,p+2\pi\ell),\Pi(p+2\pi\ell,p)=O(|p|)$. Then the $(0,0)$ term is $\Pi(p,p)+O(|p|^3)$, since $k_0=I+O(|p|^2)$ and $\Pi(p,p)=O(|p|)$. The mixed terms are $O(|p|)O(|p|^2)$, and the rest $O(|p|^4)$. In the convention of $A_{p,\eps}$, the entries are multiplied by $e^{\pm\ii\eta(p_\mu-p_\nu)/2}=1+O(|p|)$, which is harmless at order $\le2$ once $\Pi(p,p)=O(|p|^2)$.
+\end{step}
+\begin{step}[Hypothesis (a): $\mathfrak S_k$-invariance of $\widehat\Gamma$]
+On the fixed torus, $U=e^{\ii\eta A}$ with $|A|$ small is $(M,\eps)$-regular with $\eps\to0$, since $|\nabla A|\le2\eta^{-1}|A|$. So Proposition~\Nref{prop:symmetry}(c) applies. By (c)(iii), $\Phi_{rU}(r_UA)=\Phi_U(A)$, so $q_2^0(rU)=r_Uq_2^0(U)r_U^{-1}$. By (c)(i), (ii), $D_{rU}r=r_UD_U$ on scalars and $R(rU)r=rR(U)$, so $D_{rU}R(rU)D_{rU}^T=r_UD_URD_U^Tr_U^{-1}$. Also $\bQ_k(rU)r_U=r_W\bQ_k(U)$, and $\fA'$, $M'$ are covariant by (c)(ii). The gauge-field operators of (c)(iv) do not enter. So $\widehat\Gamma(rU)=\widehat\Gamma(U)$, and the second variations at $A=0$ are invariant under $r_1$.
+\end{step}
+\begin{step}[Evenness on the fine lattice; ``by the computation in the proof of Lemma~\Nref{lem:ol-symmetry}(c)'']
+For the point reflection $r(x)=2v-x$, $v\in\Z^4$, which preserves $\eta\Z^4$, Detail~\ref{d11a:B7}, Steps~1--2, on the fine bonds gives $(r_1A)(r(m))=-A(m)$. So $\widehat{r_1A}(q)=-e^{-2\ii q\cdot v}\hat A(-q)$. For the diagonal component the two factors $-1$ cancel and $\Pi(-p,-p)=\Pi(p,p)$. With $\Pi(0,0)=0$, there is no linear term. The alternative route through Lemma~\Nref{lem:ol-symmetry}(c) is $\Pi(p,p)=\Pi_{\Gamma^{(1)}_k}(p)-\Xi(p)+O(|p|^3)=O(|p|^2)$, by Step~2 and Detail~\ref{d11a:F6}.
+\end{step}
+\status{Expanded. Step~4 carries out the literal repetition of Detail~\ref{d11a:B7} on the fine lattice.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-vertex-bounds}]\label{d11a:F11}\Ntarget{lem:ol-vertex-bounds}
+\begin{step}[Scaling]
+Let $x'=x/\eta$ and $U'(b')=U(\eta b')$ on $\Z^4$. The lattice derivatives satisfy $D_U=\eta^{-1}D'_{U'}$ under the unitary identification of the weighted field spaces. The Hessian of the scale-invariant Wilson action ($d=4$) in the chart $e^{\ii\eta h}U$, for the weighted pairing, is $\eta^{-2}$ times that in the chart $e^{\ii h'}U'$ on $\Z^4$, with $h'=\eta h$. So $X(U)=\eta^{-2}X_\bullet(U')$ with mass $m\eta$, where $\bullet={\rm V},{\rm S}$ (Section~\Nref{subsec:ol-lattice-integral}, Lemma~\Nref{lem:ol-scaling}). Moreover $A_{p,\eps}(\eta b')=e^{\ii\eta p\cdot b'_-}\eps_\mu=A_{\eta p,\eps}(b')$, and $e^{\ii q\cdot x}=e^{\ii\eta q\cdot x'}$. Hence $v_1(q;p,\eps)=\eta^{-2}\cdot\eta\,w_1(\eta q;\eta p,\eps)=\eta^{-1}w_1(\eta q;\eta p,\eps)$: the factor $\eta^{-2}$ comes from $X$, and the factor $\eta$ from $e^{\ii\eta tA'}=e^{\ii(\eta t)A'}$ in the convention $U=e^{\ii A}$ of Section~\Nref{subsec:ol-lattice-integral}. Likewise $v_2=\eta^{-2}\eta^2w_2=w_2(\eta q;\eta p,\eps)$. The $w_i$ are trigonometric polynomials, since the vertices of $X_\bullet$ have finite range.
+\end{step}
+\begin{step}[(a)]
+The identity $X(1^{u_s})=R(u_s)X(1)R(u_s)^{-1}$ is a local algebraic identity. It holds entrywise on $\eta\Z^4$ for any real $u$, including $u_s=e^{-\ii s\lambda}$ with the linear, non-periodic $\lambda=\sum_\mu x_\mu\eps_\mu$. Differentiating at $s=0$ gives $\mathsf V_1(0)=-\ii[\operatorname{ad}\lambda(\hat x),X(1)]=-\ii\sum_\mu\operatorname{ad}\eps_\mu[\hat x_\mu,X(1)]$, with symbol $\sum_\mu\operatorname{ad}\eps_\mu\,\partial_{q_\mu}x(q)=\sum_\mu2\eta^{-1}\sin(\eta q_\mu)\operatorname{ad}\eps_\mu$.
+\end{step}
+\begin{step}[(b)]
+For $|\alpha|+|\beta|\ge1$: $\partial_p^\alpha\partial_q^\beta v_1=\eta^{|\alpha|+|\beta|-1}(\partial^\alpha_P\partial^\beta_Qw_1)(\eta q;\eta p)$, bounded by $C\eta^{|\alpha|+|\beta|-1}\le C'\langle q\rangle^{1-|\alpha|-|\beta|}$ by Detail~\ref{d11a:F1}, Step~1. For $\alpha=\beta=0$: $|2\eta^{-1}\sin(\eta q_\mu)|\le4\eta^{-1}|\sin(\eta q_\mu/2)|=2|\hat q_\mu|$, and $|v_1(q;p)-v_1(q;0)|\le|p|\sup|\partial_pv_1|\le C\pi$. In the same way, $|\partial^\alpha_p\partial^\beta_qv_2|\le C\eta^{|\alpha|+|\beta|}$. The constants depend only on $G$ and the representation $\rho$ of $\operatorname{tr}=\operatorname{tr}_\rho$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemmas~\Nref{lem:ol-integrability} and~\Nref{lem:ol-power-counting}]\label{d11a:F12}\Ntarget{lem:ol-integrability,lem:ol-power-counting}
+A cell contains $\eta^{-4}$ fine points, and the diagonal entry of the multiplier $\langle\partial\rangle^{-r}$ is $\eta^4\int\langle q\rangle^{-r}d^4q/(2\pi)^4$. So $\operatorname{Tr}_1\langle\partial\rangle^{-r}=(\#\text{components})\int_{|q_\mu|\le\pi/\eta}(1+|\hat q|^2)^{-r/2}d^4q/(2\pi)^4$, which by $\frac2\pi|q|\le|\hat q|\le|q|$ is bounded uniformly in $\eta$ iff $r>4$. In Lemma~\Nref{lem:ol-power-counting}(b), cyclicity of $\operatorname{Tr}_1$ at fixed $\eta$ moves $\langle\partial\rangle^{a_1}$ to the end, and the gaps are $e_j=-(b_j+a_{j+1})\ge0$, $\sum e_j=D$. H\"older with the exponents $\infty$ for the $B_j$ and $D/e_j$ for $\langle\partial\rangle^{-e_j}$ gives $\prod_j(\operatorname{Tr}_1\langle\partial\rangle^{-D})^{e_j/D}\le\max\operatorname{Tr}_1\langle\partial\rangle^{-D}$. At a coarse gap $e_j=0$, since $a_j=0$, $b_j=0$ there. In (c), the two exponents at the ends of the remainder $R$ are gaps, so $\|R\|_\infty\le C_0^{m-1}$.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:ol-remainders}]\label{d11a:F14}\Ntarget{lem:ol-remainders}
+\begin{step}[Vertices of $D$ on scalar fields]
+$D_U\lambda(b)=\eta^{-1}(R(U(b))\lambda(b_+)-\lambda(b_-))$ and $R(e^{\ii\eta tA})=e^{\ii\eta t\operatorname{ad}A}$. So $\delta D[A]\lambda(b)=\ii\operatorname{ad}A(b)\lambda(b_+)$ and $\delta^2D[A,A']\lambda(b)=-\frac\eta2\{\operatorname{ad}A(b),\operatorname{ad}A'(b)\}\lambda(b_+)$. With $A_{\pm p}$, the phases are absorbed by $e^{\mp\ii p\cdot\hat x}$: $\mathsf V^D_1$, $\mathsf V^D_2$ are bounded multipliers independent of $p$, of degree $0$. Commutators with $\hat x$ differentiate their symbols $\ii\operatorname{ad}\eps_\mu e^{\ii\eta q_\mu}$, which gives bounded multipliers.
+\end{step}
+\begin{step}[Coarse factors]
+The kernel of $\mathsf V_1^{\bQ}(p)$ at $(c,b)$ is the derivative of $K_U(c,b)$ in the direction $\sum_{b'\in S_c}e^{\ii p\cdot(b'_--c_-)}\eps\,\one_{b'}$, of sup norm $\le1$ for real $p$. So it is bounded by $C$, by Detail~\ref{d11a:F3}, Step~4. $p$-derivatives bring factors $\ii(b'_--c_-)$, and commutators $(c_--b_-)$, both bounded by $\operatorname{diam}S_c$. So all $\mathsf D'\mathsf V_i$ of $\bQ_k,Q'_k$ and their transposes have kernels of the form of Lemma~\Nref{lem:ol-kernel-bounds}(c), with $C'$ uniform in $k$, and norm $\le2dC'$.
+\end{step}
+\begin{step}[The structure of the terms of $\mathsf D\mathsf V_i^{\mathbf Y}$]
+$\mathbf Y=-(DG'Q'^T)M'^{-1}(Q'G'D^T)+a\bQ_k^T\bQ_k$, since $P_\cV=TM'^{-1}T^T$ with $T=G'Q'^T$ and $T^TT=M'$. Apply $\partial_p$ (at $p=0$) and $\operatorname{ad}_{\hat x}$ by the Leibniz rules. On $G'=\fA'^{-1}$ they give $-G'\mathsf V^{\fA'}_iG'$, $G'[\fA',\hat x]G'$, and for second order the products $G'IG'IG'$ (Detail~\ref{d11a:F4}, Step~2). Here $\fA'=\fA'_{\rm F}+\mathbf Y'-m^2$ has the vertices of $\fA'_{\rm F}$, which are multipliers of degree $\le1$ (Lemma~\Nref{lem:ol-vertex-bounds}), plus coarse products from $aQ'^TQ'$. On $M'^{-1}$ they give $-M^{-1}(\cdot)M^{-1}$ with $M'=Q'G'G'Q'^T$, expanded in the same way. On the other factors they give factors of the same kind. By induction on the number of operations, every term is a bounded multiple of a coarse product, or of $F_0G'I_1G'\cdots G'F_l$. Here $F_0$ comes from $D$ and $F_l$ from $D^T$, and the $I_j$ are single multipliers or coarse products. The number of terms does not depend on $k$, since the formula of $\mathbf Y$ is fixed.
+\end{step}
+\begin{step}[Exponents and rank]
+In every such product, a degree-$1$ multiplier is $D$ or $D^T$ adjacent to a $G'$, or a $\mathsf V_1^{\fA'_{\rm F}}$ or $[\fA'_{\rm F},\hat x]$ between two $G'$; operations on $D$ lower its degree. So every degree-$1$ multiplier has a propagator neighbour, and no two are adjacent. With exponents $(-1,-1)$ for $G'$, $1$ towards the neighbouring $G'$ and $0$ on the other side for degree-$1$ multipliers, and $(0,0)$ otherwise, all gaps are $\le0$ and the ends are $0$. Lemma~\Nref{lem:ol-power-counting}(a) gives the bound $C_0^m$. The inputs are $C_0=\max(c_0^{-1},C_{\rm vert},2dC',c_F^{-2})$, with $C_{\rm vert}$ the constant of Lemma~\Nref{lem:ol-vertex-bounds},, from $\|\langle\partial\rangle G_0\langle\partial\rangle\|\le c_0^{-1}$ and $\|M^{-1}\|\le c_F^{-2}$, all uniform in $k$ (I.1, Detail~\ref{d11a:F3}). Every term contains a factor with coarse target, coming from $Q'$, $\bQ_k$ or their derivatives, which the operations never remove. So the fibre of every term factors through the coarse cell, of dimension $\dim\mathfrak g$ or $d\dim\mathfrak g$. Lemma~\Nref{lem:ol-trace-tools}(c), applied to each of the terms, whose number does not depend on $k$, gives the rank bound. Part~(b) is the same expansion with $P=\bG$ for $\bQ_k\bG_*\bQ_k^T$, where $\bL_*=\bL_{\rm F}+\mathbf Y-m^2$ and the $\mathbf Y$-vertices are bounded by (a), and with $P=G'$ for $M'$; its ends are coarse factors. Finally $\|(\bQ\bG\bQ^*)^{-1}\|\le c_F^{-1}$ (Proposition~\Nref{prop:QGQ-gauge}).
+\end{step}
+\status{Expanded. The Part~I constants are the imports I.1, uniform in $\eta$.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:ol-reduction}]\label{d11a:F15}\Ntarget{prop:ol-reduction}
+\begin{step}[Set-up]
+Both vacuum polarizations vanish at $p=0$ and have no linear term (Details~\ref{d11a:F6}, \ref{d11a:F8} and~\ref{d11a:F16}). So their $p^2$-tensors are the same in both conventions. $X_t=\bL_{\rm F}+t(\mathbf Y-m^2)$ equals $(1-t)\langle\partial\rangle^2+t\bL_a\ge\min(1,c_g)\langle\partial\rangle^2$ at $U=1$. So $X_t^{-1}\in\mathscr P$ (Lemma~\Nref{lem:ol-bloch}(d)), and $\|\langle\partial\rangle X_t^{-1}\langle\partial\rangle\|\le c_1^{-1}$. The vertices of $X_1$ are those of $\bL_{\rm F}$ plus those of $\mathbf Y$, since $m^2$ has none; so $S_{X_1}=S_{\bL_*}$. At fixed $k$ the fibres are finite-dimensional, so derivatives in $t$ and $p$ pass under $\operatorname{Tr}_1$.
+\end{step}
+\begin{step}[Counting]
+Each term of $\partial_p^2\partial_tS_{X_t}|_{p=0}$ is $\operatorname{Tr}_1(P_1I_1\cdots P_lI_l)$. With the exponents of the note, an insertion of degree $s_j$ sits between two propagators with exponents $-1$. Its gaps are $a_j-1$ and $b_j-1$, so it contributes $2-a_j-b_j=2-s_j$ to $D$. $m^2$ and the insertions of kind (ii) have $s_j=0$. The second variation has $D=2$: one $\mathsf V_2$ of degree $0$, or two $\mathsf V_1$ of degree $1$. $\partial_t$ adds a propagator and $m^2$ ($+2$). A $p$-derivative acts in one of three ways. On a vertex it lowers a degree ($+1$). On a propagator it gives $P[\bL_{\rm F},\hat x]P$: a new propagator and an insertion of degree $1$ ($+1$). On the same propagator twice it gives $P[\cdot]P[\cdot]P$ ($+2$) or $P[\hat x_\nu,[\bL_{\rm F},\hat x_\mu]]P$, of degree $0$ ($+2$). So $D\ge6$ for the terms without kind (ii), and Lemma~\Nref{lem:ol-power-counting}(b) applies. Terms with an insertion of kind (ii) are bounded by Lemma~\Nref{lem:ol-power-counting}(c) and Lemma~\Nref{lem:ol-remainders}(a).
+\end{step}
+\begin{step}[``The scalar pair is treated in the same way'']
+Changes: $X'_t=\fA'_{\rm F}+t(\mathbf Y'-m^2)\ge\min(1,c_0)\langle\partial\rangle^2$, by Corollary~\Nref{cor:scalar-coercive}. The multipliers are the vertices of $\fA'_{\rm F}$ (Lemma~\Nref{lem:ol-vertex-bounds}). The kind (ii) insertions are those of $\mathbf Y'=aQ'^TQ'$. Each term of their finite Leibniz expansions factors through a scalar coarse cell and has rank at most $\dim\mathfrak g$ per cell. So every complete insertion has rank at most $C\dim\mathfrak g$ per cell, with $C$ depending only on the fixed orders $i\le2$ of the vertices and $|\alpha|+|\beta|\le2$ of the derivatives and commutators, not on $k$ or $\eta$ (Lemma~\Nref{lem:ol-remainders}(a)). The counting of Step~2 is unchanged. The coarse determinants: all factors are bounded by Lemma~\Nref{lem:ol-remainders}(b) and act on coarse fields, so $|\operatorname{Tr}_1O|\le d\dim\mathfrak g\,\|O\|$.
+\end{step}
+\status{Literal repetition (scalar pair), with the changes listed; Expanded.}
+\end{detail}
+
+\begin{detail}[Remark~\Nref{rem:ol-symmetry}]\label{d11a:F16}\Ntarget{rem:ol-symmetry}
+$\bL_{\rm F}=q_2^0+D_UD_U^T+m^2$ and $\fA'_{\rm F}=D_U^TD_U+m^2$. Here $q_2^0$ is the Hessian of $S$, which is covariant under every symmetry of $\eta\Z^4$ because $S\circ r=S$. $D_U$ on scalar fields is covariant by its definition. The non-covariance of the curl under reflections at curved backgrounds (Remark~\Nref{rem:symmetry-reflections}) does not enter: the curl appears only inside the Hessian $D^TD+\mathcal F$. So $\widehat\Gamma_{\rm F}$ is hypercubically invariant on $\eta\Z^4$. Its second variation is transverse, by Detail~\ref{d11a:F6}, Step~3, with $\hat q^\eta_\mu=2\eta^{-1}\sin(\eta p_\mu/2)=p_\mu+O(|p|^3)$. So the tensor algebra of Detail~\ref{d11a:B7} gives $T_{\rm F}=\beta_{\rm F}(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$, with no linear term. The same holds for $\widehat\Gamma$, by Detail~\ref{d11a:F8}, Step~3, so the remainder of Proposition~\Nref{prop:ol-reduction} is isotropic.
+\status{Expanded.}
+\end{detail}
+
+\subsection{What this chapter adds to the note}\label{d11a:findings}
+
+\begin{itemize}
+\item \textbf{New arguments for compressed steps}, none changing a statement:
+  \begin{itemize}
+  \item the constrained Hessian $H(0)=q_2|_\cX$ (Detail~\ref{d11a:A6}, Step~3);
+  \item the factorization of fibre measures through scale $k-1$ (Detail~\ref{d11a:A14c});
+  \item Lemma~\Nref{lem:ol-smearing} in smoothed form (Detail~\ref{d11a:E2});
+  \item Proposition~\Nref{prop:ol-FP} with the coarse limit, the zero count on a neighbourhood, and the extension to indicators (Detail~\ref{d11a:E5}); its left side is read as a fibre integral, which is the convention of \Neqref{eq:rg-map};
+  \item the exact identity $\bQ^{\rm pl}(d\varphi\,T)=(d'\varphi)T$ (Detail~\ref{d11a:D4});
+  \item the locality of the averaging at complex references (Detail~\ref{d11a:F3}), also used for Lemma~\Nref{lem:gl-inventory}(i).
+  \end{itemize}
+\item \textbf{Points settled in this chapter.} The smoothness of $(U_1,u)\mapsto\chi(U_1^u)$ and the invertibility of $\varphi'D_V$ (Detail~\ref{d11a:E5}); that $W=0$ is a definition (Detail~\ref{d11a:D2}); the use of Theorem~\Nref{thm:step} with $\rho$ known only near $\operatorname{supp}\chi^{\rm w}$ (Detail~\ref{d11a:A14j}); the units of (N1) (Detail~\ref{d11a:A14d}); the thresholds of Parts~II--III at $U_k(V)$ (import I.2).
+\end{itemize}

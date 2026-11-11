@@ -1,0 +1,76 @@
+% Figure of the guide (G2): the tower of lattices in the units of step k. Owner: WP7.
+\begin{gfigure}[tp]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,
+  lev/.style={anchor=west,align=flush left,font=\footnotesize,inner sep=1pt},
+  ar/.style={-{Stealth[length=1.5mm]},semithick},
+  alab/.style={anchor=west,inner sep=1pt,font=\scriptsize},
+  blk/.style={draw,rounded corners=2pt,thick},
+  ]
+\def\u{0.72}\def\X{6.05}
+\def\yK{4.45}\def\yA{3.45}\def\yB{2.45}\def\yC{1.45}\def\yO{0.25}
+% the levels
+\foreach \yy in {\yK,\yA,\yB,\yC,\yO} \draw[black!30] (\X-4.65*\u,\yy) -- (\X+4.65*\u,\yy);
+\foreach \i in {-41,...,41} \draw[black!75] (\X+\i*\u/9,\yO-0.045) -- (\X+\i*\u/9,\yO+0.045);
+\foreach \i in {-13,...,13} \fill (\X+\i*\u/3,\yC) circle (0.85pt);
+\foreach \i in {-4,...,4} \fill (\X+\i*\u,\yB) circle (1.5pt);
+\foreach \i in {-1,0,1} \fill (\X+3*\i*\u,\yA) circle (2.1pt);
+\fill (\X,\yK) circle (2.6pt);
+\foreach \i in {-1,0,1} \draw[densely dotted,black!45] (\X+3*\i*\u,\yO) -- (\X+3*\i*\u,\yA);
+\draw[densely dotted,black!45] (\X,\yA) -- (\X,\yK);
+\node[font=\footnotesize] at (\X+1.5*\u,0.5*\yA+0.5*\yK) {$\vdots$};
+\node[font=\footnotesize] at (\X+1.5*\u,0.5*\yC+0.5*\yO+0.05) {$\vdots$};
+\node[font=\scriptsize,anchor=south west,inner sep=1pt] at (\X+0.05,\yA+0.06) {$y$};
+% centred blocks around y
+\draw[blk] (\X-1.5*\u,\yB-0.17) rectangle (\X+1.5*\u,\yB+0.17);
+\node[font=\scriptsize,anchor=north,inner sep=1pt] at (\X,\yB-0.19) {$B'(y)=B_{k+1}(y)$};
+\draw[blk] (\X-0.5*\u,\yC-0.13) rectangle (\X+0.5*\u,\yC+0.13);
+\node[font=\scriptsize,anchor=north,inner sep=1pt] at (\X,\yC-0.15) {$B_k(y)$};
+\draw[blk] (\X-0.5*\u,\yO-0.13) rectangle (\X+0.5*\u,\yO+0.13);
+\node[font=\scriptsize,anchor=north,inner sep=1pt] at (\X,\yO-0.15) {$B(y)=B^{(k)}(y)$};
+% maps between the levels
+\draw[ar] (0.3,\yA) -- (0.3,\yO); \node[alab] at (0.33,0.5*\yA+0.5*\yB) {$U_{k+1}$};
+\draw[ar] (0.95,\yB) -- (0.95,\yO); \node[alab] at (0.98,0.5*\yC+0.5*\yB) {$U_k$};
+\draw[ar] (1.75,\yO) -- (1.75,\yB); \node[alab] at (1.78,0.5*\yC+0.5*\yO) {$(\cdot)^{(k)}$};
+\draw[ar] (1.75,\yB) -- (1.75,\yA); \node[alab] at (1.78,0.5*\yB+0.5*\yA) {$\mathfrak a'$};
+% what lives where
+\node[lev] at (9.55,\yK) {$\T^{(K)}$, spacing $L^{K-k}$: the last scale};
+\node[lev] at (9.55,\yA) {$\T'=\T^{(k+1)}$, spacing $L$: $V'$, $\rho_{k+1}(V')$};
+\node[lev,text width=5.6cm] at (9.55,\yB) {$\T=\T^{(k)}$, spacing $1$: $V$, $\rho_k(V)$,\\ the base $W=U'^{(k)}$, the field $Z$ on $\mathfrak F$};
+\node[lev] at (9.55,\yC) {$\T^{(k-1)}$, spacing $L^{-1}$};
+\node[lev,text width=5.6cm] at (9.55,\yO) {$\Tf=\T^{(0)}$, spacing $\eta=L^{-k}$:\\ $U$, $U_k(V)$, $U'=U_{k+1}(V')$};
+\node[font=\footnotesize,anchor=south] at (\X,\yK+0.25) {units of scale $k$, $L=3$; every torus has side $n_k=\ell L^{N-k}$};
+% inset: two blocks of T in d=2, with the points of T^(k-1)
+\begin{scope}[shift={(1.0,-1.5)}]
+\def\s{0.42}
+\fill[black!14] (-1.5*\s,0.5*\s) rectangle (-0.5*\s,1.5*\s);
+\foreach \bx in {0,3} {
+  \draw[thick] (\bx*\s-1.5*\s,-1.5*\s) rectangle (\bx*\s+1.5*\s,1.5*\s);
+  \foreach \i in {-1,0,1} \foreach \j in {-1,0,1} {
+    \foreach \a in {-1,0,1} \foreach \b in {-1,0,1}
+      \fill[black!55] (\bx*\s+\i*\s+\a*\s/3,\j*\s+\b*\s/3) circle (0.35pt);
+    \fill (\bx*\s+\i*\s,\j*\s) circle (1.1pt);}
+}
+\draw[semithick] (0,0) -- (3*\s,0);
+\draw[line width=2.2pt] (\s,0) -- (2*\s,0);
+\fill (0,0) circle (2pt); \fill (3*\s,0) circle (2pt);
+\node[font=\scriptsize,anchor=north,inner sep=1pt] at (0,-1.55*\s) {$B'(y)$};
+\node[font=\scriptsize,anchor=north,inner sep=1pt] at (3*\s,-1.55*\s) {$B'(y+Le_1)$};
+\draw[black!70] (1.5*\s,0.06) -- (1.9*\s,2.0*\s) node[above,font=\scriptsize,inner sep=1pt] {$b_0(c)$};
+\draw[black!70] (-1.0*\s,1.0*\s) -- (-0.6*\s,2.0*\s) node[above,font=\scriptsize,inner sep=1pt] {$B_k(x)$};
+\end{scope}
+\node[font=\scriptsize,align=flush left,anchor=west] at (3.25,-1.5) {$d=2$, $L=3$: points of $\T^{(k-1)}$ (small),\\ $\T$ (medium) and $\T'$ (large: $y$, $y+Le_1$);\\ the straight contour from $y$ to $y+Le_1$\\ and its middle bond $b_0(c)$};
+% change of units
+\node[draw,rounded corners=2pt,anchor=east,font=\scriptsize,inner sep=3pt] at (15.3,-1.5) {%
+\begin{tabular}{@{}l@{\quad}l@{}}
+\multicolumn{2}{@{}l@{}}{change to the units of scale $k+1$:}\\[1pt]
+lengths & $\times L^{-1}$\\
+Lie fields $A$ & $\times L$\\
+differences $\nabla A$, curvatures & $\times L^{2}$\\
+currents & $\times L^{3}$\\
+Wilson action $S$ & unchanged ($d=4$)
+\end{tabular}};
+\end{tikzpicture}
+\caption{Scales and units. Everything is drawn in the units of scale~$k$, for $L=3$: the tower in a one-dimensional section, the inset for $d=2$. In these units $\T^{(j)}$ has spacing $L^{j-k}$, and all lattices of the tower lie on one torus, of side $n_k=\ell L^{N-k}$ (Section~\ref{subsec:tf-scales}). In its own units, $\T^{(j)}$ has spacing $1$ and side $n_j=\ell L^{N-j}$; in Part~VII, $n$ denotes the side of $\T'$ in its own units, $n=n_{k+1}=n_k/L$. The lattices are nested, and the blocks are centred: $B_j(y)$ is the cube of $L^d$ points of $\T^{(j-1)}$ centred at $y\in\T^{(j)}$, and $B(y)=B^{(k)}(y)$ is the block of Part~I (Section~\ref{sec:averaging}). The configurations of step~$k$ live on $\T=\T^{(k)}$, the background fields on $\Tf$. Arrows on the left: the background fields $V'\mapsto U_{k+1}(V')$ and $V\mapsto U_k(V)$ (Theorem~\ref{thm:balaban}); the $k$-fold average $U\mapsto U^{(k)}$ and the one-step averaging $\mathfrak a'=\mathfrak a_{k+1}$ (Definition~\ref{def:one-step}). The base of the step is $W=U'^{(k)}$, and $\mathfrak a'(W)=V'$ (Lemma~\ref{lem:composition}). Inset: the blocks $B'(y)$ and $B'(y+Le_1)$, one block $B_k(x)$ shaded, and the middle bond $b_0(c)$ of the straight contour of the coarse bond $c$ from $y$ to $y+Le_1$ (Definition~\ref{def:bonds} and Figure~\ref{fig:blocks-sym}). Box: the change of units of the proof of Lemma~\ref{lem:units}, from scale~$k$ to scale~$k+1$; the Wilson action carries no power of the spacing in four dimensions (Section~\ref{sec:rg-step}).}
+\label{fig:G-scales}
+\end{gfigure}

@@ -1,0 +1,44 @@
+% Figure of the guide (G9): the life of a generation in the flow (Sections 50--53). Owner: WP7.
+\begin{gfigure}[tp]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,
+  bx/.style={draw,rounded corners=1.5pt,fill=white,align=flush left,font=\scriptsize,inner xsep=3pt,inner ysep=2pt},
+  hd/.style={font=\footnotesize\bfseries,anchor=south west,inner sep=1pt},
+  ar/.style={-{Stealth[length=1.6mm]},semithick},
+  big/.style={-{Stealth[length=2.2mm]},line width=1.2pt},
+  ]
+% creation of the generation, in the step from j-1 to j
+\node[hd] at (0.1,0.1) {creation, step $j-1\to j$};
+\node[bx,text width=3.4cm,anchor=north west] (c1) at (0.1,0) {new terms of the step:\\ $\mathfrak e(X)$, $\log\mathfrak j_c$, $E^\#(Y)$\\ Theorem~\ref{thm:sf-step}};
+\node[bx,text width=3.4cm,below=3mm of c1] (c2) {reblocked: raw generation\\ $E'$ of scale $j$, on $\mathcal U$\\ Definition~\ref{def:raw-new},\\ Lemma~\ref{lem:raw-new}};
+\node[bx,text width=3.4cm,below=3mm of c2,line width=1.1pt] (c3) {average over $\mathfrak S^{\rm grid}_j$:\\ generation $E^{(j)}=E'^{\rm sym}$\\ on $\mathcal U^\flat$, $\delta_1^\flat=\frac14\delta_1$\\ Definition~\ref{def:symmetrization},\\ Lemma~\ref{lem:symmetrization}};
+\node[bx,text width=3.4cm,below=3mm of c3] (c4) {$\bar T_{E^{(j)}}=\beta_j\bar T_S$, and\\ $g_j^{-2}=g_{j-1}^{-2}-\beta_j$\\ Proposition~\ref{prop:period-iso},\\ Theorem~\ref{thm:gen-step}};
+\foreach \u/\v in {c1/c2,c2/c3,c3/c4} \draw[ar] (\u) -- (\v);
+% a later scale k
+\node[hd] at (5.6,0.1) {at a later scale $k$, $m=k-j$};
+\node[bx,text width=4.75cm,anchor=north west] (l1) at (5.6,0) {small polymers in $\Box$, $m\ge m_0$:\\ $\Psi^{(j)}_\Box=\sum_XE^{(j)}(X)-\beta_jS_\Box$,\\ $|\Psi^{(j)}_\Box|\le C\mathsf KL^{-\alpha m}$\\ Proposition~\ref{prop:extraction}};
+\node[bx,text width=4.75cm,below=3mm of l1] (l2) {recent, $m<m_0$: no small polymers;\\ $\Psi^{(j)}_\Box=-\beta_jS_\Box$, $|\Psi^{(j)}_\Box|\le C\mathsf K$\\ Definition~\ref{def:polymer-classes},\\ Proposition~\ref{prop:extraction}};
+\node[bx,text width=4.75cm,below=3mm of l2] (l3) {other polymers, by $\mathrm{cl}_kX=Y$:\\ $|E^{(j),\rm ne}_Y|\le C\mathsf KL^{-m}e^{-\kappa_nd_k(Y)}$\\ Lemma~\ref{lem:large-later}};
+% the old activities, and the next step
+\node[hd] at (11.1,0.1) {step $k\to k+1$};
+\node[bx,text width=3.95cm,anchor=north west,line width=1.1pt] (o) at (11.1,0) {old activities of step $k$:\\ $\mathcal E_k(Y)=\sum_{j\le k}\one_{\{Y=\Box^+\}}\Psi^{(j)}_\Box$\\ \hphantom{$\mathcal E_k(Y)$}${}+\sum_{j\le k}E^{(j),\rm ne}_Y$,\\ $|\mathcal E_k(Y)|\le C_{\rm old}\mathsf Ke^{-\kappa_nd_k(Y)}$\\ Definition~\ref{def:old-activities},\\ Proposition~\ref{prop:old-activities}(a),(b)};
+\node[bx,text width=3.95cm,below=3mm of o] (s) {enter the step $k\to k+1$\\ in composed activities,\\ $\tau\le C_PL^dg_kp_{0,k}/\delta_1$;\\ its new terms give $E^{(k+1)}$\\ Proposition~\ref{prop:old-activities}(d),\\ Theorem~\ref{thm:gen-step}};
+% arrows
+\draw[semithick] ([xshift=2mm]l1.east) -- ([xshift=2mm]l1.east |- l3.east);
+\foreach \u in {l1,l2,l3} \draw[semithick] (\u.east) -- ([xshift=2mm]l1.east |- \u.east);
+\draw[ar] ([xshift=2mm]l1.east |- o.west) -- (o.west);
+\draw[ar] (o) -- (s);
+\draw[line width=1.2pt] ([xshift=-2mm]l1.west) -- ([xshift=-2mm]l1.west |- l3.west);
+\draw[big] (c3.east) -- node[above,font=\scriptsize,align=flush center,inner sep=1pt] {$E^{(j)}-\beta_jS$\\ in $\rho_k$} ([xshift=-2mm]l1.west |- c3.east);
+\foreach \u in {l1,l2,l3} \draw[ar] ([xshift=-2mm]l1.west |- \u.west) -- (\u.west);
+% scale axis
+\path let \p1=(c4.south), \p2=(l3.south), \p3=(s.south) in coordinate (ax) at (0,{min(\y1,\y2,\y3)-0.35cm});
+\draw[->,semithick] ([xshift=3mm]ax) -- (ax -| 15.2,0);
+\foreach \x/\l in {0.4/{j-1},3.75/j,6.1/{j+m_0},10.55/k,14.85/{k+1}} {
+  \draw ([xshift=\x cm]ax) ++(0,0.07) -- ++(0,-0.14) node[below,font=\footnotesize,inner sep=2pt] {$\l$};}
+\draw ([shift={(3.8,-0.55)}]ax) -- ++(0,-0.08) -- node[below,font=\scriptsize,inner sep=2pt] {recent} ++(2.25,0) -- ++(0,0.08);
+\draw ([shift={(6.15,-0.55)}]ax) -- ++(0,-0.08) -- node[below,font=\scriptsize,inner sep=2pt] {small or large} ++(4.35,0) -- ++(0,0.08);
+\end{tikzpicture}
+\caption{The life of a generation in the flow; the axis is the scale. Left, the step from scale $j-1$ to scale $j$: its new terms, reblocked, form the raw generation $E'$; its average over the symmetries of the grid of scale $j$ is the generation $E^{(j)}$, bounded at its creation scale by $\mathsf Ke^{-\kappa_nd_j(X)}$ on the domains $\mathcal U^\flat(X)$ (Theorem~\ref{thm:N}(ii)); its period density gives the coefficient $\beta_j$ and the coupling $g_j$. The density $\rho_k$ of every later scale contains $E^{(j)}-\beta_jS$ (Theorem~\ref{thm:N}(i)). Middle, a later scale $k$ and a grid cube $\Box$ of scale $k$: a polymer of scale $j$ is recent, small or large at scale $k$ (Definition~\ref{def:polymer-classes}). The counterterm $-\beta_jS_\Box$ is grouped with the small polymers of $E^{(j)}$ in $\Box$, and the sum is bounded on $\mathcal U^\flat(\Box^+)$, by $C\mathsf KL^{-\alpha m}$ for $m\ge m_0$; the other polymers gain $L^{-m}$ (Theorem~\ref{thm:N}(iv)). Right, the old activities collect the generations $j\le k$ and enter the step from scale $k$ to scale $k+1$, whose new terms form the next generation. The bounds hold for couplings in $(0,\gamma]$; $C$, $C_{\rm old}$ and $\mathsf K$ do not depend on $j$, $k$, the torus or the couplings (Theorem~\ref{thm:N}, Proposition~\ref{prop:old-activities}).}
+\label{fig:G-generation}
+\end{gfigure}

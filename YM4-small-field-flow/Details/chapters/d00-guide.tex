@@ -1,0 +1,154 @@
+\section{How to read this volume}\label{sec:guide}
+
+\subsection{How to use this volume}\label{subsec:guide-purpose}
+
+This volume accompanies the note \emph{Ba\l aban's small-field renormalization group for four-dimensional lattice Yang--Mills theory}. It expands the steps of Parts~VII--XI of the note to the level at which each can be checked by reading: where the note writes ``as in the proof of'', ``similarly'' or a one-line inference, the volume writes the argument out. It proves no new theorem, and the note can be read without it. The guide of the note (Section~\Nref{g:read}) gives reading paths through the note itself.
+
+\paragraph{From the note to a Detail.} Each expanded item is a \emph{Detail}. Its heading names the result of the note that it expands, with the note's printed number. There are three ways in.
+\begin{itemize}
+\item In the note, a proof that has a Detail carries the mark ``Details'' in its margin. In a viewer that follows links between files, the mark opens the first Detail for that result.
+\item The index at the end of this volume (Appendix~B) lists, for each result of the note, the Details that expand it.
+\item The chapters follow the Parts of the note, and within a chapter the Details follow the order of the note.
+\end{itemize}
+The references to the note in this volume, such as Theorem~\Nref{thm:N} or Proposition~\Nref{prop:complex-ext}, carry the note's numbers and link into the note. The links between the two files work only if the two PDF files keep their relative places: the note, \texttt{YM4-small-field-flow.pdf}, in a folder, and this volume, \texttt{details.pdf}, in its subfolder \texttt{Details}. Links to named places in another file work in Acrobat, Skim, Okular and Evince, and poorly in macOS Preview; there the index is the way in.
+
+\paragraph{How to read a Detail.} Read it with the note open at the result. A Detail is written in \emph{Steps}, numbered within the Detail; ``Detail~\ref{d7:A6table}, Step~2'' is the second Step of that Detail. Where a Detail uses a result of an earlier Part, it states the result in the form used, or names it by its number in the note. Textbook facts (Cauchy estimates, the Neumann series, the Kotecký--Preiss criterion) are stated once, in their exact form, and not expanded. Some of the longer Details open with a short paragraph ``The idea'', which says where the argument is going.
+
+\paragraph{Statuses.} Each Detail ends with a status of one of four kinds.
+\begin{itemize}
+\item \emph{Expanded}: the argument of the note, written out in full.
+\item \emph{Literal repetition}: the cited argument applies with the listed changes, and each change has been checked.
+\item \emph{New argument}: a step that the note needs but does not write out, written out here.
+\item \emph{GAP}: the step does not go through as written. The Detail says why, gives a repair if one is visible, and names the downstream uses. No Detail of this volume has this status for the current note.
+\end{itemize}
+The rest of the status line says, where needed, what the Detail adds to the note.
+
+\paragraph{Chapters.} The volume has one chapter for each Part of the note, in the order of the note, and the parameter ledger last:
+\begin{itemize}
+\item Section~\ref{d7:sec}: Part~VII, one step of the renormalization group (note Sections~\Nref{sec:rg-step}--\Nref{sec:covariance});
+\item Section~\ref{d8:sec}: Part~VIII, Dirichlet operators, interior regularity and localization (Sections~\Nref{sec:dirichlet-averaged}--\Nref{sec:interaction-local});
+\item Section~\ref{d9:sec}: Part~IX, weakened walks, tiers and the weakened background map (Sections~\Nref{sec:weakenable}--\Nref{sec:weak-background});
+\item Sections~\ref{xa:sec} and~\ref{xb:sec}: Part~X, the step in polymer form and the flow (Sections~\Nref{sec:complex-references}--\Nref{sec:flow4});
+\item Sections~\ref{d11a:sec} and~\ref{d11b}: Part~XI, the one-loop coefficient, the ultraviolet limit and generation locality (Sections~\Nref{sec:ol-composite}--\Nref{sec:gen-locality});
+\item Section~\ref{sec:ledger}: the parameter ledger. It records every constant of Parts~VII--XI, and those of Parts~I--VI that these Parts use, says in words what each one is, and checks that the order in which they are chosen has no cycle. It uses all the Parts, so it is best read last; its tables can be consulted at any time.
+\end{itemize}
+Appendix~A records the corrections of the note that the work on this volume prompted, and Appendix~B is the index.
+
+\paragraph{Where the ideas are.} Most Details are bookkeeping: they check a compressed step line by line. The following carry an idea that the note states briefly.
+\begin{itemize}
+\item Part~VII. Step~0 of the proof of Lemma~\Nref{lem:uniformity}: the torus operators do not depend on the regularity scale, so the constants of Parts~II--V are free of $M$ (Detail~\ref{d7:step0}). The pointwise bound on the minimizer map gives a curvature constant $C_*$ free of $L$, hence the compatibility of consecutive steps (Details~\ref{d7:step34}, \ref{d7:sharp}, \ref{d7:compat}). Why the transposed defect bound is needed: row sums against column sums (Detail~\ref{d7:A6table}). The pointwise sense of the $\delta$-identities (Detail~\ref{d7:image}). Exponential gauge fixing without a determinant, and the local elimination (Details~\ref{d7:gf}, \ref{d7:elim}). Coercivity on the constraint set from the one-step Poincar\'e inequality, a local comparison with a flat field and IMS localization (Details~\ref{d7:poinc}, \ref{d7:lc}, \ref{d7:coercive}).
+\item Part~VIII. The seam calculus (Detail~\ref{d8:seam}); interior bounds by absorption at all scales (Detail~\ref{d8:system}); the bounds on $W_2^X$ at complex references (Detail~\ref{d8:A1}); the quadratic bound for normalized activities (Detail~\ref{d8:qb}).
+\item Part~IX. The walk on domains and its step bound (Section~\ref{d9:walk}, Details~\ref{d9:step-small}, \ref{d9:wi-a}, \ref{d9:wi-b}); the loss in the weakening rate, the $\delta$-budget (Detail~\ref{d9:budget}); the lift to tier norms (Detail~\ref{d9:lift}).
+\item Part~X. The majorant of the constants at complex references and the comparison constant (Details~\ref{xa:d-majorant}, \ref{xa:d-cmp}). The opening paragraphs of the sections of the chapters on Parts~X and~XI name their other main Details.
+\item The ledger. Thresholds at complex references by doubled real-reference constants (Detail~\ref{det:ledger-emax}); the constants that do not depend on $M$ (Detail~\ref{det:ledger-M0}); the first step at non-critical references (Detail~\ref{det:ledger-eps-M}).
+\end{itemize}
+
+\subsection{The note and its main line}\label{subsec:guide-mainline}
+
+The main line of the small-field step consists of (Section~\Nref{sec:intro}, the paragraph ``Reading guide''):
+\begin{itemize}
+\item Parts~I--VII;
+\item Section~\Nref{sec:dirichlet-averaged}, and the interior estimates of Section~\Nref{sec:interior};
+\item Section~\Nref{sec:localization} up to Proposition~\Nref{prop:local-fluct};
+\item Section~\Nref{sec:det-local}, except Proposition~\Nref{prop:det-local} and Corollary~\Nref{cor:one-loop};
+\item Parts~IX and~X.
+\end{itemize}
+The radius-type results of Part~VIII are superseded on the main line by Parts~IX and~X. These are Theorem~\Nref{thm:local-covariance}, Corollary~\Nref{cor:large-changes}, Proposition~\Nref{prop:det-local}, Corollary~\Nref{cor:one-loop} and Section~\Nref{sec:interaction-local}. The volume treats them briefly, and nothing on the main line rests on them.
+
+The flow (Theorem~\Nref{thm:N}) is Sections~\Nref{sec:flow}--\Nref{sec:flow4}. Part~XI uses Parts~I--VII and, from Part~X, mainly Propositions~\Nref{prop:jacobians} and~\Nref{prop:first-step} and Lemma~\Nref{lem:first-step-formula}. Its Section~\Nref{sec:ol-uv} uses Part~X throughout. Section~\Nref{sec:gen-locality} proves that the generations converge as the torus grows, at fixed couplings.
+
+The note does not treat the large-field stage, the continuum limit, a rate in Proposition~\Nref{prop:beta-identification}, or the exact lower half of the analogue of Ba\l aban's (0.31) for the last steps (Section~\Nref{ss:1.5}). The volume does not either.
+
+\subsection{Notation for Parts VII--XI}\label{subsec:guide-notation}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.2\textwidth}>{\raggedright\arraybackslash}p{0.5\textwidth}>{\raggedright\arraybackslash}p{0.23\textwidth}@{}}
+\toprule
+symbol & meaning & where\\
+\midrule\endhead
+\multicolumn{3}{@{}l}{\emph{Scales and lattices}}\\
+$L$, $N=L^k$, $\eta=1/N$ & block factor (odd); number of fine points per unit; fine spacing after $k$ steps & Sect.~\Nref{ss:2.1}\\
+$\T$, $\Tf$, $\T'$ & unit torus $(\Z/n\Z)^d$; fine torus of spacing $\eta$; coarse torus of the step, spacing $L$ & Sect.~\Nref{ss:2.1}; Sect.~\Nref{sec:fluctuations}\\
+$\T^{(k)}$, $n_k$, $K$ & lattice of step $k$; its side $\ell L^{N-k}$ in the units of step $k$, with an exponent $N$ that is not $L^k$; the last scale & Sect.~\Nref{subsec:tf-scales}\\
+$n$ & in Part~VII the side of $\T'$, so that $\T$ has side $Ln$; elsewhere $n=n_k$, the side of $\T^{(k)}$ & Sect.~\Nref{sec:rg-step}; Sect.~\Nref{subsec:tf-scales}\\
+units of scale $j$ & $\T^{(j)}$ is the unit lattice and $\eta=L^{-j}$; Lie fields scale by $L^{-1}$, curvatures by $L^{-2}$, currents by $L^{-3}$ per step & Rem.~\Nref{rem:domain-constants}(i); Sect.~\Nref{subsec:flow-norm}\\
+$B(y)$, $B'(y)$ & block of $\Tf$ centred at $y\in\T$; block of $L^d$ points of $\T$ centred at $y\in\T'$ & Sect.~\Nref{ss:2.1}; Def.~\Nref{def:bonds}\\
+$M$, $M'$ & regularity scale and grid size; localization scale of the step & Def.~\Nref{def:regular}; Rem.~\Nref{rem:parameters}(4)\\
+grid cube $\Box$, polymer, $d_M$, $d_j$ & union of $M^4$ blocks; union of grid cubes; tree-length decay functional & Sect.~\Nref{subsec:flow-norm}, \Neqref{eq:dM-facts}\\
+\multicolumn{3}{@{}l}{\emph{Configurations and fields}}\\
+$V$, $V'$, $U_k(V)$ & coarse configuration of scale $k$, resp.\ $k+1$; background field (minimal orbit) & Thm~\Nref{thm:balaban}\\
+$W=V^0$, $U'$ & base configuration of the step; background of the $(k+1)$-step problem & Lemma~\Nref{lem:composition}\\
+$Z$ on $\mathfrak F$, $\hat Z(Z)$ & fluctuation variables on the bonds other than the $b_0(c)$; the field after elimination & Def.~\Nref{def:bonds}; Lemma~\Nref{lem:eliminate}\\
+$A_*(B)$, $A_*(s;B)$ & Landau representative of the background map; its weakened version & Thm~\Nref{thm:variational}(c); Thm~\Nref{thm:weak-bg}\\
+$s\in\mathbb D_\kappa$, $\xi$ & weakening parameters; white noise with cutoff $|\xi|_\infty\le p_0$ & Sect.~\Nref{sec:weakenable}; Sect.~\Nref{sec:cluster}\\
+$U_r$, $A'$, $\delta_c$ & real part of a complex reference, its complex part, and its size & Sect.~\Nref{sec:complex-references}\\
+\multicolumn{3}{@{}l}{\emph{Walks and tiers (Part~IX)}}\\
+$\kappa$, $\delta$ & weakening rate; loss of rate, $\delta$ per product and $2\delta$ per walk & Sect.~\Nref{sec:weakenable}; Rem.~\Nref{rem:parameters}(3)\\
+$\Lam^v_j$, $h_j$, $X(j)$ & the cube of side about $2\rho M$ around the grid point $z_j$; the partition of unity; the boxes meeting $(\Lam^v_j)^{(R_v)}$ & Sect.~\Nref{sec:weakenable}\\
+$\Sigma_w(X,X')$, $|\cdot|_{\gamma,\Sigma}$ & seam: the blocks within $w$ of $X\setminus X'$; seam norm & Sects~\Nref{sec:nested-walks}, \Nref{ss:41.1}\\
+tiers $\mathfrak n^t_y$ & five block norms of a field at a block $y$: $L^2$, $L^4$ and $L^8$ on $B(y)$ ($t=0,\frac12,1$), then $C^{0,\beta}$ and $C^{1,\beta}$ ($t=2,3$) & Sect.~\Nref{ss:44.1}; Def.~\Nref{def:tier}\\
+\multicolumn{3}{@{}l}{\emph{Domains and norms}}\\
+$\mathfrak U_k(h)$, $\mathfrak M$ & coarse configurations with curvature at most $h$; Ba\l aban's regular set & Def.~\Nref{def:curvature}; Sect.~\Nref{ss:32.2}\\
+$(M,\eps)$-regular & a gauge on each cube of size $4M+2$ with $A$, $\partial A$ and H\"older quotients at most $\eps$ & Def.~\Nref{def:regular}\\
+$\mathcal U(X;\theta_r,\delta_1,\delta_0)$, $\mathcal U^\flat$ & graded domain at $X$; the same with $\delta_1^\flat=\frac14\delta_1$ & Def.~\Nref{def:graded}; Sect.~\Nref{sec:generations}\\
+$\bar\delta$, $\eps_{\max}$, $\delta_P$, $C_{\rm cx}$ & cap on the size of complex references; regularity bound of the real parts of the domains; bound $\delta_c<\delta_P$ on the size of the complex references; change of the constants at complex references & Rem.~\Nref{rem:domain-constants}; Prop.~\Nref{prop:complex-ext}\\
+$c_a$, $\eps_a$, $\delta_a$ & size of the domains of the one-loop pieces; domain of a background activity & Prop.~\Nref{prop:one-loop-polymer}; Def.~\Nref{def:bg-activity}\\
+$|\cdot|_*$, $\|\cdot\|$, $\|\cdot\|_j$ & tier norm of the weakened map; sup norm on the graded domain; norm of a generation with weight $e^{\kappa_nd_j}$ & Sect.~\Nref{sec:weak-background}; Def.~\Nref{def:graded}; Def.~\Nref{def:generation}\\
+\multicolumn{3}{@{}l}{\emph{The flow}}\\
+$g_k$, $p_k$, $p_{0,k}$, $h_k$ & coupling; small-field and white-noise parameters $p(g_k)$, $p_0(g_k)$; threshold $h_k=p_kg_k$ & Sect.~\Nref{subsec:flow-parameters}\\
+$E^{(j)}$, $\beta_j$ & generation created at scale $j$; its coefficient $\beta_{E^{(j)}}$ & Def.~\Nref{def:generation}; Prop.~\Nref{prop:period-iso}\\
+$\bar T_E$ & period density of a generation & Def.~\Nref{def:period-density}\\
+$\mathcal E_k$, $E'$ & old activities of step $k$; raw new generation & Defs~\Nref{def:old-activities}, \Nref{def:raw-new}\\
+$\rho_k$ in generation form & $\mathcal Z_k\exp(-g_k^{-2}S-\eps_k|\T^{(k)}|+\sum_j(E^{(j)}-\beta_jS))$ & Def.~\Nref{def:gen-form}\\
+$\Gamma^{(1)}_k$, $\Gamma^{\rm step}_j$, $T_\Phi$ & one-loop term of the composite and of one step; marginal tensor & Sect.~\Nref{sec:ol-composite}; Def.~\Nref{def:marginal-tensor}\\
+\bottomrule
+\end{longtable}
+}
+Several symbols of the note have more than one meaning, and some have been renamed. The ledger lists both, with the names used in this volume, in Subsection~\ref{subsec:ledger-names}.
+
+\paragraph{Named conditions.} The note names lists of conditions by tags, which are used far from where they are stated. The tags of this table are the note's, except the last one.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.56\textwidth}>{\raggedright\arraybackslash}p{0.23\textwidth}@{}}
+\toprule
+tag & content & where\\
+\midrule\endhead
+(B) & a background close to $1$ in one global gauge: $|A|$, $|\partial A|$ and the H\"older quotients of $\partial A$ at most $\eps$ & Def.~\Nref{x:12.1}\\
+(A1)--(A11) & the properties of the averaging pair that the proofs of Parts~II--III use & Lemma~\Nref{lem:uniformity} and its proof\\
+(C1), (C2) & a covariant cutoff: invariance under real gauge transformations and under the lattice symmetries & Sect.~\Nref{ss:32.3}\\
+(DC1)--(DC6) & the conditions on the domain constants $\theta_r$, $\delta_1$, $\delta_0$, $c_a$ & Rem.~\Nref{rem:domain-constants}\\
+(W1)--(W3) & the hypotheses of the walk: structure of the operator, local propagators, non-local part & Sect.~\Nref{ss:41.2}\\
+(L1)--(L5) & the five levels of the walk: scalar operators, scalar averaged operators, gauge-field operators, averaged gauge operators and the Hessian, the fluctuation operator & Sect.~\Nref{ss:41.3}\\
+(I1)--(I4) & the interior estimates with $L^p$ data & Sect.~\Nref{sec:interior-lp}\\
+(Z1)--(Z3) & tier bounds for the scalar families of the walk & Lemma~\Nref{lem:lift}\\
+(N1)--(N3) & tier bounds for the middle factors of the non-local parts & Lemma~\Nref{lem:N-tier}\\
+(Q1)--(Q3) & the smallness conditions of the cluster expansion & Sect.~\Nref{sec:cluster}\\
+(G1), (G2), \dots & the properties of a generation & Def.~\Nref{def:generation}\\
+(T0)--(T2) & the hypotheses on the side of the torus at each step & Sect.~\Nref{subsec:tf-scales}\\
+($\Gamma$1)--($\Gamma$4) & the conditions on the bound $\gamma$ of the couplings & Rem.~\Nref{rem:flow-constants}\\
+(F1)--(F3) & the properties of the flow used in the ultraviolet limit & Sect.~\Nref{subsec:ol-flow-coeff}; Prop.~\Nref{prop:flow-F}\\
+(FS1)--(FS3) & conditions on the first step, in this volume only & Section~\ref{xb:sec}\\
+\bottomrule
+\end{longtable}
+}
+
+\subsection{The logical map}\label{subsec:guide-map}
+
+The three results that close the note's argument are Theorem~\Nref{thm:N} (the flow), Theorem~\Nref{thm:M}(iv), which is Theorem~\Nref{thm:ol-uv} (the ultraviolet limit), and Proposition~\Nref{prop:beta-identification} (the coefficients and Ba\l aban's $\beta$). The lists below give, for each, the results of the note cited in its statement and proof, and the chapter of this volume that expands them. The first level is complete; below it, the main results are named. The ledger (Section~\ref{sec:ledger}) checks the order of the constants for all of them.
+
+\paragraph{Theorem~\Nref{thm:N}.} It is Theorem~\Nref{thm:sf-flow} with Propositions~\Nref{prop:period-iso}, \Nref{prop:extraction}, \Nref{prop:flow-continuity} and Corollaries~\Nref{cor:bare-continuity}, \Nref{cor:sf-stability}.
+\begin{itemize}
+\item Theorem~\Nref{thm:sf-flow} rests on Theorems~\Nref{thm:gen-step} and~\Nref{thm:sf-step}, Propositions~\Nref{prop:gen-one}, \Nref{prop:old-activities}, \Nref{prop:first-step}, \Nref{prop:vacuum}, \Nref{prop:period-iso}, \Nref{prop:extraction}, \Nref{prop:flow-continuity}, \Nref{prop:localized-pieces}, \Nref{prop:pure-sources}, Corollary~\Nref{cor:bare-continuity}, Lemmas~\Nref{lem:torus}, \Nref{lem:large-later}, \Nref{lem:period-density}, and Definitions~\Nref{def:generation}, \Nref{def:gen-form}. [Part~X, both halves]
+\item Theorem~\Nref{thm:gen-step} rests on Theorem~\Nref{thm:sf-step}, Lemma~\Nref{lem:raw-new}, the symmetrization (Definition~\Nref{def:symmetrization}, Lemma~\Nref{lem:symmetrization}), Propositions~\Nref{prop:composed}, \Nref{prop:small-field-step}, Corollary~\Nref{cor:two-classes}, Theorem~\Nref{thm:step} and Lemma~\Nref{lem:composition}. [Part~X, both halves; Part~VII]
+\item Theorem~\Nref{thm:sf-step} (the step in polymer form) rests on Propositions~\Nref{prop:one-loop-polymer}, \Nref{prop:one-loop-local}, \Nref{prop:jacobians}, \Nref{prop:localized-pieces}, \Nref{prop:pure-sources}, Theorem~\Nref{thm:mayer}, Proposition~\Nref{prop:det-densities} and the complex references of Section~\Nref{sec:complex-references}. [Part~X, first half; Part~IX; Part~VII]
+\item Below these: Theorems~\Nref{thm:weak-bg}, \Nref{thm:tier-walk}, Proposition~\Nref{prop:nl-tiers}, Corollary~\Nref{cor:weak-covariance}, Theorem~\Nref{thm:weak-inverse} [Part~IX]; Theorem~\Nref{thm:ID}, Proposition~\Nref{prop:local-fluct}, Lemmas~\Nref{lem:coercive-general}, \Nref{lem:quadratic-bound}, Remark~\Nref{rem:domain-constants} [Part~VIII]; Theorem~\Nref{thm:step-coercive}, Corollary~\Nref{cor:covariance}, Propositions~\Nref{prop:coarse-action}, \Nref{prop:sharp-curvature}, Lemmas~\Nref{lem:eliminate}, \Nref{lem:exp-gauge} [Part~VII]; and from Parts~V--VI, Theorems~\Nref{thm:variational}, \Nref{thm:balaban} and Corollary~\Nref{cor:regularity}, imported where used.
+\end{itemize}
+
+\paragraph{Theorem~\Nref{thm:M}(iv) $=$ Theorem~\Nref{thm:ol-uv}.} It rests on Proposition~\Nref{prop:flow-F}, i.e.\ the properties (F1)--(F3), on Theorem~\Nref{thm:ol-cumulative} and on the flow of Section~\Nref{sec:flow4}.
+\begin{itemize}
+\item Proposition~\Nref{prop:flow-F} rests on Lemmas~\Nref{lem:OL}, \Nref{lem:period-vacpol}, \Nref{lem:ol-limits}, \Nref{lem:ol-symmetry}, \Nref{lem:period-density}, Definition~\Nref{def:marginal-tensor}, and on Lemma~\Nref{lem:raw-new}, Definition~\Nref{def:old-activities}, Propositions~\Nref{prop:old-activities}, \Nref{prop:flow-continuity}, Theorem~\Nref{thm:sf-flow}, Theorem~\Nref{thm:mayer}, Corollary~\Nref{cor:two-classes}, Propositions~\Nref{prop:pure-sources}, \Nref{prop:localized-pieces}, \Nref{prop:composed}, Lemmas~\Nref{lem:localization}, \Nref{lem:white-noise}, Theorem~\Nref{thm:weak-bg} and condition ($\Gamma$4). [Part~XI, second half; Part~X; Part~IX]
+\item Theorem~\Nref{thm:ol-cumulative} rests on Theorem~\Nref{thm:ol-log}, Proposition~\Nref{prop:ol-reduction}, Corollary~\Nref{cor:ol-cumulative}, Lemmas~\Nref{lem:ol-torus-limit}, \Nref{lem:ol-coarse-map}, \Nref{lem:ol-limits}, \Nref{lem:ol-symmetry} and~\Nref{lem:torus}. [Part~XI, both halves; Part~X]
+\item (F2) rests on the torus independence of the one-loop pieces: Proposition~\Nref{prop:one-loop-local}, Lemma~\Nref{lem:OL}, Section~\Nref{subsec:torus-independence}. [Part~IX; Part~XI, second half]
+\end{itemize}
+
+\paragraph{Proposition~\Nref{prop:beta-identification}.} It rests on Theorem~\Nref{thm:gen-locality} and Lemma~\Nref{lem:gl-limits} [Part~XI, second half], with Lemma~\Nref{lem:ol-folding} and Proposition~\Nref{prop:ol-IM} [Part~XI, first half], and on Lemmas~\Nref{lem:period-vacpol}, \Nref{lem:ol-limits}, \Nref{lem:ol-symmetry}, Definition~\Nref{def:marginal-tensor} [Part~XI], and Lemma~\Nref{lem:symmetrization}, Propositions~\Nref{prop:flow-continuity}, \Nref{prop:gen-one} and Theorem~\Nref{thm:gen-step} [Part~X, second half]. Theorem~\Nref{thm:M} does not use it: in the note it is cited only in introductory paragraphs and in remarks (Section~\Nref{sec:intro}, the introduction of Section~\Nref{sec:ol-uv}, Remark~\Nref{rem:ol-remains}(c), the introduction of Section~\Nref{sec:gen-locality}, and others), never in a proof.

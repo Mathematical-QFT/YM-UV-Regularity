@@ -1,0 +1,324 @@
+\section{Configurations and the nonlinear averaging}\label{sec:averaging}
+
+In Parts~I--III the averaging was linear. Ba\l aban's renormalization group uses a nonlinear block averaging of lattice gauge fields. It is defined one scale at a time, with blocks of $L^d$ points, and the $k$-step averaging is the composition of $k$ one-step averagings. We use the four-dimensional version \cite[(0.3)--(0.12)]{BalYM4I}, which is symmetric under the translations and the hyperoctahedral group of the coarse lattice. Its blocks are centred at the coarse points, and its contour variables are group averages over families of contours, one contour for each order of the coordinate directions. The earlier averaging of \cite{BalAvg}, with blocks that have the coarse point at a corner and a single ordered contour, is not symmetric \cite[p.~252]{BalYM4I}. This part develops the nonlinear input of the variational problem:
+\begin{itemize}
+\item the group average, the averaging and the regularity of averaged configurations (this section);
+\item the averaged axial gauge and the \emph{gauge-adapted averaging}, whose linearization is the averaging operator to which Parts~II and~III apply (Section~\ref{sec:adapted});
+\item the expansion of the Wilson action (Section~\ref{sec:action});
+\item the axial-to-Landau chart: every real configuration with small curvature and prescribed averages has a representative in Ba\l aban's Landau gauge relative to a regular reference configuration, with bounds (Section~\ref{sec:chart}).
+\end{itemize}
+Part~V uses these results to solve the variational problem relative to a regular reference configuration.
+
+\paragraph{Conventions for Parts IV and V.} Recall that $d=4$ and that $L\ge3$ is odd (Section~\ref{sec:setup}); we keep the letter $d$ in formulas. From now on constants may depend on $L$, in contrast to Parts~I--III. Unless stated otherwise, $C,c>0$ depend only on $d$, $L$, the group $G\subset U(\mathsf N)$, including the radius $c_G$ of its logarithm chart (defined below), the averaging parameter $a$ of Part~I, the H\"older exponent $\alpha$, and the integer $M\ge M_0$ of Part~III, which we fix once and for all; in Part~VI we also assume $M\ge5L$. The letter $a$ also denotes curvature bounds, as in the classes $\mathfrak U_j(a)$ of Definition~\ref{def:curvature}; there it is unrelated to the averaging parameter. The radius $r_M$ of the group average (Lemma~\ref{lem:group-average}) depends only on $G$. The smallness constants $c_1,c_2,c_3$ of Parts~IV and~V satisfy $c_3\le c_2\le c_1\le r_M/C$, with $C$ depending only on $G$; this makes all averaged contour variables used in Parts~IV--VI defined. The constants $c_1$ and $c_2$ do not depend on $L$, by the proofs of Lemmas~\ref{lem:one-step-regularity} and~\ref{lem:one-step-expansion}. The constant $c_3$ may depend on $L$, through the kernel bounds of Propositions~\ref{prop:Q-expansion}(c) and~\ref{prop:linearized-averages}(e). All Lie algebra valued fields are measured in the units of the unit lattice $\T$. A configuration on a lattice of spacing $\delta$ is written $X=e^{\ii\delta B}$, and $B$ is called its Lie field.
+
+\subsection{Scales, blocks and contour families}\label{ss:21.1}
+
+For $j=0,\dots,k$ let $\delta_j=L^j\eta$ and $\T^{(j)}=(\delta_j\Z/n\Z)^d$. Thus $\T^{(0)}=\Tf$, $\T^{(k)}=\T$, and $\T^{(j)}\subset\T^{(j-1)}$. For $j\ge1$ and $y\in\T^{(j)}$ the \emph{block}
+\[
+B_j(y)=\Big\{x\in\T^{(j-1)}:\ |x_\mu-y_\mu|\le\tfrac{L-1}2\,\delta_{j-1},\ \mu=1,\dots,d\Big\}
+\]
+is the cube of $L^d$ points of $\T^{(j-1)}$ centred at $y$ \cite[(0.3)]{BalYM4I}. Every integer $m$ has exactly one representation $m=Lq+r$ with $q\in\Z$ and $|r|\le\frac{L-1}2$. Hence the blocks $B_j(y)$, $y\in\T^{(j)}$, partition $\T^{(j-1)}$.
+
+The points of $\Tf$ in the scale-$j$ block of $y$ form $B^{(j)}(y)=\bigcup\{B_1(x_1):x_1\in B_2(x_2),\dots,x_{j-1}\in B_j(y)\}$. Every integer $m$ with $|m|\le\frac{L^j-1}2$ has exactly one representation $m=\sum_{i<j}m_iL^i$ with \emph{balanced digits} $|m_i|\le\frac{L-1}2$: the $L^j$ such sums are distinct, by reduction modulo $L$, and they lie in an interval of $L^j$ integers. Applied in each coordinate to $(x_\mu-y_\mu)/\eta$, this shows
+\[
+B^{(j)}(y)=\Big\{x\in\Tf:\ |x_\mu-y_\mu|\le\tfrac{\delta_j-\eta}2,\ \mu=1,\dots,d\Big\},
+\]
+and that every $x\in B^{(j)}(y)$ lies in exactly one chain $x=x_0\in B_1(x_1)$, $x_1\in B_2(x_2)$, \dots, $x_{j-1}\in B_j(y)$. So the centred blocks of all scales are nested: $B^{(j)}(y)$ is the disjoint union of the $B^{(j-1)}(x)$, $x\in B_j(y)$. In particular $B^{(k)}(y)=B(y)$ is the block of Part~I.
+
+\begin{definition}[Contour families {\cite[p.~252]{BalYM4I}}]\label{def:families}
+Let $j\ge1$, $y\in\T^{(j)}$ and $x\in B_j(y)$, and write $x-y=\delta_{j-1}\sum_\mu n_\mu e_\mu$ with $|n_\mu|\le\frac{L-1}2$. Let $S=\{\mu:n_\mu\ne0\}$ and $s=|S|$. For an order $\pi=(\pi(1),\dots,\pi(s))$ of $S$ let $\Gamma_\pi$ be the contour on $\T^{(j-1)}$ that starts at $y$, takes $|n_{\pi(1)}|$ steps in the direction $\operatorname{sgn}(n_{\pi(1)})e_{\pi(1)}$, then $|n_{\pi(2)}|$ steps in the direction $\operatorname{sgn}(n_{\pi(2)})e_{\pi(2)}$, and so on. The \emph{contour family} of $(y,x)$ is
+\[
+G(y,x)=\{\Gamma_\pi:\ \pi\text{ an order of }S\}.
+\]
+For $x=y$ it consists of the empty contour.
+\end{definition}
+
+The family $G(y,x)$ has $s!\le d!=24$ elements. Each of them has $\sum_\mu|n_\mu|\le2(L-1)$ bonds and lies in the box spanned by $y$ and $x$, i.e.\ in $\{z:z_\mu\text{ between }y_\mu\text{ and }x_\mu\}\subset B_j(y)$. If $s\le1$, $G(y,x)$ consists of the straight contour from $y$ to $x$. The family is not, in general, the family of all shortest contours from $y$ to $x$.
+
+\paragraph{Lattice symmetries.} For $0\le j\le k$ let $\mathfrak S_j$ be the group of the maps $r(x)=Rx+v$ of $\Tf$ with $R\in B_4$ and $v\in\T^{(j)}$; for $j=k$ this is the group $\mathfrak S_k$ of Section~\ref{sec:setup}, and $\mathfrak S_k\subset\mathfrak S_j$. Every $r\in\mathfrak S_j$ maps $\T^{(i)}$ onto itself and $B_i(y)$ onto $B_i(ry)$, for $i\le j$ and $y\in\T^{(i)}$, because the blocks are cubes centred at the points of $\T^{(i)}$. It maps coordinate-ordered contours to coordinate-ordered contours, with the order of the directions permuted. Since $G(y,x)$ contains all orders,
+\[
+rG(y,x)=G(ry,rx),\qquad r\in\mathfrak S_j,\ y\in\T^{(i)},\ x\in B_i(y),\ 1\le i\le j.
+\]
+Likewise $G(y+v,x+v)=G(y,x)+v$ for $v\in\T^{(i)}$.
+For configurations and functions on $\T^{(i)}$ we put $(rY)(b)=Y(r^{-1}b)$ and $(rg)(x)=g(r^{-1}x)$. Here $r^{-1}b=(r^{-1}b_-,r^{-1}b_+)$ may be negatively oriented, and $Y(-b)=Y(b)^{-1}$. Then $(rY)(\Gamma)=Y(r^{-1}\Gamma)$ and $(rY)^{rg}=r(Y^g)$.
+
+\subsection{Configurations, curvature and lattice Stokes}\label{ss:21.2}
+
+A \emph{configuration} on $\T^{(j)}$ assigns $Y(b)\in G^c$ to the oriented bonds, with $Y(-b)=Y(b)^{-1}$. It is \emph{real} if it is $G$-valued. Products along contours are written $Y(\Gamma)$. A gauge transformation $g:\T^{(j)}\to G^c$ acts by $Y^g(b)=g(b_-)Y(b)g(b_+)^{-1}$, so that $Y^g(\Gamma)=g(\Gamma_-)Y(\Gamma)g(\Gamma_+)^{-1}$.
+
+For a matrix $h$ with $|h-1|<1$ let $\ell(h)=-\ii\log h$ be the principal logarithm, defined by the power series, so that $e^{\ii\ell(h)}=h$. Norms of matrices are Hilbert--Schmidt norms, as in Part~II, and $\|u\|$ denotes the operator norm. For $u\in G^c$ put $\kappa(u)=\|u\|\|u^{-1}\|$; then $|uZu^{-1}|\le\kappa(u)|Z|$, and $\kappa(u)=1$ for $u\in G$. We fix $c_G\in(0,\frac14]$ so small that $\ell$ maps $\{g\in G:|g-1|\le c_G\}$ into $\mathfrak g$, and $\{g\in G^c:|g-1|\le c_G\}$ into $\mathfrak g^c$; all group elements below satisfy such a bound. The radius $c_G$ depends on the group $G\subset U(\mathsf N)$, not only on $\mathsf N$. For $m\ge7$ the circle $G_m=\{\operatorname{diag}(e^{\ii t},e^{\ii mt}):t\in\R\}\subset U(2)$ contains $g=\operatorname{diag}(e^{2\pi\ii/m},1)$, with $|g-1|=2\sin(\pi/m)<1$ and $\ell(g)=\operatorname{diag}(2\pi/m,0)\notin\mathfrak g_m=\{\operatorname{diag}(s,ms):s\in\R\}$. So every threshold below $c_G$ depends on $G$, including the radius $c_G$ of its logarithm chart, and not only on $\mathsf N$.
+
+\begin{lemma}[Elementary estimates]\label{lem:log-estimates}
+There is $C$, depending only on $\mathsf N$, such that:
+\begin{enumerate}[label=(\alph*)]
+\item For $|X|\le\frac12$: $|e^{\ii X}-1|\le2|X|$. For $|h-1|\le\frac12$: $|\ell(h)|\le2|h-1|$.
+\item For $G$-valued $g_1,\dots,g_m$ with $\sum_i|\ell(g_i)|\le c_G$: $|\ell(g_1\cdots g_m)|\le\sum_i|\ell(g_i)|$. Moreover $\ell(hgh^{-1})=h\ell(g)h^{-1}$ and $\ell(g^{-1})=-\ell(g)$.
+\item For $X_1,\dots,X_m\in\mathfrak g^c$ with $s=\sum_i|X_i|\le\frac14$: $\ell(e^{\ii X_1}\cdots e^{\ii X_m})=\sum_iX_i+\beta$, where $\beta$ is an analytic function of the $X_i$ with $|\beta|\le Cs^2$.
+\item For $X\in\mathfrak g^c$ with $|X|<\log2$: $\ell(e^{\ii X})=X$. For $h,u\in G^c$ with $|h-1|\le\frac14$ and $|uhu^{-1}-1|\le\frac12$: $\ell(uhu^{-1})=u\,\ell(h)\,u^{-1}$ and $\ell(h^{-1})=-\ell(h)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) and (c) follow from the power series of $\exp$ and $\log$; (c) is the Baker--Campbell--Hausdorff formula with the elementary bound on its remainder \cite[(30)]{BalAvg}. For (b), the Hilbert--Schmidt inner product defines a bi-invariant Riemannian metric on $U(\mathsf N)$, and the distance from $1$ to $g$ is $|\ell(g)|$ when this is smaller than $\pi$. The triangle inequality and bi-invariance give $\operatorname{dist}(1,g_1\cdots g_m)\le\sum_i\operatorname{dist}(1,g_i)$. (d) For $|X|<\log2$ the power series of $\log(1+w)$ converges absolutely at $w=e^{\ii X}-1$, since $|w|\le e^{|X|}-1<1$. So $\ell(e^{\ii X})$ is a convergent power series in the single matrix $X$, whose coefficients are those of the scalar identity $-\ii\log e^{\ii z}=z$. Next, $(uhu^{-1}-1)^m=u(h-1)^mu^{-1}$, and both power series converge. Finally $|\ell(h)|\le\frac12<\log2$ by (a), and $h^{-1}=e^{-\ii\ell(h)}$, so $\ell(h^{-1})=-\ell(h)$.
+\end{proof}
+
+A closed contour $\Gamma$ based at $z$ is \emph{spanned by $m$ plaquettes} if, in the groupoid of contours (with backtracking cancelled), $\Gamma=\prod_{i=1}^m\gamma_i(\partial p_i)^{\pm1}\gamma_i^{-1}$ for plaquettes $p_i$ and contours $\gamma_i$ from $z$ to the base point of $p_i$. Then $Y(\Gamma)=\prod_iY(\gamma_i)Y(\partial p_i)^{\pm1}Y(\gamma_i)^{-1}$ for every configuration $Y$. Fix an order of the $d$ directions. A contour from $z$ to $x$ is \emph{coordinate-ordered} (for this order) if it changes the coordinates one after the other in this order, each one monotonically, as the contours of Definition~\ref{def:families}.
+
+\begin{lemma}[Lattice Stokes]\label{lem:stokes}
+Let $Y$ be real and let $\Gamma$ be spanned by $p_1,\dots,p_m$ with $\sum_i|\ell(Y(\partial p_i))|\le c_G$. Then $|\ell(Y(\Gamma))|\le\sum_i|\ell(Y(\partial p_i))|$. On a lattice of spacing $\delta$:
+\begin{enumerate}[label=(\roman*)]
+\item let $\Gamma,\Gamma'$ be coordinate-ordered contours from $z$ to $x=z+\delta\sum_\kappa n_\kappa e_\kappa$, for two orders that differ by the exchange of two consecutive directions $\mu,\nu$; then $\Gamma\Gamma'^{-1}$ is spanned by $|n_\mu||n_\nu|$ plaquettes of the box spanned by $z$ and $x$;
+\item let $\Gamma,\Gamma'$ be the coordinate-ordered contours, for the same order, from a point $z$ to neighbouring points $x$ and $x'$; then the loop $\Gamma\cup[x,x']\cup\Gamma'^{-1}$ is spanned by at most $m$ plaquettes, where $m$ is the number of bonds of $\Gamma$;
+\item a closed contour of $m$ bonds contained in a box of side $s$ lattice spacings, at most half the side of the torus, is spanned by at most $dsm$ plaquettes.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+The bound follows from Lemma~\ref{lem:log-estimates}(b). (i) The two contours agree before and after their segments in the directions $\mu,\nu$. In between they run along the two pairs of sides of a rectangle of $|n_\mu|\times|n_\nu|$ plaquettes. (ii) Let $x'=x\pm\delta e_\nu$. The two contours agree up to their segments in the direction $\nu$. These start at the same point, and one of them is the other followed by one bond parallel to $[x,x']$. After them the contours run parallel at distance $\delta$, through the remaining bonds of $\Gamma$, and the strip between them consists of at most $m$ plaquettes. (iii) Join every vertex of the contour to its first vertex by the coordinate-ordered path inside the box. Each bond of the contour, together with the two paths to its endpoints, bounds a surface of at most $ds$ plaquettes.
+\end{proof}
+
+\begin{definition}[Curvature and regularity classes]\label{def:curvature}
+For a plaquette $p=p_{\mu\nu}(x)$, $\mu<\nu$, of $\T^{(j)}$ write $Y(\partial p)=Y(b_1)Y(b_2)Y(b_3)^{-1}Y(b_4)^{-1}$ with $b_1=(x,x+\delta_je_\mu)$, $b_2=(x+\delta_je_\mu,x+\delta_je_\mu+\delta_je_\nu)$, $b_3=(x+\delta_je_\nu,x+\delta_je_\mu+\delta_je_\nu)$, $b_4=(x,x+\delta_je_\nu)$. If $|Y(\partial p)-1|\le c_G$, the \emph{curvature} is $F_Y(p)=\delta_j^{-2}\ell(Y(\partial p))$. For $a>0$ let $\mathfrak U_j(a)$ be the set of real configurations on $\T^{(j)}$ with $|F_Y(p)|\le a$ for all plaquettes.
+\end{definition}
+
+The curvature transforms by $F_{Y^g}(p)=g(x)F_Y(p)g(x)^{-1}$, so $\mathfrak U_j(a)$ is invariant under real gauge transformations; it is also invariant under $\mathfrak S_j$. The bound $|F_Y|\le a$ is Ba\l aban's condition $|Y(\partial p)-1|\le a\delta_j^2$ up to a factor $1+O(a\delta_j^2)$ \cite[(1.7)]{BalReg}. In unit-lattice units it says that the field strength is at most $a$. For fine configurations we add a condition on the current in Section~\ref{sec:action}.
+
+\subsection{The group average}\label{ss:21.3}
+
+For $n\ge1$ and a family $\mathbf U=(U_1,\dots,U_n)\in(G^c)^n$ put
+\[
+\operatorname{diam}\mathbf U=\max_{i,i'}|U_iU_{i'}^{-1}-1|,\qquad\cD_r=\{\mathbf U:\operatorname{diam}\mathbf U<r\}.
+\]
+The set $\cD_r$ is invariant under permutations and under right multiplication $U_i\mapsto U_iv$ by any $v\in G^c$, and $\operatorname{diam}(u\mathbf Uv)\le\kappa(u)\operatorname{diam}\mathbf U$ for $u,v\in G^c$. In particular $\cD_r$ is invariant under left multiplication by $G$. Let $\mathfrak f(\operatorname{ad}H)$ denote the derivative of $Z\mapsto\ell(e^{\ii Z}e^{\ii H})$ at $Z=0$. The function $\mathfrak f$, which is $z\mapsto\ii z/(e^{\ii z}-1)$, is analytic for $|z|<2\pi$, with $\mathfrak f(0)=1$; it is used only for $\|\operatorname{ad}H\|\le2|H|$ small, where $|\mathfrak f(\operatorname{ad}H)-1|\le C|H|$.
+
+\begin{lemma}[Group average]\label{lem:group-average}
+There are $r_M\in(0,\frac14c_G]$ and $C_M\ge1$, depending only on $\mathsf N$ and $c_G$, such that the following holds for every $n\ge1$.
+\begin{enumerate}[label=(\alph*)]
+\item \emph{(Existence and uniqueness.)} For $\mathbf U\in\cD_{r_M}$ the equation
+\begin{equation}\label{eq:group-average}
+\sum_{i=1}^n\ell\big(U_iU^{-1}\big)=0
+\end{equation}
+has exactly one solution $U\in G^c$ with $\max_i|U_iU^{-1}-1|\le32r_M$. We call it the \emph{group average} $\Av(\mathbf U)=\Av(\{U_i\})$. It satisfies $\max_i|\ell(U_i\Av(\mathbf U)^{-1})|\le8\operatorname{diam}\mathbf U$, and $|\ell(\Av(\mathbf U)U_m^{-1})|\le2\max_i|\ell(U_iU_m^{-1})|$ for every $m$. The map $\Av$ is holomorphic on $\cD_{r_M}$.
+\item \emph{(Symmetries.)}
+  \begin{itemize}
+  \item $\Av$ is invariant under permutations of the $U_i$, and $\Av(\{U,\dots,U\})=U$.
+  \item If all $U_i$ lie in $G$, then $\Av(\mathbf U)\in G$.
+  \item $\Av(\{uU_iv\})=u\,\Av(\mathbf U)\,v$ for $\mathbf U\in\cD_{r_M}$, $u\in G$ and $v\in G^c$.
+  \item $\Av(\{uU_iv\})=u\,\Av(\mathbf U)\,v$ for $\mathbf U\in\cD_{r_M/2}$, $v\in G^c$ and $u\in G^c$ with $\kappa(u)\le2$. Here $u\mathbf Uv\in\cD_{r_M}$.
+  \item $\Av(\{U_i^{-1}\})=\Av(\mathbf U)^{-1}$, with $\{U_i^{-1}\}\in\cD_{r_M}$, if $\mathbf U\in\cD_{r_M}$ is real, or if $\mathbf U\in\cD_{r_M/8}$ and $\kappa(\Av(\mathbf U))\le2$.
+  \end{itemize}
+\item \emph{(Expansion.)} For $Z_1,\dots,Z_n\in\mathfrak g^c$ with $\max_i|Z_i|\le r_M/8$,
+\[
+\ell\,\Av(\{e^{\ii Z_i}\})=\frac1n\sum_iZ_i+\mathfrak r(Z),
+\]
+with $\mathfrak r$ holomorphic and $|\mathfrak r(Z)|\le C_M\max_i|Z_i|^2$.
+\item \emph{(Weights.)} Let $\mathbf U\in\cD_{r_M/2}$ and $H_i=\ell(U_i\Av(\mathbf U)^{-1})$. For $Z_1,\dots,Z_n\in\mathfrak g^c$,
+\[
+\frac{d}{ds}\Big|_{s=0}\ell\big(\Av(\{e^{\ii sZ_i}U_i\})\,\Av(\mathbf U)^{-1}\big)=\sum_i\omega_iZ_i,\qquad\omega_i=\Big(\sum_m\mathfrak f(\operatorname{ad}H_m)\Big)^{-1}\mathfrak f(\operatorname{ad}H_i).
+\]
+The weights $\omega_i$ are linear maps of $\mathfrak g^c$ with $\sum_i\omega_i=I$ and $|\omega_i-\frac1nI|\le\frac{C_M}n\max_m|H_m|$. They are holomorphic in $\mathbf U$, and for real $\mathbf U$ they map $\mathfrak g$ into $\mathfrak g$.
+\item \emph{(Lipschitz bound.)} For $\mathbf U\in\cD_{r_M/2}$ and $\xi_1,\dots,\xi_n\in\mathfrak g^c$ with $\max_i|\xi_i|\le r_M/16$,
+\[
+\big|\ell\big(\Av(\{e^{\ii\xi_i}U_i\})\,\Av(\mathbf U)^{-1}\big)\big|\le C_M\max_i|\xi_i| .
+\]
+\end{enumerate}
+\end{lemma}
+
+This is the average of \cite[(0.10)]{BalYM4I}. Ba\l aban defines averages by the properties (0.5)--(0.9) of \cite{BalYM4I}, which are part~(b) and the first-order part of~(c), and attributes the definition by \eqref{eq:group-average} to Federbush \cite{Fed}. For real families, \eqref{eq:group-average} says that $U$ is a critical point of $U\mapsto\sum_i|\ell(U_iU^{-1})|^2$, i.e.\ $\Av$ is the Riemannian centre of mass for the bi-invariant metric of Lemma~\ref{lem:log-estimates}(b); we do not use this. Two-sided equivariance holds with complex $u$ only up to the distortion $\kappa(u)$ of the domain. This is enough for the gauge transformations used below, which are real or close to $1$.
+
+\begin{proof}
+For $Z,Y\in\mathfrak g^c$ with $|Z|+|Y|\le\frac12c_G$ put $\beta(Z,Y)=\ell(e^{\ii Z}e^{-\ii Y})-Z+Y$. Since $|e^{\ii Z}e^{-\ii Y}-1|\le e^{c_G/2}-1\le c_G$, $\beta$ takes values in $\mathfrak g^c$, and in $\mathfrak g$ if $Z,Y\in\mathfrak g$. By Lemma~\ref{lem:log-estimates}(c), $\beta$ is holomorphic with $|\beta(Z,Y)|\le C_0(|Z|+|Y|)^2$. It vanishes to second order at $0$, so the Cauchy estimates give $|\partial_Y\beta(Z,Y)|\le C_0'(|Z|+|Y|)$ for $|Z|+|Y|\le\frac14c_G$, where $\partial_Y$ is the derivative in $Y$. Fix $\rho_0\le\frac1{20}c_G$ with $25C_0\rho_0\le1$ and $10C_0'\rho_0\le1$, and put $r_M=\rho_0/32$.
+
+\emph{Step 1: a fixed point.} Let $V\in G^c$ and $Z_1,\dots,Z_n\in\mathfrak g^c$ with $m=\max_i|Z_i|\le\rho_0$, and let $U_i=e^{\ii Z_i}V$. For $U=e^{\ii Y}V$ we have $U_iU^{-1}=e^{\ii Z_i}e^{-\ii Y}$. So, for $|Y|\le4\rho_0$, $U$ solves \eqref{eq:group-average} if and only if $Y=T(Y)$, where
+\[
+T(Y)=\frac1n\sum_iZ_i+\frac1n\sum_i\beta(Z_i,Y).
+\]
+On the ball $\{|Y|\le4\rho_0\}$ we have $|Z_i|+|Y|\le5\rho_0\le\frac14c_G$, hence $|T(Y)|\le\rho_0+25C_0\rho_0^2\le2\rho_0$ and $|T(Y)-T(Y')|\le5C_0'\rho_0|Y-Y'|\le\frac12|Y-Y'|$. So $T$ has exactly one fixed point $Y_*$ in this ball. It is the uniform limit of the iterates $T^p(0)$, which are holomorphic in $(Z_i)$, and which lie in $\mathfrak g$ if all $Z_i\in\mathfrak g$. Hence $Y_*$ is holomorphic in $(Z_i)$, and lies in $\mathfrak g$ in that case. Moreover $|Y_*|\le|T(Y_*)-T(0)|+|T(0)|\le\frac12|Y_*|+m+C_0m^2$, so $|Y_*|\le3m$. Inserting this into the definition of $T$ gives $|Y_*|\le m+16C_0m^2\le2m$, $|Y_*-\frac1n\sum_iZ_i|\le16C_0m^2$, and
+\[
+|\ell(U_iU_*^{-1})|=|Z_i-Y_*+\beta(Z_i,Y_*)|\le3m+9C_0m^2\le4m,\qquad U_*=e^{\ii Y_*}V .
+\]
+
+\emph{(a).} Let $\mathbf U\in\cD_{r_M}$, fix $m_0$, and apply Step~1 with $V=U_{m_0}$ and $Z_i=\ell(U_iU_{m_0}^{-1})$. By Lemma~\ref{lem:log-estimates}(a), $m\le2\operatorname{diam}\mathbf U<2r_M\le\rho_0$. This gives a solution $U_*=e^{\ii Y_*}U_{m_0}$ with $|\ell(U_*U_{m_0}^{-1})|=|Y_*|\le2m$, $|\ell(U_iU_*^{-1})|\le4m\le8\operatorname{diam}\mathbf U$, and hence $|U_iU_*^{-1}-1|\le16\operatorname{diam}\mathbf U<32r_M$. Conversely, let $U\in G^c$ be a solution with $\max_i|U_iU^{-1}-1|\le32r_M=\rho_0$. Then $h=U_{m_0}U^{-1}$ satisfies $|h-1|\le\rho_0$, and $Y=-\ell(h)$ satisfies $e^{\ii Y}=h^{-1}=UU_{m_0}^{-1}$ and $|Y|\le2\rho_0$. So $Y$ is a fixed point of $T$ in the ball, and $U=U_*$. This proves uniqueness. In particular $U_*$ does not depend on $m_0$, which gives the bound on $\ell(\Av(\mathbf U)U_m^{-1})$. With $m_0=1$, $\Av(\mathbf U)=e^{\ii Y_*}U_1$ is holomorphic, since $Z_i=\ell(U_iU_1^{-1})$ is.
+
+\emph{(b).} Permutation invariance holds because \eqref{eq:group-average}, the neighbourhood $\{\max_i|U_iU^{-1}-1|\le32r_M\}$ and $\cD_{r_M}$ are symmetric. The constant family is solved by $U$. For real $\mathbf U$ all $Z_i$ lie in $\mathfrak g$, so $Y_*\in\mathfrak g$ and $\Av(\mathbf U)\in G$. For $v\in G^c$, $U\mapsto Uv$ maps the solutions for $\mathbf U$ to those for $\{U_iv\}$, and preserves the neighbourhood, since $(U_iv)(Uv)^{-1}=U_iU^{-1}$. For $u\in G^c$, $(uU_i)(uU)^{-1}=uh_iu^{-1}$ with $h_i=U_iU^{-1}$. If $u\in G$, then $|uh_iu^{-1}-1|=|h_i-1|$ and $\ell(uh_iu^{-1})=u\ell(h_i)u^{-1}$, so $u\Av(\mathbf U)$ solves \eqref{eq:group-average} for $u\mathbf U$ and lies in the neighbourhood. If $\kappa(u)\le2$ and $\mathbf U\in\cD_{r_M/2}$, then $\operatorname{diam}(u\mathbf U)<r_M$, and for $U=\Av(\mathbf U)$ we have $|h_i-1|\le16\operatorname{diam}\mathbf U<8r_M$ and $|uh_iu^{-1}-1|<16r_M$. By Lemma~\ref{lem:log-estimates}(d), $\ell(uh_iu^{-1})=u\ell(h_i)u^{-1}$, so again $u\Av(\mathbf U)$ is the solution in the neighbourhood.
+
+For the inverses let $\Av=\Av(\mathbf U)$ and $h_i=U_i\Av^{-1}$. Then $U_i^{-1}\Av=\Av^{-1}h_i^{-1}\Av$ and $U_i^{-1}U_{i'}=\Av^{-1}h_i^{-1}(U_{i'}U_i^{-1})h_i\Av$. If $\mathbf U$ is real, all these matrices are unitary, so $\operatorname{diam}\{U_i^{-1}\}=\operatorname{diam}\mathbf U$ and $|U_i^{-1}\Av-1|=|h_i-1|$. If $\mathbf U\in\cD_{r_M/8}$ and $\kappa(\Av)\le2$, then $|h_i-1|\le2r_M$, $|h_i^{-1}-1|\le3r_M$, and therefore $|U_i^{-1}\Av-1|\le6r_M$ and $\operatorname{diam}\{U_i^{-1}\}\le2(1+2r_M)(1+3r_M)\operatorname{diam}\mathbf U<r_M$. In both cases Lemma~\ref{lem:log-estimates}(d) gives $\ell(U_i^{-1}\Av)=\Av^{-1}\ell(h_i^{-1})\Av=-\Av^{-1}\ell(h_i)\Av$. Summing over $i$, $\Av^{-1}$ solves \eqref{eq:group-average} for $\{U_i^{-1}\}$, and it lies in the neighbourhood. So $\Av(\{U_i^{-1}\})=\Av^{-1}$.
+
+\emph{(c).} Apply Step~1 with $V=1$, so that $U_*=e^{\ii Y_*}$ solves \eqref{eq:group-average} for $\{e^{\ii Z_i}\}$, with $m\le r_M/8$. By Lemma~\ref{lem:log-estimates}(a),(c) the family has diameter at most $5m<r_M$, and $|e^{\ii Z_i}U_*^{-1}-1|\le8m<32r_M$. So $\Av(\{e^{\ii Z_i}\})=e^{\ii Y_*}$, and $\ell \Av(\{e^{\ii Z_i}\})=Y_*$ by Lemma~\ref{lem:log-estimates}(d). The bound on $\mathfrak r=Y_*-\frac1n\sum_iZ_i$ is that of Step~1.
+
+\emph{(d).} Let $\Av=\Av(\mathbf U)$. Then $|H_i|\le8\operatorname{diam}\mathbf U<4r_M$, and $\sum_iH_i=0$ by \eqref{eq:group-average}. For small complex $s$ the family $\{e^{\ii sZ_i}U_i\}$ lies in $\cD_{r_M}$, and by (a) and (b), $Y(s)=\ell(\Av(\{e^{\ii sZ_i}U_i\})\Av^{-1})$ is holomorphic, with $Y(0)=0$ and $e^{\ii Y(s)}=\Av(\{e^{\ii sZ_i}e^{\ii H_i}\})$. Now $e^{\ii sZ_i}e^{\ii H_i}e^{-\ii Y(s)}=e^{\ii sZ_i}e^{-\ii R(e^{\ii H_i})Y(s)}e^{\ii H_i}$, and $R(e^{\ii H})=e^{\ii\operatorname{ad}H}$. Differentiating \eqref{eq:group-average} at $s=0$ therefore gives
+\[
+\sum_i\mathfrak f(\operatorname{ad}H_i)\big(Z_i-e^{\ii\operatorname{ad}H_i}Y'(0)\big)=0 .
+\]
+Since $\mathfrak f(z)(e^{\ii z}-1)=\ii z$ and $\sum_iH_i=0$, we have $\sum_i\mathfrak f(\operatorname{ad}H_i)e^{\ii\operatorname{ad}H_i}=\sum_i\mathfrak f(\operatorname{ad}H_i)+\ii\operatorname{ad}\big(\sum_iH_i\big)=\sum_i\mathfrak f(\operatorname{ad}H_i)$. This operator is $n(1+O(r_M))$, hence invertible, and $Y'(0)=\sum_i\omega_iZ_i$. The identity $\sum_i\omega_i=I$ is clear. Since $|\mathfrak f(\operatorname{ad}H)-1|\le C|H|$, we get $|(\frac1n\sum_m\mathfrak f(\operatorname{ad}H_m))^{-1}-1|\le C\max|H_m|$, and hence the bound on $\omega_i-\frac1nI$. The weights are holomorphic because the $H_i$ are. For real $\mathbf U$ the $H_i$ lie in $\mathfrak g$. Then $\mathfrak f(\operatorname{ad}H)=\phi(\ii\operatorname{ad}H)$ with $\phi(w)=w/(e^w-1)$, which has real Taylor coefficients, and $\ii\operatorname{ad}H$ maps $\mathfrak g$ into $\mathfrak g$.
+
+\emph{(e).} Let $x=\max_i|\xi_i|$, $\Av=\Av(\mathbf U)$, and $\mathbf V_t=\{e^{\ii t\xi_i}U_i\}$ for $t\in\C$ with $|t|\le r_M/(16x)$. Then $|e^{\ii t\xi_i}-1|\le\frac18r_M$, so $\operatorname{diam}\mathbf V_t\le\frac34r_M+Cr_M^2<r_M$. By (a), $f(t)=\ell(\Av(\mathbf V_t)\Av^{-1})$ is holomorphic, with $f(0)=0$. Write $\Av(\mathbf V_t)\Av^{-1}=[\Av(\mathbf V_t)V_{t,1}^{-1}][V_{t,1}\Av^{-1}]$, where $V_{t,1}=e^{\ii t\xi_1}U_1$. By (a) the first factor has logarithm of size at most $4\operatorname{diam}\mathbf V_t\le4r_M$, and the second is $e^{\ii t\xi_1}e^{\ii H_1}$, with logarithm of size at most $\frac1{16}r_M+4r_M+Cr_M^2$. Hence $|f|\le9r_M$, and the Schwarz lemma gives $|f(1)|\le9r_M\cdot16x/r_M=144x$.
+\end{proof}
+
+\subsection{Averaged contour variables and averaged loops}\label{ss:21.4}
+
+\begin{definition}[Averaged contour variables {\cite[(0.11)]{BalYM4I}}]\label{def:avg-contour}
+Let $Y$ be a configuration on $\T^{(j-1)}$, $y\in\T^{(j)}$ and $x\in B_j(y)$. If the family $\{Y(\Gamma)\}_{\Gamma\in G(y,x)}$ lies in $\cD_{r_M}$, the \emph{averaged contour variable} is
+\[
+Y(y,x)=\Av\big(\{Y(\Gamma)\}_{\Gamma\in G(y,x)}\big),\qquad\text{and we put}\quad Y(x,y)=Y(y,x)^{-1}.
+\]
+For a bond $c$ of $\T^{(j)}$, of either orientation, and $x\in B_j(c_-)$ put $x(c)=x+c_+-c_-\in B_j(c_+)$. Let $[x,x(c)]$ be the straight contour of $L$ bonds of $\T^{(j-1)}$ from $x$ to $x(c)$, and $[c]=[c_-,c_+]$. The \emph{averaged loops} are
+\[
+\Lambda_{c,x}(Y)=Y(c_-,x)\,Y([x,x(c)])\,Y(x(c),c_+)\,Y([c])^{-1},\qquad x\in B_j(c_-).
+\]
+\end{definition}
+
+We have $Y(y,y)=1$. If $x-y$ is parallel to a coordinate axis, $Y(y,x)=Y([y,x])$; in particular $Y(y,x)=Y(b)$ for a bond $b=(y,x)$, so the notation is consistent. If $x$ lies on the axis of $c$, i.e.\ $x=c_-+m\delta_{j-1}e$ with $c_+-c_-=\delta_je$, then $\Lambda_{c,x}(Y)=1$, since $[c_-,x][x,x(c)][x(c),c_+]=[c]$ in the groupoid of contours. The averaged loop $\Lambda_{c,x}(Y)$ is based at $c_-$, but it is not the holonomy of a single closed contour. Averaged contour variables are not multiplicative under concatenation. The only products of them used below are the averaged loops, which are products by definition.
+
+The averaged contour variables inherit the symmetries of $\Av$. For a gauge transformation $g$ on $\T^{(j-1)}$ we have $Y^g(\Gamma)=g(y)Y(\Gamma)g(x)^{-1}$ for $\Gamma\in G(y,x)$. By Lemma~\ref{lem:group-average}(b),
+\begin{equation}\label{eq:avg-contour-gauge}
+Y^g(y,x)=g(y)\,Y(y,x)\,g(x)^{-1},
+\end{equation}
+for real $g$ whenever $Y(y,x)$ is defined, and for $G^c$-valued $g$ with $\kappa(g(y))\le2$ if the family of $Y$ lies in $\cD_{r_M/2}$. For $r\in\mathfrak S_j$, $(rY)(\Gamma)=Y(r^{-1}\Gamma)$ and $r^{-1}G(y,x)=G(r^{-1}y,r^{-1}x)$, so by permutation invariance $(rY)(y,x)=Y(r^{-1}y,r^{-1}x)$, and both are defined together. Moreover $Y(y,x)$ is real for real $Y$, and depends only on $Y$ on the bonds of the box spanned by $y$ and $x$.
+
+\begin{lemma}[Stokes bounds for averaged contour variables]\label{lem:stokes-avg}
+Let $Y$ be a real configuration on $\T^{(j-1)}$, and let $\eps>0$ with $8L^2\eps\le r_M$.
+\begin{enumerate}[label=(\roman*)]
+\item Let $y\in\T^{(j)}$, and suppose that $|\ell(Y(\partial p))|\le\eps$ for all plaquettes $p$ with corners in $B_j(y)$. Let $x\in B_j(y)$. For $\Gamma,\Gamma'\in G(y,x)$ the loop $\Gamma\Gamma'^{-1}$ is spanned by at most $\frac32(L-1)^2$ plaquettes of the box spanned by $y$ and $x$; so $|\ell(Y(\Gamma)Y(\Gamma')^{-1})|\le\frac32(L-1)^2\eps$, and $A(\Gamma)-A(\Gamma')$ is a sum of at most $\frac32(L-1)^2$ values $\pm A(\partial p)$ for every Lie field $A$. The family $\{Y(\Gamma)\}_{\Gamma\in G(y,x)}$ lies in $\cD_{3L^2\eps}\subset\cD_{r_M/2}$. The averaged contour variable $Y(y,x)$ is defined and real, and $|\ell(Y(y,x)Y(\Gamma)^{-1})|\le3(L-1)^2\eps$ for $\Gamma\in G(y,x)$.
+\item Under the hypothesis of (i), $|\ell(Y(y,x)Y(b)Y(y,x')^{-1})|\le6(L-1)^2\eps$ for every bond $b=(x,x')$ of $\T^{(j-1)}$ with $x,x'\in B_j(y)$.
+\item Let $c$ be a bond of $\T^{(j)}$, and suppose that $|\ell(Y(\partial p))|\le\eps$ for all plaquettes $p$ with corners in $B_j(c_-)\cup B_j(c_+)$. Then $|\ell(\Lambda_{c,x}(Y))|\le8L^2\eps$ for $x\in B_j(c_-)$.
+\item \emph{(Complex configurations.)} Let $Y_r$ be real, let $Y=e^{\ii Z}Y_r$ bondwise with $Z$ $\mathfrak g^c$-valued and $|Z|\le\zeta$, and let $64L\zeta\le r_M$. Under the hypothesis of (i) for $Y_r$, with $Z$ given on the bonds of $B_j(y)$, the family $\{Y(\Gamma)\}_{\Gamma\in G(y,x)}$ lies in $\cD_{r_M}$, the averaged contour variable $Y(y,x)$ is defined and holomorphic in $Z$, and $|\ell(Y(y,x)Y_r(y,x)^{-1})|\le4C_ML\zeta$. Under the hypothesis of (iii) for $Y_r$, with $Z$ given on the bonds of $B_j(c_-)\cup B_j(c_+)$ and of the straight contours $[x,x(c)]$ and $[c]$, $|\ell(\Lambda_{c,x}(Y))|\le16L^2\eps+32C_ML\zeta$, provided $s:=8L^2\eps+16C_ML\zeta\le\min(s_0,\frac18c_G)$, where $s_0\in(0,\frac14]$ depends only on $\mathsf N$. Then also $|\Lambda_{c,x}(Y)-1|\le\frac12c_G$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Two orders of $S$ differ by at most $\binom{|S|}2\le6$ exchanges of consecutive directions. Write $\Gamma\Gamma'^{-1}$ as the product of the corresponding loops $\Gamma_{\pi_{t-1}}\Gamma_{\pi_t}^{-1}$, based at $y$. By Lemma~\ref{lem:stokes}(i) each is spanned by at most $(\frac{L-1}2)^2$ plaquettes of the box, which gives the first two claims and the abelian identity. By Lemma~\ref{lem:log-estimates}(a), $|Y(\Gamma)Y(\Gamma')^{-1}-1|\le3(L-1)^2\eps<\frac38r_M$. Lemma~\ref{lem:group-average}(a),(b), with $U_m=Y(\Gamma)$, gives the rest.
+
+(ii) Let $x'=x\pm\delta_{j-1}e_\nu$. Choose $\Gamma_0\in G(y,x)$ whose order of the directions has $\nu$ last, if $\nu$ occurs. Let $\Gamma'_0\in G(y,x')$ have the same order of the other directions, followed by $\nu$ if it occurs. Then $\Gamma'_0=\Gamma_0b$ in the groupoid of contours, so $Y(\Gamma_0)Y(b)Y(\Gamma'_0)^{-1}=1$, and
+\[
+Y(y,x)Y(b)Y(y,x')^{-1}=\big[Y(y,x)Y(\Gamma_0)^{-1}\big]\big[Y(\Gamma'_0)Y(y,x')^{-1}\big].
+\]
+Both factors lie in $G$ and have logarithms of size at most $3(L-1)^2\eps$, by (i). Lemma~\ref{lem:log-estimates}(b) gives the claim.
+
+(iii) Let $v=c_+-c_-$, choose $\Gamma_0\in G(c_-,x)$, and note that $\Gamma_0+v\in G(c_+,x(c))$. Then
+\[
+\begin{aligned}
+\Lambda_{c,x}(Y)={}&\big[Y(c_-,x)Y(\Gamma_0)^{-1}\big]\;Y\big(\Gamma_0\,[x,x(c)]\,(\Gamma_0+v)^{-1}[c]^{-1}\big)\\
+&\times Y([c])\big[Y(\Gamma_0+v)Y(c_+,x(c))^{-1}\big]Y([c])^{-1}.
+\end{aligned}
+\]
+The closed contour in the middle bounds the surface swept by $\Gamma_0$ under the translation by $v$. Each bond of $\Gamma_0$ contributes at most $L$ plaquettes, so it is spanned by at most $2L(L-1)$ plaquettes with corners in $B_j(c_-)\cup B_j(c_+)$. The two brackets have logarithms of size at most $3(L-1)^2\eps$ by (i), and conjugation by $Y([c])\in G$ does not change this. By Lemma~\ref{lem:log-estimates}(b), $|\ell(\Lambda_{c,x}(Y))|\le(6(L-1)^2+2L(L-1))\eps\le8L^2\eps$.
+
+(iv) For a contour $\gamma=b_1\cdots b_m$, $Y(\gamma)Y_r(\gamma)^{-1}=\prod_i\big(Y_r(\gamma_{<i})\,e^{\ii Z(b_i)}\,Y_r(\gamma_{<i})^{-1}\big)$, and conjugation by the real $Y_r(\gamma_{<i})$ preserves the norm. The contours of $G(y,x)$ have at most $2(L-1)$ bonds, so $\xi_\Gamma:=\ell(Y(\Gamma)Y_r(\Gamma)^{-1})$ satisfies $|\xi_\Gamma|\le4L\zeta\le\frac1{16}r_M$ by Lemma~\ref{lem:log-estimates}(c). By (i), $\{Y_r(\Gamma)\}\in\cD_{3L^2\eps}\subset\cD_{r_M/2}$, and $Y(\Gamma)=e^{\ii\xi_\Gamma}Y_r(\Gamma)$. So the family lies in $\cD_{r_M}$, its average is defined and holomorphic in $Z$ by Lemma~\ref{lem:group-average}(a), and Lemma~\ref{lem:group-average}(e) gives $|\ell(Y(y,x)Y_r(y,x)^{-1})|\le4C_ML\zeta$. For the loop, each of the four factors of $\Lambda_{c,x}(Y)$ is $e^{\ii\eta}$ times the corresponding factor of $\Lambda_{c,x}(Y_r)$, with $|\eta|\le4C_ML\zeta$ for the averaged contour variables and $|\eta|\le2L\zeta$ for the straight contours. Moving the factors $e^{\ii\eta}$ to the left conjugates them by real elements, so $\Lambda_{c,x}(Y)=e^{\ii\eta_1}\cdots e^{\ii\eta_4}\Lambda_{c,x}(Y_r)$ with $|\eta_i|\le4C_ML\zeta$. By (iii), $\Lambda_{c,x}(Y_r)=e^{\ii H}$ with $H=\ell(\Lambda_{c,x}(Y_r))\in\mathfrak g$ and $|H|\le8L^2\eps$. Hence $\Lambda_{c,x}(Y)=e^{\ii\eta_1}\cdots e^{\ii\eta_4}e^{\ii H}$ with $\sum_i|\eta_i|+|H|\le s$. The $\eta_i$ are complex, so we use Lemma~\ref{lem:log-estimates}(c): $|\ell(\Lambda_{c,x}(Y))|\le s+Cs^2\le2s$ for $s\le s_0:=\min(\frac14,C^{-1})$, with $C$ of that lemma. This is the bound. If also $s\le\frac18c_G$, then $|\ell(\Lambda_{c,x}(Y))|\le\frac14c_G$, and $|\Lambda_{c,x}(Y)-1|\le\frac12c_G$ by Lemma~\ref{lem:log-estimates}(a).
+\end{proof}
+
+Consequently, all averaged contour variables and averaged loops of a real configuration $Y$ on $\T^{(j-1)}$ are defined, with $|\ell(\Lambda_{c,x}(Y))|\le r_M$, if $|\ell(Y(\partial p))|\le\eps_M$ for all plaquettes, where
+\[
+\eps_M=\frac{r_M}{8L^2} .
+\]
+This is a quantitative form of Ba\l aban's restriction to regular configurations, $|U(\partial p)-1|<\eps_0$ with $\eps_0$ small \cite[p.~254]{BalYM4I}. The set of these configurations is invariant under real gauge transformations and under $\mathfrak S_j$. In the units of the scale, $Y\in\mathfrak U_{j-1}(b)$ gives $\eps=b\delta_{j-1}^2$ and $8L^2\eps=8b\delta_j^2$: the condition $8b\delta_j^2\le r_M$ does not depend on $L$.
+
+\subsection{The one-step averaging}\label{ss:21.5}
+
+\begin{definition}[Ba\l aban's averaging {\cite[(0.12)]{BalYM4I}}]\label{def:one-step}
+For a configuration $Y$ on $\T^{(j-1)}$ and a bond $c$ of $\T^{(j)}$ put
+\begin{equation}\label{eq:one-step}
+\mathfrak a_j(Y)(c)=\exp\Big(\ii L^{-d}\sum_{x\in B_j(c_-)}\ell\big(\Lambda_{c,x}(Y)\big)\Big)\,Y([c]),
+\end{equation}
+whenever the averaged contour variables involved are defined and $|\Lambda_{c,x}(Y)-1|\le c_G$ for all $x\in B_j(c_-)$. Put $\mathfrak a^{(0)}=\mathrm{id}$, $\mathfrak a^{(j)}=\mathfrak a_j\circ\mathfrak a^{(j-1)}$, and $U^{(j)}=\mathfrak a^{(j)}(U)$ for configurations $U$ on $\Tf$.
+\end{definition}
+
+The averaged loops are small loops based at $c_-$, built from the straight segment $[x,x(c)]$, the translate of $[c]$ through $x$. The average of their logarithms corrects the straight-line transport $Y([c])$. For $x$ on the axis of $c$ the loop is $1$. The definition is made for both orientations of $c$, and the two are consistent.
+
+\begin{lemma}[Reversal]\label{lem:reversal}
+Let $c$ be a bond of $\T^{(j)}$ and $x\in B_j(c_-)$. Then $\Lambda_{-c,x(c)}(Y)=Y([c])^{-1}\Lambda_{c,x}(Y)^{-1}\,Y([c])$. Hence $\mathfrak a_j(Y)(-c)=\mathfrak a_j(Y)(c)^{-1}$ whenever both sides are defined. If $Y$ is real, $\mathfrak a_j(Y)(-c)$ is defined whenever $\mathfrak a_j(Y)(c)$ is. So $\mathfrak a_j(Y)$ is a configuration on $\T^{(j)}$.
+\end{lemma}
+
+\begin{proof}
+For $-c$ the initial point is $c_+$, and $x\mapsto x(c)$ maps $B_j(c_-)$ onto $B_j(c_+)$, with inverse $\tilde x\mapsto\tilde x(-c)$. Moreover $[x(c),x]=[x,x(c)]^{-1}$ and $[-c]=[c]^{-1}$. With the convention $Y(x,y)=Y(y,x)^{-1}$,
+\[
+\Lambda_{-c,x(c)}(Y)=Y(c_+,x(c))\,Y([x,x(c)])^{-1}\,Y(c_-,x)^{-1}\,Y([c])=Y([c])^{-1}\Lambda_{c,x}(Y)^{-1}\,Y([c]).
+\]
+Put $u=Y([c])^{-1}$ and $\Lambda=\Lambda_{c,x}$, so that $u\Lambda u^{-1}=\Lambda_{-c,x(c)}^{-1}$. If both sides are defined, then $|\Lambda-1|\le c_G\le\frac14$ and $|\Lambda_{-c,x(c)}-1|\le c_G$, hence $|u\Lambda u^{-1}-1|\le\|\Lambda_{-c,x(c)}^{-1}\|\,|\Lambda_{-c,x(c)}-1|\le c_G/(1-c_G)\le\frac12$. Lemma~\ref{lem:log-estimates}(d), applied first to $h=\Lambda$ with this $u$ and then to $h=\Lambda_{-c,x(c)}$, gives $\ell(\Lambda_{-c,x(c)})=-\ell(u\Lambda u^{-1})=-Y([c])^{-1}\ell(\Lambda_{c,x})Y([c])$. No reality is used here. Summing over $x$, the exponent $\ii E_{-c}$ in \eqref{eq:one-step} for $-c$ satisfies $E_{-c}=-Y([c])^{-1}E_cY([c])$. Hence $\mathfrak a_j(Y)(-c)=e^{\ii E_{-c}}Y([c])^{-1}=Y([c])^{-1}e^{-\ii E_c}=\mathfrak a_j(Y)(c)^{-1}$. Both formulas involve the same averaged contour variables, and for real $Y$, $|\Lambda_{-c,x(c)}-1|=|\Lambda_{c,x}-1|$.
+\end{proof}
+
+Only the convention $Y(x,y)=Y(y,x)^{-1}$ is used here, not the inverse property of $\Av$.
+
+\begin{lemma}[Basic properties]\label{lem:one-step-basic}
+\begin{enumerate}[label=(\alph*)]
+\item If $Y\in\mathfrak U_{j-1}(b)$ with $8b\delta_j^2\le r_M$, then $\mathfrak a_j(Y)$ is defined and real, and
+\[
+\big|\ell\big(\Lambda_{c,x}(Y)\big)\big|\le8b\delta_j^2 .
+\]
+\item \emph{(Covariance.)} Let $\mathfrak a_j(Y)$ be defined. For every real gauge transformation $g$ on $\T^{(j-1)}$, of any size, $\mathfrak a_j(Y^g)$ is defined and $\mathfrak a_j(Y^g)=\mathfrak a_j(Y)^{g|_{\T^{(j)}}}$. The same holds for $G^c$-valued $g$ with $\kappa(g(y))\le2$ for $y\in\T^{(j)}$, provided all families $\{Y(\Gamma)\}_{\Gamma\in G(y,x)}$ lie in $\cD_{r_M/2}$ and $|\Lambda_{c,x}(Y)-1|\le\frac12c_G$ for all $c$ and $x$.
+\item \emph{(Locality.)} $\mathfrak a_j(Y)(c)$ depends only on $Y$ on the bonds of $B_j(c_-)\cup B_j(c_+)$, i.e.\ bonds with both endpoints in this set.
+\item \emph{(Lattice symmetry.)} Let $\mathfrak a_j(Y)$ be defined and $r\in\mathfrak S_j$. Then $\mathfrak a_j(rY)$ is defined and $\mathfrak a_j(rY)=r\,\mathfrak a_j(Y)$.
+\end{enumerate}
+Consequently, wherever the averages are defined, $\mathfrak a^{(k)}(U^u)=\mathfrak a^{(k)}(U)^{u|_\T}$ for all real gauge transformations $u$ on $\Tf$, and $\mathfrak a^{(k)}(rU)=r\,\mathfrak a^{(k)}(U)$ for $r\in\mathfrak S_k$. Moreover $U^{(k)}(c)$ depends only on $U$ on the bonds of $B(c_-)\cup B(c_+)$.
+\end{lemma}
+
+\begin{proof}
+(a) Apply Lemma~\ref{lem:stokes-avg} with $\eps=b\delta_{j-1}^2$, so that $8L^2\eps=8b\delta_j^2\le r_M$. Then $|\Lambda_{c,x}-1|\le2r_M\le c_G$. The averaged contour variables are real, and the average of elements of $\mathfrak g$ lies in $\mathfrak g$.
+
+(b) By \eqref{eq:avg-contour-gauge}, $\Lambda_{c,x}(Y^g)=g(c_-)\Lambda_{c,x}(Y)g(c_-)^{-1}$ and $Y^g([c])=g(c_-)Y([c])g(c_+)^{-1}$. For real $g$ the families of $Y^g$ have the same diameters as those of $Y$, and $|\Lambda_{c,x}(Y^g)-1|=|\Lambda_{c,x}(Y)-1|$. For complex $g$, $|\Lambda_{c,x}(Y^g)-1|\le2|\Lambda_{c,x}(Y)-1|\le c_G$. In both cases $\ell(g\Lambda g^{-1})=g\ell(\Lambda)g^{-1}$ by Lemma~\ref{lem:log-estimates}(d), and $\exp(\ii gEg^{-1})=ge^{\ii E}g^{-1}$. So the exponential in \eqref{eq:one-step} is conjugated by $g(c_-)$.
+
+(c) The contours of $G(c_\pm,\cdot)$ stay in $B_j(c_\pm)$, and $[x,x(c)]$ and $[c]$ stay in $B_j(c_-)\cup B_j(c_+)$.
+
+(d) The map $r$ maps $B_j(c_-)$ onto $B_j((rc)_-)$, $x(c)$ to $(rx)(rc)$, $[x,x(c)]$ to $[rx,(rx)(rc)]$, and $[c]$ to $[rc]$. With $(rY)(y,x)=Y(r^{-1}y,r^{-1}x)$, this gives $\Lambda_{c,x}(rY)=\Lambda_{r^{-1}c,r^{-1}x}(Y)$ and $\mathfrak a_j(rY)(c)=\mathfrak a_j(Y)(r^{-1}c)$. Here $r^{-1}c$ may be negatively oriented; this is allowed, since \eqref{eq:one-step} holds for both orientations by Lemma~\ref{lem:reversal}.
+
+The consequences follow by induction over the scales. For $r\in\mathfrak S_k$ we use $\mathfrak S_k\subset\mathfrak S_j$. For locality we use that the bonds of $B_j(c_-)\cup B_j(c_+)$ have their scale-$(j-1)$ blocks in $B^{(j)}(c_-)\cup B^{(j)}(c_+)$.
+\end{proof}
+
+The covariance in (b) is with respect to the values of $g$ at the points of the coarse lattice. Exact covariance with respect to an \emph{average} of $g$ cannot be expected. A blockwise rule $\phi$ with $\phi(1)=1$ satisfying $\mathfrak a(Y^g)=\mathfrak a(Y)^{\phi(g)}$ for all $g$ must be a homomorphism from $G^{B_j(y)}$ to $G$. For simple $G$, the nontrivial continuous homomorphisms of this kind are, up to automorphisms, evaluations at a single point. This is why the residual gauge group of the variational problem is
+\[
+\mathfrak G_0=\{u:\Tf\to G:\ u(y)=1\text{ for }y\in\T\},
+\]
+and not the group of transformations with vanishing block averages. Section~\ref{sec:adapted} shows how Ba\l aban nevertheless arrives at an averaging whose linearization is covariant with respect to averaged gauge transformations.
+
+\subsection{Regularity of averaged configurations}\label{ss:21.6}
+
+\begin{lemma}[One step]\label{lem:one-step-regularity}
+There are $c_1,C_1>0$, depending only on $G$, such that, if $Y\in\mathfrak U_{j-1}(b)$ with $b\delta_j^2\le c_1$, then $\mathfrak a_j(Y)\in\mathfrak U_j\big(b(1+C_1b\delta_j^2)\big)$.
+\end{lemma}
+
+\begin{proof}
+Write $\delta=\delta_{j-1}$, $\delta'=\delta_j$, and let $c_1\le r_M/128$ (the constant of the statement). Fix a plaquette $p'$ of $\T^{(j)}$ in the $(\mu,\nu)$-plane with corners $y,\ y_1=y+\delta'e_\mu,\ y_2=y_1+\delta'e_\nu,\ y_3=y+\delta'e_\nu$. The four averaged bonds of $\partial p'$ depend only on $Y$ on the box $R=B_j(y)\cup B_j(y_1)\cup B_j(y_2)\cup B_j(y_3)$, by Lemma~\ref{lem:one-step-basic}(c). By Lemma~\ref{lem:one-step-basic}(b) and the gauge invariance of $|F|$ we may replace $Y$ by $\tilde Y=Y^v$, where $v$ is a real gauge transformation with $\tilde Y(\Gamma'_{y,x})=1$ for all $x\in R$. Here $\Gamma'_{y,x}$ is the coordinate-ordered contour from $y$ to $x$, for a fixed order of the directions; it stays in $R$. This single ordered contour is a proof device only.
+
+\emph{Size of $\tilde Y$.} In this proof $b$ is the curvature bound of the statement, $Y\in\mathfrak U_{j-1}(b)$, and bonds are written $b'$. The contour $\Gamma'_{y,x}$ has fewer than $4L$ bonds. For a bond $b'=(x,x')$ of $R$, the holonomy of $\Gamma'_{y,x}\cup b'\cup(\Gamma'_{y,x'})^{-1}$ is $\tilde Y(b')$. By Lemma~\ref{lem:stokes}(ii) this loop is spanned by at most $4L$ plaquettes of $R$. Hence $\tilde Y(b')=e^{\ii\delta A(b')}$ with $|\delta A(b')|\le4Lb\delta^2=4b\delta\delta'$.
+
+\emph{Averages.} The contours of the families $G(y_i,\cdot)$, the segments $[x,x(c)]$ and the straight contours $[c]$ have at most $2L$ bonds. So the sum of $|\delta A|$ along each of them is at most $\sigma=8b\delta'^2$, and $16\sigma\le r_M$. For such a contour $\gamma$, $\ell(\tilde Y(\gamma))=\delta A(\gamma)+O(\sigma^2)$ by Lemma~\ref{lem:log-estimates}(c), where $A(\gamma)=\sum_{b\in\gamma}\pm A(b)$ is the signed sum. By Lemma~\ref{lem:group-average}(c),
+\[
+\ell\big(\tilde Y(y_i,x)\big)=\delta\bar A(y_i,x)+O(\sigma^2),\qquad\bar A(y_i,x)=\frac1{|G(y_i,x)|}\sum_{\Gamma\in G(y_i,x)}A(\Gamma).
+\]
+By Lemma~\ref{lem:log-estimates}(c) applied to the averaged loops and to \eqref{eq:one-step},
+\[
+\mathfrak a_j(\tilde Y)(c)=e^{\ii\delta\bar A_c+O(\sigma^2)},\qquad\bar A_c=L^{-d}\sum_{x\in B_j(c_-)}\Big(\bar A(c_-,x)+A([x,x(c)])-\bar A(c_+,x(c))\Big).
+\]
+Multiplying the four averaged bonds of $\partial p'$, again by Lemma~\ref{lem:log-estimates}(c),
+\[
+\ell\big(\mathfrak a_j(\tilde Y)(\partial p')\big)=\delta\big(\bar A_{c^{(1)}}+\bar A_{c^{(2)}}-\bar A_{c^{(3)}}-\bar A_{c^{(4)}}\big)+O(\sigma^2),
+\]
+where $c^{(1)}=(y,y_1)$, $c^{(2)}=(y_1,y_2)$, $c^{(3)}=(y_3,y_2)$, $c^{(4)}=(y,y_3)$. Write the sums over $B_j(y_1)$, $B_j(y_3)$ as sums over $x\in B_j(y)$, using $B_j(y_1)=B_j(y)+\delta'e_\mu$ and $B_j(y_3)=B_j(y)+\delta'e_\nu$. Then the terms $\bar A(y_i,\cdot)$ cancel in pairs: each occurs once as the initial term of one bond and once as the final term of the next. What remains is $\delta L^{-d}\sum_{x\in B_j(y)}A(\partial S_x)$, where $S_x$ is the square of side $\delta'$ with corner $x$ in the $(\mu,\nu)$-plane. By the abelian Stokes formula $A(\partial S_x)=\sum_{p\subset S_x}A(\partial p)$, a sum over $L^2$ plaquettes. By Lemma~\ref{lem:log-estimates}(c) again, $\delta A(\partial p)=\ell(\tilde Y(\partial p))+O((b\delta\delta')^2)$, and $|\ell(\tilde Y(\partial p))|\le b\delta^2$. Altogether
+\[
+|\ell(\mathfrak a_j(\tilde Y)(\partial p'))|\le L^2b\delta^2+CL^2(b\delta\delta')^2+C\sigma^2\le b\delta'^2\big(1+C_1b\delta'^2\big).\qedhere
+\]
+\end{proof}
+
+The cancellation uses the translation invariance of the blocks only; the constant $C_1$ does not depend on $L$.
+
+\begin{proposition}[Regularity of averages {\cite[Prop.~2]{BalAvg}}]\label{prop:avg-regular}
+Possibly after decreasing $c_1$, so that $2c_1$ satisfies the hypothesis of Lemma~\ref{lem:one-step-regularity}, for $U\in\mathfrak U_0(a)$ with $a\le c_1$ and all $j\le k$, $U^{(j)}\in\mathfrak U_j(a(1+Ca))\subset\mathfrak U_j(2a)$.
+\end{proposition}
+
+\begin{proof}
+Let $b_0=a$ and $b_j=b_{j-1}(1+C_1b_{j-1}\delta_j^2)$. As long as $b_{i}\le2a$ for $i<j$, Lemma~\ref{lem:one-step-regularity} applies, and
+\[
+b_j\le a\exp\Big(2C_1a\sum_{i\le j}\delta_i^2\Big)\le a\,e^{3C_1a},
+\]
+because $\sum_{i\le k}\delta_i^2\le\sum_{m\ge0}L^{-2m}\le\frac43$. For $a$ small this is at most $a(1+Ca)\le2a$, which closes the induction.
+\end{proof}
+
+The proposition is local: the bound for a plaquette of $\T^{(j)}$ only uses the curvature of $U$ on the scale-$j$ blocks containing its corners. By Lemma~\ref{lem:stokes-avg} and Lemma~\ref{lem:one-step-basic}(a), all averaged contour variables and averaged loops of $U^{(j-1)}$ are then defined, with $|\ell(\Lambda_{c,x}(U^{(j-1)}))|\le16a\delta_j^2$. We also need the size of averaged configurations in a gauge in which $U$ is small.
+
+\begin{lemma}[Averages in a local gauge]\label{lem:avg-local-gauge}
+Let $U\in\mathfrak U_0(a)$ with $a\le c_1$. Let $\Lam$ be a union of blocks $B(y)$, and suppose $U=e^{\ii\eta A}$ on the bonds of $\Lam$ with $|A|\le s$, where $s+32a\le\frac12c_G$. Then for every $j$ and every bond $c$ of $\T^{(j)}$ with $B^{(j)}(c_-)\cup B^{(j)}(c_+)\subset\Lam$ we have $U^{(j)}(c)=e^{\ii\delta_jA_j(c)}$ with $|A_j(c)|\le s+32a$.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:one-step-basic}(a) and Proposition~\ref{prop:avg-regular}, the exponent in \eqref{eq:one-step} is at most $16a\delta_j^2$. By Lemma~\ref{lem:log-estimates}(b), $|\ell(U^{(j)}(c))|\le16a\delta_j^2+\sum_{b\in[c]}|\ell(U^{(j-1)}(b))|$. The straight contour $[c]$ has $L$ bonds, and their scale-$(j-1)$ blocks lie in $\Lam$. Hence $\max|A_j|\le\max|A_{j-1}|+16a\delta_j$, and $\sum_j\delta_j\le2$.
+\end{proof}

@@ -1,0 +1,44 @@
+\section{Pointwise norms: the difficulty and two routes}\label{sec:pointwise-weak}
+
+The covariance, the coarse Hessian and the determinant enter the step through $L^2$ bounds, and for them Section~\ref{sec:nested-walks} is complete. The background field is different. To localize the interaction and the composed activities, the weakened background map $A_*(s)$ must be built with weakened operators $\bH(s)$, $\bC(s)$, analytic on $\mathbb D_\kappa$. Its construction is a contraction in sup norms with derivatives (Proposition~\ref{prop:contraction}), or in $C^{1,\alpha}$. So, for every $s\in\mathbb D_\kappa$, it needs bounds of the form
+\begin{equation}\label{eq:pointwise-needed}
+|\bC(s)f|_{1,\alpha;y}\le C\sum_{y'}e^{-\gamma|y-y'|}|f|_{B(y')},
+\end{equation}
+together with the same bounds for $\bH(s)$ and $\bC(s)D^T$.
+
+\paragraph{Where the difficulty is.} The simplest way to obtain \eqref{eq:pointwise-needed} is to make the step operators $\mathcal R(s)$ bounded from sup norms to sup norms. Then every walk term is bounded term by term, as in \cite[(97)--(99)]{DimockI}. At level~(L3) the interior estimates alone do not give this. The argument has three steps.
+\begin{itemize}
+\item \emph{The seam term must be weakened on both sides.} With $X'=\Lam^v_j$ and $G_j$ the local propagator on $X'$, the step $\mathcal R_j$ of the walk contains the seam term
+\[
+h_j\one_{X'}\big(\mathfrak N(s)-\mathfrak N^{X'}(s)\big)\one_{X'}G_j ,
+\]
+the difference of the non-local parts on the torus and on $X'$ (Lemma~\ref{lem:parametrix-X}). It is small only through the cancellation between its two parts. Weakening only one of them destroys the cancellation: for $|s_\Box|=e^\kappa$, the terms without steps are multiplied by $e^{\kappa\mathsf N_{\rm b}}$. So both parts are weakened, compatibly, and the terms of $\mathfrak N^{X'}(s)$ act on $u=G_jf$ throughout $\Lam^v_j$, up to its boundary.
+\item \emph{Near the boundary only $L^2$ is known.} The interior estimate (Proposition~\ref{prop:system-interior}) bounds $u$ pointwise at distance at least $4$ from $\partial\Lam^v_j$; near $\partial\Lam^v_j$ only its $L^2$ norm is controlled.
+\item \emph{$L^2$ inputs do not give pointwise outputs in four dimensions.} The non-local part $\mathfrak N^{X'}(s)$ is built from the weakened scalar walks of the levels (L1) and (L2), whose steps contain the commutators $[\fA_{\rm loc},h_{j'}]$, of first order (Section~\ref{sec:nested-walks}, Lemma~\ref{lem:N-tier}). Its terms that start near the boundary are products whose factors need pointwise information on their inputs. In $d=4$, interior regularity with $L^2$ sources does not even control values, since two derivatives in $L^2$ do not embed into $L^\infty$ in four dimensions; it controls gradients still less.
+\end{itemize}
+So, in the boundary layer of $\Lam^v_j$, the terms of $\mathfrak N^{X'}(s)$ act on a function of which only the $L^2$ norm is controlled, and the interior estimates give no bound of $\mathcal R(s)$ from sup norms to sup norms. Section~\ref{sec:tiers} overcomes this with two observations, stated at its beginning: the outputs of a walk term are interior, and interior factors raise the integrability.
+
+Note, however, that absolute convergence does not force all factors to be sup-to-sup. It suffices that $\mathcal R(s)$ is a contraction in some Banach space adapted to the geometry. This leaves two routes.
+
+\paragraph{Route 1: boundary regularity.} This route is not taken in this note (see the Summary below); it is described for comparison. Prove regularity up to the boundary for the Dirichlet operators on the boxes of the construction:
+\begin{quote}
+\emph{(BR)} For a box $X$, the operators $G'_X$, $G'_XD^T_X$, $\bG^X$, $\bG^XD^T_X$, $\bH^X$ and $\bC^X$ satisfy the bounds of Theorem~\ref{thm:ID} and Proposition~\ref{prop:system-interior} at all blocks of $X$, not only at interior ones.
+\end{quote}
+Then all factors are sup-to-sup, and the construction of Section~\ref{sec:nested-walks} carries over to \eqref{eq:pointwise-needed}. Ba\l aban proves estimates of this kind for his Dirichlet propagators \cite{BalGreen,BalPropI,BalBackground}.
+
+For the scalar Dirichlet Laplacian on a lattice box, odd reflection across the plane of the exterior layer gives a problem on the full lattice. At edges and corners, the reflections across the faces commute. The absorption argument of Section~\ref{sec:interior} can then be repeated on half-cubes and quarter-cubes at the boundary:
+\begin{itemize}
+\item the small perturbations become sources for the reflected equation. Their reflected coefficients may jump across the reflection plane, which is harmless only because $u$ vanishes on the exterior layer;
+\item the averaging terms are block-local and the boxes are unions of blocks, so they remain $L^2$-controlled sources;
+\item the mass term is of order zero.
+\end{itemize}
+The gauge case is not covered by this sketch. On $\ell^2_1(X)$ the bonds crossing $\partial X$ are kept, and since the exterior divergence is part of the operator, all components satisfy Dirichlet conditions for $D^TD+DD^T$ (Section~\ref{sec:reg-gauge}). The reflection then has to respect the lattice structure of the crossing bonds. $L^2$ regularity of second order on boxes is classical in the continuum, but the pointwise statement on the lattice, with these operators, has not been carried out.
+
+\paragraph{Route 2: a mixed norm, without boundary estimates.} At the top level $X=\Tf$, every pointwise output is needed only on the supports $K_j$. Every Dirichlet cut involved lies at distance at least $\frac14(\rho-1)M$ from these supports, by \eqref{eq:rho-choice}. Two observations suggest that a norm mixing $L^2$ and pointwise control suffices:
+\begin{itemize}
+\item pieces of a kernel that jump a distance of at least $2$ need only $L^2$ input, by interior regularity on a cube where the source vanishes;
+\item a chain of walk factors from a cut to $K_j$ passes through many interior steps. Each step of the form commutator times propagator gains one derivative, and each step of order zero times propagator gains two. In $d=4$ one interior propagator takes block-$L^2$ data to values and gradients in $L^4$. A second one takes $L^4$ data, which lie in $L^{8/3}$ on unit cubes, to $C^\beta$ values with gradients in $L^8$. A third one takes $L^8$ data to $C^{1,\beta}$, with $\beta=\min(\alpha,\frac12)$. So a bounded number of interior steps take block-$L^2$ data to $C^{1,\beta}$.
+\end{itemize}
+The norm would be block-$L^2$ within a few units of the cuts and pointwise elsewhere, with exponential weights. Its analytic input is a set of interior estimates with $L^p$ data, variants of Proposition~\ref{prop:system-interior}, together with the off-diagonal smoothing just described. These estimates are the subject of Section~\ref{sec:interior-lp} (Corollary~\ref{cor:lp-dirichlet}). No boundary regularity is needed. The step bounds are the subject of Section~\ref{sec:tiers}, in block $L^p$ and H\"older norms rather than a mixed norm. At the endpoint $p=\frac d2$, Section~\ref{sec:tiers} uses one more tier, block $L^4$ (Lemma~\ref{lem:endpoint-factors}), and it bounds the non-local parts of the steps at level~(L3) in Proposition~\ref{prop:nl-tiers}. This gives the bounds \eqref{eq:pointwise-needed} for $\bG(s)$, $\bH(s)$, $\bC(s)$ and $\bC(s)D^T$ on the torus, with $W=0$ at level~(L3) and $\alpha\le\frac12$ (Theorems~\ref{thm:tier-walk} and~\ref{thm:HC-pointwise}, Remark~\ref{rem:nl-scope}). A trace inequality on rectangles (Lemma~\ref{lem:trace}) handles the Dirichlet cuts. $\bC(s)$ is represented through the torus identity $\bC=\bG\Pi^T-\bH\bQ\bG$.
+
+\paragraph{Summary.} Sections~\ref{sec:weakenable} and~\ref{sec:nested-walks} give volume-type localization of everything that enters the step through $L^2$ bounds: the fluctuation covariance and its square root, the coarse Hessian, and the determinant. The background map, and with it the interaction and the composed activities, need in addition pointwise control of the weakened operators, \eqref{eq:pointwise-needed}. Route~2, which stays closer to the interior methods of this note, provides it (Sections~\ref{sec:interior-lp} and~\ref{sec:tiers}). Route~1 is Ba\l aban's; it is not carried out here.

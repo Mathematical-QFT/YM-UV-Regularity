@@ -1,0 +1,1345 @@
+% Steps are numbered within each Detail (details-preamble.tex).
+
+
+
+\section{Part XI, second half: the lattice coefficient, the ultraviolet limit and generation locality}\label{d11b}
+
+This chapter expands Sections~\Nref{sec:ol-feynman}, \Nref{sec:ol-uv} and~\Nref{sec:gen-locality} of the note. The heading of each Detail names the result of the note that it expands. Proposition~\Nref{prop:beta-identification} rests on Section~\Nref{sec:gen-locality}, so it is expanded after it (Subsection~\ref{d11b:beta}).
+
+\paragraph{Conventions.} We use the notation of the note. Objects of scale $i$ are read in the units of scale $i$, and the fine spacing there is $\eta=L^{-i}$. The step from scale $k$ to scale $k+1$ is read in the units of step $k$, which are those of scale $k$. Distances are $\ell^\infty$-distances. A set $X^{(r)}$ is the set of the points within distance $r$ of $X$, in the units of the scale of $X$. For an integer $r$ and a union $X$ of unit blocks, $X^{(r)}$ is the union of the unit blocks $B(y)$ with $y$ within distance $r$ of the block centres of $X$. The letter $K$ is the last scale, and $\mathsf K$ is the bound on the generations (Remark~\Nref{rem:flow-constants}). The disambiguated names of the constants are those of the ledger (Section~\ref{sec:ledger}).
+
+\paragraph{Results expanded in other chapters.} This chapter uses the following results, which other chapters of this volume expand; it does not re-prove them.
+\begin{itemize}
+\item The locality of $\Cav_k$ at complex references, Lemma~\Nref{lem:ol-kernel-bounds}(a): Detail~\ref{d11a:F3}.
+\item The comparison between the size of a complex reference and the norm of Proposition~\Nref{prop:reg-complex}: Detail~\ref{xa:d-cmp}. The preservation of the class $\mathcal K$ at complex references, item (viii) of the proof of Proposition~\Nref{prop:complex-ext}: Detail~\ref{xa:d-step-viii}.
+\item Lemma~\Nref{lem:torus-transfer} at the complex flat references $e^{\ii\eta\chi B}$ of Section~\Nref{sec:gen-locality}: Detail~\ref{d9:transfer}, step ``Complex flat references''. It needs the size bound $\delta_c<\delta_P$ at these references, which is proved here (Detail~\ref{d11b:gl-flat}, Step~2). At the real part $1$ the two size measures compare with the constant $1$.
+\item Proposition~\Nref{prop:one-loop-local}: Detail~\ref{d9:one-loop-local}.
+\item Proposition~\Nref{prop:first-step} with its adaptations at $k=0$: Section~\ref{xb:first} (Details~\ref{xb:d-k0-refs}--\ref{xb:d-k0-formula}).
+\end{itemize}
+Where a detail here depends on one of these, the dependency is stated in its status line.
+
+%======================================================================
+\subsection{Section~\texorpdfstring{\Nref{sec:ol-feynman}}{57}: the lattice Feynman-gauge coefficient}\label{d11b:57}
+
+Section~\Nref{sec:ol-feynman} is on the main line. The coefficient $\frac{11}{24}$ gives $\beta_\infty>0$, which Theorems~\Nref{thm:ol-cumulative} and~\Nref{thm:ol-uv} use. The computation is written out in full.
+
+\begin{detail}[The constant $\kappa_\rho$, \eqref{N-eq:ol-kappa}]\label{d11b:kappa}\Ntarget{sec:ol-feynman,eq:ol-kappa}
+$\operatorname{tr}_{\mathfrak g^c}(\operatorname{ad}\xi\operatorname{ad}\zeta)=\kappa_\rho\operatorname{tr}(\xi\zeta)$ with $\kappa_\rho=C_A/T_\rho$.
+\end{detail}
+
+\begin{step}[Proof]
+Both sides are symmetric bilinear forms on $\mathfrak g$, invariant under $\operatorname{Ad}(G)$: the left side since $\operatorname{ad}(\operatorname{Ad}_g\xi)=\operatorname{Ad}_g\operatorname{ad}\xi\operatorname{Ad}_g^{-1}$, the right side by the cyclicity of the trace. On a simple Lie algebra the adjoint representation is irreducible, so by Schur's lemma the invariant symmetric forms form a one-dimensional space, and the right side is nondegenerate. So the two forms are proportional, with a factor $c$. Sum over the generators $(T^a)$ of Section~\Nref{sec:ol-feynman}, normalized by $\operatorname{tr}(T^aT^b)=T_\rho\delta^{ab}$, for which $\sum_a\operatorname{ad}T^a\operatorname{ad}T^a=C_A$ on $\mathfrak g$: $\sum_a\operatorname{tr}_{\mathfrak g}(\operatorname{ad}T^a\operatorname{ad}T^a)=\operatorname{tr}_{\mathfrak g}(C_A)=C_A\dim\mathfrak g$ and $\sum_a\operatorname{tr}(T^aT^a)=T_\rho\dim\mathfrak g$, so $c=C_A/T_\rho$. Both sides are complex bilinear, so the identity extends to $\mathfrak g^c$.
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[Lemma~\Nref{lem:ol-scaling}]\label{d11b:ol-scaling}\Ntarget{lem:ol-scaling}
+$\beta_{\rm F}=f(m\eta)$.
+\end{detail}
+
+\begin{step}[The conventions]
+By Lemma~\Nref{lem:ol-torus-limit}(a),(b) and Section~\Nref{subsec:ol-vp-split}, $\beta_{\rm F}$ is defined as follows. The second variations are taken in the unweighted pairing $\sum_b\operatorname{tr}(A(b)A'(b))$ over the fine bonds. They are evaluated per coarse unit cell, in the directions $A_{-p,\bar\eps}$, $A_{p,\eps}$ of the fine field $A$ of the configuration $e^{\ii\eta A}$. $T_{\rm F}$ is the $p^2$-tensor, and $\beta_{\rm F}$ its isotropic coefficient. The proof of the note mentions the weighted pairing $\eta^d\sum\operatorname{tr}(AB)$ of Section~\Nref{sec:action}. We follow the convention of Lemma~\Nref{lem:ol-torus-limit}, which is the one that defines $T_{\rm F}$, and check the normalization relative to $S$ in the same convention.
+\end{step}
+
+\begin{step}[Rescaling]
+Put $x'=x/\eta$. A configuration $e^{\ii\eta A}$ on $\eta\Z^4$ is the configuration $e^{\ii A'}$ on $\Z^4$ with $A'(b')=\eta A(b)$, where $b'$ is the rescaled bond. The covariant differences are $D_U=\eta^{-1}D'_{U'}$ and $D_U^T=\eta^{-1}D'^T_{U'}$. The plaquette terms of $S$ are unchanged, and $\mathcal F_U$ is $\eta^{-2}$ times its unit-lattice version, since it is the Hessian of $S$ in the field $\eta^{-1}A'$. So $X_{\rm V}(U)=\eta^{-2}X'_{\rm V}(U')$ with $m^2$ replaced by $(m\eta)^2$, and likewise $X_{\rm S}$.
+
+Second variations of $\log\det X$ are invariant under $X\mapsto cX$: on a torus $\log\det(cX)=N\log c+\log\det X$, and in infinite volume $S_{cX}=S_X$ in \eqref{N-eq:ol-second-variation}, since $(cX)^{-1}\mathsf V_i^{cX}=X^{-1}\mathsf V_i^X$. The direction $A_{p,\eps}$ becomes $A'=\eta A_{p,\eps}$: on the rescaled bond $b'$, $\eta e^{\ii p\cdot\eta b'_-}\eps_\mu=A'_{\eta p,\eta\eps}(b')$. The second variation is sesquilinear in the direction, so the per-site value on $\Z^4$ is $\eta^2\,\Pi'(\eta p)$, with $\Pi'$ the unit-lattice vacuum polarization at mass $m\eta$. Its $p^2$-part is $\eta^2\cdot\eta^2T'(p)$. A coarse unit cell contains $\eta^{-4}$ fine sites. So the $p^2$-tensor per cell is $\eta^{-4}\eta^4T'(p)=T'(p)$, and $\beta_{\rm F}=f(m\eta)$.
+\end{step}
+
+\begin{step}[The normalization of $S$]
+For $S$ at $U=1$ in the same convention: $\frac{d^2}{dt^2}S(e^{\ii\eta tA})|_0=\sum_p\operatorname{tr}((\eta^2(dA)_p)^2)$, with $dA$ the difference quotient on $\eta\Z^4$. The quadratic form per plaquette is $\eta^4$ times a quadratic form in $dA$. A coarse unit cell has $\eta^{-4}$ plaquettes of each orientation. So the $p^2$-tensor per cell is that of $d^Td$, namely $\delta_{\mu\nu}|p|^2-p_\mu p_\nu$, as on $\Z^4$. The ratio of $T_{\rm F}$ to the marginal tensor of $S$ is therefore the same on both lattices.
+\end{step}
+\status{Expanded. The proof of the note names the weighted pairing $\eta^d\sum\operatorname{tr}(AB)$; in it the second variation of $S$ on $\eta\Z^4$ equals the unweighted one on $\Z^4$. The per-cell convention of Lemma~\Nref{lem:ol-torus-limit} gives the same ratio. Both readings agree.}
+
+\begin{detail}[The lattice integral, Section~\Nref{subsec:ol-lattice-integral}]\label{d11b:ol-integral}\Ntarget{subsec:ol-lattice-integral}
+The second variation of $\widehat\Gamma^{(\mathrm m)}_{\rm F}$ at $U=1$ per site, in the directions $A_{-p,\bar\eps}$, $A_{p,\eps}$, is $\int P\,d^4q/(2\pi)^4$ with $P=-\frac12P_{X_{\rm V}}+P_{X_{\rm S}}$, \eqref{N-eq:ol-lattice-P}. With $\eps=c\otimes\xi_0$, $P=\sum\bar c_\mu c_\nu P_{\mu\nu}$, and $\Pi^{(\mathrm m)}=\int P_{\mu\nu}$ is the vacuum polarization in the convention of Definition~\Nref{def:marginal-tensor}. Moreover $\operatorname{iso}T=\frac13(2t_1-t_2)$.
+\end{detail}
+
+\begin{step}[Operators and vertices]
+$D_U$, $D_U^T$ have entries $R(U(b))^{\pm1}$ on the bonds at one site. The Hessian has the entries of \eqref{N-eq:ol-wilson-hessian}, polynomials in $U(b)^{\pm1}$ on one plaquette. So the entries of $X(e^{\ii A})$ are entire in finitely many values of $A$, and vanish between sites at distance $>2$. At $A=0$: $\mathcal F_1=0$ (Proposition~\Nref{prop:action}), and $D^TD+DD^T=-\Lap$ componentwise (Lemma~\Nref{lem:hodge}), so $X(1)=-\Lap+\mathrm m^2$, with symbol $|\hat q|^2+\mathrm m^2$. Translation-invariant operators of finite range are Fourier multipliers with trigonometric-polynomial symbols. The derivative of $X(e^{\ii A})$ in the direction $A_{p,\eps}$ is a finite sum of derivatives of local entire functions times the values $e^{\ii p\cdot b_-}\eps_\mu$ on nearby bonds. So it transfers the momentum $p$, with a symbol $v_1$ that is a trigonometric polynomial in $(q,p)$, linear in $\eps$. The mixed second derivative in the directions $A_{-p,\bar\eps}$, $A_{p,\eps}$ transfers $0$, with $v_2$ sesquilinear in $\eps$.
+\end{step}
+
+\begin{step}[The integrand]
+For a smooth family $X(t_1,t_2)$ of invertible operators on a torus,
+\[
+\partial_{t_1}\partial_{t_2}\log\det X=\operatorname{Tr}\big(X^{-1}\partial_{t_1}\partial_{t_2}X\big)-\operatorname{Tr}\big(X^{-1}\partial_{t_1}X\,X^{-1}\partial_{t_2}X\big).
+\]
+At $U=1$ with $t_1$ in the direction $A_{-p,\bar\eps}$ and $t_2$ in the direction $A_{p,\eps}$, the composition rule gives the symbols. The first operator, $X(1)^{-1}\delta^2X$, has symbol $G_{\mathrm m}(q)v_2(q;p,\eps)$. In the second, $\delta X[A_{p,\eps}]$ takes $e^{\ii q\cdot x}$ to momentum $q+p$, $X^{-1}$ multiplies by $G_{\mathrm m}(q+p)$, and $\delta X[A_{-p,\bar\eps}]$ returns to momentum $q$ with $v_1(q+p;-p,\bar\eps)$. So the symbol is $G_{\mathrm m}(q)v_1(q+p;-p,\bar\eps)G_{\mathrm m}(q+p)v_1(q;p,\eps)$. The trace per site of a translation-invariant operator with symbol $y(q)$ is $\int\operatorname{Tr}y(q)\,d^4q/(2\pi)^4$, so per site the second variation is $\int P_X$. On the torus of side $n$ the integral is replaced by the average over $(2\pi/n)\Z^4$. For $\mathrm m>0$, $P$ is real-analytic and $2\pi$-periodic in $q$, so the average converges to the integral exponentially fast. With the weights $-\frac12$ and $+1$ of the two determinants this is \eqref{N-eq:ol-lattice-P}; the limit is that of Lemma~\Nref{lem:ol-torus-limit}(a),(b), rescaled as in Detail~\ref{d11b:ol-scaling}.
+\end{step}
+
+\begin{step}[The normalization]
+Let $\mathcal Q(A,A')$ be the symmetric bilinear form of the second variation, and $\Pi$ its kernel in the pairing $\mathrm b$, with the Lie algebra indices suppressed (Definition~\Nref{def:marginal-tensor}). The mixed derivative above is $\mathcal Q(A_{-p,\bar\eps},A_{p,\eps})$. Per site it equals $\sum_{\mu\nu}\operatorname{tr}(\bar\eps_\mu\Pi_{\mu\nu}(p)\eps_\nu)=\sum\bar c_\mu c_\nu\Pi_{\mu\nu}(p)\operatorname{tr}(\xi_0^2)$, with $\bar\eps_\mu=\bar c_\mu\xi_0$. Since $\operatorname{tr}\xi_0^2=1$, $P_{\mu\nu}$ integrates to $\Pi_{\mu\nu}$. The action is treated in the same way (Detail~\ref{d11b:ol-classical}, Step~4).
+\end{step}
+
+\begin{step}[The isotropic coefficient]
+Coefficient tensors are symmetric in $(\kappa,\lambda)$. Put $\mathsf A=\delta_{\mu\nu}\delta_{\kappa\lambda}$ and $\mathsf B=\frac12(\delta_{\mu\kappa}\delta_{\nu\lambda}+\delta_{\mu\lambda}\delta_{\nu\kappa})$. Then $T(p)=t_1\delta_{\mu\nu}|p|^2+t_2p_\mu p_\nu$ is $t_1\mathsf A+t_2\mathsf B$, and $\delta_{\mu\nu}|p|^2-p_\mu p_\nu$ is $\mathsf A-\mathsf B$. In $d=4$: $\langle\mathsf A,\mathsf A\rangle=16$, $\langle\mathsf A,\mathsf B\rangle=4$, $\langle\mathsf B,\mathsf B\rangle=\frac14(16+2\cdot4+16)=10$. So $\langle\mathsf A-\mathsf B,\mathsf A-\mathsf B\rangle=18$ and $\langle t_1\mathsf A+t_2\mathsf B,\mathsf A-\mathsf B\rangle=12t_1-6t_2$. The projection coefficient is $(12t_1-6t_2)/18=\frac13(2t_1-t_2)$. Since $P$ is real-analytic, the Taylor coefficients of $\Pi^{(\mathrm m)}$ at $p=0$ are the integrals of those of $P$. So $f(\mathrm m)=\int\operatorname{iso}\mathcal I(q,\mathrm m)\,d^4q/(2\pi)^4$, by linearity of $\operatorname{iso}$.
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[Lemma~\Nref{lem:ol-lattice-weitzenbock}]\label{d11b:weitzenbock}\Ntarget{lem:ol-lattice-weitzenbock}
+$D_U^TD_U+D_UD_U^T=\nabla_U^T\nabla_U+\mathsf W_U$, with $[D_\mu,D_\nu^T]$ given by the two transports, $[D_\mu,D_\mu^T]=0$, and $\mathsf W_1=0$.
+\end{detail}
+
+\begin{step}[Transposes]
+For $u\in G^c$, $\operatorname{tr}((R(u)\xi)\zeta)=\operatorname{tr}(u\xi u^{-1}\zeta)=\operatorname{tr}(\xi u^{-1}\zeta u)=\operatorname{tr}(\xi R(u)^{-1}\zeta)$. With $(D_\nu f)(x)=\eta^{-1}(R(U_\nu(x))f(x+\eta e_\nu)-f(x))$, a shift of the summation variable gives $(D_\nu^Tg)(x)=\eta^{-1}(R(U_\nu(x-\eta e_\nu))^{-1}g(x-\eta e_\nu)-g(x))$, in the bilinear pairing $\mathrm b$. For the curl $(D_Uh)_{\mu\nu}=D_\mu h_\nu-D_\nu h_\mu$ and antisymmetric $F$, $\mathrm b(F,D_Uh)=\frac12\sum_{\mu\nu}\mathrm b(F_{\mu\nu},D_\mu h_\nu-D_\nu h_\mu)=\sum_{\mu\nu}\mathrm b(F_{\mu\nu},D_\mu h_\nu)$, so $(D_U^TF)_\nu=\sum_\mu D_\mu^TF_{\mu\nu}$. Hence
+\[
+(D_U^TD_Uh+D_UD_U^Th)_\nu=\sum_\mu D_\mu^TD_\mu h_\nu+\sum_\mu\big(D_\nu D_\mu^T-D_\mu^TD_\nu\big)h_\mu .
+\]
+\end{step}
+
+\begin{step}[The commutator]
+Write $u_\mu(x)=R(U_\mu(x))$. Expanding,
+\[
+\begin{aligned}
+\eta^2D_\mu D_\nu^Tf(x)&=u_\mu(x)u_\nu(x+\eta e_\mu-\eta e_\nu)^{-1}f(x+\eta e_\mu-\eta e_\nu)\\
+&\quad-u_\mu(x)f(x+\eta e_\mu)-u_\nu(x-\eta e_\nu)^{-1}f(x-\eta e_\nu)+f(x),\\
+\eta^2D_\nu^TD_\mu f(x)&=u_\nu(x-\eta e_\nu)^{-1}u_\mu(x-\eta e_\nu)f(x-\eta e_\nu+\eta e_\mu)\\
+&\quad-u_\nu(x-\eta e_\nu)^{-1}f(x-\eta e_\nu)-u_\mu(x)f(x+\eta e_\mu)+f(x).
+\end{aligned}
+\]
+In the difference the terms at $x$, $x+\eta e_\mu$ and $x-\eta e_\nu$ cancel. Since $R$ is a homomorphism, the terms at $x+\eta e_\mu-\eta e_\nu$ give the formula of the lemma. For $\mu=\nu$ the two transports are $U_\mu(x)U_\mu(x)^{-1}=1$ and $U_\mu(x-\eta e_\mu)^{-1}U_\mu(x-\eta e_\mu)=1$, so $[D_\mu,D_\mu^T]=0$. At $U=1$ every transport is $1$, so $\mathsf W_1=0$. The identity holds at $G^c$-valued configurations, since only the homomorphism property and the bilinear pairing are used.
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[Lemma~\Nref{lem:ol-naive-limit}]\label{d11b:naive-limit}\Ntarget{lem:ol-naive-limit}
+$v_1^X(0;0,\eps)=0$, and the linear parts of the vertices are $v^0_{\rm S}=\sum_\nu(2q+p)_\nu\operatorname{ad}\eps_\nu$ and $v^0_{\rm V}=v^0_{\rm S}\otimes1+2\cK(p,\eps)$. One $\cK$ comes from $\mathsf W$ and one from $\mathcal F$.
+\end{detail}
+
+\begin{step}[Linear parts]
+Let $v=\sum_jc_je^{\ii(z_j\cdot q+z'_j\cdot p)}$ with $v(0;0)=\sum_jc_j=0$. Then $\lambda^{-1}v(\lambda q;\lambda p)=\sum_jc_j\ii w_j\varphi(\ii\lambda w_j)$, with $w_j=z_j\cdot q+z'_j\cdot p$ and $\varphi(w)=(e^w-1)/w$ entire. Its value at $\lambda=0$ is the linear part $\ii\sum_jc_jw_j$. For products: if one factor vanishes at $(0;0)$, the linear part of the product is the linear part of that factor times the values of the others; if two vanish, it is $0$.
+\end{step}
+
+\begin{step}[The scalar vertex]
+With $U_t=e^{\ii tA_{p,\eps}}$ and $\frac d{dt}R(U_{t,\mu}(x))|_0=\ii\operatorname{ad}A_\mu(x)$:
+\begin{itemize}
+\item $\delta D_\mu$ maps $e^{\ii q\cdot x}\phi$ to $\ii e^{\ii p\cdot x}\operatorname{ad}\eps_\mu\,e^{\ii q\cdot(x+e_\mu)}\phi$, with symbol $\ii e^{\ii q_\mu}\operatorname{ad}\eps_\mu$;
+\item $\delta D_\mu^T$ has symbol $-\ii e^{-\ii(q+p)_\mu}\operatorname{ad}\eps_\mu$.
+\end{itemize}
+By the composition rule, $\delta(D_\mu^TD_\mu)$ has the symbol
+\[
+\begin{aligned}
+\big[-\ii e^{-\ii(q+p)_\mu}(e^{\ii q_\mu}-1)+\ii(e^{-\ii(q+p)_\mu}-1)e^{\ii q_\mu}\big]\operatorname{ad}\eps_\mu&=\ii\big(e^{-\ii(q+p)_\mu}-e^{\ii q_\mu}\big)\operatorname{ad}\eps_\mu\\
+&=2e^{-\ii p_\mu/2}\sin\big(q_\mu+\tfrac{p_\mu}2\big)\operatorname{ad}\eps_\mu .
+\end{aligned}
+\]
+It vanishes at $(0;0)$, and its linear part is $(2q+p)_\mu\operatorname{ad}\eps_\mu$.
+\end{step}
+
+\begin{step}[The Weitzenböck vertex]
+$X_{\rm V}=X_{\rm S}\otimes1+\mathsf W+\mathcal F$ by Detail~\ref{d11b:weitzenbock}. Differentiating the transports, $\frac d{dt}R(U_{t,\mu}(x)U_{t,\nu}(y)^{-1})=\ii\operatorname{ad}(A_\mu(x)-A_\nu(y))$. So
+\[
+\delta[D_\mu,D_\nu^T]f(x)=\ii\operatorname{ad}\big(A_\mu(x)-A_\nu(x+e_\mu-e_\nu)+A_\nu(x-e_\nu)-A_\mu(x-e_\nu)\big)f(x+e_\mu-e_\nu).
+\]
+For $A=A_{p,\eps}$ the argument is $e^{\ii p\cdot(x-e_\nu)}[(e^{\ii p_\nu}-1)\eps_\mu-(e^{\ii p_\mu}-1)\eps_\nu]=-e^{\ii p\cdot(x-e_\nu)}\mathfrak f_{\mu\nu}(p,\eps)$. Acting on $e^{\ii q\cdot x}\phi$, the shift gives the factor $e^{\ii q\cdot(e_\mu-e_\nu)}$, so $w_{\mu\nu}=-\ii e^{\ii(q_\mu-q_\nu-p_\nu)}\operatorname{ad}\mathfrak f_{\mu\nu}(p,\eps)$. This vanishes at $p=0$, and its linear part is $-\ii\cdot\ii\operatorname{ad}(p_\mu\eps_\nu-p_\nu\eps_\mu)=\cK(p,\eps)_{\mu\nu}$, the index order matching $(\mathsf W_Uh)_\mu=\sum_\nu[D_\mu,D_\nu^T]h_\nu$.
+\end{step}
+
+\begin{step}[The Wilson Hessian]
+For a plaquette with transported fields $a_1,\dots,a_4$, the holonomy is $(e^{\ii sh}U)(\partial\square)=e^{\ii Z(s)}H_\square$. Here $Z(s)=\ell(e^{\ii sa_1}e^{\ii sa_2}e^{-\ii sa_3}e^{-\ii sa_4})$. With $Y_i=\ii s\sigma_ia_i$, $\sigma=(1,1,-1,-1)$, the Baker--Campbell--Hausdorff formula gives $\log\prod_ie^{Y_i}=\sum_iY_i+\frac12\sum_{i<j}[Y_i,Y_j]+O(s^3)$. So
+\[
+Z(s)=-\ii\log(\cdots)=s\alpha_\square+\tfrac{s^2}2\beta_\square+O(s^3),\qquad\alpha_\square=\sum_i\sigma_ia_i,\qquad\beta_\square=\ii\sum_{i<j}\sigma_i\sigma_j[a_i,a_j].
+\]
+The holomorphic summand is $\mathfrak s(Z,H)=\mathsf N-\frac12\operatorname{tr}(e^{\ii Z}H+(e^{\ii Z}H)^{-1})$. Expanding $e^{\pm\ii Z}$ to second order,
+\[
+\tfrac12\operatorname{tr}\big(e^{\ii Z}H+H^{-1}e^{-\ii Z}\big)=\operatorname{tr}H^+-\operatorname{tr}(ZH^-)-\tfrac12\operatorname{tr}(Z^2H^+)+O(|Z|^3),
+\]
+with $H^\pm$ as in the proof of Lemma~\Nref{lem:ol-naive-limit}. So $\mathfrak s(Z,H)-\mathfrak s(0,H)=\operatorname{tr}(ZH^-)+\frac12\operatorname{tr}(Z^2H^+)+O(|Z|^3)$. Differentiating twice at $s=0$ gives \eqref{N-eq:ol-wilson-hessian}: $\operatorname{tr}(Z''(0)H^-)+\operatorname{tr}(Z'(0)^2H^+)=\operatorname{tr}(\beta_\square H^-)+\operatorname{tr}(\alpha_\square^2H^+)$.
+\end{step}
+
+\begin{step}[The vertex of $\mathcal F$]
+By \eqref{N-eq:plaquette-product}, $a_1=h(b_1)$, $a_2=R(U(b_1))h(b_2)$, $a_3=R(H_\square U(b_4))h(b_3)$ and $a_4=R(H_\square)h(b_4)$. This gives $\alpha_\square=(D_Uh)(\square)-(R(H_\square)-1)(R(U(b_4))h(b_3)+h(b_4))$. Subtract $\sum_\square\operatorname{tr}((D_Uh)(\square)^2)$, the form of $D_U^TD_U$, and differentiate at $t=0$ along $U_t=e^{\ii tA}$. At $t=0$ we have $H=1$, $H^+=1$, $H^-=0$, $\frac d{dt}H^+=0$, $\frac d{dt}H^-=(dA)(\square)$, $\alpha=(dh)(\square)$ and $\frac d{dt}R(H)=\ii\operatorname{ad}(dA)(\square)$. So
+\[
+\frac d{dt}\big[\operatorname{tr}(\alpha^2H^+)-\operatorname{tr}((D_Uh)^2)\big]=2\operatorname{tr}\big((dh)\,\tfrac d{dt}(\alpha-D_Uh)\big)=-2\ii\operatorname{tr}\big((dh)[(dA),h(b_3)+h(b_4)]\big),
+\]
+and $\frac d{dt}\operatorname{tr}(\beta H^-)=\operatorname{tr}(\beta^0(dA))$. This is \eqref{N-eq:ol-F-vertex}.
+
+$\delta\mathcal F$ is $\mathrm b$-symmetric, so its symbol is read off from the polarization: $\mathrm b(\psi,f\phi)$ per site for $h=e^{\ii q\cdot x}\phi$, $h'=e^{-\ii(q+p)\cdot x}\psi$. Every term contains $\mathfrak f_{\mu\nu}(p,\eps)$, so $f(q;0,\eps)=0$. The second term contains in addition the symbol of $dh$ or $dh'$, which vanishes at $(0;0)$, so it has no linear part. In the first term, at $q=p=0$, $h(b_1),\dots,h(b_4)$ become $\phi_\mu,\phi_\nu,\phi_\mu,\phi_\nu$. Then
+\[
+\beta^0=\ii\big([h_1,h_2]-[h_1,h_3]-[h_1,h_4]-[h_2,h_3]-[h_2,h_4]+[h_3,h_4]\big)=2\ii[\phi_\mu,\phi_\nu],
+\]
+whose polarization is $\ii([\psi_\mu,\phi_\nu]-[\psi_\nu,\phi_\mu])$. With the linear part $\ii(p_\mu\eps_\nu-p_\nu\eps_\mu)=:\ii X_{\mu\nu}$ of $(dA)(\square)$, and $\operatorname{tr}([a,b]Y)=-\operatorname{tr}(a[Y,b])$,
+\[
+\sum_{\mu<\nu}\operatorname{tr}\big(\ii([\psi_\mu,\phi_\nu]-[\psi_\nu,\phi_\mu])\,\ii X_{\mu\nu}\big)=\sum_{\mu<\nu}\big(\operatorname{tr}(\psi_\mu[X_{\mu\nu},\phi_\nu])+\operatorname{tr}(\psi_\nu[X_{\nu\mu},\phi_\mu])\big)=\mathrm b\big(\psi,\cK(p,\eps)\phi\big).
+\]
+So the linear part of $f$ is $\cK$. Altogether $v_1^{X_{\rm V}}(0;0)=0$, and the linear part is $v^0_{\rm S}\otimes1+\cK+\cK$.
+\end{step}
+\status{Expanded. The factor $2$ of the spin term comes from one $\cK$ in $\mathsf W$ and one in $\mathcal F$.}
+
+\begin{detail}[Lemma~\Nref{lem:ol-continuum-integrand}]\label{d11b:continuum-integrand}\Ntarget{lem:ol-continuum-integrand}
+\eqref{N-eq:ol-continuum-P} holds, $\mathcal I_0$ is homogeneous of degree $-4$, and $|\mathcal I-\mathcal I_0|\le C(|q|^2+\mathrm m^2)^{-3/2}$ for $|q|\le1$, $\mathrm m\le1$.
+\end{detail}
+
+\begin{step}[The formula]
+With $\eps=c\otimes\xi_0$: $v^0_{\rm S}=((2q+p)\cdot c)\operatorname{ad}\xi_0$ and $v^0_{\rm V}=\operatorname{ad}\xi_0\otimes M$, with $M=((2q+p)\cdot c)1+2N(p,c)$ and $N_{\mu\nu}=p_\mu c_\nu-p_\nu c_\mu$. At $(q+p;-p,\bar\eps)$, since $2(q+p)-p=2q+p$ and $\xi_0^*=\xi_0$, the vertices are $((2q+p)\cdot\bar c)\operatorname{ad}\xi_0$ and $\operatorname{ad}\xi_0\otimes\bar M$, $\bar M=((2q+p)\cdot\bar c)1-2N(p,\bar c)$. By Detail~\ref{d11b:kappa}, $\operatorname{tr}_{\mathfrak g^c}(\operatorname{ad}\xi_0)^2=\kappa_\rho$. Also $\operatorname{Tr}N=0$, and
+\[
+\operatorname{Tr}\big(N(p,\bar c)N(p,c)\big)=\sum_{\mu\nu}(p_\mu\bar c_\nu-p_\nu\bar c_\mu)(p_\nu c_\mu-p_\mu c_\nu)=-2\big(|p|^2\,\bar c\cdot c-(p\cdot\bar c)(p\cdot c)\big).
+\]
+So $\operatorname{Tr}(\bar MM)=4|(2q+p)\cdot c|^2+8(|p|^2|c|^2-|p\cdot c|^2)$, while the scalar trace is $|(2q+p)\cdot c|^2$. The bubble enters $P_X$ with the sign $-$, and the determinants with the weights $-\frac12$ (vector) and $+1$ (scalar). So the bubble part of $P_0$ is
+\[
+-G^0G^0\kappa_\rho\big[-\tfrac12(4|\cdot|^2+8(\cdots))+|\cdot|^2\big]=\kappa_\rho G^0G^0\big(|(2q+p)\cdot c|^2+4(|p|^2|c|^2-|p\cdot c|^2)\big),
+\]
+whose components are \eqref{N-eq:ol-continuum-P}. The tadpoles $G^0(q)\operatorname{Tr}v_2(0;0,\eps)$ do not depend on $p$; they form $t_{\mu\nu}$. Under $(q,p,\mathrm m)\mapsto s(q,p,\mathrm m)$, $G^0G^0$ scales by $s^{-4}$, the numerator by $s^2$, and $G^0$ by $s^{-2}$. So $P_0$ scales by $s^{-2}$, and $\mathcal I_0=\frac12\partial_p^2P_0|_{p=0}$ by $s^{-4}$.
+\end{step}
+
+\begin{step}[Scaling]
+Put $\Psi(\lambda;q,p,\mathrm m)=\lambda^2P(\lambda q,\lambda p,\lambda\mathrm m)$. Then $\partial_p=\lambda\partial_{p'}$ at $p'=\lambda p$, so $\lambda^4\mathcal I(\lambda q,\lambda\mathrm m)=\frac12\partial_p^2\Psi|_{p=0}$. In $\Psi$:
+\begin{itemize}
+\item $\lambda^2G_{\lambda\mathrm m}(\lambda q)=(\sum_\nu s_\lambda(q_\nu)^2+\mathrm m^2)^{-1}$, with $s_\lambda(t)=2\lambda^{-1}\sin(\lambda t/2)$, entire in $(\lambda,t)$ with $s_0(t)=t$;
+\item the bubbles are $(\lambda^2G)(\lambda^2G)(\lambda^{-1}v_1)(\lambda^{-1}v_1)$, and the tadpoles $(\lambda^2G)v_2(\lambda q;\lambda p)$; the powers of $\lambda$ balance.
+\end{itemize}
+By Detail~\ref{d11b:naive-limit}, Step~1, and Lemma~\Nref{lem:ol-naive-limit}, all factors are entire in $\lambda$, with the values of $P_0$ at $\lambda=0$. So $\Psi(0;\cdot)=P_0$, and $\Psi$ is real-analytic where the denominators do not vanish.
+\end{step}
+
+\begin{step}[Compactness]
+On $K=\{|q|^2+\mathrm m^2=1,\ \mathrm m\ge0,\ |p|\le\frac14\}$ and $0\le\lambda\le\sqrt2$:
+\begin{itemize}
+\item $\lambda|q_\nu|\le\sqrt2<\pi$ and $\lambda|(q+p)_\nu|\le\frac54\sqrt2<\pi$;
+\item for $|t|\le\pi/\lambda$, $|s_\lambda(t)|\ge\frac2\pi|t|$, by $|\sin x|\ge\frac2\pi|x|$ on $|x|\le\frac\pi2$.
+\end{itemize}
+So the first denominator is at least $\frac4{\pi^2}(|q|^2+\mathrm m^2)=\frac4{\pi^2}$. The second is at least $\frac4{\pi^2}(|q+p|^2+\mathrm m^2)\ge\frac1{\pi^2}$: if $|q|\ge\frac12$, then $|q+p|\ge|q|-\frac14\ge\frac12|q|$ and $|q+p|^2+\mathrm m^2\ge\frac14$; otherwise $\mathrm m^2\ge\frac34$. By continuity they do not vanish on a complex neighbourhood of $[0,\sqrt2]\times K$. There $\Psi$ is real-analytic, and $|\partial_\lambda\partial_p^2\Psi|\le2C$ on the compact set. The mean value theorem in $\lambda$ gives $|\lambda^4\mathcal I(\lambda q,\lambda\mathrm m)-\mathcal I_0(q,\mathrm m)|\le C\lambda$. For $|q|\le1$, $\mathrm m\le1$ put $\lambda=(|q|^2+\mathrm m^2)^{1/2}\le\sqrt2$, and apply this at $(q,\mathrm m)/\lambda$. Homogeneity gives $|\mathcal I(q,\mathrm m)-\mathcal I_0(q,\mathrm m)|\le C\lambda^{-3}$.
+\end{step}
+\status{Expanded.}
+
+\paragraph{The routing of the loop momentum (the paragraph after Lemma~\Nref{lem:ol-continuum-integrand}).} A statement only; no proof uses it. Shifting the loop momentum $q\mapsto q+sp$ in $P_0$ changes the $p^2$-part of $\mathcal I_0(\cdot,0)$ by $\nabla_q\cdot W$, with $W$ homogeneous of degree $-3$. By Taylor's formula in $sp$, $W=s\,p\,(p\cdot\partial_{p'}P_0)|_{p'=0}+\frac{s^2}2p\,(p\cdot\nabla_qP_0(q,0,0))$. The fluxes of $W$ through $|q|=1$ and $|q|=R$ are equal, by homogeneity, so the spherical average of $\nabla\cdot W$ vanishes. The coefficient $\mathsf B$ does not depend on the routing.
+
+\begin{detail}[Lemma~\Nref{lem:ol-infrared}]\label{d11b:ol-infrared}\Ntarget{lem:ol-infrared}
+$T^{(\mathrm m)}=\mathsf B\log(1/\mathrm m)+\mathsf C+o(1)$, with $\mathsf B$ the spherical integral and $\mathsf C$ given by \eqref{N-eq:ol-infrared-constant}.
+\end{detail}
+
+\begin{step}[The four pieces]
+Write $(2\pi)^4T^{(\mathrm m)}$ as the sum of three integrals: of $\mathcal I(q,\mathrm m)$ over $[-\pi,\pi]^4\setminus B$, of $\mathcal I-\mathcal I_0$ over $B$, and of $\mathcal I_0$ over $B$.
+\begin{itemize}
+\item On $[-\pi,\pi]^4\setminus\operatorname{int}B$, $|\hat q|^2\ge\frac4{\pi^2}|q|^2\ge\frac4{\pi^2}$. So $\mathcal I$ is continuous on this compact set times $[0,1]$, and the integral converges to that of $\mathcal I(q,0)$.
+\item On $B\setminus0$, $\mathcal I-\mathcal I_0$ converges pointwise and is bounded by $C|q|^{-3}$ (Detail~\ref{d11b:continuum-integrand}), which is integrable in $d=4$. Dominated convergence applies.
+\item Substituting $q=\mathrm mq'$ and using the homogeneity, $\int_B\mathcal I_0(q,\mathrm m)\,d^4q=\int_{|q'|\le1/\mathrm m}\mathcal I_0(q',1)\,d^4q'$. Split this as the integral over $B$ (finite, since $\mathcal I_0(\cdot,1)$ is smooth), plus $\int_{1<|q'|\le1/\mathrm m}(\mathcal I_0(q',1)-\mathcal I_0(q',0))$, plus $\int_{1<|q'|\le1/\mathrm m}\mathcal I_0(q',0)$.
+\end{itemize}
+For $|q'|=r\ge1$, $\mathcal I_0(q',1)-\mathcal I_0(q',0)=r^{-4}(\mathcal I_0(\omega,1/r)-\mathcal I_0(\omega,0))$. Here $\mathcal I_0(\omega,s)$ is a rational function of $\omega$ and $s^2$ with denominators powers of $1+s^2$, so the difference is $O(r^{-6})$, uniformly in $\omega$, and integrable on $\R^4\setminus B$. In polar coordinates the last term is $\int_1^{1/\mathrm m}r^{-1}dr\int_{S^3}\mathcal I_0(\omega,0)\,d\sigma=(2\pi)^4\mathsf B\log(1/\mathrm m)$. Since $\operatorname{iso}$ is linear, $f(\mathrm m)=\mathsf b\log(1/\mathrm m)+c+o(1)$.
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[Lemma~\Nref{lem:ol-classical}]\label{d11b:ol-classical}\Ntarget{lem:ol-classical}
+$\mathsf B=\frac{11\kappa_\rho}{24\pi^2}(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$, and $\mathsf b=\frac{11C_A}{24\pi^2T_\rho}$, relative to $S$.
+\end{detail}
+
+\begin{step}[The integrand on the sphere]
+At $|\omega|=1$, $\mathrm m=0$: $G^0_0(\omega)=1$ and
+\[
+G^0_0(\omega+p)=(1+2\omega\cdot p+|p|^2)^{-1}=1-2\omega\cdot p-|p|^2+4(\omega\cdot p)^2+O(|p|^3).
+\]
+With $(2\omega+p)_\mu(2\omega+p)_\nu=4\omega_\mu\omega_\nu+2(\omega_\mu p_\nu+p_\mu\omega_\nu)+p_\mu p_\nu$, the part of second order in $p$ of $\kappa_\rho^{-1}P_0$ is
+\[
+p_\mu p_\nu-4(\omega_\mu p_\nu+p_\mu\omega_\nu)(\omega\cdot p)-4\omega_\mu\omega_\nu|p|^2+16\,\omega_\mu\omega_\nu(\omega\cdot p)^2+4(\delta_{\mu\nu}|p|^2-p_\mu p_\nu),
+\]
+and this is $\kappa_\rho^{-1}\mathcal I_0(\omega,0)(p)$.
+\end{step}
+
+\begin{step}[Moments and averages]
+By $O(4)$ invariance, $\langle\omega_\alpha\omega_\beta\rangle=c_2\delta_{\alpha\beta}$, and $\sum\omega_\alpha^2=1$ gives $c_2=\frac14$. Likewise $\langle\omega_\alpha\omega_\beta\omega_\gamma\omega_\delta\rangle=c_4(\delta_{\alpha\beta}\delta_{\gamma\delta}+\delta_{\alpha\gamma}\delta_{\beta\delta}+\delta_{\alpha\delta}\delta_{\beta\gamma})$. This needs $\langle\omega_1^4\rangle=3\langle\omega_1^2\omega_2^2\rangle$, which follows from the rotation by $\frac\pi4$ in the $(1,2)$-plane: $\langle\omega_1^4\rangle=\langle(\frac{\omega_1+\omega_2}{\sqrt2})^4\rangle=\frac14(2\langle\omega_1^4\rangle+6\langle\omega_1^2\omega_2^2\rangle)$. Contracting, $1=\langle(\sum\omega_\alpha^2)^2\rangle=c_4(16+4+4)$, so $c_4=\frac1{24}$. Then:
+\begin{itemize}
+\item $-4\langle(\omega_\mu p_\nu+p_\mu\omega_\nu)(\omega\cdot p)\rangle=-2p_\mu p_\nu$;
+\item $-4\langle\omega_\mu\omega_\nu\rangle|p|^2=-\delta_{\mu\nu}|p|^2$;
+\item $16\langle\omega_\mu\omega_\nu\omega_\alpha\omega_\beta\rangle p_\alpha p_\beta=\frac23(\delta_{\mu\nu}|p|^2+2p_\mu p_\nu)$.
+\end{itemize}
+With $p_\mu p_\nu$, the orbital terms average to $(1-2+\frac43)p_\mu p_\nu+(-1+\frac23)\delta_{\mu\nu}|p|^2=-\frac13(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$. The spin term is constant. So $\langle\mathcal I_0(\omega,0)\rangle=\kappa_\rho(4-\frac13)(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)=\frac{11}3\kappa_\rho(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$. Transversality ($a=-2b$) comes out of the computation, and it is not assumed.
+\end{step}
+
+\begin{step}[The coefficient]
+$|S^3|=2\pi^2$, so $(2\pi)^{-4}|S^3|=\frac1{8\pi^2}$, and $\mathsf B=\frac{11\kappa_\rho}{24\pi^2}(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$. Its isotropic coefficient is $\mathsf b=\frac{11\kappa_\rho}{24\pi^2}=\frac{11C_A}{24\pi^2T_\rho}$ (Detail~\ref{d11b:kappa}). For $SU(N)$ in the fundamental representation, $C_A=N$ and $T_\rho=\frac12$, so $\mathsf b=\frac{11N}{12\pi^2}$.
+\end{step}
+
+\begin{step}[Normalization and sign]
+On $\Z^4$ at $U=1$, $J_1=0$ and $\mathcal F_1=0$. So $\frac{d^2}{dt^2}S(e^{\ii th})|_0=\|dh\|^2=\mathrm b(h,d^Tdh)$ for real $h$ (Proposition~\Nref{prop:action}). The kernel $d^Td$ has, in the bond-midpoint convention, the transform $|\hat p|^2\delta_{\mu\nu}-\hat p_\mu\hat p_\nu$, whose $p^2$-part is $\delta_{\mu\nu}|p|^2-p_\mu p_\nu$. Its isotropic coefficient is $\frac13(2\cdot1-(-1))=1$ (Detail~\ref{d11b:ol-integral}, Step~4). The vacuum polarization is defined by the same bilinear form in the same pairing (Detail~\ref{d11b:ol-integral}, Step~3). So $\mathsf b$ is the coefficient relative to $S$. The density is $\exp(-g^{-2}S+\Gamma^{(1)})$, so the effective coefficient of $-S$ is $g^{-2}-\mathsf b\log(1/\mathrm m)$, which decreases towards the infrared.
+\end{step}
+\status{Expanded. The coefficients $-\frac13$ (orbital) and $4$ (spin), giving $\frac{11}3$, are computed in full.}
+
+\begin{detail}[Proof of Theorem~\Nref{thm:ol-log}]\label{d11b:ol-log}\Ntarget{thm:ol-log}
+$\beta_{\rm F}=k\beta_\infty+c_{\log}+o(1)$, and $\beta_{\rm F}=k\beta_\infty+O(1)$ uniformly in $k\ge1$.
+\end{detail}
+
+\begin{step}[Proof]
+By Detail~\ref{d11b:ol-scaling} with $m=1$, $\beta_{\rm F}=f(\eta)$, $\eta=L^{-k}$. By Details~\ref{d11b:ol-infrared} and~\ref{d11b:ol-classical}, $f(\mathrm m)=\mathsf b\log(1/\mathrm m)+c+o(1)$, and $\log(1/\eta)=k\log L$, so $\mathsf b\log(1/\eta)=k\beta_\infty$. The function $f$ is continuous on $(0,1]$, as an integral of a continuous integrand on a compact set for $\mathrm m>0$. The function $f(\mathrm m)-\mathsf b\log(1/\mathrm m)$ has a limit at $0$, so it is bounded on $(0,1]$. Since $\eta\in(0,1]$ for $k\ge1$, $|\beta_{\rm F}-k\beta_\infty|\le C$.
+\end{step}
+\status{Expanded.}
+
+%======================================================================
+\subsection{Section~\texorpdfstring{\Nref{sec:ol-uv}}{58}: the cumulative coefficient and the period density}\label{d11b:58a}
+
+\begin{detail}[Theorem~\Nref{thm:ol-cumulative}]\label{d11b:ol-cumulative}\Ntarget{thm:ol-cumulative}
+Every $T^{(1)}_{j+1}$ is a multiple $\beta^{(1)}_{j+1}(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$, and $\sum_{j<k}T^{(1)}_{j+1}=T_{\Gamma^{(1)}_k}=(k\beta_\infty+O(1))(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$, uniformly in $k$.
+\end{detail}
+
+\begin{step}[The tori]
+Let the torus have its side at scale $k$ in $\mathfrak N_k$. By Lemma~\Nref{lem:torus}(a) with $K=k$, (T0)--(T2) hold at every scale $\le k$, which is the setting of Section~\Nref{sec:ol-composite}. Let $j<k$. Read with $K=j+1$, the torus satisfies the Setting of Section~\Nref{sec:generations} at the scales $\le j+1$, since these conditions are among those at the scales $\le k$. Its last side is $n_{j+1}=L^{k-j-1}n_k\ge n_k\ge n_{\min}$. So $n_{j+1}\in\mathfrak N_{j+1}$, and these sides form an infinite subset of $\mathfrak N_{j+1}$.
+\end{step}
+
+\begin{step}[The limits]
+By Lemma~\Nref{lem:ol-torus-limit}(c), the second variations of $\Gamma^{(1)}_k$ converge with uniform decay along all large sides, so also along this subsequence, with the same limit. By Lemma~\Nref{lem:ol-limits} (Detail~\ref{d11b:ol-limits}), those of $\Gamma^{\rm step}_j\circ U_{j+1}$ converge along $\mathfrak N_{j+1}$, so also along the subsequence. So Corollary~\Nref{cor:ol-cumulative} applies. With Lemma~\Nref{lem:ol-symmetry}(c), every $T^{(1)}_{j+1}$ and $T_{\Gamma^{(1)}_k}$ is a multiple of $\delta_{\mu\nu}|p|^2-p_\mu p_\nu$, and $\sum_{j<k}T^{(1)}_{j+1}=T_{\Gamma^{(1)}_k}$.
+\end{step}
+
+\begin{step}[The coefficient]
+Write $T_{\Gamma^{(1)}_k}=c_k(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$. By Lemma~\Nref{lem:ol-coarse-map}, $T_{\Gamma^{(1)}_k}=T_{\rm fine}$. By Proposition~\Nref{prop:ol-reduction}, $T_{\rm fine}=T_{\rm F}+R_k$ with $|R_k|\le C$ uniformly in $k$. By Remark~\Nref{rem:ol-symmetry}, $T_{\rm F}=\beta_{\rm F}(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$. So $R_k=(c_k-\beta_{\rm F})(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$. The isotropic coefficient is a bounded linear functional (an orthogonal projection coefficient, Definition~\Nref{def:marginal-tensor}), so $|c_k-\beta_{\rm F}|\le C'$. By Theorem~\Nref{thm:ol-log} (Detail~\ref{d11b:ol-log}), $\beta_{\rm F}=k\beta_\infty+O(1)$ uniformly in $k\ge1$. Hence $c_k=k\beta_\infty+O(1)$. The $c_k$ are defined from infinite-volume limits (Definition~\Nref{def:marginal-tensor}), so the constant in $O(1)$ does not depend on the torus or on the last scale $K$.
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[Lemma~\Nref{lem:ol-linear-average}]\label{d11b:ol-linear-average}\Ntarget{lem:ol-linear-average}
+(a) $\bQ A_F=B_F$. (b) $\bQ^{\rm pl}A_F=B_F$. Here $A_F$, $B_F$ are the linear fields of $F$ with origin $x_0$ on $\eta\Z^4$ and $\Z^4$.
+\end{detail}
+
+\begin{step}[Reduction to one origin]
+By Section~\Nref{subsec:gen-period}, $A_F(b)=\frac12(m_b-x_0)^{\sf T}Ft_b$. Changing the origin from $x_0$ to $y$ adds to $A_F$ the constant field with components $v_\mu=\frac12\sum_\kappa(y-x_0)_\kappa F_{\kappa\mu}$ on the bonds of direction $\mu$, and the same constant field to $B_F$.
+\begin{itemize}
+\item $\bQ$ maps a constant field to the same constant field: $(\bQ A)_\mu=Q_\mu A_\mu$, and $Q_\mu1=\eta^d\sum_{x\in B(y)}\eta\sum_{j=0}^{N-1}1=1$, with $N=\eta^{-1}$ (Definition~\Nref{def:averages}, Lemma~\Nref{lem:avg}(b)).
+\item For $\bQ^{\rm pl}$, see Step~3.
+\end{itemize}
+Both maps are linear, so it suffices to show, for each coarse point $y$ and direction $\mu$, that the average of $A_F$ with origin $y$ vanishes on $c=(y,y+e_\mu)$. For this origin, $B_F(c)=\frac12(m_c-y)^{\sf T}Fe_\mu=\frac14e_\mu^{\sf T}Fe_\mu=0$, since $F$ is antisymmetric.
+\end{step}
+
+\begin{step}[(a)]
+For the bond $b$ of direction $\mu$ starting at $x+j\eta e_\mu$, $m_b=x+(j+\frac12)\eta e_\mu$. Since $F_{\mu\mu}=0$, $A_F(b)=\frac12\sum_{\kappa\ne\mu}(x-y)_\kappa F_{\kappa\mu}$, which does not depend on $j$ and is linear in $x-y$. The block $B(y)$ is the set of the fine points at distance at most $\frac12(1-\eta)$ from $y$, symmetric about $y$; so $\sum_{x\in B(y)}(x-y)=0$. Hence $(\bQ A_F)_\mu(y)=\eta^d\sum_{x\in B(y)}\frac12\sum_\kappa(x-y)_\kappa F_{\kappa\mu}=0$.
+\end{step}
+
+\begin{step}[(b): covariance]
+$\bQ^{\rm pl}$ is the linearization at $1$ of $U\mapsto U^{(k)}$. Its value at $c$ depends only on $A$ on the bonds of $B(c_-)\cup B(c_+)$ (Lemma~\Nref{lem:one-step-basic}, Consequently).
+\begin{itemize}
+\item \emph{Gauge.} Let $\lambda$ be real and $u=e^{-\ii t\lambda}$. For $A=0$, $1^u(b)=e^{-\ii t\lambda(b_-)}e^{\ii t\lambda(b_+)}=e^{\ii\eta t\,\partial\lambda(b)+O(t^2)}$. The two factors need not commute, so this holds only to first order in $t$; only the derivative at $t=0$ is used below. In general $(e^{\ii\eta tA})^u=e^{\ii\eta t(A+\partial\lambda)+O(t^2)}$. The gauge covariance of Lemma~\Nref{lem:one-step-basic} gives $(U^u)^{(k)}=(U^{(k)})^{u|_\T}$. Differentiating at $t=0$: $\bQ^{\rm pl}(A+\partial\lambda)=\bQ^{\rm pl}A+\partial'\lambda$, with $\partial'\lambda(c)=\lambda(c_+)-\lambda(c_-)$.
+\item \emph{Constant fields.} With $A=0$ and $\lambda(x)=v\cdot x$ ($v_\mu\in\mathfrak g$), $\partial\lambda$ is the constant field $(v_\mu)$, and $\partial'\lambda(c)=v_\mu$ for $c$ of direction $\mu$. So $\bQ^{\rm pl}$ preserves constant fields.
+\item \emph{Symmetry.} For $r\in\mathfrak S_k$, $r(e^{\ii\eta tA})=e^{\ii\eta t\,r_1A}$, with $(r_1A)(b)=A(r^{-1}b)$ and $A(-b)=-A(b)$. Lemma~\Nref{lem:one-step-basic}(d) gives $\bQ^{\rm pl}r_1=r_1\bQ^{\rm pl}$.
+\item \emph{Infinite lattice.} These identities are stated on tori. At a coarse bond $c$ each involves only the fields on the blocks of $c$ and of its image. Replace the fields near these blocks by periodic fields on a large torus, for the symmetry by an $r$-invariant cut-off. The functions $v\cdot x$ and $A_F$ are not periodic, but only their restrictions to these blocks enter. So the identities hold on $\eta\Z^4$. Both extend to $\mathfrak g^c$-valued fields by complex linearity.
+\end{itemize}
+\end{step}
+
+\begin{step}[(b): reflections]
+Let $\nu\ne\mu$, and let $r$ be the reflection of the $\nu$-th coordinate about $y$. It lies in $\mathfrak S_k$, since $r(x)=R_\nu x+(y-R_\nu y)$ with $y-R_\nu y\in\Z^4$. It fixes $c$ pointwise, with its orientation. By \eqref{N-eq:linear-field-covariance}, which holds for every affine map with linear part in $B_4$, $r_1A_F=A_{R_\nu\cdot F}$ with the origin $ry=y$. Put $\ell(F)=(\bQ^{\rm pl}A_F)(c)$. By Step~3, $\ell(R_\nu\cdot F)=(r_1\bQ^{\rm pl}A_F)(c)=(\bQ^{\rm pl}A_F)(r^{-1}c)=\ell(F)$. Write $\ell(F)=\sum_{\kappa<\lambda}\ell_{\kappa\lambda}(F_{\kappa\lambda})$ with linear $\ell_{\kappa\lambda}$. Then $(R_\nu\cdot F)_{\kappa\lambda}=(R_\nu)_{\kappa\kappa}(R_\nu)_{\lambda\lambda}F_{\kappa\lambda}$, which is $-F_{\kappa\lambda}$ if exactly one of $\kappa,\lambda$ is $\nu$. Every pair $\kappa<\lambda$ contains an index $\nu\ne\mu$, and the other index of the pair is not $\nu$. So $\ell_{\kappa\lambda}=-\ell_{\kappa\lambda}=0$ for every pair, and $\ell=0$.
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[The volume coefficient and the one-loop part; Section~\Nref{subsec:ol-flow-coeff}]\label{d11b:beta-vol}\Ntarget{subsec:ol-flow-coeff}
+(i) $\beta^{\rm vol}_E$ is defined and linear for complex families without (G2), and $|\beta^{\rm vol}_E|\le C_\beta\|E\|$. (ii) $E'_{\rm ol}$ has (G1) on $\mathcal U(Y')$ with $\|E'_{\rm ol}\|^{\rm raw}_{k+1}\le\mathsf K$. It does not depend on the coupling, the cutoff or the old activities.
+\end{detail}
+
+\begin{step}[(i)]
+The proof of Lemma~\Nref{lem:period-density}(a) uses three properties of $E(X,\cdot)$: holomorphy, dependence only on the bonds of $X$, and invariance under real gauge transformations (through $d\Phi_X(0)=0$ and the identity $d^2\Phi_X(0)[B,\partial\lambda]=0$). It does not use reality, and the bound uses only the supremum. The bound of Lemma~\Nref{lem:period-density}(c) for a single cube $Q$ uses only (a) and \eqref{N-eq:dM-facts}. (G2) is used there only for the independence of $Q$. Hence $\bar T^{\rm vol}_E(F)=n_j^{-4}\sum_Q\sum_{X\supset Q}c^X(F)/|X|$, an average over the $(n_j/M)^4$ cubes of $M^{-4}\sum_{X\supset Q}c^X/|X|$, satisfies
+\[
+|\bar T^{\rm vol}_E(F)|\le9d^2K_0M^{-2}(\delta_1^\flat)^{-2}\|E\||F|^2 .
+\]
+With $|F^{\mu\nu,a}|=1$ and the $6\dim\mathfrak g$ data in \eqref{N-eq:beta-vol}, \[
+|\beta^{\rm vol}_E|\le(3\dim\mathfrak g)^{-1}6\dim\mathfrak g\cdot9d^2K_0M^{-2}(\delta_1^\flat)^{-2}\|E\|=C_\beta\|E\|,
+\]
+with $C_\beta$ of Proposition~\Nref{prop:period-iso}(b). Each $c^X$ is linear in $E$, so $\beta^{\rm vol}$ is linear. Under (G2) and (G4), $\bar T^{\rm vol}_E=\bar T_E$ (Lemma~\Nref{lem:period-density}(c)) and $\beta^{\rm vol}_E=\beta_E$ (Proposition~\Nref{prop:period-iso}(a)). For a raw generation, $\beta_{E'^{\rm sym}}=\beta^{\rm vol}_{E'}$ is Proposition~\Nref{prop:period-iso}(c).
+\end{step}
+
+\begin{step}[(ii)]
+Restrict the proof of Lemma~\Nref{lem:raw-new}(a),(b) to the first two sums of Definition~\Nref{def:raw-new}.
+\begin{itemize}
+\item \emph{Locality.} $\mathfrak e(X,\cdot)$ depends on $X\subset\bar X$, and $\log\mathfrak j_c$ on $B'(c_-)\cup B'(c_+)\subset Y'_c$.
+\item \emph{Holomorphy.} Both are graded activities on $\mathcal U(\cdot;c_a,c_a,c_a)$, and $\mathcal U(Y')\subset\mathcal U(P;c_a,c_a,c_a)$ for $P\subset Y'$, by Remark~\Nref{rem:domain-constants}(i) and (DC1).
+\item \emph{Normalization, invariance, reality.} $\mathfrak e(X,1)=0$, $\mathfrak j_c=1$ at the trivial base, and both are invariant under real gauge transformations and real at real references.
+\end{itemize}
+The bounds of the proof of Lemma~\Nref{lem:raw-new}(b) give
+\[
+\sum_{\bar X=Y'}|\mathfrak e(X,U)|+\sum_{Y'_c=Y'}|\log\mathfrak j_c(U)|\le(3^dK_0L^dC_{\mathfrak e}+2dM^4C_{\rm jac})e^{-\kappa_nd_{k+1}(Y')}\le B_{\rm new}e^{-\kappa_nd_{k+1}(Y')} .
+\]
+So $\|E'_{\rm ol}\|^{\rm raw}_{k+1}\le B_{\rm new}\le\frac12\mathsf K$. The pieces are functions of the reference alone, through $\Delta_k$ and the elimination at the base (Proposition~\Nref{prop:flow-continuity}, Step~4). By linearity of $\beta^{\rm vol}$, $\beta_{k+1}=\beta^{\rm vol}_{E'}=\beta^{\rm ol}_{k+1}+\beta^{\rm vol}_{E'_\#}$.
+\end{step}
+\status{Literal repetition, with the listed restrictions.}
+
+\begin{detail}[Flat activities on the infinite lattice; Section~\Nref{subsec:ol-period-vacpol}, paragraph ``Flat domains and the infinite lattice'']\label{d11b:flat-activities}\Ntarget{subsec:ol-period-vacpol}
+For a family $E^\infty$ of flat activities with (G2) and $\|E^\infty\|<\infty$, the numbers $c^X(F)$ and $\beta^\infty_{E^\infty}$ are defined, the cell sums converge absolutely and do not depend on $Q$, and $\widetilde\Pi$ is well defined.
+\end{detail}
+
+\begin{step}[Proof]
+On $\mathcal U^\flat_1(X)$ the proof of Lemma~\Nref{lem:period-density}(a) applies verbatim. It uses only the configurations $V^X_{t,F}$, which are flat, and holomorphy, locality and small real gauge invariance; its bound uses $\sup_{\mathcal U^\flat_1}$. The bound of Lemma~\Nref{lem:period-density}(c) and \eqref{N-eq:dM-facts} give absolute convergence. (G2) gives $c^{X+a}=c^X$ and the $Q$-independence, as in Lemma~\Nref{lem:period-density}(b),(c). For $\widetilde\Pi$: for $A$ of finite support only the polymers containing a bond of the support contribute, since $E^\infty(X,\cdot)$ depends on the bonds of $X$ and vanishes at $1$. By Cauchy's estimate, each kernel is at most $C_\eta\|E^\infty\|e^{-\kappa_nd_j(X)}$ (Detail~\ref{d11b:gl-limits-c}, Step~3), which is summable by \eqref{N-eq:dM-facts}. Translations by $M\Z^4$ map $\widetilde\Pi$ to itself by (G2), so the average $\widetilde\Pi^{\rm av}$ over $a\in\{0,\dots,M-1\}^4$ is invariant under $\Z^4$.
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[Lemma~\Nref{lem:OL}]\label{d11b:OL}\Ntarget{lem:OL}
+The one-loop parts $(E'_{\rm ol}[\tilde n])_{\tilde n\in\mathfrak N_{k+1}}$ form a torus-local family with no error term, $\|E'_{\rm ol}[\tilde n]\|\le\mathsf K$, and limit $E^\infty$.
+\end{detail}
+
+\begin{step}[The import]
+Proposition~\Nref{prop:one-loop-local}(d) states the following. For a polymer $\tilde X$ of scale $k$ of the infinite lattice, $E^\infty_k(\tilde X,B):=\mathfrak e[n](\pi_n\tilde X,V_B[n])$, $B\in\mathcal U_{\rm fl}(\tilde X)$, does not depend on the admissible $n$ with $\operatorname{diam}\tilde X\le\frac12n-8$. It is holomorphic, local, normalized, real and invariant under small real gauge transformations, and covariant under $M\Z^4$. For every non-wrapping $X$ with lift $\tilde X$, and every $U\in\mathcal U(X;c_a,c_a,c_a)$ that agrees on $X$ with $V_B[n]$, $\mathfrak e[n](X,U)=E^\infty_k(\tilde X,B)$. The same holds for $J^\infty_k(\tilde c,\cdot)$ on the lift of $P_c$.
+\end{step}
+
+\begin{step}[Proof]
+Let $\tilde n\in\mathfrak N_{k+1}$. By Detail~\ref{d11b:gl-admissible}(b), the side $L\tilde n$ at step $k$ is admissible. The norm bound is Detail~\ref{d11b:beta-vol}(ii). Define $E^\infty(\tilde Y',V_B)$ for $V_B\in\mathcal U^\flat_1(\tilde Y')$ as the sum of $E^\infty_k(\tilde X,B_{\tilde X})$ over $\operatorname{cl}_{k+1}\tilde X=\tilde Y'$ and of $J^\infty_k(\tilde c,B_{\tilde c})$ over $\tilde Y'_{\tilde c}=\tilde Y'$. These sums are finite, since $\tilde X,P_{\tilde c}\subset\tilde Y'$. The restrictions lie in the domains: the budgets $L^{-2}\delta_1^\flat$, $L^{-1}\delta_0$ are less than $c_a$ by (DC1) (Remark~\Nref{rem:one-loop-local-use}(a); Detail~\ref{d11b:gl-defined}, Step~4).
+
+Let $Y'$ be a non-wrapping polymer of scale $k+1$ of the torus, and $\tilde Y'$ a lift. Lifting into $\tilde Y'$ is a bijection of the index sets, by Detail~\ref{d11b:gl-admissible}(d). By the import, each term equals the corresponding infinite-volume term, so $E'_{\rm ol}[\tilde n](Y',U)=E^\infty(\tilde Y',\tilde U)$ exactly. Covariance: a vector of $M\Z^4$ in the units of scale $k+1$ is one of $LM\Z^4\subset M\Z^4$ in those of step $k$. It maps the grids of both scales onto themselves, so it commutes with $\operatorname{cl}_{k+1}$ and with $c\mapsto Y'_c$. The covariance of $E^\infty_k$ and $J^\infty_k$ then gives that of $E^\infty$.
+\end{step}
+\status{Expanded. It rests on Proposition~\Nref{prop:one-loop-local} (Detail~\ref{d9:one-loop-local}).}
+
+\begin{detail}[Lemma~\Nref{lem:period-vacpol}(a),(b)]\label{d11b:pv-ab}\Ntarget{lem:period-vacpol}
+The kernel $\kappa_X$ exists, is real and symmetric, and annihilates gradients. Moreover $c^X(p\wedge a\otimes T)=a^{\sf T}m_X(p)a\operatorname{tr}(T^2)$, and the isotropic coefficient of $T^{\rm f}_E$ is $\beta^{\rm vol}_E$.
+\end{detail}
+
+\begin{step}[(a)]
+$\Phi_X(B)=E(X,V_B)$ is holomorphic near $0$, with $d\Phi_X(0)=0$. For constant $v\in G$, $V_{vBv^{-1}}=(V_B)^v$ on $X^{(3)}$, so $\frac12d^2\Phi_X(0)$ is invariant under the simultaneous adjoint action of $G$. Its polar blocks $k_{bb'}$ are then $G$-invariant bilinear forms on $\mathfrak g^c$, hence multiples $\kappa_X(b,b')\operatorname{tr}(TT')$, since $\mathfrak g$ is simple (as in the proof of Lemma~\Nref{lem:b4-forms}). The kernel $\kappa_X$ is symmetric. It is real, since $E$ is real at real configurations and $\operatorname{tr}(T^2)>0$ for $0\ne T\in\mathfrak g$. The proof of Lemma~\Nref{lem:period-density}(a) gives $d^2\Phi_X(0)[B,\partial\lambda]=0$; with $B$ on one bond and $\lambda=\varphi T$ this is $\sum_{b'}\kappa_X(b,b')\partial\varphi(b')=0$.
+
+With origin $0$ and $\varphi(x)=\frac12(p\cdot x)(a\cdot x)$: $\partial\varphi(b)=\frac12((p\cdot m_b)a_\nu+(a\cdot m_b)p_\nu)$ exactly, since $b_\pm=m_b\pm\frac12\eta e_\nu$ and $\varphi$ is quadratic. So $A_F=(B_1-\partial\varphi)T$ with $B_1(b)=(p\cdot m_b)a_{\mu(b)}$, and $c^X(F)=\kappa_X(B_1,B_1)\operatorname{tr}(T^2)$ by the gradient identity. With $B_0=\partial\psi$, $\psi=a\cdot x$, and $B_2(b)=(p\cdot m_b)^2a_{\mu(b)}$,
+\[
+\begin{aligned}
+\sum_{b,b'}\kappa_X(b,b')a_{\mu(b)}a_{\mu(b')}(p\cdot m_b-p\cdot m_{b'})^2&=\kappa_X(B_2,B_0)-2\kappa_X(B_1,B_1)+\kappa_X(B_0,B_2)\\
+&=-2\kappa_X(B_1,B_1),
+\end{aligned}
+\]
+and the left side is $-2a^{\sf T}m_X(p)a$. Only differences of midpoints enter, so nothing depends on the lift.
+\end{step}
+
+\begin{step}[(b)]
+(i) is (a) summed. For (ii): $\bar T^{\rm vol}_E(F)=\sum Q(e_{\mu\nu},e_{\kappa\lambda})\operatorname{tr}(F_{\mu\nu}F_{\kappa\lambda})$ (first part of the proof of Lemma~\Nref{lem:b4-forms}), and polarizing (i) in $a$ gives \eqref{N-eq:Tf-Q}. For $R\in B_4$, the tensor of $Q^R(w,w')=Q(Rw,Rw')$ is $(T^{\rm f}_E)^R(p)=R^{\sf T}T^{\rm f}_E(Rp)R$. The action $T\mapsto T^R$ on coefficient tensors is orthogonal and fixes the tensor of $\delta_{\mu\nu}|p|^2-p_\mu p_\nu$, so the isotropic coefficient of $T^{\rm f}_E$ equals that of the tensor of $\bar Q$. By Lemma~\Nref{lem:b4-forms}(a), $\bar Q=\beta'I$, whose tensor is $2\beta'(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$. Finally, $B_4$ permutes the $e_{\mu\nu}$ up to sign, so $\sum_{\mu<\nu}Q(e_{\mu\nu},e_{\mu\nu})=6\beta'$, and $\beta^{\rm vol}_E=(3\dim\mathfrak g)^{-1}\dim\mathfrak g\cdot6\beta'=2\beta'$.
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[Lemma~\Nref{lem:period-vacpol}(c),(d)]\label{d11b:pv-cd}\Ntarget{lem:period-vacpol}
+(c) For flat activities with (G2), (a) and (b) hold with the cell sums. $T^{\rm f}_{E^\infty}$ is the order-$2$ part of $\widetilde\Pi^{\rm av}(p,p)$, and it is the marginal tensor of $\Pi_\Phi$ when $\Pi_\Phi$ is $\Z^4$- and reflection-invariant. (d) For torus-local families, $|\beta^{\rm vol}_{E[\tilde n]}-\beta^\infty_{E^\infty}|\le C'e^{-c'\tilde n/M}$, and the kernels converge with uniform decay.
+\end{detail}
+
+\begin{step}[(c): the cell sums and the Bloch component]
+(a) is a statement about one polymer. Its proof uses only flat points and small real gauge invariance, so it holds verbatim; (b) holds with the weights $M^{-4}|X|^{-1}$. Absolute convergence: Detail~\ref{d11b:flat-activities}.
+
+By (G2), the polymers $X+a$, $a\in M\Z^4$, that contain $Q$ are exactly $|X|$ in number: one for each cube of $X$ moved onto $Q$. Using $\kappa_{X+a}(b+a,b'+a)=\kappa_X(b,b')$, the sum over the bonds $b$ of direction $\mu$ with midpoints in an $M$-cell of all polymers becomes
+\[
+\widetilde\Pi^{\rm av}(p,p)_{\mu\nu}=2M^{-4}\sum_{X\supset Q}\frac1{|X|}\sum_{b,b'\in X}e^{-\ii p\cdot(m_b-m_{b'})}\kappa_X(b,b')\delta_{\mu(b)\mu}\delta_{\mu(b')\nu}.
+\]
+Expand the exponential:
+\begin{itemize}
+\item order $0$ vanishes by the gradient identity, since a constant field is $\partial\psi$;
+\item order $1$ is antisymmetric in $\mu,\nu$, by the symmetry of $\kappa_X$;
+\item order $2$ is $-\frac12\sum\kappa_X(p\cdot(m_b-m_{b'}))^2\cdots$, which is $T^{\rm f}_{E^\infty}(p)$ by the definition of $m_X$.
+\end{itemize}
+The kernel $\widetilde\Pi^{\rm av}$ is real, symmetric, $\Z^4$-invariant, with exponential decay, and annihilates constant fields. These are the hypotheses of Lemma~\Nref{lem:ol-coarse-map} (with $j$ for $k$), which gives $(\bH_\infty^{\sf T}\widetilde\Pi^{\rm av}\bH_\infty)(p)=\widetilde\Pi^{\rm av}(p,p)+O(|p|^3)$. Since $\bH_\infty\in\mathscr P$ commutes with $\Z^4$, and $\Pi_\Phi$ is $\Z^4$-invariant, $\bH_\infty^{\sf T}\widetilde\Pi^{\rm av}\bH_\infty$ is the average of the translates of $\Pi_\Phi$, which is $\Pi_\Phi$. The point reflection gives $\Pi_\Phi(-p)=\Pi_\Phi(p)$, which kills the antisymmetric linear term. So the marginal tensor of $\Pi_\Phi$ is $T^{\rm f}_{E^\infty}$, and its isotropic coefficient is $\beta^\infty_{E^\infty}$.
+\end{step}
+
+\begin{step}[(d)]
+A polymer $X$ of the infinite lattice projects, for large $\tilde n$, to a non-wrapping polymer with the same cubes and tree length (Detail~\ref{d11b:gl-limits-a}). By \eqref{N-eq:torus-local}, $E^\infty(X,\cdot)$ is the uniform limit on $\mathcal U^\flat_1(X)$ of the torus functions. So it is a flat activity, with $|E^\infty|\le\mathsf K'e^{-\kappa_nd_j}$. (G2) is part of the definition of a torus-local family.
+
+Let $Q$ be a grid cube and $\tilde Q$ a lift. The non-wrapping $X\supset Q$ correspond to the $\tilde X\supset\tilde Q$ with $\operatorname{diam}\le\frac12\tilde n-8$.
+\begin{itemize}
+\item For these, $t\mapsto E[\tilde n](X,V^X_{t,F})-E^\infty(\tilde X,V^{\tilde X}_{t,F})$ is holomorphic for $|t|<t_X=\delta_1^\flat/(dD_X)$ ($|F|\le1$) and bounded by $Ce^{-c\tilde n/M}e^{-\kappa_nd_j(X)}$. Cauchy's estimate with $t_X^{-2}\le9d^2M^2(\delta_1^\flat)^{-2}(1+d_j)^2$ bounds the difference of the $c$'s.
+\item The other $\tilde X\supset\tilde Q$ have $\operatorname{diam}\tilde X>\frac12\tilde n-8$. By Lemma~\Nref{lem:torus}(b), $d_j(\tilde X)\ge(\frac12\tilde n-8)/M-2\ge\tilde n/(4M)$, since $\tilde n\ge8LM$. Their $c$'s are bounded by Lemma~\Nref{lem:period-density}(a) with $\mathsf K'$.
+\end{itemize}
+With $(1+t)^2e^{-(\kappa_n-\kappa_0)t}\le e^{-(\kappa_n-\kappa_0-2)t}$, $\kappa_n-\kappa_0-2\ge1$, and \eqref{N-eq:dM-facts}, the difference of the cell sums is at most $9d^2M^2(\delta_1^\flat)^{-2}K_0(Ce^{-c\tilde n/M}+\mathsf K'e^{-\tilde n/(4M)})$. Dividing by $M^4$ and averaging over $Q$ gives $|\bar T^{\rm vol}_{E[\tilde n]}(F)-\bar T_{E^\infty}(F)|\le9d^2K_0M^{-2}(\delta_1^\flat)^{-2}(C+\mathsf K')e^{-c'\tilde n/M}$, with $c'=\min(c,\frac14)$. The $6\dim\mathfrak g$ data and the factor $(3\dim\mathfrak g)^{-1}$ give $C'=18d^2K_0M^{-2}(\delta_1^\flat)^{-2}(C+\mathsf K')$. The kernels: as in Detail~\ref{d11b:gl-limits-c}, Step~3, with the rate $e^{-c\tilde n/M}$ for the non-wrapping polymers of small diameter.
+\end{step}
+\status{Expanded. The steps that the note compresses as ``verbatim'', ``in the same way'' and ``by the same Cauchy estimate'' are written out.}
+
+\paragraph{The paragraph after Lemma~\Nref{lem:period-vacpol}.} A statement only. A quadratic form on $\Lambda^2\R^4$ that vanishes on the decomposable bivectors is a multiple of the Pfaffian form (the Plücker relation). For the plaquette family, $\bar T_S=\frac12\operatorname{Iso}$ (Lemma~\Nref{lem:period-density}(d)), and (b)(i) gives $T^{\rm f}=\delta_{\mu\nu}|p|^2-p_\mu p_\nu$, the marginal tensor of $S$ (Detail~\ref{d11b:ol-classical}). So the conversion factor between the flow's $\beta$ and the isotropic coefficients of Part~XI is $1$.
+
+\begin{detail}[Lemma~\Nref{lem:ol-limits}]\label{d11b:ol-limits}\Ntarget{lem:ol-limits}
+On the torus with side $\tilde n\in\mathfrak N_{j+1}$, the second variation of $\Phi_j$ at $V'=1$ is $\bH^{\sf T}\Pi_{\tilde n}\bH$. These converge with uniform decay to $\bH_\infty^{\sf T}\widetilde\Pi\bH_\infty$.
+\end{detail}
+
+\begin{step}[The polymer identity]
+By Theorem~\Nref{thm:step} at the critical reference $U'=U_{j+1}(V')$, $\Gamma^{\rm step}_j(U')=-\frac12\log\det\Delta_j+\sum_c\log\mathfrak j_c$. Proposition~\Nref{prop:one-loop-polymer}(a) writes $-\frac12\log\det\Delta_j(U')=-\frac12\sum_b\ell_j(b;1)+\sum_X\mathfrak e(X,U')$: the pieces are normalized term by term, $O_\omega(U')-O_\omega(1)$. Proposition~\Nref{prop:jacobians}(b) gives $\log\mathfrak j_c(1)=0$; Proposition~\Nref{prop:first-step}(c) covers $j=0$. Each $X$ and each $c$ lies in exactly one term of Definition~\Nref{def:raw-new}. Hence $\Gamma^{\rm step}_j(U')-\Gamma^{\rm step}_j(1)=\sum_{Y'}E'_{\rm ol}[\tilde n](Y',U')$.
+\end{step}
+
+\begin{step}[The second variation]
+This is the step that the note compresses as ``as in the proof of Lemma~\Nref{lem:ol-pullback}''. Write it out as in Detail~\ref{d11b:beta-identification}, Step~2, with $F(A)=\sum_{Y'}E'_{\rm ol}[\tilde n](Y',e^{\ii\eta A})$. $F$ is defined for small real $A$, since $e^{\ii\eta A}\in\mathcal U(Y')$. It is invariant under real gauge transformations, since its terms are. $dF(0)=0$, since $G$ is semisimple. $U_{j+1}(e^{\ii B})$ is a gauge transform of $e^{\ii\eta A_*(B)}$ with $A_*=\bH B+O(|B|^2)$. So the kernel is $\bH^{\sf T}\Pi_{\tilde n}\bH$, with $\bH$ the Part~I minimizer map.
+\end{step}
+
+\begin{step}[Convergence]
+By Detail~\ref{d11b:OL}, the one-loop parts are torus-local with limit $E^\infty$. By Detail~\ref{d11b:pv-cd}, $\Pi_{\tilde n}\to\widetilde\Pi$ with uniform decay. By Proposition~\Nref{prop:ol-IM}(a), $\bH\to\bH_\infty$ with uniform decay. By Lemma~\Nref{lem:ol-folding}(e), applied to the transposes and to the products, $\bH^{\sf T}\Pi_{\tilde n}\bH\to\bH_\infty^{\sf T}\widetilde\Pi\bH_\infty$ with uniform decay. This is the hypothesis of Lemma~\Nref{lem:ol-symmetry}(c) and of Corollary~\Nref{cor:ol-cumulative}.
+\end{step}
+\status{Expanded.}
+
+%======================================================================
+\subsection{Section~\texorpdfstring{\Nref{sec:ol-uv}}{58}: the properties (F1)--(F3) and the ultraviolet limit}\label{d11b:58b}
+
+\begin{detail}[Proposition~\Nref{prop:flow-F}, (F1)]\label{d11b:F1}\Ntarget{prop:flow-F}
+(F1) holds.
+\end{detail}
+
+\begin{step}[Proof]
+\begin{itemize}
+\item The generation form of the densities and $g_{j+1}\le2g_j$: Theorem~\Nref{thm:sf-flow}(a),(e).
+\item $\beta_{j+1}[\pi]$ is defined on $\Sigma_j$ with $|\beta_{j+1}|\le C_\beta\mathsf K$: Proposition~\Nref{prop:flow-continuity}(a).
+\item Continuity on $\Sigma_j$: Proposition~\Nref{prop:flow-continuity}(b), which uses the continuity of $p_0$ (Section~\Nref{subsec:flow-parameters}).
+\end{itemize}
+\end{step}
+\status{Expanded. The cited results are expanded in Section~\ref{xb:sec}.}
+
+\begin{detail}[Proposition~\Nref{prop:flow-F}, (F3)]\label{d11b:F3}\Ntarget{prop:flow-F}
+$|\beta_{k+1}-\beta^{\rm ol}_{k+1}|\le C_3g_k^2p_0(g_k)^6$ with $C_3=C_\beta C_{\rm new}\epsilon_*(C_P+c_{\rm F}^{-2})$.
+\end{detail}
+
+\begin{step}[The device and the radius]
+Fix $k$, $(g_0,\dots,g_k)\in\Sigma_k$, $g=g_k$, $p_0=p_0(g)$, and the old activities $\mathcal E_k$. Replace $g$ by a complex $t$ in the fluctuation only, $Z(s)=tC_k^{1/2}(s)\xi$, and put $t^{-2}$ in front of the interaction and gauge-fixing pieces. Keep the reference, $\mathcal E_k$, $p_0$ and $d\mu^*$ fixed. This is the device of Section~\Nref{subsec:cl-order}.
+
+Put $r_{\rm F}=\min(r_t,c_{\rm F}/p_0)$, and let $|t|<r_{\rm F}$, $|\xi|_\infty\le p_0$. Then:
+\begin{itemize}
+\item \emph{Pure pieces.} By Proposition~\Nref{prop:pure-sources}, their bounds hold with $\epsilon_{\rm p}(t)\le\frac12\epsilon_*$.
+\item \emph{The white noise.} The proof of Lemma~\Nref{lem:white-noise} uses (Q1) only through $|t|C_Tp_0\le\frac12r_I\le r_L$. This holds by the second entry of $r_t$, and gives $|\hat Z(Z(s))|_\infty\le\zeta(t)=C_wL^dC_T|t|p_0$.
+\item \emph{Smallness.} Since $|t|p_0<c_{\rm F}$, the definition of $c_{\rm F}$ in ($\Gamma$4) gives $\zeta(t)<\frac12R_P$, $\tau(t)=C_PL^d|t|p_0/\delta_1<\frac12$, and $\epsilon_{\rm m}(t)e^{c_\natural(\kappa_n-1)}<\frac14\epsilon_*$, with $\epsilon_{\rm m}(t)=C_P\tau(t)C_{\rm old}\mathsf K$.
+\end{itemize}
+So Proposition~\Nref{prop:composed} applies to every old activity with $\zeta=\zeta(t)$, as in Proposition~\Nref{prop:old-activities}(d), and Corollary~\Nref{cor:two-classes} applies for every such $t$. Moreover $2g\le r_{\rm F}$: $2g\le r_t$ by ($\Gamma$2), and $2gp_0\le c_{\rm F}$ by ($\Gamma$4).
+\end{step}
+
+\begin{step}[Analyticity, parity, vanishing]
+\begin{itemize}
+\item \emph{Analyticity.} The pieces are analytic in $t$ jointly with the reference. The composed activities $f(X;s,Z)$ are analytic in $Z$, which is linear in $t$, and Lemma~\Nref{lem:localization}(c) keeps analyticity. By Theorem~\Nref{thm:mayer}(c), the outputs are analytic in $t$. Running the proof of Lemma~\Nref{lem:raw-new}(a),(b) at each $t$ (restricted systems of Remark~\Nref{rem:extension}, extensions of the points of $\mathcal U(Y')$), $E'_\#(t)(Y',U)$ is holomorphic in $(t,U|_{Y'})$, normalized and gauge invariant, and $\|E'_\#(t)\|^{\rm raw}_{k+1}\le C_{\rm new}(\epsilon_{\rm p}(t)+\epsilon_{\rm m}(t))\le C_{\rm new}\epsilon_*$.
+\item \emph{Parity.} Every piece depends on $(t,\xi)$ only through $t^{-2}$ and $Z(s)$: the pure pieces by the proof of Proposition~\Nref{prop:pure-sources}, the mixed ones since $f(X;s,Z(s))$ is a function of $Z(s)$. Both are invariant under $(t,\xi)\mapsto(-t,-\xi)$, and $d\mu^*$ and the cutoff are even. By Theorem~\Nref{thm:mayer}(d), the outputs, hence $E'_\#(t)$, are even in $t$.
+\item \emph{Vanishing.} At $t=0$, the pure pieces vanish (Proposition~\Nref{prop:pure-sources}), and $Z=0$ gives $\hat Z(0)=0$ and $A_*(s;0)=0$ (Theorem~\Nref{thm:weak-bg}(a)), so $f(X;s,0)=0$. Then every $K(Z)=0$, and $E'_\#(0)=0$.
+\end{itemize}
+\end{step}
+
+\begin{step}[The maximum principle]
+Put $\phi(t)=\beta^{\rm vol}_{E'_\#(t)}$. It is a finite linear combination of the $c^X_{E'_\#(t)}$ over the polymers of the torus. Each is a Cauchy integral of a function holomorphic in $t$; so $\phi$ is holomorphic on $|t|<r_{\rm F}$. It is even, $\phi(0)=0$, and $|\phi|\le C_\beta C_{\rm new}\epsilon_*$ by Detail~\ref{d11b:beta-vol}(i), which needs neither reality nor (G2). So $\phi(t)/t^2$ is holomorphic. The maximum principle on $|t|=r<r_{\rm F}$, followed by $r\to r_{\rm F}$, gives $|\phi(g)|\le C_\beta C_{\rm new}\epsilon_*(g/r_{\rm F})^2$. Moreover $r_{\rm F}^{-2}\le r_t^{-2}+c_{\rm F}^{-2}p_0^2\le(C_P+c_{\rm F}^{-2})p_0^6$, by $\min(a,b)^{-2}\le a^{-2}+b^{-2}$, $r_t^{-2}\le C_Pp_0^6$ (proof of Proposition~\Nref{prop:pure-sources}) and $p_0\ge1$. At $t=g$ the construction is the step, so $E'_\#(g)=E'-E'_{\rm ol}$, and $\beta_{k+1}-\beta^{\rm ol}_{k+1}=\phi(g)$ by linearity (Detail~\ref{d11b:beta-vol}(ii)). At $k=0$ there is no mixed class, $r_{\rm F}=r_t$, and the constants of the first step are used.
+\end{step}
+\status{Expanded. The inputs Corollary~\Nref{cor:two-classes}, Theorem~\Nref{thm:mayer}(d), Lemma~\Nref{lem:raw-new} and Proposition~\Nref{prop:pure-sources} are used at complex $t$, with their hypotheses verified above; they are expanded in Sections~\ref{xa:sec} and~\ref{xb:sec}. The constant called $C_{\rm pure}$ in the note's statement of Proposition~\Nref{prop:flow-F} is the one with $r_t^{-2}\le C_{\rm pure}p_0^6$ used in Step~3.}
+
+\begin{detail}[Proposition~\Nref{prop:flow-F}, (F2)]\label{d11b:F2}\Ntarget{prop:flow-F}
+$|\beta^{\rm ol}_{k+1}-\beta^{(1)}_{k+1}|\le C_2e^{-c_2n_{k+1}/M}$ with $C_2=C_\beta\mathsf K$ and $c_2=\frac14$.
+\end{detail}
+
+\begin{step}[Torus versus infinite volume]
+By Detail~\ref{d11b:OL}, $E'_{\rm ol}[\tilde n]=E^\infty$ exactly at the flat points of the non-wrapping polymers. The torus of the flow has $n_{k+1}\in\mathfrak N_{k+1}$. In the proof of Lemma~\Nref{lem:period-vacpol}(d) (Detail~\ref{d11b:pv-cd}), the non-wrapping polymers then contribute nothing to the difference, and only the $\tilde X\supset\tilde Q$ with $\operatorname{diam}>\frac12n_{k+1}-8$ remain. With $\mathsf K'\le\mathsf K$ (Detail~\ref{d11b:beta-vol}(ii)) this gives $|\beta^{\rm ol}_{k+1}-\beta^\infty_{E^\infty}|\le18d^2K_0M^{-2}(\delta_1^\flat)^{-2}\mathsf Ke^{-n_{k+1}/(4M)}=C_\beta\mathsf Ke^{-n_{k+1}/(4M)}$.
+\end{step}
+
+\begin{step}[Identification of $\beta^\infty_{E^\infty}$]
+By Detail~\ref{d11b:ol-limits}, the second variations of $V'\mapsto\Gamma^{\rm step}_k(U_{k+1}(V'))$ converge with uniform decay to $\Pi_\Phi=\bH_\infty^{\sf T}\widetilde\Pi\bH_\infty$. This is the infinite-volume second variation of Definition~\Nref{def:marginal-tensor}, so $T^{(1)}_{k+1}$ is the marginal tensor of $\Pi_\Phi$. By Lemma~\Nref{lem:ol-symmetry}(b), the functions are invariant under $\mathfrak S_{k+1}$, so the kernels and $\Pi_\Phi$ are invariant under the translations and $B_4$. Detail~\ref{d11b:pv-cd} gives $T^{(1)}_{k+1}=T^{\rm f}_{E^\infty}$, with isotropic coefficient $\beta^\infty_{E^\infty}$. By Lemma~\Nref{lem:ol-symmetry}(c), $T^{(1)}_{k+1}=\beta^{(1)}_{k+1}(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$. So $\beta^{(1)}_{k+1}=\beta^\infty_{E^\infty}$. The constants depend only on $d$, $M$, $\kappa_0$, $\delta_1^\flat$ and $\mathsf K$.
+\end{step}
+\status{Expanded.}
+
+\paragraph{Remark~\Nref{rem:flow-F}.} (a) is a description of the step. For (b): $n_{j+1}=L^{K-j-1}n_K$ and $n_K\ge n_{\min}\ge M$. So $e^{-c_2n_{j+1}/M}\le e^{-c_2L^{K-j-1}}$, and $\sum_{j<K}e^{-c_2n_{j+1}/M}\le\sum_{m\ge0}e^{-c_2L^m}=:C_4/C_2<\infty$.
+
+\begin{detail}[Theorem~\Nref{thm:ol-uv}]\label{d11b:ol-uv}\Ntarget{thm:ol-uv}
+For $0<g\le g_{\rm uv}$ and every $K$ there is $g_0$ such that the flow stays in $(0,\gamma]$, $g_K=g$, and
+\[
+\Big|g_k^{-2}-g^{-2}-(K-k)\beta_\infty\Big|\le C\Big(1+\sum_{j=k}^{K-1}g_j^2p_0(g_j)^6\Big)\le C(\log(K-k+2))^{6q+1}.
+\]
+\end{detail}
+
+\begin{step}[Monotonicity]
+For $p_0(g)=(\log g^{-1})^q$ put $\ell=\log g^{-1}$. Then
+\[
+\frac d{dg}\big(g^2\ell^{6q}\big)=2g\ell^{6q}-6qg\ell^{6q-1}=2g\ell^{6q-1}(\ell-3q),
+\]
+which is positive iff $g<e^{-3q}$. So $g\mapsto g^2p_0(g)^6$ increases on $(0,e^{-3q}]$, which contains $(0,\gamma]$.
+\end{step}
+
+\begin{step}[The localized lower bound]
+Let $g_0\in\mathsf B_K$ (Corollary~\Nref{cor:bare-continuity}), so $(g_0,\dots,g_j)\in\Sigma_j$ for $j<K$, and (F2), (F3) apply to every $j<K$. For $0\le k\le K$,
+\[
+\sum_{j=k}^{K-1}|\beta_{j+1}-\beta^{(1)}_{j+1}|\le C_3\sum_{j=k}^{K-1}g_j^2p_0(g_j)^6+C_4\le\tfrac12(K-k)\beta_\infty+C_4,
+\]
+by the monotonicity and $C_3\gamma^2p_0(\gamma)^6\le\frac12\beta_\infty$. Write $c_k=\sum_{j<k}\beta^{(1)}_{j+1}=k\beta_\infty+r_k$, $|r_k|\le C$ (Theorem~\Nref{thm:ol-cumulative}), where $C$ does not depend on $K$ or on the torus (Detail~\ref{d11b:ol-cumulative}, Step~3); the note says this in the paragraph ``Cumulative coefficients'' of the proof. Then $c_K-c_k\ge(K-k)\beta_\infty-2C$, and
+\[
+g_k^{-2}=g_K^{-2}+\sum_{j=k}^{K-1}\beta_{j+1}\ge g_K^{-2}+\tfrac12(K-k)\beta_\infty-C_5,\qquad C_5=2C+C_4 .
+\]
+This is \eqref{N-eq:uv-lower}. The note says ``along any flow that stays in $(0,\gamma]$ from scale $k$ to scale $K$''. This includes the earlier couplings: by Corollary~\Nref{cor:bare-continuity}, $g_j$ is defined only while $g_0,\dots,g_{j-1}$ lie in $(0,\gamma]$, and then $g_{i+1}\le2g_i$. So $(g_0,\dots,g_j)\in\Sigma_j$, as (F2) and (F3) require.
+\end{step}
+
+\begin{step}[The exit argument]
+By Corollary~\Nref{cor:bare-continuity}:
+\begin{itemize}
+\item $\mathsf B_K$ is closed in $(0,\gamma]$ and contains $(0,\bar g]$, $\bar g=(\gamma^{-2}+KC_\beta\mathsf K)^{-1/2}$;
+\item $g_0\mapsto g_K$ is continuous on $\mathsf B_K$;
+\item $|g_K^{-2}-g_0^{-2}|\le KC_\beta\mathsf K$, so $g_K\to0$ as $g_0\to0$.
+\end{itemize}
+Let $I$ be the connected component of $\mathsf B_K$ containing $(0,\bar g]$. It is an interval, closed in $(0,\gamma]$ and bounded by $\gamma$, so $I=(0,g_0^*]$ with $g_0^*\in\mathsf B_K$.
+
+Claim: $g_j(g_0^*)=\gamma$ for some $j\le K$. If $g_0^*=\gamma$, take $j=0$. Otherwise no interval $(g_0^*,g_0^*+\delta)$ lies in $\mathsf B_K$, else $I$ would not be a component. So there are $g_0^{(\nu)}\downarrow g_0^*$ outside $\mathsf B_K$. For each, let $j_\nu\in\{1,\dots,K\}$ be the first index with $g_{j_\nu}>\gamma$; then $g_0^{(\nu)}\in\mathsf B_{j_\nu-1}$. Pass to a subsequence with $j_\nu=j$. Since $\mathsf B_{j-1}$ is closed and $g_0^*\in\mathsf B_K\subset\mathsf B_{j-1}$, and $g_j$ is continuous on $\mathsf B_{j-1}$ (Corollary~\Nref{cor:bare-continuity}(b)), $g_j(g_0^*)\ge\gamma$. Since $g_0^*\in\mathsf B_K$, $g_j(g_0^*)\le\gamma$. So $g_j(g_0^*)=\gamma$.
+
+The localized bound from $j$ to $K$ at $g_0^*$ gives $g_K^{-2}\le g_j^{-2}-\frac12(K-j)\beta_\infty+C_5\le\gamma^{-2}+C_5$. So $g_K(g_0^*)\ge\gamma(1+C_5\gamma^2)^{-1/2}$. Choose $g_{\rm uv}<\gamma(1+C_5\gamma^2)^{-1/2}$; it does not depend on $K$ or on the torus. For $g\le g_{\rm uv}$, the continuous function $g_K$ on the interval $I$ takes values near $0$ and the value $g_K(g_0^*)>g$. By the intermediate value theorem, $g_K=g$ at some $g_0\in I$. The flow at this $g_0$ stays in $(0,\gamma]$, since $I\subset\mathsf B_K$.
+\end{step}
+
+\begin{step}[The bound]
+For this flow,
+\[
+g_k^{-2}-g^{-2}-(K-k)\beta_\infty=r_K-r_k+\sum_{j=k}^{K-1}(\beta_{j+1}-\beta^{(1)}_{j+1}).
+\]
+In absolute value the sum is at most $C_3\sum_jg_j^2p_0(g_j)^6+C_4$, by (F2) and (F3); this is the first inequality.
+
+For the second, the localized bound gives $g_j^{-2}\ge\frac12(K-j)\beta_\infty-C_5\ge\frac14(K-j)\beta_\infty$ for $K-j\ge4C_5/\beta_\infty$. So $g_j^2\le4/((K-j)\beta_\infty)$. By the monotonicity, $g_j^2p_0(g_j)^6\le x^2(\log x^{-1})^{6q}$ with $x=\min(\gamma,2((K-j)\beta_\infty)^{-1/2})$. This is at most $C(\log(K-j+2))^{6q}/(K-j)$, since $\log x^{-1}\le\frac12\log((K-j)\beta_\infty/4)+\log\gamma^{-1}\le C\log(K-j+2)$. The at most $4C_5/\beta_\infty+1$ other terms are each at most $\gamma^2p_0(\gamma)^6$. Summing, with $\sum_{m=1}^{K-k}m^{-1}\le1+\log(K-k)$, gives $C(\log(K-k+2))^{6q+1}$.
+
+Last statement: $(\log(m+2))^{6q+1}/m\to0$, so $C(\log(K-k+2))^{6q+1}\le\frac12(K-k)\beta_\infty$ for $K-k\ge m_1$, which gives $\frac12(K-k)\beta_\infty\le g_k^{-2}-g^{-2}\le2(K-k)\beta_\infty$. For every $k$, $g_k^{-2}-g^{-2}=\sum_j\beta_{j+1}\le(K-k)C_\beta\mathsf K$.
+\end{step}
+\status{Expanded.}
+
+\paragraph{The comparison with Ba\l aban's (0.31) (the paragraph after Theorem~\Nref{thm:ol-uv}).} A statement only. With $\varepsilon=L^{-K}$, $\log(L^k\varepsilon)^{-1}=(K-k)\log L$, so the last statement of Theorem~\Nref{thm:ol-uv} reads as (0.31) with $\beta=\beta_\infty/(2\log L)$ and $\beta'=2\beta_\infty/\log L$, for $K-k\ge m_1$. For $1\le K-k<m_1$ only $g_k^{-2}-g^{-2}\ge\frac12(K-k)\beta_\infty-C_5$ holds. The note reads Ba\l aban's display (0.31) (Commun.\ Math.\ Phys.\ \textbf{109} (1987), p.~259) as $\beta\log(L^k\varepsilon)^{-1}\le g_k^{-2}-g^{-2}\le\beta'\log(L^k\varepsilon)^{-1}$; this volume takes that reading from the note.
+
+%======================================================================
+\subsection{Section~\texorpdfstring{\Nref{sec:gen-locality}}{59}: setting, flat points and admissible sides}\label{d11b:59a}
+
+\paragraph{The plan of Section~\Nref{sec:gen-locality}, and why it is needed.} Proposition~\Nref{prop:beta-identification} needs the coefficients $\beta_i$ of the generations to converge as the torus grows (Theorem~\Nref{thm:gen-locality}(c)). The generations themselves are not shown to be independent of the torus, and they are not expected to be: the $\beta_i$ are averages over the polymers that do not wrap, and they enter the later generations through the old activities (the opening of Section~\Nref{sec:gen-locality}). So the proof compares the tori of growing side at the flat configurations, in two parts.
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{One step on the infinite lattice.} For a polymer that does not wrap, at a flat configuration, the new terms of one step are a single functional of the old activities at flat configurations, defined on the infinite lattice (Definition~\Nref{def:gl-functional}, Proposition~\Nref{prop:gl-functional}). This extends the torus independence of the one-loop pieces (Proposition~\Nref{prop:one-loop-local}) to the whole step at fixed old data. The transfer lemmas of Subsections~\ref{d11b:59b} and~\ref{d11b:59c} prove it, ingredient by ingredient.
+\item \emph{Induction over the scales.} The old activities converge as the torus grows, and the functional is continuous in them (Lemma~\Nref{lem:gl-continuity}). The induction follows the proof of Proposition~\Nref{prop:flow-continuity}(b), with the side of the torus in place of the couplings. Its scheme is Step~1 of Detail~\ref{d11b:gen-locality-bc}: if (a) of Theorem~\Nref{thm:gen-locality} holds at all scales $l\le i$, then (b) and (c) hold at $i$, and (d) holds at $i$ if $i<j$; and (a) holds at $1$, and at $k+1\le j$ once it holds at all scales $l\le k$.
+\end{enumerate}
+No rate of convergence is proved (Remark~\Nref{rem:gl-rate}). This subsection sets up the flat points and the admissible sides; Subsections~\ref{d11b:59b}--\ref{d11b:59d} carry out part~(1) and the continuity, and Subsection~\ref{d11b:59e} carries out part~(2).
+
+\begin{detail}[The setting of Section~\Nref{sec:gen-locality}]\label{d11b:gl-setting}\Ntarget{sec:gen-locality}
+Let $j\ge1$ and $(g_0,\dots,g_{j-1})\in\Sigma_{j-1}$. For $i\le j$ and $m\in\mathfrak N_i$, the objects $E'^{(i)}[m]$, $E^{(i)}[m]$ and $\beta_i[m]$ are defined. For $l\le i$, the generation and the coefficient of scale $l$ on the torus of side $m$ at scale $i$ depend only on $(g_0,\dots,g_{l-1})$ and on the side $L^{i-l}m$ of this torus at scale $l$. Moreover $L^{i-l}m\in\mathfrak N_l$.
+\end{detail}
+
+\begin{step}[$\mathfrak N_i$ gives the Setting of Section~\Nref{sec:flow4} with $K=i$]
+By its definition (paragraph ``Torus-local families'' of Section~\Nref{subsec:ol-period-vacpol}), $\mathfrak N_i$ consists of the sides for which the torus satisfies the Setting of Section~\Nref{sec:generations} at the scales $\le i$, with $K=i$. That Setting takes the torus and the parameters of Section~\Nref{subsec:tf-scales}, which include $n_K\ge n_{\min}$. So $n_i=m\ge n_{\min}$, and the Setting of Section~\Nref{sec:flow4} holds with $K=i$. Proposition~\Nref{prop:flow-continuity}(a) is stated for $0\le k<K$. We apply it with $K=i$ and $k=i-1$, to $(g_0,\dots,g_{i-1})\in\Sigma_{i-1}$, the restriction of the given sequence. It defines $E'^{(i)}[m]$ (the raw generation $E'^{(i)}[\mathcal E_{i-1},g_{i-1}]$), its symmetrization $E^{(i)}[m]$ and $\beta_i[m]=\beta_{E^{(i)}[m]}$.
+\end{step}
+
+\begin{step}[Dependence]
+By the last statement of Proposition~\Nref{prop:flow-continuity}(a), on a fixed torus $E^{(l)}$ and $\beta_l$ depend only on $(g_0,\dots,g_{l-1})$. They are produced by the steps $0,\dots,l-1$. Step $k$ uses the torus only through its lattices $\T^{(i')}$ with $i'\le k+1$ and the grid, by the Setting of Section~\Nref{subsec:torus-independence} and Lemma~\Nref{lem:local-inventory}(a),(b). It uses no constant that depends on the torus (Lemma~\Nref{lem:local-inventory}(b), Remark~\Nref{rem:flow-constants}(i),(ii)). The last scale $K$ enters only through the bound $n_K\ge n_{\min}$, which holds for both readings, $K=i$ and $K=l$, since $n_l=L^{i-l}n_i\ge n_i$. So the generation of scale $l$ on the given torus is the one built on the torus whose side at scale $l$ is $L^{i-l}m$.
+\end{step}
+
+\begin{step}[Sides]
+By Section~\Nref{subsec:tf-scales}, $n_l=L^{i-l}n_i$. The torus satisfies the Setting of Section~\Nref{sec:generations} at the scales $\le i$ with $K=i$, so it satisfies it at the scales $\le l$. With $K=l$, the bound on the last side is $n_l\ge n_i\ge n_{\min}$. Hence $L^{i-l}m\in\mathfrak N_l$. This is the argument of the proof of Theorem~\Nref{thm:ol-cumulative}. By Definition~\Nref{def:old-activities}, the old activities $\mathcal E_k[m']$ of step $k$ on the torus with side $m'$ at scale $k+1$ are built from the $E^{(l)}$ and $\beta_l$, $l\le k$, of that torus, that is, from $E^{(l)}[L^{k+1-l}m']$ and $\beta_l[L^{k+1-l}m']$.
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[Flat configurations and the infinite lattice; Section~\Nref{subsec:gl-setting}, paragraph ``Flat configurations'']\label{d11b:gl-flatconf}\Ntarget{subsec:gl-setting}
+(i) $\mathcal U^\flat_1(X)\subset\mathcal U_1(X)\subset\mathcal U(X)$. As sets of fields, $\mathcal U_1(X)$ and $\mathcal U^\flat_1(X)$ are open and convex.
+
+(ii) The closures $\operatorname{cl}_k$, the sets $\Box^+$, the base cubes and the classes of Definition~\Nref{def:polymer-classes} are defined on the infinite lattice. They commute with the projections, for polymers whose lifts lie in a set on which the projection is injective.
+\end{detail}
+
+\begin{step}[Inclusions, openness, convexity]
+Since $\delta_1^\flat=\frac14\delta_1<\delta_1$, $\mathcal U^\flat_1(X)\subset\mathcal U_1(X)$. A point $V_B$ of $\mathcal U_1(X)$ has, on the bonds of $X^{(3)}$, the representation $(U_r,A)=(1,B)$ of Definition~\Nref{def:graded}. Its real part $1$ is real, with curvature and current $0<\theta_r$, and $B$ satisfies the bounds of $\mathcal U(X)=\mathcal U(X;\theta_r,\delta_1,\delta_0)$. So $V_B\in\mathcal U(X)$.
+
+With the real part $1$, the covariant difference $\nabla B$ is the flat forward difference, which is linear in $B$. The Hölder quotient $[\nabla B]_{\alpha,X^{(3)}}$ is a supremum of finitely many seminorms of $B$, hence a seminorm. So $\mathcal U_1(X)$ is the intersection of the open convex sets $\{|B|<\delta_0\}$ and $\{|\nabla B|+[\nabla B]_\alpha<\delta_1\}$ in the finite-dimensional space of fields on the bonds of $X^{(3)}$. The same holds for $\mathcal U^\flat_1(X)$.
+
+On a torus on which $X$ does not wrap, $X^{(3)}$ has a lift on which the projection preserves distances (Section~\Nref{subsec:gen-period}, Lifts). So the differences and the Hölder quotients are those of the lift, and the conditions are the same on every such torus and on the infinite lattice.
+\end{step}
+
+\begin{step}[The rules on the infinite lattice]
+Let $\tilde X$ be a polymer of scale $j$ of the infinite lattice, and let $\pi_n$ be the projection to a torus. Assume that $\pi_n$ is injective and isometric on a set $\tilde S\supset\tilde X$ that contains every set that occurs below. This holds when $\tilde S$ is a lift of a non-wrapping polymer that contains the sets occurring.
+\begin{itemize}
+\item \emph{Closures.} A grid cube of scale $k$ of the torus meets $\pi_n\tilde X$ if and only if one of its lifts meets $\tilde X$. Since $LM\mid n_{k}$ and the grids are aligned (Section~\Nref{subsec:tf-scales}), the lifts of grid cubes are grid cubes. So $\operatorname{cl}_k(\pi_n\tilde X)=\pi_n(\operatorname{cl}_k\tilde X)$ whenever $\operatorname{cl}_k\tilde X\subset\tilde S$.
+\item \emph{The sets $\Box^+$.} $\Box^+$ is the union of the $3^4$ grid cubes centred at $c+M\{-1,0,1\}^4$. Its definition uses only the grid and the distance, so $\pi_n(\tilde\Box^+)=(\pi_n\tilde\Box)^+$ if $\tilde\Box^+\subset\tilde S$.
+\item \emph{Base cubes.} Let $X=\pi_n\tilde X$ be non-wrapping. The projection of the union of the closed cubes of $X$ to the $\mu$-th coordinate circle is the arc $I_\mu$ of Section~\Nref{sec:flow}, Base cubes. It is the projection of the coordinate interval $J_\mu$ spanned by the closed cubes of $\tilde X$, which has length less than $n$. So the box of Section~\Nref{sec:flow} is a translate of $J_1\times\dots\times J_4$ by a vector of $n\Z^4$. A translation preserves the lexicographic order of the centres. Hence $Q(\pi_n\tilde X)=\pi_nQ(\tilde X)$, where $Q(\tilde X)$ is read in the box spanned by the cubes of $\tilde X$.
+\item \emph{Classes.} By Definition~\Nref{def:polymer-classes}, the class of $X$ at scale $k$ depends only on $m=k-j$ and on $d_j(X)$. Moreover $d_j(\pi_n\tilde X)=d_j(\tilde X)$ for non-wrapping projections (Detail~\ref{d11b:gl-limits-a}, Steps~1--3, whose proof uses nothing from Section~\Nref{sec:gen-locality}). ``Based in $\Box$'' refers to the base cube.
+\end{itemize}
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[Lemma~\Nref{lem:gl-flat}]\label{d11b:gl-flat}\Ntarget{lem:gl-flat}
+Parts (a), (b) and (c), with the budgets stated there.
+\end{detail}
+
+\begin{step}[Part (a): change of units]
+Let the fine lattice have spacing $\eta'=L^{-(k+1)}$ in the units of scale $k+1$ and $\eta=L\eta'$ in those of scale $k$. A point $x$ of scale $k+1$ is the point $Lx$ of scale $k$. We have $e^{\ii\eta'B}=e^{\ii\eta(B/L)}$, so the field in the units of scale $k$ is $B_k=B/L$ on the same bonds. Its forward difference is $(\nabla B_k)(x)=\eta^{-1}(B_k(b+\eta e_\nu)-B_k(b))=L^{-2}(\nabla B)(x)$. Distances are multiplied by $L$, so a Hölder quotient of exponent $\alpha$ is multiplied by $L^{-2-\alpha}\le L^{-2}$.
+
+Let $X\subset Y'$ be a polymer of scale $k$. In the units of scale $k+1$, $X^{(3)}$ lies within distance $3/L<3$ of $X\subset Y'$, so $X^{(3)}\subset Y'^{(3)}$. A cube $\Lambda_3(w)$ of scale $k$ with $w\in X$ lies in the cube $\Lambda_3(w)$ of scale $k+1$, which lies in $Y'^{(3)}$. So every difference and every Hölder quotient of $B_k$ on $X^{(3)}$ is $L^{-2}$, respectively at most $L^{-2}$, times one of $B$ on $Y'^{(3)}$. For $B\in\mathcal U_1(Y')$ this gives
+\[
+|B_k|<L^{-1}\delta_0,\qquad|\nabla B_k|_{X^{(3)}}+[\nabla B_k]_{\alpha,X^{(3)}}<L^{-2}\delta_1\le\tfrac19\delta_1<\tfrac14\delta_1=\delta_1^\flat ,
+\]
+since $L\ge3$ (Remark~\Nref{rem:symmetrization-flow}(c)). The real part stays $1$. This is the second statement of (a). For the first, iterate the same computation $k-l$ times with $\delta_1^\flat$ in place of $\delta_1$. The budgets become $L^{-2(k-l)}\delta_1^\flat\le\delta_1^\flat$ and $L^{-(k-l)}\delta_0\le\delta_0$, and the strict inequalities persist. This is Remark~\Nref{rem:domain-constants}(i) at the real part $1$.
+\end{step}
+
+\begin{step}[Part (b): the cutoff extension]
+Remark~\Nref{rem:bg-to-graded} with the representation $(U_r,A)=(1,B)$ gives $U'=e^{\ii\eta\chi B}$ on the bonds of $Y'^{(3)}$, and $U'=U_r=1$ elsewhere. The cutoff is at the unit scale $k+1$: $\chi=1$ at distance $\le1$ from $Y'$, and $\chi=0$ at distance $\ge2$. Since $Y'^{(3)}$ contains the points at distance $\le3$, $U'=1$ off $Y'^{(3)}$ and $U'=V_B$ within distance $1$ of $Y'$.
+
+In the units of step $k$ it is a reference of the Setting of Section~\Nref{sec:step-quantities}, by Remark~\Nref{rem:domain-constants}(ii):
+\begin{itemize}
+\item its real part $1$ is $(M,0)$-regular, with current $0$;
+\item it is a complex reference of size $\delta_c\le2C_{\rm ext}(L^{-1}\delta_0+L^{-2}\delta_1)<\delta_P$, by (DC4).
+\end{itemize}
+\end{step}
+
+\begin{step}[Part (c): grid symmetries]
+Lemma~\Nref{lem:grid-domains} with $U_r=1$, $\delta'_1=\delta_1^\flat$ and $\delta'_0=\delta_0$ applies. Here $R(U_r(b))=1$, so $rA$ is $(rB)(b)=B(r^{-1}b)$ with $B(-b)=-B(b)$, and $rU_r=1$. In its proof, the plaquette term $e_{\mu\nu}$ and the closed-path term contain the factor $R(U_r(\gamma))-1=0$. So at the real part $1$, \eqref{N-eq:grid-domains} reads
+\[
+|\nabla(rB)|_{(rX)^{(3)}}+[\nabla(rB)]_{\alpha,(rX)^{(3)}}\le|\nabla B|_{X^{(3)}}+2[\nabla B]_{\alpha,X^{(3)}}<2\delta_1^\flat=\tfrac12\delta_1 .
+\]
+The general bound of the lemma, $2\delta_1^\flat+C_{\rm refl}\theta_r\delta_0\le\delta_1$ by (DC6), is also enough (as in \eqref{N-eq:flat-in-full}). Finally $|rB|=|B|<\delta_0$, $r$ maps the bonds of $X^{(3)}$ onto those of $(rX)^{(3)}=r(X^{(3)})$, and $rV_B=1$ off $(rX)^{(3)}$. So $rV_B=V_{rB}\in\mathcal U_1(rX)$, and $rX$ does not wrap, since $r$ preserves diameters (Section~\Nref{sec:generations}).
+\end{step}
+\status{Literal repetition of Remarks~\Nref{rem:domain-constants}(i),(ii), \Nref{rem:bg-to-graded} and Lemma~\Nref{lem:grid-domains} at the real part $1$, with the changes listed; at the real part $1$ the reflection term vanishes.}
+
+\begin{detail}[Admissible sides; Section~\Nref{subsec:gl-setting}, paragraph ``Admissible sides'']\label{d11b:gl-admissible}\Ntarget{subsec:gl-setting}
+Let $\tilde Y'$ be a polymer of scale $k+1$ of the infinite lattice, and let $n$ be admissible for $\tilde Y'$: $n/L\in\mathfrak N_{k+1}$ and $\operatorname{diam}\tilde Y'\le\frac12(n/L)-8$. Then:
+\begin{itemize}
+\item[(a)] $Y'=\pi_n\tilde Y'$ is a polymer of scale $k+1$ that does not wrap;
+\item[(b)] $n$ is admissible at step $k$ (Section~\Nref{subsec:torus-independence});
+\item[(c)] for admissible $n,n'$ and $a\in M\Z^4$, the transfer of $\tilde Y'$ with the vector $a$ is a grid transfer;
+\item[(d)] the rules of scale $k+1$ ($\hat Y$, $\operatorname{cl}_{k+1}$, $Y'_c$) applied to sets in $Y'$ are computed on the lifts in $\tilde Y'$; under the transfers with the vectors $0$ and $La$, $a\in M\Z^4$ in the units of scale $k+1$, they are carried.
+\end{itemize}
+\end{detail}
+
+\begin{step}[(a) and (b)]
+(a) Since $\operatorname{diam}\tilde Y'<\frac12(n/L)$, $\pi_n$ is injective on $\tilde Y'$ and preserves its distances. It maps the grid cubes of scale $k+1$ of $\tilde Y'$ onto distinct grid cubes, since $M\mid n/L$, and $*$-adjacent cubes onto $*$-adjacent cubes. So $Y'$ is a polymer with $\operatorname{diam}Y'=\operatorname{diam}\tilde Y'\le\frac12n_{k+1}-8$, which is the definition of not wrapping (Section~\Nref{subsec:tf-scales}). This is the argument of Proposition~\Nref{prop:one-loop-local}(a) at scale $k+1$.
+
+(b) The torus with side $n/L\in\mathfrak N_{k+1}$ at scale $k+1$ satisfies the Setting of Section~\Nref{sec:generations} at the scales $\le k+1$. By Lemma~\Nref{lem:torus}(a) it satisfies (T0)--(T2) at step $k$, which is the definition of an admissible side at step $k$. This is the first sentence of the proof of Lemma~\Nref{lem:OL}.
+\end{step}
+
+\begin{step}[(c): grid transfers]
+In the units of step $k$, $\operatorname{diam}\tilde Y'\le L(\frac12(n/L)-8)=\frac12n-8L$. If $n'$ is admissible for $\tilde Y'$ as well, then $\operatorname{diam}\tilde Y'<\frac12\min(n,n')$. So Definition~\Nref{def:grid-transfer}(ii) applies with $\tilde P=\tilde Y'$, for every $a\in M\Z^4$, and $n'=n$ is allowed.
+\end{step}
+
+\begin{step}[(d): the rules of scale $k+1$]
+Lemma~\Nref{lem:grid-transfer}(b) carries the lattices $\T^{(i)}$, $i\le k+1$, and the grid $M\Z^4$ of scale $k$, within the distance $R_{\rm g}$. The grid of scale $k+1$ is $LM\Z^4$, and its cubes have side $LM$, which need not be less than $R_{\rm g}$. So we argue directly on the lifts.
+
+Let $Y\subset Y'$ be a polymer of step $k$, and let $\tilde Y\subset\tilde Y'$ be its lift. On the infinite lattice let $\hat Y_\infty$ be the union of the grid cubes of scale $k+1$ that meet $\tilde Y^{(r')}$. Since $r'<\frac12n$, the projection commutes with $r'$-neighbourhoods: $\pi_n(\tilde Y^{(r')})=Y^{(r')}$. A grid cube of scale $k+1$ of the torus meets $Y^{(r')}$ if and only if one of its lifts meets $\tilde Y^{(r')}$. Hence $\hat Y=\pi_n(\hat Y_\infty)$.
+
+If $\hat Y_\infty=\tilde Y'$, then $\hat Y=Y'$. Conversely, let $\hat Y=Y'$. Then $\hat Y_\infty\subset\pi_n^{-1}(Y')=\bigcup_{v\in n\Z^4}(\tilde Y'+v)$. The set $\hat Y_\infty$ is $*$-connected:
+\begin{itemize}
+\item a cube meeting $\tilde Y^{(r')}$ at a point $q$ with $|q-y|\le r'<LM$, $y\in\tilde Y$, is $*$-adjacent to, or equal to, the cube that contains $y$;
+\item the cubes that meet $\tilde Y$ form a $*$-connected set.
+\end{itemize}
+The translates $\tilde Y'+v$, $v\ne0$, are at distance at least $n-\operatorname{diam}\tilde Y'\ge\frac12n+8L$ from $\tilde Y'$. Moreover $n=Ln_{k+1}\ge8L^2M>LM$, since $n_{k+1}\ge8LM$ (Section~\Nref{subsec:gen-symmetrization}, by Lemma~\Nref{lem:torus}(a)). So a $*$-connected union of cubes of side $LM$ that meets $\tilde Y'$ and lies in the union of the translates lies in $\tilde Y'$. Since $\pi_n$ is injective on $\tilde Y'$, $\hat Y_\infty=\tilde Y'$. So $\hat Y=Y'$ if and only if $\hat Y_\infty=\tilde Y'$, a condition on the infinite lattice.
+
+The same argument applies to $\bar X=\operatorname{cl}_{k+1}X$ for $X\subset Y'$, and to $Y'_c$, the union of the grid cubes of scale $k+1$ that meet $B'(c_-)\cup B'(c_+)$. The transfer with the vector $0$ uses the same lifts on both tori. A translation of the lift by $La\in LM\Z^4$ maps the grid of scale $k+1$, its cubes and the blocks $B'$ onto themselves. So in both cases the index sets correspond.
+\end{step}
+\status{Expanded. The paragraph ``Admissible sides'' states (c) for every $a\in M\Z^4$, as Definition~\Nref{def:grid-transfer} allows. The rules of scale $k+1$ are carried for the vectors in $LM\Z^4$ (step-$k$ units), and the note uses only $0$ and $La$.}
+
+%======================================================================
+\subsection{Section~\texorpdfstring{\Nref{sec:gen-locality}}{59}: transfer of one step}\label{d11b:59b}
+
+\begin{detail}[Lemma~\Nref{lem:gl-inventory}]\label{d11b:gl-inventory}\Ntarget{lem:gl-inventory}
+Each of the nonlinear maps (i)--(v) is given on every admissible torus by the same rule. At a site based at $y$ it uses only the objects of Lemma~\Nref{lem:local-inventory}(a) and the data within distance $4L+2\le R_{\rm g}$ of $y$. So it is carried by every grid transfer, at the sites whose range lies in $P$.
+\end{detail}
+
+\begin{step}[The items]
+\begin{itemize}
+\item[(i)] \emph{$\Cav_k$.} By Proposition~\Nref{prop:Q-expansion}, $\Cav_k(A)=\delta_k^{-1}\ell(\mathcal Q_k(e^{\ii\eta A}))-\bQ_kA$. Here $\mathcal Q_0=\mathrm{id}$, and $\mathcal Q_j$ is a modified one-step average composed with $\mathcal Q_{j-1}$ (Definition~\Nref{def:adapted}), built from:
+  \begin{itemize}
+  \item the local one-step averages $\mathfrak a_j$ (Lemma~\Nref{lem:one-step-basic}(c));
+  \item block averages of logarithms of averaged relative contour variables;
+  \item the backgrounds $W_j$, which satisfy the same recursion $W_j=\mathfrak a_j(W_{j-1})$.
+  \end{itemize}
+  Each ingredient is a formula in finitely many variables, given by the same rule on every torus. By induction over $j$ and the nesting of the blocks $B^{(j)}$, $\Cav_k(A)(c)$ depends only on $A$ and on the reference on the bonds of $S_c=B(c_-)\cup B(c_+)$, and it vanishes if $A=0$ there. At complex references the same formulas are continued holomorphically (Proposition~\Nref{prop:AB}(i),(iii)). The holomorphic continuation of a function of finitely many variables depends on the same variables. This locality induction, in $(h,A)$ with the reference as a second argument, is written out in Detail~\ref{d11a:F3}; we use its statement.
+\item[(ii)] \emph{Plaquette terms.} $s_p(U)=\mathsf N-\frac12\operatorname{tr}(U(\partial p)+U(\partial p)^{-1})$ is a holomorphic function of the values of $U$ on the four bonds of $p$. The plaquette term $n_p$ of $\mathcal N$ is $s_p(e^{\ii\eta A}U_0)$ minus the contributions of $p$ to $S(U_0)$, $\ip A{J_{U_0}}$ and $\frac12\|D_{U_0}A\|^2$ in Proposition~\Nref{prop:action}. These are its parts of order $0$ and $1$ in $A$ and the covariant-curl part of its quadratic term; at a curved reference $n_p$ keeps a quadratic part that depends on the curvature. Each subtracted term is a function of $A$ and $U_0$ on the bonds of $p$, continued holomorphically by Proposition~\Nref{prop:complex-ext}(c). Hence $\nabla\mathcal N(A)(b)=\eta^{-d}\sum_{p\ni b}\partial_{A(b)}n_p$ depends only on the plaquettes that contain $b$.
+\item[(iii)] \emph{Gauge fixing.} By Proposition~\Nref{prop:gf-pieces}(d), $H_{y,x}$ and $f\circ H_{y,x}$ are functions of $Z$ and of the base on the inner bonds of $B'(y)$. They are given by the averaged contour variables of the box spanned by $y$ and $x$, which are defined at complex bases by (DC5).
+\item[(iv)] \emph{Jacobians.} The function $\sigma$ is explicit. By Proposition~\Nref{prop:exact-step},
+\[
+\mathsf J_c(Z)=\frac{\sigma(\zeta_c(Z))}{\sigma(0)\det\partial\ell_c/\partial Z(b_0(c))}\Big|_{Z(b_0(c))=\zeta_c(Z)} .
+\]
+$\ell_c$ and $\zeta_c$ are local by Lemma~\Nref{lem:local-inventory}(c). The terms depend on $Z$ and on the base within distance $2L$ of one bond (Proposition~\Nref{prop:jacobians}(a)).
+\item[(v)] \emph{$\ell$ and $\oplus$.} These are bondwise.
+\end{itemize}
+\end{step}
+
+\begin{step}[Ranges and the consequence]
+The ranges are: $S_c$, within distance $\frac32$ of $c_-$; one plaquette; the block $B'(y)$, of radius $\frac12L$; and $2L$. All are at most $4L+2$. By the Setting of Section~\Nref{sec:step-quantities}, $M>32(L+1)$, so $R_{\rm g}=(\rho+C_v+8)M\ge8M>4L+2$. The consequence of Lemma~\Nref{lem:grid-transfer} then applies to each rule: if the references and the fields agree under $\iota$ on $P$, the value at a site based in $P$ whose range lies in $P$ equals the value at its image.
+\end{step}
+\status{Expanded. Item (i) at complex references uses the locality induction of Detail~\ref{d11a:F3}.}
+
+\begin{detail}[Lemma~\Nref{lem:gl-bg}]\label{d11b:gl-bg}\Ntarget{lem:gl-bg}
+Let $\iota:P\to P'$ be a grid transfer from $\Tf[n]$ to $\Tf[n']$ at step $k$, and let $U_0$, $U'_0$ be references that agree on $P$. Let $Z$ be a union of boxes with $Z^{(r+4)}\subset P$, and let $s$, $s'$ and $B$, $B'$ be as in the lemma. Then $A_1(s';B')$ and $A_*(s';B')$ vanish off $\iota(Z)^{(r)}$, and on its bonds they are the transfers of $A_1(s;B)$ and $A_*(s;B)$.
+\end{detail}
+
+\begin{step}[The weakened operators]
+On the torus (Section~\Nref{ss:44.5}, after Remark~\Nref{rem:C-formula}),
+\[
+\begin{gathered}
+\bH(s)=\bG(s)\bQ^T\boldsymbol\Gamma(s),\\
+\bC(s)=\bG(s)-\bG(s)DG'(s)D^T+\bG(s)DP_\cV(s)G'(s)D^T-\bH(s)\bQ\bG(s),
+\end{gathered}
+\]
+with $G'(s)$, $P_\cV(s)$ from (L1), (L2), $\bG(s)$ from (L3) with $W=0$, and $\boldsymbol\Gamma(s)$ from (L4), all on the domain $\Tf$. So $\bH(s)$, $D\bH(s)$, $\bC(s)$ and their transposes are sums of products, in the sense of Lemma~\Nref{lem:weak-chain}, of these families and of the local operators $D$, $D^T$, $\bQ$, $\bQ^T$.
+
+Let $s$ vanish off $Z$. By Lemma~\Nref{lem:weak-basic}(b), only the terms $\omega$ with $X_\omega\subset Z$ contribute, and every operator vanishes off $Z^{(r)}\times Z^{(r)}$. These terms have $X_\omega^{(r)}\subset Z^{(r)}\subset P$. The whole torus $\Tf[n]$ is related to $\Tf[n']$ (Definition~\Nref{def:grid-transfer}). By Lemma~\Nref{lem:torus-transfer}(b), there is a bijection $\omega\mapsto\iota(\omega)$ from these terms onto the terms with $X^{(r)}_{\omega'}\subset P'$, with
+\[
+X_{\iota(\omega)}=\iota(X_\omega),\qquad n_{\iota(\omega)}(\iota\Box)=n_\omega(\Box),\qquad O'_{\iota(\omega)}=\iota_*O_\omega .
+\]
+So at $s'$ (with $s'_{\iota\Box}=s_\Box$) the contributing terms are the $\iota(\omega)$, with the same monomials, and $O'(s')=\iota_*O(s)$ for each family. Step~4 of the proof of Lemma~\Nref{lem:torus-transfer} carries the products. The local operators are carried by the consequence of Lemma~\Nref{lem:local-inventory}: $\mathcal L'\one_{\iota S}=\iota_*(\mathcal L\one_S)$ when $S^{(r_{\mathcal L})}\subset P$, and the ranges of $D$, $D^T$, $\bQ$, $\bQ^T$ are at most $2$. Transposition commutes with $\iota_*$, which is a relabelling. Hence
+\[
+\bC'(s')=\iota_*\bC(s),\quad\bH'(s')=\iota_*\bH(s),\quad D\bH'(s')=\iota_*D\bH(s),
+\]
+together with the transposes, on the fields supported in $Z^{(r)}$ and the coarse fields on the coarse bonds of $Z^{(r)}$.
+\end{step}
+
+\begin{step}[The class $\mathcal K$]
+For a union of unit blocks, $Z^{(r)}$ and $Z^{(r+1)}$ are unions of unit blocks (Conventions). The coarse bonds of a set are those that start in it. If a coarse bond $c$ does not start in $Z^{(r+1)}$, then $c_\pm$ are at coarse distance $\ge r+1$ from the block centres of $Z$. So $S_c=B(c_-)\cup B(c_+)$ does not meet $Z^{(r)}$. If $c$ starts in $Z^{(r+1)}$, then $S_c\subset Z^{(r+2)}\subset Z^{(r+3)}\subset P$. This is the class $\mathcal K$ of the proof of Theorem~\Nref{thm:weak-bg}(d): $A_1$ vanishes off $Z^{(r)}$, and $X$ vanishes off the coarse bonds of $Z^{(r+1)}$.
+\end{step}
+
+\begin{step}[The linearizing map]
+Let $A'$ vanish off $Z^{(r)}$, and let $A''=\iota_*A'$ on $\iota(Z)^{(r)}$ and $0$ elsewhere. Note $\iota(Z^{(r)})=\iota(Z)^{(r)}$ by Lemma~\Nref{lem:grid-transfer}(a). Put $X_0=X''_0=0$, $X_{p+1}=\Cav_k(A'-\bH(s)X_p)$, and likewise $X''_{p+1}$ with the primed objects. Suppose that $X''_p=\iota_*X_p$, with both supported on the coarse bonds of $Z^{(r+1)}$, respectively of $\iota(Z)^{(r+1)}$.
+\begin{itemize}
+\item By Step~1, $A''-\bH'(s')X''_p=\iota_*(A'-\bH(s)X_p)$, a field supported in $\iota(Z)^{(r)}$.
+\item For a coarse bond $c$ starting in $Z^{(r+1)}$, $S_c\subset Z^{(r+3)}\subset P$. By Detail~\ref{d11b:gl-inventory}(i), $\Cav_k(\cdot)(c)$ is carried.
+\item For the other coarse bonds both sides vanish, by Step~2.
+\end{itemize}
+Hence $X''_{p+1}=\iota_*X_{p+1}$. By Lemma~\Nref{lem:Ds}, the map $X\mapsto \Cav_k(A'-\bH(s)X)$ is a contraction of the ball $\{|X|_\infty\le r_P\}$ into itself. The constants do not depend on the torus, so this holds on both tori. The iterates converge in the sup norm, hence bondwise, to the unique solutions. Thus $\mathcal D'_{s'}(A'')=\iota_*\mathcal D_s(A')$.
+
+The derivative is
+\[
+d\mathcal D_s^T=d\Cav_k(A)^T\big(I+\bH(s)^Td\Cav_k(A)^T\big)^{-1}=\sum_{m\ge0}d\Cav_k(A)^T\big(-\bH(s)^Td\Cav_k(A)^T\big)^m ,
+\]
+where the operator norm of $\bH(s)^Td\Cav_k(A)^T$ is at most $\frac12$ on both tori (proof of Lemma~\Nref{lem:Ds}). The operator $d\Cav_k(A)$ is the derivative of a carried local map. Its value at $c$ depends on the data on $S_c$ and vanishes if $A=0$ there. So each term of the series maps the coarse fields on the coarse bonds of $Z^{(r+1)}$ to fine fields supported in $Z^{(r+2)}$, and it is carried. The series converge absolutely on both tori, so $d\mathcal D'^T_{s'}=\iota_*d\mathcal D_s^T$ on these fields.
+\end{step}
+
+\begin{step}[The fixed point]
+By \eqref{N-eq:Ts} and \eqref{N-eq:gradV-s}, $\mathcal T_s(A_1)=-\bC(s)\big(n_0(A')+D^Tn_2(A')\big)$ with $A'=A_1+\bH(s)B$. Here $n_2=-D\bH(s)\mathcal D_s(A')$, and
+\[
+n_0=-d\mathcal D_s^T(D\bH(s))^T\big(DA'-D\bH(s)\mathcal D_s(A')+\mathsf F\big)+\nabla\mathcal N(A)-d\mathcal D_s^T\bH(s)^T\nabla\mathcal N(A),
+\]
+with $A=A'-\bH(s)\mathcal D_s(A')$ and $\mathsf F=F^s_{U_0}$.
+
+Let $A_1$ vanish off $Z^{(r)}$. Then $A'$ vanishes off $Z^{(r)}$. It depends on $B$ only on the coarse bonds of $Z^{(r)}$, where $B$ and $B'$ agree, since $\bH(s)$ sees only these. Each ingredient of $\mathcal T_s(A_1)$ is carried:
+\begin{itemize}
+\item $\mathcal D_s$ and $d\mathcal D_s^T$, by Step~3;
+\item the operators, by Step~1;
+\item $\nabla\mathcal N(A)$, by Detail~\ref{d11b:gl-inventory}(ii): it depends on the plaquettes containing a bond, inside $Z^{(r+1)}\subset P$;
+\item $\mathsf F$ on the plaquettes of $Z^{(r+1)}$ (Lemma~\Nref{lem:local-inventory}(c)). The curvature $\mathsf F$ is global on the torus, but it enters only through $(D\bH(s))^T$, whose kernel vanishes off $Z^{(r)}\times Z^{(r)}$.
+\end{itemize}
+Finally $\bC(s)$ vanishes off $Z^{(r)}\times Z^{(r)}$, so $\mathcal T_s(A_1)$ vanishes off $Z^{(r)}$, and $\mathcal T'_{s'}(\iota_*A_1)=\iota_*\mathcal T_s(A_1)$.
+
+By induction, the iterates $A_{1,p+1}=\mathcal T_s(A_{1,p})$, $A_{1,0}=0$, satisfy $A''_{1,p}=\iota_*A_{1,p}$. By Theorem~\Nref{thm:weak-bg}(a), $\mathcal T_s$ is a contraction with constant $\frac14$ of the ball $\{|A_1|_*\le\varrho_P\}$, on both tori. So the iterates converge in $|\cdot|_*$, and hence bondwise (Lemma~\Nref{lem:norm-conversion}), to the fixed points. Thus $A_1(s';B')=\iota_*A_1(s;B)$. Then $A_*(s;B)=A'_s-\bH(s)\mathcal D_s(A'_s)$ with $A'_s=A_1(s;B)+\bH(s)B$ is carried as well.
+\end{step}
+
+\begin{step}[Complex references]
+At complex references, Theorem~\Nref{thm:weak-bg}(a),(b),(d) hold by Proposition~\Nref{prop:complex-ext}(d), with the continued operators. The class $\mathcal K$ is preserved there: item (viii) of the proof of Proposition~\Nref{prop:complex-ext} (Detail~\ref{xa:d-step-viii}). Step~1 uses Lemma~\Nref{lem:torus-transfer} at the references $e^{\ii\eta\chi B}$. They lie in the class of the Setting of Section~\Nref{sec:weakenable}: their real part is $1$, and their size is $\delta_c<\delta_P$ (Detail~\ref{d11b:gl-flat}, Step~2). The lemma then holds literally (Detail~\ref{d9:transfer}, step ``Complex flat references'').
+\end{step}
+\status{Expanded. At the complex flat references it uses Lemma~\Nref{lem:torus-transfer} there (Detail~\ref{d9:transfer} given the size bound of Detail~\ref{d11b:gl-flat}) and class-$\mathcal K$ preservation (Detail~\ref{xa:d-step-viii}).}
+
+\begin{detail}[Lemma~\Nref{lem:gl-composed}]\label{d11b:gl-composed}\Ntarget{lem:gl-composed}
+The proof of Proposition~\Nref{prop:composed} applies with $P=X$, $r_E=0$, $U'_r=1$ and $\delta_1^\flat$ in place of $\delta_1$. Every evaluation of $\mathcal E_X$ is at a point of $\mathcal U^\flat_1(X)$.
+\end{detail}
+
+\begin{step}[The changes]
+The hypothesis of Proposition~\Nref{prop:composed} reads: on $X^{(3)}$, $U'=e^{\ii\eta A'}$ with the real part $1$ and budgets $\delta'_1<\delta_1^\flat$, $\delta'_0<\delta_0$. Put $\tau=C_1C_{\rm conv}C_P\zeta\big(\min(\delta_1^\flat-\delta'_1,\delta_0-\delta'_0)\big)^{-1}<\frac12$. For $|t|<\frac1{2\tau}$, put $A_*=A_*(s;\hat Z(Z))$, and consider $e^{\ii\eta tA_*}U'=e^{\ii\eta(tA_*\oplus A')}$ on $X^{(3)}$.
+\begin{itemize}
+\item $|A_*|_*\le C_P\zeta$ by Theorem~\Nref{thm:weak-bg}(a), valid at $U'$ by Proposition~\Nref{prop:complex-ext}(d).
+\item Lemma~\Nref{lem:norm-conversion} applies with $U'_r=1$, which is real and $(M,0)$-regular. So the sup, the gradient and the Hölder quotient of $A_*$ on $X^{(3)}$ are at most $C_{\rm conv}C_P\zeta$, with $\nabla$ the flat difference.
+\item By the Baker--Campbell--Hausdorff formula and \eqref{N-eq:lattice-trick}, the corresponding quantities of $tA_*\oplus A'$ exceed those of $A'$ by at most $C_1C_{\rm conv}C_P|t|\zeta<\frac12\min(\delta_1^\flat-\delta'_1,\delta_0-\delta'_0)$.
+\end{itemize}
+So $tA_*\oplus A'$ satisfies $|\cdot|<\delta_0$ and $|\nabla\cdot|+[\nabla\cdot]_\alpha<\delta_1^\flat$ strictly on $X^{(3)}$, with the real part $1$: it is a point of $\mathcal U^\flat_1(X)$, as a field on the bonds of $X^{(3)}$. Since $\mathcal E_X$ depends only on the bonds of $X$, its value at $e^{\ii\eta tA_*}U'$ is its value at this flat field.
+\end{step}
+
+\begin{step}[The bound and the analyticity]
+The function $t\mapsto\mathcal E_X(e^{\ii\eta tA_*}U')-\mathcal E_X(U')$ is holomorphic on $|t|<\frac1{2\tau}$, bounded by $2\|\mathcal E_X\|$, and vanishes at $t=0$. The Schwarz lemma at $t=1$, which lies in the disc since $\tau<\frac12$, gives $|f(X;s,Z)|\le2\|\mathcal E_X\|\cdot2\tau$. Analyticity in $(s,Z,A')$ follows by composition:
+\begin{itemize}
+\item $A_*(s;B)$ is analytic in $(s,B,A')$ (Theorem~\Nref{thm:weak-bg}(b), Proposition~\Nref{prop:complex-ext}(d));
+\item $\hat Z$ is analytic in $Z$ and in the base, and the base is analytic in $A'$ (Proposition~\Nref{prop:AB}(vi));
+\item $\mathcal E_X$ is holomorphic on the open set $\mathcal U^\flat_1(X)$.
+\end{itemize}
+Continuity up to the boundary in $s$ follows from Theorem~\Nref{thm:weak-bg}(b). Gauge invariance of $\mathcal E_X$ is not used.
+\end{step}
+
+\begin{step}[Part (b)]
+$\mathcal E_X$ depends on the bonds of $X\subset(Z'_0)^{(r)}$. By Theorem~\Nref{thm:weak-bg}(d), $A_*$ on $(Z'_0)^{(r)}$ depends only on $s_\Box$, $\Box\subset Z'_0$, on $B$ on the coarse bonds of $(Z'_0)^{(r)}$, and on $U'$ on $(Z'_0)^{(r+1)}$. The field $B=\hat Z(Z)$ equals $Z$ on $\mathfrak F$ and $\zeta_c(Z)$ on $b_0(c)$, which depends on $Z$ and on the base within distance $2L$ (Lemma~\Nref{lem:eliminate}(c),(d)). So $f$ depends on $Z$ and $U'$ only on $(Z'_0)^{(r+2L+1)}\subset(Z'_0)^{(r')}$, since $r'=r+2L+2$.
+\end{step}
+
+\begin{step}[The application, after Definition~\Nref{def:gl-functional}]
+At the reference of Definition~\Nref{def:gl-functional}, Detail~\ref{d11b:gl-flat}(a) gives $\delta'_1=L^{-2}\delta_1$ and $\delta'_0=L^{-1}\delta_0$ on $X^{(3)}$. Here we use that $U'=V_B$ there, since $X^{(3)}$ lies within distance $3/L\le1$ of $Y'$ in the units of scale $k+1$. Since $\delta_1\le\delta_0$ and $L\ge3$,
+\[
+\min(\delta_1^\flat-L^{-2}\delta_1,\ \delta_0-L^{-1}\delta_0)\ge(\tfrac14-\tfrac19)\delta_1\ge\tfrac18\delta_1 .
+\]
+With $\zeta=w=C_wL^dC_Tgp_0$ (Lemma~\Nref{lem:white-noise}), $\tau\le8C_1C_{\rm conv}C_PC_wC_TL^dgp_0/\delta_1$. This is the bound $\tau\le C_PL^dgp_0/\delta_1$ of Remark~\Nref{rem:flow-constants}(iii), with the enlarged $C_P$ of Remark~\Nref{rem:symmetrization-flow}(c). So $\tau<\frac12$ by ($\Gamma$2). Moreover $w\le\frac12R_P$ is part of (Q1).
+\end{step}
+\status{Literal repetition of the proof of Proposition~\Nref{prop:composed}, with the changes $P=X$, $r_E=0$, $U'_r=1$, the budget $\delta_1^\flat$, the slack $\frac18\delta_1$ and the resulting constant in $\tau$.}
+
+\begin{detail}[Lemma~\Nref{lem:gl-pieces}]\label{d11b:gl-pieces}\Ntarget{lem:gl-pieces}
+Under a grid transfer $\iota$, with references that agree on $P$, $Z^{(r')}\subset P$, and white-noise fields that agree on the bonds of $\mathfrak F$ in $Z^{(r')}$:
+\begin{itemize}
+\item[(a)] the pure pieces satisfy $E'_{\rm p}(\iota Z)(\xi')=E_{\rm p}(Z)(\xi)$;
+\item[(b)] at real part $1$ and carried flat data, the mixed pieces satisfy $E'_{\rm m}(\iota Z)(\xi')=E_{\rm m}(Z)(\xi)$.
+\end{itemize}
+\end{detail}
+
+\begin{step}[Reduction to the functions of $s$]
+By Lemma~\Nref{lem:localization},
+\[
+f_{\rm loc}(Y,Z)=\int_{[0,1]^{Z\setminus Y}}\partial_{s_{Z\setminus Y}}f(s(Z,t))\,dt,
+\]
+and the points $s(Z,t)$ vanish off $Z$. Suppose that $f'(s')=f(s)$ for every $s\in\mathbb D_{\kappa'}$ that vanishes off $Z$, with $s'_{\iota\Box}=s_\Box$. Then $(s_\Box)_{\Box\subset Z}\mapsto f(s)$ and $(s_\Box)_{\Box\subset Z}\mapsto f'(s')$ are the same analytic function of the variables $s_\Box$, $\Box\subset Z$. So their derivatives and the integrals over $t$ coincide: $f'_{\rm loc}(\iota Y,\iota Z)=f_{\rm loc}(Y,Z)$. Here $\Box\mapsto\iota\Box$ is a bijection of the boxes of $Z$ onto those of $\iota Z$ (Lemma~\Nref{lem:local-inventory}(a)). It remains to check $f'(s')=f(s)$ for each localized function $f$.
+\end{step}
+
+\begin{step}[The fluctuation field]
+$C_k^{1/2}(s)$ is a weakened family on $\Tf$ (Corollary~\Nref{cor:weak-covariance}). For $s$ vanishing off $Z$:
+\begin{itemize}
+\item only its terms with $X_\omega\subset Z$ contribute, and it vanishes off $Z^{(r)}\times Z^{(r)}$ (Lemma~\Nref{lem:weak-basic}(b));
+\item Lemma~\Nref{lem:torus-transfer}(b) carries these terms, the family $C^{1/2}_k(s)$ on $\Tf$ being in its list.
+\end{itemize}
+So $Z(s)=gC_k^{1/2}(s)\xi$ vanishes off $Z^{(r)}$ and depends on $\xi$ only on the bonds of $\mathfrak F$ in $Z^{(r)}$. With $\xi'(\iota b)=\xi(b)$ there, $Z'(s')(\iota b)=Z(s)(b)$ for the bonds $b$ of $P$, and $Z'(s')$ vanishes off $\iota(Z)^{(r)}$. The bonds of $\mathfrak F$ in $P$ correspond to those of $\mathfrak F'$ in $\iota(P)$ (Lemma~\Nref{lem:local-inventory}(a)).
+\end{step}
+
+\begin{step}[Interaction]
+$V(\Box;s)=g^{-2}\sum_pv_p(s;Z(s))$, the sum over the plaquettes based in $\Box$. By Proposition~\Nref{prop:interaction-pieces}(d) with $Z'=Z$, $v_p=0$ unless $p$ has a point in $Z^{(r+1)}$, and then $p\subset Z^{(r+2)}$. For fields $Y$ on $\mathfrak F$ supported in $Z^{(r)}$ with $|Y|_\infty<r_I$, put $h(Y)=s_p(e^{\ii\eta A_*(s;\hat Z(Y))}U')$. Then $v_p(s;Y)=h(Y)-T_2[h](Y)$.
+\begin{itemize}
+\item $\hat Z(Y)=Y$ on $\mathfrak F$, and $\hat Z(Y)(b_0(c))=\zeta_c(Y)$. The function $\zeta_c$ depends on $Y$ and on the base on the bonds of $B'(c_-)\cup B'(c_+)$ (Lemma~\Nref{lem:eliminate}(c)), and it is carried by Lemma~\Nref{lem:local-inventory}(c). For a coarse bond starting in $Z^{(r+1)}$ these bonds lie in $Z^{(r+1+2L)}\subset Z^{(r')}\subset P$. So $\hat Z'(\iota_*Y)$ and $\hat Z(Y)$ agree under $\iota$ on the coarse bonds of $Z^{(r+1)}$. By the choice of $r_I$ (Section~\Nref{subsec:sq-interaction}), $|\hat Z(Y)|_\infty<R_P$.
+\item Since $r'=r+2L+2\ge r+8$ for $L\ge3$, $Z^{(r+4)}\subset Z^{(r')}\subset P$. So Detail~\ref{d11b:gl-bg} applies: $A_*(s';\hat Z'(\iota_*Y))=\iota_*A_*(s;\hat Z(Y))$ on $\iota(Z)^{(r)}$, and both vanish elsewhere.
+\item On the bonds of $p\subset Z^{(r+2)}\subset P$, the configurations $e^{\ii\eta A_*}U'$ and $e^{\ii\eta A'_*}U''$ agree under $\iota$. By Detail~\ref{d11b:gl-inventory}(ii), $h'(\iota_*Y)=h(Y)$ for all such $Y$.
+\item The Taylor polynomial of degree $2$ at $Y=0$, evaluated at fields supported in $Z^{(r)}$, uses only the derivatives of $h$ at $0$ in these directions. They agree, since $h'\circ\iota_*=h$ on these fields.
+\end{itemize}
+So $v'_{\iota p}(s';\iota_*Y)=v_p(s;Y)$. With $Y=Z(s)$, using Step~2 and the bijection of the plaquettes based in $\Box$ onto those based in $\iota\Box$, $V'(\iota\Box;s')=V(\Box;s)$.
+\end{step}
+
+\begin{step}[Gauge fixing and Jacobians]
+$G_3(\Box;s)=g^{-2}\sum_{y\in\T'\cap\Box}\sum_{x\in B'(y)}\varphi_{y,x}(Z(s))$, where $\varphi_{y,x}$ is $f\circ H_{y,x}$ minus its Taylor polynomial of degree $2$ (Proposition~\Nref{prop:gf-pieces}(c)). By Proposition~\Nref{prop:gf-pieces}(d), $\varphi_{y,x}(Z)$ depends on $Z$ on the inner bonds of $B'(y)$ and on the base there. The block $B'(y)$, $y\in\Box$, has radius $\frac12L$, so it lies in $Z^{(L)}\subset P$. The functions $H_{y,x}$ and $f\circ H_{y,x}$ are carried by Detail~\ref{d11b:gl-inventory}(iii). The base is carried by Lemma~\Nref{lem:local-inventory}(c), and $Z(s)$ by Step~2. The grid transfer preserves $\T'$, since $M\Z^4\subset L\Z^4$ ($M$ is a power of $L$ and $M>L$). So $G'_3(\iota\Box;s')=G_3(\Box;s)$.
+
+The terms of $\mathfrak J(Z(s))$ grouped in $\Box$ are $\log(\sigma(Z(b))/\sigma(0))$, $b\in\mathfrak F$ based in $\Box$, and $\log(\mathsf J_c(Z)/\mathsf J_c(0))$, $c$ based in $\Box$. Each depends on $Z$ and on the base within distance $2L$ of one bond (Proposition~\Nref{prop:jacobians}(a)), so each is carried by Detail~\ref{d11b:gl-inventory}(iv).
+\end{step}
+
+\begin{step}[The first step]
+At $k=0$ there is no background map (Proposition~\Nref{prop:first-step}(a)). The interaction pieces are $v_p(Z)=s_p(e^{\ii\hat Z(Z)}U')-T_2[\cdots](Z)$, local within range $2L+2$. They are carried by Detail~\ref{d11b:gl-inventory}(ii) and by Lemma~\Nref{lem:local-inventory}(c) for $\hat Z$; Step~3 holds without its second item, with the factorization of the composed pieces in the proof of Proposition~\Nref{prop:first-step} in place of Proposition~\Nref{prop:interaction-pieces}(d). $C_0^{1/2}(s)$ is given by the walk of Theorem~\Nref{thm:weak-inverse} with $\fA=\Delta_0+r$ and $\mathfrak N=0$ (Proposition~\Nref{prop:first-step}(c)). It is carried by Lemma~\Nref{lem:torus-transfer} in its case $k=0$, so Step~2 holds. The gauge-fixing and Jacobian terms of the first step are local functions of $Z$ and the base, with the replacements of the proof of Proposition~\Nref{prop:first-step}. They are carried as in Step~4. These replacements are expanded in the Part~X, second half chapter.
+\end{step}
+
+\begin{step}[Part (b): the mixed pieces]
+Let $X\subset Z$ be an old polymer, $Y$ its set of boxes, and $s$ vanishing off $Z$. By Detail~\ref{d11b:gl-composed}, Step~3, with $Z'=Z$, $f(X;s,Z(s))$ depends only on $s_\Box$, $\Box\subset Z$, and on $Z(s)$ and $U'$ on $Z^{(r')}\subset P$.
+\begin{itemize}
+\item $Z(s)$ is carried (Step~2), and $\hat Z(Z(s))$ is carried on the coarse bonds of $Z^{(r+1)}$ (Step~3).
+\item $A_*(s;\hat Z(Z(s)))$ is carried (Detail~\ref{d11b:gl-bg}), and $\oplus$ is bondwise.
+\item Since $X^{(3)}\subset Z^{(3)}\subset Z^{(r')}$ and $\iota(X^{(3)})=(\iota X)^{(3)}$ (Lemma~\Nref{lem:grid-transfer}(a)), the composed flat field on $(\iota X)^{(3)}$ is $\iota_*$ of the one on $X^{(3)}$. The same holds for $U'$.
+\end{itemize}
+The hypothesis of Lemma~\Nref{lem:gl-composed} holds for $U''$ on $(\iota X)^{(3)}$, since $U''=\iota_*U'$ there. By the hypothesis $\mathcal E'_{\iota X}(\iota_*A)=\mathcal E_X(A)$, we get $f'(\iota X;s',Z'(s'))=f(X;s,Z(s))$, and Step~1 gives $f'_{\rm loc}(\iota X,\iota Z)=f_{\rm loc}(X,Z)$. The map $X\mapsto\iota X$ is a bijection of the old polymers in $Z$ onto those in $\iota Z$, since both are unions of boxes. Summing gives (b).
+\end{step}
+\status{Expanded. At the complex flat references Step~2 uses Lemma~\Nref{lem:torus-transfer} there, as in Detail~\ref{d11b:gl-bg} (Detail~\ref{d9:transfer}).}
+
+%======================================================================
+\subsection{Section~\texorpdfstring{\Nref{sec:gen-locality}}{59}: the step on the infinite lattice}\label{d11b:59c}
+
+\begin{detail}[Definition~\Nref{def:gl-flat-data} and the flat restriction]\label{d11b:gl-flatdata}\Ntarget{def:gl-flat-data}
+For a vector $a\in LM\Z^4$ in the units of step $k$, $\tau_a\mathcal E^{\rm fl}\in\mathfrak D_k(\tilde Y'+a)$. The flat restriction $\mathcal E^{\rm fl}_{\tilde Y'}[\mathcal E]$ of old activities with $\|\mathcal E\|\le C_{\rm old}\mathsf K$ lies in $\mathfrak D_k(\tilde Y')$.
+\end{detail}
+
+\begin{step}[Translations]
+A vector $a\in LM\Z^4$ in the units of step $k$ is a vector of $M\Z^4$ in the units of scale $k+1$. So $\tilde Y'+a$ is a polymer of scale $k+1$. The translation maps the polymers $\tilde Y\subset\tilde Y'$ of scale $k$ onto those in $\tilde Y'+a$, preserves $d_k$, and maps $\mathcal U^\flat_1(\tilde Y)$ onto $\mathcal U^\flat_1(\tilde Y+a)$, since it preserves the flat differences and the Hölder quotients.
+\end{step}
+
+\begin{step}[The flat restriction]
+Let $n$ be admissible for $\tilde Y'$. By Detail~\ref{d11b:gl-admissible}(a), $\pi_n\tilde Y'$ does not wrap at scale $k+1$. For $\tilde Y\subset\tilde Y'$ of scale $k$, $\operatorname{diam}\tilde Y\le\operatorname{diam}\tilde Y'\le\frac12n-8L$ in the units of step $k$, so $\pi_n\tilde Y$ does not wrap at scale $k$. By Detail~\ref{d11b:gl-flatconf}, $V_B[n]\in\mathcal U^\flat_1(\pi_n\tilde Y)\subset\mathcal U^\flat(\pi_n\tilde Y)$. By hypothesis (Lemma~\Nref{lem:raw-new}), $\mathcal E(\pi_n\tilde Y,\cdot)$ is a normalized graded activity on $\mathcal U^\flat(\pi_n\tilde Y)$.
+\begin{itemize}
+\item \emph{Holomorphy.} $B\mapsto\mathcal E(\pi_n\tilde Y,V_B[n])$ is holomorphic on $\mathcal U^\flat_1(\tilde Y)$, since $B\mapsto V_B[n]|_{\pi_n\tilde Y}$ is holomorphic.
+\item \emph{Locality.} It depends only on $B$ on the bonds of $\tilde Y$.
+\item \emph{Normalization.} It vanishes at $B=0$, since $\mathcal E(Y,1)=0$.
+\item \emph{Bound.} $|\mathcal E(\pi_n\tilde Y,\cdot)|\le C_{\rm old}\mathsf Ke^{-\kappa_nd_k(\pi_n\tilde Y)}=C_{\rm old}\mathsf Ke^{-\kappa_nd_k(\tilde Y)}$, by $d_k(\pi_n\tilde Y)=d_k(\tilde Y)$ (Detail~\ref{d11b:gl-limits-a}).
+\end{itemize}
+\end{step}
+\status{Expanded. The last bound uses the equality of the tree lengths, which the note cites here from the first part of the proof of Lemma~\Nref{lem:gl-limits}(a), in the paragraph after Definition~\Nref{def:gl-flat-data}. That part uses only the geometry of polymers, so the forward reference is not circular.}
+
+\begin{detail}[The construction of Definition~\Nref{def:gl-functional} is defined]\label{d11b:gl-defined}\Ntarget{def:gl-functional}
+The system of Definition~\Nref{def:gl-functional} satisfies the hypotheses of Theorem~\Nref{thm:mayer} with $\kappa=\kappa_n-1$ and $\mathsf d=d_k$. Its outputs with $\hat Y=Y'$ are those of the restricted system of Remark~\Nref{rem:extension}.
+\end{detail}
+
+\begin{step}[The reference and the old data]
+By Detail~\ref{d11b:gl-flat}(b), $U'$ is a reference of the Setting of Section~\Nref{sec:step-quantities}. On $X^{(3)}$, for every old polymer $X\subset Y'$, $U'=V_B$ with the budgets $L^{-2}\delta_1$, $L^{-1}\delta_0$. So Lemma~\Nref{lem:gl-composed} applies with $\zeta=w$ and $\tau<\frac12$ (Detail~\ref{d11b:gl-composed}, Step~4), to $\mathcal E_X(V)=\mathcal E^{\rm fl}(\tilde X,\tilde B_V)$, with $\|\mathcal E_X\|\le C_{\rm old}\mathsf Ke^{-\kappa_nd_k(\tilde X)}$.
+\end{step}
+
+\begin{step}[The pieces]
+The proof of Proposition~\Nref{prop:localized-pieces} uses the old activities only through the bounds and the factorization of Proposition~\Nref{prop:composed}(a),(b). Here Lemma~\Nref{lem:gl-composed}(a),(b) replaces them, with $\mathsf d=d_k$ and $r_E=0$. It uses (Q1) and (Q3) through Lemma~\Nref{lem:white-noise}; both hold at $g\le\gamma$ by ($\Gamma$2), and (Q2) enters only the identification at critical references (first paragraph of the proof of Lemma~\Nref{lem:raw-new}). The condition $\kappa'-1\ge c_\natural\kappa_n+\log(1/c_\flat)$ is among the rates of Remark~\Nref{rem:parameters}. So
+\[
+|E_{\rm p}(Z)|\le\epsilon_{\rm p}e^{-(\kappa'-2)|Z|},\quad\epsilon_{\rm p}=C_Pgp_0^3,\qquad|E_{\rm m}(Z)|\le\epsilon_{\rm m}e^{-(\kappa_n-1)d_k(Z)},\quad\epsilon_{\rm m}=C_P\tau C_{\rm old}\mathsf K .
+\]
+Each piece depends on $\xi$ only on the bonds of $\mathfrak F$ in $Z^{(r')}$, and on $U'$ only on $Z^{(r')}$.
+\end{step}
+
+\begin{step}[The hypothesis of Theorem~\Nref{thm:mayer}]
+$d_k$ is a decay functional, with $c_\flat=3^{-d}$, $c_\sharp=\sqrt d$, $c_\natural=2\sqrt d$ (after \eqref{N-eq:dM-facts}). Put $c'_\sharp=\max(c_\sharp,c_\natural)=c_\natural$. Since $|Z|\ge1$,
+\[
+d_k(Z)+c_\natural\le c_\sharp(|Z|-1)+c_\natural\le c_\natural|Z| .
+\]
+\begin{itemize}
+\item \emph{Pure pieces.} $|E_{\rm p}(Z)|\le\epsilon_{\rm p}e^{-((\kappa'-2)/c'_\sharp)(d_k(Z)+c_\natural)}\le\epsilon_{\rm p}e^{-(\kappa_n-1)(d_k(Z)+c_\natural)}$, by $(\kappa'-2)/c'_\sharp\ge\kappa_n-1$ (the hypothesis of Corollary~\Nref{cor:two-classes}, Remark~\Nref{rem:parameters}(3)).
+\item \emph{Mixed pieces.} $|E_{\rm m}(Z)|\le\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)}e^{-(\kappa_n-1)(d_k(Z)+c_\natural)}$.
+\end{itemize}
+So the hypothesis holds with $\kappa=\kappa_n-1\ge C_d$ and $\epsilon=\epsilon_{\rm p}+\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)}\le\frac12\epsilon_*+\frac14\epsilon_*<\epsilon_*$, by ($\Gamma$2). This is Step~3 of the proof of Proposition~\Nref{prop:flow-continuity}(b).
+
+At $k=0$ there are only the pure pieces of the first step, with $\epsilon^{(0)}_{\rm p}\le\frac12\epsilon_*$, by ($\Gamma$2) for the first step and the end of the proof of Proposition~\Nref{prop:first-step}. That proposition is expanded in the Part~X, second half chapter.
+\end{step}
+
+\begin{step}[The one-loop restrictions]
+By Detail~\ref{d11b:gl-flat}(a), the restriction $B_{\tilde X}$ has on $\tilde X^{(3)}$ the budgets $L^{-1}\delta_0$ and $L^{-2}\delta_1$. These are less than $c_a$, by (DC1) ($\delta_1\le\delta_0\le c_a$) and $L\ge3$. So $B_{\tilde X}\in\mathcal U_{\rm fl}(\tilde X)$ (Proposition~\Nref{prop:one-loop-local}(d)). For $\tilde c$, $P_{\tilde c}\subset\tilde Y'_{\tilde c}$, and $P_{\tilde c}^{(3)}$ lies within distance $3/L\le1$ of $\tilde Y'$ in the units of scale $k+1$. So the same budgets hold on it. This is the first paragraph of the proof of Lemma~\Nref{lem:raw-new}.
+\end{step}
+
+\begin{step}[The restriction to $Z^{(r')}\subset Y'$]
+By definition, $\hat Y$ is the union of the cubes of scale $k+1$ that meet $Y^{(r')}$. So $\hat Y=Y'$ gives $Y^{(r')}\subset Y'$ (Remark~\Nref{rem:extension}, collar inclusions). By Theorem~\Nref{thm:mayer}(a), $E^\#(Y)$ depends only on the pieces $E(Z)$ with $Z\subset Y$, and these have $Z^{(r')}\subset Y^{(r')}\subset Y'$. The restricted system of Remark~\Nref{rem:extension} keeps the pieces with $Z\subset Y'$, and Definition~\Nref{def:gl-functional} keeps those with $Z^{(r')}\subset Y'$. For $Y$ with $\hat Y=Y'$, both feed the same pieces into the cluster formula for $E^\#(Y)$, so they have the same output. Every datum of the system of Definition~\Nref{def:gl-functional} lies in $Y'$:
+\begin{itemize}
+\item the pieces depend on $\xi$ and $U'$ on $Z^{(r')}\subset Y'$;
+\item the mixed pieces use $\mathcal E^{\rm fl}$ on $\tilde X\subset\tilde Y'$.
+\end{itemize}
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[Proposition~\Nref{prop:gl-functional}(a): torus independence]\label{d11b:gl-functional-a}\Ntarget{prop:gl-functional}
+$\mathscr S_{k,\tilde Y'}(g;\mathcal E^{\rm fl};B)$ does not depend on the admissible side $n$.
+\end{detail}
+
+\begin{step}[References and pieces]
+Let $n,n'$ be admissible for $\tilde Y'$, and let $\iota$ be the transfer of $\tilde Y'$ with the vector $0$, with $P=Y'=\pi_n\tilde Y'$ (Detail~\ref{d11b:gl-admissible}(c)). On the bonds of $P$ both cutoffs equal $1$, so both references equal $e^{\ii\eta B(\tilde b)}$ at the lift $\tilde b$. So the references agree on $P$.
+
+The map $Z\mapsto\iota Z$ is a bijection of the polymers of step $k$ in $P$ onto those in $\iota(P)$:
+\begin{itemize}
+\item the boxes are carried (Lemma~\Nref{lem:local-inventory}(a));
+\item $\iota$ is an isometry that preserves lattice steps (Lemma~\Nref{lem:grid-transfer}(a)), so it preserves $*$-adjacency, $|Z|$ and touching.
+\end{itemize}
+By Lemma~\Nref{lem:grid-transfer}(a), applied to $\iota$ and to $\iota^{-1}$ with $R=r'<M/8<R_{\rm g}$, $Z^{(r')}\subset Y'$ holds if and only if $(\iota Z)^{(r')}\subset\iota(Y')$.
+
+The flat data on the two tori are the values of the same $\mathcal E^{\rm fl}$ at the same lifts. So $\mathcal E'_{\iota X}(\iota_*A)=\mathcal E_X(A)$, which is the hypothesis of Lemma~\Nref{lem:gl-pieces}(b). Its hypothesis on $U'$ holds by Detail~\ref{d11b:gl-defined}, Step~1. Let $\xi'(\iota b)=\xi(b)$ on the bonds of $\mathfrak F$ in $P$. By Detail~\ref{d11b:gl-pieces}, $E'(\iota Z)(\xi')=E(Z)(\xi)$ for every $Z$ with $Z^{(r')}\subset Y'$. The pieces with $Z^{(r')}\not\subset Y'$ vanish on both tori.
+\end{step}
+
+\begin{step}[Outputs]
+By the proof of Theorem~\Nref{thm:mayer},
+\[
+E^\#(Y)=\sum_{\mathcal C:\,\bigcup_{\Gamma\in\mathcal C}\operatorname{supp}\Gamma=Y}\phi^T(\mathcal C)\prod_{\Gamma\in\mathcal C}k(\Gamma),\qquad k(\Gamma)=\int\prod_{Z\in\Gamma}K(Z)\,d\mu^*,\qquad K(Z)=e^{E(Z)}-1 .
+\]
+The objects $\Gamma$ are finite sets of polymers connected for touching, with $\operatorname{supp}\Gamma=\bigcup_{Z\in\Gamma}Z$. Let $\hat Y=Y'$, so $Y\subset P$.
+\begin{itemize}
+\item \emph{Combinatorics.} $\Gamma\mapsto\iota\Gamma$ is a bijection of the objects with support in $Y$ onto those with support in $\iota Y$. It preserves touching between supports. So a cluster $\mathcal C$ and its image have the same incompatibility graph, and $\phi^T(\iota\mathcal C)=\phi^T(\mathcal C)$, since the Ursell coefficient is a function of that graph.
+\item \emph{Integrals.} The integrand of $k(\Gamma)$ depends on $\xi$ only on the finitely many bonds of $\mathfrak F$ in $\bigcup_{Z\in\Gamma}Z^{(r')}\subset P$; if some $Z^{(r')}\not\subset Y'$, both sides vanish. By Proposition~\Nref{prop:small-field-step}, $d\mu^*$ is the product over the bonds of $\mathfrak F$ of the standard Gaussian measure on $\mathfrak g$ restricted to $|\xi(b)|\le p_0(g)$ and normalized. So $k(\Gamma)$ is an integral against the product of these one-bond measures over the bonds that occur. The one-bond measure is the same on both tori. The change of variables $\xi'(\iota b)=\xi(b)$ gives $k'(\iota\Gamma)=k(\Gamma)$.
+\item \emph{Convergence.} The cluster series converge absolutely on both tori, by the Kotecký--Preiss bound in the proof of Theorem~\Nref{thm:mayer}, with constants that do not depend on the torus.
+\end{itemize}
+Hence $E'^\#(\iota Y;U'')=E^\#(Y;U')$. At $B=0$ both references are $1$, and the same argument gives $E'^\#(\iota Y;1)=E^\#(Y;1)$.
+\end{step}
+
+\begin{step}[Index sets]
+By Detail~\ref{d11b:gl-admissible}(d), $\hat Y=Y'$ if and only if the enlarged closure of the lift of $Y$ on the infinite lattice is $\tilde Y'$. This is a condition on the lift, the same for both tori. So $\iota$ maps the polymers $Y$ with $\hat Y=Y'$ onto those with $\hat Y=\iota(Y')$. The first two sums of Definition~\Nref{def:gl-functional} are defined on the infinite lattice and do not involve $n$. So the values computed with $n$ and with $n'$ agree.
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[Proposition~\Nref{prop:gl-functional}(b): covariance]\label{d11b:gl-functional-b}\Ntarget{prop:gl-functional}
+For $a\in M\Z^4$ in the units of scale $k+1$ and $a_k=La$, $\mathscr S_{k,\tilde Y'+a}(g;\tau_{a_k}\mathcal E^{\rm fl};\tau_aB)=\mathscr S_{k,\tilde Y'}(g;\mathcal E^{\rm fl};B)$.
+\end{detail}
+
+\begin{step}[The argument]
+Fix an admissible $n$. The transfer of the lift $\tilde Y'$ with the vector $a_k\in LM\Z^4$, from $\pi_n\tilde Y'$ onto $\pi_n(\tilde Y'+a_k)$, is a grid transfer with $n'=n$ (Definition~\Nref{def:grid-transfer}(ii), Detail~\ref{d11b:gl-admissible}(c)). On the bonds of $\pi_n(\tilde Y'+a_k)$, the reference of $\tau_aB$ is the transfer of the reference of $B$. The choice of the cutoff does not matter: every datum enters only on $Y'$, where $\chi=1$ (Detail~\ref{d11b:gl-defined}, Step~5). The flat data $\tau_{a_k}\mathcal E^{\rm fl}$ at $\tilde X+a_k$ equal $\mathcal E^{\rm fl}$ at $\tilde X$. So Steps~1 and~2 of Detail~\ref{d11b:gl-functional-a} apply. By Detail~\ref{d11b:gl-admissible}(d), the translation by $a_k\in LM\Z^4$ maps the index sets onto each other.
+
+For the one-loop sums:
+\begin{itemize}
+\item $\operatorname{cl}_{k+1}(\tilde X+a_k)=\operatorname{cl}_{k+1}\tilde X+a_k$ and $\tilde Y'_{\tilde c+a_k}=\tilde Y'_{\tilde c}+a_k$, since $a_k\in LM\Z^4$ maps the cubes of scale $k+1$ and the blocks $B'$ onto themselves;
+\item $(\tau_aB)_{\tilde X+a_k}=\tau_{a_k}(B_{\tilde X})$;
+\item $E^\infty_k(\tilde X+a_k,\tau_{a_k}B_{\tilde X})=E^\infty_k(\tilde X,B_{\tilde X})$ and likewise for $J^\infty_k$, by Proposition~\Nref{prop:one-loop-local}(d), since $a_k\in M\Z^4$ in the units of step $k$.
+\end{itemize}
+This is the argument of the proof of Lemma~\Nref{lem:OL}.
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[Proposition~\Nref{prop:gl-functional}(c): the raw generation at flat points]\label{d11b:gl-functional-c}\Ntarget{prop:gl-functional}
+For $\tilde n\in\mathfrak N_{k+1}$ with $\operatorname{diam}\tilde Y'\le\frac12\tilde n-8$, and old activities $\mathcal E_k$ as in Lemma~\Nref{lem:raw-new} with $\|\mathcal E_k\|\le C_{\rm old}\mathsf K$,
+\[
+E'(\pi_{\tilde n}\tilde Y',V_B[\tilde n])=\mathscr S_{k,\tilde Y'}(g;\mathcal E^{\rm fl}_{\tilde Y'};B)\qquad\text{for }B\in\mathcal U_1(\tilde Y').
+\]
+\end{detail}
+
+\begin{step}[The extension]
+Let $V=V_B[\tilde n]$. Then $V\in\mathcal U_1(Y')\subset\mathcal U(Y')$ (Detail~\ref{d11b:gl-flatconf}), so Definition~\Nref{def:raw-new} applies at $V$. The outputs $E^\#(Y,V)$ with $\hat Y=Y'$ are those of the restricted system for $Y'$ at an extension of $V$, and they do not depend on the extension (Remark~\Nref{rem:extension}; Lemma~\Nref{lem:raw-new}(a), Locality). We take the representation $(1,B)$ of $V$ on $Y'^{(3)}$, which is a representation as in Definition~\Nref{def:graded}, and its cutoff extension $U'$. This is the reference of Definition~\Nref{def:gl-functional} for the side $n=L\tilde n$ at step $k$.
+\end{step}
+
+\begin{step}[The one-loop part]
+Let $\bar X=Y'$. Then $X\subset Y'$, and $X^{(3)}\subset Y'^{(3)}$, where $V=e^{\ii\eta B}$. In the units of step $k$, $V$ has on $X^{(3)}$ the representation $(1,B_{\tilde X})$, with budgets less than $c_a$ (Detail~\ref{d11b:gl-defined}, Step~4). So $V\in\mathcal U(X;c_a,c_a,c_a)$: its real part $1$ has curvature and current $0$. It agrees on $X$ with $V_{B_{\tilde X}}[n]$, and $B_{\tilde X}\in\mathcal U_{\rm fl}(\tilde X)$. The last statement of Proposition~\Nref{prop:one-loop-local}(d) gives $\mathfrak e(X,V)=E^\infty_k(\tilde X,B_{\tilde X})$. In the same way, for $Y'_c=Y'$, $P_c\subset Y'$ and $\log\mathfrak j_c(V)=J^\infty_k(\tilde c,B_{\tilde c})$. Lifting is a bijection of $\{X:\bar X=Y'\}$ onto $\{\tilde X:\operatorname{cl}_{k+1}\tilde X=\tilde Y'\}$, and of $\{c:Y'_c=Y'\}$ onto $\{\tilde c:\tilde Y'_{\tilde c}=\tilde Y'\}$ (Detail~\ref{d11b:gl-admissible}(d)).
+\end{step}
+
+\begin{step}[The outputs]
+By Detail~\ref{d11b:gl-defined}, Step~5, the outputs with $\hat Y=Y'$ involve only the pieces with $Z^{(r')}\subset Y'$.
+\begin{itemize}
+\item \emph{Pure pieces.} These depend on the reference only on $Z^{(r')}$ (Propositions~\Nref{prop:interaction-pieces}(d), \Nref{prop:gf-pieces}(d), \Nref{prop:jacobians}(a), Lemma~\Nref{lem:localization}(a), and Lemma~\Nref{lem:weak-basic}(b) for $C^{1/2}_k(s)$; at $k=0$ the factorization of the composed pieces in the proof of Proposition~\Nref{prop:first-step} replaces Proposition~\Nref{prop:interaction-pieces}(d)). They are computed on the same torus $\Tf[L\tilde n]$ at the same reference $U'$ in both constructions, so they coincide.
+\item \emph{Mixed pieces.} They are built from $f(X;s,Z)=\mathcal E_k(X,e^{\ii\eta A_*}U')-\mathcal E_k(X,U')$ (Proposition~\Nref{prop:composed}). In its proof, and in Lemma~\Nref{lem:localization} for all $s\in\mathbb D_{\kappa'}$, $\mathcal E_k(X,\cdot)$ is evaluated only at the configurations $e^{\ii\eta(tA_*\oplus A')}$ with real part $1$. On $X^{(3)}$ these are flat fields in $\mathcal U^\flat_1(X)$ (Detail~\ref{d11b:gl-composed}, Step~1). Since $\mathcal E_k(X,\cdot)$ depends only on the bonds of $X$, its value there is $\mathcal E_k(\pi\tilde X,V_{B''}[n])=\mathcal E^{\rm fl}_{\tilde Y'}(\tilde X,B'')$, with $B''$ the flat field.
+\end{itemize}
+So the two systems have the same pieces with $Z^{(r')}\subset Y'$, and the same outputs with $\hat Y=Y'$.
+\end{step}
+
+\begin{step}[Normalization and conclusion]
+The reference $1$ is real and critical; it is the background field of $V'=1$. At $1$, the restricted and the full systems have the same outputs (Remark~\Nref{rem:extension}). By Step~3 at $B=0$, they are the outputs $E^\#(Y;1)$ of Definition~\Nref{def:gl-functional}. Hence $E'(Y',V)$ is the value of Definition~\Nref{def:gl-functional} computed with $n=L\tilde n$. This side is admissible for $\tilde Y'$, since $n/L=\tilde n\in\mathfrak N_{k+1}$ and $\operatorname{diam}\tilde Y'\le\frac12\tilde n-8$. By Detail~\ref{d11b:gl-functional-a}, this value is $\mathscr S_{k,\tilde Y'}(g;\mathcal E^{\rm fl}_{\tilde Y'};B)$.
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[Proposition~\Nref{prop:gl-functional}(d): grid covariance]\label{d11b:gl-functional-d}\Ntarget{prop:gl-functional}
+If the old activities are covariant under $M\Z^4$ at the non-wrapping polymers, so is the raw generation on $\mathcal U_1$. The old activities of Definition~\Nref{def:old-activities} built from generations with (G2) are covariant.
+\end{detail}
+
+\begin{step}[The raw generation]
+Let $Y'$ not wrap, with lift $\tilde Y'$, let $V=V_B[\tilde n]\in\mathcal U_1(Y')$, and let $a\in M\Z^4$ (units of scale $k+1$), $a_k=La$. Then $Y'+a$ does not wrap, $\tilde Y'+a$ is a lift of it, and $\tau_aV=V_{\tau_aB}[\tilde n]$. For $\tilde Y\subset\tilde Y'$ and $B''\in\mathcal U^\flat_1(\tilde Y)$,
+\[
+\mathcal E^{\rm fl}_{\tilde Y'+a}(\tilde Y+a_k,\tau_{a_k}B'')=\mathcal E_k(\pi\tilde Y+a_k,\tau_{a_k}V_{B''})=\mathcal E_k(\pi\tilde Y,V_{B''})=\mathcal E^{\rm fl}_{\tilde Y'}(\tilde Y,B''),
+\]
+by the hypothesis, since $a_k\in M\Z^4$ in the units of scale $k$ and $V_{B''}\in\mathcal U^\flat_1\subset\mathcal U^\flat$. So $\mathcal E^{\rm fl}_{\tilde Y'+a}=\tau_{a_k}\mathcal E^{\rm fl}_{\tilde Y'}$. By Detail~\ref{d11b:gl-functional-c} for $Y'+a$, Detail~\ref{d11b:gl-functional-b}, and Detail~\ref{d11b:gl-functional-c} for $Y'$,
+\[
+E'(Y'+a,\tau_aV)=\mathscr S_{k,\tilde Y'+a}(g;\tau_{a_k}\mathcal E^{\rm fl}_{\tilde Y'};\tau_aB)=\mathscr S_{k,\tilde Y'}(g;\mathcal E^{\rm fl}_{\tilde Y'};B)=E'(Y',V).
+\]
+\end{step}
+
+\begin{step}[The old activities]
+Let $a\in M\Z^4$ in the units of scale $k$, and let $Y$ be a polymer of scale $k$ that does not wrap. In the units of scale $l\le k$, $a\in L^{k-l}M\Z^4\subset M\Z^4$.
+\begin{itemize}
+\item The grids of all scales are aligned (Section~\Nref{subsec:tf-scales}). So the translation maps the grid cubes of every scale $l\le k$ onto grid cubes and $\Box^+$ onto $(\Box+a)^+$. It preserves $d_l$, non-wrapping and the classes of Definition~\Nref{def:polymer-classes}, and $\operatorname{cl}_k(X+a)=\operatorname{cl}_kX+a$.
+\item The polymers $X\subset Y$ do not wrap. The small polymers do not wrap (Lemma~\Nref{lem:small-polymers}(a)), and for non-wrapping $X$, $Q(X+a)=Q(X)+a$ (Section~\Nref{sec:flow}, Base cubes). So ``small and based in $\Box$'' is mapped to ``small and based in $\Box+a$''.
+\item By (G2), $E^{(l)}(X+a,\tau_aU)=E^{(l)}(X,U)$ for $U\in\mathcal U^\flat(X)$ of scale $l$. A point of $\mathcal U^\flat(Y)$ of scale $k$ lies in $\mathcal U^\flat(X)$ of scale $l$ (Remark~\Nref{rem:domain-constants}(i)).
+\item $S_{\Box+a}(\tau_aU)=S_\Box(U)$, since $s_{p+a}(\tau_aU)=s_p(U)$, and $\beta_l$ is a number.
+\item $\tau_a$ maps $\mathcal U^\flat(Y)$ onto $\mathcal U^\flat(Y+a)$ (after Definition~\Nref{def:generation}).
+\end{itemize}
+Hence $\Psi^{(l)}_{\Box+a}(\tau_aU)=\Psi^{(l)}_\Box(U)$ and $E^{(l),\rm ne}_{Y+a}(\tau_aU)=E^{(l),\rm ne}_Y(U)$, and so $\mathcal E_k(Y+a,\tau_aU)=\mathcal E_k(Y,U)$.
+\end{step}
+\status{Expanded.}
+
+%======================================================================
+\subsection{Section~\texorpdfstring{\Nref{sec:gen-locality}}{59}: continuity and limits}\label{d11b:59d}
+
+\begin{detail}[Lemma~\Nref{lem:gl-continuity}]\label{d11b:gl-continuity}\Ntarget{lem:gl-continuity}
+If $\mathcal E^{\rm fl}_l\to\mathcal E^{\rm fl}_\infty$ pointwise on the domains $\mathcal U^\flat_1(\tilde Y)$, $\tilde Y\subset\tilde Y'$, with all of them in $\mathfrak D_k(\tilde Y')$, then $\mathscr S_{k,\tilde Y'}(g;\mathcal E^{\rm fl}_l;B)\to\mathscr S_{k,\tilde Y'}(g;\mathcal E^{\rm fl}_\infty;B)$.
+\end{detail}
+
+\begin{step}[What depends on $l$]
+By Detail~\ref{d11b:gl-functional-a}, every $\mathscr S$ may be computed on one admissible $\Tf[n]$. The following do not depend on $l$:
+\begin{itemize}
+\item the reference $U'$, the fields $Z(s)$ and $\hat Z(Z(s))$, and $A_*(s;\hat Z(Z(s)))$;
+\item the pure pieces and the one-loop sums.
+\end{itemize}
+\end{step}
+
+\begin{step}[The mixed pieces]
+Fix $\xi$ with $|\xi|_\infty\le p_0(g)$, $s\in\mathbb D_{\kappa'}$, and an old polymer $X\subset Z$. Then $f_l(X;s,Z(s))=\mathcal E^{\rm fl}_l(\tilde X,\tilde B_1)-\mathcal E^{\rm fl}_l(\tilde X,\tilde B_0)$, where $\tilde B_1,\tilde B_0\in\mathcal U^\flat_1(\tilde X)$ do not depend on $l$ (Detail~\ref{d11b:gl-composed}, Step~1). So $f_l\to f_\infty$ pointwise. Detail~\ref{d11b:gl-composed}, Step~2, gives $|f_l|\le4\tau C_{\rm old}\mathsf K$, uniformly in $l$.
+
+Let $S$ be the set of boxes of $Z\setminus X$. By Cauchy's formula on the circles $|w_\Box|=1$,
+\[
+\partial_{s_S}f(s(Z,t))=(2\pi\ii)^{-|S|}\oint\cdots\oint f\big(s(Z,t)+w\big)\prod_{\Box\in S}w_\Box^{-2}\,dw_\Box .
+\]
+The points $s(Z,t)+w$ lie in $\mathbb D_{\kappa'}$, since the coordinates of $s(Z,t)$ lie in $[0,1]$ and $e^{\kappa'}\ge e>2$. The kernel has modulus $1$, and the integrand is bounded uniformly in $l$. So, by dominated convergence (on the compact set of $(t,w)$), $f_{l,\rm loc}(X,Z)\to f_{\infty,\rm loc}(X,Z)$. The mixed piece $E_{{\rm m},l}(Z)=\sum_{X\subset Z}f_{l,\rm loc}(X,Z)$ is a finite sum, so it converges for every $\xi$. Its bound of Detail~\ref{d11b:gl-defined}, Step~2, is uniform in $l$.
+\end{step}
+
+\begin{step}[The outputs]
+$k_l(\Gamma)=\int\prod_{Z\in\Gamma}K_l(Z)\,d\mu^*$ is an integral against a probability measure on the finitely many bonds of $\mathfrak F$ in $\bigcup_{Z\in\Gamma}Z^{(r')}$. Here $K_l(Z)=e^{E_l(Z)}-1\to K_\infty(Z)$ pointwise in $\xi$. Since $|E_l(Z)|\le\epsilon_*e^{-\kappa(d_k(Z)+c_\natural)}\le1$ and $|e^z-1|\le2|z|$ for $|z|\le1$, $|K_l(Z)|\le2\epsilon_*e^{-\kappa(d_k(Z)+c_\natural)}$. By dominated convergence, $k_l(\Gamma)\to k_\infty(\Gamma)$, and $|k_l(\Gamma)|\le\bar k(\Gamma)=\prod_{Z\in\Gamma}2\epsilon_*e^{-\kappa(d_k(Z)+c_\natural)}$.
+
+The proof of Theorem~\Nref{thm:mayer} verifies \eqref{N-eq:KP} for the activities $\bar k$. The clusters with union $Y$ are incompatible with the single-box object $\{\Box\}$, $\Box\subset Y$. So the Kotecký--Preiss bound gives $\sum_{\mathcal C}|\phi^T(\mathcal C)|\prod_{\Gamma\in\mathcal C}\bar k(\Gamma)<\infty$, uniformly in $l$. By dominated convergence for series (the Weierstrass test), $E^\#_l(Y;U')\to E^\#_\infty(Y;U')$, and in the same way at the reference $1$. The sum over the $Y$ with $\hat Y=Y'$ is finite.
+\end{step}
+\status{Expanded. The steps that the note compresses as ``as in Step~2'' and ``in the same way'' are written out.}
+
+\begin{detail}[Lemma~\Nref{lem:gl-limits}(a),(b)]\label{d11b:gl-limits-a}\Ntarget{lem:gl-limits}
+For a polymer $\tilde X$ of scale $i$ of the infinite lattice and every $m$ with $\operatorname{diam}\tilde X\le\frac12m-8$, $d_i(\pi_m\tilde X)=d_i(\tilde X)$. The limit $E^\infty$ of a convergent collection is holomorphic and inherits the bound, the locality, the normalization, the reality and the invariance.
+\end{detail}
+
+\begin{step}[$d_i(\pi_m\tilde X)\le d_i(\tilde X)$]
+A tree is a connected finite union of segments without cycles. $d_M(X)$ is the infimum of the lengths, in units of $M$, of the trees that meet every closed cube of $X$ (\eqref{N-eq:dM-facts} and before). Let $T$ be such a tree for $\tilde X$, of length $\ell$. The projection $\pi_m(T)$ is a connected finite union of segments, of length at most $\ell$, which meets every cube of $\pi_m\tilde X$. By Step~3 it contains a tree that meets these cubes, of length at most $\ell$. Take the infimum over $T$.
+\end{step}
+
+\begin{step}[A $1$-Lipschitz retraction]
+Let $J_\mu$ be the coordinate interval spanned by the closed cubes of $\tilde X$. The closed cubes extend $\frac12\eta$ beyond the extreme fine points, so $|J_\mu|\le\operatorname{diam}\tilde X+\eta<\frac12m$. Let $I_\mu=\pi_m(J_\mu)$, an arc of the circle $\R/m\Z$. In an arclength coordinate, $I_\mu=[0,\lambda]$, $\lambda<\frac12m$. Define $\varphi_\mu$ as the identity on $I_\mu$ and $\varphi_\mu(u)=\lambda(m-u)/(m-\lambda)$ for $u\in[\lambda,m]$. Then $\varphi_\mu$ is continuous on the circle, maps it onto $I_\mu$, fixes $I_\mu$, and has slope at most $\lambda/(m-\lambda)<1$. So it is $1$-Lipschitz along every path. The distance between two points of $I_\mu$ on the circle equals their distance in $I_\mu$, since $\lambda<\frac12m$, so $\varphi_\mu$ is $1$-Lipschitz for the circle distance.
+
+The product $\Phi=(\varphi_1,\dots,\varphi_4)$ maps the torus onto the box $\mathfrak B=I_1\times\dots\times I_4$, fixes $\mathfrak B$, and is $1$-Lipschitz for the Euclidean torus distance: $d(\Phi x,\Phi y)^2=\sum_\mu d(\varphi_\mu x_\mu,\varphi_\mu y_\mu)^2\le d(x,y)^2$. The box $\mathfrak B$ is the bijective image of $J_1\times\dots\times J_4$, and distances in $\mathfrak B$ are those of the lift, since all sides are less than $\frac12m$.
+\end{step}
+
+\begin{step}[$d_i(\tilde X)\le d_i(\pi_m\tilde X)$: a Steiner reduction]
+Let $T'$ be a tree on the torus that meets every cube of $\pi_m\tilde X$, with length $\ell'\le d(\pi_m\tilde X)+\epsilon'$. Then $\Phi(T')$ is the union of the curves $\gamma_i=\Phi(\sigma_i)$, $\sigma_i$ the segments of $T'$. It is connected, has total length at most $\ell'$, and meets every cube, since $\Phi$ fixes $\mathfrak B$, which contains the cubes. Lift it to $\R^4$ through $\mathfrak B$.
+
+Choose a point $p_Q$ of $\Phi(T')$ in each cube $Q$, and, for each pair of curves that meet, a common point. On each curve $\gamma_i$, order the chosen points that lie on it by a parameter of $\gamma_i$. Replace the arcs of $\gamma_i$ between consecutive chosen points by straight segments. The total length does not increase, since an inscribed polygon is not longer than the curve. The union of these polygonal paths contains every $p_Q$. It is connected, since each path is connected, the paths of two meeting curves share the chosen common point, and the curves form a connected family. So it is a connected finite union of segments. Subdivide it at the intersection points of the segments into a finite graph whose vertices include the $p_Q$, and take a spanning tree. This is a polygonal tree that meets every cube of $\tilde X$, of length at most $\ell'$. Hence $d(\tilde X)\le d(\pi_m\tilde X)+\epsilon'$ for every $\epsilon'>0$.
+\end{step}
+
+\begin{step}[The limit]
+$\mathcal U_*(\tilde X)$ is open and convex (Detail~\ref{d11b:gl-flatconf}), hence connected. The functions $f_m(B)=E[m](\pi_m\tilde X,V_B[m])$ are holomorphic on it, and $|f_m|\le\mathsf K'e^{-\kappa_nd_i(\tilde X)}$, by Steps~1--3. Assume that $f_m$ converges pointwise. By Montel's theorem in $\C^N$, every subsequence has a further subsequence that converges uniformly on compact sets to a holomorphic function, which is the pointwise limit $E^\infty(\tilde X,\cdot)$. If the whole sequence did not converge uniformly on some compact set, a subsequence would stay at a positive distance from $E^\infty$ there, which is a contradiction. So $E^\infty(\tilde X,\cdot)$ is holomorphic, and the convergence is uniform on compact sets.
+
+The following pass to the pointwise limit: the bound; the dependence on $B$ on the bonds of $\tilde X$ only; the vanishing at $0$; the reality for real $B$; and the equality $f_m(B')=f_m(B)$ at gauge-related $B,B'\in\mathcal U_*(\tilde X)$. For (b), $\pi_m(\tilde X+a)=\pi_m\tilde X+a$ and $V_{\tau_aB}[m]=\tau_aV_B[m]$.
+\end{step}
+\status{Expanded. Step~3 is a New argument; the note gives it in one sentence (``contains a tree that meets them'').}
+
+\begin{detail}[Lemma~\Nref{lem:gl-limits}(c)]\label{d11b:gl-limits-c}\Ntarget{lem:gl-limits}
+Under the hypotheses of (c):
+\begin{itemize}
+\item the restriction of $E^\infty$ to $\mathcal U^\flat_1$ is a family of flat activities with (G2) and $\|E^\infty\|\le\min(\mathsf K',\mathsf K'')$;
+\item $\beta^{\rm vol}_{E[m]}\to\beta^\infty_{E^\infty}$;
+\item the torus kernels converge to $\widetilde\Pi$ with uniform decay.
+\end{itemize}
+\end{detail}
+
+\begin{step}[Flat activities]
+Let $B,B'\in\mathcal U^\flat_1(\tilde X)$ with $e^{\ii\eta B'(b)}=e^{\ii\lambda(b_-)}e^{\ii\eta B(b)}e^{-\ii\lambda(b_+)}$ on the bonds of $\tilde X$, for a small real $\lambda$. Extend $\lambda\circ\pi_m^{-1}$ to a real function on $\Tf[m]$, and put $u=e^{\ii\lambda}$. The configuration $V_B[m]^u$ has the representation $(1^u,R(u)B)$, so it lies in $\mathcal U^\flat(\pi_m\tilde X)$. The graded domains are invariant under real gauge transformations (Definition~\Nref{def:graded}; after Definition~\Nref{def:generation}). It agrees with $V_{B'}[m]$ on the bonds of $\pi_m\tilde X$. Since $E[m](X,\cdot)$ is invariant under real gauge transformations on its domain and depends only on the bonds of $X$, $E[m](\pi_m\tilde X,V_{B'}[m])=E[m](\pi_m\tilde X,V_B[m])$. With Detail~\ref{d11b:gl-limits-a}, the restriction of $E^\infty$ to $\mathcal U^\flat_1$ is a family of flat activities (Section~\Nref{subsec:ol-period-vacpol}), with (G2) by (b).
+
+For the norm: $\mathcal U^\flat_1(X)\subset\mathcal U^\flat(X)\cap\mathcal U_*(X)$. On $\mathcal U^\flat_1(\tilde X)$, $E^\infty$ is a pointwise limit of torus values bounded both by $\mathsf K'e^{-\kappa_nd_i}$ and by $\mathsf K''e^{-\kappa_nd_i}$, with $d_i(\pi_m\tilde X)=d_i(\tilde X)$. So $\|E^\infty\|\le\min(\mathsf K',\mathsf K'')$.
+\end{step}
+
+\begin{step}[The coefficient]
+Let $X$ be a non-wrapping polymer of the torus and $a\in M\Z^4$.
+\begin{itemize}
+\item For small $|t|$, $V^X_{t,F}\in\mathcal U^\flat_1(X)$: it is $e^{\ii\eta tA_F}$ on $X^{(3)}$ with the real part $1$, $1$ elsewhere, with $|tA_F|<\delta_0$, $|\partial(tA_F)|=\frac12|t||F|<\delta_1^\flat$ and Hölder quotients $0$ (proof of Lemma~\Nref{lem:period-density}(a)).
+\item Translating the lift and the origin, $\tau_aV^X_{t,F}=V^{X+a}_{t,F}$. Since $\mathcal U^\flat_1\subset\mathcal U_*$, the hypothesis of (b) gives $E[m](X+a,V^{X+a}_{t,F})=E[m](X,V^X_{t,F})$.
+\item By Lemma~\Nref{lem:period-density}(a), $c^X$ does not depend on the lift or the origin, so $c^{X+a}_{E[m]}=c^X_{E[m]}$.
+\end{itemize}
+Every non-wrapping $X$ has $|X|$ cubes, so
+\[
+\bar T^{\rm vol}_{E[m]}(F)=m^{-4}\sum_Xc^X(F)=m^{-4}\sum_Q\sum_{X\supset Q}\frac{c^X(F)}{|X|}=M^{-4}\sum_{X\supset Q_0}\frac{c^X(F)}{|X|}
+\]
+for every fixed cube $Q_0$. The last equality holds because the translations by $M\Z^4$ act transitively on the $(m/M)^4$ cubes and map the non-wrapping $X\supset Q$ bijectively onto the non-wrapping $X+a\supset Q+a$, preserving $c^X$ and $|X|$.
+
+Lifting with $Q_0\mapsto\tilde Q_0$ is a bijection from the non-wrapping $X\supset Q_0$ onto the $\tilde X\supset\tilde Q_0$ with $\operatorname{diam}\tilde X\le\frac12m-8$, with $|X|=|\tilde X|$ (Proposition~\Nref{prop:one-loop-local}(a); the lift containing $\tilde Q_0$ is unique). Fix $\tilde X$. For $m$ large, with the origin at the lift of a point of $X$ and $t_X=\delta_1^\flat/(dD_X|F|)$,
+\[
+c^{\pi_m\tilde X}_{E[m]}(F)=\frac1{2\pi\ii}\oint_{|t|=t_X/2}E[m]\big(\pi_m\tilde X,V_{tA_F}[m]\big)\,t^{-3}\,dt .
+\]
+The circle $\{tA_F:|t|=t_X/2\}$ is a compact subset of $\mathcal U^\flat_1(\tilde X)\subset\mathcal U_*(\tilde X)$. By the uniform convergence on compact sets (Detail~\ref{d11b:gl-limits-a}, Step~4), $c^{\pi_m\tilde X}_{E[m]}(F)\to c^{\tilde X}_{E^\infty}(F)$. This is the step that the note compresses as ``as in Step~5 of the proof of Proposition~\Nref{prop:flow-continuity}(b)''.
+
+Domination: by Lemma~\Nref{lem:period-density}(a), with $\|E[m](X)\|\le\mathsf K''e^{-\kappa_nd_i(X)}$ and $d_i(\pi_m\tilde X)=d_i(\tilde X)$ for every $m$ with $\operatorname{diam}\tilde X\le\frac12m-8$ (Detail~\ref{d11b:gl-limits-a}),
+\[
+\Big|\frac{c^{\pi_m\tilde X}_{E[m]}(F)}{|\tilde X|}\Big|\le9d^2M^2(\delta_1^\flat)^{-2}\mathsf K''|F|^2\big(1+d_i(\tilde X)\big)^2e^{-\kappa_nd_i(\tilde X)} .
+\]
+Since $\kappa_n-\kappa_0\ge3$ and $(1+t)^2e^{-3t}\le1$, the right side is at most $9d^2M^2(\delta_1^\flat)^{-2}\mathsf K''|F|^2e^{-\kappa_0d_i(\tilde X)}$, which is summable over $\tilde X\supset\tilde Q_0$ with sum at most $K_0$ times the prefactor, by \eqref{N-eq:dM-facts}. Dominated convergence for the series gives $\bar T^{\rm vol}_{E[m]}(F)\to\bar T_{E^\infty}(F)$. Since $\beta^{\rm vol}$ and $\beta^\infty$ are the same finite linear combinations, $\beta^{\rm vol}_{E[m]}\to\beta^\infty_{E^\infty}$.
+\end{step}
+
+\begin{step}[The kernels]
+Fix bonds $\tilde b,\tilde b'$ of the infinite lattice, with projections $b,b'$. The torus kernel at $(b,b')$ is the sum, over the polymers $X\ni b,b'$, of the kernels $k^X_m(b,b')$ of the second variations at $A=0$ of $A\mapsto E[m](X,e^{\ii\eta A})$. Only these polymers contribute, since $E[m](X,\cdot)$ depends only on the bonds of $X$ and vanishes at $1$.
+\begin{itemize}
+\item \emph{Non-wrapping.} For small $A$, $e^{\ii\eta A}$ is on $X^{(3)}$ a point of $\mathcal U^\flat_1(X)$, and $k^X_m=2\kappa_X$ in the notation of Lemma~\Nref{lem:period-vacpol}(a). These polymers correspond to the $\tilde X\ni\tilde b,\tilde b'$ with $\operatorname{diam}\tilde X\le\frac12m-8$. For fixed $\tilde X$ and $m$ large, $\kappa_{\pi_m\tilde X}\to\kappa_{\tilde X}$, by Cauchy's estimate on a polydisc in the variables $B(\tilde b),B(\tilde b')$ and the uniform convergence on compact sets.
+\item \emph{All polymers.} $\{e^{\ii\eta A}:|A|\le c_\eta\}\subset\mathcal U^\flat(X)$ for a radius $c_\eta>0$, since $|\nabla A|\le2\eta^{-1}|A|$. So Cauchy's estimate gives $|k^X_m(b,b')|\le C_\eta\mathsf K''e^{-\kappa_nd_i(X)}$, for wrapping polymers as well; this is why $\mathsf K''$ is a supremum over all polymers.
+\item \emph{Wrapping.} They have $d_i(X)\ge m/(4M)$ (Lemma~\Nref{lem:torus}(b)). They contain the box $Q_b$ of $b$, so they contribute at most $C_\eta\mathsf K''e^{-(\kappa_n-\kappa_0)m/(4M)}\sum_{X\supset Q_b}e^{-\kappa_0d_i(X)}\le C_\eta\mathsf K''K_0e^{-(\kappa_n-\kappa_0)m/(4M)}\to0$.
+\end{itemize}
+By dominated convergence, the torus kernels converge to $\sum_{\tilde X}2\kappa_{\tilde X}(\tilde b,\tilde b')=\widetilde\Pi(\tilde b,\tilde b')$.
+
+Uniform bound: a polymer that contains $b$ and $b'$ contains their midpoints in the union of its closed cubes. By the proof of Lemma~\Nref{lem:torus}(b), points of the closed cubes are at distance at most $M(d_i(X)+2)$, so $d_i(X)\ge|m_b-m_{b'}|_m/M-2$. Hence
+\[
+\begin{aligned}
+\sum_{X\ni b,b'}C_\eta\mathsf K''e^{-\kappa_nd_i(X)}&\le C_\eta\mathsf K''e^{-(\kappa_n-\kappa_0)(|m_b-m_{b'}|_m/M-2)}\sum_{X\supset Q_b}e^{-\kappa_0d_i(X)}\\
+&\le C_\eta K_0\mathsf K''e^{2(\kappa_n-\kappa_0)}e^{-(\kappa_n-\kappa_0)|m_b-m_{b'}|_m/M},
+\end{aligned}
+\]
+uniformly in $m$. This is the bound of the end of the proof of Lemma~\Nref{lem:period-vacpol}(d) with $\mathsf K''$.
+\end{step}
+\status{Expanded.}
+
+%======================================================================
+\subsection{Section~\texorpdfstring{\Nref{sec:gen-locality}}{59}: the induction over the scales}\label{d11b:59e}
+
+\begin{detail}[Theorem~\Nref{thm:gen-locality}: the scheme and (a)$\Rightarrow$(b),(c)]\label{d11b:gen-locality-bc}\Ntarget{thm:gen-locality}
+The induction closes. At each scale $i$, (a) gives (b) and (c).
+\end{detail}
+
+\begin{step}[The scheme]
+Let $H(i)$ be the statement that (a) holds at all scales $l\le i$. We show:
+\begin{itemize}
+\item $H(i)$ gives (b) and (c) at $i$ (this detail);
+\item $H(i)$ with $i<j$ gives (d) at $i$, since (b), (c) at the scales $l\le i$ follow from $H(i)$ (Detail~\ref{d11b:gen-locality-d});
+\item (a) holds at $1$, and $H(k)$ gives (a) at $k+1\le j$ (Detail~\ref{d11b:gen-locality-a}).
+\end{itemize}
+\end{step}
+
+\begin{step}[(a)$\Rightarrow$(b)]
+By Section~\Nref{sec:generations}, every $r\in\mathfrak S^{\rm grid}_i$ is $r(x)=Rx+a$ with $R\in B_4$ and $a=r(0)\in M\Z^4$. Then
+\[
+r^{-1}X=R^{-1}X-R^{-1}a,\qquad r^{-1}U=\tau_{-R^{-1}a}(R^{-1}U).
+\]
+Indeed, $(\tau_{-c}R^{-1}U)(b)=U(R(b+c))=U(Rb+a)=U(rb)=(r^{-1}U)(b)$ for $c=R^{-1}a$, which lies in $M\Z^4$ since $R$ is a signed permutation.
+
+Let $U\in\mathcal U^\flat_1(X)$, $X$ non-wrapping. By Detail~\ref{d11b:gl-flat}(c), $R^{-1}X$ does not wrap and $R^{-1}U\in\mathcal U_1(R^{-1}X)$. The covariance in (a), at the polymer $R^{-1}X$ with the vector $-R^{-1}a$, gives $E'^{(i)}[m](r^{-1}X,r^{-1}U)=E'^{(i)}[m](R^{-1}X,R^{-1}U)$. The map $r\mapsto R$ is a homomorphism of $\mathfrak S^{\rm grid}_i$ onto $B_4$, whose kernel consists of the $(m/M)^4$ translations. So
+\[
+E^{(i)}[m](X,U)=|B_4|^{-1}\sum_{R\in B_4}E'^{(i)}[m](R^{-1}X,R^{-1}U).
+\]
+Let $\tilde X$ be a polymer of the infinite lattice, $B\in\mathcal U^\flat_1(\tilde X)$, and $m$ large. $R$ acts about the origin and maps $m\Z^4$ onto itself, so $\pi_m(R^{-1}\tilde X)=R^{-1}\pi_m\tilde X$, which does not wrap. Moreover $R^{-1}V_B[m]=V_{R^{-1}B}[m]$ with $R^{-1}B\in\mathcal U_1(R^{-1}\tilde X)$, by the computation of Detail~\ref{d11b:gl-flat}(c), which is local. By (a), each of the $|B_4|$ terms converges, which gives (b) and the formula for $E^{(i),\infty}$. The bound $\mathsf K'\le\mathsf K$ on $\mathcal U^\flat_1$ follows from $\|E^{(i)}[m]\|_i\le\mathsf K$ (Proposition~\Nref{prop:flow-continuity}(a)), since $\mathcal U^\flat_1\subset\mathcal U^\flat$.
+\end{step}
+
+\begin{step}[(a)$\Rightarrow$(c)]
+By Proposition~\Nref{prop:period-iso}(c) and Section~\Nref{subsec:ol-flow-coeff}, $\beta_i[m]=\beta^{\rm vol}_{E'^{(i)}[m]}$. The raw generations satisfy the hypotheses of Lemma~\Nref{lem:gl-limits}(c):
+\begin{itemize}
+\item they are normalized graded activities on $\mathcal U(X)\supset\mathcal U^\flat(X)$, real at real configurations and gauge invariant (Lemma~\Nref{lem:raw-new}(a));
+\item $\mathsf K''=\sup_m\|E'^{(i)}[m]\|\le\sup_m\|E'^{(i)}[m]\|^{\rm raw}_i\le\mathsf K$, since the sup over $\mathcal U^\flat$ is at most the sup over $\mathcal U$ (Theorem~\Nref{thm:gen-step}(b); Proposition~\Nref{prop:gen-one} for $i=1$);
+\item they converge on $\mathcal U_1$ with the covariance of (a).
+\end{itemize}
+So $\beta_i[m]\to\beta^\infty_{E'^{(i),\infty}}$.
+
+The second application, on $\mathcal U^\flat_1$, is to the generations $E^{(i)}[m]$. They converge there by (b), have (G2), and have norm at most $\mathsf K$. It gives $\beta^{\rm vol}_{E^{(i)}[m]}\to\beta^\infty_{E^{(i),\infty}}$. By Lemma~\Nref{lem:period-density}(c) and Proposition~\Nref{prop:period-iso}(a), $\beta^{\rm vol}_{E^{(i)}[m]}=\beta_{E^{(i)}[m]}=\beta_i[m]$. The two limits agree, so $\beta^\infty_i=\beta^\infty_{E^{(i),\infty}}$.
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[Theorem~\Nref{thm:gen-locality}(d)]\label{d11b:gen-locality-d}\Ntarget{thm:gen-locality}
+If $i<j$ and (a)--(c) hold at the scales $l\le i$, the flat restrictions of $\mathcal E_i[m']$ to $\tilde Y'$ converge pointwise to data $\mathcal E^\infty_i\in\mathfrak D_i(\tilde Y')$ built by Definition~\Nref{def:old-activities} on the infinite lattice.
+\end{detail}
+
+\begin{step}[The terms]
+Let $\tilde Y\subset\tilde Y'$, $B''\in\mathcal U^\flat_1(\tilde Y)$, and let $m'$ be so large that $\operatorname{diam}\tilde Y'\le\frac12m'-8$. Write $\pi=\pi_{m'}$. By Definition~\Nref{def:old-activities},
+\[
+\begin{aligned}
+\mathcal E_i[m'](\pi\tilde Y,V_{B''})=\sum_{l=1}^i\Big(&\one_{\{\pi\tilde Y=\Box^+\}}\Big(\sum_{X\in\mathcal X^{\rm sm}_l(\Box)}E^{(l)}(X,V_{B''})-\beta_lS_\Box(V_{B''})\Big)\\
+&+\sum_{X\text{ not small},\ \operatorname{cl}_iX=\pi\tilde Y}E^{(l)}(X,V_{B''})\Big).
+\end{aligned}
+\]
+\begin{itemize}
+\item \emph{Finiteness.} The small polymers based in $\Box$ satisfy $X^{(3)}\subset\Box^+$ (Lemma~\Nref{lem:small-polymers}(b)), and the others have $\operatorname{cl}_iX=\pi\tilde Y$. So all $X$ lie in $\pi\tilde Y$, and the sums are finite.
+\item \emph{Lifts.} $\pi\tilde Y$ does not wrap. The polymers $X\subset\pi\tilde Y$ of scale $l$ correspond, by lifting into $\tilde Y$, to the $\tilde X\subset\tilde Y$. Classes, closures, $\Box^+$ and base cubes correspond, by Detail~\ref{d11b:gl-flatconf}, Step~2, the projection being injective on $\tilde Y'$.
+\item \emph{Generations.} $E^{(l)}(X,\cdot)$ depends only on the bonds of $X$. On $X^{(3)}$ in the units of scale $l$, $V_{B''}$ is a point of $\mathcal U^\flat_1(X)$ (Detail~\ref{d11b:gl-flat}(a), first statement). So the term is the value of $E^{(l)}[L^{i+1-l}m']$ at a flat point of $\tilde X$. It converges by (b) at the scale $l$, along $\{L^{i+1-l}m':m'\in\mathfrak N_{i+1}\}\subset\mathfrak N_l$ (Detail~\ref{d11b:gl-setting}).
+\item \emph{Counterterms.} $\beta_l[L^{i+1-l}m']\to\beta^\infty_l$ by (c), and $S_\Box(V_{B''})$, a sum of plaquette terms in $\Box$, does not depend on $m'$.
+\end{itemize}
+So $\mathcal E^{\rm fl}_{\tilde Y'}(\tilde Y,B'')$ converges to the value of Definition~\Nref{def:old-activities} on the infinite lattice, with $E^{(l),\infty}$ and $\beta^\infty_l$. By Detail~\ref{d11b:gen-locality-bc}, Step~3, $\beta^\infty_l=\beta^\infty_{E^{(l),\infty}}$, so each generation carries its own coefficient.
+\end{step}
+
+\begin{step}[The limit is in $\mathfrak D_i(\tilde Y')$]
+\begin{itemize}
+\item \emph{Holomorphy.} It is a finite sum of holomorphic functions on $\mathcal U^\flat_1(\tilde Y)$: the restriction maps into $\mathcal U^\flat_1(\tilde X)$ are linear (Detail~\ref{d11b:gl-flat}(a)), and the $E^{(l),\infty}$ are holomorphic there (Detail~\ref{d11b:gl-limits-a}).
+\item \emph{Locality.} It depends only on $B''$ on the bonds of $\tilde Y$.
+\item \emph{Normalization.} It vanishes at $0$, since $E^{(l),\infty}(\tilde X,0)=0$ and $S_\Box(1)=0$.
+\item \emph{Bound.} It is a pointwise limit of values bounded by $C_{\rm old}\mathsf Ke^{-\kappa_nd_i(\pi\tilde Y)}=C_{\rm old}\mathsf Ke^{-\kappa_nd_i(\tilde Y)}$ (Proposition~\Nref{prop:old-activities}(b), Detail~\ref{d11b:gl-limits-a}).
+\end{itemize}
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[Theorem~\Nref{thm:gen-locality}(a) at $i=1$ and at $i=k+1$]\label{d11b:gen-locality-a}\Ntarget{thm:gen-locality}
+(a) holds at $i=1$, and $H(k)$ gives (a) at $i=k+1\le j$. The limits depend only on $(g_0,\dots,g_{i-1})$.
+\end{detail}
+
+\begin{step}[$i=1$]
+Let $\tilde X$ be a polymer of scale $1$, $B\in\mathcal U_1(\tilde X)$, and $m\in\mathfrak N_1$ with $\operatorname{diam}\tilde X\le\frac12m-8$. By Detail~\ref{d11b:gl-functional-c} at $k=0$, with $\tilde Y'=\tilde X$ and no old activities, $E'^{(1)}[m](\pi_m\tilde X,V_B[m])=\mathscr S_{0,\tilde X}(g_0;B)$, which does not depend on $m$. So the collection converges on $\mathcal U_1$.
+\begin{itemize}
+\item The covariance is Detail~\ref{d11b:gl-functional-d}, with no old activities.
+\item $\mathsf K'\le\mathsf K$, since $\mathcal U_1(X)\subset\mathcal U(X)$ and $\|E'^{(1)}[m]\|^{\rm raw}_1\le\mathsf K$ (Proposition~\Nref{prop:gen-one}, Lemma~\Nref{lem:raw-new}(b) with ($\Gamma$3)).
+\item The torus functions are normalized and real (Lemma~\Nref{lem:raw-new}(a)), and invariant under small real gauge transformations (Detail~\ref{d11b:gl-limits-c}, Step~1). By Detail~\ref{d11b:gl-limits-a}, so is the limit, and it is covariant by Lemma~\Nref{lem:gl-limits}(b).
+\end{itemize}
+\end{step}
+
+\begin{step}[$i=k+1$]
+Assume $H(k)$. Then (b), (c) at the scales $\le k$, and (d) at $k<j$, hold. Let $\tilde Y'$ be a polymer of scale $k+1$, $B\in\mathcal U_1(\tilde Y')$, and $m\in\mathfrak N_{k+1}$ with $\operatorname{diam}\tilde Y'\le\frac12m-8$. By Proposition~\Nref{prop:flow-continuity}(a), with $K=k+1$, $E'^{(k+1)}[m]=E'^{(k+1)}[\mathcal E_k[m],g_k]$. The old activities $\mathcal E_k[m]$ satisfy the hypotheses of Lemma~\Nref{lem:raw-new} with $\|\mathcal E_k[m]\|\le C_{\rm old}\mathsf K$, by Theorem~\Nref{thm:gen-step}(a) applied with the generations $E^{(l)}$, $l\le k$, of norm $\le\mathsf K$, as in the proof of Proposition~\Nref{prop:flow-continuity}(a). This is expanded in the Part~X, second half chapter. Detail~\ref{d11b:gl-functional-c} gives
+\[
+E'^{(k+1)}[m](\pi_m\tilde Y',V_B[m])=\mathscr S_{k,\tilde Y'}\big(g_k;\mathcal E^{\rm fl}_{\tilde Y'}[\mathcal E_k[m]];B\big).
+\]
+By (d) at $k$, the flat restrictions converge pointwise to $\mathcal E^\infty_k\in\mathfrak D_k(\tilde Y')$, and they lie in $\mathfrak D_k(\tilde Y')$ (Detail~\ref{d11b:gl-flatdata}). Lemma~\Nref{lem:gl-continuity} at the coupling $g_k\in(0,\gamma]$, applied along every sequence $m_l\to\infty$ in $\mathfrak N_{k+1}$, gives convergence to $\mathscr S_{k,\tilde Y'}(g_k;\mathcal E^\infty_k;B)$. The limit does not depend on the sequence.
+\begin{itemize}
+\item $\mathsf K'\le\mathsf K$ by $\|E'^{(k+1)}[m]\|^{\rm raw}_{k+1}\le\mathsf K$ (Theorem~\Nref{thm:gen-step}(b)).
+\item The generations $E^{(l)}[\cdot]$ have (G2) (Lemma~\Nref{lem:symmetrization}(a)), so $\mathcal E_k[m]$ is covariant (Detail~\ref{d11b:gl-functional-d}, Step~2), and so is $E'^{(k+1)}[m]$ on $\mathcal U_1$ (Step~1 there).
+\item The other properties follow as at $i=1$.
+\end{itemize}
+All constructions at the scale $i$ use only $(g_0,\dots,g_{i-1})$ (Proposition~\Nref{prop:flow-continuity}(a)): the coupling enters $\mathscr S_{k,\tilde Y'}$ only as $g_k$, and the old data only through $\mathcal E^\infty_k$.
+\end{step}
+\status{Expanded.}
+
+\begin{detail}[Remark~\Nref{rem:gl-rate}]\label{d11b:gl-rate}\Ntarget{rem:gl-rate}
+The remark states no claim that needs a proof. Its statements agree with the proofs above: no rate and no uniformity in the couplings are claimed. Theorem~\Nref{thm:ol-uv} does not use Proposition~\Nref{prop:beta-identification} (Remark~\Nref{rem:ol-remains}).
+\end{detail}
+\status{Literal repetition.}
+
+%======================================================================
+\subsection{Proposition~\texorpdfstring{\Nref{prop:beta-identification}}{58.8}: the coefficients and Ba\l aban's \texorpdfstring{$\beta$}{beta}}\label{d11b:beta}
+
+\begin{detail}[Proposition~\Nref{prop:beta-identification}]\label{d11b:beta-identification}\Ntarget{prop:beta-identification}
+(a) The second variations of $\Phi_{E^{(j)}[\tilde n]}$ at $V=1$ converge with uniform decay to a kernel $\Pi_\Phi$, invariant under the translations of $\Z^4$ and under $B_4$. (b) Its marginal tensor is $\beta^{\rm B}_j(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$ with $\beta^{\rm B}_j=\beta^\infty_j$. (c) $\beta_j[\tilde n]\to\beta^{\rm B}_j$.
+\end{detail}
+
+\begin{step}[The threshold and the raw generation]
+By Theorem~\Nref{thm:gen-step}(b) with $k=j-1$ (Proposition~\Nref{prop:gen-one} for $j=1$), $E'[\tilde n]$ is a raw generation at an admissible threshold $h'>0$. The set $\mathfrak U_j(h')$ of the real configurations of curvature at most $h'$ contains a neighbourhood of $V=1$ in the real configurations. By Lemma~\Nref{lem:symmetrization}(b), $\Phi_{E^{(j)}[\tilde n]}=\Phi_{E'[\tilde n]}$ on $\mathfrak U_j(h')$. So the second variations at $V=1$ agree, being derivatives along the real curves $e^{\ii tB}$, which lie in $\mathfrak U_j(h')$ for small $t$.
+\end{step}
+
+\begin{step}[The second variation]
+This is the step that the note compresses as ``as in the proof of Lemma~\Nref{lem:ol-limits}''. For small real $B$, $U_j(e^{\ii B})$ is an element of the minimal orbit. It is a gauge transform of $e^{\ii\eta A_*(B)}$, with $A_*$ analytic and $A_*(B)=\bH B+O(|B|^2)$ (Corollary~\Nref{cor:analytic}, Theorem~\Nref{thm:variational}(c)). Here $\bH$ is the minimizer map of Part~I, by the proof of Lemma~\Nref{lem:ol-pullback}. Put $F(A)=\sum_YE'[\tilde n](Y,e^{\ii\eta A})$ for small real fine fields $A$, which lie in every $\mathcal U(Y)$, since $|\nabla A|\le2\eta^{-1}|A|$. Then $F$ is real analytic and invariant under real gauge transformations, since every $E'(Y,\cdot)$ is (Lemma~\Nref{lem:raw-new}(a)). So $\Phi_{E'}(e^{\ii B})=F(A_*(B))$. Invariance under constant gauge transformations makes $dF(0)$ an $\operatorname{Ad}(G)$-invariant linear form on $\bigoplus_b\mathfrak g$, hence $0$, since $G$ is semisimple. So
+\[
+\frac{d^2}{dt^2}F(A_*(tB))\Big|_{t=0}=d^2F(0)[\bH B,\bH B]+dF(0)\big[d^2A_*(0)[B,B]\big]=d^2F(0)[\bH B,\bH B],
+\]
+and the second variation of $\Phi_{E'}$ at $1$ has the kernel $\bH^{\sf T}\Pi_{\tilde n}\bH$, with $\Pi_{\tilde n}$ the kernel of $d^2F(0)$ in the unweighted trace pairing.
+\end{step}
+
+\begin{step}[Convergence]
+By Theorem~\Nref{thm:gen-locality}(a) (Details~\ref{d11b:gen-locality-a} and~\ref{d11b:gen-locality-bc}), $(E'[\tilde n])$ converges on $\mathcal U_1$ with the covariance of Lemma~\Nref{lem:gl-limits}(b). Its members are as in Lemma~\Nref{lem:gl-limits}(c), with $\mathsf K''\le\mathsf K$. By Detail~\ref{d11b:gl-limits-c}:
+\begin{itemize}
+\item the restriction of the limit $E'^{(j),\infty}$ to $\mathcal U^\flat_1$ is a family of flat activities with (G2) and finite norm;
+\item $\Pi_{\tilde n}\to\widetilde\Pi$ with uniform decay.
+\end{itemize}
+By Proposition~\Nref{prop:ol-IM}(a), $\bH\to\bH_\infty$ with uniform decay. By Lemma~\Nref{lem:ol-folding}(e), applied to the transposes and to the two products, $\bH^{\sf T}\Pi_{\tilde n}\bH\to\Pi_\Phi:=\bH_\infty^{\sf T}\widetilde\Pi\bH_\infty$ with uniform decay. In particular $\Pi_\Phi$ has kernel decay.
+\end{step}
+
+\begin{step}[Symmetry]
+By (G3) for $E'[\tilde n]$, $\Phi_{E'}(rV)=\Phi_{E'}(V)$ for $r\in\mathfrak S_j$ and $V\in\mathfrak U_j(h')$. The group $\mathfrak S_j$ contains the translations by the points of $\T^{(j)}$, i.e.\ the unit translations, and $B_4$ about these points (Section~\Nref{sec:averaging}, Lattice symmetries). For $r(x)=Rx+v$, $r(e^{\ii tB})=e^{\ii t\,r_1B}$ with $(r_1B)(b)=B(r^{-1}b)$ and $B(-b)=-B(b)$. So the second variations satisfy $\Pi^\Phi_{\tilde n}(r_1B,r_1B)=\Pi^\Phi_{\tilde n}(B,B)$, and so does the limit $\Pi_\Phi$. This gives (a).
+\end{step}
+
+\begin{step}[The marginal tensor]
+Lemma~\Nref{lem:period-vacpol}(c) applies to $E^\infty=E'^{(j),\infty}|_{\mathcal U^\flat_1}$, since $\Pi_\Phi$ is invariant under the translations of $\Z^4$ and under $x\mapsto-x$. It gives $\Pi_\Phi(p)=O(|p|^2)$, with marginal tensor $T^{\rm f}=T^{\rm f}_{E^\infty}$. It remains to show that $T^{\rm f}$ is isotropic.
+
+\emph{The note's route.} The function $\Phi_{E'[\tilde n]}$ is invariant under real gauge transformations of $V$: each $E'(Y,\cdot)$ is (Lemma~\Nref{lem:raw-new}(a)), and $U_j(V^v)$ is a gauge transform of $U_j(V)$ (the paragraph before Definition~\Nref{def:generation}). Its first variation at $1$ is an $\operatorname{Ad}(G)$-invariant linear form, hence $0$, since $G$ is semisimple. So, by Remark~\Nref{rem:marginal-orders}, on each torus the second variation annihilates the gradients $D\lambda$. The gradient is local and the kernels converge with uniform decay, so this passes to $\Pi_\Phi$: $\sum_\mu\hat p_\mu\Pi_\Phi(p)_{\mu\nu}=0$. Since $\hat p_\mu=p_\mu+O(|p|^3)$ and $\Pi_\Phi(p)=T^{\rm f}(p)+O(|p|^3)$, the part of order $3$ gives $\sum_\mu p_\mu T^{\rm f}(p)_{\mu\nu}=0$. The reflections and permutations in $B_4$ give $T^{\rm f}(p)_{\mu\nu}=t_1\delta_{\mu\nu}|p|^2+t_2p_\mu p_\nu+t_3\delta_{\mu\nu}p_\mu^2$, by the tensor algebra in the proof of Lemma~\Nref{lem:ol-symmetry}(c). Then $\sum_\mu p_\mu T^{\rm f}(p)_{\mu\nu}=(t_1+t_2)|p|^2p_\nu+t_3p_\nu^3$. At $p=e_\nu$ and at $p=e_\nu+e_\mu$ ($\mu\ne\nu$) this gives $t_1+t_2+t_3=0$ and $2(t_1+t_2)+t_3=0$. So $t_3=0$ and $t_2=-t_1$, and $T^{\rm f}=t_1(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$, with $t_1=\beta^\infty_{E^\infty}$, the isotropic coefficient. This is the argument of the note (the isotropy step of the proof of Proposition~\Nref{prop:beta-identification}): the tensor algebra of Lemma~\Nref{lem:ol-symmetry}(c), with the transversality of $\Pi_\Phi$ from Remark~\Nref{rem:marginal-orders}.
+
+\emph{A second route}, which needs no gauge invariance of $\Phi_{E'}$:
+\begin{itemize}
+\item By the proof of Lemma~\Nref{lem:period-vacpol}(b), in the form (c), there is a symmetric bilinear form $Q$ on $\Lambda^2\C^4$ with $\bar T_{E^\infty}(F)=\sum_{\mu<\nu,\kappa<\lambda}Q(e_{\mu\nu},e_{\kappa\lambda})\operatorname{tr}(F_{\mu\nu}F_{\kappa\lambda})$ and \eqref{N-eq:Tf-Q}: $T^{\rm f}(p)_{\mu\nu}=2Q(p\wedge e_\mu,p\wedge e_\nu)$. Hence $\sum_\mu p_\mu T^{\rm f}(p)_{\mu\nu}=2Q(p\wedge p,p\wedge e_\nu)=0$: transversality is automatic.
+\item In the bond-midpoint convention $\widehat{r_1B}(p)=e^{-\ii p\cdot v}R\hat B(R^{-1}p)$, and the invariance of the form gives $\Pi_\Phi(Rp)=R\,\Pi_\Phi(p)R^{\sf T}$ (the computation in the proof of Lemma~\Nref{lem:ol-symmetry}(c), which uses only this invariance). Its part of order $2$ gives $T^{\rm f}(Rp)=RT^{\rm f}(p)R^{\sf T}$. So $(T^{\rm f})^R:=R^{\sf T}T^{\rm f}(R\,\cdot)R=T^{\rm f}$ for all $R\in B_4$.
+\item By the proof of Lemma~\Nref{lem:period-vacpol}(b)(ii), $(T^{\rm f})^R$ is the tensor built from $Q^R(w,w')=Q(Rw,Rw')$. Hence $T^{\rm f}=|B_4|^{-1}\sum_R(T^{\rm f})^R$ is the tensor built from $\bar Q=|B_4|^{-1}\sum_RQ^R$. The form $\bar Q$ defines a quadratic form on curvature data invariant under $B_4$ and conjugation, so $\bar Q=\beta'I$ (Lemma~\Nref{lem:b4-forms}(a)). Therefore $T^{\rm f}(p)=2\beta'(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$, with $2\beta'=\beta^\infty_{E^\infty}$ (Lemma~\Nref{lem:period-vacpol}(b)(ii) in the form (c)).
+\end{itemize}
+\end{step}
+
+\begin{step}[$\beta^{\rm B}_j$ and (c)]
+For $\mu\ne\nu$ the entry $\mu\nu$ of the tensor is $-\beta^\infty_{E^\infty}p_\mu p_\nu$, and $\Pi_\Phi(p)$ is analytic and differs from it by $O(|p|^3)$. So $\beta^{\rm B}_j=-\partial_{p_\mu}\partial_{p_\nu}\Pi_\Phi(p)_{\mu\nu}|_{p=0}=\beta^\infty_{E'^{(j),\infty}}=\beta^\infty_j$ (Theorem~\Nref{thm:gen-locality}(c)). It is unique, since $\Pi_\Phi$ is a limit, and it depends only on $(g_0,\dots,g_{j-1})$. Part (c) is Theorem~\Nref{thm:gen-locality}(c).
+
+The marginal tensor of $S$ has isotropic coefficient $1$ in the trace pairing (Detail~\ref{d11b:ol-classical}, Normalization). So $\beta^{\rm B}_j$ is the ratio of the coefficients of $\Phi_{E^{(j)}}$ and of $S$, independent of the trace convention. The comparison is made relative to $S$, as the note states after the proof of Proposition~\Nref{prop:beta-identification}, so Ba\l aban's own pairing convention in (1.20)--(1.22) does not enter.
+\end{step}
+\status{Expanded. Step~5 writes out the note's isotropy argument (the tensor algebra of Lemma~\Nref{lem:ol-symmetry}(c) with the transversality of Remark~\Nref{rem:marginal-orders}), and a second, direct argument through \eqref{N-eq:Tf-Q} and the $B_4$-average.}
+
+%======================================================================
+\subsection{Remarks of the note that are not expanded}\label{d11b:remarks}
+
+\begin{itemize}
+\item \emph{Remark~\Nref{rem:ol-heat-kernel}.} Not used by any proof. Its arithmetic:
+  \begin{itemize}
+  \item the ghost gives $+\frac1{12}C_AF^2$;
+  \item the vector gives $\frac12(2-\frac13)C_AF^2$, from $\frac12\operatorname{Tr}\mathsf E^2=2C_AF^2$ with $\mathsf E=2\cK$, and $\frac1{12}\operatorname{Tr}\Omega\Omega=-\frac4{12}C_AF^2$;
+  \item the total $\frac{11}{12}C_AF^2\log(\Lambda^2/\mathrm m^2)/(16\pi^2)$ equals $\frac{11C_A}{24\pi^2T_\rho}\log(\Lambda/\mathrm m)$ times $S\to\frac{T_\rho}4\sum F^aF^a$.
+  \end{itemize}
+  This agrees with Detail~\ref{d11b:ol-classical}.
+\item \emph{Remarks~\Nref{rem:ol-f-numerical} and~\Nref{rem:ol-integrand-numerical}.} Numerical; not used by any proof. The $\overline{\rm MS}$ constant of Remark~\Nref{rem:ol-f-numerical}(iii) is not derived here.
+\item \emph{Remark~\Nref{rem:ol-remains}.} A summary remark. Its item ``a rate for generation locality'' agrees with Remark~\Nref{rem:gl-rate}. Proposition~\Nref{prop:beta-identification} holds without a hypothesis (Subsection~\ref{d11b:beta}).
+\item \emph{Remark~\Nref{rem:gl-rate}}: see Detail~\ref{d11b:gl-rate}.
+\end{itemize}
+
+
+

@@ -1,0 +1,32 @@
+d=2, SU(2), L=3, centred blocks, coarse torus 2x2, fine 6x6; free links 40 of 72; seed 22, amplitude 0.25
+predictions: LHS_tree - RHS = -(d/2) dim(g) |T| log L = -13.1833474640;  LHS_exp - LHS_tree = (n_lambda/2) log 2 = 33.2710646669, n_lambda = 96
+   it  0: S = 5.17576253371873  |dX| = 6.87e+00  mu = 0
+   it  1: S = 3.91491587896640  |dX| = 3.24e+00  mu = 0
+   it  2: S = 3.81561875621799  |dX| = 7.01e+01  mu = 0
+   it  3: S = 3.41713122273887  |dX| = 1.08e+01  mu = 0.05
+   it  4: S = 3.05567423380307  |dX| = 5.92e+00  mu = 0.0063
+   it  5: S = 3.03683456579423  |dX| = 6.27e+00  mu = 0.00078
+   it  6: S = 2.89045627323893  |dX| = 7.50e+00  mu = 0
+   it  7: S = 2.81166852628133  |dX| = 3.57e+00  mu = 0
+   it  8: S = 2.72088585251616  |dX| = 5.17e+00  mu = 0.05
+   it  9: S = 2.08696970135337  |dX| = 2.98e+00  mu = 0.05
+   it 10: S = 1.40333685825616  |dX| = 1.69e+00  mu = 0.0063
+   it 11: S = 0.78367994307704  |dX| = 1.01e+00  mu = 0.00078
+   it 12: S = 0.35729031018898  |dX| = 5.29e-01  mu = 0
+   it 13: S = 0.26352835866615  |dX| = 1.81e-01  mu = 0
+   it 14: S = 0.26334423566223  |dX| = 1.33e-02  mu = 0
+   it 15: S = 0.26334423391821  |dX| = 3.17e-05  mu = 0
+   it 16: S = 0.26334423391821  |dX| = 6.63e-10  mu = 0
+   it 17: S = 0.26334423391822  |dX| = 9.61e-16  mu = 0
+  V0: S(U0) = 0.2633442339, constraint residual 3.6e-16
+  V0: LHS_tree = 25.7894697823   (multiplier residual 3.8e-16, smallest Cholesky pivot 3.831e-01)
+  V0: LHS_exp  = 59.0605344493   (multiplier residual 4.0e-16, smallest Cholesky pivot 1.114e-01);  LHS_exp - LHS_tree - (n_lambda/2) log 2 = 1.3e-10
+  V0: PARTS 25.7894697823 -88.1789563050 -3.9862288318 131.1380023831 -88.2100816507 -4.1118160005
+  V0: RHS = a=0.5: 38.9728172463 (signs 1,1)  a=2.0: 38.9728172463 (signs 1,1)   (EL residual 4.3e-16, |q2 D N(Q')| = 1.6e-11, |Q D N(Q')| = 7.6e-16)
+  V0: LHS_tree - RHS = -13.1833474640;  LHS_tree - RHS - prediction = 1.4e-11
+  V0: chart independence, tree contour in the gauge: RHS = 38.9728172463 (|Q D N| = 7.5e-16);  LHS_tree - RHS - prediction = 1.4e-11
+  V0: negative control, log-mean contour variables in the gauge (E != 0): |Q D N| = 6.4e-05;  LHS_tree - RHS - prediction = 3.2e-04
+  V0: point group, rot90 : constraint residual 4.0e-16;  LHS_tree(rV) - LHS_tree(V) = 7.3e-12,  RHS(rU0) - RHS(U0) = -1.6e-11
+  V0: point group, refl1 : constraint residual 2.8e-16;  LHS_tree(rV) - LHS_tree(V) = 1.4e-11,  RHS(rU0) - RHS(U0) = -1.1e-11
+  V0: point group, transp: constraint residual 3.3e-16;  LHS_tree(rV) - LHS_tree(V) = 2.5e-11,  RHS(rU0) - RHS(U0) = 1.6e-13
+  V0: [945 s]

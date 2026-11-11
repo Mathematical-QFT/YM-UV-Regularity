@@ -1,0 +1,180 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,patterns}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\setlist{itemsep=3pt,topsep=5pt}
+\setlength{\emergencystretch}{2em}
+\numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{maintheorem}{Theorem}
+\renewcommand{\themaintheorem}{\Alph{maintheorem}}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\definecolor{fblue}{RGB}{42,95,155}
+\definecolor{forange}{RGB}{180,98,35}
+\definecolor{fgreen}{RGB}{35,130,120}
+\definecolor{fpurple}{RGB}{125,47,145}
+\definecolor{fred}{RGB}{170,40,40}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\T}{\mathbb T}
+\newcommand{\Tf}{\mathbb T_\eta}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\dd}{\mathrm d}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\cK}{\mathcal K}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cG}{\mathcal G}
+\newcommand{\cV}{\mathcal V}
+\newcommand{\cW}{\mathcal W}
+\newcommand{\cX}{\mathcal X}
+\newcommand{\cD}{\mathcal D}
+\newcommand{\cN}{\mathcal N}
+% gauge-field objects in bold
+\newcommand{\bQ}{\mathbf Q}
+\newcommand{\bG}{\mathbf G}
+\newcommand{\bH}{\mathbf H}
+\newcommand{\bC}{\mathbf C}
+\newcommand{\bD}{\mathbf D}
+\newcommand{\bL}{\boldsymbol{\Delta}}
+\newcommand{\Lap}{\Delta}
+\newcommand{\dl}{d_1}
+\newcommand{\Hol}[2]{[#1]_{\alpha,#2}}
+\newcommand{\Lam}{\Lambda}
+\newcommand{\tn}[1]{|\!|\!|#1|\!|\!|}
+\newcommand{\fA}{\mathfrak A}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\Rea}{Re}
+
+\title{\textbf{Lattice Green functions and the Ba\l aban variational problem}\\[6pt]
+\large Exponential decay, regularity and the background field uniformly in the number of renormalization steps, and the small-field renormalization group for three-dimensional Yang--Mills theory}
+\author{}
+\date{First version, October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+In Ba\l aban's renormalization group approach to lattice Yang--Mills theory, every step requires the minimizer of the Wilson action subject to prescribed block averages (the background field), and all estimates rest on the exponential decay and the local regularity of a small family of linear operators: Green functions with an averaging term, the minimizer map, the constrained (fluctuation) Green function, and the inverses of averaged Green functions. We give a self-contained treatment of these operators and of the variational problem on a single torus, after an arbitrary number $k$ of block-averaging steps, with bounds uniform in $k$ and in the size of the torus. On this basis we carry out the small-field renormalization group for pure Yang--Mills theory in three dimensions.
+
+Part~I treats the linearization at the trivial background $U=1$. It covers the scalar operators, which enter through gauge transformations and gauge fixing, and the gauge-field operators in Ba\l aban's Landau-type gauge. The proofs use Poincar\'e-type coercivity estimates, the Combes--Thomas method, local elliptic regularity on the fine lattice, and a single elementary Fourier lower bound; the coercivity of the gauge-field operator is proved in position space. Part~II extends the results by perturbation to complex backgrounds that are close to $1$ in a global gauge, including Ba\l aban's gauge-invariant extension via the slice projection. Part~III replaces the global hypothesis by Ba\l aban's local regularity. It constructs Dirichlet operators on unions of blocks, proves coercivity by an IMS localization that reduces it to the trivial background, proves locality in the domain and in the background, and establishes Ba\l aban's random-walk expansion for the scalar Green function; for the gauge-field Green function the expansion is completed in factorized form in Part~IX.
+
+Part~IV constructs Ba\l aban's nonlinear averaging, the multiscale axial gauge and the gauge-adapted averaging. It shows that the linearized averaging is exactly gauge covariant and satisfies the hypotheses of Parts~II and~III, and it proves Ba\l aban's axial-to-Landau gauge-fixing theorem. Part~V solves the variational problem relative to a regular reference configuration: existence, uniqueness and minimality of the background field, second-order and H\"older bounds, the Euler--Lagrange equation, analyticity in the coarse field, and exponential decay of the derivative. Part~VI carries out the induction over the number of steps. The regularity constants are kept independent of $k$ by a local improvement: the relative theorem is applied once more, with a reference configuration that is spliced to the trivial one near a given point. This proves Ba\l aban's variational theorem on the torus, uniformly in $k$, without nested domains. As a consequence, every real configuration with small curvature and current is locally regular, so the hypothesis of Part~III follows from gauge-invariant conditions. Part~VII begins the small-field renormalization group for pure Yang--Mills theory in three dimensions. It writes one renormalization group step exactly as a Gaussian integral around the background field, and proves the linear input for its analysis: coercivity and decay of the fluctuation covariance, analyticity and tree decay of the coarse effective action, local determinant densities, and a bound on the curvature of background fields with a constant independent of the blocking factor. Part~VIII localizes the dependence on the background. With Dirichlet approximants and telescoping, the fluctuation covariance, the coarse Hessian and the Gaussian determinant become sums of local, gauge-invariant pieces with exponential decay. The determinant becomes a constant plus normalized activities of second order in the curvature. The nonlinear interaction is localized in the same way. This uses interior pointwise bounds with derivatives for the Dirichlet operators, proved by an absorption argument at all scales for a local elliptic system obtained by treating two scalar potentials of the gauge-fixing projection as unknowns. This localization is of radius type. Part~IX constructs random walks with weakening parameters for all operators of the step, in $L^2$ norms, giving the volume-type localization needed for polymer expansions of the covariance, the coarse Hessian and the determinant. It identifies the pointwise control of the weakened operators as the remaining input for the background map, proves interior estimates with $L^p$ data for the Dirichlet propagators, and with them pointwise $C^{1,\beta}$ bounds for the weakened propagators $\bG(s)$, $\bH(s)$ on the torus, and for $\bC(s)$, using a lattice trace inequality on boxes. These are the linear inputs of the weakened background map, which is constructed as the fixed point of a weakened contraction, analytic in the weakening parameters and factorizing over polymers.
+
+Part~X carries out the small-field renormalization group. The activities must be analytic in the background, so the results of Part~IX, and Ba\l aban's multiscale averaged backgrounds of Part~IV, are first extended to complex references. The ingredients of one step become weakened step quantities, and the fluctuation integral, with a cutoff on the white noise, is evaluated by a Mayer and polymer expansion. An activity norm on a graded complex domain makes normalized gauge-invariant activities irrelevant in the sense of power counting: by complex gauge invariance and semisimplicity, on the domain of the next scale such an activity is smaller than its supremum by a factor quadratic in the ratio of the curvature, the current and the complex part to the size of the domain. This gives the bound for one step of the flow. The iteration, with a vacuum energy counterterm, gives the small-field flow (Theorem~\ref{thm:K}): for semisimple $G$ in three dimensions, the effective densities keep their form at every scale, with activities of order $(p_kg_k)^{2-2\epsilon}$, where $g_k$ is the dimensionless coupling at scale $k$, $p_k$ grows logarithmically in $g_k^{-1}$, and $0<\epsilon<\frac14$. The partition function of the small-field model is an explicit product of normalizations times a factor between $e^{-c|\T|}$ and $e^{c|\T|}$ on the final lattice $\T$, with $c$ independent of the lattice spacing. The large-field stage is not treated.
+\end{abstract}
+
+\tableofcontents
+
+\input{sections/s01-intro}
+
+\part*{Part I: The trivial background}
+\addcontentsline{toc}{part}{Part I: The trivial background}
+\input{sections/s02-setup}
+\input{sections/s03-poincare}
+\input{sections/s04-fourier}
+\input{sections/s05-decay}
+\input{sections/s06-regularity}
+\input{sections/s07-scalar}
+\input{sections/s08-scalar-avg}
+\input{sections/s09-gauge-coercivity}
+\input{sections/s10-gauge-green}
+\input{sections/s11-gauge-min}
+
+\part*{Part II: Backgrounds}
+\addcontentsline{toc}{part}{Part II: Backgrounds}
+\input{sections/s13-background}
+\input{sections/s14-perturbation}
+\input{sections/s15-cov-scalar}
+\input{sections/s16-cov-gauge}
+\input{sections/s17-cov-min}
+
+\part*{Part III: Domains, local regularity and random walks}
+\addcontentsline{toc}{part}{Part III: Domains, local regularity and random walks}
+\input{sections/s18-domains}
+\input{sections/s19-reg-scalar}
+\input{sections/s20-reg-gauge}
+\input{sections/s21-random-walk}
+
+\part*{Part IV: Nonlinear averaging, axial gauge and the Landau chart}
+\addcontentsline{toc}{part}{Part IV: Nonlinear averaging, axial gauge and the Landau chart}
+\input{sections/s22-averaging}
+\input{sections/s23-adapted}
+\input{sections/s24-action}
+\input{sections/s25-chart}
+
+\part*{Part V: The variational problem}
+\addcontentsline{toc}{part}{Part V: The variational problem}
+\input{sections/s26-var-theorem}
+\input{sections/s27-var-solution}
+\input{sections/s28-var-regularity}
+
+\part*{Part VI: The induction over the number of steps}
+\addcontentsline{toc}{part}{Part VI: The induction over the number of steps}
+\input{sections/s29-local-gauges}
+\input{sections/s30-improvement}
+\input{sections/s31-induction}
+
+\part*{Part VII: One step of the renormalization group}
+\addcontentsline{toc}{part}{Part VII: One step of the renormalization group}
+\input{sections/s32-rg-step}
+\input{sections/s33-fluctuations}
+\input{sections/s34-coarse-action}
+\input{sections/s35-covariance}
+
+\part*{Part VIII: Localization of the background dependence}
+\addcontentsline{toc}{part}{Part VIII: Localization of the background dependence}
+\input{sections/s36-dirichlet-averaged}
+\input{sections/s36b-interior-regularity}
+\input{sections/s37-localization}
+\input{sections/s38-det-local}
+\input{sections/s39-interaction-local}
+
+\part*{Part IX: Weakened random walks}
+\addcontentsline{toc}{part}{Part IX: Weakened random walks}
+
+\input{sections/s40-weakenable}
+\input{sections/s41-nested-walks}
+\input{sections/s42-pointwise-weak}
+\input{sections/s43-interior-lp}
+\input{sections/s44-tier-norms}
+\input{sections/s45-weak-background}
+
+\part*{Part X: The small-field flow}
+\addcontentsline{toc}{part}{Part X: The small-field flow}
+\input{sections/s46-complex-references}
+\input{sections/s47-step-quantities}
+\input{sections/s48-cluster}
+\input{sections/s49-flow}
+\input{sections/s50-target}
+
+\part*{Conclusion}
+\addcontentsline{toc}{part}{Conclusion}
+\input{sections/s12-outlook}
+\appendix
+\input{sections/appA-green}
+\input{sections/bib}
+
+\end{document}

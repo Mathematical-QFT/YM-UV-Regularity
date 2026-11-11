@@ -1,0 +1,182 @@
+% Appendix B: notation index, named conditions, operators (readability layer). Non-floating tables,
+% no numbered objects other than the appendix section itself.
+\section{Notation}\label{app:notation}
+
+This appendix collects the notation that is used across several Parts, with the meaning of each symbol and, in parentheses, the place of its definition. The list ``Letters with several meanings'' says how the meanings of a letter are kept apart, and the last table gives the former names of the renamed symbols. Remark~\ref{rem:notation-flow} lists the notation of Sections~\ref{sec:step-quantities}--\ref{sec:flow4}, and Section~\ref{g:scales} the scales and units.
+
+\subsection*{Scales and parameters}
+
+{\small
+\begin{description}[font=\normalfont,style=nextline,leftmargin=10em,labelwidth=9.5em,labelsep=0.5em,itemsep=1pt,parsep=0pt,topsep=4pt]
+\item[$d$, $L$] dimension $d=4$; block factor, odd, $L\ge3$ (\S\ref{sec:setup}).
+\item[$k$, $\eta$, $N$] Parts~I--VII: number of averaging steps, fine spacing $\eta=L^{-k}$, $N=L^k=1/\eta$ (\S\ref{sec:setup}).
+\item[$\T$, $\Tf$, $n$] unit torus of side $n$; fine torus of spacing $\eta$ (\S\ref{sec:setup}).
+\item[$\T^{(j)}$, $n_j$, $\ell$] lattice of scale $j$; its side $n_j=\ell L^{N-j}$ in its own units; physical side (\S\ref{subsec:tf-scales}).
+\item[$\epsilon$, $N$, $K$] in Section~\ref{ss:31.1} and from Section~\ref{sec:target-flow} on: finest spacing $\epsilon=L^{-N}$, number of scales $N$, number of steps $K\le N$ (\S\ref{subsec:tf-scales}).
+\item[$a$, $\alpha$, $\beta$] averaging coefficient; H\"older exponent; in Part~IX $\beta=\min(\alpha,\frac12)$ (\S\ref{sec:intro}, \S\ref{sec:tiers}).
+\item[$M$, $M_0$, $M'$] regularity scale and grid size; its threshold in Part~III; localization scale of the step (Def.~\ref{def:regular}, Thm.~\ref{thm:reg-coercive}, Rem.~\ref{rem:parameters}(4)).
+\item[$\kappa_m$] mass coefficient of the Dirichlet operators (\S\ref{sec:reg-gauge}).
+\item[$\kappa$, $\delta$, $s$, $\mathbb D_\kappa$] weakening rate and loss; weakening parameters $s=(s_\Box)$ in $\mathbb D_\kappa=\{|s_\Box|\le e^\kappa\}$ (\S\ref{sec:weakenable}, Rem.~\ref{rem:parameters}(3)).
+\item[$\rho$] scale of the walk domains, subject to \eqref{eq:rho-choice} (\S\ref{sec:weakenable}).
+\item[$\kappa_n$, $\kappa_0$, $d_M$, $d_j$] rate of the activity norms; constant and tree length of the polymer grid (Rem.~\ref{rem:parameters}(1), \S\ref{subsec:flow-norm}).
+\item[$\theta_r$, $\delta_1$, $\delta_0$, $\delta_1^\flat$] domain constants: curvature and current of the real part; gradient and size of the complex part; $\delta^\flat_1=\frac14\delta_1$ (Def.~\ref{def:graded}, Rem.~\ref{rem:domain-constants}, \S\ref{sec:generations}).
+\item[$\bar\delta$, $\eps_{\max}$, $\delta_P$] cap on the complex references; threshold on the regularity of their real parts; radius of the complex references (Rem.~\ref{rem:domain-constants}, Prop.~\ref{prop:complex-ext}).
+\item[$g$, $g_k$, $\gamma$] coupling; coupling of scale $k$; bound on the couplings (from Section~\ref{sec:flow} on) (\S\ref{subsec:flow-parameters}).
+\item[$p$, $p_0$, $q$, $h_k$] small-field functions; $p_0(g)=(\log g^{-1})^q$ in Thm.~\ref{thm:ol-uv}; threshold $h_k=p(g_k)g_k$ (\S\ref{subsec:flow-parameters}).
+\item[$w$] fluctuation cutoff, $w=C_wL^dC_Tg\,p_0$ in the flow (Def.~\ref{def:chi-w}, Rem.~\ref{rem:flow-constants}).
+\item[$a_1$, $B_3$, $a_2$, $B_5$] thresholds and regularity constants: of background fields ($a_1$, $B_3$; Thm.~\ref{thm:balaban}); of configurations of small curvature and current ($a_2$, $B_5$; Cor.~\ref{cor:regularity}).
+\item[$C_*$] curvature constant of background fields, independent of $L$ (Prop.~\ref{prop:sharp-curvature}).
+\item[$\mathsf K$, $C_\beta$, $C_{\rm old}$] bound of the generations; $|\beta_j|\le C_\beta\mathsf K$; bound of the old activities (Rem.~\ref{rem:flow-constants}, Prop.~\ref{prop:old-activities}).
+\item[$m_0$, $m_1$] age from which the small polymers are extracted, the polymers being recent before it; number of last steps in Thm.~\ref{thm:ol-uv} (Def.~\ref{def:polymer-classes}, Thm.~\ref{thm:ol-uv}).
+\item[$\beta_j$, $\beta_E$] coefficient of the generation $E^{(j)}$; of a generation $E$ (Thm.~\ref{thm:N}, Prop.~\ref{prop:period-iso}).
+\item[$\beta_\infty$, $\beta^{(1)}_{j+1}$, $\beta_{\rm F}$] one-loop coefficient per step; coefficient of the marginal tensor $T^{(1)}_{j+1}$ of the step from $j$ to $j+1$, in infinite volume; fine-lattice Feynman-gauge coefficient (Thms.~\ref{thm:ol-log}, \ref{thm:ol-cumulative}, \S\ref{sec:ol-feynman}).
+\item[$\beta^{\rm B}_j$] the coefficient that Ba\l aban's definition assigns to the generations (Prop.~\ref{prop:beta-identification}).
+\item[$C_A$, $T_\rho$] adjoint Casimir; $\operatorname{tr}_\rho(T^aT^b)=T_\rho\delta^{ab}$ (\S\ref{sec:ol-feynman}).
+\end{description}}
+
+\subsection*{Configurations, fields and symmetries}
+
+{\small
+\begin{description}[font=\normalfont,style=nextline,leftmargin=10em,labelwidth=9.5em,labelsep=0.5em,itemsep=1pt,parsep=0pt,topsep=4pt]
+\item[$U=e^{\ii\eta A}$] configuration on the fine lattice, with Lie field $A$ (\S\ref{sec:intro}, \S\ref{sec:averaging}).
+\item[$B(y)$, $B'(y)$] block of $\Tf$ centred at $y\in\T$; block of $L^4$ points of $\T$ centred at $y\in\T'$ (\S\ref{sec:setup}, Def.~\ref{def:bonds}).
+\item[$U^{(k)}$, $\mathfrak a'$] $k$-fold average; one-step averaging (Def.~\ref{def:one-step}, \S\ref{sec:rg-step}).
+\item[$\mathfrak B(V)$] constraint set: the real $U$ with $U^{(k)}=V$ and curvature at most $c_1$ (\S\ref{sec:var-theorem}).
+\item[$U_k(V)$] background field: an element of the minimal orbit (Thm.~\ref{thm:balaban}).
+\item[$V'$, $U'$, $W$] coarse configuration of the step; its background field; the base $W=U'^{(k)}$ (Lemma~\ref{lem:composition}).
+\item[$\mathfrak F$, $b_0(c)$] fluctuation bonds: all bonds of $\T$ except the middle bonds $b_0(c)$ (Def.~\ref{def:bonds}).
+\item[$Z$, $\xi$] fluctuation field, $V=e^{\ii Z}W$; white noise, $Z=gC_k^{1/2}\xi$ on $\mathfrak F$ (Def.~\ref{def:chi-w}, Def.~\ref{def:small-field-step}).
+\item[$F_Y(p)$, $J_U$] curvature; current (Def.~\ref{def:curvature}, Def.~\ref{def:current}).
+\item[$\mathfrak U_j(a)$, $\mathfrak U(\theta)$] configurations with curvature at most $a$; with curvature and current at most $\theta$ (Def.~\ref{def:curvature}, Def.~\ref{def:current}).
+\item[$\mathfrak M$] Ba\l aban's set of regular configurations (\S\ref{sec:fluctuations}).
+\item[$(M,\eps)$-regular] on every cube $\Lam_{4M+2}(z)=\{|x-z|_\infty\le4M+2\}$ a gauge with $|A|$, $|\partial A|$ and the H\"older quotients of $\partial A$ at most $\eps$ (Def.~\ref{def:regular}).
+\item[$\mathfrak G_0$, $\mathcal G'$] residual gauge group $\{u:u|_\T=1\}$; gauge transformations of $\T$ trivial on $\T'$ (\S\ref{sec:averaging}, \S\ref{sec:rg-step}).
+\item[$B_4$, $\mathfrak S_k$, $\mathfrak S^{\rm grid}_j$] hyperoctahedral group; group of translations and $B_4$ about the points of $\T^{(k)}$; symmetries of the grid of scale $j$ (Lemma~\ref{lem:one-step-basic}, \S\ref{sec:generations}).
+\item[$\mathcal Q$, $\bQ_k$, $Q'_k$] gauge-adapted averaging; linearized averages (Def.~\ref{def:adapted}, Prop.~\ref{prop:linearized-averages}).
+\item[$\Cav_j$] averaging remainder: $\mathcal Q_j(e^{\ii\eta A})=e^{\ii\delta_j(\bQ_jA+\Cav_j(A))}$ (Prop.~\ref{prop:Q-expansion}).
+\item[$\Av(\mathbf U)$] group average (Lemma~\ref{lem:group-average}).
+\item[$E(U)$] defect of a model averaging pair, $\bQ(U)D_U=D_VQ'(U)+E(U)$ (\S\ref{sec:background}, Lemma~\ref{lem:cov-avg}).
+\item[$\mathfrak G_W$, $\mathrm{gf}_W$] averaged transports; exponential gauge-fixing function (Def.~\ref{def:avg-transport}, Def.~\ref{def:gauge-fixing}).
+\item[$\chi^{\rm w}$, $\chi_\xi$] fluctuation cutoff; white-noise cutoff (Def.~\ref{def:chi-w}, Def.~\ref{def:small-field-step}).
+\item[$T$, $T^{\rm gf}$, $T_{\rm sf}$] renormalization group map; gauge-fixed step; small-field step (\eqref{eq:rg-map}, Def.~\ref{def:gf-step}, Def.~\ref{def:small-field-step}).
+\end{description}}
+
+\subsection*{Operators}
+
+The parentheses give the results that bound each operator; the kinds of bound (coercivity, exponential decay, pointwise bounds) are those stated there.
+
+{\small
+\begin{description}[font=\normalfont,style=nextline,leftmargin=10em,labelwidth=9.5em,labelsep=0.5em,itemsep=1pt,parsep=0pt,topsep=4pt]
+\item[$G_\sigma$] scalar Green functions $(-\Lap+aQ_\sigma^*Q_\sigma)^{-1}$, $\sigma=0,\dots,d$ (Thm.~\ref{thm:scalar-green}).
+\item[$(Q_\sigma G_\sigma Q_\sigma^*)^{-1}$] inverse of the averaged Green function (Prop.~\ref{prop:QGQ}).
+\item[$H_\sigma$, $C_\sigma$, $\cD_\sigma$] minimizer map; constrained Green function; effective action (Thm.~\ref{thm:H-scalar}, Props.~\ref{prop:C-scalar}, \ref{prop:eff-action-scalar}).
+\item[$R=I-P_\cV$] projection defining Ba\l aban's Landau-type gauge $Rd^*A=0$ (Prop.~\ref{prop:R}).
+\item[$\bL_a$, $\bG$] $\bL_a=d^*d+dRd^*+a\bQ^*\bQ$ and $\bG=\bL_a^{-1}$ (Thms.~\ref{thm:gauge-coercive}, \ref{thm:gauge-green}).
+\item[$\bH$, $\bD$, $\bC$] $\bH=\bG\bQ^*(\bQ\bG\bQ^*)^{-1}$; effective action; $\bC=\bG-\bG dRd^*\bG-\bH\bQ\bG$ (Thm.~\ref{thm:H-gauge}, Prop.~\ref{prop:eff-action-gauge}, Thm.~\ref{thm:C-gauge}).
+\item[$G'(U)$, $\Gamma'(U)$, $H'(U)$, $C'(U)$, $R(U)$] the scalar operators at a background: $G'=(D^TD+aQ'^TQ')^{-1}$, $\Gamma'$ the inverse of $Q'G'Q'^T$ (Thm.~\ref{thm:cov-scalar}, Prop.~\ref{prop:cov-R}; Thm.~\ref{thm:reg-scalar}).
+\item[$\Pi(U)$] projection onto Ba\l aban's gauge slice $\{R(U)D_U^TA=0\}$ (Lemma~\ref{lem:slice}).
+\item[$\bG(U)$, $\bH(U)$, $\bC(U)$] the gauge-field operators at a background (Thms.~\ref{thm:cov-gauge}, \ref{thm:cov-min}; Thms.~\ref{thm:reg-gauge}, \ref{thm:reg-min}).
+\item[$G'_X$, $\bG^X$, \dots] Dirichlet versions on unions of blocks $X$ (Thm.~\ref{thm:G}(ii), \S\S\ref{sec:reg-scalar}--\ref{sec:reg-gauge}).
+\item[$\Delta^0$, $\Delta_k$, $C_k$] coarse Hessian; fluctuation operator on $\mathfrak F$; covariance $C_k=\Delta_k^{-1}$ (Prop.~\ref{prop:hessian}, Thm.~\ref{thm:step-coercive}, Cor.~\ref{cor:covariance}).
+\item[$\Delta^{0,X}$, $\Delta_Y$] Dirichlet Hessian; local fluctuation operators (Def.~\ref{def:dirichlet-hessian}, Prop.~\ref{prop:local-fluct}).
+\item[$\bG(s)$, $\bH(s)$, $\bC(s)$, $C_k^{1/2}(s)$] weakened operators, analytic in $s\in\mathbb D_\kappa$ (Thm.~\ref{thm:weak-inverse}, Cor.~\ref{cor:weak-covariance}, Thm.~\ref{thm:HC-pointwise}).
+\item[$A_*(B)$, $A_*(s;B)$] Landau representative of the background map; its weakened version (Thm.~\ref{thm:variational}, Thm.~\ref{thm:weak-bg}).
+\item[$\Gamma^{(1)}_k$, $\Gamma^{\rm step}_j$] one-loop term of the composite $k$-step map; of the step from scale $j$ (Prop.~\ref{prop:ol-laplace}, \S\ref{sec:ol-composite}).
+\item[$\Pi_\Phi$, $T_\Phi$] vacuum polarization; marginal tensor (Def.~\ref{def:marginal-tensor}).
+\end{description}}
+
+\subsection*{Activities and the flow}
+
+{\small
+\begin{description}[font=\normalfont,style=nextline,leftmargin=10em,labelwidth=9.5em,labelsep=0.5em,itemsep=1pt,parsep=0pt,topsep=4pt]
+\item[$\Box$, $X$, $\Box^+$] grid cube of side $M$; polymer, a $*$-connected union of grid cubes; $\Box$ and its $*$-neighbours (\S\ref{subsec:flow-norm}).
+\item[$\operatorname{cl}_kX$] union of the grid cubes of scale $k$ that meet $X$ (Lemma~\ref{lem:grid-nesting}).
+\item[small, recent, large, wrapping] classes of a polymer of scale $j$ at scale $k$ (Def.~\ref{def:polymer-classes}).
+\item[$\mathcal U(X)$, $\mathcal U^\flat(X)$] graded domains $\mathcal U(X;\theta_r,\delta_1,\delta_0)$ and $\mathcal U(X;\theta_r,\delta^\flat_1,\delta_0)$ (Def.~\ref{def:graded}, \S\ref{sec:generations}).
+\item[graded activity, normalized] holomorphic on $\mathcal U(X)$, invariant under real gauge transformations; $F(1)=0$ (Def.~\ref{def:graded}).
+\item[$E^{(j)}$] generation of scale $j$, with (G1)--(G4) (Def.~\ref{def:generation}).
+\item[$E'$, $E'^{\rm sym}$] raw generation; its symmetrization over $\mathfrak S^{\rm grid}_j$ (Def.~\ref{def:symmetrization}).
+\item[$\bar T_E$] period density of $E$ (Def.~\ref{def:period-density}).
+\item[$\mathfrak e(X)$, $\mathfrak j_c$] one-loop pieces; local Jacobians (Prop.~\ref{prop:one-loop-polymer}, Prop.~\ref{prop:jacobians}).
+\item[$E^\#_{\rm p}$, $E^\#_{\rm m}$] pure and mixed new sources (Prop.~\ref{prop:pure-sources}, Cor.~\ref{cor:two-classes}).
+\item[$\mathfrak E$, $\mathcal E_k$] old activities in a step; old activities of step $k$, generations grouped with their counterterms (Thm.~\ref{thm:sf-step}, Def.~\ref{def:old-activities}).
+\item[$\tau$, $\epsilon_{\rm p}$, $\epsilon_{\rm m}$] size of the composed activities; sizes of the pure and mixed pieces (Prop.~\ref{prop:composed}, Prop.~\ref{prop:localized-pieces}).
+\item[$\mathcal Z_k$, $\eps_k$, $E_0$, $\delta_k$] normalization; vacuum energy per site; counterterm; increment of the vacuum energy (Prop.~\ref{prop:vacuum}, Thm.~\ref{thm:sf-flow}(f)).
+\item[$\Sigma_j$] the sequences $(g_0,\dots,g_j)\in(0,\gamma]^{j+1}$ with $g_{i+1}\le2g_i$ (\S\ref{subsec:flow4-flow}).
+\end{description}}
+
+\subsection*{Named conditions}
+
+{\small
+\begin{description}[font=\normalfont,style=nextline,leftmargin=10em,labelwidth=9.5em,labelsep=0.5em,itemsep=1pt,parsep=0pt,topsep=4pt]
+\item[(B)] the background is close to $1$ in one global gauge: $|A|,|\partial A|,[\partial A]_\alpha\le\eps$ (\S\ref{sec:background}).
+\item[(i)--(v)] properties of an averaging pair under which Parts~II and~III apply (Rem.~\ref{rem:general-averaging}).
+\item[(A1)--(A11)] the places where the averaging pair enters the proofs of Parts~II and~III (proof of Lemma~\ref{lem:uniformity}).
+\item[(C1), (C2)] covariance of a cutoff under real gauge transformations and under $\mathfrak S_{k+1}$ (\S\ref{sec:fluctuations}).
+\item[(W1)--(W3)] structure, local propagators and non-local part of the operators of a walk (\S\ref{sec:nested-walks}).
+\item[(L1)--(L5)] the five levels of the nested walks: scalar operators, scalar averaged operators, gauge-field operators, averaged gauge operators and the Hessian, the fluctuation operator (\S\ref{sec:nested-walks}).
+\item[(BR)] regularity up to the boundary for Dirichlet operators on boxes; not used (\S\ref{sec:pointwise-weak}).
+\item[(I1)--(I4)] interior estimates with $L^p$ data; (I4) is not used on the main line (\S\ref{sec:interior-lp}).
+\item[(N1)--(N3)] tier bounds for the middle factors of the non-local parts (Lemma~\ref{lem:N-tier}).
+\item[(N1), (N2)] properties of the neighbourhoods used for Laplace's method (\S\ref{sec:ol-composite}).
+\item[(DC1)--(DC6)] conditions on the domain constants (Rem.~\ref{rem:domain-constants}).
+\item[(Q1)--(Q3)] conditions of the small-field step on the coupling, the thresholds and the old activities (\S\ref{sec:cluster}).
+\item[(G1)--(G4)] a generation: activities; grid covariance; invariance of the sum; covariance under $\mathfrak S^{\rm grid}_j$ (Def.~\ref{def:generation}).
+\item[(T0)--(T2)] conditions on the side of the torus at each scale (\S\ref{subsec:tf-scales}).
+\item[($\Gamma$1)--($\Gamma$4)] conditions on the bound $\gamma$ of the couplings (Rem.~\ref{rem:flow-constants}).
+\item[(F1)--(F3)] continuity of $\beta_{j+1}$; one-loop part against the infinite-volume coefficient; the rest is $O(g_j^2p_0(g_j)^6)$ (\S\ref{sec:ol-uv}, Prop.~\ref{prop:flow-F}).
+\end{description}}
+
+\subsection*{Letters with several meanings}
+
+{\small
+\begin{description}[font=\normalfont,style=nextline,leftmargin=10em,labelwidth=9.5em,labelsep=0.5em,itemsep=1pt,parsep=0pt,topsep=4pt]
+\item[$\gamma$] decay rates in Parts~I--IX; from Section~\ref{sec:flow} on also the bound on the couplings (Section~\ref{subsec:flow-parameters}).
+\item[$\beta$] the coefficients $\beta_j$, $\beta_\infty$, $\beta_E$, $\beta_{\rm F}$; the H\"older exponent of Part~IX; the radius $|B|\le\beta$ of Theorem~\ref{thm:variational}.
+\item[$\rho$] densities $\rho_k$; the scale of the walk domains (Part~IX); the representation in $\operatorname{tr}_\rho$, $T_\rho$ (Part~XI); the Lipschitz weight of the Combes--Thomas method (Section~\ref{sec:decay}).
+\item[$R$] the projection $R(U)$; the adjoint action $R(u)$; elements $R\in B_4$ (Proposition~\ref{prop:symmetry}, Lemma~\ref{lem:ol-symmetry}).
+\item[$\Pi$] the slice projection $\Pi(U)$ (Part~II); the vacuum polarization $\Pi_\Phi$ (Part~XI).
+\item[$T$] the torus $\T$ (blackboard bold); the map $T$; the tensors $T_\Phi$, $T^{(1)}_{j+1}$; $T_\rho$; the generators $T^a$.
+\item[$B$] the blocks $B(y)$; a coarse field $B$, with $|B|_{y'}$ the maximum of $|B|$ over the unit bonds starting at $y'$; the group $B_4$; hypothesis (B); the constants $B_1$, $B_3$, $B_5$.
+\item[$W$] the potential $W\in\cW(\eps,\gamma_W)$ of Part~II; the base $W=U'^{(k)}$ of the step (Remark~\ref{rem:notation-flow}).
+\item[$E$] the defect $E(U)$ (Part~II, Part~IV: $E=0$); the generations $E^{(j)}$, $E'$; the sources $E^\#$; the old activities $\mathcal E_k$, $\mathfrak E$; the loop average is $\Eloop$.
+\item[$N$] $N=L^k$ in Parts~I--VII, except Section~\ref{ss:31.1}; the number of scales in Section~\ref{ss:31.1} and from Section~\ref{sec:target-flow} on; the matrix size $\mathsf N$.
+\item[$K$] the number of steps; the bound $\mathsf K$ (sans serif); the gauge-fixing form $K^X$ (Sections~\ref{sec:localization}, \ref{sec:nested-walks}); the parametrices are $\cK^X$, $\cK^v$.
+\item[$a$] the averaging coefficient; curvature bounds in $\mathfrak U_j(a)$, $a_1$, $a_2$, $a_{\rm step}$ (Section~\ref{sec:averaging}, conventions).
+\item[$C_k$] the covariance $C_k=\Delta_k^{-1}$; the averaging remainder is $\Cav_k$.
+\item[$\mathfrak F$] the fluctuation bonds (Definition~\ref{def:bonds}); the curvature operator of Lemma~\ref{lem:curvature}; the functional of Section~\ref{sec:var-solution} is $\cJ$.
+\item[$M$] the regularity scale; the operator $M=Q_0G_0^2Q_0^*$ (Section~\ref{sec:scalar-avg}); the group average is $\Av$.
+\item[$\delta$] the spacings $\delta_j=L^{j-k}$ (Part~IV); the domain constants $\delta_0$, $\delta_1$; the radius $\delta_0(W)$ of Proposition~\ref{prop:reg-complex}; the loss $\delta$ of Part~IX; $\delta_P$, $\bar\delta$, $\delta_*$; the increments $\delta_k$ of the vacuum energy.
+\item[$\eps$, $\epsilon$] the regularity $\eps$; the spacing $\epsilon=L^{-N}$; the vacuum energy $\eps_k$; $\epsilon_{\rm p}$, $\epsilon_{\rm m}$, $\epsilon_*$ (Remark~\ref{rem:notation-flow}).
+\item[$\kappa$] the mass coefficient $\kappa_m$; the weakening rate $\kappa$; $\kappa(u)=\|u\|\|u^{-1}\|$ (Section~\ref{sec:averaging}); $\kappa_n$, $\kappa_0$, $\kappa_2$, $\kappa_\rho=C_A/T_\rho$.
+\item[$n$] the side of $\T$; in Part~VII the side of $\T'$; the sides $n_k$ (Section~\ref{subsec:tf-scales}).
+\item[$p$] plaquettes; the small-field functions $p$, $p_0$; the momentum $p$ (Part~XI) (Remark~\ref{rem:notation-flow}).
+\item[$\Delta$] $\Delta=-d^*d\le0$ (Section~\ref{sec:setup}); $\Delta_{U_0}=D^TD+DD^T\ge0$ (Theorem~\ref{thm:chart}); the Hessians $\Delta^0$, $\Delta_k$.
+\item[$\hat X$] the $1$-neighbourhood of a domain (Definition~\ref{def:domain}); other hats are defined where used (Remark~\ref{rem:notation-flow}).
+\end{description}}
+
+\subsection*{Former names}
+
+The following symbols carry new names. The former names are those of earlier versions of the note.
+
+\begin{center}\small
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{|p{0.17\textwidth}|p{0.17\textwidth}|p{0.32\textwidth}|p{0.2\textwidth}|}
+\hline
+Name & Former name & Meaning & Where\tabularnewline
+\hline
+\raggedright $\Cav_j$, $d\Cav_k$, $C^{{\rm av},(2)}_k$ & $C_j$, $dC_k$, $C^{(2)}_k$ & \raggedright averaging remainder & \raggedright Prop.~\ref{prop:Q-expansion}\tabularnewline
+\raggedright $\cJ(A')$ & $\mathfrak F(A')$ & \raggedright the functional of Section~\ref{sec:var-solution} & \raggedright Prop.~\ref{prop:contraction}\tabularnewline
+\raggedright $|B|_{y'}$ & $|B(y')|$ & \raggedright maximum of $|B|$ over the unit bonds starting at $y'$ & \raggedright Thm.~\ref{thm:E}, Thm.~\ref{thm:H-gauge}\tabularnewline
+\raggedright $\Av(\mathbf U)$ & $M(\mathbf U)$ & \raggedright group average & \raggedright Lemma~\ref{lem:group-average}\tabularnewline
+\raggedright $\cK^X$, $\cK^v$ & $K^X$, $K^v$ & \raggedright parametrices of the walks & \raggedright Lemma~\ref{lem:parametrix-X}, Thm.~\ref{thm:random-walk}\tabularnewline
+\raggedright $\Eloop$ & $E$ & \raggedright loop average $L^{-d}\sum_xH_x$ & \raggedright \S\ref{sec:adapted}, Lemma~\ref{lem:AB-bounds}\tabularnewline
+\raggedright $r_2^{\rm V}$ & $r_2$ & \raggedright radius of the linearizing map & \raggedright Lemma~\ref{lem:linearizing}\tabularnewline
+\raggedright $C^{\rm patch}_P$ & $C_P$ & \raggedright patching constant & \raggedright Lemma~\ref{lem:patching}\tabularnewline
+\raggedright $C^{\rm units}_L$ & $C_L$ & \raggedright constant of the change of units & \raggedright Lemma~\ref{lem:units}\tabularnewline
+\raggedright $\gamma'_{\rm lin}$ & $\gamma'$ & \raggedright the operator $\gamma_{k+1}$ of the one-step expansion at step $k+1$ & \raggedright \S\ref{sec:fluctuations}, Lemma~\ref{lem:one-step-expansion}\tabularnewline
+\raggedright (W1)--(W3) & (A1)--(A3) & \raggedright hypotheses of the walks of Section~\ref{sec:nested-walks} & \raggedright \S\ref{sec:nested-walks}\tabularnewline
+\raggedright rectangle & box & \raggedright product of intervals in Section~\ref{sec:tiers} & \raggedright Lemma~\ref{lem:trace}\tabularnewline
+\hline
+\end{tabular}
+\end{center}

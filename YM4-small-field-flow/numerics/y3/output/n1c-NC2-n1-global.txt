@@ -1,0 +1,58 @@
+N1(c): d=2, SU(2), L=3, coarse 2x2, fine 6x6, flux 1 quanta: fine plaquette angle 0.3491, coarse 3.1416; U(1) direction 0.950 -0.269 0.160; seed 2
+  fine plaquettes = exp(i theta n.sigma/2): 1.6e-15
+  1. coarse plaquettes of V = a(U_F) vs exp(i L^2 theta n.sigma/2): 4.1e-16
+     S(U_F) = 1.093841783121 = |T_fine| (2 - 2 cos(theta/2)) = 1.093841783121
+  2. |grad S(U_F)| over all 72 bonds and colours = 9.0e-16: U_F is critical on its fibre, with multiplier 0; constraint residual 0.0e+00
+     Hessian of S on the 120 free-link variables: 0 s
+  3. without the constraint (tree-gauge slice only): inertia (neg, zero, pos) = (4, 12, 104)
+     on ker(d cons) (dim 96 = 120 - 24): inertia (neg, zero, pos) = (0, 0, 96), smallest |pivot| 2.363e-01, smallest eigenvalue 0.131939   [1 s]
+     comparison at U = 1: inertia (0, 0, 96), smallest eigenvalue 0.133975   [1 s]
+  4. check: local Hessian of the Lagrangian vs symavg.hess_cs at a random point of the fibre: 1.7e-11 (scale 1.15); 1 s vs 14 s
+  4. start 0: U_F times random SU(2) noise of amplitude 0.30, projected onto the fibre
+     it  0: S = 8.60867153897440  |dX| = 1.60e+01  mu = 0
+     it  1: S = 8.59333573489032  |dX| = 1.30e+01  mu = 0.05
+     it  2: S = 8.30612014015628  |dX| = 3.85e+00  mu = 0.0063
+     it  3: S = 7.81071164638599  |dX| = 4.11e+00  mu = 0.00078
+     it  4: S = 7.56721163709710  |dX| = 1.02e+01  mu = 0
+     it  5: S = 7.11153325404878  |dX| = 1.22e+01  mu = 0
+     it  6: S = 6.76493426403628  |dX| = 7.81e+00  mu = 0
+     it  7: S = 6.60324393125495  |dX| = 2.58e+00  mu = 0
+     it  8: S = 5.89729740499684  |dX| = 2.88e+00  mu = 0
+     it  9: S = 4.78901172727033  |dX| = 2.48e+00  mu = 0
+     it 10: S = 3.45322265881621  |dX| = 1.65e+00  mu = 0
+     it 11: S = 2.57216934329714  |dX| = 1.56e+00  mu = 0
+     it 12: S = 1.82673038845876  |dX| = 1.01e+00  mu = 0
+     it 13: S = 1.33377979120252  |dX| = 6.86e-01  mu = 0
+     it 14: S = 1.10755236834315  |dX| = 3.83e-01  mu = 0
+     it 15: S = 1.09384916957561  |dX| = 9.23e-02  mu = 0
+     it 16: S = 1.09384178313270  |dX| = 2.76e-03  mu = 0
+     it 17: S = 1.09384178312100  |dX| = 3.70e-06  mu = 0
+     it 18: S = 1.09384178312100  |dX| = 6.42e-12  mu = 0
+     minimum S = 1.093841783121, S(U_F) = 1.093841783121, difference -2.3e-14;  constraint residual 1.8e-16;  tree-gauge representatives: |U_min - U_F| = 1.7e-15;  fine plaquette traces vs 2cos(theta/2): 3.1e-15   [34 s]
+  4. start 1: U_F times random SU(2) noise of amplitude 0.30, projected onto the fibre
+     it  0: S = 10.45359345938525  |dX| = 6.45e+00  mu = 0
+     it  1: S = 9.97768604193102  |dX| = 5.78e+00  mu = 0
+     it  2: S = 9.62780505806096  |dX| = 5.09e+00  mu = 0
+     it  3: S = 9.21899623593217  |dX| = 6.18e+00  mu = 0
+     it  4: S = 8.70307311417375  |dX| = 6.83e+00  mu = 0
+     it  5: S = 8.63728048028524  |dX| = 5.91e+00  mu = 0.05
+     it  6: S = 8.36017045357720  |dX| = 1.34e+01  mu = 0.05
+     it  7: S = 7.84909560453040  |dX| = 4.53e+00  mu = 0.05
+     it  8: S = 7.32546426505394  |dX| = 3.88e+00  mu = 0.0063
+     it  9: S = 7.29497121447100  |dX| = 1.85e+01  mu = 0.00078
+     it 10: S = 6.92692476180273  |dX| = 7.97e+00  mu = 0
+     it 11: S = 6.50738729116209  |dX| = 5.55e+00  mu = 0.05
+     it 12: S = 4.79870865517318  |dX| = 8.39e-01  mu = 0.8
+     it 13: S = 4.57626143798613  |dX| = 2.64e+00  mu = 0.1
+     it 14: S = 3.90115592192404  |dX| = 6.40e+00  mu = 0.013
+     it 15: S = 3.42106493807845  |dX| = 3.70e+00  mu = 0.0016
+     it 16: S = 3.22195660579064  |dX| = 4.06e+00  mu = 0.0002
+     it 17: S = 2.24202597215336  |dX| = 1.55e+00  mu = 0
+     it 18: S = 1.39562816177533  |dX| = 6.41e-01  mu = 0
+     it 19: S = 1.09517323547898  |dX| = 2.92e-01  mu = 0
+     it 20: S = 1.09384183344663  |dX| = 1.85e-02  mu = 0
+     it 21: S = 1.09384178312103  |dX| = 1.69e-04  mu = 0
+     it 22: S = 1.09384178312103  |dX| = 8.29e-09  mu = 0
+     it 23: S = 1.09384178312103  |dX| = 4.45e-16  mu = 0
+     minimum S = 1.093841783121, S(U_F) = 1.093841783121, difference 9.3e-15;  constraint residual 2.7e-16;  tree-gauge representatives: |U_min - U_F| = 1.3e-15;  fine plaquette traces vs 2cos(theta/2): 3.3e-15   [49 s]
+[101 s]

@@ -1,0 +1,550 @@
+\section{Regularity tiers and step bounds}\label{sec:tiers}
+
+This section carries out the main step of route~2 of Section~\ref{sec:pointwise-weak}: the pointwise bounds \eqref{eq:pointwise-needed} for the weakened operators $\bG(s)$, $\bH(s)$, $\bC(s)$ and $\bC(s)D^T$ on the torus, uniformly on $\mathbb D_\kappa$. The analytic inputs are the interior estimates of Section~\ref{sec:interior-lp} and the $L^2$ theory of Section~\ref{sec:nested-walks}. No regularity at the Dirichlet cuts is used. The construction rests on two observations.
+\begin{itemize}
+\item \emph{Outputs are interior.} Every term of a walk ends, on the left, with a first factor $h_jG_j$, evaluated on $K_j$. Every local step $[\fA_{\rm loc},h_j]G_j$ is evaluated on $\supp\nabla h_j\subset K_j$. Both sets lie at $\infty$-distance at least $(\rho-1)M-1$ from the cut $\partial\Lam^v_j$. Near the cuts, only $L^2$ information enters, and it enters only as an input.
+\item \emph{Interior factors raise the integrability.} Pointwise bounds need data in $L^p$ with $p>d$ (Corollary~\ref{cor:lp-dirichlet}(a)). In $d=4$, data in $L^2$ sit at the endpoint $p=\frac d2$ of (I2): one interior propagator takes them to gradients in $L^4$, but not to bounded values. So the integrability must be raised along $L^2\to L^4\to L^8\to C^{1,\beta}$ by the last interior factors of a walk term, while the rest of the term is estimated in $L^2$. At the gauge level, by the regrouping of the derivatives in Section~\ref{sec:nested-walks}, a factor carrying a $D^T$ on the right always receives its input from a factor of type $\mathcal A$, which has already raised it.
+\end{itemize}
+The intermediate norms are block $L^4$ and $L^8$ norms and block H\"older norms, which compose exactly like the $L^2$ decay norms. A source space of the form $L^p+D^T(C^\beta)$ is not needed as such. Its divergence part is carried by the factors $\mathcal A$ of the step and by the regrouping rule.
+
+For $\bC(s)$ the formula $\bG-DG'RG'D^T-\bH\bQ\bG$, weakened term by term, does not work: the weakened $DG'(s)R(s)G'(s)D^T$ has no uniform $C^1$ bound (Remark~\ref{rem:C-formula}). We use instead the torus identity $\bC=\bG\Pi^T-\bH\bQ\bG$, which involves only first derivatives of scalar fields.
+
+\paragraph{Status in four dimensions.} In three dimensions one interior factor takes $L^2$ data to $C^{1/2}$ values with $L^6$ gradients. In four dimensions $L^2$ data sit at the endpoint $p=\frac d2$ of (I2). One interior factor takes them to gradients in $L^4$, a second one to $C^\beta$ values with gradients in $L^8$, and a third one to $C^{1,\beta}$ (Lemmas~\ref{lem:endpoint-factors} and~\ref{lem:int-factors}). Only the scalar walks inside the non-local part $\mathfrak N$ at level~(L3), on $\Tf$ and on the local domains, need this lift from $L^2$ (Lemma~\ref{lem:lift}). The gauge propagators act only on data of tier~$1$ or higher. At level~(L3) the bound for the non-local parts of the steps (Proposition~\ref{prop:nl-tiers}), and with it Theorem~\ref{thm:tier-walk} at level~(L3) and Theorem~\ref{thm:HC-pointwise}, are stated for $W=0$ (Remark~\ref{rem:nl-scope}). All results hold with $\beta=\min(\alpha,\frac12)$. From Section~\ref{sec:weak-background} on, $\alpha\le\frac12$, so that $\beta=\alpha$ (Remark~\ref{rem:nl-scope}(b)).
+
+\paragraph{Setting.} We keep the setting of Section~\ref{sec:nested-walks} at the levels (L1)--(L4), with $W\in\cW_{\rm loc}(\eps)$, and of Section~\ref{sec:interior-lp}. We take $\beta=\min(\alpha,\frac12)$. The level with $W_2$ is not treated. The background is real: the interior estimates of Sections~\ref{sec:interior} and~\ref{sec:interior-lp} are proved for real backgrounds, and the complex perturbations of the background used for analyticity in Sections~\ref{sec:weakenable} and~\ref{sec:nested-walks} are treated in Proposition~\ref{prop:complex-ext}. The weakening parameters $s$ are complex. $X'_{(r)}$ denotes the blocks of $X'$ at distance more than $r$ from $\Tf\setminus X'$, as in Part~VIII. As there, distances between blocks and sets are $\infty$-distances: in $X'_{(r)}$, $K_j^{(r)}$ and $Y_j$, in the seams $\Sigma_w$ and the seam distance $d_\Sigma$, and in the radii of the near parts of Definition~\ref{def:tier}. Only the exponential weights $e^{\gamma|y-y'|}$ use the Euclidean distance. The rate $\gamma_0$ of the levels (L1) and (L3) is fixed in the paragraph \emph{Rates} of Section~\ref{ss:44.4}; Lemmas~\ref{lem:int-factors} and~\ref{lem:endpoint-factors} hold with rate $\gamma_1=\gamma_0/2$, Lemmas~\ref{lem:lift} and~\ref{lem:N-tier} with rate $2\gamma_0$, and the walks are estimated at rate $\gamma=\gamma_0/8$. The inequalities $d_\Sigma(y)\le|y-w|$ for $w\in\Sigma$ and $d_\Sigma(y)\le|y-y_1|+d_\Sigma(y_1)$ of Section~\ref{sec:nested-walks} hold with the $\infty$-distance, since $|\cdot|_\infty\le|\cdot|$.
+
+\subsection{Tiers and tier norms}\label{ss:44.1}
+
+For a block $y$ and a fine field $g$ (scalar, gauge field or $2$-form) put
+\[
+\begin{gathered}
+\mathfrak n^0_y(g)=\|g\|_{B(y)},\qquad\mathfrak n^{1/2}_y(g)=\|g\|_{4,B(y)},\qquad\mathfrak n^1_y(g)=\|g\|_{8,B(y)},\\
+\mathfrak n^2_y(g)=|g|_{B(y)}+[\tilde g_y]_{\beta,\Lam_1(c_y)},\qquad\mathfrak n^3_y(g)=|g|_{B(y)}+|\nabla g|_{B(y)}+[\nabla\tilde g_y]_{\beta,\Lam_1(c_y)},
+\end{gathered}
+\]
+with $\tilde g_y$ the field in a real gauge in which (B) holds on $\Lam_4(c_y)$, as in Theorem~\ref{thm:ID}. In $\mathfrak n^3_y$ the H\"older quotient is taken on $\Lam_1(c_y)$, which is larger than $B(y)$, as in $\mathfrak n^2_y$. The interior estimates give this directly: Propositions~\ref{prop:system-interior}, \ref{prop:scalar-lp} and~\ref{prop:system-lp} hold on $\Lam_\rho(c_y)$ with $\rho=1$. Tier $3$ is only ever an output tier. In Theorems~\ref{thm:tier-walk} and~\ref{thm:HC-pointwise}, $|\cdot|_{1,\beta;y}$ is understood in this sense. For coarse fields all five are $|\omega(y)|$. Since blocks have volume $1$, $\mathfrak n^0_y\le\mathfrak n^{1/2}_y\le\mathfrak n^1_y\le C\mathfrak n^2_y$. Moreover $\mathfrak n^2_y(g)\le C\max_{|y'-y|_\infty\le1}\mathfrak n^3_{y'}(g)$, which costs $1$ in the radius of the bounds below; we do not record this. For the derivative of a field $h$, $\mathfrak n^2_y(\nabla h)\le C\mathfrak n^3_y(h)$. The index $t\in\{0,\frac12,1,2,3\}$ is the \emph{tier}. In words: $L^2$, $L^4$, $L^8$, $C^\beta$ and $C^{1,\beta}$. The exponent $8=2d$ is chosen so that (I1) takes tier~$1$ to $C^{1,\beta}$ with $\beta\le1-\frac d8=\frac12$ (Corollary~\ref{cor:lp-dirichlet}(a)). The tier $L^4=L^d$ records the endpoint. From $L^2$ data a single interior factor gives gradients in $L^4$ only (Theorem~\ref{thm:lp-local}(c) with $p=2$). So in $d=4$ it does not lift the gradients of tier-$0$ data to tier~$1$; it lifts them to tier~$\frac12$. Tier~$\frac12$ is used only in the lemmas that lead to Proposition~\ref{prop:nl-tiers}; no theorem is stated with it. Table~\ref{tab:tiers} lists the tiers and the tier bounds of the interior factors (Lemmas~\ref{lem:int-factors} and~\ref{lem:endpoint-factors}).
+
+In tier bounds such as $a\to b$, in the norms $|\cdot|^{a\to b}$ and in Lemmas~\ref{lem:tier-calculus} and~\ref{lem:split-chain}, the letters $a$, $b$, $c$, $d$, also with indices, denote tiers. They are unrelated to the averaging coefficient $a$, to the coefficient $b$ in the proof of Lemma~\ref{lem:endpoint-factors}, and to the dimension $d=4$.
+
+\begin{table}[tbp]
+\centering\small
+\begin{tabular}{|p{0.05\textwidth}|p{0.3\textwidth}|p{0.08\textwidth}|p{0.45\textwidth}|}
+\hline
+Tier & $\mathfrak n^t_y(g)$ & In words & Tier bounds into this tier from the interior factors\tabularnewline
+\hline
+$0$ & $\|g\|_{B(y)}$ & $L^2$ & \raggedright none; the far parts of all tier bounds use only this tier\tabularnewline
+\hline
+$\frac12$ & $\|g\|_{4,B(y)}$ & $L^4$ & \raggedright $0\to\frac12$: $\varphi G'_j$, $\varphi DG'_j$ (Lemma~\ref{lem:endpoint-factors})\tabularnewline
+\hline
+$1$ & $\|g\|_{8,B(y)}$ & $L^8$ & \raggedright $\frac12\to1$: $\varphi DG'_j$ (Lemma~\ref{lem:endpoint-factors}); $0\to1$, at every block: $[aQ'^TQ',h_j]G'_j$ (Lemma~\ref{lem:endpoint-factors}); $1\to1$: $\varphi DG_jD^T$ (Lemma~\ref{lem:int-factors})\tabularnewline
+\hline
+$2$ & \raggedright $|g|_{B(y)}+[\tilde g_y]_{\beta,\Lam_1(c_y)}$ & $C^\beta$ & \raggedright $\frac12\to2$ (values): $\varphi G'_j$ (Lemma~\ref{lem:endpoint-factors}); $1\to2$: $\varphi G_jD^T$ (values), $\varphi DG_j$; $2\to2$: $\varphi DG_jD^T$ (Lemma~\ref{lem:int-factors})\tabularnewline
+\hline
+$3$ & \raggedright $|g|_{B(y)}+|\nabla g|_{B(y)}+[\nabla\tilde g_y]_{\beta,\Lam_1(c_y)}$ & $C^{1,\beta}$ & \raggedright $1\to3$: $\varphi G_j$; $2\to3$: $\varphi G_jD^T$ (Lemma~\ref{lem:int-factors}). Only an output tier\tabularnewline
+\hline
+\end{tabular}
+\caption{The tiers of Section~\ref{sec:tiers}, with $\beta=\min(\alpha,\frac12)$. In the last column $G'_j$ is a scalar local propagator of level~(L1) and $G_j$ a local propagator of level~(L1) or~(L3), on $Z_j=\Lam^v_j\cap X$; the bounds hold on the interior sets $Y_j$ of Lemma~\ref{lem:int-factors}, with radius $4$ and rate $\gamma_1=\gamma_0/2$. Lemmas~\ref{lem:cut-term}--\ref{lem:N-tier}, Proposition~\ref{prop:nl-tiers} and Theorem~\ref{thm:tier-walk} combine these entries.}\label{tab:tiers}
+\end{table}
+
+\begin{definition}[Tier bounds]\label{def:tier}
+Let $a,b\in\{0,\frac12,1,2,3\}$, $\gamma\ge0$, $R\in[0,\infty]$, and let $Y$ be a set of blocks. An operator $F$ satisfies a \emph{tier bound $a\to b$ on $Y$ with radius $R$} and constant $c$ if there are kernels $k,k'\ge0$ such that for all $g$ and all $y\in Y$
+\[
+\mathfrak n^b_y(Fg)\le\sum_{|y'-y|_\infty\le R}k(y,y')\,\mathfrak n^a_{y'}(g)+\sum_{y'}k'(y,y')\,\mathfrak n^0_{y'}(g),\qquad\sup_{y\in Y}\sum_{y'}e^{\gamma|y-y'|}\big(k+k'\big)(y,y')\le c .
+\]
+The infimum of such $c$ is $|F|^{a\to b}_{\gamma;R,Y}$. For $Y$ the set of all blocks and $R=\infty$ we write $|F|^{a\to b}_\gamma$, the \emph{global} tier norm; then the second sum can be absorbed in the first.
+\end{definition}
+
+The first sum is the \emph{near part}: regularity of the input is required only near $y$. The second sum, the \emph{far part}, uses only $L^2$. Interior estimates give bounds of this split form directly. Global tier norms are needed for walks of unbounded length. Split forms with finite radius are used only for boundedly many factors.
+
+\begin{lemma}[Tier calculus]\label{lem:tier-calculus}
+\begin{enumerate}[label=(\alph*)]
+\item $|F|^{0\to0}_\gamma\le|F|_\gamma$, the decay norm of Section~\ref{sec:weakenable}.
+\item \emph{(Global composition.)} $|FG|^{a\to c}_\gamma\le|F|^{b\to c}_\gamma|G|^{a\to b}_\gamma$.
+\item \emph{(Local composition.)} Suppose $|F|^{b\to c}_{\gamma;R_F,Y_F}\le c_F$ and $|G|^{a\to b}_{\gamma;R_G,Y_G}\le c_G$. Suppose also that every block within distance $R_F$ of $Y_F$ lies in $Y_G$, and that $|G|_\gamma<\infty$. Then
+\[
+|FG|^{a\to c}_{\gamma;R_F+R_G,Y_F}\le c_F\,(c_G+|G|_\gamma).
+\]
+\item \emph{(Commutators.)} $|[F,h_j]|^{a\to b}_{\gamma/2;R,Y}\le C(\gamma M)^{-1}|F|^{a\to b}_{\gamma;R,Y}$ for $0<\gamma\le1$.
+\item \emph{(Seams.)} With the seam weights of Section~\ref{sec:nested-walks}, define $|F|^{a\to b}_{\gamma,\Sigma}$ like $|F|^{a\to b}_\gamma$, with $e^{\gamma|y-y'|}$ replaced by $e^{\gamma(|y-y'|+d_\Sigma(y)+d_\Sigma(y'))}$, and similarly for split forms. Then $|AFB|^{a\to d}_{\gamma,\Sigma}\le|A|^{c\to d}_{2\gamma}|F|^{b\to c}_{\gamma,\Sigma}|B|^{a\to b}_{2\gamma}$, and the analogue of (c) holds.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:tier-calculus}
+(a) $\|\one_yFg\|\le\sum_{y'}\|\one_yF\one_{y'}\|\,\|\one_{y'}g\|$.
+
+(b) Insert the bound for $G$ into that for $F$. The kernels compose as matrices. Weighted row sums are submultiplicative, by $e^{\gamma|y-y''|}\le e^{\gamma|y-y'|}e^{\gamma|y'-y''|}$.
+
+(c) In the near part of $F$, $y'$ lies within $R_F$ of $y\in Y_F$, hence in $Y_G$. So the bound for $G$ applies at $y'$, and its near part has radius $R_G$. In the far part of $F$ use $\mathfrak n^0_{y'}(Gg)\le\sum_{y''}\|\one_{y'}G\one_{y''}\|\mathfrak n^0_{y''}(g)$. Then compose as in (b).
+
+(d) As in Lemma~\ref{lem:decay-norm}(c), write $[F,h_j]g=F(\varphi g)-\varphi Fg$ with $\varphi=h_j-h_j(c_y)$. By Lemma~\ref{lem:partition}, $|\partial^k h_j|\le CM^{-k}$. Hence multiplication by $\varphi$ changes $\mathfrak n^t_{y'}$ by at most a factor $CM^{-1}(1+|y-y'|)$, for every $t$; for $t=3$ use the discrete Leibniz rule. It needs $|h|$ and $|\nabla h|$ on all of $\Lam_1(c_y)$, while $\mathfrak n^3_y$ contains them only on $B(y)$; they follow from the values on $B(y)$ and the H\"older quotient on $\Lam_1(c_y)$, up to the local-gauge correction $C\eps|h|$. Finally use $(1+t)e^{-\gamma t/2}\le C\gamma^{-1}$.
+
+(e) As \eqref{eq:seam-product}, using $d_\Sigma(y)\le|y-y_1|+d_\Sigma(y_1)$. For the analogue of (c), the same inequality moves the seam weight from the factor in seam form to its neighbours, in the near and in the far parts. This costs the factor $2$ in the rate of the neighbours.
+\end{proof}
+
+\paragraph{Weakenable families.} For a weakenable family put
+\[
+\|O\|^{a\to b}_{\kappa,\gamma}=\sup_\Box\sum_{\omega:\Box\subset X_\omega}e^{\kappa\deg\omega}|O_\omega|^{a\to b}_\gamma ,
+\]
+and similarly for split forms and seam norms. Lemma~\ref{lem:weak-basic}(a) and Lemma~\ref{lem:weak-chain} hold in these norms, with margins increased by $1$: H\"older quotients at $y$ are taken on $\Lam_1(c_y)$. Their proofs use only subadditivity of the seminorms, the submultiplicativity of Lemma~\ref{lem:tier-calculus}(b), and the supports. In products, the tiers must match: each factor is measured from the tier that its right neighbour delivers. For split forms the composition of Lemma~\ref{lem:tier-calculus}(c) needs, in addition, the decay norms of the factors on the right. For a split form of a single term we therefore put
+\[
+|F|^{\rm sp}=|F|^{a\to b}_{\gamma;R,Y}+|F|_\gamma ,
+\]
+and $\|O\|^{\rm sp}_{\kappa,\gamma}$ is defined with $|O_\omega|^{\rm sp}$. For a family that is measured in the decay norm only, $\|O\|^{\rm sp}_{\kappa,\gamma}=\|O\|_{\kappa,\gamma}$.
+
+\begin{lemma}[Products in split tier norms]\label{lem:split-chain}
+Let $F_1,\dots,F_n$ be weakenable families with margins at most $r$ (so that their tier norms are evaluated with margin $r+1\le M/16$, as in the paragraph above), let $0<\delta\le1$ and $1\le m\le n$. For $i\le m$ suppose that every term of $F_i$ satisfies a split tier bound $a_i\to b_i$ on a set $Y_i$ with radius $R_i$, where $a_i\le b_{i+1}$ in the order $0<\frac12<1<2$, using $\mathfrak n^a_y\le C\mathfrak n^b_y$ for $a\le b\le2$, and every block within distance $R_i$ of $Y_i$ lies in $Y_{i+1}$, for $i<m$. If $m<n$, suppose $a_m=0$, and measure $F_{m+1},\dots,F_n$ in the decay norm. Then every term of the product $F_1\cdots F_n$, indexed as in Lemma~\ref{lem:weak-chain}, satisfies the split tier bound $a_m\to b_1$ on $Y_1$ with radius $R_1+\dots+R_m$, and
+\[
+\|F_1\cdots F_n\|^{\rm sp}_{\kappa,\gamma}\le3n\prod_{i=1}^n\big(C_d\delta^{-2}\|F_i\|^{\rm sp}_{\kappa+\delta,\gamma}\big).
+\]
+The same holds in seam form: if one factor is measured in the seam version of its norm at rate $\gamma$, and all others at rate $2\gamma$, then the product is bounded in the seam version at rate $\gamma$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:split-chain}
+\emph{One term.} Fix a tuple $(\omega_1,\dots,\omega_n)$ of the index set, write $F_i$ for its terms, $c_i=|F_i|^{a_i\to b_i}_{\gamma;R_i,Y_i}$ for $i\le m$, and $P=F_{m+1}\cdots F_n$, with $P=1$ if $m=n$. By Lemma~\ref{lem:tier-calculus}(a) and Lemma~\ref{lem:decay-norm}(a), $P$ satisfies the bound $0\to0$ at every block, with constant $|P|_\gamma\le\prod_{i>m}|F_i|_\gamma$. We show by induction, for $k=m,m-1,\dots,1$,
+\[
+|F_k\cdots F_n|^{a_m\to b_k}_{\gamma;R_k+\dots+R_m,Y_k}\le2c_k\prod_{k<i\le m}\big(c_i+|F_i|_\gamma\big)\prod_{i>m}|F_i|_\gamma .
+\]
+For $k=m$ and $m<n$ this is Lemma~\ref{lem:tier-calculus}(c) with $F=F_m$ and $G=P$, whose bound holds at every block, with $R_G=\infty$. Since $a_m=0$, the near part of the composite is of tier~$0$ and is moved to the far part, so the radius is $R_m$. For $m=n$ the claim is trivial. For $k<m$ apply Lemma~\ref{lem:tier-calculus}(c) with $F=F_k$ and $G=F_{k+1}\cdots F_n$. Its inclusion hypothesis is that of the lemma, and $|G|_\gamma\le\prod_{i>k}|F_i|_\gamma$. So the left-hand side is at most $c_k$ times the bound for $G$ plus $|G|_\gamma$, which is at most $2c_k(c_{k+1}+|F_{k+1}|_\gamma)\prod_{k+1<i\le m}(c_i+|F_i|_\gamma)\prod_{i>m}|F_i|_\gamma$. Together with $|F_1\cdots F_n|_\gamma\le\prod_i|F_i|_\gamma$ this gives $|F_1\cdots F_n|^{\rm sp}\le3\prod_i|F_i|^{\rm sp}$, where $|F_i|^{\rm sp}=|F_i|_\gamma$ for $i>m$.
+
+\emph{Summation.} The index set, the domains, the monomials and the supports are those of Lemma~\ref{lem:weak-chain}. Its proof uses only the product form of the bound for one term, so it applies with $\|F_i\|^{\rm sp}$ in place of $\|F_i\|$. Two remarks complete the argument. First, the inclusion hypothesis is checked term by term. For a family $\sum_js^{X(j)}\varphi_jG_j$ of local factors whose $j$-term satisfies its bound on $Y_j$ and vanishes outside $K_j^{(2)}$, the $j$-term satisfies it on $Y_j\cup\{y:y\notin K_j^{(2)}\}$. Second, tier norms are weighted row sums only, and compositions need only row sums.
+
+\emph{Seams.} Replace Lemma~\ref{lem:tier-calculus}(c) by its seam analogue in (e). The factors at rate $2\gamma$ absorb the seam weights, as in \eqref{eq:seam-product}.
+\end{proof}
+
+\subsection{Interior factors}\label{ss:44.2}
+
+\begin{lemma}[Local Sobolev inequality]\label{lem:local-sobolev}
+For $v$ on $\Lam_2$, $\|v\|_{4,\Lam_1}\le C(\|\partial v\|_{\Lam_2}+\|v\|_{\Lam_2})$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:local-sobolev}
+Let $\chi$ be the cutoff of Step~1 of the proof of Theorem~\ref{thm:local-regularity}, rescaled to $\Lam_2$, and $w=\chi v$, extended by zero. Then $w=\cG(-\Lap w)=\sum_\mu(\partial^*_\mu g_\eta)\star(\partial_\mu w)$. The kernel is bounded by $Ck_{d-1}$ (Proposition~\ref{prop:green-eta}), so Lemma~\ref{lem:lp-kernels}(c) with $s=d-1$, $p=2$ and $q=\frac{2d}{d-2}=4$ gives $\|w\|_4\le C\|\partial w\|_2$. Finally, $\|\partial w\|_2\le C(\|\partial v\|_{\Lam_2}+\|v\|_{\Lam_2})$.
+\end{proof}
+
+This is the first step $L^2\to L^4$ of the chain of the introduction, for the values; for the gradients it is Theorem~\ref{thm:lp-local}(c) with $p=2$. Both are used in Lemma~\ref{lem:endpoint-factors}.
+
+\begin{lemma}[Interior factors]\label{lem:int-factors}
+Let $G_j$ be a local propagator of level~(L1) or~(L3) on a domain $Z_j=\Lam^v_j\cap X$, i.e.\ $G'_{Z_j}$ or $\bG^{Z_j}$. Let $\varphi$ be a function supported in $K_j^{(1)}$ with $|\partial^k\varphi|\le C$ for $k\le2$, and let $Y_j=\{y:\ \text{all blocks within distance }8\text{ of }y\text{ lie in }(Z_j)_{(4)}\}$. Then the following tier bounds hold on $Y_j$, with radius $4$, rate $\gamma_1=\gamma_0/2$ and a constant $C_T$, independent of $j$, $X$, $M$, $k$, $n$, $\eta$:
+\[
+\begin{array}{lll}
+\varphi G_j: & 1\to3,\\
+\varphi G_jD^T: & 1\to2\ (\text{values}), & 2\to3,\\
+\varphi DG_j: & 1\to2,\\
+\varphi DG_jD^T: & 1\to1, & 2\to2.
+\end{array}
+\]
+In the gauge case, $\varphi\bG^{Z_j}D$ satisfies $2\to3$ on scalar data supported in $Z_j$, at distance at least $2\eta$ from $\Tf\setminus Z_j$. All these operators also have $L^2$ decay $(C,\gamma_0)$. Outside $K_j^{(2)}$ they vanish. With $\varphi\equiv1$ the same bounds hold at every $y\in Y_j$, with the same constants, since the proof below uses only the cube $\Lam_3(c_y)$; then they need not vanish outside $K_j^{(2)}$.
+\end{lemma}
+
+For the scalar propagators, the entries from tier~$0$ and from tier~$\frac12$ are given in Lemma~\ref{lem:endpoint-factors} below. The gauge propagators are needed only from tier~$1$. The entries $0\to2$ (values) for $\varphi G_j$ and $0\to1$ for $\varphi G_jD^T$ and $\varphi DG_j$ are not available at the endpoint: from $L^2$ data an interior propagator gives gradients in $L^4$ (Theorem~\ref{thm:lp-local}(c) with $p=2$), but neither bounded values nor gradients in $L^8$.
+
+\begin{proof}\hasdetail{lem:int-factors}
+At $y\in Y_j$ the cube $\Lam_3(c_y)$ is interior to $Z_j$. The bounds follow from the proof of Corollary~\ref{cor:lp-dirichlet}:
+\begin{itemize}
+\item part~(a) with $p=2d=8$ gives the entry $1\to3$ of $\varphi G_j$, with $\beta\le1-\frac d8=\frac12$, and the entry $2\to3$ of $\varphi G_jD^T$, with the H\"older data entering through Proposition~\ref{prop:system-interior};
+\item part~(b) with $p=\frac83$, so that $p^*=8$, gives the entry $1\to2$ (values) of $\varphi G_jD^T$, with $\beta\le2-\frac dp=\frac12$, and the entry $1\to1$ of $\varphi DG_jD^T$; the latter is the Calder\'on--Zygmund input;
+\item the entries $1\to2$ of $\varphi DG_j$ and $2\to2$ of $\varphi DG_jD^T$ follow from those of $\varphi G_j$ and $\varphi G_jD^T$, since $\mathfrak n^2_y(\nabla h)\le C\mathfrak n^3_y(h)$.
+\end{itemize}
+In that proof the local data enter only through their norms on $\Lam_3(c_y)$, which gives the near part with radius $4$. The rest enters through $\mathfrak L(u)$, which gives the far part, by the $L^2$ decay of the propagators with derivatives. Weighted row sums with rate $\gamma_1<\gamma_0$ are bounded by $CS_{\gamma_0-\gamma_1}$ (Lemma~\ref{lem:decay-norm}(b)). The $L^2$ inputs used in the far parts are the decay of $G_j$, $DG_j$, $G_jD^T$, $DG_jD^T$ (Theorems~\ref{thm:reg-scalar}(b), \ref{thm:reg-gauge}(a)), and, in the gauge case, of $D^T_{Z_j}\bG^{Z_j}$ and $D^T_{Z_j}\bG^{Z_j}D^T$. The latter follow as in Theorem~\ref{thm:reg-gauge}(a), since $\tn\cdot_X$ contains $\|D^T_XA\|$. Where the full gradient of $v=G_jg$ or $v=G_jD^Tg$ is needed in $L^2$ near $y$ (in Lemma~\ref{lem:local-sobolev}, and in Section~\ref{sec:nested-walks}), it is controlled as follows. In the scalar case it is $\|Dv\|$. In the gauge case, for a cutoff $\chi$ supported in the interior, summation by parts on the full lattice gives $\|\partial(\chi v)\|^2=\|d(\chi v)\|^2+\|d^*(\chi v)\|^2$ in the local gauge, up to $C\eps\tn{\chi v}^2$. So the full gradient is controlled by $\|Dv\|$, $\|D^T_{Z_j}v\|$ and $\|v\|$ near $y$. For $\varphi\bG^{Z_j}D$, note that $D\lambda=\partial\lambda+T\lambda$ and $\partial_\mu\lambda=-\partial^*_\mu(S_\mu\lambda)$, so $D\lambda$ is a source in local form with H\"older data $S_\mu\lambda$. For $\lambda$ supported in $Z_j$ away from $\Tf\setminus Z_j$, the restriction of $D\lambda$ to $\ell^2_1(Z_j)$ is $D\one_{Z_j}\lambda$, and the $L^2$ decay of $\bG^{Z_j}D\one_{Z_j}$ is the transpose of that of $D^T_{Z_j}\bG^{Z_j}$. Scalar data near the cut are treated in Lemma~\ref{lem:cut-term}. Multiplication by $\varphi$ preserves all tiers, by the Leibniz rule.
+\end{proof}
+
+\begin{lemma}[Endpoint factors]\label{lem:endpoint-factors}
+Let $G'_j=G'_{Z_j}$ be a scalar local propagator of level~(L1) on a domain $Z_j=\Lam^v_j\cap X$, and let $\varphi$ and $Y_j$ be as in Lemma~\ref{lem:int-factors}. Then the following tier bounds hold on $Y_j$, with radius $4$, rate $\gamma_1=\gamma_0/2$ and the constant $C_T$ of Lemma~\ref{lem:int-factors}, enlarged if necessary, independent of $j$, $X$, $M$, $k$, $n$, $\eta$:
+\[
+\begin{array}{lll}
+\varphi G'_j: & 0\to\frac12, & \frac12\to2\ (\text{values}),\\
+\varphi DG'_j: & 0\to\frac12, & \frac12\to1.
+\end{array}
+\]
+With $\varphi\equiv1$ the same bounds hold at every $y\in Y_j$. In the entries from tier~$0$ both sums of Definition~\ref{def:tier} involve only $\mathfrak n^0$. Moreover, at every block $y$,
+\[
+|[aQ'^TQ',h_j]G'_jf|_{B(y)}\le CM^{-1}\|G'_jf\|_{B(y)},
+\]
+so $[aQ'^TQ',h_j]G'_j$ maps $0\to1$ at every block, with constant $CC_GM^{-1}$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:endpoint-factors}
+Let $y\in Y_j$, $v=G'_jf$ and $\Lam_r=\Lam_r(c_y)$. All blocks within distance $8$ of $y$ lie in $(Z_j)_{(4)}$. So $\Lam_4$ lies in $Z_j$, away from $\Tf\setminus Z_j$, and $D^TDv=f-aQ'^TQ'v$ on $\Lam_4$, as in the proof of Corollary~\ref{cor:lp-dirichlet}. We work in the real gauge on $\Lam_4$ in which (B) holds, as in Section~\ref{sec:interior}. Two facts are used.
+\begin{itemize}
+\item $|Q'w(y')|\le C\|w\|_{B(y')}$, $Q'^T$ is bounded from sup norms to sup norms (Proposition~\ref{prop:linearized-averages}(d),(e)), and $Q'^TQ'$ is block-local. Hence $\|aQ'^TQ'v\|_{p,\Lam_r}\le C\|v\|_{\Lam_{r+1}}$ for $p\le4$ and $r\le3$.
+\item By the $L^2$ decay of $G'_j$ and $DG'_j$ (Theorem~\ref{thm:reg-scalar}(b)), $\|v\|_{\Lam_4}+\|Dv\|_{\Lam_4}\le\sum_{y'}k_0(y,y')\mathfrak n^0_{y'}(f)$, where $\sum_{y'}e^{\gamma_1|y-y'|}k_0(y,y')\le CC_GS_{\gamma_0-\gamma_1}$ (Lemma~\ref{lem:decay-norm}(b)).
+\end{itemize}
+The second fact gives the far part of all bounds below.
+
+\emph{From tier~$0$.} By Lemma~\ref{lem:cov-expansion}, $-\Lap v=F+\sum_\mu\partial^*_\mu g_\mu$ on $\Lam_3$, with $F=f-aQ'^TQ'v-bv$ and $g_\mu=-a_\mu v$. Theorem~\ref{thm:lp-local}(c) with $p=2$, so that $p^*=4$, gives
+\[
+\|\partial v\|_{4,\Lam_1}\le C\big(\|F\|_{\Lam_2}+\|g\|_{4,\Lam_3}+\|v\|_{\Lam_2}\big).
+\]
+Here $\|F\|_{\Lam_2}\le\|f\|_{\Lam_2}+C\|v\|_{\Lam_3}$, by the first fact and $|b|\le C\eps$, and $\|g\|_{4,\Lam_3}\le C\eps\|v\|_{4,\Lam_3}$. Cover $\Lam_3$ by the cubes $\Lam_1(x_i)$, with $x_i$ on a grid of spacing $1$ in $\Lam_2$. There are at most $5^d$ of them, and $\Lam_2(x_i)\subset\Lam_4$. Lemma~\ref{lem:local-sobolev} on each of them gives $\|v\|_{4,\Lam_3}\le C(\|\partial v\|_{\Lam_4}+\|v\|_{\Lam_4})$. Next, $D=\partial+T$ with $|\tau_\mu|\le2e^2\eps$, so $\|\partial v\|_{\Lam_4}\le\|Dv\|_{\Lam_4}+C\eps\|v\|_{\Lam_4}$. For the values, Lemma~\ref{lem:local-sobolev} on $\Lam_1\supset B(y)$ gives $\|v\|_{4,B(y)}\le C(\|\partial v\|_{\Lam_2}+\|v\|_{\Lam_2})$. Finally $\|Dv\|_{4,B(y)}\le\|\partial v\|_{4,\Lam_1}+C\eps\|v\|_{4,\Lam_1}$. Together, for $\eps\le1$,
+\[
+\mathfrak n^{1/2}_y(v)+\mathfrak n^{1/2}_y(Dv)\le C\big(\|f\|_{\Lam_2}+\|v\|_{\Lam_4}+\|Dv\|_{\Lam_4}\big).
+\]
+The first term is at most $\sum_{|y'-y|_\infty\le2}\mathfrak n^0_{y'}(f)$, and the other two are bounded by the second fact. In the entries from tier~$0$ no absorption is used. The perturbations $bv$ and $a_\mu v$ are bounded by the $L^2$ norms of $v$ and $Dv$, which are available, so these entries need no smallness of $\eps$ beyond $\eps\le1$. The entries from tier~$\frac12$ use Proposition~\ref{prop:scalar-lp}(b), which is an absorption argument and needs $\eps\le\eps'_S$, one of the thresholds of Section~\ref{sec:interior-lp}. The averaging term has a coefficient of order $1$, but it enters only as an $L^2$ source.
+
+\emph{From tier~$\frac12$.} Apply the proof of Corollary~\ref{cor:lp-dirichlet}(b) with $p=\frac83$, so that $p^*=8$ and $\beta\le2-\frac dp=\frac12$. There Proposition~\ref{prop:scalar-lp}(b) on $\Lam_3$, with the source $f-aQ'^TQ'v$, gives
+\[
+|v|_{\Lam_1}+[v]_{\beta,\Lam_1}+\|\partial v\|_{8,\Lam_1}\le C\big(\|f\|_{8/3,\Lam_3}+\|v\|_{\Lam_4}\big).
+\]
+By H\"older's inequality on $\Lam_3$, which has volume $6^d$,
+\[
+\|f\|_{8/3,\Lam_3}\le C\|f\|_{4,\Lam_3}\le C\sum_{|y'-y|_\infty\le3}\mathfrak n^{1/2}_{y'}(f).
+\] Moreover $\|Dv\|_{8,B(y)}\le\|\partial v\|_{8,\Lam_1}+C\eps|v|_{\Lam_1}$. With the second fact this gives the entries $\frac12\to2$ (values) and $\frac12\to1$, in split form with radius $4$. The local data enter only through $\Lam_3$, as in Lemma~\ref{lem:int-factors}.
+
+\emph{The cutoff.} Multiplication by $\varphi$ preserves the tiers $t\le2$, by $|\varphi|+|\partial\varphi|\le C$ and the Leibniz rule for the H\"older quotient. With $\varphi\equiv1$ there is nothing to do. The constants depend only on those of Theorem~\ref{thm:lp-local}, Lemma~\ref{lem:local-sobolev}, Proposition~\ref{prop:scalar-lp} and Theorem~\ref{thm:reg-scalar}.
+
+\emph{The averaging term.} Since $Q'^TQ'$ is block-local, on $B(y)$ we have $[aQ'^TQ',h_j]v=aQ'^TQ'(\psi v)-\psi\,aQ'^TQ'v$ with $\psi=h_j-h_j(c_y)$, and $|\psi|\le CM^{-1}$ on $B(y)$. By the first fact, $|[aQ'^TQ',h_j]v|_{B(y)}\le CM^{-1}\|v\|_{B(y)}$. Since blocks have volume $1$, $\mathfrak n^1_y\le|\cdot|_{B(y)}$, and the $L^2$ decay of $G'_j$ gives the tier bound. This uses no interior condition.
+\end{proof}
+
+For $X=\Tf$ the blocks of $K_j^{(2)}$ lie in $Y_j$, because $K_j$ is at $\infty$-distance at least $(\rho-1)M-1$ from $\partial\Lam^v_j$. So for the top-level walks the bounds of Lemmas~\ref{lem:int-factors} and~\ref{lem:endpoint-factors} hold at every block where the factors do not vanish. In particular they are global tier bounds.
+
+\paragraph{Scalar gradients at the cut.} The space $\ell^2_1(Z)$ contains the bonds crossing $\partial Z$. So for a scalar field $\lambda$ on $\Tf$, the restriction of $D\lambda$ to $\ell^2_1(Z)$ is $D(\one_Z\lambda)+c_Z(\lambda)$, where $c_Z(\lambda)$ is supported on the crossing bonds and has size $\eta^{-1}|\lambda|$ at the exterior endpoint. This surface term is not bounded in $L^2$ uniformly in $\eta$. By duality, $\ip w{\bG^Zc_Z(\lambda)}=\mathrm b(w^*,\bG^Zc_Z(\lambda))$ is bounded by $|\lambda|$ times the $L^1$ trace $\sum_b\eta^{d-1}|v(b)|$ of $v=\bG^Zw^*$ on the crossing bonds (proof of Lemma~\ref{lem:cut-term}). We need the following discrete trace inequality. A \emph{rectangle} is a domain of the form $Z=\{x:\ x_\mu\in I_\mu,\ \mu=1,\dots,d\}$, where each $I_\mu$ is either the whole circle or a lattice arc whose complement has at least two points. The local domains $\Lam^v_j$ are rectangles, at every $\eta\le1$. Indeed, $(\Lam^v_j)^{(R_v)}\subset X(j)$ with $R_v\ge1$, and $X(j)$ does not wrap around the torus, by the torus side of Section~\ref{sec:weakenable}. If in some direction the complement of the interval of $\Lam^v_j$ had fewer than $2R_v$ points, then $(\Lam^v_j)^{(R_v)}$, and with it $X(j)$, would wrap around the torus in that direction. So each such complement has at least $2R_v\ge2$ points. What the proof uses is the product structure, which rules out re-entrant corners. Write $\mathfrak B_{\rm cr}(y')$ for the bonds that have one endpoint in $Z\cap B(y')$ and the other endpoint outside $Z$.
+
+\begin{lemma}[Trace inequality on rectangles]\label{lem:trace}
+Let $Z$ be a rectangle, i.e.\ a product of intervals that is a union of unit blocks, so that each side that does not wrap around the torus has length at least $1$; as in the definition of a rectangle, in each direction in which $Z$ does not wrap around, the complement of its interval has at least two points. For a union of unit blocks this holds automatically if $\eta\le\frac12$. Let $U$ be a real $(1,\eps)$-regular background with $\eps\le1$, or a complex perturbation of such a background of size $\delta_c$ small (Proposition~\ref{prop:reg-complex}). Then for every $A\in\ell^2_1(Z)$ and every block $y'$ meeting $\partial Z$,
+\[
+\sum_{b\in\mathfrak B_{\rm cr}(y')}\eta^{d-1}|A(b)|\le C\big(\|A\|+\|DA\|+\|D^T_ZA\|\big)_{B(y')^{(2)}},
+\]
+where the norms are those of $\tn\cdot_Z$, localized to $B(y')^{(2)}$. Thus $\|DA\|$ runs over all plaquettes with a bond in $\mathfrak B(Z)$, including those crossing $\partial Z$, and $\|D^T_ZA\|$ over the points of $Z$. The crossing plaquettes carry the boundary condition. With interior plaquettes only, the lemma would be false: the lattice gradient of a harmonic function has normal trace only in $H^{-1/2}$. The constant depends only on $d$ and $\dim\mathfrak g$.
+\end{lemma}
+
+The side length matters. For a slab of one fine layer, at $U=1$, put $A_1=a$ on the normal bonds crossing both faces and $A=0$ elsewhere. Then $dA=0$ and $d^*_ZA=0$, while the localized norm is $O(\sqrt\eta)|a|$ and the trace is of order $|a|$. The local domains $\Lam^v_j$, and the rectangles to which the lemma is applied, are unions of unit blocks.
+
+\begin{proof}\hasdetail{lem:trace}
+\emph{Step 1: an exact identity at $U=1$.} Let $\mathfrak B(Z)$ be the set of bonds with an endpoint in $Z$, so that $A\in\ell^2_1(Z)$ vanishes off $\mathfrak B(Z)$. By Lemma~\ref{lem:hodge} on the torus,
+\[
+\|dA\|^2+\|d^*A\|^2=\|\partial A\|^2=\sum_{\mu,\nu}\|\partial_\mu A_\nu\|^2,
+\]
+a sum over all pairs of parallel bonds at distance $\eta$. Split $d^*A=\one_Zd^*A+\one_{Z^c}d^*A$. Let $x\notin Z$. A bond at $x$ lies in $\mathfrak B(Z)$ only if its other endpoint lies in $Z$. Since $Z$ is a product of intervals, $x$ has at most one neighbour in $Z$. Indeed, $x$ must differ from $Z$ in exactly one coordinate $\nu$, and by exactly $\eta$. So $(d^*A)(x)=\pm\eta^{-1}A(b_x)$, where $b_x$ is the unique bond from $x$ into $Z$, or $(d^*A)(x)=0$ if there is none. Let $b'_x$ be the bond parallel to $b_x$ that continues outward from $x$. It has no endpoint in $Z$, so $A(b'_x)=0$, and the pair $(b_x,b'_x)$ contributes exactly $\eta^d\eta^{-2}|A(b_x)|^2$ to $\|\partial A\|^2$. The pairs $(b_x,b'_x)$ are distinct for distinct $x$. Hence
+\[
+\|dA\|^2+\|d^*_ZA\|^2=\|\partial A\|^2-\|\one_{Z^c}d^*A\|^2\ \ge\ \|\partial A\|^2_{\mathfrak B(Z)},
+\]
+where $\|\partial A\|^2_{\mathfrak B(Z)}$ is the sum over the pairs of parallel bonds that \emph{both} lie in $\mathfrak B(Z)$. All omitted terms are non-negative. Convexity of the rectangle enters through the uniqueness of $b_x$.
+
+\emph{Step 2: a one-dimensional trace.} Let $b\in\mathfrak B_{\rm cr}(y')$ point in the direction $\pm e_\nu$ normal to the face. The parallel bonds $b_m=b\mp m\eta e_\nu$, $0\le m<\eta^{-1}$, lie in $\mathfrak B(Z)$, since $Z$ is a union of blocks and has side at least $1$. Consecutive ones form pairs of $\|\partial A\|_{\mathfrak B(Z)}$. Averaging $|A(b)|\le|A(b_m)|+\sum_{j<m}|A(b_j)-A(b_{j+1})|$ over $m$ and summing over the crossing bonds of $B(y')$ with weight $\eta^{d-1}$ gives
+\[
+\sum_{b\in\mathfrak B_{\rm cr}(y')}\eta^{d-1}|A(b)|\le C\big(\|A\|+\|\partial A\|_{\mathfrak B(Z)}\big)_{B(y')^{(1)}},
+\]
+by Cauchy--Schwarz on a region of bounded volume.
+
+\emph{Step 3: localization.} Let $\chi$ be a smooth cutoff at unit scale, equal to $1$ on $B(y')^{(1)}$ and supported in $B(y')^{(2)}$, and put $(\chi A)(b)=\chi(b_-)A(b)$. Then $\chi A\in\ell^2_1(Z)$. Moreover $d(\chi A)-\chi\,dA$ and $d^*_Z(\chi A)-\chi\,d^*_ZA$ are sums of differences of $\chi$ times shifted values of $A$, bounded by $C\|A\|_{B(y')^{(2)}}$. Apply Steps~1 and~2 to $\chi A$.
+
+\emph{Step 4: the background.} All quantities in the lemma are invariant under real gauge transformations. By regularity, on a cube containing $B(y')^{(3)}$ (the regularity cubes have half-side $4M+2\ge6$) there is a real gauge with $U=e^{\ii\eta A_0}$ satisfying (B). There, applying Lemma~\ref{lem:cov-expansion} in this local gauge, $D=\partial+T$ and $D^T=\partial^*+T^T$, with $T$ local and $|T|\le C\eps$. So $\|d(\chi A)\|\le\|D(\chi A)\|+C\eps\|\chi A\|$, and similarly for $d^*_Z$. Finally, $\|D(\chi A)\|\le\|DA\|_{B(y')^{(2)}}+C\|A\|_{B(y')^{(2)}}$ by the Leibniz rule for $D$, and similarly for $D^T_Z$. For complex perturbations, $D_{U_\delta}=D_U+T_\delta$ with $T_\delta$ local of size $C\delta_c$ (Proposition~\ref{prop:reg-complex}).
+\end{proof}
+
+The continuum analogue is the Gaffney--Friedrichs inequality for fields with vanishing tangential trace on a convex domain. On a rectangle the lattice version is an exact identity. The exterior divergence cancels exactly against the outward normal jumps. The remaining boundary terms, the tangential jumps, are non-negative and are dropped. At re-entrant corners the uniqueness of $b_x$, and with it the inequality, would fail, as in the continuum.
+
+\begin{lemma}[Cut term]\label{lem:cut-term}
+Let $Z$ be a rectangle in the sense of Lemma~\ref{lem:trace}. Then, for scalar $\lambda$ on $\Tf$,
+\[
+\|\bG^{Z}c_Z(\lambda)\|_{B(y)}+\|D\bG^{Z}c_Z(\lambda)\|_{B(y)}+\|D^T_Z\bG^Zc_Z(\lambda)\|_{B(y)}\le C\sum_{y'}e^{-\gamma_1|y-y'|}|\lambda|_{B(y')^{(1)}},
+\]
+the sum running over the blocks $y'$ of $Z$ meeting $\partial Z$. The neighbourhood $B(y')^{(1)}$ is needed because $c_Z(\lambda)$ takes $\lambda$ at the exterior endpoint of the crossing bonds. Consequently, $\one_{\ell^2_1(Z)}D$ followed by $\varphi\bG^Z$ satisfies the bound $2\to3$ of Lemma~\ref{lem:int-factors} at blocks of $Y_j$, also for $\varphi\equiv1$, with a far part in $\mathfrak n^2$ instead of $\mathfrak n^0$ at the blocks meeting $\partial Z$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:cut-term}
+\emph{$L^2$ input.} Theorem~\ref{thm:reg-gauge}(a), proved with Combes--Thomas in the norm $\tn\cdot_{X,+}$, gives decay $(C,\gamma_0)$ for all operators $P\,\bG^X Q$ with $P\in\{1,D,D^T_X\}$ and $Q\in\{1,D^T,D\one_X\}$. For $Q=D\one_X$ this uses $\langle u,D\one_Xg\rangle=\langle D^T_Xu,g\rangle\le\tn u_X\|g\|$.
+
+\emph{Proof of the bound.} For a field $u$, $\|u\|_{B(y)}$ is the supremum of $|\ip wu|=|\mathrm b(w^*,u)|$ over the fields $w$ supported in $B(y)$ with $\|w\|\le1$. Here $w^*$ is the pointwise adjoint, which has the same support and norm. The operator $\bG^Z$ is symmetric for the bilinear form $\mathrm b$. At real references this is its symmetry, since $\mathrm b$-transposes of real operators are their adjoints on real fields. At complex references the kernel of $\bG^Z$ is holomorphic in the perturbation, and the identity $(\bG^Z)^T=\bG^Z$ extends from the real points by the identity theorem, as in step~(iii) of the proof of Proposition~\ref{prop:complex-ext}. Hence $\mathrm b(w^*,\bG^Zc_Z(\lambda))=\mathrm b(\bG^Zw^*,c_Z(\lambda))$, and similarly with $D^Tw^*$ and $D\one_Zw^*$ for the derivatives. Moreover $|\mathrm b(v,c_Z(\lambda))|\le C\sum_b\eta^{d-1}|v(b)|\,|\lambda|$, the sum running over the crossing bonds, with $\lambda$ taken at their exterior endpoints. Apply Lemma~\ref{lem:trace} to $v=\bG^Zw^*$, respectively $\bG^ZD^Tw^*$ and $\bG^ZD\one_Zw^*$. This needs $\tn v_Z$ near the crossing blocks, which the $L^2$ input just stated provides, with exponential decay.
+
+\emph{The consequence.} Write $\lambda=\lambda_{\rm in}+\lambda_{\rm cut}$ with a smooth cutoff, so that $\lambda_{\rm in}$ vanishes within distance $2$ of $\Tf\setminus Z$ and $\lambda_{\rm cut}$ is supported within distance $3$ of it. The source $D(\one_Z\lambda_{\rm in})$ is covered by Lemma~\ref{lem:int-factors}. At $y\in Y_j$, the source $D(\one_Z\lambda_{\rm cut})+c_Z(\lambda)$ is far. It enters only through the $L^2$ decay of $\{1,D,D^T_Z\}\bG^ZD\one_Z$ and the bound just proved, i.e.\ as a far part. That far part is of tier $0$ for $\lambda_{\rm cut}$, and is bounded by $|\lambda|$ for $c_Z$.
+\end{proof}
+
+A far part in $\mathfrak n^2$ is harmless in global tier norms. It is used only in Theorem~\ref{thm:tier-walk}(b) and Proposition~\ref{prop:nl-tiers}, where the input is globally of tier~$2$.
+
+\subsection{The scalar levels on domains: lifting}\label{ss:44.3}
+
+The middle factors of the non-local part at level~(L3) contain the scalar walks of the levels (L1), (L2) on $\Tf$ and on the local domains. In the steps they act on fields that are controlled only in $L^2$ near the cuts. The following lemma bounds these walks in split form: regularity of the input is needed only near the output block, and only for the term without steps.
+
+\begin{lemma}[Lift lemma]\label{lem:lift}
+Let $Z$ be a domain, and let $G'^Z(s)$, $P^Z_\cV(s)$ and $R_Z(s)$ be the weakened families of the levels (L1), (L2) on $Z$ (Section~\ref{sec:nested-walks}), with $M\ge M_1$ of Theorem~\ref{thm:weak-inverse} at these levels, at the weakening rate $\kappa+\delta$, and $(\rho-1)M\ge16$. Let $Y=Z_{(24)}$. The following split tier bounds hold on $Y$, with radius $8$, near tier as indicated and far tier~$0$, rate $2\gamma_0$, and constants $C(\kappa,\delta)$ at $\kappa$, the families being evaluated at $\kappa+\delta$:
+\begin{enumerate}[label=(Z\arabic*)]
+\item $G'^Z(s)\colon1\to2$ (values), and $DG'^Z(s)\colon1\to1$. Only the term of the walk without steps uses the near part;
+\item $P^Z_\cV(s)\colon0\to2$ (values), and $DP^Z_\cV(s)\colon0\to1$;
+\item $R_Z(s)\colon t\to t$ for $t\in\{0,\frac12,1,2\}$. Here, inside products, $R_Z(s)=\one_Z-P^Z_\cV(s)$ with the literal identity, which needs no monomial. No tier bound is claimed for $R_Z(s)$ standing alone. It is used alone only in $L^2$, with its identity split box by box (Section~\ref{sec:weakenable}), and that split does not preserve tiers.
+\end{enumerate}
+For a domain $X'$, the differences $\one_{X'}O^{\Tf}(s)\one_{X'}-O^{X'}(s)$, for the families $O$ of (Z1)--(Z3), satisfy the same bounds in seam form on $X'_{(24)}$, with rate $\gamma_0$ and the seam $\Sigma_w(\Tf,X')$. Here $\gamma_0$ is the rate of level~(L3), fixed in the paragraph \emph{Rates} below; the lemma is used only at that level. The constants do not depend on $M$, $k$, $n$, $\eta$ or the background.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:lift}
+\emph{Structure of the terms.} At level~(L1), $\mathfrak N=0$ and $\mathcal A=0$. A term of $G'^Z(s)$ with $n$ steps is a product $\Phi_0\Phi_1\cdots\Phi_n$ with $\Phi_0=\mathcal F_0=\sum_js^{X(j)}h_jG'_j$, $G'_j=G'_{\Lam^v_j\cap Z}$, and $\Phi_i=\mathcal B$ for $i\ge1$. As in the proof of Theorem~\ref{thm:tier-walk} (local parts), the derivative in front of $D^T(\varphi G'_j)$ is expanded onto $G'_j$. So $\mathcal B$ is a sum of terms $s^{X(j)}\varphi'G'_j$, $s^{X(j)}\varphi DG'_j$ and $s^{X(j)}[aQ'^TQ',h_j]G'_j$, up to shifts by at most $\eta$, with $\varphi',\varphi$ supported in $K_j^{(1)}$, $|\partial^k\varphi'|\le CM^{-2}$ and $|\partial^k\varphi|\le CM^{-1}$ for $k\le2$. Similarly $D\mathcal F_0=\sum_js^{X(j)}(h_jDG'_j+[D,h_j]G'_j)$, where $[D,h_j]$ is a multiplication by differences of $h_j$, up to a shift. The rates of the levels (L1), (L2) are at least $32\gamma_0$ (paragraph \emph{Rates}), so all bounds below hold at rate $2\gamma_0$, and their seam forms at rate $\gamma_0$.
+
+\emph{Interior blocks.} Let $y\in Z_{(16)}$ be within distance $2$ of $K_j$. The blocks within distance $8$ of $y$ are at distance more than $4$ from $\Tf\setminus Z$, and, since $K_j$ is at $\infty$-distance at least $(\rho-1)M-1\ge15$ from $\Tf\setminus\Lam^v_j$, also from $\Tf\setminus\Lam^v_j$. So $y\in Y_j$ for $Z_j=\Lam^v_j\cap Z$. At blocks farther from $K_j$ the $j$-terms of $\mathcal F_0$, $D\mathcal F_0$ and $\mathcal B$ vanish. Hence, by Lemmas~\ref{lem:int-factors} and~\ref{lem:endpoint-factors}, every term of these families satisfies on $Z_{(16)}$, with radius $5$ (the shifts cost $1$),
+\[
+\mathcal F_0\colon\tfrac12\to2\ (\text{values}),\qquad D\mathcal F_0\colon\tfrac12\to1,\qquad\mathcal B\colon0\to\tfrac12 .
+\]
+For the averaging terms of $\mathcal B$ this holds at every block, by Lemma~\ref{lem:endpoint-factors} and $\mathfrak n^{1/2}\le\mathfrak n^1$. The split norms $\|\cdot\|^{\rm sp}_{\kappa+\delta,2\gamma_0}$ of $\mathcal F_0$ and $D\mathcal F_0$ are at most $Ce^{(\kappa+\delta)\mathsf N_{\rm b}}\max(C_T,C_G)$, and that of $\mathcal B$ at most $Ce^{(\kappa+\delta)\mathsf N_{\rm b}}\max(C_T,C_G)M^{-1}+\theta$, with $\theta$ of Lemma~\ref{lem:step-small} at level~(L1). Here $C$ includes the number of $j$ with $\Box\subset X(j)$.
+
+\emph{(Z1).} The term without steps is $\mathcal F_0$, respectively $D\mathcal F_0$. It maps $\frac12\to2$ (values), respectively $\frac12\to1$, and hence $1\to2$, respectively $1\to1$, since $\mathfrak n^{1/2}\le\mathfrak n^1$. A term with $n\ge1$ steps is $\Phi_0\Phi_1(\Phi_2\cdots\Phi_n)$. Apply Lemma~\ref{lem:split-chain} with $m=2$: $\Phi_0$ in $\frac12\to2$ (values), respectively $D\Phi_0$ in $\frac12\to1$, on $Z_{(24)}$; $\Phi_1$ in $0\to\frac12$ on $Z_{(16)}$; and $\Phi_2,\dots,\Phi_n$ in the decay norm. The blocks within distance $5$ of $Z_{(24)}$ lie in $Z_{(16)}$. The result is a bound $0\to2$, respectively $0\to1$, with no near part, and
+\[
+\|\Phi_0\cdots\Phi_n\|^{\rm sp}_{\kappa,2\gamma_0}\le3(n+1)\big(C_d\delta^{-2}\|\mathcal F_0\|^{\rm sp}_{\kappa+\delta,2\gamma_0}\big)\big(C_d\delta^{-2}\|\mathcal B\|^{\rm sp}_{\kappa+\delta,2\gamma_0}\big)\big(C_d\delta^{-2}\theta\big)^{n-1}.
+\]
+The sum over $n$ converges under the condition $2C_d\delta^{-2}\theta\le\frac12$ of Theorem~\ref{thm:weak-inverse}(a), which holds for $M\ge M_1$. The near part enters only through the term without steps, with radius $5\le8$.
+
+\emph{(Z2).} $P^Z_\cV(s)=G'^Z(s)Q'^T(M'^Z)^{-1}(s)Q'G'^Z(s)$ is a product of weakenable families and local operators (Section~\ref{sec:nested-walks}, (L2)). The family $Q'G'^Z(s)$ maps $L^2$ to coarse fields, with a decay norm bounded by (L1), and $(M'^Z)^{-1}(s)$ is a unit-lattice family bounded by (L2). For coarse fields all tiers are $|\omega(y)|$. The operator $Q'^T$ maps them to fields that are bounded on each block, with $\mathfrak n^1_y(Q'^T\omega)\le|Q'^T\omega|_{B(y)}\le C|\omega(y)|$. So $Q'^T(M'^Z)^{-1}(s)Q'G'^Z(s)$ maps $0\to1$ at every block, with no near part. Lemma~\ref{lem:split-chain} with $m=2$, with (Z1) for $G'^Z(s)$, respectively $DG'^Z(s)$, on $Z_{(24)}$, gives (Z2).
+
+\emph{(Z3).} At blocks of $Z_{(24)}$ the identity preserves all tiers, and $P^Z_\cV(s)$ maps $0\to2$, hence $0\to t$ for $t\le2$, by (Z2).
+
+\emph{Seams.} Telescope the differences as in the proof of Theorem~\ref{thm:weak-inverse}(b), on $\Tf$ and on $X'$. Each difference is a sum of products with one distinguished factor, and the sum over its position is absorbed as there. Let $y\in X'_{(24)}$.
+\begin{itemize}
+\item Let the distinguished factor be $\Phi_0$ or $\Phi_1$, and a difference of local propagators: $\varphi(G'_{Z_1}-G'_{Z_2})$, $\varphi D(G'_{Z_1}-G'_{Z_2})$ or the averaging commutator of such a difference, with $Z_1=\Lam^v_{j'}$, $Z_2=\Lam^v_{j'}\cap X'$, between factors $\one_{X'}$. Its argument $f$ is supported in $X'$, so $\one_{Z_1}f=\one_{Z_2}f$. Hence $\delta v=(G'_{Z_1}-G'_{Z_2})f$ satisfies $D^TD\delta v=-aQ'^TQ'\delta v$ at the points of $Z_2$ away from $\Tf\setminus Z_2$. At the blocks within distance $5$ of $y$ where $\varphi\ne0$, the cube $\Lam_4$ around the block consists of such points. Proposition~\ref{prop:scalar-interior}, first bound, with the source $-aQ'^TQ'\delta v$, bounds $\mathfrak n^3$ of $\delta v$ at such a block $y'$ by $C\sum_{|y''-y'|_\infty\le4}\|\delta v\|_{B(y'')}$. By Theorem~\ref{thm:reg-scalar}(e) these $L^2$ norms are of seam form, for a seam contained in $\Sigma_w(\Tf,X')$. So this factor maps $0\to2$ in seam form, with no near part. The factors to its left are then bounded as in (Z1), by the seam version of Lemma~\ref{lem:split-chain}.
+\item Let the distinguished factor be a difference at a position $k\ge2$. It is of seam form in $L^2$, as in the proof of Theorem~\ref{thm:weak-inverse}(b). Then $\Phi_1\colon0\to\frac12$ and $\Phi_0\colon\frac12\to2$, respectively $\frac12\to1$, act as in (Z1), and the seam version of Lemma~\ref{lem:split-chain} composes.
+\item Let the distinguished factor be a cross term $\one_{X'}\Phi_k\one_{\Tf\setminus X'}$ or a factor whose local domain $\Lam^v_{j'}\cap X'$ is empty. It is supported, on its input or on its output side, within distance $r_0+1\le3$ of $\Tf\setminus X'$, i.e.\ in the seam; here $r_0\le2$ is the range of the local part at level~(L1), since $Q'^TQ'$ is block-local. On the seam the seam norm at rate $\gamma_0$ is bounded by the norm at rate $2\gamma_0$. For $k\ge2$ the factor is treated as in the previous item. For $k\le1$, the blocks within distance $5$ of $y$ are at distance more than $16$ from this support. So the near part of the bound of $\Phi_0$ at $y$ does not see it, and the bound $0\to\frac12$ of $\Phi_1$ has no near part. Hence only far parts, i.e.\ $L^2$ norms, see the support, and the seam weight follows.
+\end{itemize}
+For (Z2), (Z3), telescope the product defining $P^Z_\cV(s)$. The distinguished factor is a difference of $G'^Z(s)$, bounded by the seam part of (Z1) with an input that is of tier~$1$ at every block, or a difference of $Q'G'^Z(s)$ or $(M'^Z)^{-1}(s)$, of seam form in $L^2$ by Theorem~\ref{thm:weak-inverse}(b) at (L1), (L2). The seam version of Lemma~\ref{lem:split-chain} composes.
+
+\emph{Constants.} They are products of $C_T$, $C_G$, the constants of the walks of (L1), (L2) in Theorem~\ref{thm:weak-inverse}, $e^{(\kappa+\delta)\mathsf N_{\rm b}}$ and powers of $\delta^{-1}$. None of them depends on $M$; the factors $M^{-1}$ in the norms of $\mathcal B$ only help.
+\end{proof}
+
+\subsection{Step bounds for the top-level walks}\label{ss:44.4}
+
+We now take $X=\Tf$ at the levels (L1) and (L3). Write $G_j$ for the local propagators on $\Lam^v_j$ and $u=G_jg$.
+
+\paragraph{Rates.} At each of these levels let $\gamma_0$ be at most:
+\begin{itemize}
+\item the rate of (W2), from Theorems~\ref{thm:reg-scalar} and~\ref{thm:reg-gauge};
+\item the rate $\gamma$ of Corollary~\ref{cor:lp-dirichlet}, which enters the far parts of Lemma~\ref{lem:int-factors};
+\item at (L3), $\frac1{32}$ of the smaller of the output and compatibility rates of the walks of (L1) and (L2) (Theorem~\ref{thm:weak-inverse}).
+\end{itemize}
+Then Lemmas~\ref{lem:int-factors} and~\ref{lem:endpoint-factors} hold with rate $\gamma_0/2$. At level~(L3) the inputs from the levels (L1), (L2) have rates at least $32\gamma_0$, so Lemmas~\ref{lem:lift} and~\ref{lem:N-tier} hold with rate $2\gamma_0$, and $\gamma_0$ in seam form, as (W3) requires. The walks are estimated with rate $\gamma=\gamma_0/8$. The rates decrease by fixed factors at each level. There are boundedly many levels, so the final rates are positive constants.
+
+\begin{lemma}[The non-local part]\label{lem:N-tier}
+Let $Z\in\{\Tf\}\cup\{\Lam^v_j\}$. At level~(L3), $\mathfrak N^Z(s)$ is the sum of the factorized terms $X_i^TM_i^Z(s)Y_i$ listed in the proof, with $X_i^T\in\{1,D^T\}$ and $Y_i\in\{D^T_Z,D,1\}$. Each middle factor $M_i^Z(s)$ is a product of the weakened scalar families $G'^Z(s)$, $R_Z(s)$, $P^Z_\cV(s)$ of (L1), (L2), with the derivatives $D$, $D^T$ attached to them, and of the local operators $\mathfrak F$, $\mathfrak F^T$ and $W$ of order~$0$. A left gradient belongs to the middle factor and falls on a scalar family. The operators $\mathfrak F$, $\mathfrak F^T$ and $W$ enter only as multiplication operators between such families, so bounds on $M_i^Z(s)$ need only the sup norms and H\"older quotients of their coefficients, never their derivatives.
+
+Let $W=0$, and let $M$ satisfy the conditions of Lemma~\ref{lem:lift} at $\kappa+\delta$. Then the middle factors satisfy the following split tier bounds on $Z_{(48)}$, with radius $R_N=24$, near tier as indicated and far tier~$0$, rate $2\gamma_0$, and constants $C'_{\mathfrak N}(\kappa,\delta)$ at $\kappa$:
+\begin{enumerate}[label=(N\arabic*)]
+\item if $X_i^T=1$, then $M_i^Z(s)\colon1\to1$; for the term $-DP_\cV D^T$, $M_i^Z(s)=DP^Z_\cV(s)\colon0\to1$;
+\item if $X_i^T=D^T$, then $M_i^Z(s)=\mathfrak FG'^Z(s)R_Z(s)\colon1\to2$;
+\item for $X'=\Lam^v_j$, the differences $\one_{X'}M_i^{\Tf}(s)\one_{X'}-M_i^{X'}(s)$ satisfy the bounds of (N1), (N2) in seam form on $X'_{(48)}$, with rate $\gamma_0$ and the seam $\Sigma_w(\Tf,X')$.
+\end{enumerate}
+In (N2) the $\beta$-H\"older quotients of the coefficients of $\mathfrak F$ enter; elsewhere only sup norms. The constants $C'_{\mathfrak N}(\kappa,\delta)$ do not depend on $M$, $k$, $n$, $\eta$ or the background.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:N-tier}
+By Section~\ref{sec:nested-walks}, (L3), and $(\mathfrak BDS)^T=S^T(\mathfrak F^TD+D^TW)$ with $S^T=DRG'$, the terms of $\mathfrak N$ are the following (all on $Z$, at $s$). As in Section~\ref{sec:nested-walks}, a left gradient $D$ is part of the middle factor.
+\begin{enumerate}[label=(\roman*)]
+\item $-DP_\cV D^T$: $X^T=1$, $M=DP_\cV$, $Y=D^T$.
+\item $-D^T\mathfrak FS$ and $-WDS$, with $S=G'RD^T$: here $X^T=D^T$, respectively $X^T=1$, $Y=D^T$, and $M=\mathfrak FG'R$, respectively $M=WDG'R$.
+\item $-DRG'\mathfrak F^TD$ and $-DRG'D^TW$: $X^T=1$, $M=DRG'\mathfrak F^T$, respectively $M=DRG'D^TW$, and $Y=D$, respectively $Y=1$.
+\item $S^TD^T\mathfrak BDS=DRG'\big(\mathfrak F^T\mathfrak F+D^TWD\big)G'RD^T$: $X^T=1$, $M=DRG'\mathfrak F^T\mathfrak FG'R+(DRG'D^T)\,W\,(DG'R)$, $Y=D^T$.
+\end{enumerate}
+In each middle factor the derivatives stand next to the scalar families: $DR=D-DP_\cV$, $DG'$, $G'D^T$ and $DG'D^T$. The factors $\mathfrak F$, $\mathfrak F^T$ and $W$ stand between them.
+
+\emph{The tier bounds.} Let $W=0$, so that the terms containing $W$ vanish. Inside the middle factors, $R=\one_Z-P_\cV$ and $DR=D-DP_\cV$ with the literal identity (Lemma~\ref{lem:lift}(Z3)). The operators $\mathfrak F$ and $\mathfrak F^T$ are multiplications by the coefficients $c_{\mu\nu}$ of Lemma~\ref{lem:curvature}, or their transposes, composed with shifts by at most $2\eta$. In the local gauge, $|c_{\mu\nu}|\le C\eps$ and $[c_{\mu\nu}]_{\beta,\Lam_1(c_y)}\le C[c_{\mu\nu}]_{\alpha,\Lam_3(c_y)}\le C\eps$, since $\beta\le\alpha$. So $\mathfrak F$ and $\mathfrak F^T$ satisfy the bounds $t\to t$, $t\in\{0,1\}$, and $\mathfrak F$ also $2\to2$, at every block, with radius $1$, no far part and constant $C\eps$; for $2\to2$ use the Leibniz rule for the H\"older quotient. Let $y\in Z_{(48)}$. In each product below the radii of the factors add up to at most $17$, so the near blocks of every factor of the walks lie in $Z_{(31)}\subset Z_{(24)}$, where Lemma~\ref{lem:lift} applies. So the inclusions of Lemma~\ref{lem:split-chain} hold, with the sets $Z_{(48-r)}$, $r$ the sum of the radii of the factors to the left. Local operators are composed term by term with Lemma~\ref{lem:tier-calculus}(c) and Lemma~\ref{lem:weak-local-ops}(a).
+\begin{itemize}
+\item[(i)] $DP_\cV\colon0\to1$, by (Z2).
+\item[(ii)] $\mathfrak FG'R=\mathfrak FG'-\mathfrak FG'P_\cV$. By (Z1), $G'\colon1\to2$ (values) with radius $8$, and by (Z1), (Z2), $G'P_\cV\colon0\to2$. Then $\mathfrak F\colon2\to2$ gives $1\to2$ with radius $9$. This is (N2).
+\item[(iii)] $DRG'\mathfrak F^T=DG'\mathfrak F^T-DP_\cV G'\mathfrak F^T$. By (Z1), $DG'\colon1\to1$ with radius $8$, and $\mathfrak F^T\colon1\to1$ with radius $1$. By (Z2), $DP_\cV\colon0\to1$, and $G'\mathfrak F^T$ is measured in the decay norm. So $M\colon1\to1$ with radius $9$.
+\item[(iv)] $DRG'\mathfrak F^T\mathfrak FG'R$. Expand both factors $R$. The term $DG'\mathfrak F^T\mathfrak FG'$ maps $1\to1$ with radius at most $17$: the inner $G'\colon1\to2\subset1$ (values), $\mathfrak F^T\mathfrak F\colon1\to1$, and the outer $DG'\colon1\to1$. In the three terms containing $P_\cV$, either the left factor is $DP_\cV\colon0\to1$, followed by factors in the decay norm, or the right factor is $G'P_\cV\colon0\to2$, followed on the left by $\mathfrak F^T\mathfrak F$ and $DG'$. These terms map $0\to1$.
+\end{itemize}
+This gives (N1) and (N2), with radius at most $17\le R_N$. The decay norms of the middle factors are bounded by (W3). Lemma~\ref{lem:split-chain} sums the terms of the families. The number of products is bounded, so $C'_{\mathfrak N}(\kappa,\delta)$ is a product of constants of Lemma~\ref{lem:lift} and of $C\eps\le C$, and does not depend on $M$.
+
+\emph{Seams.} The middle factors on $X'$ are built in the same way from the families on $X'$. Telescope the differences as in the proof of Theorem~\ref{thm:weak-inverse}(b). Each product contains one distinguished factor: a difference of one of the families of Lemma~\ref{lem:lift}, bounded by its seam part on $X'_{(24)}$, or a cross term $\one_{X'}F(\one_{\Tf}-\one_{X'})$, supported on the seam, where the seam norm at rate $\gamma_0$ is bounded by the norm at rate $2\gamma_0$. The operators $\mathfrak F$, $\mathfrak F^T$ have range $1$, and they agree on the two domains at the points of $X'$ away from the seam. The seam version of Lemma~\ref{lem:split-chain} composes, with the other factors at rate $2\gamma_0$. This gives (N3).
+\end{proof}
+
+\paragraph{Local and non-local parts.} Write the step operator of the walk at level~(L3) on $\Tf$ as in Section~\ref{sec:nested-walks},
+\[
+\mathcal R(s)=D^T\mathcal A(s)+\mathcal B(s),\qquad\mathcal A=\mathcal A^{\rm loc}+\mathcal A^{\rm nl},\qquad\mathcal B=\mathcal B^{\rm loc}+\mathcal B^{\rm nl}.
+\]
+The local parts collect the terms that come from the local commutators $[\fA_{\rm loc},h_j]G_j$. The non-local parts collect those that come from the non-local commutators $[\mathfrak N(s),h_j]G_j$ and from the seam terms $h_j\one_{X'}(\mathfrak N(s)-\mathfrak N^{X'}(s))\one_{X'}G_j$, $X'=\Lam^v_j$. All of them are taken in the regrouped form of the proof of Lemma~\ref{lem:step-small}. At level~(L1) there are no non-local parts, and $\mathcal A=0$. The local parts are bounded in tier norms by Lemma~\ref{lem:int-factors} (proof of Theorem~\ref{thm:tier-walk} below).
+
+The non-local parts are where the Dirichlet cuts enter. Their middle factors (Lemma~\ref{lem:N-tier}) contain the scalar walks of (L1), (L2), on $\Tf$ and on the local domains, and in the step they act on $Y_iG_jg$, a field that is controlled only in $L^2$ near $\partial\Lam^v_j$. By Lemma~\ref{lem:N-tier} the middle factors need regularity of their input only near the output block. The commutators with $h_j$ and the seam terms restrict either the output, or the near part of the input, to a neighbourhood of $K_j$, where $Y_iG_jg$ is regular.
+
+\begin{proposition}[The non-local parts of the steps]\label{prop:nl-tiers}
+Let $\beta=\min(\alpha,\frac12)$ as in the Setting. Let $\gamma_0$ be the rate of level~(L3), $\gamma=\gamma_0/8$, and let $\kappa$, $\delta$ and $\rho$ be as in Section~\ref{sec:nested-walks}. Put
+\[
+\begin{aligned}
+\theta_{\mathfrak N}(\kappa)&=Ce^{\kappa\mathsf N_{\rm b}}\delta^{-1}\big((\gamma_0M)^{-1}+e^{-\gamma_0(\rho-1)M/16}\big)C'_{\mathfrak N}(\kappa+\delta,\delta)\max(C_T,C_G)^2,\\
+C^D_{\mathfrak N}(\kappa)&=Ce^{\kappa\mathsf N_{\rm b}}\delta^{-1}C'_{\mathfrak N}(\kappa+\delta,\delta)\max(C_T,C_G)^2,
+\end{aligned}
+\]
+with $C'_{\mathfrak N}$ of Lemma~\ref{lem:N-tier}, $C_T\ge1$ of Lemmas~\ref{lem:int-factors} and~\ref{lem:endpoint-factors}, $C_G\ge1$ of (W2), and $C$ depending only on $d$, $\rho$, $C_v$ and $\dim\mathfrak g$. Let
+\[
+M_{\mathfrak N}=\max\big(M_1,\ 16(r+1),\ (2R_N+22)/(\rho-1)\big),
+\]
+where $M_1$ is that of Theorem~\ref{thm:weak-inverse} at the levels (L1), (L2), with the rates of Section~\ref{sec:nested-walks}, at the weakening rate $\kappa+3\delta$: Lemma~\ref{lem:N-tier} at $\kappa+\delta$ uses Lemma~\ref{lem:lift} at $\kappa+2\delta$, whose products use the walks at $\kappa+3\delta$. Further, $R_N=24$ is the radius of Lemma~\ref{lem:N-tier}, and $r$ is the largest margin of the weakened families used. In $M_1$ the multiplicative constants of Part~IX are multiplied by~$2$; the coercivity constants are the fixed ones of Proposition~\ref{prop:complex-ext}, and every decay bound that enters is taken at the fixed rate of the differences there, a quarter of the minimum of the perturbation rate and the two chosen inverse decay rates in Lemma~\ref{lem:perturbed-inverse}; neither depends on $\delta_c$, so the same numbers serve at real and at complex references (Proposition~\ref{prop:complex-ext}, step~(vii) of the proof). By that proposition the doubled constants bound their worst case over complex references of size $\delta_c<\delta_P$, since $\delta_P\le\bar\delta\le1/C_{\rm cx}$ (Remark~\ref{rem:domain-constants}). So $M_{\mathfrak N}$ does not depend on $\bar\delta$.
+
+Let $M\ge M_{\mathfrak N}$, and let the background be real and $(M,\eps)$-regular, with $\eps$ below the thresholds of Sections~\ref{sec:interior}, \ref{sec:nested-walks} and~\ref{sec:interior-lp}. Let $W=0$, and let $\mathcal A^{\rm nl}$, $\mathcal B^{\rm nl}$ be the non-local parts of the steps at level~(L3) on $\Tf$, with the factorization of Lemma~\ref{lem:N-tier}. Then, in global tier norms,
+\[
+\|\mathcal A^{\rm nl}\|^{1\to2}_{\kappa,\gamma}+\|\mathcal A^{\rm nl}D^T\|^{1\to2}_{\kappa,\gamma}+\|\mathcal B^{\rm nl}\|^{1\to1}_{\kappa,\gamma}+\|\mathcal B^{\rm nl}D^T\|^{1\to1}_{\kappa,\gamma}\le\theta_{\mathfrak N}(\kappa),
+\]
+and, on scalar data, $\|\mathcal A^{\rm nl}D\|^{2\to2}_{\kappa,\gamma}+\|\mathcal B^{\rm nl}D\|^{2\to1}_{\kappa,\gamma}\le C^D_{\mathfrak N}(\kappa)$. The numbers $C^D_{\mathfrak N}(\kappa)$ and $M\theta_{\mathfrak N}(\kappa)$ are bounded independently of $M$, $k$, $n$, $\eta$ and the background. In particular $\theta_{\mathfrak N}(\kappa)\to0$ as $M\to\infty$, for fixed $L,\kappa,\delta,\rho,\alpha$.
+\end{proposition}
+
+\paragraph{Reading the statement.} The background of Proposition~\ref{prop:nl-tiers} is real. The sentences of its first paragraph from ``In $M_1$ the multiplicative constants'' to ``does not depend on $\bar\delta$'' concern complex references; they fix $M_{\mathfrak N}$ so that it serves there as well. Read them after Proposition~\ref{prop:complex-ext}; Remark~\ref{rem:complex-in-44} explains them.
+
+\begin{proof}\hasdetail{prop:nl-tiers}
+Fix $j$, put $X'=\Lam^v_j$, and let $G_j=\bG^{X'}$. By Lemma~\ref{lem:parametrix-X} and the regrouping in the proof of Lemma~\ref{lem:step-small}, the non-local parts of the step term of $j$ are, for each term $X_i^TM_iY_i$ of $\mathfrak N(s)$ listed in Lemma~\ref{lem:N-tier}, with $M_i=M_i^{\Tf}(s)$,
+\[
+\begin{gathered}
+X_i^T[M_i,h_j]Y_iG_j,\qquad[X_i^T,h_j]M_iY_iG_j,\qquad X_i^TM_i[Y_i,h_j]G_j,\\
+h_jX_i^T\big(\one_{X'}M_i\one_{X'}-M_i^{X'}(s)\big)Y_iG_j .
+\end{gathered}
+\]
+Here $Y_i\in\{D^T_{X'},D\}$, since $W=0$, and each part carries the monomial $s^{X(j)}$ times that of the term of $M_i$. Only the term~(ii), with $M_i=\mathfrak FG'R$, has $X_i^T=D^T$. In its first and third parts the left $D^T$ stays in front. In its fourth part write $h_jD^T=D^Th_j-[D^T,h_j]$. So $\mathcal A^{\rm nl}$ consists of $[M_i,h_j]Y_iG_j$, $M_i[Y_i,h_j]G_j$ and $h_j(\one_{X'}M_i\one_{X'}-M_i^{X'})Y_iG_j$ for the term~(ii), and must map $1\to2$. $\mathcal B^{\rm nl}$ consists of all the other parts, including the parts with $[D^T,h_j]$ in front, and must map $1\to1$. The versions with $D^T$, respectively $D$, on the right have $G_jD^T$, respectively $G_jD$, in place of $G_j$. We write $b=2$ for the term~(ii) and $b=1$ otherwise. The bounds of Steps~1--6 are proved for one term $F$ of $M_i$, or of the difference in the fourth part. They are summed in Step~7.
+
+\emph{Step 1: the input.} Let $g$ be of tier~$1$, i.e.\ let $\mathfrak n^1_{y'}(g)$ be finite at every block, and put $u=Y_iG_jg$.
+\begin{enumerate}[label=(\alph*)]
+\item At every block $y'$ of $(\Lam^v_j)_{(16)}$, $G_jg$ is of tier~$3$ and $u$ of tier~$2$:
+\[
+\mathfrak n^3_{y'}(G_jg)+\mathfrak n^2_{y'}(u)\le\sum_{y''}k_1(y',y'')\,\mathfrak n^1_{y''}(g).
+\]
+This is the entry $1\to3$ of Lemma~\ref{lem:int-factors} with $\varphi\equiv1$, i.e.\ Corollary~\ref{cor:lp-dirichlet}(a) with $p=2d$, together with $\mathfrak n^2_{y'}(\nabla h)\le C\mathfrak n^3_{y'}(h)$. Here $(\Lam^v_j)_{(16)}\subset Y_j$; $u$ is a linear combination of components of the full gradient of $G_jg$, which is controlled as in the proof of Lemma~\ref{lem:int-factors}; and the near and far parts are combined into the kernel $k_1$, since $\mathfrak n^0\le\mathfrak n^1$.
+\item At every block $y'$, $\mathfrak n^0_{y'}(u)\le\sum_{y''}k_0(y',y'')\,\mathfrak n^0_{y''}(g)$ with $k_0(y',y'')=\|\one_{y'}Y_iG_j\one_{y''}\|$, by (W2).
+\end{enumerate}
+The weighted row sums of $k_0$ and $k_1$ at rate $\gamma_0/2$ are at most $C\max(C_T,C_G)$. With $D^T$ on the right, $u=Y_iG_jD^Tg$, (a) holds with $\mathfrak n^2_{y'}(G_jD^Tg)+\mathfrak n^1_{y'}(u)$ on the left. This follows from the entries $1\to2$ (values) of $\varphi G_jD^T$ and $1\to1$ of $\varphi DG_jD^T$ with $\varphi\equiv1$; the latter holds for every first-order derivative, by (W2) and the control of the full gradient in the proof of Lemma~\ref{lem:int-factors}. Part (b) holds with the decay of $Y_iG_jD^T$.
+
+\emph{Step 2: inclusions.} The set $K_j$ is at $\infty$-distance at least $(\rho-1)M-1\ge2R_N+21$ from $\Tf\setminus\Lam^v_j$. Hence every block within distance $2R_N+2$ of $K_j$ lies in $(\Lam^v_j)_{(16)}$, and every block within distance $2$ of $K_j$ lies in $(\Lam^v_j)_{(48)}$.
+
+\emph{Step 3: the commutator with $M_i$.} Let $F$ be a term of $M_i$, and let $k,k'$ be the kernels of its bound $1\to b$ in Lemma~\ref{lem:N-tier}(N1), (N2), at rate $2\gamma_0$, with radius $R_N$. For $Z=\Tf$ this bound holds at every block. Let $y$ be a block.
+\begin{itemize}
+\item Let $y$ be at distance more than $R_N+2$ from $K_j$. Then $h_j$ vanishes on $\Lam_1(c_y)$ and on the blocks within distance $R_N$ of $y$. So $[F,h_j]u=F(h_ju)$ on $\Lam_1(c_y)$, and only the far part of the bound of $F$ enters:
+\[
+\mathfrak n^b_y([F,h_j]u)\le\sum_{y'}k'(y,y')\,\mathfrak n^0_{y'}(h_ju)\le CM^{-1}\sum_{y'}(1+|y-y'|)k'(y,y')\,\mathfrak n^0_{y'}(u),
+\]
+since $|h_j(x)|=|h_j(x)-h_j(c_y)|\le CM^{-1}|x-c_y|$.
+\item Let $y$ be within distance $R_N+2$ of $K_j$. Write $[F,h_j]u=F(\psi u)-\psi Fu$ with $\psi=h_j-h_j(c_y)$. As in the proof of Lemma~\ref{lem:tier-calculus}(d), multiplication by $\psi$ changes $\mathfrak n^t_{y'}$ by at most a factor $CM^{-1}(1+|y-y'|)$. The near part of the bound of $F$ involves $\mathfrak n^1_{y'}(u)$ at blocks within distance $R_N$ of $y$, hence within distance $2R_N+2$ of $K_j$. By Step~2 these blocks lie in $(\Lam^v_j)_{(16)}$, where Step~1(a) applies. The far part involves $\mathfrak n^0_{y'}(u)$, which Step~1(b) bounds.
+\end{itemize}
+With $(1+t)e^{-\gamma_0t}\le C\gamma_0^{-1}$, in both cases $[F,h_j]Y_iG_j$ satisfies a global tier bound $1\to b$ at rate $\gamma_0/2$, with constant
+\[
+C(\gamma_0M)^{-1}\big(|F|^{1\to b}_{2\gamma_0;R_N,\Tf}+|F|_{2\gamma_0}\big)\max(C_T,C_G).
+\]
+The same holds with $D^T$ on the right. Only the tier bounds are used; the decay norms in these constants, here and in Steps~4 and~5, are included for uniformity with Lemma~\ref{lem:split-chain}.
+
+\emph{Step 4: the commutators with $X_i^T$ and $Y_i$.} The commutators $[D^T,h_j]$ and $[Y_i,h_j]$ are multiplications by differences of $h_j$, composed with shifts by at most $\eta$. They have size $CM^{-1}$ and are supported in $K_j^{(1)}$.
+\begin{itemize}
+\item The field $[Y_i,h_j]G_jg$ is supported in $K_j^{(1)}$, where $G_jg$ is of tier~$3$, by Steps~1(a) and~2. So it is of tier~$1$ at every block, with the kernel $CM^{-1}k_1$. The bound $1\to b$ of $F$ holds at every block, so it is a global bound. Hence $X_i^TF[Y_i,h_j]G_j$ maps $1\to b$, with constant $CM^{-1}\big(|F|^{1\to b}_{2\gamma_0;R_N,\Tf}+|F|_{2\gamma_0}\big)C_T$. With $D^T$ on the right, $G_jD^Tg$ is of tier~$2$ on $K_j^{(1)}$, and the same holds.
+\item For the term~(ii), $[D^T,h_j]Fu$ vanishes at the blocks farther than $2$ from $K_j$. At the other blocks $y$, $\mathfrak n^1_y([D^T,h_j]Fu)\le CM^{-1}\sum_{|y'-y|_\infty\le1}\mathfrak n^2_{y'}(Fu)$. The near part of the bound of $F$ at $y'$ involves $u$ only within distance $R_N+3$ of $K_j$, where Step~1(a) applies. So this part maps $1\to1$, with constant $CM^{-1}\big(|F|^{1\to2}_{2\gamma_0;R_N,\Tf}+|F|_{2\gamma_0}\big)\max(C_T,C_G)$.
+\end{itemize}
+
+\emph{Step 5: the seam term.} Let $\Delta$ be a term of $\one_{X'}M_i\one_{X'}-M_i^{X'}(s)$, with the seam bound of Lemma~\ref{lem:N-tier}(N3) on $X'_{(48)}$, at rate $\gamma_0$, for the seam $\Sigma=\Sigma_w(\Tf,X')$; let $k_\Delta$, $k'_\Delta$ be its kernels and $c_\Delta$ its constant. Because of the factor $h_j$, and of $[D^T,h_j]$ for the term~(ii), only blocks $y$ within distance $2$ of $K_j$ contribute. By Step~2 they lie in $X'_{(48)}$. By \eqref{eq:rho-choice}, $d_\Sigma(y)\ge(\rho-1)M-1-2-w\ge\frac14(\rho-1)M-3$. So the seam weights give
+\[
+\sum_{y'}e^{\gamma_0|y-y'|}\big(k_\Delta+k'_\Delta\big)(y,y')\le e^{-\gamma_0d_\Sigma(y)}c_\Delta\le Ce^{-\gamma_0(\rho-1)M/4}c_\Delta .
+\]
+The near blocks lie within distance $R_N+2$ of $K_j$, where Step~1(a) applies, and the far part is bounded by Step~1(b). Multiplication by $h_j$ preserves the tiers, up to a constant, and $[D^T,h_j]$ is treated as in Step~4. So the seam parts satisfy a global bound $1\to b$ at rate $\gamma_0/2$, with constant $Ce^{-\gamma_0(\rho-1)M/4}\big(c_\Delta+|\Delta|_{\gamma_0,\Sigma}\big)\max(C_T,C_G)$. Finally $e^{-\gamma_0(\rho-1)M/4}\le e^{-\gamma_0(\rho-1)M/16}$.
+
+\emph{Step 6: an external $D$.} Let $\lambda$ be a scalar field of tier~$2$, and $u=Y_iG_jD\lambda$. Here $G_jD\lambda=\bG^{X'}\big(D(\one_{X'}\lambda)+c_{X'}(\lambda)\big)$ (paragraph \emph{Scalar gradients at the cut}). Step~1 holds with $\mathfrak n^2_{y''}(\lambda)$ in place of $\mathfrak n^1_{y''}(g)$ and of $\mathfrak n^0_{y''}(g)$:
+\begin{itemize}
+\item on $(\Lam^v_j)_{(16)}$, $G_jD\lambda$ is of tier~$3$, by the entry $2\to3$ of $\varphi\bG^{Z_j}D$ in Lemma~\ref{lem:int-factors} with $\varphi\equiv1$, and by Lemma~\ref{lem:cut-term} for the part of $\lambda$ near the cut, whose far part is in $\mathfrak n^2$;
+\item at every block, $\mathfrak n^0_{y'}(u)\le C\sum_{y''}e^{-\gamma_1|y'-y''|}\mathfrak n^2_{y''}(\lambda)$. This follows from the $L^2$ decay of $Y_i\bG^{X'}D\one_{X'}$ (proof of Lemma~\ref{lem:cut-term}), from the bound of Lemma~\ref{lem:cut-term} on $Y_i\bG^{X'}c_{X'}(\lambda)$, and from $|\lambda|_{B(y'')^{(1)}}\le\max_{|y'''-y''|_\infty\le1}\mathfrak n^2_{y'''}(\lambda)$.
+\end{itemize}
+Steps~3--5 then apply verbatim, and give the bounds $2\to2$ for the parts of $\mathcal A^{\rm nl}D$ and $2\to1$ for those of $\mathcal B^{\rm nl}D$, with the factors of Steps~3--5. These factors are bounded by constants; only a constant is claimed.
+
+\emph{Step 7: summation.} The bounds of Steps~3--6 hold for each term of $M_i$, with domain $X_\omega$, and each $j$. Such a part is non-zero only if $X_\omega^{(r)}$ meets $K_j^{(1)}$. As in the counting of Lemma~\ref{lem:step-small}, for a fixed $\omega$ at most $C\deg\omega$ values of $j$ contribute. This is absorbed by evaluating the middle factors at $\kappa+\delta$, at the cost of $C\delta^{-1}$. The monomial $s^{X(j)}$ costs $e^{\kappa\mathsf N_{\rm b}}$, and for a fixed box at most $C$ values of $j$ have $\Box\subset X(j)$, with $C$ depending only on $d$, $\rho$ and $C_v$. By Lemma~\ref{lem:N-tier}, the sums over $\omega$ of the split and seam norms of the middle factors at $\kappa+\delta$ are at most $C'_{\mathfrak N}(\kappa+\delta,\delta)$. Since $\gamma_0\le1$ and $C_T,C_G\ge1$, Steps~3--5 give $\theta_{\mathfrak N}(\kappa)$, and Step~6 gives $C^D_{\mathfrak N}(\kappa)$. The rate $\gamma_0/2$ of the bounds exceeds $\gamma=\gamma_0/8$.
+
+\emph{The thresholds.} Lemma~\ref{lem:N-tier} at $\kappa+\delta$ requires $M\ge M_1$ at $\kappa+3\delta$ and $(\rho-1)M\ge16$, for Lemma~\ref{lem:lift} at $\kappa+2\delta$. Step~2 requires $(\rho-1)M\ge2R_N+22$. Tier norms increase the margins by $1$, and weakenable families need margins at most $M/16$, so $M\ge16(r+1)$. These are the conditions in $M_{\mathfrak N}$. The constants $C$, $C'_{\mathfrak N}$, $C_T$, $C_G$ do not depend on $M$, so $C^D_{\mathfrak N}$ and $M\theta_{\mathfrak N}$ do not either.
+\end{proof}
+
+\begin{remark}[Scope of Proposition~\ref{prop:nl-tiers}]\label{rem:nl-scope}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{The potential.} Proposition~\ref{prop:nl-tiers}, and with it Theorem~\ref{thm:tier-walk} at level~(L3) and Theorem~\ref{thm:HC-pointwise}, are stated only for $W=0$ at level~(L3), where the terms of $\mathfrak N$ that contain $W$ vanish (Lemma~\ref{lem:N-tier}). This is the only case used: these results enter the note only through the weakened background map, whose operators have $W=0$ (Section~\ref{sec:weak-background}), and through its extension to complex references (Proposition~\ref{prop:complex-ext}(b),(d)). For $W\in\cW_{\rm loc}(\eps)$, $W\ne0$, a proof would need, in addition, tier bounds for $G'^Z(s)D^T$ on the local domains, for the middle factors $DRG'D^TW$ and $(DRG'D^T)W(DG'R)$, whose coefficients are only H\"older continuous, and the corresponding treatment of the term with $Y_i=1$. This has not been carried out.
+\item \emph{The exponent.} The tier exponent $\beta=\min(\alpha,\frac12)$ comes from the interior factors: (I1) at $p=2d=8$ gives $\beta\le1-\frac d8=\frac12$, and (I2) at $p=\frac83$ gives $\beta\le2-\frac dp=\frac12$. The H\"older quotients of the coefficients need $\beta\le\alpha$. The tier $L^4$ carries no H\"older exponent. The results of this section do not need $\alpha\le\frac12$. This restriction is imposed downstream, from Section~\ref{sec:weak-background} on, so that $\beta=\alpha$ and the outputs carry the exponent $\alpha$ of the graded domains. Lemma~\ref{lem:norm-conversion} uses $\alpha\le\frac12$ as well.
+\item \emph{The lift and the form of $\theta_{\mathfrak N}$.} In $d=4$ the lift of the scalar walks from tier~$0$ needs two interior factors, through the tier $L^4$ (Lemma~\ref{lem:endpoint-factors}). In $\theta_{\mathfrak N}$ the factor $(\gamma_0M)^{-1}$ comes from the commutators, and the exponential from the seams. Its constants do not depend on $M$.
+\end{enumerate}
+\end{remark}
+
+\begin{theorem}[Weakened walks in tier norms]\label{thm:tier-walk}
+Let $\mathcal F_0,\mathcal A,\mathcal B$ be the factors of Section~\ref{sec:nested-walks} at the levels (L1) and (L3) on $\Tf$. At level~(L3) let $W=0$. Then
+\[
+\|\mathcal A\|^{1\to2}_{\kappa,\gamma}+\|\mathcal AD^T\|^{1\to2}_{\kappa,\gamma}+\|\mathcal B\|^{1\to1}_{\kappa,\gamma}+\|\mathcal BD^T\|^{1\to1}_{\kappa,\gamma}\le\theta'(\kappa),
+\]
+with $\gamma=\gamma_0/8$ and
+\[
+\theta'(\kappa)=Ce^{\kappa\mathsf N_{\rm b}}\max(C_T,C_G)C_{\rm loc}M^{-1}+\theta_{\mathfrak N}(\kappa),
+\]
+where $\theta_{\mathfrak N}=0$ at level~(L1) and $\theta_{\mathfrak N}(\kappa)$ is that of Proposition~\ref{prop:nl-tiers} at level~(L3). The walk at $\kappa$ uses the step factors at $\kappa+\delta$. It converges if $2C_d\delta^{-2}\theta'(\kappa+\delta)\le\frac12$, which holds for $M\ge M_1'$, with $M_1'$ depending on $L,\kappa,\delta,\rho,\alpha$ and the constants of Part~IX, and $M_1'\ge M_{\mathfrak N}$ at level~(L3), with $M_{\mathfrak N}$ taken at $\kappa+\delta$, since the walk uses the proposition at $\kappa+\delta$. Such $M_1'$ exists, since both terms of $\theta'(\kappa+\delta)$ are bounded by a constant independent of $M$ times $M^{-1}$ (Proposition~\ref{prop:nl-tiers}). We choose $M_1'$ with $\theta'$ replaced by $2\theta'$; the coercivity constants are the fixed ones of Proposition~\ref{prop:complex-ext}, and every decay bound that enters is taken at the fixed rate of the differences there, a quarter of the minimum of the perturbation rate and the two chosen inverse decay rates in Lemma~\ref{lem:perturbed-inverse}; neither depends on $\delta_c$, so the same numbers serve at real and at complex references (Proposition~\ref{prop:complex-ext}, step~(vii) of the proof). At complex references of size $\delta_c<\delta_P$ the inputs of $\theta'$ change by at most a factor $1+\sigma_{\rm cx}$, $(1+\sigma_{\rm cx})^3\le2$ ($\sigma_{\rm cx}=2^{1/3}-1$), and $\theta'$ is a sum of products of at most three of them, so $2\theta'$ bounds $\theta'$ there (Proposition~\ref{prop:complex-ext}, step~(vii) of the proof). So $M_1'$ does not depend on $\bar\delta$, and it serves at these references as well. Then $\|G(s)\|^{1\to3}_{\kappa,\gamma}\le4C_d\delta^{-2}C_je^{(\kappa+\delta)\mathsf N_{\rm b}}\max(C_T,C_G)$, with $C_j$ the number of $j$ with $\Box\subset X(j)$. For $M\ge M_1'$ the walks $G(s)=\mathcal F_0\sum_n\mathcal R(s)^n$ satisfy, with constants $C(\kappa,\delta)$:
+\begin{enumerate}[label=(\alph*)]
+\item $G(s)\colon1\to3$; $G(s)D^T\colon1\to2$ (values) and $2\to3$; $DG(s)\colon1\to2$; $DG(s)D^T\colon1\to1$;
+\item in the gauge case, $\bG(s)D\colon2\to3$ on scalar data.
+\end{enumerate}
+All of these are global tier norms of weakenable families. In particular
+\[
+|\bG(s)f|_{1,\beta;y}\le C\sum_{y'}e^{-\gamma|y-y'|}|f|_{B(y')},\qquad s\in\mathbb D_\kappa ,
+\]
+and the same holds for $G'(s)$. For $\bG(s)D^T$ and $DG'(s)D^T$ the analogous statements are the tier bounds of (a). For $DG'(s)D^T$ these are $1\to1$ and $2\to2$ only: a bound from sup norms to sup norms fails, as the Calder\'on--Zygmund estimate does at $p=\infty$.
+\end{theorem}
+
+\paragraph{Reading the statement.} The sentences of Theorem~\ref{thm:tier-walk} from ``We choose $M_1'$ with $\theta'$ replaced by $2\theta'$'' to ``it serves at these references as well'' concern complex references. Read them after Proposition~\ref{prop:complex-ext}; Remark~\ref{rem:complex-in-44} explains them.
+
+\begin{proof}\hasdetail{thm:tier-walk}
+\emph{The input of a step.} A step acts on $u=G_jg$ with $g$ of tier $1$. By Corollary~\ref{cor:lp-dirichlet}(a) on $\Lam^v_j$, with $p=2d$, $u$ is of tier $3$, and $Du$, $D^Tu$ are of tier $2$, at every block of $(\Lam^v_j)_{(16)}$. Near the cut only their $L^2$ norms are controlled.
+
+\emph{Local parts.} The local commutator $[\fA_{\rm loc},h_j]G_j$ consists of:
+\begin{itemize}
+\item $D^T(\varphi G_j)$ and $\varphi\nabla G_j$, with $|\partial^k\varphi|\le CM^{-1}$; in the gauge case $\nabla G_j$ stands for $DG_j$ and $D^T_{Z_j}G_j$, from $[D^TD+DD^T,h_j]$; by the discrete Leibniz rule, $D[D^T,h_j]G_j$ is a sum of terms $\varphi'G_j$ with $|\varphi'|\le CM^{-2}$ and of terms $\varphi\nabla G_j$ with $\nabla$ the full covariant gradient, up to shifts by at most $\eta$, and the latter are bounded like $\varphi DG_j$, since $\mathfrak n^2_y(\nabla h)\le C\mathfrak n^3_y(h)$ and (W2) includes $\nabla G_j$;
+\item $\varphi G_j$, with $|\varphi|\le CM^{-2}$;
+\item $[aQ'^TQ',h_j]G_j$, respectively $[a\bQ^T\bQ,h_j]G_j$, of size $CM^{-1}$, whose output is bounded on each block by $L^2$ norms (tier~$1$; Lemma~\ref{lem:endpoint-factors} in the scalar case, and the same argument in the gauge case, where $\bQ^T\bQ$ has range one block by Proposition~\ref{prop:linearized-averages}(d),(e));
+\end{itemize}
+Terms with $W$ do not occur: level~(L1) has no potential, and $W=0$ at level~(L3). These terms live on $K_j^{(1)}$, so they require regularity of $u$ only at blocks of $(\Lam^v_j)_{(16)}$. By Lemma~\ref{lem:int-factors}, the $\mathcal A$-parts $\varphi G_j$ map $1\to3$, and $\varphi G_jD^T$ maps $1\to2$. The $\mathcal B$-parts map $1\to1$, also with $D^T$ on the right. All carry the factor $CM^{-1}$. At the scalar level~(L1), $\mathcal A=0$, and the derivative in front of $D^T(\varphi G'_j)$ is expanded onto $G'_j$, which gives terms $\varphi'G'_j$ and $\varphi\nabla G'_j$ of the same kind. The counting of Lemma~\ref{lem:step-small} gives the first term of $\theta'$. At level~(L1) these are all the parts of the step.
+
+\emph{Non-local parts.} At level~(L3) they are bounded by Proposition~\ref{prop:nl-tiers}, which gives the second term of $\theta'$.
+
+\emph{The walk.} After the regrouping of Section~\ref{sec:nested-walks}, a term with $n$ steps is a product $\Phi_0\cdots\Phi_n$ with $\Phi_0\in\{\mathcal F_0,\mathcal F_0D^T\}$ and $\Phi_i\in\{\mathcal A,\mathcal AD^T,\mathcal B,\mathcal BD^T\}$ for $i\ge1$. Measure:
+\begin{itemize}
+\item $\Phi_i$, $i\ge2$, in $1\to1$;
+\item $\Phi_1$ in $1\to2$ if $\Phi_0=\mathcal F_0D^T$, which forces $\Phi_1$ to be of type $\mathcal A$, and in $1\to1$ otherwise;
+\item $\Phi_0$ in $2\to3$, respectively $1\to3$, by Lemma~\ref{lem:int-factors}.
+\end{itemize}
+For $X=\Tf$ these are global tier norms, by the remark after Lemma~\ref{lem:int-factors}. Lemma~\ref{lem:weak-chain} in tier norms and $2C_d\delta^{-2}\theta'(\kappa+\delta)\le\frac12$ give (a) for $G(s)$. The other statements follow in the same way:
+\begin{itemize}
+\item an external $D^T$ is carried by $\Phi_n$, which maps $1\to1$ or $1\to2$, and $2\to2$ by Lemma~\ref{lem:int-factors};
+\item an external $D$ (in (b)) is handled, for $n=0$, by the entry $\varphi\bG^{Z_j}D\colon2\to3$ and by Lemma~\ref{lem:cut-term}, which uses Lemma~\ref{lem:trace}. For $n\ge1$ the last factor $\Phi_nD$ must map $2\to1$, or $2\to2$ if it is of type $\mathcal A$. Its local parts are $\varphi\nabla G_jD$, $\varphi G_jD$ and $[a\bQ^T\bQ,h_j]G_jD$. They are bounded by Lemma~\ref{lem:int-factors} for the interior part and by Lemma~\ref{lem:cut-term}, whose $L^2$ input covers $P\in\{1,D,D^T_Z\}$, for the rest. Its non-local parts are bounded by Proposition~\ref{prop:nl-tiers}, with the constant $C^D_{\mathfrak N}$. Since $\Phi_nD$ occurs once per term, a bound by a constant suffices;
+\item a left $D$ uses $D\mathcal F_0\colon1\to2$ and $D\mathcal F_0D^T\colon2\to2$.
+\end{itemize}
+The pointwise bound is (a) with $\mathfrak n^1_{y'}(f)\le|f|_{B(y')}$.
+\end{proof}
+
+\subsection{The constrained operators}\label{ss:44.5}
+
+\begin{remark}[Why not the defining formula for $\bC$]\label{rem:C-formula}
+This remark motivates the choice below; no proof uses it. Weaken $\bC=\bG-DG'RG'D^T-\bH\bQ\bG$ term by term, and put $\sigma_2(s)=G'(s)R(s)G'(s)D^Tf$. Then $Q'\sigma_2(s)\ne0$ for $s\ne1$, in general. Each first factor $h_jG'_jk_j$ of the walk satisfies an equation with the averaging term, so $D^TD\sigma_2(s)$ is a sum of H\"older terms and of the jump terms $-a\sum_js^{X(j)}h_jQ'^TQ'G'_jk_j$. These jump across block faces. At $s=1$ the jumps cancel, since $D^TD\sigma_2=Rh_0$ is H\"older there. For $s\ne1$ they do not cancel in general. By Remark~\ref{rem:schauder-averaging}, $\partial\partial\sigma_2(s)$, and hence $\nabla D\sigma_2(s)$, is in general not bounded uniformly in $\eta$ near block edges. The other two terms of $\bC(s)$ are $C^{1,\beta}$ by Theorem~\ref{thm:tier-walk}, so the sum is not uniformly $C^1$. The same obstruction defeats the alternative of applying the unweakened operator to $\bC(s)f$. In the equation for $u(s)=\bC(s)f$, the term $DRD^Tu(s)$ produces the source $D$ applied to these jump terms. This is a divergence of bounded but discontinuous data, and it gives only $u(s)\in C^\beta$.
+\end{remark}
+
+On the torus, Lemma~\ref{lem:Api-identities}(a) gives $\bG DR=DG'R$. Since $E=0$ (Proposition~\ref{prop:linearized-averages}), $\bQ\Pi=\bQ$ (Lemma~\ref{lem:slice}(c)), so $\bQ_\pi=\bQ$, $\bQ_\pi^T=\bQ^T$ and $\boldsymbol\Gamma_\pi=\boldsymbol\Gamma$. Hence
+\begin{equation}\label{eq:C-identity}
+\begin{gathered}
+DG'RG'D^T=\bG\,DRG'D^T,\qquad\bC=\bG\,\Pi^T-\bH\bQ\bG,\\
+\Pi^T=1-DRG'D^T,\qquad\bH=\bG\bQ^T\boldsymbol\Gamma .
+\end{gathered}
+\end{equation}
+Here $\Pi^T=1-S^TD^T$ with $S^T=DRG'$. We define the weakened operators on $\Tf$ by
+\[
+\begin{gathered}
+\bH(s)=\bG(s)\bQ^T\boldsymbol\Gamma(s),\\
+\bC(s)=\bG(s)-\bG(s)DG'(s)D^T+\bG(s)DP_\cV(s)G'(s)D^T-\bH(s)\bQ\bG(s),
+\end{gathered}
+\]
+with $G'(s)$, $R(s)$ from (L1), (L2), $\bG(s)$ from (L3) and $\boldsymbol\Gamma(s)$ from (L4). This is $\bG(s)\Pi^T(s)-\bH(s)\bQ\bG(s)$ with $R=1-P_\cV$ expanded, so that no identity is weakened on its own. By \eqref{eq:C-identity} these represent $\bH$ and $\bC$. They are products of weakenable families, so Lemma~\ref{lem:weak-chain} gives their $L^2$ bounds, data locality and covariance, as in Section~\ref{sec:nested-walks}. On the torus they replace the representation of $\bC$ in (L4).
+
+\begin{theorem}[Pointwise bounds for $\bH(s)$ and $\bC(s)$]\label{thm:HC-pointwise}
+Let $W=0$. For $M\ge M_1'$ and $s\in\mathbb D_\kappa$:
+\[
+\begin{aligned}
+|\bH(s)B|_{1,\beta;y}&\le C\sum_{y'}e^{-\gamma|y-y'|}|B|_{y'},\qquad|\bC(s)f|_{1,\beta;y}\le C\sum_{y'}e^{-\gamma|y-y'|}|f|_{B(y')},\\
+|\bC(s)D^Tg|_{1,\beta;y}&\le C\sum_{y'}e^{-\gamma|y-y'|}\big(|g|_{B(y')}+[\tilde g_{y'}]_{\beta,\Lam_1(c_{y'})}\big),
+\end{aligned}
+\]
+with $C=C(\kappa,\delta)$. For $\alpha\le\frac12$, so that $\beta=\alpha$, these are \eqref{eq:pointwise-needed} and Theorem~\ref{thm:ID}(a)--(c) for the weakened operators on the torus.
+\end{theorem}
+
+\begin{proof}\hasdetail{thm:HC-pointwise}
+All tier norms below are global. Theorem~\ref{thm:tier-walk} at level~(L1) on $\Tf$ gives $G'(s)\colon1\to3$ and $G'(s)D^T\colon1\to2$ (values). The family $P_\cV(s)=G'(s)Q'^T(M')^{-1}(s)Q'G'(s)$ of (L2) maps $0\to3$: $Q'G'(s)$ maps $L^2$ to coarse fields by the $L^2$ bounds of (L1), coarse fields are bounded by these $L^2$ norms, $(M')^{-1}(s)$ is a unit-lattice family, $Q'^T$ maps coarse fields to bounded fields, i.e.\ to tier~$1$, and $G'(s)\colon1\to3$. Hence $R(s)=1-P_\cV(s)$, inside the product, maps $2\to2$.
+\begin{itemize}
+\item \emph{$\bH(s)$.} $\boldsymbol\Gamma(s)$ is a unit-lattice family. $\bQ^T$ maps coarse fields to bounded fields, i.e.\ to tier $1$. Apply $\bG(s)\colon1\to3$.
+\item \emph{$\bG(s)f$.} Tier $1\to3$, with $\mathfrak n^1_{y'}(f)\le|f|_{B(y')}$.
+\item \emph{$\bG(s)DR(s)G'(s)D^Tf$.} The scalar field $k=R(s)G'(s)D^Tf$ is of tier $2$. Theorem~\ref{thm:tier-walk}(b) gives $\bG(s)Dk$ in tier $3$.
+\item \emph{$\bH(s)\bQ\bG(s)f$.} $\bQ\bG(s)f$ is a coarse field, bounded by $L^2$ norms. Apply the bound for $\bH(s)$.
+\item \emph{$\bC(s)D^Tg$.} Use $\bG(s)D^T\colon2\to3$, and $R(s)G'(s)D^TD^Tg=R(s)G'(s)\mathfrak F^Tg$, where $\mathfrak F^Tg$ is bounded, so this is of tier $\ge2$. The coarse term is as before.
+\end{itemize}
+The H\"older quotient of $g$ is converted between local gauges as in the proof of Theorem~\ref{thm:ID}(b).
+\end{proof}
+
+\subsection{What this gives, and what remains}\label{ss:44.6}
+
+\begin{itemize}
+\item \emph{Given.} The linear inputs of the weakened background map on the torus: $\bG(s)$, $\bH(s)$, $\bC(s)$, $\bC(s)D^T$ in $C^{1,\beta}$, with exponential weights, uniformly on $\mathbb D_\kappa$, with $W=0$ (Theorems~\ref{thm:tier-walk} and~\ref{thm:HC-pointwise}); and the scalar walks $G'(s)$ and $G'(s)D^T$ in tier norms (Theorem~\ref{thm:tier-walk} at level~(L1)). Here $\beta=\min(\alpha,\frac12)$; for $\alpha\le\frac12$, as from Section~\ref{sec:weak-background} on, $\beta=\alpha$.
+\item \emph{The trace inequality.} The scalar-gradient input $\bG(s)Dk$, i.e.\ the gauge part $\bG\,DRG'D^T$ of $\bC$, needs Lemma~\ref{lem:trace}. It holds because the local domains are rectangles.
+\item \emph{Not needed: $D^TD\bH(s)$.} Section~\ref{sec:interaction-local} bounds $\nabla\mathcal V$ with the pointwise bound of Theorem~\ref{thm:ID}(d) on $D^TD\bH^X$, which has no term-by-term analogue. For the weakened background map it is not needed. In Lemma~\ref{lem:V-bounds}, $D^TD\bH$ occurs as $D^T(D\bH\mathcal D)$, which is absorbed by $\bC(s)D^T$ (tier $2\to3$), and in $\bH^TD^TDA'=(D\bH)^T(DA')$ and $\bH^TD^TD\bH\mathcal D$, which are coarse fields bounded by $L^2$ norms. The remainder $\nabla\mathcal N$ is bounded by $C^1$ norms (Proposition~\ref{prop:action}(a)). So Theorems~\ref{thm:tier-walk} and~\ref{thm:HC-pointwise} give all linear inputs of the contraction for $A_*(s)$.
+\item \emph{Not given: the level with $W_2$, and $W\ne0$ at level~(L3).} Lemma~\ref{lem:int-factors} needs $W\in\cW_{\rm loc}$, as noted after Corollary~\ref{cor:lp-dirichlet}. At level~(L3), Proposition~\ref{prop:nl-tiers} is stated for $W=0$ (Remark~\ref{rem:nl-scope}(a)). The background map uses only the operators with $W=0$, so neither is needed for $A_*(s)$.
+\item \emph{Domains.} Theorems~\ref{thm:tier-walk} and~\ref{thm:HC-pointwise} are stated on the torus. Bounds on proper domains are not needed for $A_*(s)$. For the scalar levels on a domain $Z$, Lemma~\ref{lem:lift} gives the values of $G'^Z(s)$ and $P^Z_\cV(s)$ in tier~$2$ and their gradients in tier~$1$, at the blocks of $Z_{(24)}$. Tier-$3$ outputs on domains would need a third interior factor in the terms with steps, and are not stated. For (L3) on proper domains one would need the lift argument for the top walk as well.
+\item \emph{Comparison with route~2 of Section~\ref{sec:pointwise-weak}.} The mixed $L^2$/pointwise norm near the cuts is replaced by two simpler facts: tier norms compose exactly, and two or three interior factors at the output suffice (Lemmas~\ref{lem:int-factors}, \ref{lem:endpoint-factors} and~\ref{lem:lift}, Proposition~\ref{prop:nl-tiers}). For $\bC(s)$ the identity \eqref{eq:C-identity} replaces the term-by-term route discussed at the end of Section~\ref{sec:interior-lp}.
+\end{itemize}

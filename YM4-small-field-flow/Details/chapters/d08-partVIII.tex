@@ -1,0 +1,1370 @@
+\section{Part VIII: Dirichlet operators, interior regularity and localization}\label{d8:sec}
+
+This chapter expands Part~VIII of the note, Sections~\Nref{sec:dirichlet-averaged}--\Nref{sec:interaction-local}. Each Detail names the result of the note that it expands and ends with a status (Section~\ref{subsec:guide-purpose}).
+
+\paragraph{What Part VIII gives.} Part~VIII builds the Dirichlet operators of Parts~II--III on a domain $X$, proves interior pointwise bounds for them that do not depend on $M$, and localizes the Hessian and the fluctuation operator of the step. Its localization has radius type; Parts~IX and~X replace it on the main line by volume-type localization, but use the Dirichlet operators, the interior bounds and the domain constants of this Part. The results used later are:
+\begin{itemize}
+\item Proposition~\Nref{prop:dirichlet-averaged}(a)--(e), as input (W2) at level (L4) of Section~\Nref{sec:nested-walks};
+\item Theorem~\Nref{thm:ID}(a)--(c) and the lemmas of Section~\Nref{sec:interior} behind them (Lemmas~\Nref{lem:iteration}, \Nref{lem:rescaled}, \Nref{lem:local-system}, Propositions~\Nref{prop:scalar-interior}, \Nref{prop:system-interior}, the basic estimate \Neqref{eq:basic}, the change of gauge in the proof of (b)), used in Sections~\Nref{sec:pointwise-weak}--\Nref{sec:step-quantities};
+\item the bounded operator $W_0$ of Lemma~\Nref{lem:div-curvature}, through Lemma~\Nref{lem:hessian-gamma};
+\item Lemma~\Nref{lem:hessian-gamma}, Definition~\Nref{def:dirichlet-hessian}, Proposition~\Nref{prop:dirichlet-hessian}, Lemma~\Nref{lem:coercive-general}, Proposition~\Nref{prop:local-fluct} and \Neqref{eq:gf-local-part};
+\item the densities $\ell_Y(b)$, Definitions~\Nref{def:bg-activity} and~\Nref{def:graded}, \Neqref{eq:cov-vs-flat}, Lemmas~\Nref{lem:complex-gauge} and~\Nref{lem:quadratic-bound}, Remarks~\Nref{rem:later-scales}(b), \Nref{rem:bg-to-graded} and~\Nref{rem:domain-constants};
+\item the scaling of the plaquette terms in the proof of Theorem~\Nref{thm:interaction-local}.
+\end{itemize}
+Theorem~\Nref{thm:ID}(d),(e) and the identity of Lemma~\Nref{lem:div-curvature} are used only in Section~\Nref{sec:interaction-local}, which is off the main line; so are Theorem~\Nref{thm:local-covariance}, Corollary~\Nref{cor:large-changes}, Proposition~\Nref{prop:det-local}, Corollary~\Nref{cor:one-loop} and Section~\Nref{sec:interaction-local} except the plaquette scaling. These are treated in condensed form. The status paragraphs of the note (at the starts of Sections~\Nref{sec:localization}, \Nref{sec:det-local} and~\Nref{sec:interaction-local}) agree with this list.
+
+\subsection{Conventions of this chapter}\label{d8:conv}
+
+\begin{itemize}
+\item \emph{Units and pairings.} We work in the units of step $k$, with fine spacing $\eta=L^{-k}$, $d=4$. Fine fields are paired by $\ip AB=\eta^d\sum_b\operatorname{tr}(A(b)^*B(b))$, and $\mathrm b(A,B)$ is the bilinear version. A unit block $B(y)$ has volume $1$. It contains $\eta^{-d}$ points, $d\eta^{-d}$ bonds starting in it and $\binom d2\eta^{-d}$ plaquettes based in it. Hence, for a gauge field $f$ and a $2$-form $g$,
+\begin{equation}\label{d8:eq:blocknorm}
+\|f\|_{B(y)}\le\sqrt d\,|f|_{B(y)},\qquad\|g\|_{B(y)}\le\tbinom d2^{1/2}|g|_{B(y)},\qquad|v(x)|\le\eta^{-d/2}\|v\|_{Q}\ (x\in Q).
+\end{equation}
+These are the only volume factors that enter. A unit-lattice field has no volume factor.
+\item \emph{Seam form.} For a set $\Sigma$ of unit points and $\gamma>0$ put
+\[
+K^\gamma_\Sigma(y,y')=\sum_{w\in\Sigma}e^{-\gamma(|y-w|+|w-y'|)} .
+\]
+A kernel bounded by $CK^\gamma_\Sigma$ is said to have \emph{seam form}. Detail~\ref{d8:seam} collects the rules for composing such kernels.
+\item \emph{The hat.} Part VIII writes $\hat X=X^{(4)}$ (Section~\Nref{sec:dirichlet-averaged}, paragraph ``Conventions for Part VIII''). Definition~\Nref{def:domain} has $\hat X$ for the points within $\infty$-distance $1$ of $X$. All dependence statements of Part~VIII are made with the larger set and are true with it. For the objects built with $W=0$ the smaller set of Definition~\Nref{def:domain} suffices.
+\item \emph{$\Cav_k$ and $C_k$.} $\Cav_k$ is the nonlinear part of the gauge-adapted averaging (Proposition~\Nref{prop:Q-expansion}), used in Section~\Nref{ss:37.2} and Definition~\Nref{def:dirichlet-hessian}. $C_k=\Delta_k^{-1}$ is the covariance, from Section~\Nref{ss:37.4} on.
+\item \emph{References and complex perturbations.} Unless said otherwise $U$ is real, $(M,\eps)$-regular with $M\ge M_0$, and $|J_U|\le\eps$. A complex perturbation is $U_\delta=Ue^{\ii\eta\,\delta\!A}$ as in Section~\Nref{subsec:reg-complex}, with size
+\[
+\mathrm s(\delta\!A)=\max\big(|\delta\!A|,|\partial\delta\!A|,\sup\nolimits_z\Hol{\partial\delta\!A}{\Lam_3(z)}\big)\le\delta
+\]
+in the local gauges of $U$. The size $\mathrm s$ is a seminorm, so $\mathrm s(t\,\delta\!A)=|t|\,\mathrm s(\delta\!A)$ for complex $t$. Complex references $e^{\ii\eta A'}U_r$ of Section~\Nref{sec:complex-references} are of this form with comparable sizes; the comparison constant $C_{\rm cmp}=4$ is stated in Section~\Nref{sec:complex-references}.
+\end{itemize}
+
+\begin{detail}[Seam calculus, used throughout]\label{d8:seam}
+Let $0<\gamma'\le\gamma/2$. Then, for all unit points $y,y'$ and sets $\Sigma$:
+\begin{enumerate}[label=(\roman*)]
+\item $\sum_{y''}e^{-\gamma|y-y''|}K^\gamma_\Sigma(y'',y')\le S_{\gamma/2}K^{\gamma/2}_\Sigma(y,y')$, and the same with the factor on the right;
+\item if $|c-w|\le r$ for some $w\in\Sigma$, then $e^{-\gamma|c-c'|}\le e^{2\gamma r}K^\gamma_\Sigma(c,c')$;
+\item $\sum_we^{-\gamma(|c-w|+|w-c'|)}e^{-\gamma|w-s|}\le S_{\gamma/2}e^{-\frac\gamma2(|c-s|+|s-c'|)}$;
+\item if every $w\in\Sigma$ has $|w-y|\ge D$ and $|w-y'|\ge D$, then $K^\gamma_\Sigma(y,y')\le S_{\gamma/4}e^{-\gamma|y-y'|/2}e^{-\gamma D/2}$.
+\end{enumerate}
+\begin{step}
+(i) The triangle inequality gives $\gamma|y-y''|+\gamma|y''-w|\ge\frac\gamma2|y-w|+\frac\gamma2|y-y''|$. Hence $e^{-\gamma|y-y''|}e^{-\gamma(|y''-w|+|w-y'|)}\le e^{-\frac\gamma2(|y-w|+|w-y'|)}e^{-\frac\gamma2|y-y''|}$. Sum over $y''$ with $\sum_{y''}e^{-\frac\gamma2|y-y''|}\le S_{\gamma/2}$, then over $w$.
+\end{step}
+\begin{step}
+(ii) $|c-w|+|w-c'|\le2|c-w|+|c-c'|\le2r+|c-c'|$.
+\end{step}
+\begin{step}
+(iii) $|c-s|+|s-c'|\le|c-w|+|w-c'|+2|w-s|$. So $e^{-\gamma(|c-w|+|w-c'|)-\gamma|w-s|}\le e^{-\frac\gamma2(|c-s|+|s-c'|)}e^{-\frac\gamma2(|c-w|+|w-c'|)}$, and $\sum_we^{-\frac\gamma2|c-w|}\le S_{\gamma/2}$.
+\end{step}
+\begin{step}
+(iv) $|y-w|+|w-y'|\ge\frac12|y-y'|+\frac12(|y-w|+|w-y'|)\ge\frac12|y-y'|+\frac12D+\frac14|y-w|$. Sum over $w$.
+\end{step}
+\status{New argument (elementary bookkeeping that the note uses without statement).}
+\end{detail}
+
+%% ==== IMPORTS ====
+\subsection{Imported results}\label{d8:imports}
+
+The results of Parts I--VII that Part VIII uses are stated here in the form in which they are used, without proof. For each one we record where it is used and why its hypotheses hold there. Forward imports from Sections~\Nref{sec:complex-references} and~\Nref{sec:step-quantities} are marked and checked for circularity where they are used.
+
+\begin{description}[style=unboxed,leftmargin=0.8em]
+\item[I1. Decay calculus] (Definition~\Nref{def:decay}, Lemmas~\Nref{lem:decay-calculus}, \Nref{lem:CT-bounded}, \Nref{lem:neumann}, \Nref{lem:CT-form}; complex versions Section~\Nref{ss:13.1}.)
+  \begin{itemize}
+  \item $K$ has decay $(C,\gamma)$ if $\|\one_yK\one_{y'}\|\le Ce^{-\gamma|y-y'|}$. Then $\|K\|\le CS_\gamma$, and products have decay $(C_1C_2S_{\gamma/2},\gamma/2)$.
+  \item \emph{CT-bounded.} If $K$ has decay $(C,\gamma)$ and $\Rea\ip f{Kf}\ge c\|f\|^2$ for all complex $f$, then $K^{-1}$ has decay $(2c^{-1}e^{2\gamma'\sqrt d},\gamma')$ with $\gamma'=\min\{\gamma/2,c/(2Cc_1(\gamma))\}$. The proof uses only $\|K_\alpha-K\|\le Cc_1|\alpha|$, where $C$ is the decay constant of $K$.
+  \end{itemize}
+\item[I2. Perturbed inverses] (Lemmas~\Nref{lem:CT-stable}, \Nref{lem:perturbed-inverse}.) $\mathfrak A^{-1}-\mathfrak A_0^{-1}=-\mathfrak A^{-1}\delta\mathfrak A_0^{-1}$ has decay $(C\eps,\gamma_0/4)$, with derivatives, where $\gamma_0$ is the minimum of the perturbation rate and two chosen decay rates of $\mathfrak A^{-1}$ and $\mathfrak A_0^{-1}$. The unit-lattice form: if $K_0$ has decay, $\Rea\ip f{K_0f}\ge c\|f\|^2$, and $\delta$ has decay $(\eps,\gamma)$ with $\eps S_\gamma\le c/2$, then $K=K_0+\delta$ has $\Rea$-lower bound $c/2$ and its inverse has decay.
+\item[I3. Domains and compare-inverse] (Definition~\Nref{def:domain}, Lemma~\Nref{lem:compare-inverse}.)
+  \begin{itemize}
+  \item $\ell^2_0(X)$ consists of the scalar fields vanishing off $X$. $\ell^2_1(X)$ consists of the gauge fields vanishing on the bonds with no endpoint in $X$. $D^T_X=\one_XD^T$. The norms are $\tn A_X^2=\|A\|^2+\|DA\|^2+\|D^T_XA\|^2$ and $\tn A_{X,+}^2=\|A\|^2+\|DA\|^2+\|D^TA\|^2$.
+  \item \emph{Compare-inverse} is purely algebraic. If $\mathcal H'\subset\mathcal H$ are Hilbert spaces with orthogonal projection $\one'$, and $\fA$, $\fA'$ are invertible on $\mathcal H$, $\mathcal H'$, then $\one'\fA^{-1}\one'-\fA'^{-1}=-\one'\fA^{-1}\Delta\fA'^{-1}$ with $\Delta=\fA\one'-\one'\fA'\one'$. We use it on unit-lattice spaces only, where every operator is bounded.
+  \end{itemize}
+\item[I4. Gauge operators on domains] (Section~\Nref{ss:19.1}, Lemma~\Nref{lem:domain-identities}, Lemmas~\Nref{lem:slice}(a)--(c), \Nref{lem:Api-identities}(a).)
+  \begin{itemize}
+  \item $\cW_{\rm loc}(\eps)$: $W^T=W$; $W$ is real for real $U$ and covariant; $(WA)(b)$ depends on $A$ and $U$ on the bonds of the plaquettes containing $b$; in every gauge with (B) on a cube, the coefficients and their H\"older quotients are $\le\eps$.
+  \item The operators are $\mathfrak B_X=\one_X(D^TD+W)\one_X$, $\Pi_X=\one_X-DS_X$, $\fA^X=\Pi_X^T\mathfrak B_X\Pi_X+DR_XD^T_X+a\Pi_X^T\bQ^T\bQ\Pi_X$, $\fA^{X,\kappa}=\fA^X+D\one_{\Tf\setminus X}D^T+\kappa m_X$ and $m_X=\sum_{j\notin J(X)}\chi_j^2$.
+  \item For $\nu\in\cN_X$: $S_XD\nu=\nu$, $\Pi_XD\nu=0$, $\fA^XD\nu=D(D^T_XD\nu)$, and $D\Pi_X=D-\mathfrak FS_X$.
+  \end{itemize}
+\item[I5. Scalar operators] (Theorem~\Nref{thm:reg-scalar}.) For $(1,\eps)$-regular $U$ with $\eps\le\eps_0$:
+  \begin{itemize}
+  \item $G'_X$, $DG'_X$, $G'_XD^T_X$, $DG'_XD^T_X$, $\Gamma'_X$, $(M'_X)^{-1}$, $P_{\cV,X}$ (with derivatives), $S_X$ and $DS_X$ have decay $(C,\gamma)$;
+  \item $Q'G'_XR_X=0$ and $D^T_XDG'_XR_X=R_X$;
+  \item (e) comparison of domains: for $X'\subset X$ and all unit points $y,y'$, $\|\one_y(F_X-F_{X'})\one_{y'}\|\le CK^\gamma_{\Sigma_2}(y,y')$, with $\Sigma_2$ the unit points of $X$ within distance $2$ of $X\setminus X'$.
+  \end{itemize}
+  The constants depend only on $a,\alpha,\dim\mathfrak g$.
+\item[I6. Gauge operators at regular backgrounds] (Theorems~\Nref{thm:reg-coercive}, \Nref{thm:reg-gauge}(a), \Nref{thm:reg-min}, \Nref{thm:reg-locality}, Lemma~\Nref{lem:trial-gauge}, Proposition~\Nref{prop:reg-complex}, Remark~\Nref{rem:general-averaging}.) For $M\ge M_0$ and $(M,\eps)$-regular $U$ with $\eps\le\eps_0$:
+  \begin{itemize}
+  \item $\ip A{\fA^{X,\kappa}A}\ge c_*\tn A^2_{X,+}$, with $\kappa,c_*,\eps_0$ depending only on $a,\alpha,\dim\mathfrak g$;
+  \item $\bG^X=(\fA^{X,\kappa})^{-1}$ exists, and $P\bG^XQ$ has decay $(C,\gamma)$ for $P\in\{1,D,D^T,\nabla\}$ and $Q\in\{1,D^T,D\}$;
+  \item trial fields $\Phi_{(y,\mu)}$ supported in a tube of $B(y)\cup B(y+e_\mu)$ give $\bQ(U)\Phi\beta=T_U\beta$ with $T_U$ diagonally dominant;
+  \item Theorem~\Nref{thm:reg-locality}(a): $\|\one_y(P\bG^XQ-P\bG^{X'}Q)\one_{y'}\|\le CK^\gamma_{\Sigma_M}(y,y')$ for all unit points, with $\Sigma_M$ the points of $X$ within $10M$ of $X\setminus X'$ and the same torus potential on both domains;
+  \item Proposition~\Nref{prop:reg-complex}: everything at $U_\delta$ for $\delta\le\delta_0$, with $\Rea$-coercivity. The range-3 clause is Proposition~\Nref{prop:reg-complex}.
+  \end{itemize}
+  The averaging pair of Part IV is admitted through Remark~\Nref{rem:general-averaging} and Corollary~\Nref{cor:parts-apply}.
+\item[I7. Flat interior regularity] (Theorem~\Nref{thm:local-regularity}.) For every spacing $\eta\le1$, if $-\Lap u=F+\sum\partial^*_\mu g_\mu$ on $\Lam_2$, then:
+  \begin{itemize}
+  \item (b) $|u|_{\Lam_1}+\Hol u{\Lam_1}\le C(|F|_{\Lam_2}+|g|_{\Lam_3}+\|u\|_{\Lam_2})$;
+  \item (d) $|u|+|\partial u|+\Hol{\partial u}{}\le C(|F|_{\Lam_2}+|g|_{\Lam_3}+\Hol g{\Lam_3}+\|u\|_{\Lam_2})$ on $\Lam_1$.
+  \end{itemize}
+  Here $C=C(\alpha,d)$, and Step 0 covers $\eta>\frac1{16}$. The theorem is stated for spacings not of the form $1/N$ as well (Theorem~\Nref{thm:local-regularity}).
+\item[I8. Local expansions] (Lemmas~\Nref{lem:cov-expansion}, \Nref{lem:curvature}.) Under (B) on a cube, with complex $A$ allowed (the proof of Proposition~\Nref{prop:complex-ext}, step~(ii)):
+  \begin{itemize}
+  \item $D_\mu=\partial_\mu+T_\mu$ with $|\tau|,|\partial\tau|,\Hol{\partial\tau}{}\le C\eps$;
+  \item $D^TD=-\Lap+\sum\partial^*_\mu(a_\mu\cdot)+b$ with $|a|+|\partial a|+|b|\le C\eps$ and $\Hol{\partial a}{}+\Hol b{}\le C\eps$; the same for $D^TD+DD^T$;
+  \item $(\mathfrak F\lambda)_{\mu\nu}=c_{\mu\nu}\lambda(\cdot+\eta e_\mu+\eta e_\nu)$ with $|c|,\Hol c{}\le C\eps$.
+  \end{itemize}
+  The bounds are local: they hold at every point near which $A$ satisfies (B).
+\item[I9. Averages] (Propositions~\Nref{prop:Q-expansion}(c), \Nref{prop:linearized-averages}(b),(d)--(f), \Nref{prop:AB}(iii)--(vi), forward.)
+  \begin{itemize}
+  \item $E=0$; $(\bQ_kA)(c)$ depends on $B(c_-)\cup B(c_+)$; $|\bQ_kh(c)|\le C\|h\|_{S_c}$; $|Q'\lambda(y)|\le C\|\lambda\|_{B(y)}$; $\bQ^T_k$, $Q'^T_k$ are bounded on sup norms; covariance.
+  \item $|d^2C^{\rm av}_k(0)[h,h](c)|\le C\|h\|^2_{S_c}$.
+  \item At complex references of size $\delta_c<\delta_{AB}$ the constants are multiplied by $e^{C_L\delta_c}$, $\bQ_k(U)-\bQ_k(U_r)$ is local of size $C_L\delta_c$, and everything is holomorphic in $A'$. Proposition~\Nref{prop:AB} uses only Part IV.
+  \end{itemize}
+\item[I10. Action] (Proposition~\Nref{prop:action} and its proof, Lemma~\Nref{lem:current}, \Neqref{eq:lattice-trick}.) $\Phi(A)=S(U_0)+\ip AJ+\frac12\|DA\|^2+\mathcal N(A)$ for $(1,\eps)$-regular $U_0$ with $\eps\le c_5$, and $J=D^TF^s$. The formula for $\mathcal N$ is \eqref{d8:eq:W0} and the display before it. At complex references: Proposition~\Nref{prop:complex-ext}(c) and step (v) of its proof (forward).
+\item[I11. Chart and gauges] (\Neqref{eq:gauge-formula}, Definition~\Nref{def:box-regular}, Lemma~\Nref{lem:large-cubes}, Corollary~\Nref{cor:regularity}.)
+  \begin{itemize}
+  \item The gauge formula holds with $|\mathfrak b|\le C(|A_1|+|D\lambda|)|D\lambda|$.
+  \item Large cubes: if $U$ is $\sigma$-regular on all $\Lam_r$, $18\le r\le R$, and $C_E(R/r)^pR\sigma\le1$, then it is $C_E(R/r)^p\sigma$-regular on all $\Lam_R$.
+  \item Regularity: $U\in\mathfrak U(\theta)$ with $\theta\le a_2$ and $n\ge n_0$ implies $(M,B_5\theta)$-regular.
+  \item An $(M,\eps)$-regular $U$ is $3\eps$-regular on every $\Lam_{4M+2}$ (Section~\Nref{ss:28.1}).
+  \end{itemize}
+\item[I12. The step of Part VII] (Definition~\Nref{def:bonds}; Lemmas~\Nref{lem:eliminate}(c),(d), \Nref{lem:step-quadratic}, \Nref{lem:local-comparison}; Theorem~\Nref{thm:step-coercive}; Corollary~\Nref{cor:covariance}; Propositions~\Nref{prop:hessian}(a),(b), \Nref{prop:det-densities}; Lemma~\Nref{lem:avg-transport}(a),(c),(d),(f).)
+  \begin{itemize}
+  \item $\hat Z^1$ is a bijection onto $\mathcal Z=\ker l^{\rm pl}$ with $\|Z\|\le\|\hat Z^1Z\|$; $\hat Z^1$ and $\hat Z^2$ have range $2L$.
+  \item $|\hat Z^2(Z)(b_0(c))|\le CL^{3d+1}\max|Z|^2$ over the bonds of $B'(c_-)\cup B'(c_+)$.
+  \item $\Delta_k(Z,Z)=\Delta^0(\hat Z^1Z,\hat Z^1Z)+2\ip{\omega_0}{\hat Z^2(Z)}+\|\mathfrak G_WZ\|^2$.
+  \item Theorem~\Nref{thm:step-coercive}: $\ip B{(\boldsymbol\Gamma_\pi-a)B}+\|\mathfrak G_WB\|^2\ge c_L\|B\|^2$ on $\mathcal Z$. It does not use criticality (the proof of Theorem~\Nref{thm:step-coercive}).
+  \item $\mathfrak G_WZ(y,x)$ depends on $Z$, $W$ on the inner bonds of $B'(y)$; $\|\mathfrak G_W\|\le CL^{d/2+1}$; at complex bases the change is $\le CL^2|\beta|_\infty\max|Z|$ for $L|\beta|_\infty\le c$.
+  \end{itemize}
+  These are Part~VII results, expanded in Section~\ref{d7:sec}.
+\item[I13. Textbook facts] used without proof: the Schur test; Cauchy's estimate and the Schwarz lemma for Banach-space-valued holomorphic functions; the identity theorem on a connected open set containing a totally real subspace of maximal dimension; the Neumann series; the iteration lemma of Giaquinta (Ch.~V, Lemma~3.1, cited in the note), whose proof is recalled in Detail~\ref{d8:iteration}.
+\end{description}
+
+%% ==== SECTION 35 ====
+\subsection{Section 35: Dirichlet averaged operators}\label{d8:s35}
+
+\begin{detail}[Conventions of Part VIII, potentials of range $\le3$; Section~\Nref{sec:dirichlet-averaged}, paragraph ``Conventions for Part VIII'']\label{d8:range3}\Ntarget{sec:dirichlet-averaged}
+\emph{Claim.} The $L^2$ statements of Section~\Nref{sec:reg-gauge} (coercivity, decay, comparison of domains) hold ``verbatim'' for potentials $W$ of range $r_W\le3$ that are real for real $U$, with $\hat X$ replaced by $X^{(r_W+1)}$. They use $W$ only through its norm, range, decay, covariance and reality. We go through the proofs.
+\begin{step}[Coercivity]
+\begin{itemize}
+\item \emph{G\aa rding} (the proof of Lemma~\Nref{lem:garding}): $|\ip{\Pi_XB}{W\Pi_XB}|\le\|W\|\|\Pi_X\|^2\|B\|^2$. This uses the norm only.
+\item \emph{Local coercivity, Step 1} (Step~1 of the proof of Lemma~\Nref{lem:local-coercive}). For $v\in\ell^2_1(\Lam_j)\subset\ell^2_1(X)$ we have $\ip v{\one_XW\one_Xv}=\ip vWv=\ip v{\one_{\Lam_j}W\one_{\Lam_j}v}$. So the potential terms of $\fA^X$ and $\fA^{\Lam_j}$ differ only through $\Pi_X-\Pi_{\Lam_j}=-D(S_X-S_{\Lam_j})$, which Theorem~\Nref{thm:reg-scalar}(e) bounds by $Ce^{-\gamma M}$. This uses the norm only.
+\item \emph{Step 2} uses $W(U^u)=R(u)W(U)R(u)^{-1}$ (covariance) and $\|W\|\le\eps$.
+\item \emph{IMS} (the proof of Theorem~\Nref{thm:reg-coercive}): $\Pi_X^TW\Pi_X$ is a term $X^TMY$ with $X=Y=1$ and $M=\Pi_X^TW\Pi_X$. A range-$r_W$ operator of norm $\le\eps$ has decay $(\eps e^{\gamma(r_W+2)},\gamma)$ by Lemma~\Nref{lem:decay-calculus}(d), so $M$ has decay. Lemma~\Nref{lem:double-comm} applies.
+\end{itemize}
+\end{step}
+\begin{step}[Decay]
+Hypothesis (ii) of Lemma~\Nref{lem:CT-form} needs $\|M_\alpha-M\|\le C|\alpha|$ for $M=\Pi^TW\Pi$. This is Lemma~\Nref{lem:conjugation}, again by the decay of $W$.
+\end{step}
+\begin{step}[Comparison of domains]
+In the cutoff proof of Theorem~\Nref{thm:reg-locality}(a), with a potential, the torus operator $L$ contains $W$, and $[L,\chi]$ contains
+\[
+([W,\chi]A)(b)=\textstyle\sum_{b'}W(b,b')\big(\chi(b'_-)-\chi(b_-)\big)A(b'),\qquad|b-b'|\le r_W .
+\]
+This is a bounded operator of norm $\le C r_W\eps\,|\partial\chi|_\infty$. It is supported within $r_W$ of $\operatorname{supp}\partial\chi$, hence within $3+r_W$ of $X\setminus X'$, inside the seam. This uses the range in $A$. The dependence on $U$ moves from $\hat X$ to $X^{(r_W+1)}$, by the range in $U$.
+\end{step}
+\begin{step}[Symmetry is not needed]
+$\cW_{\rm loc}(\eps)$ requires $W^T=W$; the range-$3$ class does not. The proof of Proposition~\Nref{prop:dirichlet-averaged} needs no symmetry:
+\begin{itemize}
+\item In (a), the lower bound follows from $\Rea$-coercivity (Detail~\ref{d8:35a}, Step 5), not from the variational identity.
+\item In (d), the transpose of an operator built with $W$ is the one built with $W^T$. Indeed $\fA^{X,\kappa}[W]^T=\fA^{X,\kappa}[W^T]$, since only $\mathfrak B_X$ contains $W$. Hence $\bG^X[W]^T=\bG^X[W^T]$, $\boldsymbol\Gamma^X[W]^T=\boldsymbol\Gamma^X[W^T]$, $(\bH^X\bQ_X\bG^X)[W]^T=(\bH^X\bQ_X\bG^X)[W^T]$, and so $\bC^X[W]^T=\bC^X[W^T]$.
+\item $W^T$ has the properties that these proofs use: it is real for real $U$, covariant (as $R(u)$ is orthogonal), supported in $X$, of the same norm and of the same range in $A$, and holomorphic at $U_\delta$. It need not lie in the range-$3$ class: an entry $W(b',b)$ depends on $U$ within $r_W$ of $b'$, so $(W^TA)(b)$ may depend on $U$ up to distance $2r_W$ from $b$. The range in $U$ enters only the locality (the last sentence of Step~3, and Detail~\ref{d8:ix1}), and $\bC^X[W^T]=\bC^X[W]^T$ depends on $U$ only on $X^{(r_W+1)}$, as $\bC^X[W]$ does. Finally $\|\one_w(W^T-W'^T)\|=\|(W-W')\one_w\|$ is bounded by the norms $\|W-W'\|_{w'}$ of the boundedly many blocks $w'$ near $w$, since $W-W'$ has range $\le3$ in $A$. A block $w'\notin X'_1$ among them contributes only if it lies in $X\setminus X'$, inside the seam, where $\|W-W'\|_{w'}=\|\one_{w'}W\|\le\eps$; its term joins the seam sum.
+\end{itemize}
+The note's proof now uses these two arguments.
+\end{step}
+\status{Expanded. The proof of Proposition~\Nref{prop:dirichlet-averaged} does not use the symmetry of $W$.}
+\end{detail}
+
+\begin{detail}[Definitions; Section~\Nref{ss:35.1}]\label{d8:defs}\Ntarget{ss:35.1}
+\begin{step}[The averaging on a domain]
+Bonds ``of'' a block are the bonds starting in it. For $c\in\mathfrak B(X)$, $(\bQ A)(c)$ depends on $A$ on the bonds starting in $B(c_-)\cup B(c_+)\subset X$, which lie in $\ell^2_1(X)$ (Proposition~\Nref{prop:linearized-averages}(d)). So $\bQ_X:\ell^2_1(X)\to\ell^2(\mathfrak B(X))$ is well defined, and $\bQ_X^T$ maps into $\ell^2_1(X)$. For $c\in\mathfrak B(X')$ and $X'\subset X$, $\bQ_X^T\one_c=\bQ_{X'}^T\one_c$.
+\end{step}
+\begin{step}[$X=\Tf$]
+$J(\Tf)$ contains every $j$, so $m_{\Tf}=0$. There is no exterior point, so $\fA^{\rm ext}_{\Tf}=0$. Hence $\fA^{\Tf,\kappa}=\fA_\pi$ and $\bG^{\Tf}=\bG$. By Proposition~\Nref{prop:linearized-averages}(b), $E=0$, so $\bQ\Pi=\bQ$ (Lemma~\Nref{lem:slice}(c)) and $\bQ_\pi=\bQ$. Then $\boldsymbol\Gamma^{\Tf}=(\bQ\bG\bQ^T)^{-1}=\boldsymbol\Gamma_\pi$, $\bH^{\Tf}=\bH$, and $\bC^{\Tf}=\bG-DG'RG'D^T-\bH\bQ_\pi\bG$, which is the definition in Theorem~\Nref{thm:cov-min}(c).
+\end{step}
+\begin{step}[The slice drops out on domains]
+$\bQ_XDS_X=D_VQ'S_X$, because $\bQ D=D_VQ'$ holds for all fields. And $Q'S_X=Q'G'_XR_XD^T_X=0$ by Theorem~\Nref{thm:reg-scalar}(d). The broken identity $\bG^XDR_X=DG'_XR_X$ is not used in Sections~\Nref{sec:dirichlet-averaged}--\Nref{sec:interior}: the only identity on domains used there is the one of Lemma~\Nref{lem:domain-identities} for $\fA^X$ without mass term, in the proof of Theorem~\Nref{thm:ID}(a) (Detail~\ref{d8:IDa}).
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:dirichlet-averaged}(a)]\label{d8:35a}\Ntarget{prop:dirichlet-averaged}
+Put $K^X=\bQ_X\bG^X\bQ_X^T$ on $\ell^2(\mathfrak B(X))$, and $\fA=\fA^{X,\kappa}$.
+\begin{step}[Upper bound]
+$|\bQ h(c)|\le C\|h\|_{S_c}$, and the sets $S_c$ overlap boundedly, so $\|\bQ\|\le C$. By Lemma~\Nref{lem:decay-calculus}(a), $\|\bG^X\|\le CS_\gamma$. Hence $\ip b{K^Xb}\le C\|b\|^2$.
+\end{step}
+\begin{step}[Trial fields inside $X$]
+For $c=(y,\mu)\in\mathfrak B(X)$, the field $\Phi_c$ of Lemma~\Nref{lem:trial-gauge} lives on the bonds $(x,x+\eta e_\mu)$ with $|x_\nu-y_\nu|\le\frac{1-\eta}2$ for $\nu\ne\mu$ and $0\le x_\mu-y_\mu\le1-\eta$ (because $\phi(1)=0$). Both endpoints lie in $B(y)\cup B(y+e_\mu)\subset X$. Hence:
+\begin{itemize}
+\item $\Phi_c\in\ell^2_1(X)$;
+\item at a point $x\notin X$, $(D^T\Phi_c)(x)$ involves only bonds at $x$, none of which carries $\Phi_c$, so $\one_{\Tf\setminus X}D^T\Phi_c=0$ and $\ip{\Phi_c}{\fA^{\rm ext}_X\Phi_c}=0$.
+\end{itemize}
+For the averaging pair of Part IV, Remark~\Nref{rem:general-averaging} uses the same trial fields, built with the model averages in the local gauges. The general averages differ by $O(\eps)$ in the block norm.
+\end{step}
+\begin{step}[The restricted matrix]
+Put $T_X(c,c')=(\bQ\Phi_{c'})(c)$ for $c,c'\in\mathfrak B(X)$. This is the restriction of $T_U$ to $\mathfrak B(X)\times\mathfrak B(X)$. Its diagonal entries are those of $T_U$, $m_\perp\sigma_0+O(\eps)$, and its off-diagonal row sums are at most those of $T_U$, $m_\perp(\sigma_++\sigma_-)(1+C\eps)$. The margin $m_\perp(\sigma_0-\sigma_+-\sigma_-)>\frac3{10}m_\perp$ in the proof of Lemma~\Nref{lem:trial-gauge} survives. So, for $\eps$ small, $T_X^{-1}$ is bounded with decay, by the Neumann series around the diagonal. Then $\Phi_b=\sum_{c'}\Phi_{c'}(T_X^{-1}b)_{c'}\in\ell^2_1(X)$ satisfies $\bQ_X\Phi_b=b$. Since the tubes overlap boundedly and $\tn{\Phi_c}\le C$, we get $\tn{\Phi_b}_{X,+}\le C\|b\|$.
+\end{step}
+\begin{step}[The variational identity]
+$\fA$ is real symmetric and positive on real $\ell^2_1(X)$ (Theorem~\Nref{thm:reg-coercive}), and $P=\bQ_X$ is surjective (Step 3). Put $A_*=\fA^{-1}P^T(K^X)^{-1}b$. If $PA=b$, write $A=A_*+v$ with $Pv=0$. Then $\ip v{\fA A_*}=\ip{Pv}{(K^X)^{-1}b}=0$, so
+\[
+\ip A{\fA A}=\ip{A_*}{\fA A_*}+\ip v{\fA v}\ge\ip b{(K^X)^{-1}b} .
+\]
+Apply this to $A=\Phi_b$:
+\[
+\ip b{(K^X)^{-1}b}\le\ip{\Phi_b}{\fA^X\Phi_b}+\|\one_{\Tf\setminus X}D^T\Phi_b\|^2+\kappa\ip{\Phi_b}{m_X\Phi_b}\le C\tn{\Phi_b}^2_X+0+\kappa\|\Phi_b\|^2\le C\|b\|^2 .
+\]
+Here $\ip A{\fA^XA}=\|D\Pi_XA\|^2+\ip{\Pi_XA}{W\Pi_XA}+\|R_XD^T_XA\|^2+a\|\bQ\Pi_XA\|^2\le C\tn A^2_X$. Indeed $D\Pi_X=D-\mathfrak FS_X$, and $\Pi_X$, $R_X$ are bounded (Theorem~\Nref{thm:reg-scalar}(d)). Hence $K^X\ge c$.
+\end{step}
+\begin{step}[Without symmetry]
+If $\fA$ is not symmetric, put $u=\bG^X\bQ_X^Tb$. Then:
+\begin{itemize}
+\item $\Rea\ip b{K^Xb}=\Rea\ip u{\fA u}\ge c_*\tn u^2_{X,+}$;
+\item $\|b\|^2=\ip{\bQ_X^Tb}{\Phi_b}=\ip{\fA u}{\Phi_b}\le C\tn u_{X,+}\tn{\Phi_b}_{X,+}\le C\tn u_{X,+}\|b\|$.
+\end{itemize}
+So $\Rea\ip b{K^Xb}\ge c_*C^{-2}\|b\|^2$. This is the argument used in (e). For non-symmetric $W$ the lower bound of (a) is meant in this sense, as its statement says.
+\end{step}
+\begin{step}[Decay]
+$\|\one_cK^X\one_{c'}\|\le\sum_{y,y'}\|\one_c\bQ\one_y\|\,\|\one_y\bG^X\one_{y'}\|\,\|\one_{y'}\bQ^T\one_{c'}\|$, with $y$, $y'$ within distance $1$ of $c$, $c'$. So $K^X$ has decay $(C,\gamma)$. Lemma~\Nref{lem:CT-bounded} gives the decay of $\boldsymbol\Gamma^X$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:dirichlet-averaged}(b),(c)]\label{d8:ix1}\Ntarget{prop:dirichlet-averaged}
+\begin{step}[(b)]
+$\bQ_X\bH^X=\bQ_X\bG^X\bQ_X^T\boldsymbol\Gamma^X=I$. The operators are compositions of decaying factors:
+\begin{itemize}
+\item $\bH^X=\bG^X\cdot\bQ_X^T\cdot\boldsymbol\Gamma^X$, and $D\bH^X$ uses $D\bG^X$;
+\item $\bC^X=\bG^X-DG'_X\cdot R_X\cdot G'_XD^T_X-\bH^X\bQ_X\bG^X$, with $R_X=\one_X-P_{\cV,X}$;
+\item $D\bC^X$ uses $D\bG^X$, $DDG'_X=\mathfrak FG'_X$ (with $|c_{\mu\nu}|\le C\eps$) and $D\bH^X$;
+\item $\bC^XD^T$ and $D\bC^XD^T$, with $D^T$ the codifferential of $2$-forms, use $\bG^XD^T$, $D\bG^XD^T$ (Theorem~\Nref{thm:reg-gauge}(a)) and $G'_XD^T_XD^T=G'_X\one_X\mathfrak F^T$. The last identity holds because $\one_XD^T\one_XD^T=\one_X\mathfrak F^T$ on $2$-forms: at a point of $X$, $D^T$ involves only bonds at that point, and these lie in $\ell^2_1(X)$.
+\end{itemize}
+Each product halves the rate (Lemma~\Nref{lem:decay-calculus}(b)). There are boundedly many, and the rate is renamed $\gamma$.
+\end{step}
+\begin{step}[(c)]
+The ingredients depend on $U$ as follows:
+\begin{itemize}
+\item the scalar operators on $\hat X$ in the sense of Definition~\Nref{def:domain} (Section~\Nref{ss:18.2});
+\item $\fA^{X,\kappa}$ on the bonds within $\eta$ of $X$ (the crossing bonds), and $W$ on $X^{(r_W+1)}$;
+\item $\bQ_X$ on the blocks of $X$.
+\end{itemize}
+Inverses of operators that depend only on these bonds depend only on them. All of this lies in $X^{(4)}$. Under a real gauge transformation $u$, the following conjugate by $R(u)$, with $R(u|_\T)$ on the coarse side: $D$, $D^T$, $Q'$, $\bQ$ (Proposition~\Nref{prop:linearized-averages}(f)) and $W$. The projections $\one_X$ and the multiplication by $m_X$ commute with $R(u)$. So every operator is covariant.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:dirichlet-averaged}(d)]\label{d8:35d}\Ntarget{prop:dirichlet-averaged}
+\emph{The idea.} Each Dirichlet operator on $X$ is compared with the one on $X'$ through a resolvent identity whose middle factor is the change of the operator: a part near $X\setminus X'$, and the change of potential $W-W'$. So it suffices to compare $\bG$, first with the same potential by Theorem~\Nref{thm:reg-locality}(a) (Step~1), then under the change of potential (Step~2), and then to carry the seam form through the products and inverses that build $K^X$, $\boldsymbol\Gamma$, $\bH$ and $\bC$ (Steps~3--6), by the rules of Detail~\ref{d8:seam}; Step~7 adds the derivatives.
+Let $X'\subset X$, let $W$ be supported in $X$ and $W'$ in $X'$, and let $\Sigma$ be the set of unit points within $10M$ of $X\setminus X'$. We write $K_\Sigma$ for $K^{\gamma}_\Sigma$; the rate $\gamma$ decreases boundedly often.
+\begin{step}[$\bG$ with the same potential]
+Let $W_1=\one_{X'}W\one_{X'}$. Theorem~\Nref{thm:reg-locality}(a) compares $\bG^X[W]$ with $\bG^{X'}[W_1]$, for all unit points, with seam $\Sigma_M\subset\Sigma$. Its proof uses $W$ only through $[W,\chi]$ (Detail~\ref{d8:range3}), so it covers the range-$3$ case.
+\end{step}
+\begin{step}[Change of potential]
+$\fA^{X'}[W_1]-\fA^{X'}[W']=\Pi_{X'}^T(W_1-W')\Pi_{X'}$, so
+\[
+\bG^{X'}[W_1]-\bG^{X'}[W']=-\bG^{X'}[W_1]\Pi_{X'}^T(W_1-W')\Pi_{X'}\bG^{X'}[W'] .
+\]
+The factors have decay. Indeed $\Pi_{X'}^T=\one_{X'}-DR_{X'}G'_{X'}D^T_{X'}$, so $\bG\Pi^T=\bG-(\bG D)(R G'D^T)$; both $\bG D$ (Theorem~\Nref{thm:reg-gauge}(a)) and $R G'D^T$ (Theorem~\Nref{thm:reg-scalar}) decay. The same holds for $\Pi\bG$. The middle factor satisfies $\one_w(W_1-W')\one_{w'}=0$ for $|w-w'|>r_W+2$, and $\|\one_w(W_1-W')\|\le\|W-W'\|_w+\|W-W_1\|_w$. Moreover $W-W_1$ vanishes on the blocks at distance $>r_W+2$ from $X\setminus X'$, and has norm $\le2\eps$ on the others, which lie in $\Sigma$. So the kernel is bounded by
+\[
+\begin{aligned}
+&C\sum_we^{-\gamma(|y-w|+|w-y'|)}\big(\|W-W'\|_w+2\eps\,\one_{w\in\Sigma}\big)\\
+&\qquad\le CK_\Sigma(y,y')+\frac C\eps\sum_{w\in X'_1}e^{-\gamma(|y-w|+|w-y'|)}\|W-W'\|_w .
+\end{aligned}
+\]
+The blocks $w\notin X'_1$ with $\|W-W'\|_w\ne0$ lie in $X\setminus X'\subset\Sigma$, where $\|W-W'\|_w\le2\eps$; and $C\le C/\eps$ for $\eps\le1$. Together with Step 1 this is (d) for $\bG$, and for $P\bG Q$ after applying $P$ and $Q$ to the identity. The factors $P\bG^{X'}\Pi^T$ and $\Pi\bG^{X'}Q$ have decay for $P\in\{1,D,D^T,\nabla\}$ and $Q\in\{1,D^T,D\}$, by Theorem~\Nref{thm:reg-gauge}(a).
+\end{step}
+\begin{step}[$K^X=\bQ_X\bG^X\bQ_X^T$]
+For $c,c'\in\mathfrak B(X')$, Detail~\ref{d8:defs} gives $(K^X-K^{X'})(c,c')=\bQ(\bG^X-\bG^{X'})\bQ^T(c,c')$, which is bounded by $C\|\one_{S_c}(\bG^X-\bG^{X'})\one_{S_{c'}}\|$. The sets $S_c$ consist of two blocks within distance $1$ of $c$. Step 2 and Detail~\ref{d8:seam}(i) give the seam form.
+\end{step}
+\begin{step}[$\boldsymbol\Gamma$]
+Apply Lemma~\Nref{lem:compare-inverse} on the unit lattice, with $\fA=K^X$, $\fA'=K^{X'}$ and $\one'$ the projection onto $\ell^2(\mathfrak B(X'))$. The entries $\Delta(c,c')$, for $c'\in\mathfrak B(X')$, are of two kinds:
+\begin{itemize}
+\item for $c\in\mathfrak B(X')$, $(K^X-K^{X'})(c,c')$, of seam form by Step 3;
+\item for $c\in\mathfrak B(X)\setminus\mathfrak B(X')$, $K^X(c,c')$. Here one of the blocks of $c$ lies in $X\setminus X'$. With $w$ its centre, $|c-w|\le1$, and Detail~\ref{d8:seam}(ii) gives $|K^X(c,c')|\le Ce^{-\gamma|c-c'|}\le Ce^{2\gamma}K_\Sigma(c,c')$.
+\end{itemize}
+Then $\one'\boldsymbol\Gamma^X\one'-\boldsymbol\Gamma^{X'}=-\one'\boldsymbol\Gamma^X\Delta\boldsymbol\Gamma^{X'}$. Its kernel is a double sum of decaying kernels around a seam kernel, which has seam form by Detail~\ref{d8:seam}(i) applied twice.
+\end{step}
+\begin{step}[$\bH$]
+For $c'\in\mathfrak B(X')$, using $\bQ_X^T\one'=\bQ_{X'}^T$ on $\ell^2(\mathfrak B(X'))$,
+\[
+\bH^X\one_{c'}-\bH^{X'}\one_{c'}=(\bG^X-\bG^{X'})\bQ^T\one'\boldsymbol\Gamma^X\one_{c'}+\bG^{X'}\bQ^T(\one'\boldsymbol\Gamma^X\one'-\boldsymbol\Gamma^{X'})\one_{c'}+\bG^X\bQ_X^T(1-\one')\boldsymbol\Gamma^X\one_{c'} .
+\]
+In each term one factor has seam form and the others decay. For the last term, $(1-\one')$ selects the coarse bonds of $\mathfrak B(X)\setminus\mathfrak B(X')$, which are within distance $1$ of $\Sigma$, and Detail~\ref{d8:seam}(ii) applies. This is an identity of torus fields with zero extensions, and all decay bounds hold at all blocks. So the bound holds on the fine side for every unit point. 
+\end{step}
+\begin{step}[$\bC$]
+For $f$ supported in $X'$, write
+\[
+\begin{aligned}
+\bC^Xf-\bC^{X'}f={}&(\bG^X-\bG^{X'})f-(DG'_XR_XG'_XD^T_X-DG'_{X'}R_{X'}G'_{X'}D^T_{X'})f\\
+&-(\bH^X\bQ_X\bG^X-\bH^{X'}\bQ_{X'}\bG^{X'})f .
+\end{aligned}
+\]
+The middle term telescopes into products with one difference factor, each controlled by Theorem~\Nref{thm:reg-scalar}(e). For the last term, split $\bQ_X\bG^Xf=\one'\bQ_X\bG^Xf+(1-\one')\bQ_X\bG^Xf$:
+\[
+(\bH^X\one'-\bH^{X'})\bQ\bG^Xf+\bH^{X'}\bQ(\bG^X-\bG^{X'})f+\bH^X(1-\one')\bQ_X\bG^Xf .
+\]
+Each term has seam form, as in Step 5.
+\end{step}
+\begin{step}[Derivatives and $D^T_X$ on the right]
+Apply $D$ on the left to every identity. Theorem~\Nref{thm:reg-locality}(a) holds with $P=D$, and $D\bG^X$, $DG'_X$, $D\bH^X$ decay. By Detail~\ref{d8:range3}, $\bC^X[W]D^T_X=(D\bC^X[W^T])^T$, and $W^T$ has the properties that the bounds use (Detail~\ref{d8:range3}, Step~4). So the bounds for $D\bC^X$ at $W^T$ give those for $\bC^XD^T_X$ at $W$, since kernel bounds pass to transposes. For $D\bC^XD^T_X$, apply $D$ to the identity for $\bC^XD^T_X$.
+\end{step}
+\status{Expanded. The statement holds with the seam $\Sigma$ (width $10M$); the comparisons of Theorem~\Nref{thm:reg-scalar}(e) have the smaller seam $\Sigma_2\subset\Sigma$.}
+\end{detail}
+
+\begin{detail}[The constants of Proposition~\Nref{prop:dirichlet-averaged}]\label{d8:ix2}\Ntarget{prop:dirichlet-averaged}
+\emph{Claim.} $c$, $C$ and $\gamma$ do not depend on $M\ge M_0$. The proofs behind this are checked here.
+\begin{itemize}
+\item Theorem~\Nref{thm:reg-scalar} needs only $(1,\eps)$-regularity; its constants depend on $a,\alpha,\dim\mathfrak g$.
+\item Theorem~\Nref{thm:reg-coercive}: $\kappa=C_1+\frac12$ and $c_*$ depend on $a,\alpha,\dim\mathfrak g$. The parameter $M$ enters only through $M\ge M_0$, which makes the IMS errors $CM^{-2}$ small.
+\item Theorem~\Nref{thm:reg-gauge}(a): Lemma~\Nref{lem:CT-form} with $c=c_*$ and a constant $C_1$ from the conjugation of the non-local parts, which are built from scalar operators. The mass term commutes with $e^{\alpha\rho}$, and $\one_{\Tf\setminus X}D^T$ changes by $O(\alpha)$. So the constants do not depend on $M$.
+\item Theorem~\Nref{thm:reg-locality}(a): the terms $(1-\chi)u$, $P'[L,\chi]u$, $\mathfrak N^{X'}-P'\mathfrak N^XP'$, $[\mathfrak N^X,\chi]$ and $\kappa(m_{X'}-m_X)\chi u$ have constants free of $M$. The width $10M$ enters only the set $\Sigma_M$, which contains the support of $m_{X'}-m_X$.
+\item Lemma~\Nref{lem:trial-gauge}, Step 3 above and the locality of $\bQ$ involve no $M$.
+\end{itemize}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:dirichlet-averaged}(e)]\label{d8:35e}\Ntarget{prop:dirichlet-averaged}
+\begin{step}[The averages and $\bG^X$]
+By Proposition~\Nref{prop:AB}(v), $\bQ_X(U_\delta)-\bQ_X(U)$ is local, of size $C_L\delta$, with constant depending on $L$. By Proposition~\Nref{prop:reg-complex}, $\bG^X(U_\delta)$ exists, has the decay of Theorem~\Nref{thm:reg-gauge}(a), and $\bG^X(U_\delta)-\bG^X(U)$ has decay $(C\delta,\gamma/4)$ by Lemma~\Nref{lem:perturbed-inverse}, with $\gamma$ the common rate $\gamma_0$ there.
+\end{step}
+\begin{step}[$K^X$ and its inverse]
+Telescoping, $K^X(U_\delta)-K^X(U)$ is a sum of three products, each with one difference factor. So it has decay $(C\delta,\gamma/4)$. The unit-lattice form of Lemma~\Nref{lem:perturbed-inverse} with $K_0=K^X(U)\ge c$ gives $\Rea\ip b{K^X(U_\delta)b}\ge\frac c2\|b\|^2$ if $C\delta S_{\gamma/4}\le\frac c2$, and $\boldsymbol\Gamma^X(U_\delta)$ has decay. The smallness condition belongs to the smallness list of Proposition~\Nref{prop:complex-ext} (see Section~\ref{xa:sec}).
+\end{step}
+\begin{step}[(b) and (d) at $U_\delta$]
+(b) follows from the same compositions. For (d):
+\begin{itemize}
+\item Theorem~\Nref{thm:reg-locality}(a) at $U_\delta$: its cutoff proof uses $\Rea$-coercivity in $\tn\cdot_{X,+}$ and the decay of $\bG^X$, $\bG^{X'}$ with derivatives, both available at $U_\delta$ by Proposition~\Nref{prop:reg-complex}. The commutator $[L,\chi]$ changes by a bounded amount of size $C\delta$. The non-local part keeps the form $\sum_iX_i^TM_iY_i$, with $M_i$ changed by $C\delta$ and $D$, $D^T$ by local operators of size $C\delta$. Its commutator with $\chi$ is expanded by the Leibniz rule, and the derivatives at the ends are absorbed as in the real case. So the proof runs at $U_\delta$.
+\item Lemma~\Nref{lem:compare-inverse} is algebraic, and the resolvent identity of Detail~\ref{d8:35d}, Step 2, holds verbatim.
+\item The identity $E=0$ at $U_\delta$, which gives $\bQ_\pi=\bQ$ and the definitions of this section, holds by the identity theorem. This needs $\eps+C\delta\le\min(\eps_0,c'_3)$ (Remark~\Nref{rem:general-averaging}; step (iii) of the proof of Proposition~\Nref{prop:complex-ext}).
+\end{itemize}
+\end{step}
+\begin{step}[Analyticity]
+Each operator is a composition of holomorphic families. Inverses of holomorphic families of invertible operators on finite-dimensional spaces are holomorphic.
+\end{step}
+\status{Expanded. The conditions $C\delta S_{\gamma/4}\le\frac c2$ and $\eps+C\delta\le\min(\eps_0,c'_3)$ (for $E=0$) are in the smallness list of Proposition~\Nref{prop:complex-ext}.}
+\end{detail}
+
+
+%% ==== SECTION 36 I ====
+\subsection{Section 36: interior estimates}\label{d8:s36}
+
+In Section~\Nref{sec:interior} the dimension enters only through the powers $s^{-d/2}$, the counts of blocks, and $S_\gamma$. Steps 1--5 of Proposition~\Nref{prop:system-interior} are re-derived below for general $d$, in particular for $d=4$.
+
+\begin{detail}[Lemma~\Nref{lem:iteration}]\label{d8:iteration}\Ntarget{lem:iteration}
+This is a textbook lemma (I13); we check the proof. Fix $\lambda\in(0,1)$ with $\theta\lambda^{-\beta}<1$, and $t_i=\rho_0+(1-\lambda^i)(R_0-\rho_0)$. Then $t_{i+1}-t_i=(1-\lambda)\lambda^i(R_0-\rho_0)$, and the hypothesis with $(t,t')=(t_i,t_{i+1})$, iterated $k$ times, gives
+\[
+\Psi(\rho_0)\le\theta^k\Psi(t_k)+\sum_{i<k}\theta^i\big(A(1-\lambda)^{-\beta}\lambda^{-i\beta}(R_0-\rho_0)^{-\beta}+B\big).
+\]
+$\Psi$ is bounded and $\theta<1$, so the first term tends to $0$. The series $\sum(\theta\lambda^{-\beta})^i$ and $\sum\theta^i$ converge. So $C(\theta,\beta)=\max\big((1-\lambda)^{-\beta}(1-\theta\lambda^{-\beta})^{-1},(1-\theta)^{-1}\big)$. On a finite lattice every $\Psi$ used below is bounded.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:rescaled}]\label{d8:rescaled}\Ntarget{lem:rescaled}
+Let $x$ be a lattice point (if $x\notin\eta\Z^d$, the rescaled lattice is shifted, and Theorem~\Nref{thm:local-regularity} is translation invariant). Put $u_s(x')=u(x+sx')$ on $(\eta/s)\Z^d$, of spacing $\eta/s\le1$. The lattice Laplacian of spacing $\eta/s$ satisfies $-\Lap_{\eta/s}u_s(x')=s^2(-\Lap_\eta u)(x+sx')$, and $\partial^*_{\eta/s}(sg_s)=s^2(\partial^*_\eta g)_s$. So
+\[
+-\Lap u_s=s^2F_s+\textstyle\sum_\mu\partial^*_\mu(sg_{\mu,s})\quad\text{on }\Lam_2(0).
+\]
+The quantities scale as follows:
+\begin{itemize}
+\item $\|u_s\|^2_{\Lam_2(0)}=\sum(\eta/s)^d|u(x+sx')|^2=s^{-d}\|u\|^2_{\Lam_{2s}(x)}$;
+\item $\partial u_s=s(\partial u)_s$;
+\item $\Hol{\partial u_s}{}=s\cdot s^\alpha\Hol{\partial u}{}$, since $|x'-x''|^\alpha=s^{-\alpha}|sx'-sx''|^\alpha$;
+\item $\Hol{sg_s}{}=s^{1+\alpha}\Hol g{}$.
+\end{itemize}
+Theorem~\Nref{thm:local-regularity} is stated for every spacing $\le1$, with Step 0 for spacings $>\frac1{16}$. Its parts (d) and (b) for $u_s$ give the two inequalities.
+\status{Expanded. The centre $x$ is a lattice point, $x\in\eta\Z^d$, as the note states.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:scalar-interior}]\label{d8:scalar}\Ntarget{prop:scalar-interior}
+The equation is $D^TDv=F+\sum\partial^*_\mu g_\mu$ on $\Lam_r$. By I8, $-\Lap v=(F-bv)+\sum_\mu\partial^*_\mu(g_\mu-a_\mu v)$, with $|a|+|\partial a|+|b|\le C\eps$ in the gauge of Section~\Nref{sec:interior}.
+\begin{step}[Small gaps]
+If $r-\rho<40\eta$, then $\eta^{-1}<40(r-\rho)^{-1}$. By \eqref{d8:eq:blocknorm}, $|v(x)|\le\eta^{-d/2}\|v\|_{\Lam_r}$ and $|\partial v|\le2\eta^{-1}\sup|v|$. For pairs, $|x-x'|\ge\eta$, so $\Hol w{}\le2\eta^{-\alpha}\sup|w|$. Hence
+\[
+|v|+|\partial v|+\Hol{\partial v}{}\le(1+2\eta^{-1}+4\eta^{-1-\alpha})\eta^{-d/2}\|v\|_{\Lam_r}\le C(r-\rho)^{-1-\alpha-d/2}\|v\|_{\Lam_r},
+\]
+with $C$ depending on $d$ only. The second bound is the same.
+\end{step}
+\begin{step}[One scale, first bound]
+Let $\Psi(t)=|v|_{\Lam_t}+|\partial v|_{\Lam_t}$, $\rho\le t<t'\le r$, $s=(t'-t)/6\ge3\eta$, and $x\in\Lam_t$. Then $t+3s+2\eta\le t+3s+\frac23s<t'$, so $\Lam_{3s}(x)$, enlarged by $2\eta$, lies in $\Lam_{t'}$.
+\begin{itemize}
+\item On a cube $Q$ of side $\ell\le6$, a monotone lattice path has length $|x-x'|_1\le\sqrt d|x-x'|$. So $\Hol vQ\le\sqrt d\,\ell^{1-\alpha}|\partial v|_Q$, and the same holds for $a_\mu$ with $|\partial a_\mu|\le C\eps$.
+\item Hence $|bv|+|a_\mu v|+s^\alpha\Hol{a_\mu v}{\Lam_{3s}(x)}\le C\eps\Psi(t')$, using $\Hol{a v}{}\le|a|\Hol v{}+\Hol a{}|v|$ and $s\le1$.
+\item Lemma~\Nref{lem:rescaled} at radius $s$ around $x$ (equation on $\Lam_{2s}(x)$, data on $\Lam_{3s}(x)$), divided by $s$, gives
+\[
+\frac{|v(x)|}s+|\partial v(x)|\le C\Big(s|F-bv|+|g-av|+s^\alpha\Hol{g-av}{}+s^{-1-d/2}\|v\|_{\Lam_r}\Big).
+\]
+Since $s\le1$, $|v(x)|\le|v(x)|/s$. So $|v(x)|+|\partial v(x)|\le C\mathfrak n_r(\mathcal S)+C_S\eps\Psi(t')+Cs^{-1-d/2}\|v\|_{\Lam_r}$.
+\end{itemize}
+If $s<3\eta$, the inverse estimates of Step 1 give $|v(x)|+|\partial v(x)|\le3\eta^{-1-d/2}\|v\|_{\Lam_r}\le C(t'-t)^{-1-d/2}\|v\|_{\Lam_r}$, since $\eta^{-1}<18(t'-t)^{-1}$. Both cases give
+\[
+\Psi(t)\le2\big(C_S\eps\Psi(t')+C(t'-t)^{-1-d/2}\|v\|_{\Lam_r}+C\mathfrak n_r(\mathcal S)\big),
+\]
+where the factor $2$ comes from $\sup|v|+\sup|\partial v|\le2\sup(|v|+|\partial v|)$. For $2C_S\eps\le\frac12$, Lemma~\Nref{lem:iteration} on $[\rho',r]$ with $\rho'=\frac12(\rho+r)$ and $\beta=1+\frac d2$ (which is $3$ in $d=4$) gives $\Psi(\rho')\le C(\mathfrak n_r(\mathcal S)+\|v\|_{\Lam_r})$, with $C$ depending on $r-\rho$.
+\end{step}
+\begin{step}[The H\"older quotient]
+Let $s_1=(r-\rho)/8\ge5\eta$ and $x,x'\in\Lam_\rho$.
+\begin{itemize}
+\item If $|x-x'|_\infty\le s_1$, then both points lie in $\Lam_{s_1}(x)$, and $\rho+3s_1+2\eta\le\rho+(\frac38+\frac1{20})(r-\rho)<\rho'$. Lemma~\Nref{lem:rescaled} at radius $s_1$ bounds $s_1^{1+\alpha}\Hol{\partial v}{\Lam_{s_1}(x)}$ by the data on $\Lam_{3s_1}(x)\subset\Lam_{\rho'}$. These are bounded by $\mathfrak n_r$, $\Psi(\rho')$ and $\|v\|$.
+\item Otherwise the quotient is at most $2s_1^{-\alpha}\Psi(\rho)$.
+\end{itemize}
+\end{step}
+\begin{step}[Second bound]
+Use $\Psi_0(t)=|v|_{\Lam_t}$ and the second inequality of Lemma~\Nref{lem:rescaled}, without division by $s$. The perturbation terms are $s^2|bv|+s|a_\mu v|\le C\eps s\Psi_0(t')\le C\eps\Psi_0(t')$; no H\"older quotient of $av$ is needed. For $s<3\eta$, use $|v(x)|\le\eta^{-d/2}\|v\|$. The H\"older step is the same, with $\Hol v{}$.
+\end{step}
+The threshold $\eps_S=(4C_S)^{-1}$ depends on $d$, $\alpha$, $\dim\mathfrak g$ through $C$ of Theorem~\Nref{thm:local-regularity} and of I8.
+\status{Expanded. The note defines $\Psi$ as the supremum of the pointwise sum, so the factor $2$ of Step~2 does not arise there.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:local-system}]\label{d8:localsys}\Ntarget{lem:local-system}
+Let $\fA^{X,\kappa}u=\mathcal S$ with $u\in\ell^2_1(X)$. ``Interior'' means at $\infty$-distance $\ge2\eta$ from $\Tf\setminus X$.
+\begin{step}[The averaging term]
+$E=0$, so $\bQ\Pi_X=\bQ-\bQ DS_X=\bQ-D_VQ'S_X=\bQ$ (Detail~\ref{d8:defs}). Hence $a\Pi_X^T\bQ^T\bQ\Pi_X=a\bQ^T\bQ$.
+\end{step}
+\begin{step}[The two potentials]
+$\Pi_X^T=\one_X-S_X^TD^T_X$ with $S_X^T=DR_XG'_X$ ($G'_X$, $R_X$ are symmetric and $(D^T_X)^T=D$). With $\tau=G'_XD^T_X\mathfrak B_X\Pi_Xu$:
+\[
+\Pi_X^T\mathfrak B_X\Pi_Xu=\mathfrak B_X\Pi_Xu-DR_X\tau,\qquad R_X\tau=\tau-P_{\cV,X}\tau=\tau-\pi_2 ,
+\]
+since $P_{\cV,X}\tau=G'_XQ'^T(M'_X)^{-1}Q'G'_X\tau=G'_XQ'^T\omega_2$. In the same way $DR_XD^T_Xu=DD^T_Xu-D\pi_1$.
+\end{step}
+\begin{step}[\Neqref{eq:Eu}]
+Collecting, $\mathfrak B_X\Pi_Xu-D\tau+D\pi_2+DD^T_Xu-D\pi_1+a\bQ^T\bQ u+\fA^{\rm ext}_Xu+\kappa m_Xu=\mathcal S$. At an interior bond:
+\begin{itemize}
+\item $\fA^{\rm ext}_Xu=0$, since it lives on the crossing bonds;
+\item $DD^T_Xu=DD^Tu$, since both endpoints are in $X$;
+\item $\mathfrak B_X\Pi_Xu=(D^TD+W)(u-D\sigma)$, since the bonds of the plaquettes through $b$ have both endpoints in $X$;
+\item $D^TDD\sigma=D^T\mathfrak F\sigma$.
+\end{itemize}
+This gives \Neqref{eq:Eu}, with $D\pi_1-D\pi_2-a\bQ^T\bQ u$ moved to the right.
+\end{step}
+\begin{step}[\Neqref{eq:Esigma}, \Neqref{eq:Etau}, \Neqref{eq:Epi}]
+\begin{itemize}
+\item \Neqref{eq:Esigma}: $\sigma=G'_XR_XD^T_Xu$, so $Q'\sigma=0$ (Theorem~\Nref{thm:reg-scalar}(d)) and $\fA'_X\sigma=\one_XD^TD\sigma=R_XD^T_Xu=D^T_Xu-\pi_1$. This holds at every point of $X$.
+\item \Neqref{eq:Etau}: $\fA'_X\tau=D^T_X\mathfrak B_X\Pi_Xu$. At a point of $X$, $D^T$ involves only bonds at that point, which lie in $\ell^2_1(X)$. So $\one_XD^T\one_XD^T=\one_X\mathfrak F^T$ on $2$-forms, and $D^T_X\mathfrak B_X\Pi_Xu=\one_X\mathfrak F^TD\Pi_Xu+D^T_X\one_XW\Pi_Xu$. Moreover $D\Pi_Xu=Du-\mathfrak F\sigma$ holds everywhere, as fields extended by zero. In the interior, $\fA'_X\tau=D^TD\tau+aQ'^TQ'\tau$ gives \Neqref{eq:Etau}.
+\item \Neqref{eq:Epi}: $\fA'_X\pi_i=\fA'_XG'_XQ'^T\omega_i=Q'^T\omega_i$.
+\end{itemize}
+\end{step}
+\begin{step}[The block bounds]
+$\sigma=S_Xu$. Next,
+\[
+\tau=G'_X\one_X\mathfrak F^T(Du-\mathfrak FS_Xu)+G'_XD^T_X\one_XW(u-DS_Xu),\qquad\omega_1=(M'_X)^{-1}Q'G'_XD^T_Xu,
+\]
+and $\omega_2$, $\pi_i$ are built from these. Every factor has decay, or is local and bounded: $\mathfrak F$ with $|c|\le C\eps$; $W$ with range one plaquette; $Q'$ with $|Q'\lambda(y)|\le C\|\lambda\|_{B(y)}$. For an operator $K$ with decay, $\|\one_yKf\|\le\sum_{y'}\|\one_yK\one_{y'}\|\|f\|_{B(y')}$. The input norms are $\|u\|_{B(y')}$ and $\|Du\|_{B(y')}$, the latter over the plaquettes based in $B(y')$. Lemma~\Nref{lem:decay-calculus}(b) gives the stated bound.
+\end{step}
+\status{Expanded. The $2\eta$-interior condition is needed only for $\fA^{\rm ext}_X$, $DD^T_X$ and the restriction in $\mathfrak B_X$.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:system-interior}]\label{d8:system}\Ntarget{prop:system-interior}
+\emph{The idea.} The system for $(u,\sigma,\tau)$ is put in normal form (Step~1). Each component then satisfies a one-scale estimate on a smaller cube, with the other components among the sources (Step~2). A weighted sum of the three estimates closes (Step~3): every cross term carries $\eps$ or the small scale $s$, except the term $C_4A_u$ that $u$ contributes to the $\sigma$-line, which the small weight $w_\sigma=(8C_4)^{-1}$ of that line absorbs; the H\"older quotients are taken in an order that keeps the bounds triangular (Step~4), and Lemma~\Nref{lem:iteration} absorbs the right side over the scales. Step~5 removes the restriction on $r$.
+As in Detail~\ref{d8:scalar}, Step 1, we may assume $r-\rho\ge40\eta$. Throughout, $A_v(t)$ denotes $\sup_{x\in\Lam_t}(|v(x)|+|\partial v(x)|)$. This differs from $|v|_{\Lam_t}+|\partial v|_{\Lam_t}$ by at most a factor $2$. It is the definition the note uses, and it makes the arithmetic of Step~3 exact.
+\begin{step}[The normal forms]
+By I8, $D^TD+DD^T=-\Lap+\sum\partial^*_\mu(a_\mu\cdot)+b$ componentwise on gauge fields, and the same on scalars. Moreover $D^T(\mathfrak F\sigma)=\sum_\mu\partial^*_\mu(\mathfrak F\sigma)_{\mu\cdot}+T^T(\mathfrak F\sigma)$ and $D^Tu=\sum\partial^*_\mu u_\mu+T^Tu$. Solving \Neqref{eq:system} for $-\Lap$ gives exactly the $F_\bullet$, $g_\bullet$ of Step~1 of the proof of Proposition~\Nref{prop:system-interior}. The bounds use:
+\begin{itemize}
+\item $|bu|\le C\eps|u|$ and $|T^T(\mathfrak F\sigma)|\le C\eps^2|\sigma|$;
+\item $|W(u-D\sigma)|\le\eps(|u|+|\partial\sigma|+C\eps|\sigma|)$;
+\item $|D\tau|\le|\partial\tau|+C\eps|\tau|$, $|\kappa mu|\le\kappa|u|$ and $|\mathfrak F^T(Du-\mathfrak F\sigma)|\le C\eps(|\partial u|+|u|+|\sigma|)$;
+\item for the quotients: $\Hol{a v}Q\le|a|\Hol vQ+C|\partial a||v|$, $\Hol{\mathfrak F\sigma}Q\le C\eps(\Hol\sigma Q+|\sigma|)$;
+\item $\Hol{W(u-D\sigma)}Q\le C\eps\big(|u|+|D\sigma|+\Hol uQ+\Hol{D\sigma}Q\big)$, with $\Hol{D\sigma}Q\le\Hol{\partial\sigma}Q+C\eps(|\sigma|+\Hol\sigma Q)$; here the coefficients of $W$ and their quotients are $\le\eps$.
+\end{itemize}
+These give the six inequalities of Step~1 of the proof of Proposition~\Nref{prop:system-interior}. Note that $|\partial\tau|$ enters $F_u$ with coefficient $1$, not $\eps$, and that $u$ enters $g_\sigma$ with coefficient $1$.
+\end{step}
+\begin{step}[One scale]
+Let $r\le r_*$, $s=(t'-t)/12\ge3\eta$ and $x\in\Lam_t$. Then $t+9s+2\eta<t+12s=t'$. Also $3s\le r_*/4\le3s_*\le\frac3{16}<1$, so Lemma~\Nref{lem:rescaled} applies at radii $s$ and $3s$.
+\begin{itemize}
+\item \emph{$\sigma$ at radius $3s$} (data on $\Lam_{9s}(x)$), divided by $3s$:
+\[
+|\sigma(x)|+|\partial\sigma(x)|+(3s)^\alpha\Hol{\partial\sigma}{\Lam_{3s}(x)}\le C\big(3s|F_\sigma|+|g_\sigma|+(3s)^\alpha\Hol{g_\sigma}{}+(3s)^{-1-d/2}\mathfrak m\big).
+\]
+In $g_\sigma$, the terms $|u|$ and $s^\alpha\Hol u{\Lam_{9s}}\le Cs|\partial u|$ give $C_4A_u$. The rest gives $C_4\eps A_\sigma$ and the source terms.
+\item \emph{$\tau$ at radius $s$}: $s^\alpha\Hol{g_\tau}{\Lam_{3s}(x)}$ contains $C\eps s^\alpha\Hol{\partial\sigma}{\Lam_{3s}(x)}$, which the $\sigma$-line bounds by $C\eps(C_4A_u+C_4\eps A_\sigma)+\dots$. All other terms carry $\eps$. This gives the $\tau$-line, with $C_2$ depending on $C_4$.
+\item \emph{$u$ at radius $s$}: $s|F_u|\le s|F_{\mathcal S_u}|+C\eps s(A_u+A_\sigma+A_\tau)+sA_\tau+\kappa sA_u$, and $|g_u|+s^\alpha\Hol{g_u}{}\le\dots+C\eps(A_u+A_\sigma)$. This gives the $u$-line with $C_3(\eps+\kappa s)A_u+C_3\eps A_\sigma+C_3sA_\tau$, absorbing $\eps sA_\tau$ into $sA_\tau$.
+\end{itemize}
+If $s<3\eta$, each $|v(x)|+|\partial v(x)|\le3\eta^{-1-d/2}\|v\|_{\Lam_r}\le C(t'-t)^{-1-d/2}\mathfrak m$, since $\eta^{-1}<36(t'-t)^{-1}$.
+\end{step}
+\begin{step}[The weights]
+With $s_*=(16C_3(1+\kappa))^{-1}$, $w_\sigma=(8C_4)^{-1}$ and $w_\tau=4C_3s_*=\frac1{4(1+\kappa)}\le\frac14$: $s\le s_*$ gives $C_3\kappa s\le\frac\kappa{16(1+\kappa)}<\frac1{16}$ and $C_3s\le\frac14w_\tau$. Adding the three lines with weights $1$, $w_\sigma$, $w_\tau$:
+\begin{itemize}
+\item the coefficient of $A_u$ is $C_3\eps+\frac1{16}+w_\sigma C_4+w_\tau C_2\eps=C_3\eps+\frac3{16}+w_\tau C_2\eps$;
+\item the coefficient of $A_\sigma$ is $(C_3+C_4w_\sigma+C_2w_\tau)\eps$;
+\item the coefficient of $A_\tau$ is $C_3s+w_\tau C_2\eps\le(\frac14+C_2\eps)w_\tau$.
+\end{itemize}
+Choose $\eps_L$ so that:
+\begin{itemize}
+\item $C_3\eps+w_\tau C_2\eps\le\frac5{16}$;
+\item $(C_3+C_4w_\sigma+C_2w_\tau)\eps\le\frac12w_\sigma$, i.e.\ $\eps\le(16C_4(C_3+\frac18+\frac{C_2}4))^{-1}$;
+\item $C_2\eps\le\frac14$.
+\end{itemize}
+Then $\Psi(t)\le\frac12\Psi(t')+C(\mathfrak s+(t'-t)^{-1-d/2}\mathfrak m)$, for $s\ge3\eta$ and also for $s<3\eta$ (as $w_\sigma,w_\tau\le1$). Lemma~\Nref{lem:iteration} on $[\rho',r]$ gives $\Psi(\rho')\le C(\mathfrak s+\mathfrak m)$. The weights are fixed positive numbers, so each $A_v(\rho')\le C(\mathfrak s+\mathfrak m)$. $\eps_L$ depends on $d,\alpha,\dim\mathfrak g$ through $C_2,C_3,C_4$, and on $\kappa$ through $w_\tau$.
+\end{step}
+\begin{step}[H\"older quotients, in order]
+Fix $s_1=(r-\rho)/40\ge\eta$.
+\begin{itemize}
+\item \emph{First $\sigma$}, on cubes $\Lam_{s_1}(x)$ with $x\in\Lam_{(\rho+\rho')/2}$. The data lie in $\Lam_{3s_1}(x)+2\eta\subset\Lam_{\rho+\frac{15}{40}(r-\rho)}\subset\Lam_{\rho'}$, where Step 3 bounds $u$, $\sigma$, $\tau$ and their derivatives. $\Hol{g_\sigma}{}$ needs only $\Hol u{}$, $\Hol\sigma{}$, which are bounded by these derivatives.
+\item \emph{Then $g_\tau$}: its quotient needs $\Hol{\partial\sigma}{}$, just bounded on $\Lam_{(\rho+\rho')/2}$ (pairs farther apart than $s_1$ are bounded by $2s_1^{-\alpha}\sup|\partial\sigma|$).
+\item \emph{Then $\tau$ and $u$}, on cubes $\Lam_{s_1}(x)$ with $x\in\Lam_\rho$, whose data lie in $\Lam_{\rho+\frac5{40}(r-\rho)}\subset\Lam_{(\rho+\rho')/2}$.
+\end{itemize}
+Pairs farther apart than $s_1$ are handled by the sup bounds.
+\end{step}
+\begin{step}[General $r$]
+If $r>r_*$, put $r_1=\min(r_*,r-\rho)$. For $x\in\Lam_\rho$, $\Lam_{r_1}(x)\subset\Lam_r$, and Steps 2--4 (or the small-gap bound, if $r_1/2<40\eta$) apply on $\Lam_{r_1}(x)$ with inner radius $r_1/2$. Sup bounds on $\Lam_\rho$ follow. A pair $x,x'\in\Lam_\rho$ with $|x-x'|_\infty\le r_1/2$ lies in $\Lam_{r_1/2}(x)$. Farther pairs are bounded by the sup bounds. The constant depends on $r_1$, hence on $r-\rho$ and $\kappa$.
+\end{step}
+\status{Expanded, at general $d$, in particular $d=4$. The weights and thresholds check.}
+\end{detail}
+
+
+%% ==== W0 AND A1 ====
+\subsection{The operator \texorpdfstring{$W_0$}{W0}, Lemma 36.6, and the complex references}\label{d8:W0}
+
+The operator $W_0=\nabla^2\mathcal N(0)$ enters the main line through $W_2$ and $W_2^X$ (Lemma~\Nref{lem:hessian-gamma}, Definition~\Nref{def:dirichlet-hessian}).
+
+\begin{detail}[Lemma~\Nref{lem:div-curvature}, first part]\label{d8:W0real}\Ntarget{lem:div-curvature}
+\emph{Claim.} Let $U$ be real and $(1,\eps)$-regular with $\eps\le c_5$, and $W_0=\nabla^2\mathcal N(0)$ with $\mathcal N$ the remainder of Proposition~\Nref{prop:action} at $U_0=U$. Then $(W_0h)(b)$ depends only on $h$ on the bonds of the plaquettes that contain $b$; $|W_0h(b)|\le C\eps\max|h|$ over these bonds; and $\|W_0\|_{L^2\to L^2}\le C\eps$. The constant $C$ depends only on $d$ and $G$.
+
+\begin{step}[The formula]
+By the proof of Proposition~\Nref{prop:action}, with $Z_p$ the logarithm of the plaquette product \Neqref{eq:plaquette-product} and $\zeta_p=\eta^{-2}Z_p=(DA)(p)+\rho^{(1)}_p(A)+\rho^{(2)}_p(A)$,
+\[
+\mathcal N(A)=\ip{\rho^{(2)}(A)}{F^s}+\ip{DA}{\rho(A)}+\tfrac12\|\rho(A)\|^2+\mathcal R(A),
+\]
+\[
+\mathcal R(A)=\eta^d\sum_p\tfrac12\operatorname{tr}\Big(\zeta_p^2\big(\tfrac12(H_p+H_p^{-1})-1\big)\Big)+\sum_p\mathfrak s_3(\eta^2\zeta_p,H_p),\qquad|\mathfrak s_3(Z,H)|\le C|Z|^3 .
+\]
+Here $d=4$, so the factor $\eta^d$ of the pairing matches the $\eta^4=(\eta^2)^2$ of $Z_p^2$, and no other power of $\eta$ appears. At $A=0$ we have $\zeta_p(0)=0$, $d\zeta_p(0)h=(Dh)(p)+\rho^{(1)}_p(h)$ and $d^2\zeta_p(0)=d^2\rho^{(2)}_p(0)$, since $\rho^{(1)}$ is linear and $\rho^{(2)}$ vanishes to second order. The term $\mathfrak s_3$ vanishes to third order. Differentiating twice at $0$,
+\begin{equation}\label{d8:eq:W0}
+\begin{aligned}
+d^2\mathcal N(0)[h,h']={}&\ip{d^2\rho^{(2)}(0)[h,h']}{F^s}+\ip{Dh}{\rho^{(1)}h'}+\ip{\rho^{(1)}h}{Dh'}+\ip{\rho^{(1)}h}{\rho^{(1)}h'}\\
+&+\eta^d\sum_p\operatorname{tr}\Big(\{d\zeta_p(0)h,d\zeta_p(0)h'\}\big(\tfrac12(H_p+H_p^{-1})-1\big)\Big),
+\end{aligned}
+\end{equation}
+with $\{X,Y\}=\frac12(XY+YX)$.
+\end{step}
+
+\begin{step}[The coefficients]
+Label the bonds of $p=p_{\mu\nu}(x)$ as in \Neqref{eq:plaquette-product}. Then
+\[
+(DA)(p)=\eta^{-1}\big(A(b_1)+R(U(b_1))A(b_2)-R(U(b_4))A(b_3)-A(b_4)\big),
+\]
+and the definitions $a_3=R(H_pU(b_4))A(b_3)$, $a_4=R(H_p)A(b_4)$ in the proof of Lemma~\Nref{lem:current} give
+\[
+\rho^{(1)}_p(h)=\eta^{-1}\big(1-R(H_p)\big)\big(R(U(b_4))h(b_3)+h(b_4)\big).
+\]
+In a gauge in which $U=e^{\ii\eta A_0}$ near $p$ with $|A_0|,|\partial A_0|\le\eps$, Lemma~\Nref{lem:curvature} gives $|H_p-1|\le C\eta^2\eps$, so $\|R(H_p)-1\|\le C\eta^2\eps$, by \Neqref{eq:Ad-bound}. Four bounds follow, with $|h|_p$ the maximum over the bonds of $p$:
+\begin{enumerate}[label=(\roman*)]
+\item $|\rho^{(1)}_p(h)|\le C\eps\eta\,|h|_p$;
+\item $|d^2\rho^{(2)}_p(0)[h,h']|\le C|h|_p|h'|_p$, because $d^2Z_p(0)$ is $\eta^2$ times a combination of commutators of the transported values (Baker--Campbell--Hausdorff to second order), and the transports have norm $1$;
+\item $|F^s_p|\le C\eps$ and $|\frac12(H_p+H_p^{-1})-1|=\frac12|(H_p-1)H_p^{-1}(H_p-1)|\le C\eps^2\eta^4$;
+\item $|(Dh)(p)|\le4\eta^{-1}|h|_p$, hence $|d\zeta_p(0)h|\le C\eta^{-1}|h|_p$.
+\end{enumerate}
+\end{step}
+
+\begin{step}[The kernel]
+By \eqref{d8:eq:W0}, $d^2\mathcal N(0)[h,h']=\eta^d\sum_p\sum_{b,b'\in p}\operatorname{tr}\big(h(b)K_p(b,b')h'(b')\big)$ with
+\[
+|K_p(b,b')|\le C\big(\eps+\eta^{-1}\cdot\eps\eta+\eps^2\eta^2+\eta^{-2}\cdot\eps^2\eta^4\big)\le C\eps ,
+\]
+term by term from (i)--(iv). The pairing on both sides carries the same $\eta^d$, so $(W_0h)(b)=\sum_{p\ni b}\sum_{b'\in p}K_p(b,b')^Th(b')$. Each bond lies in $2(d-1)$ plaquettes. This gives the locality and $|W_0h(b)|\le8(d-1)C\eps\max|h|$. The row and column sums of $|K|$ are bounded by $C\eps$, so the Schur test gives $\|W_0\|\le C\eps$.
+\end{step}
+Only two properties of $U$ were used: the curvature bound $|H_p-1|\le C\eta^2\eps$, and $\|R(U(b))^{\pm1}\|\le1$. This matters for Detail~\ref{d8:A1}.
+
+\status{Expanded. The $L^2$ operator bound is stronger than Proposition~\Nref{prop:action}(c), which is a form bound in the norm $\|h\|^2+\|\nabla h\|^2$. It is this operator bound that Lemma~\Nref{lem:hessian-gamma} needs, and the note cites it there.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:div-curvature}, the identity]\label{d8:ix3}\Ntarget{lem:div-curvature}
+Not on the main line (Proposition~\Nref{prop:complex-ext} lists it as not extended; it enters only Theorem~\Nref{thm:ID}(d)). We check the signs.
+\begin{step}[The gauge path]
+For real $\lambda$ and $g_t=e^{\ii t\lambda}$,
+\[
+(e^{\ii\eta A}U)^{g_t}(b)=g_t(b_-)e^{\ii\eta A(b)}U(b)g_t(b_+)^{-1}=e^{tP}e^{\ii\eta A(b)}e^{-tQ}U(b),
+\]
+with $P=\ii\lambda(b_-)$ and $Q=\ii R(U(b))\lambda(b_+)$, since $U(b)e^{-\ii t\lambda(b_+)}U(b)^{-1}=e^{-tQ}$. The Baker--Campbell--Hausdorff formula, applied first to $e^{tP}e^Y$ and then to the product with $e^{-tQ}$, gives, with $Y=\ii\eta A(b)$,
+\[
+\log\big(e^{tP}e^Ye^{-tQ}\big)=Y+t(P-Q)+\tfrac t2[P,Y]+\tfrac t2[Q,Y]+O(t^2)+O(t|Y|^2).
+\]
+Dividing by $\ii\eta$: $X_\lambda(A)(b)=\eta^{-1}\big(\lambda(b_-)-R(U(b))\lambda(b_+)\big)+\frac\ii2[\lambda(b_-)+R(U(b))\lambda(b_+),A(b)]+O(|A|^2)$. The first term is $-(D\lambda)(b)$. So $X_\lambda(0)=-D\lambda$ and $dX_\lambda(0)h=\frac\ii2[\mu_b,h(b)]$ with $\mu_b=\lambda(b_-)+R(U(b))\lambda(b_+)$.
+\end{step}
+\begin{step}[Differentiation]
+Gauge invariance gives $\ip{\nabla\Phi(A)}{X_\lambda(A)}=0$ for all small real $A$. Differentiate at $A=0$ in the direction $h$, using $\nabla\Phi(0)=J_U$ and $\nabla^2\Phi(0)=D^TD+W_0$:
+\[
+-\ip{(D^TD+W_0)h}{D\lambda}+\ip{J_U}{\tfrac\ii2[\mu,h]}=0 .
+\]
+The pairing is $\eta^d\sum_b\operatorname{tr}$, and $\operatorname{tr}(J[\mu,h])=\operatorname{tr}([J,\mu]h)$. Since $D^TD+W_0$ is symmetric, $(D^TD+W_0)D\lambda=\mathcal J_U(\lambda)$ with $\mathcal J_U(\lambda)(b)=\frac\ii2[J_U(b),\mu_b]$. Finally $D^TDD\lambda=D^T\mathfrak F\lambda$. Both sides are complex linear in $\lambda$. The bound uses $|[X,Y]|\le2|X||Y|$, $|R(U(b))\lambda|=|\lambda|$ and Detail~\ref{d8:W0real}.
+\end{step}
+
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:dirichlet-hessian}(c) at complex perturbations: $d^2\mathcal N(0)$ and $W_2^X$; proof of Proposition~\Nref{prop:dirichlet-hessian}]\label{d8:A1}\Ntarget{prop:dirichlet-hessian}
+\emph{What the note says.} At the complex perturbations $U_\delta$ of Proposition~\Nref{prop:reg-complex}, the potentials $W_2$ and $W_2^X$ are holomorphic, of range $\le3$ and of norm $\le C(\eps+\delta)$, and they change by at most $C_W\delta$. This is the hypothesis of the range-$3$ clause of Proposition~\Nref{prop:reg-complex}. It is used in Proposition~\Nref{prop:dirichlet-hessian}(c), in Proposition~\Nref{prop:local-fluct}(b), in the complex part of Lemma~\Nref{lem:coercive-general}, in Proposition~\Nref{prop:hessian-general}(b), in the smallness list of Proposition~\Nref{prop:complex-ext}, and at level (L4) with $W_2^X$ in Section~\Nref{sec:nested-walks}.
+
+The argument is in the proof of Proposition~\Nref{prop:dirichlet-hessian}, paragraph ``Complex perturbations in (c)''. Its ingredients are:
+\begin{itemize}
+\item the coefficient bound of the first part of Lemma~\Nref{lem:div-curvature}, which is the computation of the proof of Proposition~\Nref{prop:action}(c) at $A=0$;
+\item Proposition~\Nref{prop:complex-ext}(c) and step (v) of its proof, which give $|A_0|,|\partial A_0|$, $|R(H_p)-1|$ and $|F^s|$ at complex references;
+\item Proposition~\Nref{prop:AB}.
+\end{itemize}
+The steps are written out here.
+
+\emph{Claim.} Let $U$ be real and $(M,\eps)$-regular with $|J_U|\le\eps$. Let $\delta_*>0$ be fixed once, depending on $d$, $L$, $G$, $\alpha$ and $M$, for all $\eps$ with $\eps\le\frac12\min(\eps_0,c'_3)$, $C\eps\le\frac12c_5$ and $C'\eps\le\frac12c$ (the real-reference halves of (H3), (H4) and of the threshold in (e)). It satisfies:
+\begin{enumerate}[label=(H\arabic*)]
+\item $2\delta_*\le\delta_0(0)$, the radius of Proposition~\Nref{prop:reg-complex} with $W=0$, and the condition of Proposition~\Nref{prop:dirichlet-averaged}(e) at size $2\delta_*$;
+\item the perturbations of size $<2\delta_*$ are complex references of size $<\delta_{AB}$ (Proposition~\Nref{prop:AB});
+\item $2C\delta_*\le\frac12c_5$ (Proposition~\Nref{prop:action} at complex references);
+\item $2C\delta_*\le\frac12\min(\eps_0,c'_3)$, so that $E=0$ holds on the ball of radius $2\delta_*$ (step (iii) of the proof of Proposition~\Nref{prop:complex-ext}).
+\end{enumerate}
+Then, for every domain $X$, including $X=\Tf$, and every complex $\delta\!A$ with $\mathrm s(\delta\!A)<2\delta_*$:
+\begin{enumerate}[label=(\alph*)]
+\item $W_0(U_\delta)=\nabla^2\mathcal N_{U_\delta}(0)$ is holomorphic in $\delta\!A$, local as in Detail~\ref{d8:W0real}, with $|W_0(U_\delta)h(b)|\le C(\eps+\mathrm s(\delta\!A))\max|h|$ and $\|W_0(U_\delta)\|\le C(\eps+\mathrm s(\delta\!A))$;
+\item $\omega_0^X(U_\delta)$, defined by $\ip b{\omega_0^X}=\ip{F^s_{U_\delta}}{D\bH^X_0(U_\delta)b}$, is holomorphic, with $|\omega_0^X(c)|\le C(\eps+\mathrm s(\delta\!A))$;
+\item $W_2^X(U_\delta)$ is holomorphic, symmetric for the bilinear form, of range $\le3$ in $A$, with $\|W_2^X(U_\delta)\|\le C(\eps+\mathrm s(\delta\!A))$;
+\item if $\mathrm s(\delta\!A)\le\delta\le\delta_*$, then $\|W_2^X(U_\delta)-W_2^X(U)\|\le C_W\delta$, with $C_W=C(1+2\delta_*)/\delta_*$;
+\item for $\delta\le\delta_*$ the potential $W_2^X$ is an admissible perturbation of size $\le C(\eps+2\delta_*)$ in the range-$3$ clause of Proposition~\Nref{prop:reg-complex}, below its threshold if $C'(\eps+2\delta_*)\le c$.
+\end{enumerate}
+All constants are uniform in $X$, $k$, $n$ and $\eta$.
+
+\begin{step}[The local gauge; the role of the derivative]
+Fix a plaquette $p$ and a real gauge in which $U=e^{\ii\eta A_r}$ near $p$, with $|A_r|,|\partial A_r|\le\eps$. There $U_\delta=e^{\ii\eta A_0}$, with $A_0$ the bondwise Baker--Campbell--Hausdorff combination of $A_r$ and $\delta\!A$. It is complex and satisfies (B) with parameter $C(\eps+\mathrm s(\delta\!A))$ (Section~\Nref{sec:complex-references}). Lemma~\Nref{lem:curvature} holds for $\mathfrak g^c$-valued fields, and its proof bounds $\eta^{-2}(H_p-1)$ by $C(|\partial A_0|+|A_0|^2)$. Hence
+\[
+|H_p(U_\delta)-1|\le C\eta^2(\eps+\mathrm s(\delta\!A)),\qquad\|R(U_\delta(b))^{\pm1}\|\le e^{2\eta|A_0(b)|}\le2 .
+\]
+This uses the derivative part $|\partial\delta\!A|$ of the size. With a sup bound alone, $H_p-1$ would only be $O(\eta\delta)$; then $\rho^{(1)}=O(\delta)$ and $D^T\rho^{(1)}=O(\eta^{-1}\delta)$, which is not uniform in $\eta$.
+\end{step}
+
+\begin{step}[(a): the operator $W_0$ at $U_\delta$]
+Formula \eqref{d8:eq:W0} holds at $U_\delta$. Indeed $\Phi_{U_\delta}(A)=S(e^{\ii\eta A}U_\delta)$ with the holomorphic summand, and Proposition~\Nref{prop:complex-ext}(c), through step (v) of its proof, extends the expansion of Proposition~\Nref{prop:action} to complex references, with $P_{\mathfrak g}$ replaced by $P_{\mathfrak g^c}$. (The identity $\ip{\rho^{(1)}(A)}{F^s}=0$ is not needed here: that term is linear in $A$, so it does not enter $d^2\mathcal N(0)$.)
+
+Every bound of Detail~\ref{d8:W0real} used only $|H_p-1|\le C\eta^2\eps$ and $\|R(U(b))^{\pm1}\|\le1$. With the bounds of the previous step they hold with $\eps$ replaced by $C(\eps+\mathrm s)$, with one change: the transports are now bounded by $2$ instead of $1$. The second-order Baker--Campbell--Hausdorff coefficients of $Z_p$ contain products of at most four transports, so $|d^2\rho^{(2)}_p(0)|\le C$ with $C$ multiplied by at most $2^4$. The bounds become:
+\begin{itemize}
+\item $|\rho^{(1)}_p(h)|\le C(\eps+\mathrm s)\eta|h|_p$, and $|F^s_p|\le C(\eps+\mathrm s)$ (also Proposition~\Nref{prop:complex-ext}(c));
+\item $|\frac12(H_p+H_p^{-1})-1|\le C(\eps+\mathrm s)^2\eta^4$, by the identity $\frac12(H+H^{-1})-1=\frac12(H-1)H^{-1}(H-1)$, valid for every invertible $H$.
+\end{itemize}
+The kernel bound and the Schur test of Detail~\ref{d8:W0real} give (a). Holomorphy: in a fixed basis, the entries of $W_0(U_\delta)$ are polynomials in the entries of $R(U_\delta(b))^{\pm1}$, $H_p^{\pm1}$ and $P_{\mathfrak g^c}$, and analytic functions of the bond variables.
+\end{step}
+
+\begin{step}[(b): the multiplier]
+At complex $U_\delta$ the current is not bounded uniformly in $\eta$. So the multiplier is defined through the identity $\ip b{\omega_0^X}=\ip{F^s}{D\bH^X_0b}$ of Proposition~\Nref{prop:dirichlet-hessian}(c). For real $U$ this agrees with $\ip{\bH^X_0b}{J_U}$: it is the torus pairing of the zero extension, crossing plaquettes included. By Proposition~\Nref{prop:dirichlet-averaged}(e) with $W=0$, which needs (H1) and (H4), $D\bH^X_0(U_\delta)$ is holomorphic with decay $(C,\gamma)$. With \eqref{d8:eq:blocknorm}, $|\ip\beta{\omega_0^X(c)}|\le\sum_{y'}\|F^s\|_{B(y')}\|\one_{y'}D\bH_0^X\one_c\|\le C(\eps+\mathrm s)S_\gamma$ for a unit vector $\beta$.
+\end{step}
+
+\begin{step}[(c): $W_2^X$ at $U_\delta$]
+By definition
+\[
+\ip A{W_2^XA}=d^2\mathcal N_{U_\delta}(0)[\one_XA,\one_XA]-\ip{\omega_0^X}{d^2C^{\rm av}_k(0)[A,A]}_{\mathfrak B(X)} .
+\]
+\begin{itemize}
+\item The first term is (a), compressed to $\ell^2_1(X)$.
+\item For the second: Proposition~\Nref{prop:AB}(iii), which needs (H2), gives $|d^2C^{\rm av}_k(0)[h,h'](c)|\le Ce^{C_L\delta_c}\|h\|_{S_c}\|h'\|_{S_c}$, by polarization. Proposition~\Nref{prop:AB}(vi) gives holomorphy. The sets $S_c$ overlap boundedly, so by (b) the second term is bounded by $C(\eps+\mathrm s)\|h\|\|h'\|$, and it couples only bonds of a common $S_c$.
+\item Symmetry for $\mathrm b$ holds because both terms are second derivatives.
+\end{itemize}
+\end{step}
+
+\begin{step}[(d): Cauchy's estimate on the doubled ball]
+Let $\mathrm s(\delta\!A)=s\le\delta\le\delta_*$ and $f(t)=W_2^X(U_{t\,\delta\!A})$. Then $f$ is holomorphic on $\{|t|<R\}$ with $R=2\delta_*/s$, with values in the operators on the finite-dimensional space $\ell^2_1(X)$, and $\|f(t)\|\le C_1:=C(\eps+2\delta_*)$ by (c). The Schwarz lemma for $f-f(0)$, applied to $\phi(f(t)-f(0))$ for every norm-one functional $\phi$, gives $\|f(t)-f(0)\|\le2C_1|t|/R$. At $t=1$:
+\[
+\|W_2^X(U_\delta)-W_2^X(U)\|\le\frac{C_1}{\delta_*}\,s\le\frac{C(1+2\delta_*)}{\delta_*}\,\delta=C_W\delta,
+\]
+using $\eps\le1$.
+\end{step}
+
+\begin{step}[(e) and the order of the choices]
+The proof of Proposition~\Nref{prop:reg-complex} uses the perturbation only through its size. For $\delta\le\delta_*$ the size of $W_2^X(U_\delta)-W_2^X(U)$ is at most $C_1\mathrm s(\delta\!A)/\delta_*\le C_1=C(\eps+2\delta_*)$, by the first inequality of the display in Step~5, since $\mathrm s(\delta\!A)\le\delta\le\delta_*$. The larger constant $C_W$ serves only for the Lipschitz bound (d). So the clause applies if $C'(\eps+2\delta_*)\le c$, with $c$ the stability threshold of Lemma~\Nref{lem:CT-stable}. This splits into two conditions:
+\begin{itemize}
+\item $2C'\delta_*\le\frac12c$, which is part of the choice of $\delta_*$;
+\item $C'\eps\le\frac12c$, a real-reference threshold of Section~\Nref{sec:localization}, which is listed in $\eps_{\max}$ (Remark~\Nref{rem:domain-constants}).
+\end{itemize}
+$\delta_*$ depends only on constants fixed before it: $\delta_0(0)$, $\delta_{AB}$, $c_5$, $\eps_0$, $c'_3$, and the constants $C$, $C'$ of Parts II, III and VIII. So $C_W$ is a fixed constant.
+
+The constant $c''_L$ of Lemma~\Nref{lem:coercive-general} is chosen with $C_{\rm cmp}c''_L\le\delta_*$, with $C_{\rm cmp}=4$ the comparison constant of Section~\Nref{sec:complex-references}. Then every complex reference of size $<\delta_P\le c''_L$ is a perturbation of size $<C_{\rm cmp}\delta_P\le\delta_*$, and (a)--(e) apply there.
+
+If instead one took $\delta_*=\delta_P$, then $C_W$ would depend on $\delta_P$, and through the constant $C_{\rm cx}$ of Proposition~\Nref{prop:complex-ext} the order $\delta_P\le\bar\delta\le1/C_{\rm cx}$ would become circular. Fixing $\delta_*$ once avoids this.
+\end{step}
+\status{Expanded. The note gives the argument in the proof of Proposition~\Nref{prop:dirichlet-hessian}, with $\delta_*$ fixed once and $C_{\rm cmp}c''_L\le\delta_*$ in Lemma~\Nref{lem:coercive-general}.}
+\end{detail}
+
+%% ==== PROOF OF THM 35.2 ====
+\subsection{Theorem 35.2: the interior pointwise bounds}\label{d8:ID}
+
+\begin{detail}[Statement and reductions; Theorem~\Nref{thm:ID} and its proof]\label{d8:ix4}\Ntarget{thm:ID}
+\begin{step}[Hypotheses]
+Theorem~\Nref{thm:ID} assumes a real $(M,\eps)$-regular $U$ with $M\ge M_0$, the averaging pair of Part IV, and $W\in\cW_{\rm loc}(\eps)$ compressed to $X$. The bound $|J_U|\le\eps$ is used in (d) and (e)(d) only. The constants depend on $d,\alpha,\dim\mathfrak g,\kappa$ and on those of Proposition~\Nref{prop:dirichlet-averaged}. So they do not depend on $M\ge M_0$, $X$, $k$, $n$ or $\eta$, as the statement of the theorem says. Its proof names the sources: Proposition~\Nref{prop:dirichlet-averaged}, Lemma~\Nref{lem:local-system}, Propositions~\Nref{prop:scalar-interior}, \Nref{prop:system-interior} and~\Nref{prop:linearized-averages}(d),(e), and, for (d), Lemma~\Nref{lem:div-curvature}.
+\end{step}
+\begin{step}[The gauge of $|h|_{1,\alpha;y}$]
+$U$ is $(M,\eps)$-regular, so on the cube $\{|x-c_y|_\infty\le4M+2\}\supset\Lam_4(c_y)$ there is a real gauge with $U=e^{\ii\eta A}$, $|A|,|\partial A|\le\eps$ and quotients $\le\eps$ on the cubes $\Lam_3(z')$ inside. This is (B) on $\Lam_4(c_y)$, up to the factor $2$ of Section~\Nref{ss:18.1} in the H\"older convention.
+\end{step}
+\begin{step}[Coarse lattices, $\eta>\frac1{16}$]
+By \eqref{d8:eq:blocknorm}, on a block and its neighbours, values are bounded by $16^{d/2}$ times block $L^2$ norms. Differences cost $2\eta^{-1}\le32$, quotients $2\eta^{-\alpha}\le32$, and second differences $4\eta^{-2}\le1024$. So every quantity in (a)--(d) is bounded by the $L^2$ norms of the operator applied to the data on the neighbouring blocks. Proposition~\Nref{prop:dirichlet-averaged}(b) gives the decay. For (e), Proposition~\Nref{prop:dirichlet-averaged}(d) gives the seam form. The data norms satisfy $\|f\|_{B}\le\sqrt d|f|_B$.
+\end{step}
+\begin{step}[Geometry for $\eta\le\frac1{16}$]
+Let $y\in X_{(4)}$ and $z=c_y$. Points of $\Lam_3(z)$ are at $\infty$-distance $\le3$ from $y$, and $\operatorname{dist}(y,\Tf\setminus X)>4$. So they are at distance $>1>\frac12\ge8\eta$ from $\Tf\setminus X$. So the equations of Lemma~\Nref{lem:local-system} hold on $\Lam_3(z)$, enlarged by $2\eta$. The point $x\in\Lam_3$ lies in the block $B(y')$ with $|x-y'|_\infty\le\frac12$, so $|y'-y|_\infty\le\frac72$, i.e.\ $\le3$, and $B(y')\subset X$. Hence $|h|_{\Lam_3}\le\sum_{|y'-y|_\infty\le4}|h|_{B(y')}\le e^{4\sqrt d\gamma}\,\mathfrak E(h)$. The twelve cubes $r_j=3-j/6$ give gaps $r_{j-1}-r_j=\frac16$, so the constants of Propositions~\Nref{prop:scalar-interior} and~\Nref{prop:system-interior} are fixed.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[The basic estimate \Neqref{eq:basic}; the proof of Theorem~\Nref{thm:ID}]\label{d8:ix5}\Ntarget{eq:basic,thm:ID}
+Let $\fA^{X,\kappa}u=\mathcal S$ with $\mathcal S$ in local form, and $\mathfrak L(u)=\sum_{y'}e^{-\gamma|y-y'|}(\|u\|_{B(y')}+\|Du\|_{B(y')})$.
+\begin{itemize}
+\item Lemma~\Nref{lem:local-system}: $\|\sigma\|_{\Lam_3}+\|\tau\|_{\Lam_3}+\sum_i\|\pi_i\|_{\Lam_3}\le C\mathfrak L(u)$, summing the block bounds over $|y'-y|_\infty\le4$ with Detail~\ref{d8:seam}. Similarly $|\omega_i(y')|\le C\mathfrak L(u)$ for $|y'-y|_\infty\le4$.
+\item \Neqref{eq:Epi}: $D^TD\pi_i=F_i$ with $F_i=Q'^T\omega_i-aQ'^TQ'\pi_i$ and $g=0$. By I9, $|Q'^T\omega_i|\le C\max|\omega_i|$ and $|Q'^TQ'\pi_i|\le C\max_{y'}\|\pi_i\|_{B(y')}$. So $|F_i|_{\Lam_{r_{j-1}}}\le C\mathfrak L(u)$. The first bound of Proposition~\Nref{prop:scalar-interior} gives $|\pi_i|+|\partial\pi_i|\le C\mathfrak L(u)$ on $\Lam_{r_j}$, hence $|D\pi_i|\le C\mathfrak L(u)$.
+\item $|a\bQ^T\bQ u|\le C\max_c\|u\|_{S_c}\le C\mathfrak L(u)$ and $|aQ'^TQ'\tau|\le C\mathfrak L(u)$, on $\Lam_3$.
+\end{itemize}
+So $(u,\sigma,\tau)$ solves \Neqref{eq:system} with $m=m_X$, $0\le m_X\le1$, and with the sources
+\[
+\mathcal S_u=\mathcal S+D\pi_1-D\pi_2-a\bQ^T\bQ u,\qquad\mathcal S_\sigma=-\pi_1,\qquad\mathcal S_\tau=-aQ'^TQ'\tau .
+\]
+The added terms are bounded, i.e.\ $F$-parts with $g=0$, and $\mathfrak m\le C\mathfrak L(u)$. Proposition~\Nref{prop:system-interior} gives \Neqref{eq:basic}. In the gauge, $\nabla u=\partial u+Tu$ with $|T|,\Hol T{}\le C\eps$, and $\Hol{Tu}{}\le|T|\Hol u{}+\Hol T{}|u|\le C\eps(|\partial u|+|u|)$. So \Neqref{eq:basic} bounds $|u|_{1,\alpha;y}$.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Theorem~\Nref{thm:ID}(c)]\label{d8:ix6}\Ntarget{thm:ID}
+$u=\bH^XB$ satisfies $\fA^{X,\kappa}u=\fA^{X,\kappa}\bG^X\bQ_X^T\boldsymbol\Gamma^XB=\bQ_X^T\boldsymbol\Gamma^XB$. By I9 and Proposition~\Nref{prop:dirichlet-averaged}(a),
+\[
+|\bQ_X^T\boldsymbol\Gamma^XB|_{\Lam_3}\le C\max_{c\text{ near }\Lam_3}|\boldsymbol\Gamma^XB(c)|\le C\sum_{c'}e^{-\gamma|c-c'|}|B(c')|\le C\mathfrak E(B).
+\]
+$\mathfrak L(u)\le C\mathfrak E(B)$ by the block decay of $\bH^X$ and $D\bH^X$ (Proposition~\Nref{prop:dirichlet-averaged}(b)), with $\|\one_{y'}\bH^X\one_c\|\le Ce^{-\gamma|y'-c|}$. Apply \Neqref{eq:basic}.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Theorem~\Nref{thm:ID}(a)]\label{d8:IDa}\Ntarget{thm:ID}
+Let $u=\bC^Xf$, $h_0=G'_XD^T_Xf$ and $\sigma_2=G'_XR_Xh_0$.
+\begin{step}[The equation]
+$\bC^Xf=\bG^Xf-D\sigma_2-\bH^X\bQ_X\bG^Xf$. Since $\sigma_2\in\cN_X$ and $D^T_XD\sigma_2=R_Xh_0$ (Theorem~\Nref{thm:reg-scalar}(d)), the domain version of Lemma~\Nref{lem:Api-identities}(a) (I4) gives $\fA^XD\sigma_2=DR_Xh_0$. It is used for $\fA^X$, not for $\fA^{X,\kappa}$. Adding the mass and exterior terms,
+\[
+\fA^{X,\kappa}\bC^Xf=f-DR_Xh_0-\kappa m_XD\sigma_2-\fA^{\rm ext}_XD\sigma_2-\bQ_X^T\boldsymbol\Gamma^X\bQ_X\bG^Xf .
+\]
+$\fA^{\rm ext}_XD\sigma_2$ lives on the crossing bonds, so it vanishes on $\Lam_3$.
+\end{step}
+\begin{step}[$h_0$: H\"older only]
+In the interior, $D^TDh_0=D^Tf-aQ'^TQ'h_0$ with $D^Tf=\sum\partial^*_\mu f_\mu+T^Tf$. This is a source in local form with $g=f$ bounded but without a H\"older bound. So only the second bound of Proposition~\Nref{prop:scalar-interior} applies:
+\[
+|h_0|+\Hol{h_0}{}\le C\big(|f|+|Q'^TQ'h_0|+\|h_0\|\big)\le C\mathfrak E(f),
+\]
+using the decay of $G'_XD^T_X$ and \eqref{d8:eq:blocknorm} for $\|h_0\|_{B(y')}$.
+\end{step}
+\begin{step}[The remaining terms]
+\begin{itemize}
+\item $Dh_0=\partial h_0+Th_0$ with $\partial_\mu h_0=-\partial^*_\mu(S_\mu h_0)$ ($S_\mu$ the shift). This is a source with $g=-Sh_0$, so $|g|+\Hol g{}\le|h_0|+\Hol{h_0}{}$, and with $F=Th_0$.
+\item $R_Xh_0=h_0-\pi_3$, $\pi_3=G'_XQ'^T\omega_3$, $\omega_3=(M'_X)^{-1}Q'G'_Xh_0$. As for $\pi_i$, $|\pi_3|+|D\pi_3|\le C\mathfrak E(f)$, so $D\pi_3$ is a bounded $F$-part.
+\item $D^TD\sigma_2=h_0-\pi_3$ (since $Q'\sigma_2=0$). The source is bounded, and the first bound of Proposition~\Nref{prop:scalar-interior} with the decay of $G'_XR_XG'_XD^T_X$ gives $|D\sigma_2|\le C\mathfrak E(f)$. So $\kappa m_XD\sigma_2$ is a bounded $F$-part.
+\item $|\bQ_X^T\boldsymbol\Gamma^X\bQ_X\bG^Xf|\le C\mathfrak E(f)$, by $|\bQ_X\bG^Xf(c)|\le C\|\bG^Xf\|_{S_c}$ and the decay of $\bG^X$ and $\boldsymbol\Gamma^X$.
+\end{itemize}
+So $\mathfrak n_{r}(\mathcal S)\le C\mathfrak E(f)$. This uses about four cubes, well within the twelve. $\mathfrak L(\bC^Xf)\le C\mathfrak E(f)$ by the decay of $\bC^X$ and $D\bC^X$. Apply \Neqref{eq:basic}.
+\end{step}
+\status{Expanded. The source $Dh_0$ enters in divergence form with a H\"older-bounded coefficient. This is why a merely bounded $f$ still gives $C^{1,\alpha}$ output.}
+\end{detail}
+
+\begin{detail}[Theorem~\Nref{thm:ID}(b), with the change of gauge]\label{d8:ix7}\Ntarget{thm:ID}
+Let $u=\bC^XD^T_Xg$ for a $2$-form $g$.
+\begin{step}[The equation]
+The equation is the same as in (a), with $f$ replaced by $D^T_Xg$. Then $h_3=G'_XD^T_XD^T_Xg=G'_X\one_X\mathfrak F^Tg$, by $\one_XD^T\one_XD^T=\one_X\mathfrak F^T$, and $\sigma_3=G'_XR_Xh_3$.
+\end{step}
+\begin{step}[The H\"older quotient of $g$ in the gauge of $z$]
+In the interior, $D^T_Xg=\sum\partial^*_\mu g_{\mu\cdot}+T^Tg$, a source with $\mathfrak n_r$ involving $\Hol g{\Lam_3}$ in the gauge of $z$.
+\begin{itemize}
+\item Two points $x,x'\in\Lam_3(z)$ with $|x-x'|_\infty\le\frac12$ lie in a common cube $\Lam_1(c_{y'})$, with $y'$ the block of $x$ and $|y'-y|_\infty\le4$.
+\item On $\Lam_1(c_{y'})\cap\Lam_3(z)$ both gauges are defined, since $\Lam_3(z)\subset\Lam_4(z)$ and $\Lam_1(c_{y'})\subset\Lam_4(c_{y'})$. The transition $v=u_zu_{y'}^{-1}$ satisfies $e^{\ii\eta A_z(b)}=v(b_-)e^{\ii\eta A_{y'}(b)}v(b_+)^{-1}$. Hence
+\[
+v(b_+)=e^{-\ii\eta A_z(b)}v(b_-)e^{\ii\eta A_{y'}(b)},\qquad|v(b_+)-v(b_-)|\le C\eta\eps .
+\]
+So the difference quotients of $v$ are $O(\eps)$, but $v$ itself need not be close to $1$: it can be any constant rotation. This is the reading used here.
+\item $\tilde g_z=R(v)\tilde g_{y'}$ pointwise, with $R(v)$ orthogonal. Joining $x$ to $x'$ by a monotone path inside the box $\Lam_1(c_{y'})\cap\Lam_3(z)$ gives $\Hol{R(v)}{}\le C|x-x'|^{1-\alpha}\eps$. So $\Hol{\tilde g_z}{}\le\Hol{\tilde g_{y'}}{\Lam_1(c_{y'})}+C\eps|g|$.
+\item Pairs with $|x-x'|_\infty>\frac12$ contribute at most $2^{1+\alpha}|g|$.
+\end{itemize}
+This gives the bound in the proof of Theorem~\Nref{thm:ID} for $\Hol g{\Lam_3}$, and it is the gauge conversion cited in Sections~\Nref{sec:interior-lp}, \Nref{sec:tiers}, \Nref{sec:weak-background} and~\Nref{sec:step-quantities}.
+\end{step}
+\begin{step}[The rest]
+$D^TDh_3=\mathfrak F^Tg-aQ'^TQ'h_3$ is a bounded source, so $|h_3|+|Dh_3|\le C\mathfrak E(g)$ by the first bound of Proposition~\Nref{prop:scalar-interior}. Here the $L^2$ input is the decay of $G'_X\one_X\mathfrak F^T$, and that of $G'_XR_X$ for $\sigma_3$. Hence $DR_Xh_3$ is a bounded source. Unlike (a), no divergence form is needed, because $\mathfrak F^T$ has removed one derivative. The other terms are those of (a), with the decay of $\bG^XD^T_X$, $\bC^XD^T_X$ and $D\bC^XD^T_X$ (Proposition~\Nref{prop:dirichlet-averaged}(b)).
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Theorem~\Nref{thm:ID}(d). Not on the main line]\label{d8:ix8}\Ntarget{thm:ID}
+Let $u=\bH^XY$ and $\theta=D^T_Xu$.
+\begin{itemize}
+\item Applying $D^T$ to \Neqref{eq:Eu} uses $D^TD^T=\mathfrak F^T$ twice. With \Neqref{eq:Etau}, the curvature and potential terms cancel to $aQ'^TQ'\tau$.
+\item The source is $D^T\bQ^T\boldsymbol\Gamma^XY=Q'^TD_V^T\boldsymbol\Gamma^XY$ (since $\bQ D=D_VQ'$). Together with \Neqref{eq:Epi}, this gives the displayed equation for $D^TD\theta$.
+\item $D^T(m_Xu)-m_X\theta=\sum_\mu(\partial^*_\mu m_X)S_\mu^{-1}u_\mu+\sum_\mu\big(m_X(\cdot-\eta e_\mu)-m_X\big)(T^T_\mu u_\mu)$, which is bounded by $C|u|$, since $|\partial m_X|\le CM^{-1}$ by Lemma~\Nref{lem:partition}(c),(d).
+\item Proposition~\Nref{prop:scalar-interior} gives $|D\theta|\le C\mathfrak E(Y)$.
+\item Every term of $D^TDu$ is then bounded. For $D^T\mathfrak F\sigma$, use Lemma~\Nref{lem:div-curvature}: $|D^T\mathfrak F\sigma|\le C\eps|D\sigma|+|J_U|(|\sigma(b_-)|+|\sigma(b_+)|)$, with $|J_U|\le\eps$.
+\end{itemize}
+\status{Expanded (condensed; off the main line).}
+\end{detail}
+
+\begin{detail}[Theorem~\Nref{thm:ID}(e). Not on the main line]\label{d8:ix9}\Ntarget{thm:ID}
+We list what changes relative to (a)--(d) and check each change.
+\begin{itemize}
+\item \emph{$L^2$ differences.} Every operator in the construction has a comparison of domains with seam form, on the fine side for all unit points:
+  \begin{itemize}
+  \item the scalar ones by Theorem~\Nref{thm:reg-scalar}(e), with seam $\Sigma_2\subset\Sigma$;
+  \item $\bG$ by Theorem~\Nref{thm:reg-locality}(a);
+  \item $\boldsymbol\Gamma$, $\bH$, $\bC$ by Detail~\ref{d8:35d}.
+  \end{itemize}
+  The local operators $\one_X$, $D^T_X$, $\mathfrak B_X$ differ from those on $X'$ only within distance $1$ of $X\setminus X'$. Telescoping, with Detail~\ref{d8:seam}(i), gives the $L^2$ differences of $u$, $\sigma$, $\tau$, $\pi_i$, $h_0$, $\sigma_2$ and $|\delta\omega_i|$ as $K_\Sigma$-sums.
+\item \emph{The difference system.} On $\Lam_3(z)\subset X'_{(4)}$ the local operators agree, except the mass terms. So $(\delta u,\delta\sigma,\delta\tau)$ solves \Neqref{eq:system} with $m=m_X$, and the source acquires $-\kappa(m_X-m_{X'})u'$. In (a) there is also $-\kappa(m_X-m_{X'})D\sigma'_2$.
+\item \emph{The mass difference.} $J(X')\subset J(X)$, so $m_X-m_{X'}=-\sum_{j\in J(X)\setminus J(X')}\chi_j^2$. For such $j$, $\Lam_j$ meets $X\setminus X'$ and has diameter $\le6M+2$, so the support lies within $8M$ of $X\setminus X'$ (as $M\ge1$). At a point $x$ of the support, the nearest unit point $w$ has $|x-w|\le\sqrt d/2$ and lies in $\Sigma$. With $|y-x|\le3\sqrt d$, Detail~\ref{d8:seam} gives $e^{-\gamma|y-y'|}\le e^{2\gamma(|y-x|+|x-w|)}e^{-\gamma(|y-w|+|w-y'|)}$. So the term $\mathfrak E(f)$ from the bounds for $X'$ on $\Lam_{r_6}$ becomes a $K_\Sigma$-sum.
+\item \emph{The scalar differences} solve homogeneous interior equations, e.g.\ $D^TD\delta h_0=-aQ'^TQ'\delta h_0$. So Proposition~\Nref{prop:scalar-interior} turns their $L^2$ $K_\Sigma$-bounds into pointwise ones.
+\item Proposition~\Nref{prop:system-interior} on $\Lam_{r_6}\supset\dots\supset\Lam_{r_{12}}$ concludes. For (b) and (c) the changes are the same. For (d), apply $D^T$ to the difference system and use Lemma~\Nref{lem:div-curvature} for $\delta\sigma$.
+\end{itemize}
+\status{Literal repetition, with the changes listed and checked.}
+\end{detail}
+
+
+%% ==== SECTION 37 ====
+\subsection{Section 37: Hessians and local fluctuation operators}\label{d8:s37}
+
+\begin{detail}[Lemma~\Nref{lem:telescoping}]\label{d8:ix10}\Ntarget{lem:telescoping}
+$\Lam_{m_{\mathsf S}}(\mathsf S)=\Tf$ and the sum telescopes. $m_{\mathsf S}$ is finite, because the torus is finite. Differences of functions that depend on the background only on $\mathcal R(\Lam_m)$, respectively only on $\mathcal R(\Lam_{m-1})\subset\mathcal R(\Lam_m)$, depend only on $\mathcal R(\Lam_m)$; the inclusion is a hypothesis of the lemma. Analyticity and invariance pass to differences.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:hessian-gamma}]\label{d8:hessgamma}\Ntarget{lem:hessian-gamma}
+\begin{step}[$W_2$ is bounded]
+Write $\ip A{W_2A'}=\ip A{W_0A'}-\sum_c\operatorname{tr}\big(\omega_0(c)\,d^2C^{\rm av}_k(0)[A,A'](c)\big)$ (unit-lattice pairing, no $\eta^d$).
+\begin{itemize}
+\item By Detail~\ref{d8:W0real}, $\|W_0\|\le C\eps$, with range one plaquette. This uses $(1,\eps)$-regularity with $\eps\le c_5$. The proof of Proposition~\Nref{prop:action}(c) cited in the proof of Lemma~\Nref{lem:hessian-gamma} gives only a form bound with $\|\nabla h\|$. The operator bound is the computation at $A=0$ of Lemma~\Nref{lem:div-curvature}.
+\item $|\omega_0(c)|\le C\eps$ by block Cauchy--Schwarz, not by Lemma~\Nref{lem:sup-bounds}, which bounds $\bH$ and not $\bH^T$. For a unit vector $\beta$,
+\[
+|\ip\beta{\omega_0(c)}|=|\ip{\bH_0\one_c\beta}{J_U}|\le\sum_{y'}\|\one_{y'}\bH_0\one_c\|\,\|J_U\|_{B(y')}\le C\sqrt d\,\eps S_\gamma .
+\]
+Here we use the decay of $\bH_0$ (Theorem~\Nref{thm:reg-min}) and $|J_U|\le\eps$. So the threshold $\eps_*$ of Lemma~\Nref{lem:sup-bounds} is not needed here.
+\item Proposition~\Nref{prop:Q-expansion}(c) and polarization give $|d^2C^{\rm av}_k(0)[h,h'](c)|\le C\|h\|_{S_c}\|h'\|_{S_c}$. Each bond lies in boundedly many $S_c$. Hence the second form is bounded by $C\eps\|h\|\|h'\|$, and it couples only bonds of a common $S_c$.
+\end{itemize}
+So $\|W_2\|\le C\eps$, and $\one_yW_2\one_{y'}=0$ for $|y-y'|_\infty>2$. Lemma~\Nref{lem:decay-calculus}(d) gives the decay. $W_2$ is real symmetric, since it is the second derivative of a function that is real for real $A$, with $\omega_0$ real. It depends on $U$ globally through $\bH_0^T$.
+\end{step}
+\begin{step}[At critical $U$]
+Proposition~\Nref{prop:euler-lagrange} at $A_*=0$ gives $J=d\mathcal Q(0)^T\omega=\bQ^T\omega$. Since $\bQ\bH_0=I$, $\omega_0=\bH_0^T\bQ^T\omega=\omega$, the multiplier. Proposition~\Nref{prop:hessian}(a) then reads
+\[
+\Delta^0(B,B)=\min\{q(A):\bQ A=B,\ RD^TA=0\},\qquad q(A)=\|DA\|^2+\ip A{W_2A}.
+\]
+\end{step}
+\begin{step}[The minimum over the slice is the minimum over all fields]
+Put $\fA_\pi=\fA_\pi[W_2]$, which is positive by Theorem~\Nref{thm:reg-coercive} and Detail~\ref{d8:range3}, for $C\eps\le\frac12c_*$.
+\begin{itemize}
+\item For $A$ in the slice $\mathcal S=\{RD^TA=0\}$: $\Pi A=A$ (Lemma~\Nref{lem:slice}(b)), so $\ip A{\fA_\pi A}=q(A)+a\|\bQ A\|^2$.
+\item For any $A$ with $\bQ A=B$: $\Pi A\in\mathcal S$, $\bQ\Pi A=\bQ A=B$ (as $E=0$), $RD^T\Pi=0$ and $\Pi^2=\Pi$. So $\ip A{\fA_\pi A}=\ip{\Pi A}{\mathfrak B\Pi A}+\|RD^TA\|^2+a\|B\|^2\ge\ip{\Pi A}{\fA_\pi\Pi A}$.
+\end{itemize}
+Hence $\min\{\ip A{\fA_\pi A}:\bQ A=B\}=\Delta^0(B,B)+a\|B\|^2$. By the variational identity of Detail~\ref{d8:35a}, Step 4, with $X=\Tf$, the left side is $\ip B{\boldsymbol\Gamma_\pi[W_2]B}$, attained at $\bH[W_2]B$. Both sides are quadratic forms of symmetric operators, so $\Delta^0=\boldsymbol\Gamma_\pi[W_2]-a$.
+\end{step}
+\status{Expanded. The note's proof cites Lemma~\Nref{lem:div-curvature} and block Cauchy--Schwarz, as above.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:dirichlet-hessian}(a)--(c)]\label{d8:dh}\Ntarget{prop:dirichlet-hessian}
+The proposition is checked here in full.
+\begin{step}[(a)]
+$X=\Tf$: $\bH^{\Tf}_0=\bH_0$ and $\one_{\Tf}=1$, so $\omega_0^{\Tf}=\omega_0$ and $W_2^{\Tf}=W_2$. Then $\Delta^{0,\Tf}=\boldsymbol\Gamma^{\Tf}[W_2]-a=\boldsymbol\Gamma_\pi[W_2]-a$ (Detail~\ref{d8:defs}), which is $\Delta^0$ at critical $U$ (Detail~\ref{d8:hessgamma}).
+\end{step}
+\begin{step}[(b)]
+$|\omega_0^X(c)|=|\ip{\bH_0^X\one_c\beta}{\one_XJ_U}|\le C\eps S_\gamma$, as in Detail~\ref{d8:hessgamma}, with the block decay of $\bH_0^X$ (Proposition~\Nref{prop:dirichlet-averaged}(b)) and no pointwise bound. $\|W_2^X\|\le C\eps$ is as in Detail~\ref{d8:hessgamma}, since $\one_X$ has norm $1$. Proposition~\Nref{prop:dirichlet-averaged}(a) with the potential $W_2^X$ applies once $C\eps$ is below its threshold. It gives the decay of $\Delta^{0,X}$, uniformly in $X$.
+\end{step}
+\begin{step}[(c), real part]
+The dependence is on $\hat X$:
+\begin{itemize}
+\item $\omega_0^X$ through $\bH_0^X$ and $J_U$ on the bonds of $X$ (Proposition~\Nref{prop:dirichlet-averaged}(c));
+\item $d^2\mathcal N(0)[\one_X\cdot,\one_X\cdot]$ through the plaquettes meeting the bonds of $\ell^2_1(X)$;
+\item the kernel of $d^2C^{\rm av}_k(0)$ at $c\in\mathfrak B(X)$ through $B(c_-)\cup B(c_+)$.
+\end{itemize}
+Covariance holds term by term ($J_{U^u}=R(u)J_U$, Lemma~\Nref{lem:current}(b)). At real $U$, $W_2^X$ is real symmetric, with range $\le3$ in $A$.
+\end{step}
+\begin{step}[(c), complex perturbations]
+The three bullets of Proposition~\Nref{prop:dirichlet-hessian}(c) are: local and analytic dependence of $d^2\mathcal N(0)$ and $d^2C^{\rm av}_k(0)$; the formula $\ip b{\omega^X_0}=\ip{F^s_U}{D\bH_0^Xb}$; and Cauchy's estimate on twice the radius. The bound $\|W_2^X(U_\delta)\|\le C(\eps+\delta)$, uniform in $\eta$, on which Cauchy's estimate rests, and the change $C_W\delta$ are written out in Detail~\ref{d8:A1}; the note gives them in the proof.
+\end{step}
+\status{Expanded. The complex part of (c) is Detail~\ref{d8:A1}.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:dirichlet-hessian}(d)]\label{d8:ix11}\Ntarget{prop:dirichlet-hessian}
+Let $X'\subset X$ and $c,c'\in\mathfrak B(X')$.
+\begin{step}[$\omega_0$]
+For $c\in\mathfrak B(X')$, $\bH^X_0\one_c$ and $\bH^{X'}_0\one_c$ lie in $\ell^2_1(X)$, so $\one_X$ and $\one_{X'}$ act trivially in the pairing:
+\[
+\ip\beta{\omega_0^X(c)-\omega_0^{X'}(c)}=\ip{(\bH_0^X-\bH_0^{X'})\one_c\beta}{J_U}.
+\]
+Detail~\ref{d8:35d}, Step 5, for $\bH_0$ on the fine side at all unit points, gives $|\cdot|\le C\eps\sum_{y'}K_\Sigma(y',c)\le C\eps S_{\gamma/2}\sum_{w\in\Sigma}e^{-\frac\gamma2|c-w|}$.
+\end{step}
+\begin{step}[$W_2$]
+As operators on $\ell^2_1(X)$, write $W_2^X-W_2^{X'}$ with $W_2^{X'}$ extended by zero.
+\begin{itemize}
+\item On $\ell^2_1(X')$ the $d^2\mathcal N$ parts agree, because $\one_XA=\one_{X'}A=A$ for $A\in\ell^2_1(X')$.
+\item The remaining part of the $d^2\mathcal N$ difference acts on bonds of $\ell^2_1(X)\setminus\ell^2_1(X')$, which lie within distance $1$ of $X\setminus X'$.
+\item The averaging parts differ by
+\[
+\sum_{c\in\mathfrak B(X')}(\omega_0^X-\omega_0^{X'})(c)\,d^2C^{\rm av}_k(0)(c)+\sum_{c\in\mathfrak B(X)\setminus\mathfrak B(X')}\omega_0^X(c)\,d^2C^{\rm av}_k(0)(c).
+\]
+The second sum has $c$ within distance $1$ of $X\setminus X'$.
+\end{itemize}
+So $\|\one_w(W_2^X-W_2^{X'})\|\le C\eps\sum_{s\in\Sigma}e^{-\frac\gamma2|w-s|}$.
+\end{step}
+\begin{step}[$\Delta^0$]
+Detail~\ref{d8:35d} with $W=W_2^X$ and $W'=W_2^{X'}$ gives, for $\boldsymbol\Gamma$, the first seam term and
+\[
+\frac C\eps\sum_we^{-\gamma(|c-w|+|w-c'|)}\,C\eps\sum_se^{-\frac\gamma2|w-s|}\le C\sum_{s\in\Sigma}e^{-\frac\gamma4(|c-s|+|s-c'|)},
+\]
+by Detail~\ref{d8:seam}(iii) with $\gamma/2$. This is the claim with $\gamma'=\gamma/4$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[The gauge-fixing part and \Neqref{eq:gf-local-part}; Section~\Nref{ss:37.4}]\label{d8:ix12}\Ntarget{eq:gf-local-part,ss:37.4}
+\begin{step}[$K^X$]
+By Lemma~\Nref{lem:avg-transport}(a), $\mathfrak G_WZ(y,x)$ depends only on $Z$ and $W$ on the inner bonds of $B'(y)$. So $K^X=\mathfrak G_W^T\one_{\T'(X)}\mathfrak G_W$ has a kernel $K^X(b,b')$ that vanishes unless $b$ and $b'$ are inner bonds of a common block $B'(y)\subset X$. Its range is $\le L$, and its entries are $\le C_L$ by Lemma~\Nref{lem:avg-transport}(c). $W=U^{(k)}$ on the bonds of $B'(y)\subset X$ depends on $U$ on the unit blocks of $X$ and their neighbours, so on $\hat X$. Covariance and analyticity come from Lemma~\Nref{lem:avg-transport}(d),(f).
+\end{step}
+\begin{step}[\Neqref{eq:gf-local-part}]
+An inner bond $b$ starting in $Y$ lies in a block $B'(y)$ of side $L$, so $B'(y)\subset Y^{(L)}\subset Y^{(R_0)}=Y^+$, as $R_0\ge2L+2$. So $y\in\T'(Y^+)$ for every block that carries an inner bond starting in $Y$. On $\mathfrak F(Y)$, the operators $K^{Y^+}$ and $\mathfrak G_W^T\mathfrak G_W$ have the same entries.
+\end{step}
+\begin{step}[Non-critical $U$]
+$\Delta_k:=\Delta^{(\Tf)}_k$ and $C_k:=\Delta_k^{-1}$, with the elimination at $W=U^{(k)}$. At critical $U$, Proposition~\Nref{prop:dirichlet-hessian}(a) and Lemma~\Nref{lem:step-quadratic} show that this is the operator of Part VII.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:coercive-general}, real backgrounds]\label{d8:cg-real}\Ntarget{lem:coercive-general}
+Let $U$ be real and regular with $|J_U|\le\eps$, critical or not, under the hypotheses of Corollary~\Nref{cor:covariance}: $\eps\le\eps_L$ and $CL^{3d+1}\eps\le\frac14c_L$.
+\begin{step}[Criticality is not used]
+\begin{itemize}
+\item Theorem~\Nref{thm:step-coercive} states this, and its proof ends ``Criticality of $U'$ was not used''.
+\item Lemma~\Nref{lem:local-comparison} uses:
+  \begin{itemize}
+  \item the $3\eps$-regularity on the cubes $\Lam_{4M+2}$ and Lemma~\Nref{lem:large-cubes};
+  \item Theorem~\Nref{thm:reg-locality}(b) and Part II at a spliced background;
+  \item Lemma~\Nref{lem:avg-local-gauge}, with the curvature of $U$ at most $\eps$;
+  \item covariance and Lemma~\Nref{lem:avg-transport}(e).
+  \end{itemize}
+  None of these involves the current or the minimality.
+\item The base $W=U^{(k)}$ has small curvature (Proposition~\Nref{prop:avg-regular}), and the expansions of Part IV hold at every real base of small curvature.
+\end{itemize}
+So $\ip B{(\boldsymbol\Gamma_\pi[0]-a)B}+\|\mathfrak G_WB\|^2\ge c_L\|B\|^2$ on $\mathcal Z$.
+\end{step}
+\begin{step}[The potential]
+$\bQ\bG[W_2]\bQ^T-\bQ\bG[0]\bQ^T=-\bQ\bG[W_2]\Pi^TW_2\Pi\bG[0]\bQ^T$ has decay $(C\eps,\gamma')$ by I2. Both operators are $\ge c$. So $\boldsymbol\Gamma_\pi[W_2]-\boldsymbol\Gamma_\pi[0]=-\boldsymbol\Gamma_\pi[W_2](\cdots)\boldsymbol\Gamma_\pi[0]$ has norm $\le C\eps$. With $B=\hat Z^1Z$, $\|B\|\ge\|Z\|$ and $\|\mathfrak G_WZ\|=\|\mathfrak G_WB\|$:
+\[
+\Delta^{0,\Tf}(B,B)+\|\mathfrak G_WZ\|^2\ge(c_L-C\eps)\|B\|^2\ge\tfrac12c_L\|Z\|^2 .
+\]
+\end{step}
+\begin{step}[The term with $\omega_0$: the count $L^{3d+1}$]
+$\hat Z^2(Z)$ is supported on the bonds $b_0(c)$, $c\in\T'$, with $|\hat Z^2(Z)(b_0(c))|\le CL^{3d+1}\max_{R_c}|Z|^2$, where $R_c$ is the set of bonds with both endpoints in $B'(c_-)\cup B'(c_+)$. Then $\max_{R_c}|Z|^2\le\sum_{b\in R_c}|Z(b)|^2$, and each bond lies in at most $2d$ sets $R_c$. With $|\omega_0|\le C\eps$,
+\[
+|2\ip{\omega_0}{\hat Z^2(Z)}|\le2C\eps\sum_cCL^{3d+1}\sum_{b\in R_c}|Z(b)|^2\le CL^{3d+1}\eps\|Z\|^2\le\tfrac14c_L\|Z\|^2 .
+\]
+The polarized form of $\hat Z^2$ is bounded in the same way. Hence $\Delta_k\ge\frac14c_L$.
+\end{step}
+\begin{step}[Upper bound]
+$\Delta^{0,\Tf}$ has decay (Proposition~\Nref{prop:dirichlet-hessian}(b)). $\hat Z^1$, $\hat Z^2$ are local with range $2L$, and $\|\mathfrak G_W\|\le C_L$. So $\Delta_k\le C_L$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:coercive-general}, complex perturbations]\label{d8:cg-complex}\Ntarget{lem:coercive-general}
+Let $U=e^{\ii\eta A'}U_r$ be a complex reference of size at most $c''_L$ (Section~\Nref{sec:complex-references}). Let $\eps\le\eps_{\rm cc}$, the threshold below which the two sizes of a complex perturbation agree up to the factor $C_{\rm cmp}=4$, and let $\eps$ satisfy the three conditions fixed with $\delta_*$ in Detail~\ref{d8:A1}. The statement of the lemma names both. Since $C_{\rm cmp}c''_L\le\delta_*$ (Detail~\ref{d8:A1}, Step (e)), $U$ is a perturbation $U_\delta$ of $U_r$ in the sense of Proposition~\Nref{prop:reg-complex}, with $\delta\le\delta_*$. The four changes of $\Delta_k(Z,\bar Z)$ are:
+\begin{itemize}
+\item \emph{$\Delta^{0,\Tf}$.} $\boldsymbol\Gamma_\pi[W_2]$ at $U$ differs from its value at $U_r$ by $O(c''_L)$ in norm. The averages and $\bG$ change by $C_Lc''_L$ (Propositions~\Nref{prop:AB}(v), \Nref{prop:reg-complex}), and $W_2$ changes by $C_WC_{\rm cmp}c''_L$ (Detail~\ref{d8:A1}(d)). Then apply I2. The note points to the proof of Proposition~\Nref{prop:dirichlet-hessian}(c) for the $W_2$ input.
+\item \emph{$\omega_0$.} $|\omega_0|\le C(\eps+c''_L)$ (Detail~\ref{d8:A1}(b); this is the claim of Proposition~\Nref{prop:hessian-general}(b), a forward reference that does not depend on this lemma). The change of $\omega_0$ is $\le CC_Wc''_L$, so the term changes by $\le CL^{3d+1}c''_L\|Z\|^2$.
+\item \emph{The elimination.} By Proposition~\Nref{prop:AB}(i), the base is $e^{\ii\beta}W$ with $|\beta|_\infty\le C_{\rm AB}c''_L\le c'_L$. By Corollary~\Nref{cor:covariance}(c), $\hat Z^1$, $\hat Z^2$ change by local maps of size $C_Lc''_L$.
+\item \emph{The gauge fixing.} Lemma~\Nref{lem:avg-transport}(f) gives $|(\mathfrak G_{e^{\ii\beta}W}-\mathfrak G_W)Z(y,x)|\le CL^2|\beta|_\infty\max_{B'(y)}|Z|$. Summing over the $L^d$ points $x\in B'(y)$,
+\[
+\|(\mathfrak G'-\mathfrak G)Z\|^2\le\sum_yL^d(CL^2|\beta|)^2\max_{B'(y)}|Z|^2\le CL^{d+4}|\beta|^2\|Z\|^2 .
+\]
+With $\|\mathfrak G\|\le CL^{d/2+1}$, the bilinear form changes by $\le\|(\mathfrak G'-\mathfrak G)Z\|(\|\mathfrak G'Z\|+\|\mathfrak GZ\|)\le CL^{d+3}C_{\rm AB}c''_L\|Z\|^2$.
+\end{itemize}
+Sum: $\Rea\Delta_k(Z,\bar Z)\ge(\frac14c_L-\mathcal E)\|Z\|^2$, where $\mathcal E=C''_Lc''_L$ is the sum of the four changes, with a constant $C''_L\ge C_L$ that absorbs $C_W$ of Detail~\ref{d8:A1}(d). The conditions on $c''_L$ are $C_{\rm AB}c''_L\le c'_L$, $C_{\rm cmp}c''_L\le\delta_*$ and $C''_Lc''_L\le\frac18c_L$. The largest explicit power is $L^{3d+1}=L^{13}$, against $L^{d+3}=L^7$. Since $\delta_*$ may depend on $M$, so may $c''_L$; the statement of the lemma says so. This is harmless, because $c''_L$ enters only $\delta_P\le c''_L$, chosen after $M$.
+\status{Expanded. The note's proof lists the conditions together (their sum $C''_Lc''_L$, not each separately, must be $\le\frac18c_L$) and points to the proof of Proposition~\Nref{prop:dirichlet-hessian}(c) for $W_2$. The statement names the conditions on $\eps$.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:local-fluct}(a)]\label{d8:lf-a}\Ntarget{prop:local-fluct}
+\begin{step}[The entries]
+Let $b,b'\in\mathfrak F(Y)$.
+\begin{itemize}
+\item $\hat Z^1\delta_b$ is supported within distance $2L$ of $b$, hence at distance $\ge R_0-2L$ from $\Tf\setminus Y^+$, and inside $\mathfrak B(Y^+)$.
+\item The gauge-fixing parts agree by \Neqref{eq:gf-local-part}.
+\item By Proposition~\Nref{prop:dirichlet-hessian}(d) with $X=\Tf$ and $X'=Y^+$, the seam $\Sigma$ consists of the points within $10M$ of $\Tf\setminus Y^+$. For $c,c'$ in the supports, $\operatorname{dist}(c,\Sigma),\operatorname{dist}(c',\Sigma)\ge D:=R_0-2L-10M$. Detail~\ref{d8:seam}(iv) gives $|\Delta^{0,\Tf}(c,c')-\Delta^{0,Y^+}(c,c')|\le Ce^{-\gamma'|c-c'|/2}e^{-\gamma'D/2}$.
+\item The $\omega_0$ term changes by $C\eps L^{3d+1}e^{-\gamma D/2}$, by the first bound of Proposition~\Nref{prop:dirichlet-hessian}(d).
+\end{itemize}
+Composing with $\hat Z^1$ (range $2L$, entries $\le C_L$),
+\[
+|\Delta_k(b,b')-\Delta^{(Y^+)}_k(b,b')|\le C_Le^{-\gamma'|b-b'|/2}e^{-\gamma'(R_0-2L-10M)/2}.
+\]
+\end{step}
+\begin{step}[The constant, and $R_0(L,M)$]
+The Schur test gives $\|\Delta_Y-\one_{\mathfrak F(Y)}\Delta_k\one_{\mathfrak F(Y)}\|\le C_{\rm seam}e^{-\gamma'(R_0-2L-10M)/2}$, with a constant $C_{\rm seam}$ free of $M$. The note states (a) with this factor. The same bound holds at the complex perturbations of Lemma~\Nref{lem:coercive-general}: the entries are bounded by the same proof, with the inputs read as in (b) below. We take $C_{\rm seam}$ and $\gamma'$ valid at real $U$ and at these perturbations, with $\gamma'$ of Proposition~\Nref{prop:dirichlet-hessian}(d). Put
+\[
+R_0(L,M):=2L+10M+\frac2{\gamma'}\log^+\frac{16C_{\rm seam}}{c_L}.
+\]
+For $R_0\ge R_0(L,M)$ the norm above is at most $\frac1{16}c_L$, at real $U$ and at these perturbations. Compression keeps the lower bound, $\one\Delta_k\one\ge\frac14c_L$ (Lemma~\Nref{lem:coercive-general}). Hence $\Delta_Y\ge(\frac14-\frac1{16})c_L\ge\frac18c_L$ at real $U$. At the complex perturbations $\Rea\one\Delta_k\one\ge\frac18c_L$, so $\Rea\Delta_Y\ge\frac1{16}c_L$, which is (b). Since $C_{\rm seam}$, $c_L$ and $\gamma'$ do not depend on $M$, $R_0(L,M)\le C_LM$ for $M\ge1$, as Part IX uses; and $\log^+$ gives $R_0(L,M)\ge2L+2$. The note states both.
+\end{step}
+\begin{step}[The decay of $C_Y$]
+$\Delta_Y$ has decay $(C_L,\gamma_1)$, with no $M$ (entries of $\Delta^{0,Y^+}$, $\hat Z$ and $K$). Lemma~\Nref{lem:CT-bounded} gives decay $(C_L,\gamma_C)$ for $C_Y$, uniformly in $Y$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:local-fluct}(b)--(d)]\label{d8:lf-bd}\Ntarget{prop:local-fluct}
+\begin{step}[(b)]
+The ingredients depend on $U$ as follows:
+\begin{itemize}
+\item $\Delta^{0,Y^+}$ and $\omega_0^{Y^+}$ on $\widehat{Y^+}$ (Proposition~\Nref{prop:dirichlet-hessian}(c));
+\item $\hat Z^1$, $\hat Z^2$ on $W=U^{(k)}$ within $2L$ of the bonds of $\mathfrak F(Y)$, hence on $U$ in $Y^{(2L+1)}\subset Y^+$;
+\item $K^{Y^+}$ on $Y^+$ and its neighbours.
+\end{itemize}
+Covariance holds term by term. At complex perturbations, $\Rea\Delta_k\ge\frac18c_L$ (complex part of Lemma~\Nref{lem:coercive-general}), and (a) holds at the perturbation with the same proof. Its input, Proposition~\Nref{prop:dirichlet-hessian}(d), holds there with $\omega_0^X$ read through $F^s$ and $D\bH_0^X$, by Proposition~\Nref{prop:dirichlet-averaged}(d),(e) for $D\bH_0$. So $\Rea\Delta_Y\ge\frac18c_L-\frac1{16}c_L=\frac1{16}c_L$ for $R_0\ge R_0(L,M)$, by the choice of $C_{\rm seam}$ in Detail~\ref{d8:lf-a}; $R_0(L,M)$ need not be enlarged. Analyticity of $W_2^X$ is Detail~\ref{d8:A1}.
+\end{step}
+\begin{step}[(c)]
+Lemma~\Nref{lem:compare-inverse} with $\fA=\Delta_{Y'}$, $\fA'=\Delta_Y$ on $\ell^2(\mathfrak F(Y))\subset\ell^2(\mathfrak F(Y'))$. The entries of $\Delta=\Delta_{Y'}\one_{\mathfrak F(Y)}-\one_{\mathfrak F(Y)}\Delta_Y\one_{\mathfrak F(Y)}$ are of two kinds:
+\begin{itemize}
+\item $b\in\mathfrak F(Y)$: the gauge-fixing parts cancel by \Neqref{eq:gf-local-part} for $Y$ and $Y'$. The coarse parts differ by Proposition~\Nref{prop:dirichlet-hessian}(d) with $X=Y'^+$, $X'=Y^+$. Since $Y'^+\setminus Y^+\subset(Y'\setminus Y)^{(R_0)}$, the seam lies within $R_0+10M$ of $Y'\setminus Y$. Composition with $\hat Z^1$ adds $2L$. So the entries have seam form with $\Sigma_Y$, and the constant contains no $M$.
+\item $b\in\mathfrak F(Y')\setminus\mathfrak F(Y)$: $|\Delta_{Y'}(b,b')|\le C_Le^{-\gamma_1|b-b'|}$, with $b_-\in Y'\setminus Y\subset\Sigma_Y$. Detail~\ref{d8:seam}(ii) gives seam form.
+\end{itemize}
+Then $\one C_{Y'}\one-C_Y=-\one C_{Y'}\Delta C_Y$, and Detail~\ref{d8:seam}(i) gives the bound for $C$. The bound for $\Delta$ is the first kind of entry.
+\end{step}
+\begin{step}[(d)]
+\begin{itemize}
+\item $\Rea(\Delta_Y+r)\ge\frac1{16}c_L+r$.
+\item Lemma~\Nref{lem:CT-bounded} for $K=\Delta_Y+r$ uses $\|K_\alpha-K\|=\|(\Delta_Y)_\alpha-\Delta_Y\|\le C_Lc_1|\alpha|$, with the decay constant $C_L$ of $\Delta_Y$, not of $\Delta_Y+r$. So $\gamma'=\min(\gamma_1/2,(\frac1{16}c_L+r)/(2C_Lc_1))\ge\min(\gamma_1/2,c_L/(32C_Lc_1))$ is uniform in $r$, and the constant is $2(\frac1{16}c_L+r)^{-1}e^{2\gamma'\sqrt d}$.
+\item In (c), $r$ cancels from $\Delta$. The comparison carries two resolvent factors, so the bound has $(\frac1{16}c_L+r)^{-2}$ times an $r$-independent seam kernel. The statement's ``extra factor $(\frac1{16}c_L+r)^{-1}$'' is weaker, and true, since $(\frac1{16}c_L+r)^{-1}\le16/c_L$. Section~\Nref{sec:nested-walks} uses the stated form. Proposition~\Nref{prop:det-local} uses the square, which it derives.
+\end{itemize}
+\end{step}
+\status{Expanded. (b) at complex perturbations uses the bounds on $W_2^X$ of Detail~\ref{d8:A1}.}
+\end{detail}
+
+\begin{detail}[Theorem~\Nref{thm:local-covariance}, Corollary~\Nref{cor:large-changes}. Off the main line]\label{d8:localcov}\Ntarget{thm:local-covariance,cor:large-changes}
+For $Y=\Lam_{m-1}(\mathsf S)\subset Y'=\Lam_m(\mathsf S)$ with $\mathsf S=\{b_-,b'_-\}$, the points of $\Sigma_Y$ have distance $\ge m-R'_0$ from $\mathsf S$, with $R'_0=R_0+10M+2L+1$. Detail~\ref{d8:seam}(iv) gives $\sum_{w\in\Sigma_Y}e^{-\gamma''(|b-w|+|w-b'|)}\le Ce^{-\gamma''|b-b'|/2}e^{-\gamma''(m-R'_0)/2}$, i.e.\ the rate $\gamma''/2$ in $m$, which the note states. The constant $C'_L$ contains $e^{\gamma''R'_0/2}$, so it depends on $M$ and $R_0$. Lemma~\Nref{lem:telescoping} gives the expansion. For the corollary, the pieces with $\widehat{\Lam_m^+}\subset\hat Y$ coincide for $U_1$ and $U_2$. The others sum to $C_Le^{-\gamma_2(\delta-R'_0)}$ with $\gamma_2=\gamma''/4$.
+\status{Expanded, in condensed form; off the main line.}
+\end{detail}
+
+
+%% ==== SECTION 38 ====
+\subsection{Section 38: determinant, graded domains, quadratic bound, domain constants}\label{d8:s38}
+
+\begin{detail}[The densities $\ell_Y(b)$; Section~\Nref{ss:38.1}]\label{d8:ix13}\Ntarget{ss:38.1}
+\begin{step}[The logarithm]
+Let $K$ be a matrix with $\Rea\ip f{Kf}\ge c\|f\|^2$, $c>0$. Then its spectrum lies in $\{\Rea z\ge c\}$, and for $t\ge0$, $\|(K+t)^{-1}\|\le(c+t)^{-1}$. The integrand
+\[
+\tfrac1{1+t}-(K+t)^{-1}=(K-1)(1+t)^{-1}(K+t)^{-1}
+\]
+has norm $\le\|K-1\|(1+t)^{-1}(c+t)^{-1}$, which is integrable. For a scalar $z$ with $\Rea z>0$, $\int_0^\infty\big(\frac1{1+t}-\frac1{z+t}\big)dt=\log z$, the principal branch. By the holomorphic functional calculus, the integral is the principal logarithm of $K$. For real symmetric positive $K$ it is the usual logarithm, and $\operatorname{Tr}\log K=\log\det K$.
+\end{step}
+\begin{step}[Use]
+$\Delta_Y$ satisfies this with $c=\frac18c_L$ at real backgrounds and $c=\frac1{16}c_L$ at complex ones (Proposition~\Nref{prop:local-fluct}(a),(b)). So $\ell_Y(b)$ is defined, and it is analytic where $\Delta_Y$ is, as a uniformly convergent integral of analytic resolvents. For $Y=\Tf$, $\Delta_{\Tf}=\Delta_k$, so $\ell_{\Tf}=\ell_k$ (Proposition~\Nref{prop:det-densities}).
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:det-local}, and the sums at $U=1$. Off the main line]\label{d8:ix14}\Ntarget{prop:det-local}
+For $Y\subset Y'$ and $b\in\mathfrak F(Y)$, the terms $(1+t)^{-1}$ cancel, so
+\[
+\ell_{Y'}(b)-\ell_Y(b)=-\int_0^\infty\operatorname{tr}\big[\big((\Delta_{Y'}+t)^{-1}-(\Delta_Y+t)^{-1}\big)(b,b)\big]dt .
+\]
+By Proposition~\Nref{prop:local-fluct}(d) in its squared form (Detail on (b)--(d)), the integrand is $\le C_L(\frac1{16}c_L+t)^{-2}\sum_{w\in\Sigma_Y}e^{-\gamma''|b-w|}$, and $\int_0^\infty(\frac1{16}c_L+t)^{-2}dt=16/c_L$. With $Y=\Lam_{m-1}$, $Y'=\Lam_m$, Detail~\ref{d8:seam}(iv) gives $|\ell_{k,m}(b)|\le C_Le^{-\gamma_3m}$, with $C_L$ containing $e^{CR'_0}$. Invariance holds because $\Delta_Y(U^u)=R(u)\Delta_Y(U)R(u)^{-1}$, which conjugates the diagonal block at $b$ by the orthogonal map $R(u(b_-))$. At $U=1$, $\sum_{b,m}\ell_{k,m}(b;1)=\sum_b\ell_k(b;1)=\operatorname{Tr}\log\Delta_k(1)=\log\det\Delta_k(1)$.
+\status{Expanded (condensed).}
+\end{detail}
+
+\begin{detail}[Definitions~\Nref{def:bg-activity}, \Nref{def:graded} and \Neqref{eq:cov-vs-flat}]\label{d8:covflat}\Ntarget{def:bg-activity,def:graded,eq:cov-vs-flat}
+\begin{step}[The domains]
+$\mathcal U(P)$ is invariant under real gauge transformations. Indeed, $U=e^{\ii\eta A}U_r$ gives $U^u=e^{\ii\eta R(u)A}U_r^u$; $|F_{U_r^u}|=|F_{U_r}|$ and $|J_{U_r^u}|=|J_{U_r}|$ pointwise; and $|\nabla A|$, $[\nabla A]_\alpha$ are covariant (Section~\Nref{ss:38.2}). $1\in\mathcal U(P)$ with $U_r=1$, $A=0$. ``Defined and holomorphic on an open set containing $\{U|_P:U\in\mathcal U(P)\}$'' is the meaning of analyticity on this set. Definition~\Nref{def:bg-activity} has closed conditions ($\le\delta_a$). There ``analytic'' is read in the same way, on a neighbourhood, and Remark~\Nref{rem:bg-to-graded} uses strict inequalities to stay inside.
+\end{step}
+\begin{step}[\Neqref{eq:cov-vs-flat}]
+In a real gauge on $\Lam'$ with $U_r=e^{\ii\eta A_r}$ and $\|A_r\|_{1,\alpha;\Lam'}\le\sigma\le1$:
+\begin{itemize}
+\item $D_{U_r,\nu}\tilde A_\mu-\partial_\nu\tilde A_\mu=\tau_\nu\tilde A_\mu(\cdot+\eta e_\nu)$ with $\tau_\nu=\eta^{-1}(R(e^{\ii\eta A_{r,\nu}})-1)$. By I8, $|\tau|\le C\sigma$, $|\partial\tau|\le C\sigma$, $\Hol{\partial\tau}{}\le C\sigma$. This gives the first inequality.
+\item On a cube $\Lam_3(z')$, $\Hol{\tau\tilde A}{}\le|\tau|\Hol{\tilde A}{}+\Hol\tau{}|\tilde A|\le C\sigma(|\partial\tilde A|+|A|)$, using $\Hol f{}\le C|x-x'|^{1-\alpha}|\partial f|\le C|\partial f|$ on the cube.
+\item The covariant quotient compares $\nabla A(x)$ with $R(U_r(\Gamma_{x,x'}))\nabla A(x')$. In the gauge, $U_r^u(\Gamma_{x,x'})$ is a product of at most $|x-x'|_1/\eta$ factors $e^{\ii\eta A_r}$, so $\|R(U_r^u(\Gamma_{x,x'}))-1\|\le e^{2\sigma|x-x'|_1}-1\le C\sigma|x-x'|$ for $|x-x'|\le6\sqrt d$. The resulting term in the quotient is $\le C\sigma|x-x'|^{1-\alpha}|\nabla A|\le C\sigma(|\partial\tilde A|+|A|)$.
+\end{itemize}
+The bound $\sigma\le1$ is used only to keep $e^{2\sigma|x-x'|_1}$ bounded. The same holds for $\sigma\le\sigma_0$, with $C$ depending on $\sigma_0$. The note states $\sigma\le3$, which covers Remark~\Nref{rem:bg-to-graded}.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:complex-gauge}]\label{d8:ix15}\Ntarget{lem:complex-gauge}
+$\mathcal O$ is open, and $\lambda\mapsto U^{e^{\ii\lambda}}|_P$ is holomorphic (entire in the bond variables). So $W=\{\lambda:U^{e^{\ii\lambda}}|_P\in\mathcal O\}$ is open, and $\Phi(\lambda)=F(U^{e^{\ii\lambda}})$ is holomorphic on $W$.
+\begin{itemize}
+\item For every real $\lambda$, $e^{\ii\lambda}$ is a real gauge transformation, so $U^{e^{\ii\lambda}}\in\mathcal U(P)$. Hence all real fields lie in $W$, and $\Phi$ is constant on them, by the invariance of $F$ on $\mathcal U(P)$.
+\item The real fields form a connected set containing $0$, and $0$ lies on the segment $\{t\lambda_1\}$. So the connected component $W_0$ of $W$ that contains the segment contains every real field.
+\item The real points form a totally real subspace of maximal dimension of the space of $\mathfrak g^c$-valued fields. A holomorphic function on the connected open set $W_0$ that is constant on the nonempty open set of real points of $W_0$ is constant (identity theorem).
+\end{itemize}
+So $\Phi(\lambda_1)=\Phi(0)$. The hypothesis that the whole path lies in $\mathcal U(P)$ is essential: it puts $\lambda_1$ into $W_0$.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:quadratic-bound}]\label{d8:qb}\Ntarget{lem:quadratic-bound}
+\emph{The idea.} The activity is normalized, $F(1)=0$, and gauge invariant, so for semisimple $G$ its gradient at the trivial configuration vanishes. The proof brings $U$ close to $1$ on $\Lam$: a real gauge makes the real part close to $1$, $U_r^u=e^{\ii\eta A_r}$ with $\|A_r\|_{1,\alpha;\Lam}\le B_P\theta$ (Step~1), and an affine complex gauge removes the constant part of the complex field (Steps~2--5). Along the complex line from $1$ to the transformed configuration, the first two Taylor coefficients of $F$ vanish, and Cauchy's estimate makes $F(U)$ quadratic in the size $\mathfrak s$ (Step~6).
+The constants are fixed in this order: $c_{\rm an}$ (the expansions), then $C_2$, $C_3$ (from \Neqref{eq:cov-vs-flat}, \Neqref{eq:lattice-trick} and these expansions), then $C_0=\max(1,C_2,C_3)$, then any $c_{\rm q}\in(0,c_{\rm an}]$. From $c_*\le c_{\rm q}\le1$ we use
+\[
+B_P\theta\le c_*,\quad D_NB_P\theta\le c_*,\quad(1+D_N)|A'|\le c_*,\quad\delta_0\le c_*,\quad D_N\ge1 .
+\]
+$D_N\ge1$: $P^{(3)}$ contains a bond at a point of $P$ and its translate by one unit, and a chain between them has length $\ge1$.
+
+\begin{step}[A real gauge on $\Lam$; Step~1 of the note's proof]
+By Corollary~\Nref{cor:regularity} ($\theta<\theta_r\le a_2$, $n\ge n_0$), $U_r$ is $(M,B_5\theta)$-regular. Hence it is $3B_5\theta$-regular on every cube $\Lam_{4M+2}(z')$ (Section~\Nref{ss:28.1}).
+\begin{itemize}
+\item If $R\ge4M+2$: Lemma~\Nref{lem:large-cubes} with $r=4M+2\ge18$ (since $M\ge5L\ge15$, Definition~\Nref{def:box-regular}), $\sigma=3B_5\theta$. Its hypothesis $C_E(R/r)^pR\sigma\le1$ is $RB_P\theta\le1$, and its conclusion is $B_P\theta$-regularity on $\Lam=\Lam_R(z)$.
+\item If $R<4M+2$: $\Lam\subset\Lam_{4M+2}(z)$, where $U_r$ is $3B_5\theta\le B_P\theta$-regular.
+\end{itemize}
+Since $2R<n$, $\Lam$ does not wrap. This gives a real gauge $u$ on $\Lam$ with $U_r^u=e^{\ii\eta A_r}$ and $\|A_r\|_{1,\alpha;\Lam}\le B_P\theta\le1$. Then $u(b_-)e^{\ii\eta A'(b)}U_r(b)u(b_+)^{-1}=e^{\ii\eta\tilde A'(b)}U_r^u(b)$ with $\tilde A'(b)=R(u(b_-))A'(b)$, and $|\tilde A'|=|A'|$. \Neqref{eq:cov-vs-flat} with $\sigma=B_P\theta$ gives
+\[
+|\partial\tilde A'|+[\partial\tilde A']_\alpha\le\mathfrak m+C\sigma|A'|+C\sigma\big(|A'|+|\partial\tilde A'|\big)\le(1+CB_P\theta)\mathfrak m+CB_P\theta|A'| ,
+\]
+which is \Neqref{eq:qb-flat}. $F(U)=F(U^u)$ by invariance.
+\end{step}
+
+\begin{step}[The affine gauge; Step~2 of the note's proof]
+In the coordinates of $\Lam\subset\eta\Z^d$, $\lambda_1$ is affine on $\Lam$: $\partial_\nu\lambda_1=-\tilde A'_\nu(x_0)$ and $\partial\partial\lambda_1=0$ at differences inside $\Lam$, which include those of $P^{(3)}\subset\Lam$.
+\begin{itemize}
+\item \emph{Size.} For $x\in P^{(3)}$, take a bond of $P^{(3)}$ at $x$ in some direction $\nu$, or the bond ending at $x$, and the bond in direction $\nu$ at $x_0$. A chain between them has unit length $m\eta\le D_N$, and each step moves the base point by one fine step. So $|x-x_0|_1\le D_N+1$, and $|\lambda_1(x)|\le|x-x_0|_1\max_\mu|\tilde A'_\mu(x_0)|\le(1+D_N)|A'|\le c_*$.
+\item \emph{Derivative.} $D_{U_r^u}\lambda_1=\partial\lambda_1+\tau\lambda_1(\cdot+\eta e)$ with $|\tau|\le CB_P\theta$. So $|D\lambda_1|\le|A'|+CB_P\theta(1+D_N)|A'|\le(1+2Cc_*)|A'|$.
+\item \emph{The gauge formula.} \Neqref{eq:gauge-formula} holds for real $\lambda$ with $|\lambda|_{C^1}$ small. Both sides are holomorphic in $\lambda$ on a convex neighbourhood of $0$, so it holds for complex $\lambda$ there. Here $|t\lambda_1|_{C^1}\le Cc_*\le Cc_{\rm an}$.
+\end{itemize}
+\end{step}
+
+\begin{step}[The bounds on $B_t$; Step~2 of the note's proof]
+$E_t$ has four terms, bounded as follows:
+\begin{itemize}
+\item $\|e^{-\ii t\operatorname{ad}\lambda_1}-1\|\le e^{2|\lambda_1|}-1\le C(1+D_N)|A'|$, times $|\tilde A'|$;
+\item $|\mathfrak d(z)-1|\le C|z|$, times $|D\lambda_1|\le C|A'|$;
+\item $|\tau\lambda_1|\le CB_P\theta(1+D_N)|A'|$;
+\item $\eta|\mathfrak b|\le C(|\tilde A'|+|D\lambda_1|)|D\lambda_1|\le C|A'|^2$.
+\end{itemize}
+This gives $|E_t|\le C(1+D_N)|A'|(|A'|+B_P\theta)$. For the main part $M_t=(1-t)\tilde A'_\nu(x)+t(\tilde A'_\nu(x)-\tilde A'_\nu(x_0))$, the chain $b^0,\dots,b^m=b$ in direction $\nu$ gives the telescoping sum of $m$ flat differences $\pm\eta\partial_{\mu_i}\tilde A'_\nu(y_i)$. Each involves only the endpoints of $b^i,b^{i+1}\in P^{(3)}$, so it is among the differences that define $|\partial\tilde A'|$. Hence $|\tilde A'_\nu(x)-\tilde A'_\nu(x_0)|\le m\eta|\partial\tilde A'|\le D_N|\partial\tilde A'|$. This gives \Neqref{eq:qb-Bt} for $t\in[0,1]$.
+\end{step}
+
+\begin{step}[The derivatives \Neqref{eq:qb-dBt}; Step~2 of the note's proof]
+The flat differences of $M_t$ are those of $\tilde A'$, because $\partial_\nu\lambda_1$ is constant. For $E_t$ use the product rule. On a cube $\Lam_3(z')$, $[fg]_\alpha\le|f|[g]_\alpha+[f]_\alpha|g|$ and $[f]_\alpha\le C|\partial f|$.
+\begin{itemize}
+\item The first term gives $C(1+D_N)|A'|(|\partial\tilde A'|+[\partial\tilde A']_\alpha)+C|A'|^2$, since $|\partial\lambda_1|\le|A'|$.
+\item The second gives $C|A'|^2$, since $\partial(D\lambda_1)=\partial(\tau\lambda_1)$ is $O(B_P\theta(1+D_N)|A'|)$.
+\item The third gives $C(1+D_N)B_P\theta|A'|$, using $|\partial\tau|+[\partial\tau]_\alpha\le CB_P\theta$.
+\item For the fourth, the lattice trick alone gives only $\eta|\partial\mathfrak b|\le2|\mathfrak b|$. This does not control the H\"older quotient, since $\eta[\partial f]_\alpha\le2\eta^{1-\alpha}|\partial f|$ needs $|\partial f|$ itself. The chain rule gives $|\partial\mathfrak b|\le C\big(|A'|^2+|A'||\partial\tilde A'|+|A'|B_P\theta(1+D_N)|A'|\big)$, because each partial derivative of $\mathfrak b$ carries a factor $|D\lambda_1|$ or $|\tilde A'|+|D\lambda_1|$. Then $\eta|\partial\mathfrak b|+\eta[\partial\mathfrak b]_\alpha\le3|\partial\mathfrak b|$, which is within \Neqref{eq:qb-dBt}. The note's proof states the chain rule for this term.
+\end{itemize}
+\end{step}
+
+\begin{step}[The constant $C_0$, and the path in $\mathcal U(P)$; Step~2 of the note's proof]
+\Neqref{eq:cov-vs-flat} for $B_t$ in the gauge $u$ gives $|\nabla B_t|+[\nabla B_t]_\alpha\le(1+CB_P\theta)(|\partial B_t|+[\partial B_t]_\alpha)+CB_P\theta|B_t|$. Insert \Neqref{eq:qb-dBt}, \Neqref{eq:qb-Bt} and \Neqref{eq:qb-flat}. The terms $CB_P\theta D_N|\partial\tilde A'|$ are bounded by $Cc_*|\partial\tilde A'|$. Products such as $(1+CB_P\theta)(1+CD_N|A'|)$ are $\le1+C'c_*$ for $c_*\le1$. This gives \Neqref{eq:qb-C2} with $C_2$ depending only on $d,\alpha,G$. For $|B_1|$ use $1+D_N\le2D_N$:
+\[
+D_N|\partial\tilde A'|+C(1+D_N)|A'|(|A'|+B_P\theta)\le D_N\big((1+Cc_*)\mathfrak m+C|A'|(|A'|+(1+D_N)B_P\theta)\big)\le D_N\mathfrak m_2 .
+\]
+With $C_0\ge C_2$, $\mathfrak m_2\le\mathfrak m_1$. Moreover:
+\begin{itemize}
+\item $\mathfrak s\ge\mathfrak m_1/\delta_1$, and $\mathfrak s\ge(D_N\delta_1/\delta_0)(\mathfrak m_1/\delta_1)=D_N\mathfrak m_1/\delta_0$;
+\item so $\mathfrak s\le\frac12$ gives $\mathfrak m_1\le\frac12\delta_1$ and $D_N\mathfrak m_1\le\frac12\delta_0$;
+\item hence $|B_t|\le|A'|+D_N\mathfrak m_1<\frac12\delta_0+\frac12\delta_0$, and $|\nabla B_t|+[\nabla B_t]_\alpha\le\frac12\delta_1<\delta_1$;
+\item the real part $U_r^u$ has the pointwise curvature and current of $U_r$, below $\theta_r$.
+\end{itemize}
+So $(U^u)^{e^{-\ii t\lambda_1}}\in\mathcal U(P)$ for $t\in[0,1]$. Lemma~\Nref{lem:complex-gauge} with $-\lambda_1$ gives $F(U^u)=F((U^u)^{e^{-\ii\lambda_1}})$.
+\end{step}
+
+\begin{step}[The interpolation through $1$; Step~3 of the note's proof]
+$e^{\ii\eta B_1}e^{\ii\eta A_r}=e^{\ii\eta A_{\rm tot}}$, where $A_{\rm tot}=B_1+A_r+\eta\mathfrak c$ by the Baker--Campbell--Hausdorff formula, with $\mathfrak c$ analytic and $|\mathfrak c|\le C|B_1||A_r|$. The corrections are:
+\begin{itemize}
+\item $\eta|\mathfrak c|\le|B_1||A_r|\cdot C\le CD_N\mathfrak m_1B_P\theta\le Cc_*\mathfrak m_1$;
+\item derivatives by the chain rule, $|B_1|B_P\theta\le\delta_0B_P\theta\le c_*B_P\theta$, and \Neqref{eq:cov-vs-flat} for $B_1$.
+\end{itemize}
+They are linear in $\mathfrak m_1$ and use only $|\nabla B_1|+[\nabla B_1]_\alpha\le\mathfrak m_1$ and $|B_1|\le D_N\mathfrak m_1$, so $C_3$ does not depend on $C_0$. Then $V_s=e^{\ii\eta sA_{\rm tot}}$ on the bonds of $P^{(3)}$ and $1$ elsewhere has real part $1$ (curvature and current $0<\theta_r$). Its field $sA_{\rm tot}$ satisfies the budgets for $|s|<s_0$, with $s_0^{-1}\le\mathfrak s$ by the algebra of Step~3 of the proof of Lemma~\Nref{lem:quadratic-bound}, using $C_3\le C_0$ and $\delta_1\le\delta_0$. So $f(s)=F(V_s)$ is holomorphic on $\{|s|<s_0\}$ with $s_0\ge2$, and $|f|\le\|F\|$ there. Further:
+\begin{itemize}
+\item $f(1)=F(U)$: $V_1=e^{\ii\eta B_1}U_r^u=(U^u)^{e^{-\ii\lambda_1}}$ on $P^{(3)}\supset P$, and $F$ depends only on $U|_P$.
+\item $f(0)=F(1)=0$.
+\item $f'(0)=0$: for a constant real $v$ and small $B$, $(e^{\ii\eta B})^v=e^{\ii\eta R(v)B}$ and $1^v=1$. So $F(e^{\ii\eta R(v)B})=F(e^{\ii\eta B})$, and the gradient of $F$ at $1$ is $\operatorname{Ad}(G)$-invariant at each bond. For semisimple $G$, $\mathfrak g^c$ has no nonzero invariant vector, since its centre is $0$. So the full complex gradient vanishes.
+\end{itemize}
+Cauchy's estimate on $|s|=\rho<s_0$, letting $\rho\to s_0$, gives $|f^{(j)}(0)/j!|\le\|F\|s_0^{-j}$. So $|f(1)|\le\|F\|\sum_{j\ge2}s_0^{-j}=\|F\|s_0^{-2}(1-s_0^{-1})^{-1}\le2\mathfrak s^2\|F\|$.
+\end{step}
+\status{Expanded. The base-point cancellation, the path summation and the order $C_0$ before $c_{\rm q}$ are in the note and verified here. The hypothesis $M\ge4$ for $r=4M+2\ge18$ follows from $M\ge5L$.}
+\end{detail}
+
+\begin{detail}[Remark~\Nref{rem:later-scales}]\label{d8:ix16}\Ntarget{rem:later-scales}
+\begin{step}[(a)]
+With $|A'|\le\delta'_0<\frac12\delta_0$ and $(1+D_N)(\delta'_0+B_P\theta')\le\frac12c_{\rm q}$, we get $c_*\le\delta_0+\frac12c_{\rm q}\le c_{\rm q}$, by $\delta_0\le\frac12c_{\rm q}$. Then $\mathfrak m_1\le(1+C_0c_{\rm q})\delta'_1+C_0\delta'_0(\delta'_0+(1+D_N)B_P\theta')$, and $1+D_N\delta_1/\delta_0\le1+D_N$. This gives the display.
+\end{step}
+\begin{step}[(b), on the main line]
+Insert $(\theta',\delta'_1,\delta'_0)=(L^{-2m}\theta_r,L^{-2m}\delta_1,L^{-m}\delta_0)$ from Remark~\Nref{rem:domain-constants}(i). The numerator of (a) is
+\[
+\le C\big(L^{-2m}\delta_1+L^{-2m}\delta_0^2+L^{-3m}(1+D_N)B_P\delta_0\theta_r+B_PL^{-2m}\theta_r\big),
+\]
+and $\delta_0\le1$ gives $\mathfrak s\le C(D_N,B_P)L^{-2m}(1+\delta_0^2/\delta_1+\theta_r/\delta_1)$. The hypotheses $RB_P\theta'\le1$ and $(1+D_N)(\delta'_0+B_P\theta')\le\frac12c_{\rm q}$, and $\mathfrak s\le\frac12$, hold for $m\ge m_q(D_N,B_P,R,L,\delta_0^2/\delta_1,\theta_r/\delta_1)$. The coupling does not enter.
+\end{step}
+\begin{step}[(c), (d)]
+(c) For $U_r=1$ and constant $A'$ with $[A'_\mu,A'_\nu]\ne0$, all differences vanish, so $\mathfrak m=0$. But the plaquette holonomy is $e^{\ii\eta a}e^{\ii\eta b}e^{-\ii\eta a}e^{-\ii\eta b}=1-\eta^2[a,b]+O(\eta^3)$, a curvature of order $|A'|^2$. A configuration with nonzero curvature is not complex gauge equivalent to $1$, since curvature transforms by conjugation. So the term $C_0|A'|^2$ in $\mathfrak m_1$ is needed. (d) concerns Part X (wrapping polymers); not expanded here.
+\end{step}
+\status{Expanded for (a)--(c); (d) concerns Part~X and is checked there.}
+\end{detail}
+
+\begin{detail}[Remark~\Nref{rem:bg-to-graded}]\label{d8:bgtog}\Ntarget{rem:bg-to-graded}
+Let $U\in\mathcal U(P)$, $U=e^{\ii\eta A}U_r$ on $P^{(3)}$.
+\begin{step}[The real part]
+$|F_{U_r}|,|J_{U_r}|<\theta_r\le a_2$, so $U_r$ is $(M,B_5\theta_r)$-regular (Corollary~\Nref{cor:regularity}), with $\max(1,B_5)\theta_r\le\eps_a$. So $U_r$ is an admissible real part for Definition~\Nref{def:bg-activity}.
+\end{step}
+\begin{step}[The extension]
+$\chi A$ is supported in $P^{(2)}$, where $A$ is defined. In the local gauges of $U_r$, of Definition~\Nref{def:regular} type, the real field has $\|A_r\|_{1,\alpha}\le3B_5\theta_r\le3\eps_a$. This is the $\sigma\le3\eps_a$ of Remark~\Nref{rem:bg-to-graded}. Since $\eps_a\le1$, it is covered by \Neqref{eq:cov-vs-flat}, which the note states for $\sigma\le3$ (Detail~\ref{d8:covflat}). The bounds are:
+\begin{itemize}
+\item $|\chi A|<\delta_0$;
+\item $\partial(\chi\tilde A)=\chi^\sharp\partial\tilde A+(\partial\chi)\tilde A$, so $|\partial(\chi\tilde A)|\le C(\delta_1+\delta_0)$.
+\end{itemize}
+For the H\"older quotient on a cube $\Lam_3(z')$ that need not lie in $P^{(3)}$:
+\begin{itemize}
+\item pairs at distance $\le1$ with one point in $P^{(2)}$ lie in a common cube $\Lam_3(z'')\subset P^{(3)}$: take $z''\in P$ with $|x-z''|_\infty\le2$;
+\item pairs with both points outside $\operatorname{supp}\chi$ contribute $0$, and the others are reduced to these through an intermediate point;
+\item pairs at distance $>1$ are bounded by $2\sup|\partial(\chi\tilde A)|$.
+\end{itemize}
+So the size is at most $C_{\rm ext}(\delta_0+\delta_1)<\delta_a$, with $C_{\rm ext}$ depending on $d,\alpha$ and $\chi$.
+\end{step}
+\begin{step}[Holomorphy and invariance]
+$F(\tilde U)$ depends only on $\tilde U|_P=U|_P$. Near $U_0|_P$, the map $W\mapsto\tilde U_W$ (equal to $W$ on $P$ and to $\tilde U_0$ elsewhere) is holomorphic, and the relative field of $\tilde U_W$ depends continuously on $W$. By the strict inequality it stays in the domain of $F$. So $G(W)=F(\tilde U_W)$ is holomorphic, and it equals the restricted activity by locality. Real gauge invariance on $\mathcal U(P)$ follows from that of $F$, and the domain is not enlarged: $\|F\|$ is not larger.
+\end{step}
+\status{Expanded; it supplies the H\"older quotients on cubes not inside $P^{(3)}$.}
+\end{detail}
+
+
+\begin{detail}[Remark~\Nref{rem:domain-constants}: the order of choices and (DC1)--(DC6)]\label{d8:dc}\Ntarget{rem:domain-constants}
+The global order of all constants is in Section~\ref{sec:ledger}. Here we check the remark itself.
+\begin{step}[The cap and the threshold]
+The order is:
+\begin{enumerate}[label=(\arabic*)]
+\item $L$;
+\item $M$, $M'$, including the lower bounds $M_{\mathfrak N}$, $M'_1$, computed with the multiplicative constants of Part IX in $M_1$ doubled and with $\theta'$ replaced by $2\theta'$, at the fixed coercivity constants and the fixed rate of the differences of Proposition~\Nref{prop:complex-ext};
+\item the cap $\bar\delta\le\min(\delta_{AB},1/C_{\rm cx})$;
+\item $\eps_{\max}$, half the smallest of the listed thresholds, each computed by its real-reference proof with every multiplicative constant doubled, $K_H$ included;
+\item $\delta_P\le\bar\delta$, by the smallness list of Proposition~\Nref{prop:complex-ext}.
+\end{enumerate}
+This is the rule stated in the note. A worst case over complex references of size $\delta_c\le\bar\delta$ would be available only through $\delta_P$, which is chosen after $\eps_{\max}$; the doubled real-reference constants avoid that (Detail~\ref{det:ledger-emax}). $C_{\rm cx}$ depends on $L,M,M'$, but enters only $\bar\delta$, which comes after them. So there is no cycle.
+
+The list contains the threshold $C'\eps\le\frac12c$ of the proof of Proposition~\Nref{prop:dirichlet-hessian}(c) (Detail~\ref{d8:A1}, Step (e)). The radius $\delta_*$ of that proof is fixed before $c''_L$, and the conditions on $\delta_P$ that involve it follow from $\delta_P\le c''_L$. The list also contains $\frac1{20}$, the bound on $\eps+C\delta_c$ in the proof of Proposition~\Nref{prop:interaction-pieces}(b); with $\eps\le\eps_{\max}$ and the matching condition on $\delta_P$, the bond fields there have sup norm at most $\frac14$. The first-step thresholds enter through the constant $\eps_a$ of Proposition~\Nref{prop:one-loop-polymer} at $k=0$, which may be taken below them; so they need not be listed.
+\end{step}
+\begin{step}[The conditions, their sources and their uses]
+Each condition is an upper bound on one domain constant in terms of constants fixed earlier.
+\begin{itemize}
+\item \emph{(DC1)} $\theta_r\le c_a$, $\delta_1\le\delta_0\le c_a$, $c_a\le\min(\frac12c_{\rm q},a_2,1)$. Sources: Lemma~\Nref{lem:quadratic-bound} needs $\theta_r\le a_2$, and Remark~\Nref{rem:later-scales}(a) needs $\delta_0\le\frac12c_{\rm q}$; $c_a\le c_JL^{-d-2}$ comes from Proposition~\Nref{prop:jacobians}(c). Uses: through the monotonicity $\mathcal U(\cdot;\theta_r,\delta_1,\delta_0)\subset\mathcal U(\cdot;c_a,c_a,c_a)$, in Sections~\Nref{sec:nested-walks}, \Nref{sec:extraction}, \Nref{sec:flow4} and~\Nref{sec:gen-locality}.
+\item \emph{(DC2)} $\max(1,B_5)\theta_r\le\eps_{\max}$. The real parts are $(M,B_5\theta_r)$-regular (Corollary~\Nref{cor:regularity}) with current $<\theta_r$, both $\le\eps_{\max}$. Uses: Section~\Nref{sec:step-quantities} (Setting), Section~\Nref{sec:extraction}, Remark~\Nref{rem:domain-constants}(ii).
+\item \emph{(DC3)} $2L^d\theta_r\le c$. Lemma~\Nref{lem:eliminate} needs $L^d\mathsf a\le c$, and $\mathsf a\le2\theta_r$ by (ii) below. Use: Section~\Nref{sec:step-quantities} (Setting).
+\item \emph{(DC4)} $2C_{\rm ext}(L^{-1}\delta_0+L^{-2}\delta_1)<\min(\delta_P,\delta_{P,0})$. The references of the step are complex references of size $<\delta_P$, by (ii). Uses: Section~\Nref{sec:complex-references}, Section~\Nref{sec:flow4}.
+\item \emph{(DC5)} $c_a\le c_{\rm DC}r_ML^{-2}$ and $\delta_P\le c_{\rm DC}r_ML^{-1}$. The real and complex bases lie where the averaged contour variables are defined and holomorphic, by (ii). Uses: Sections~\Nref{sec:nested-walks}, \Nref{sec:complex-references}, \Nref{sec:step-quantities}, \Nref{sec:cluster}, \Nref{sec:extraction} and~\Nref{sec:gen-locality}. The constant $c_{\rm DC}$ depends only on $d$ and $G$, because $C_{\rm AB}=14d+3$ (Section~\Nref{sec:AB-proof}), $r_M=r_M(\mathsf N,c_G)$ (Lemma~\Nref{lem:group-average}) and $c_0=c_0(G)$ (Lemma~\Nref{lem:exp-gauge}(c)) do not involve $L$.
+\item \emph{(DC6)} $C_{\rm sym}\theta_r\delta_0\le\delta_1$. This is an upper bound on $\theta_r$ given $\delta_1/\delta_0$. Uses: Section~\Nref{subsec:gen-symmetrization}, Section~\Nref{sec:flow4}, and Section~\Nref{sec:gen-locality}, where $2\delta_1^\flat+C_{\rm refl}\theta_r\delta_0\le\frac12\delta_1+\frac12\delta_1$.
+\end{itemize}
+They are consistent, because all are upper bounds. Choose $c_a$ after $\delta_P$, then $\delta_0$ (DC1, DC4), then $\delta_1\le\delta_0$ (DC1, DC4), then $\theta_r$ (DC1, DC2, DC3, DC6). The constants $\eps_a,\delta_a,c_a$ are fixed in this order in Section~\ref{sec:ledger}.
+\end{step}
+\status{Expanded. The list of $\eps_{\max}$ names the thresholds used, among them the one of Proposition~\Nref{prop:dirichlet-hessian}(c).}
+\end{detail}
+
+\begin{detail}[Remark~\Nref{rem:domain-constants}(i): later scales]\label{d8:ix17}\Ntarget{rem:domain-constants}
+Let $j<k$, $X\subset Y$ of scales $j$, $k$, $L\ge3$, and $U\in\mathcal U(Y)$ in the units of scale $k$.
+\begin{step}[Scaling]
+The fine spacing is $\eta_j=L^{k-j}\eta_k$, and a unit length of scale $k$ is $L^{k-j}$ units of scale $j$. From $e^{\ii\eta_kA}=e^{\ii\eta_jA_j}$ we get $A_j=L^{-(k-j)}A$. Flat and covariant differences $\eta_j^{-1}(\cdot)$ of $A_j$ are $L^{-2(k-j)}$ times those of $A$. The H\"older quotient carries a further $L^{-\alpha(k-j)}$, from $|x-x'|_j^\alpha=L^{\alpha(k-j)}|x-x'|_k^\alpha$. Curvature has two derivatives ($L^{-2(k-j)}$), current three ($L^{-3(k-j)}$). Since $L^{-(2+\alpha)}\le L^{-2}$, the gradient budget scales by at most $L^{-2(k-j)}$.
+\end{step}
+\begin{step}[The cubes]
+$X^{(3)}$ (of scale $j$) consists of the points within $3L^{-(k-j)}\le1$ (units of $k$) of $X\subset Y$, so $X^{(3)}\subset Y^{(1)}\subset Y^{(3)}$. A cube $\Lam_3(z')$ of scale $j$ inside $X^{(3)}$ has radius $\le1$ in units of $k$, and $z'$ lies within $1$ of $Y$. Pick $z''\in Y$ with $|z''-z'|_\infty\le\frac32$. Then the cube lies in $\Lam_{5/2}(z'')\subset\Lam_3(z'')\subset Y^{(3)}$. So each quantity of Definition~\Nref{def:graded} at $X$ is bounded by the corresponding one at $Y$, times the factors above.
+\end{step}
+\begin{step}[Slacks]
+For $k=j+1$:
+\begin{itemize}
+\item $(1-L^{-2})\delta_1\ge\frac89\delta_1\ge\frac12\delta_1$;
+\item $(1-L^{-1})\delta_0\ge\frac23\delta_0\ge\frac12\delta_0$;
+\item the real slack is $(1-L^{-2})\theta_r$;
+\item for $\mathcal U^\flat$ the gradient slack is $(\frac14-L^{-2})\delta_1\ge(\frac14-\frac19)\delta_1=\frac5{36}\delta_1\ge\frac18\delta_1$.
+\end{itemize}
+The argument never uses that $X$ is a polymer, so it holds for domains.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Remark~\Nref{rem:domain-constants}(ii),(iii): the references]\label{d8:ix18}\Ntarget{rem:domain-constants}
+Let $U'$ be a point of the domain of step $k+1$ at $Y'$, extended by Remark~\Nref{rem:bg-to-graded}, read in the units of step $k$.
+\begin{step}[Size]
+In the units of step $k+1$, the extension has $|\chi A|<\delta_0$, and differences and quotients $\le C_{\rm ext}(\delta_0+\delta_1)$ (Detail~\ref{d8:bgtog}). In the units of step $k$ these are multiplied by $L^{-1}$, $L^{-2}$, $L^{-2-\alpha}$. So
+\[
+\delta_c\le\max\big(L^{-1}\delta_0,L^{-2}C_{\rm ext}(\delta_0+\delta_1)\big)\le2C_{\rm ext}(L^{-1}\delta_0+L^{-2}\delta_1),
+\]
+by $L^{-2}\delta_0\le L^{-1}\delta_0$ and $C_{\rm ext}\ge1$. This is $<\delta_P$ by (DC4). The comparison with the local gauges of Section~\Nref{sec:complex-references} is \Neqref{eq:cov-vs-flat}, and its constant is part of $C_{\rm ext}$. The comparison constant between this size and the norm of Proposition~\Nref{prop:reg-complex} is $C_{\rm cmp}=4$ (Section~\Nref{sec:complex-references}).
+\end{step}
+\begin{step}[The real part]
+In the units of step $k+1$, the curvature and current are $<\theta_r$. In the units of step $k$ they are $<L^{-2}\theta_r$ and $<L^{-3}\theta_r$. Corollary~\Nref{cor:regularity} at step $k$ (with $L^{-2}\theta_r\le a_2$) gives $(M,B_5L^{-2}\theta_r)$-regularity, hence $(M,B_5\theta_r)$-regularity, and $B_5\theta_r\le\eps_{\max}$ and $L^{-3}\theta_r\le\eps_{\max}$ by (DC2).
+\end{step}
+\begin{step}[The base]
+$\mathsf a$ is a curvature in the units of step $k+1$ (Section~\Nref{ss:32.4}). The real part $U'_r$ has curvature $<\theta_r$ there. By Proposition~\Nref{prop:avg-regular}, $(U'_r)^{(k)}\in\mathfrak U_k(2\cdot)$, so the base has curvature $\le2\theta_r$ in the same units. This is (DC3)'s $\mathsf a\le2\theta_r$. Proposition~\Nref{prop:jacobians}(c) treats a different case: the domain at scale $k$ read at step $k$, where $L^d\mathsf a\le CL^{d+2}c_a$ is covered by $c_a\le c_JL^{-d-2}$. The two are consistent.
+\end{step}
+\begin{step}[(DC5) arithmetic]
+\begin{itemize}
+\item \emph{Real parts:} with $c_{\rm DC}\le\frac1{128}$, $2c_a\le2r_M/(128L^2)=\frac18\cdot r_M/(8L^2)=\frac18\eps_M$.
+\item \emph{Complex parts:} $|\beta|_\infty\le C_{\rm AB}\delta_c<C_{\rm AB}\delta_P\le C_{\rm AB}c_{\rm DC}r_ML^{-1}$. With $c_{\rm DC}\le c_0/(32C_{\rm AB}r_M)$, $C_{\rm AB}\delta_P\le\frac1{32}c_0L^{-1}$. With $r_I\le\frac1{32}c_0L^{-1}$, Lemma~\Nref{lem:log-estimates}(c) gives $|Z\star\beta|_\infty\le2(r_I+C_{\rm AB}\delta_P)\le\frac18c_0L^{-1}$.
+\item With $c_{\rm DC}\le c/(C_{\rm AB}r_M)$, $LC_{\rm AB}\delta_P\le c$, the hypothesis of Lemma~\Nref{lem:avg-transport}(f).
+\end{itemize}
+Holomorphy in the reference follows from Lemma~\Nref{lem:AB-bounds}(b).
+\end{step}
+\begin{step}[(iii)]
+These are conditions on the coupling, given the domain constants. Their sources are Proposition~\Nref{prop:sharp-curvature} and Section~\Nref{subsec:sq-composed}. They are checked in the partX chapters.
+\end{step}
+\status{Expanded for (ii); (iii) concerns Part~X and is checked there.}
+\end{detail}
+
+\begin{detail}[Corollary~\Nref{cor:one-loop}. Off the main line]\label{d8:oneloop}\Ntarget{cor:one-loop}
+The pieces $\mathfrak e_m(b;\cdot)$ are background activities by Proposition~\Nref{prop:det-local}. Remark~\Nref{rem:bg-to-graded} makes them graded activities at $\widehat{\Lam_m^+}$.
+\begin{itemize}
+\item \emph{The domain.} The note requires $\eps_a\le\eps_{\max}$ and $C_{\rm cmp}\delta_a\le c''_L$. Since $\eps_{\max}\le\frac12\eps_{\rm cc}$, a configuration of Definition~\Nref{def:bg-activity} of size $<\delta_a$ is a complex perturbation of size $<C_{\rm cmp}\delta_a\le c''_L$, and $\eps_{\max}$ contains the thresholds of the proof of Proposition~\Nref{prop:dirichlet-hessian}(c). So Lemma~\Nref{lem:coercive-general} and Proposition~\Nref{prop:local-fluct} apply on the whole domain. Because $c''_L$ depends on $L$ and $M$, so do $\eps_a$ and $\delta_a$; the statement says so.
+\item The note takes $\theta_r=\delta_1=\delta_0=c_{\rm ol}$, a free small constant with $c_{\rm ol}\le\min(\frac12c_{\rm q},a_2)$, $\max(1,B_5)c_{\rm ol}\le\eps_a$ and $2C_{\rm ext}c_{\rm ol}<\delta_a$ (the coercivity constant $c_L$ could not serve here; Detail~\ref{det:ledger-off}).
+\item With $U_r=U$ and $A'=0$, we have $\mathfrak m=0$, $\mathfrak m_1=0$, $D_N\le C(1+m+R_0)$ and $B_P\le C_L(1+m+R_0)^p$, so $\mathfrak s\le C_L(1+m+R_0)^{p+1}\theta$.
+\item For $m$ with $\mathfrak s\le\frac12$ and $C(1+m+R_0)<n$, the lemma gives $C_L(1+m+R_0)^{2p+2}\theta^2e^{-\gamma_3m}$.
+\item For $m\ge c'\theta^{-1/(p+1)}$, use $e^{-\gamma_3m/2}\le C\theta^2$. For $C(1+m+R_0)\ge n$, use $e^{-\gamma_3m}\le e^{-cn}$.
+\end{itemize}
+The sum over $m$ gives the bound.
+\status{Expanded (condensed).}
+\end{detail}
+
+
+%% ==== SECTION 39 ====
+\subsection{Section 39: the background map and the interaction}\label{d8:s39}
+
+Section~\Nref{sec:interaction-local} is off the main line, except for the plaquette scaling used in Proposition~\Nref{prop:interaction-pieces}.
+
+\begin{detail}[The plaquette terms; Section~\Nref{ss:39.3}]\label{d8:plaquette}\Ntarget{ss:39.3}
+\emph{Claim.} $s_p(A)=\frac12\operatorname{tr}(H+H^{-1}-H_A-H_A^{-1})$ is holomorphic in $A$, depends only on $A$ on the bonds of $p$, equals $\operatorname{Re}\operatorname{tr}(H-H_A)$ for real $A$ and real $U$, and satisfies, for $|A|_1,|A'|_1\le c_5$,
+\[
+|s_p(A)-s_p(A')|\le C\eta^d(\eps+|A|_1+|A'|_1)\,|A-A'|_1 ,
+\]
+with $|\cdot|_1$ the sup of $|h|+|\nabla h|$ over the bonds of $p$ and their neighbours.
+\begin{step}[The form]
+$H_A=e^{\ii Z_p(A)}H_p$ by \Neqref{eq:plaquette-product}, so $s_p(A)=\mathfrak s(Z_p,H_p)-\mathfrak s(0,H_p)$ with $\mathfrak s$ in the proof of Proposition~\Nref{prop:action}. For unitary $H$, $\frac12\operatorname{tr}(H+H^{-1})=\operatorname{Re}\operatorname{tr}H$. The function is entire in the bond variables. The real part $\operatorname{Re}\operatorname{tr}(H-H_A)$ is not holomorphic in complex $A$; the holomorphic form is the one used.
+\end{step}
+\begin{step}[The bound]
+With $Z_p=\eta^2\zeta_p$,
+\[
+s_p(A)=\eta^4\Big(\operatorname{tr}(\zeta_p\tilde F_p)+\tfrac12\operatorname{tr}\big(\zeta_p^2\tfrac12(H_p+H_p^{-1})\big)\Big)+\mathfrak s_3(\eta^2\zeta_p,H_p),
+\]
+with $\tilde F_p=\eta^{-2}(H_p-H_p^{-1})/2\ii$, $|\tilde F_p|\le C\eps$, and $|\mathfrak s_3(Z)-\mathfrak s_3(Z')|\le C(|Z|^2+|Z'|^2)|Z-Z'|$. From Detail~\ref{d8:W0real},
+\begin{itemize}
+\item $|\zeta_p(A)|\le|DA(p)|+C\eps\eta|A|+C|A|^2\le C|A|_1$;
+\item $|\zeta_p(A)-\zeta_p(A')|\le C|A-A'|_1$, using $|d\rho^{(2)}(A)h|\le C|A||h|$;
+\item $\eta|\zeta_p|\le C|A|\le1$, by \Neqref{eq:lattice-trick}.
+\end{itemize}
+Hence
+\[
+|s_p(A)-s_p(A')|\le\eta^4\big(C\eps+C(|\zeta|+|\zeta'|)+C\eta^2(|\zeta|^2+|\zeta'|^2)\big)|\zeta-\zeta'|,
+\]
+and the bound follows. $d=4$ gives $\eta^4=\eta^d$. At a complex reference, $|\tilde F|\le C(\eps+\delta_c)$ (Proposition~\Nref{prop:complex-ext}(c)), and the current does not enter, as the proof of Proposition~\Nref{prop:interaction-pieces} states.
+\end{step}
+\status{New argument (the note says ``by the expansion of Proposition~\Nref{prop:action}''); this is the main-line content of Section~\Nref{sec:interaction-local}.}
+\end{detail}
+
+\begin{detail}[Block quantities, composed activities and Lemma~\Nref{lem:fp-compare}]\label{d8:ix19}\Ntarget{lem:fp-compare}
+\begin{step}[No fine-lattice kernel]
+The comparison is made in the block quantities $a_y(h)=\sup_{B(y)}(|h|+|\nabla h|)$ (Section~\Nref{ss:39.1}). Hypothesis (i) of Lemma~\Nref{lem:fp-compare} is a block kernel $K(y,y')$, which the proof of Proposition~\Nref{prop:map-compare} derives from Theorem~\Nref{thm:ID} and the block bound for $d\nabla\mathcal V^X$: $K(y,y')=C_{\rm map}(\eps+\rho_2)e^{-\gamma_{\rm map}|y-y'|/2}$. Then $\sum_{y'}K(y,y')e^{\gamma'|y-y'|}\le C_{\rm map}(\eps+\rho_2)\sum_{y'}e^{-\gamma_{\rm map}|y-y'|/4}\le\frac14$ for $\gamma'\le\gamma_{\rm map}/4$, by the choice of $\theta_0$ in Section~\Nref{sec:var-regularity}: $\eps+|B|_\infty\le r_4\le\theta_0$ and $\rho_2\le(8B_1+C_H+K)\theta_0$, where $K=4C_C(1+C_H)$ is the constant of Section~\Nref{sec:var-solution}, not the kernel. No fine kernel is asserted. The block bound uses \Neqref{eq:d2D-mixed} of Lemma~\Nref{lem:linearizing}, whose derivative-decay part this volume does not re-derive. So Proposition~\Nref{prop:map-compare} is expanded here conditionally on it. This does not affect the main line.
+\end{step}
+\begin{step}[Composed activities]
+Corollary~\Nref{cor:composed} assumes $\eps\le\eps_a$, $C_{\rm a}\eps\le\frac14\delta_a$ and $C_{\rm a}L^dr_F\le\frac14\delta_a$. It uses the cutoff $\chi_P$ instead of an extension by zero, and states the dependence on $Z$ within $2L$. The Schwarz lemma for $f-f(0)$ on $|t|<e^{\gamma_4m}$, where the field has budget $<\frac12\delta_a+\frac12\delta_a$, gives $|F_m|\le2\|F\|e^{-\gamma_4m}$. The hypotheses are sufficient.
+\end{step}
+\begin{step}[Lemma~\Nref{lem:fp-compare}]
+$A-\tilde A=\chi(A-A^\Omega)=\chi\delta$ on $\Omega$, and $0$ off $\Omega$. Because $\chi=0$ on $\Omega\setminus\Omega_{(1)}$:
+\begin{itemize}
+\item $a_{y'}(\chi\delta)\le\sup(|\delta|+|\nabla\delta|+|\nabla\chi||\delta|)\le2a_{y'}(\delta)$ for $B(y')\subset\Omega$;
+\item $a_{y'}(\chi\delta)=0$ otherwise.
+\end{itemize}
+With $e^{-\gamma'\operatorname{dist}(y',\Sigma)}\le e^{\gamma'|y-y'|}e^{-\gamma'\operatorname{dist}(y,\Sigma)}$ and hypothesis (i), $a_y(\mathcal T(A)-\mathcal T(\tilde A))\le2\cdot\frac14\|\delta\|_we^{-\gamma'\operatorname{dist}(y,\Sigma)}$. So $\|\delta\|_w\le\frac12\|\delta\|_w+\sigma$, which is finite on the finite lattice.
+\end{step}
+\status{Expanded. Proposition~\Nref{prop:map-compare} rests on the mixed estimate \Neqref{eq:d2D-mixed} of Part~V; off the main line.}
+\end{detail}
+
+\begin{detail}[Definition~\Nref{def:dirichlet-map}, Proposition~\Nref{prop:map-compare}, Theorem~\Nref{thm:interaction-local}, Corollary~\Nref{cor:composed}. Off the main line]\label{d8:interaction}\Ntarget{def:dirichlet-map,prop:map-compare,thm:interaction-local,cor:composed}
+We list the changes relative to the cited torus proofs and check each of them.
+\begin{itemize}
+\item \emph{Dependence} (Section~\Nref{ss:39.2}, ``by construction''). Every nonlinear expression is evaluated with the cutoffs $\zeta$, $\hat\zeta$, supported in $X_{(R_1-2)}$, where all Dirichlet operators of Proposition~\Nref{prop:dirichlet-averaged} (with $W=0$) depend on $U$ on $\hat X$. For $X=\Tf$, $\zeta=\hat\zeta=1$ and $\Omega_{\Tf}=\Tf$, which gives $A_*$.
+\item \emph{(a), (b)} ``The proof of Proposition~\Nref{prop:contraction} applies on $\Omega_X$''. The changes are: Theorem~\Nref{thm:ID}(a)--(d) in place of Lemma~\Nref{lem:sup-bounds}, at interior blocks only (the cutoffs guarantee this); and the contraction for $\mathcal D^X$ (Lemma~\Nref{lem:linearizing}), where $\Cav_k(A)(c)$ for $c\in\mathfrak B(X_{(R_1)})$ reads $A$ on $S_c\subset\Omega_X$.
+\item \emph{(c)} The hybrid field: $|\chi a+(1-\chi)b|_1\le3\max(|a|_1,|b|_1)$, since $\nabla(\chi a+(1-\chi)b)=\chi^\sharp\nabla a+(1-\chi^\sharp)\nabla b+(\nabla\chi)(a-b)$ with $|\nabla\chi|\le1$. So $r_4$ with $|A_1^X|_1\le\frac16\rho_2$ keeps $\tilde A$ in the ball. Hypothesis (ii) has three kinds of terms:
+  \begin{itemize}
+  \item differences of operators, by Theorem~\Nref{thm:ID}(e), with seam $10M$;
+  \item differences of cutoffs, supported within $R_1$ of $\Tf\setminus X'$;
+  \item $\tilde A\ne A^{X'}$ off $\Omega_{X'(2)}$.
+  \end{itemize}
+  All lie in $\Sigma'$ (width $R_1+10M+4$), and composition with the block kernels gives $e^{-\gamma\operatorname{dist}(y,\Sigma')}$.
+\item \emph{Theorem~\Nref{thm:interaction-local}.} By Detail~\ref{d8:plaquette}, $|F^{\Lam_m}_p(B)-F^{\Lam_{m-1}}_p(B)|\le C\eta^d(\eps+|B|)\,|A^{\Lam_m}_*-A^{\Lam_{m-1}}_*|_1$, at $B$ and at $0$. Note that $A^X_*(0)\ne0$ for proper $X$, but Proposition~\Nref{prop:map-compare}(c) at $B=0$ bounds it by $C\eps e^{-\gamma_4(\cdots)}$. The rest follows:
+  \begin{itemize}
+  \item the $T_2$ identity is Lemma~\Nref{lem:step-quadratic} with the gauge-fixing part removed;
+  \item Cauchy on the disc of radius $2r_5/|Z|_\infty$ bounds each Taylor term of degree $\le2$ by the sup, so $|g|\le4\sup$;
+  \item the maximum principle for $g(t)/t^3$ gives $4C(\eps+2r_5)^2(2r_5)^{-3}|Z|^3\le\frac92Cr_5^{-1}|Z|^3$, using $\eps\le r_5$;
+  \item the note defines $r_5=\min(r_2,\frac12r_L,r_4/(1+2CL^d))$ and $\gamma_5=\gamma_4$, and assumes $\eps\le r_5$. Then $|\hat Z(Z)|\le CL^d|Z|$ gives $\eps+|\hat Z(Z)|\le r_4$ on the Cauchy ball $|Z|\le2r_5$, and the telescoping starts at $m_1$.
+  \end{itemize}
+\item \emph{Section~\Nref{ss:39.3}, Corollary~\Nref{cor:composed}.} Points of $P^{(2)}$ are at distance $\ge m-R_1-10M-8$ from $\Sigma'$ of Proposition~\Nref{prop:map-compare}(c) for $X=\Lam_m(P)$, $X'=\Lam_{m-1}(P)$, and $e^{\gamma_4(R_1+10M+8)}$ is absorbed in $C_{\rm a}$. The corollary was checked in the previous detail.
+\end{itemize}
+\status{Literal repetition, changes listed and checked; it rests on \Neqref{eq:d2D-mixed} through Proposition~\Nref{prop:map-compare}. In Proposition~\Nref{prop:map-compare} the note takes $r_4\le\theta_0$, so that $\eps+\rho_2\le C\theta_0$.}
+\end{detail}

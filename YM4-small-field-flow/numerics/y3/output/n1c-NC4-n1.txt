@@ -1,0 +1,10 @@
+N1(c): d=2, SU(2), L=3, coarse 4x4, fine 12x12, flux 1 quanta: fine plaquette angle 0.0873, coarse 0.7854; U(1) direction 0.664 0.747 0.034; seed 1
+  fine plaquettes = exp(i theta n.sigma/2): 9.8e-16
+  1. coarse plaquettes of V = a(U_F) vs exp(i L^2 theta n.sigma/2): 3.7e-16
+     S(U_F) = 0.274112184425 = |T_fine| (2 - 2 cos(theta/2)) = 0.274112184425
+  2. |grad S(U_F)| over all 288 bonds and colours = 8.2e-16: U_F is critical on its fibre, with multiplier 0; constraint residual 0.0e+00
+     Hessian of S on the 480 free-link variables: 2 s
+  3. without the constraint (tree-gauge slice only): inertia (neg, zero, pos) = (4, 49, 427)
+     on ker(d cons) (dim 384 = 480 - 96): inertia (neg, zero, pos) = (0, 0, 384), smallest |pivot| 2.569e-01, smallest eigenvalue 0.133847   [24 s]
+     comparison at U = 1: inertia (0, 0, 384), smallest eigenvalue 0.133975   [43 s]
+[43 s]

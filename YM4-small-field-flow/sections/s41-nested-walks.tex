@@ -1,0 +1,521 @@
+\section{Weakened inverses by nested walks}\label{sec:nested-walks}
+
+In this section domains are arbitrary unions of blocks, together with the empty set. The family of domains is closed under intersection with the $\Lam^v_j$. For domains $X'\subset X$ and a width $w>0$, let $\Sigma_w(X,X')$ be the set of blocks within distance $w$ of $X\setminus X'$, the \emph{seam}. The width depends on the level of the construction: $w=10M$ at the levels (L1)--(L4) below, and $w=R_0+10M+2L$ at the level (L5), with $R_0=R_0(L,M)$ from Proposition~\ref{prop:local-fluct}. We fix $\rho$ so large that
+\begin{equation}\label{eq:rho-choice}
+(\rho-1)M-w\ge\tfrac14(\rho-1)M\qquad\text{at every level},
+\end{equation}
+e.g.\ $\rho\ge2R_0/M+30$. This is possible because $R_0(L,M)\le C_LM$. The number $\mathsf N_{\rm b}$ of Section~\ref{sec:weakenable} then depends on $L$, but not on $M$.
+
+\subsection{Seam norms}\label{ss:41.1}
+
+For an operator $F$, a set of blocks $\Sigma$ and $\gamma\ge0$, let $|F|_{\gamma,\Sigma}$ be the decay norm of Section~\ref{sec:weakenable}, with the weight $e^{\gamma|y-y'|}$ replaced by $e^{\gamma(|y-y'|+d_\Sigma(y)+d_\Sigma(y'))}$, where $d_\Sigma=\operatorname{dist}(\cdot,\Sigma)$. A kernel of seam form,
+\[
+\|\one_yF\one_{y'}\|\le C\sum_{w\in\Sigma}e^{-\gamma'(|y-w|+|w-y'|)},
+\]
+has $|F|_{\gamma'/4,\Sigma}\le CS_{\gamma'/2}^2$. Indeed $|y-y'|\le|y-w|+|w-y'|$, $d_\Sigma(y)\le|y-w|$ and $d_\Sigma(y')\le|w-y'|$. Conversely, $|F|_{\gamma,\Sigma}<\infty$ gives $\|\one_AF\one_{A'}\|\le|F|_{\gamma,\Sigma}e^{-\gamma(d_\Sigma(A)+d_\Sigma(A'))}$. If $F$ is supported on $\Sigma\times\Tf$ or $\Tf\times\Sigma$, then $|F|_{\gamma,\Sigma}\le|F|_{2\gamma}$. Since $d_\Sigma(y)\le|y-y_1|+d_\Sigma(y_1)$,
+\begin{equation}\label{eq:seam-product}
+|AFB|_{\gamma,\Sigma}\le|A|_{2\gamma}\,|F|_{\gamma,\Sigma}\,|B|_{2\gamma}.
+\end{equation}
+For weakenable families, $\|O\|_{\kappa,\gamma,\Sigma}$ is defined with $|O_\omega|_{\gamma,\Sigma}$. By \eqref{eq:seam-product}, Lemma~\ref{lem:weak-chain} holds with one factor measured in the seam norm and the others in $|\cdot|_{2\gamma}$.
+
+\paragraph{Factorized families.} On the fine lattice the non-local parts of the operators contain derivatives, and are unbounded uniformly in $\eta$. As in Parts~II and~III, they are written as finite sums of products with derivatives outside. Here we write them as $\sum_iX_i^TM_iY_i$ with $X_i^T\in\{1,D^T\}$ and $Y_i\in\mathfrak D\cup\{1\}$. A left gradient $D$, where present, is made part of the middle factor $M_i$. A \emph{factorized weakenable family} is such a sum in which each $M_i$ is a weakenable family. Its norm is $\sum_i\|M_i\|_{\kappa,\gamma}$: the middle factors are measured without further derivatives. The derivatives $X_i^T$, $Y_i$ are kept outside the terms. A left $D^T$ is absorbed by the factor to its left in a product, and $Y_i$ by the local propagator to its right, whose derivative norms are controlled by (W2) below.
+
+Derivative norms of the middle factors are neither used nor available in general. At level~(L3) the middle factor $M=WDG'R$ has $DM$ containing the derivatives of the coefficients of $W$, which are only H\"older continuous: for $W=w_qI$ with $w_q(x)=c\eps q^{-\alpha}\sin(qx_1)$ and $c$ small, a member of $\cW_{\rm loc}(\eps)$, $|DM|$ is at least of order $\eps q^{1-\alpha}$ for $1\ll q\lesssim\eta^{-1}$. In the same way, derivatives of the curvature factor $\mathfrak F=DD$ (Lemma~\ref{lem:curvature}) are not controlled at complex references.
+
+\begin{definition}[Compatible representations]\label{def:compatible}
+Factorized weakenable representations $O^X(s)=\sum_iX_i^TM^X_i(s)Y_i$ of operators $O^X$ on $\ell^2(X)$, one for each domain $X$, are \emph{compatible}, with constants $(C_O,\gamma)$ and seam width $w$, if:
+\begin{itemize}
+\item the index sets do not depend on $X$, matched terms carry the same domain and monomial, and a term vanishes on $X$ if one of its local domains does not meet $X$;
+\item $\|M^X_i\|_{\kappa,2\gamma}\le C_O$ for all $X$ and $i$;
+\item for $X'\subset X$, the differences $\one_{X'}M^X_i(s)\one_{X'}-M^{X'}_i(s)$ satisfy $\|\cdot\|_{\kappa,\gamma,\Sigma_w(X,X')}\le C_O$.
+\end{itemize}
+\end{definition}
+
+The last condition is the weakened form of the comparison of domains (Theorem~\ref{thm:reg-scalar}(e), Theorem~\ref{thm:reg-locality}(a), Proposition~\ref{prop:dirichlet-averaged}(d), Proposition~\ref{prop:local-fluct}(c)). On $2$-forms, $\one_X$ denotes the projection onto the fields vanishing on the plaquettes with no corner in $X$.
+
+\subsection{The walk}\label{ss:41.2}
+
+Let $\fA^X$ be operators on $\ell^2(X)$, one for each domain $X$, with $\fA=\fA^{\Tf}$, satisfying:
+\begin{enumerate}[label=(W\arabic*)]
+\item \emph{Structure.} $\fA^X=\fA^X_{\rm loc}+\kappa_mm_X+\mathfrak N^X$, where:
+  \begin{itemize}
+  \item $\fA^X_{\rm loc}$ is a local operator of range $r_0$, possibly of second order and containing a block-local averaging term, which depends on $X$ only through cut terms at $\partial X$. For example, $\one_XDD^T\one_X$ differs from $D\one_XD^T$ by a cut term.
+  \item $\kappa_mm_X$ is the mass term of Section~\ref{sec:reg-gauge} in the gauge case, and $0$ otherwise.
+  \item $\mathfrak N^X$ is the non-local part.
+  \end{itemize}
+\item \emph{Local propagators.} For every $j$ and every domain $X$, $\fA^{\Lam^v_j\cap X}$ is invertible on $\ell^2(\Lam^v_j\cap X)$. Its inverse $G^X_j$, extended by zero, depends on the data only on $(\Lam^v_j\cap X)^\wedge$, satisfies $|G^X_j|^D_{\gamma_0}\le C_G$, and obeys the comparison of domains in seam form with width $w$, with derivatives, and constants $(C_G,\gamma_0)$. Here, and in the derivative norms of the outputs below, $D$ stands for every first-order derivative that occurs as a factor $Y_i$, $X_i^T$ or as an external derivative. In the gauge case these are $D$ and the divergence $D^T_{X_j}$ of the local domain $X_j=\Lam^v_j\cap X$. The bounds for $D^T_{X_j}G^X_j$ and $D^T_{X_j}G^X_jD^T$ come from the norm $\tn\cdot_{X_j,+}$ (Theorem~\ref{thm:reg-gauge}(a)). In the gauge case (W2) also includes the full gradient $\nabla G^X_j$, $\nabla G^X_jD^T$, and the comparison of domains for these and for the torus divergence (Theorem~\ref{thm:reg-locality}(a)). With the Dirichlet conditions of Section~\ref{sec:reg-gauge}, even the torus divergence $D^TG^X_j$ is bounded. The regrouping in the proof of Lemma~\ref{lem:step-small} is kept, since it needs only the divergence of the local domain.
+\item \emph{Non-local part.} $\mathfrak N^X=\sum_iX_i^T\mathfrak N^X_iY_i$ has compatible factorized representations $\mathfrak N^X(s)$ with constants $(C_{\mathfrak N},\gamma_0)$ at $\kappa+2\delta$. Lemma~\ref{lem:step-small} at $\kappa'$ uses $\mathfrak N$ at $\kappa'+\delta$, and Theorem~\ref{thm:weak-inverse} at $\kappa$ uses Lemma~\ref{lem:step-small} at $\kappa+\delta$. So each walk costs $2\delta$ in the weakening rate.
+\end{enumerate}
+
+\begin{lemma}[Parametrix on domains]\label{lem:parametrix-X}
+Under (W1), (W2), with $\cK^X=\sum_jh_jG^X_j$ on $\ell^2(X)$,
+\[
+\begin{aligned}
+\fA^X\cK^X&=I-\sum_j\mathcal R^X_j,\\
+\mathcal R^X_j&=-\Big([\fA^X_{\rm loc},h_j]+[\mathfrak N^X,h_j]+h_j\big(\mathfrak N^X\one_{\Lam^v_j\cap X}-\one_{\Lam^v_j\cap X}\mathfrak N^{\Lam^v_j\cap X}\one_{\Lam^v_j\cap X}\big)\Big)G^X_j .
+\end{aligned}
+\]
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:parametrix-X}
+As in Lemma~\ref{lem:parametrix}, $\fA^Xh_jG^X_j=h_j\fA^XG^X_j+[\fA^X,h_j]G^X_j$, and $m_X$ commutes with $h_j$.
+\begin{itemize}
+\item \emph{Local parts.} On $\supp h_j$ the local parts of $\fA^X$ and $\fA^{\Lam^v_j\cap X}$ agree on fields supported in $\Lam^v_j\cap X$. The only possible difference is a cut term at $\partial\Lam^v_j$, which is at distance at least $(\rho-1)M>r_0$ from $\supp h_j\subset K_j$.
+\item \emph{Mass profiles.} These agree on $K_j$. If $K_i\cap K_j\ne\emptyset$, then $\Lam_i\subset\Lam^v_j$ for $\rho\ge6$. So $\Lam_i\subset X$ iff $\Lam_i\subset\Lam^v_j\cap X$, i.e.\ $i\in J(X)$ iff $i\in J(\Lam^v_j\cap X)$, and only such $i$ contribute to $m$ on $K_j$.
+\end{itemize}
+Hence $h_j\fA^XG^X_j=h_j+h_j(\mathfrak N^X\one_{\Lam^v_j\cap X}-\one\mathfrak N^{\Lam^v_j\cap X}\one)G^X_j$. Sum over $j$, using $\sum_jh_j=1$.
+\end{proof}
+
+Since $h_j\one_{X\setminus(\Lam^v_j\cap X)}=0$, the seam term equals $h_j\one_{X'}(\mathfrak N^X-\mathfrak N^{X'})\one_{X'}G^X_j$ with $X'=\Lam^v_j\cap X$.
+
+\paragraph{The weakened step.} Insert the representations of (W3), and give each step the monomial $s^{X(j)}$. Each term of $\mathcal R^X_j$ is then of the form $D^TA+B$, with the left derivative coming from $X_i^T$, and
+\[
+\begin{aligned}
+\mathcal R^X(s)&=-\sum_js^{X(j)}\Big([\fA^X_{\rm loc},h_j]+[\mathfrak N^X(s),h_j]+h_j\one_{X'}\big(\mathfrak N^X(s)-\mathfrak N^{X'}(s)\big)\one_{X'}\Big)G^X_j\\
+&=D^T\mathcal A^X(s)+\mathcal B^X(s),
+\end{aligned}
+\]
+with weakenable families $\mathcal A^X$ and $\mathcal B^X$ ($\mathcal A^X=0$ at the scalar levels). Each term has domain $X(j)\cup X_\omega$. This is a polymer, since $X_\omega$ meets $X(j)$ for every non-vanishing term. Put
+\[
+G^X(s)=\sum_{n\ge0}\Big(\sum_js^{X(j)}h_jG^X_j\Big)\mathcal R^X(s)^n .
+\]
+In a product, every $D^T$ in front of $\mathcal A$ is absorbed by the factor on its left, which is one of $h_jG^X_jD^T$, $\mathcal A^XD^T$, $\mathcal B^XD^T$. So the products are products of the bounded factors
+\[
+\mathcal F_0=\sum_js^{X(j)}h_jG^X_j,\quad\mathcal F_0D^T,\quad\mathcal A^X,\quad\mathcal A^XD^T,\quad\mathcal B^X,\quad\mathcal B^XD^T .
+\]
+This replaces the use of the identity of Lemma~\ref{lem:div-curvature}. That identity needs a real background, while the weakened walks are needed for complex perturbations as well.
+
+\begin{lemma}[Step operators]\label{lem:step-small}
+Assume (W1)--(W3) and
+\[
+|[\fA^X_{\rm loc},h_j]G^X_j|_{\gamma_0}+|[\fA^X_{\rm loc},h_j]G^X_jD^T|_{\gamma_0}\le C_GC_{\rm loc}M^{-1}.
+\]
+Then, with $\gamma=\gamma_0/8$ and $\gamma_0\le1$,
+\[
+\begin{aligned}
+&\|\mathcal A^X\|_{\kappa,\gamma}+\|\mathcal A^XD^T\|_{\kappa,\gamma}+\|\mathcal B^X\|_{\kappa,\gamma}+\|\mathcal B^XD^T\|_{\kappa,\gamma}\le\theta,\\
+&\theta:=C\,e^{\kappa\mathsf N_{\rm b}}\Big(C_GC_{\rm loc}M^{-1}+C\delta^{-1}(\gamma_0M)^{-1}C_{\mathfrak N}C_G+C\delta^{-1}C_{\mathfrak N}C_Ge^{-\gamma_0(\rho-1)M/16}\Big).
+\end{aligned}
+\]
+The constant $C$ includes the number of $j$ with $\Box\subset X(j)$, which is bounded independently of $M$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:step-small}
+\emph{The local commutator.} This is the hypothesis, times $e^{\kappa\mathsf N_{\rm b}}$ from the monomial.
+
+\emph{Regrouping.} Let $X'=\Lam^v_j\cap X$. Consider a term $X_i^TM^X_iY^X_i$ of $\mathfrak N^X$ with $Y^X_i=D^T_X$; the matching term of $\mathfrak N^{X'}$ has $Y^{X'}_i=D^T_{X'}$. Put $\sigma_j=(D^T_X-D^T_{X'})G_j$. It is supported at points of $X\setminus X'$, so $h_j\sigma_j=0$, and $h_jD^T_XG_j=h_jD^T_{X'}G_j$. Then the non-local commutator and the seam term of this term are
+\[
+\begin{aligned}
+{}[X_i^TM^X_iD^T_X,h_j]G_j&=[X_i^TM^X_i,h_j]D^T_{X'}G_j+X_i^TM^X_i[D^T_X,h_j]G_j-h_jX_i^TM^X_i\sigma_j,\\
+h_j\big(X_i^TM^X_iD^T_X-X_i^TM^{X'}_iD^T_{X'}\big)G_j&=h_jX_i^T\big(M^X_i-M^{X'}_i\big)D^T_{X'}G_j+h_jX_i^TM^X_i\sigma_j ,
+\end{aligned}
+\]
+and the terms with $\sigma_j$ cancel exactly. We use the steps in this regrouped form. Then only $D^T_{X'}G_j$ and $D^T_{X'}G_jD^T$ enter, which (W2) bounds, and $[D^T_X,h_j]$ is a multiplication by differences of $h_j$.
+
+\emph{The non-local commutator.} It is bounded by Lemma~\ref{lem:weak-local-ops}(b), applied to the factors $M_i$, together with the commutators $[X_i^T,h_j]$, $[Y_i,h_j]$, which are of size $CM^{-1}$. The derivatives $Y_i$ are absorbed by $G^X_j$, using $|G^X_j|^D$. In the terms $X_i^T[M_i,h_j]Y_iG_j$ and $X_i^TM_i[Y_i,h_j]G_j$ a left $D^T$ stays in front and gives the form $D^T\mathcal A$; then $\mathcal AD^T$ contains $Y_iG_jD^T$, again controlled by (W2). So only the norms $\|M_i\|$ enter, never derivatives of $M_i$.
+
+\emph{The seam term.} By Definition~\ref{def:compatible}, the differences $\one_{X'}(\mathfrak N^X_i-\mathfrak N^{X'}_i)\one_{X'}$ are of seam form for $\Sigma_w(X,X')$. By \eqref{eq:rho-choice}, every block of this seam lies at distance at least $\frac14(\rho-1)M$ from $K_j$. The factor $h_j$ restricts the output to $K_j$, so the seam norm and \eqref{eq:seam-product} give the factor $e^{-\gamma_0(\rho-1)M/16}$.
+
+\emph{Counting.} The terms of the non-local commutator and of the seam term built from a term $\omega$ of $\mathfrak N$ carry the monomial $s^{X(j)}s^{n_\omega}$, of degree $|X(j)|+\deg\omega\le\mathsf N_{\rm b}+\deg\omega$. So the factor $e^{\kappa\mathsf N_{\rm b}}$ multiplies them as well. For a fixed term $\omega$ of $\mathfrak N$, the number of $j$ for which the commutator or the seam term is non-zero is at most $C|X_\omega|\le C\deg\omega$. This is absorbed by evaluating $\|\mathfrak N\|$ at $\kappa+\delta$, at the cost of $\delta^{-1}$. The versions with $D^T$ on the right follow from (W2) and (W3) in the same way.
+
+\emph{The power of $C_G$.} Each term of $\mathcal A^X$, $\mathcal B^X$, $\mathcal A^XD^T$ and $\mathcal B^XD^T$ contains exactly one factor of the form $PG^X_jP'$ with $P,P'\in\{1,D,D^T\}$, which (W2) bounds by $C_G$; so $\theta$ is linear in $C_G$. This matters at level~(L5), where $C_G=C_L(\frac1{16}c_L+r)^{-1}<1$ for large $r$.
+\end{proof}
+
+\begin{theorem}[Weakened inverses]\label{thm:weak-inverse}
+Assume (W1)--(W3) and the hypothesis of Lemma~\ref{lem:step-small}. For (b) assume also the comparison of domains of the local commutators: for domains $X'\subset X$ the zero extensions of $[\fA^X_{\rm loc},h_j]G^X_j-[\fA^{X'}_{\rm loc},h_j]G^{X'}_j$ and of $[\fA^X_{\rm loc},h_j]G^X_jD^T-[\fA^{X'}_{\rm loc},h_j]G^{X'}_jD^T$ are of seam form for $\Sigma_w(X,X')$, with constants $(C_GC_{\rm loc},\gamma_0)$. Let $\delta\in(0,1]$. If $M\ge M_1(\kappa,\delta,C_G,C_{\rm loc},C_{\mathfrak N},\gamma_0,\rho,C_v)$, then for every domain $X$:
+\begin{enumerate}[label=(\alph*)]
+\item $G^X(s)$ is a weakenable family with margin at most $r+2r_0$ that represents $(\fA^X)^{-1}$, with
+\[
+\|G^X\|^D_{\kappa,\gamma_0/8}\le C(\kappa,\delta)e^{(\kappa+\delta)\mathsf N_{\rm b}}C_G ;
+\]
+\item the representations of $G^X(s)$, $DG^X(s)$, $G^X(s)D^T$ and $DG^X(s)D^T$ are compatible with constants $(C_{\rm cpt},\gamma_0/32)$ and seam width $w$. Here $C_{\rm cpt}$ depends only on $\kappa$, $\delta$, $\gamma_0$, $C_G$, $C_{\rm loc}$, $C_{\mathfrak N}$ and on $\rho$ and $C_v$ (through $\mathsf N_{\rm b}$); it may be taken independent of $M\ge M_1$, of $X$ and of $k$, $n$, $\eta$;
+\item each term is covariant under real gauge transformations if the $G^X_j$ and the terms of $\mathfrak N^X(s)$ are.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}\hasdetail{thm:weak-inverse}
+(a) After the regrouping of the derivatives, the $n$-th term is a sum of $2^n$ products of $n+1$ bounded factors from the list above. By Lemma~\ref{lem:weak-chain} and Lemma~\ref{lem:step-small} at $\kappa+\delta$,
+\[
+\Big\|\mathcal F_0\mathcal R^X(s)^n\Big\|_{\kappa,\gamma}\le(n+1)\big(C\delta^{-2}e^{(\kappa+\delta)\mathsf N_{\rm b}}C_G\big)\big(2C\delta^{-2}\theta\big)^n .
+\]
+The series converges if $2C\delta^{-2}\theta\le\frac12$, which holds for $M$ large, by the form of $\theta$. With derivatives, $D$ falls on the first factor, which is controlled by $|DG^X_j|$ and $[D,h_j]$. $D^T$ falls on the last factor, controlled by $\|\mathcal A^XD^T\|$, $\|\mathcal B^XD^T\|$ or $|G^X_jD^T|$. At $s=1$ the series is $\cK^X\sum_n(\sum_j\mathcal R^X_j)^n$, which by Lemma~\ref{lem:parametrix-X} is a right inverse of $\fA^X$. The space $\ell^2(X)$ is finite-dimensional, since the torus is finite. So this right inverse of $\fA^X$ is its inverse. No coercivity or positivity of any operator at $s\ne1$ is used: the series is the definition of $G^X(s)$. Data locality and the domains hold term by term.
+
+(b) Use the same index set on $X$ and on $X'\subset X$. On $X'$ a term vanishes if one of its local domains $\Lam^v_j\cap X'$ is empty. The sets $X(j)$ and the monomials do not depend on the domain, so matched terms have the same domain and monomial. On each field space let $P=\one_{X'}$ be the orthogonal projection onto the fields of $X'$ (Definition~\ref{def:domain}; on $2$-forms, the fields vanishing on the plaquettes with no corner in $X'$), and $Q=\one_X-P$. On gauge fields $Q$ is not $\one_{X\setminus X'}$: a bond from $X'$ to $X\setminus X'$ is a field of both domains. The fields in the range of $Q$ lie within one lattice step of $X\setminus X'$. After the regrouping, a term on $X$ is a product of bounded pieces: the $h_j$; the local propagators $G^X_j$ with the derivatives of (W2), among them the external $D$ of the first factor and the external $D^T$ of the last; the local commutators $[\fA^X_{\rm loc},h_j]G^X_j$, also with $D^T$ on the right; the middle factors of the non-local parts, also commuted with $h_j$; and the multiplications $[X_i^T,h_j]$, $[Y_i,h_j]$ and, with an external $D$, $[D,h_j]$. Every factor of a word ends with a local propagator, possibly with a derivative of (W2) on its left, so the left $D^T$ of the next step is absorbed into it, as in $G^X_jD^T$ or $[\fA^X_{\rm loc},h_j]G^X_jD^T$. Insert $P+Q$ between the pieces of a term on $X$, and telescope, using $P\Phi'P=\Phi'$ for the pieces $\Phi'$ on $X'$. The difference $P(\text{term on }X)P-(\text{term on }X')$ is a sum of products, each containing one of the following factors:
+\begin{itemize}
+\item a difference of local propagators $P(G^X_j-G^{X'}_j)P$, with the derivatives applied before the comparison, of seam form by (W2), since $\Lam^v_j\cap X'\subset\Lam^v_j\cap X$ and $(\Lam^v_j\cap X)\setminus(\Lam^v_j\cap X')\subset X\setminus X'$;
+\item a difference of non-local parts, on $X$ and $X'$ or on $\Lam^v_j\cap X$ and $\Lam^v_j\cap X'$, of seam form by (W3), also after commutation with $h_j$, which commutes with $P$;
+\item a difference of local commutators $P[\fA^X_{\rm loc},h_j]G^X_jP-[\fA^{X'}_{\rm loc},h_j]G^{X'}_j$, also with $D^T$ on the right, of seam form by the hypothesis of (b);
+\item a cross term $P\Phi Q$ of a piece $\Phi$, a difference $P\Phi P-\Phi'$ of the multiplications $[X_i^T,h_j]$, $[Y_i,h_j]$, $[D,h_j]$, or a piece containing $G^X_j$ whose domain $\Lam^v_j\cap X'$ is empty. These are bounded and supported on the seam, where $|\cdot|_{\gamma,\Sigma}\le|\cdot|_{2\gamma}$.
+\end{itemize}
+By \eqref{eq:seam-product} and Lemma~\ref{lem:weak-chain}, each such product is bounded in the seam norm. No bare derivative stands next to $P$ or $Q$: every derivative is part of a bounded piece. A local commutator $[\fA_{\rm loc},h_j]$ never stands without its propagator: at (L1) and (L3) it is a differential operator, not bounded uniformly in $\eta$. A term with $n$ steps has at most $C(n+1)$ pieces, so the sum over the position of the distinguished factor costs a factor $C(n+1)$, which is absorbed. The steps are taken in the regrouped form of the proof of Lemma~\ref{lem:step-small} on both domains. On $X'$ the divergences of the local domains agree at the points of $X'$, so their differences are again of seam form: $P\one_{\Lam^v_j\cap X}D^TG^X_jP-\one_{\Lam^v_j\cap X'}D^TG^{X'}_j=\one_{\Lam^v_j\cap X'}D^T(G^X_j-G^{X'}_j)P$, which (W2) bounds through the torus divergence. The constant $C_{\rm cpt}$ collects the bound of (a), which is proportional to $C_G$, and the seam constants of (W2), (W3) and of the local commutators. It may be taken as its value at $M=M_1$, since the bounds of the series decrease in $M$. It cannot be taken independent of $C_G$: for $\fA^X=tI_X$ on unit-lattice fields and $\mathfrak N=0$ the family is $t^{-1}\sum_js^{X(j)}h_j$, whose norm is at least $2^{-d}t^{-1}$ by Lemma~\ref{lem:weak-basic}(a).
+
+(c) is clear.
+\end{proof}
+
+\subsection{The levels}\label{ss:41.3}
+
+Theorem~\ref{thm:weak-inverse} is applied at five levels, and (L3), (L4) are applied twice, without and with the potential $W_2$. At each level the hypotheses follow from the previous levels and from Parts~III, VII and VIII. The order is
+\[
+\text{(L1)}\to\text{(L2)}\to\text{(L3), (L4) with }W=0\to\omega_0,\ W_2\to\text{(L3), (L4) with }W_2\to\text{(L5)}.
+\]
+Every use of Lemma~\ref{lem:weak-chain} costs $\delta$ in $\kappa$, every use of Theorem~\ref{thm:weak-inverse} costs $2\delta$, each costs a fixed factor in $\gamma$, and there are boundedly many of them. The parameters are chosen in the order $L$, then $\kappa$ (see below), then $\rho$ by \eqref{eq:rho-choice}, then $M$ large depending on all of these, and finally $\eps$ small depending on $M$. The constants $C_G$, $C_{\rm loc}$, $C_{\mathfrak N}$ and the rates $\gamma_0$ of all levels do not depend on $M$: for $M\ge M_0$, and, at a level whose non-local parts come from Theorem~\ref{thm:weak-inverse}(b) at earlier levels, for $M$ at least the thresholds $M_1$ of those levels, with $C_{\rm cpt}$ taken at these thresholds. So the thresholds are fixed level by level, in the order above, and $M_1$ denotes the largest of them. At (L1)--(L3) this holds for the torus operators by Lemma~\ref{lem:regular-monotone} and Step~0 of the proof of Lemma~\ref{lem:uniformity}, for the Dirichlet operators by Theorem~\ref{thm:reg-coercive} (Remark~\ref{rem:uniformity-limits}(c)), and for the non-local parts by Theorem~\ref{thm:weak-inverse}(b) at the earlier levels. At (L4) and (L5) the inputs are Propositions~\ref{prop:dirichlet-averaged}, \ref{prop:dirichlet-hessian} and~\ref{prop:local-fluct}. They are built from these Dirichlet operators, from the averaging operators, whose proofs do not use $M$ (Section~\ref{sec:AB-proof}, Setting), and from the constants $c_L$, $C_L$, $C'_L$, $\gamma_1$ and $\gamma_C$ of Part~VII, which do not depend on $M\ge M_0$ (Remark~\ref{rem:step-M}). Theorem~\ref{thm:reg-locality}(b), the one result of Part~III whose constant contains $e^{CM}$, does not enter the constants of (W2): (W2) uses Theorem~\ref{thm:reg-locality}(a), and (b) enters only through the coercivity of Part~VII, in Lemma~\ref{lem:local-comparison}, where it is absorbed by the choice of $M'_L$ and $\eps_L$. The margin $R_0\le C_LM$ enters only $\rho$ and the seam width. So each threshold $M_1$ is a number, fixed before $M$. The smallness of $\eps$ is another matter. The thresholds of Parts~II and~III do not depend on $M$, and $\eps_{\rm B}$ of Lemma~\ref{lem:uniformity}(c) may be taken at $M=M_0$ (Lemma~\ref{lem:regular-monotone}). The thresholds of Parts~VI--VIII depend on $M$, for instance $a_1$ of Theorem~\ref{thm:balaban} (whose constant $B_3$ also depends on $M$), $a_\delta$ of Proposition~\ref{prop:sharp-curvature} and $\eps_L\le\eps_{\rm cmp}(M'_L)$ with $M'_L\ge M$ (Theorem~\ref{thm:step-coercive}); this is why $\eps$ is chosen last.
+
+\begin{enumerate}[label=(L\arabic*)]
+\item \emph{Scalar operators.}
+  \begin{itemize}
+  \item $\fA'^X=\one_X(D^TD+aQ'^TQ')\one_X$, with $\mathfrak N=0$, since $Q'^TQ'$ is block-local and is counted in $\fA_{\rm loc}$.
+  \item (W2) is Theorem~\ref{thm:reg-scalar}(b),(e), on the domains $\Lam^v_j\cap X$.
+  \item The hypothesis of Lemma~\ref{lem:step-small} is $|[\fA',h_j]G'_j|_{\gamma_0}\le CM^{-1}$, in the decay norm, with $D^T$ on the right, from Theorem~\ref{thm:random-walk}(a), whose proof applies verbatim on the domains $\Lam^v_j\cap X$. The comparison of the local commutators in Theorem~\ref{thm:weak-inverse}(b) holds as well. Since $h_j$ commutes with $\one_X$ and $\one_X\one_{X'}=\one_{X'}$, the difference is $\one_X[\fA',h_j](G'_{\Lam^v_j\cap X}-G'_{\Lam^v_j\cap X'})+(\one_X-\one_{X'})[\fA',h_j]G'_{\Lam^v_j\cap X'}$, with $\fA'=D^TD+aQ'^TQ'$. By the discrete Leibniz rule, $[\fA',h_j]u$ is a sum of multiplications of size $CM^{-1}$ applied to $u$ and to $Du$, up to shifts by $\eta$, and of $a[Q'^TQ',h_j]u$. So the first term is of seam form by Theorem~\ref{thm:reg-scalar}(e) for $G'$ and $DG'$, also with $D^T$ on the right. The second is bounded by the same expansion and Theorem~\ref{thm:reg-scalar}(b), and supported at the points of $X\setminus X'$.
+  \end{itemize}
+  This gives weakened $G'^X(s)$, together with $DG'^X(s)$, $G'^X(s)D^T$ and $DG'^X(s)D^T$. The walk has only local steps, as in \cite[Lemma~6]{DimockI}.
+\item \emph{Scalar averaged operators.}
+  \begin{itemize}
+  \item $Q'G'^XQ'^T$ and $M'^X=Q'(G'^X)^2Q'^T$ on $\ell^2(X_1)$, with $\fA_{\rm loc}=0$.
+  \item Their weakened representations come from (L1), Lemma~\ref{lem:weak-chain} and Lemma~\ref{lem:weak-local-ops}(a). Compatibility follows from (L1).
+  \item (W2) holds for the Dirichlet versions on $\Lam^v_j\cap X$, by Theorem~\ref{thm:reg-scalar}(c),(e).
+  \end{itemize}
+  Theorem~\ref{thm:weak-inverse} gives $\Gamma'^X(s)$ and $(M'^X)^{-1}(s)$. Products then give $H'^X$, $P^X_\cV$, $R_X$, $S_X$, $DS_X$ and $\Pi_X$, with derivatives.
+\item \emph{Gauge-field operators.}
+  \begin{itemize}
+  \item $\fA^{X,\kappa_m}$, with $\fA^X_{\rm loc}=\one_X(D^TD+DD^T+W+a\bQ^T\bQ)\one_X$ on $\ell^2_1(X)$, the Dirichlet restriction of the torus operator, which includes the exterior divergence term $\fA^{\rm ext}_X$, and mass term $\kappa_mm_X$.
+  \item Using $E=0$ as in Lemma~\ref{lem:local-system},
+  \[
+  \mathfrak N^X=-DP_{\cV,X}D^T_X-\mathfrak B_XDS_X-(\mathfrak B_XDS_X)^T+S_X^TD^T_X\mathfrak B_XDS_X ,
+  \]
+  with $\mathfrak B_XD=D^T\mathfrak F+WD$.
+  This is a factorized family with $X_i^T\in\{1,D^T\}$. Its terms are listed in the proof of Lemma~\ref{lem:N-tier}. For example, $D^T\mathfrak FS_X$ has $X_i^T=D^T$, $M_i=\mathfrak FG'_XR_X$ and $Y_i=D^T_X$; $-DP_{\cV,X}D^T_X$ has $X_i^T=1$, $M_i=DP_{\cV,X}$ and $Y_i=D^T_X$. Every middle factor is bounded in the plain norm by (L1), (L2) with derivatives, by the sup bound on $\mathfrak F$, and by the norm of $W$: the sup bound of its coefficients for $W\in\cW_{\rm loc}$, the family norm for $W_2$. A left gradient always falls on a scalar propagator, never on the coefficients of $\mathfrak F$ or $W$, so no derivative of these coefficients is needed. The compatibility of the middle factors follows from Theorem~\ref{thm:weak-inverse}(b) at (L1), (L2), which includes the derivatives of $G'^X$ and $P^X_\cV$, and from the locality of $\mathfrak F$ and $W$.
+  \item (W2) is Theorem~\ref{thm:reg-gauge}(a) and Theorem~\ref{thm:reg-locality}(a) on the domains $\Lam^v_j\cap X$.
+  \item The hypothesis of Lemma~\ref{lem:step-small} holds on every domain. The local commutator is $[\fA^X_{\rm loc},h_j]=\one_X[D^TD+DD^T+W+a\bQ^T\bQ,h_j]\one_X$, since $h_j$ commutes with $\one_X$. The terms $D^T[D,h_j]G_j$ and $D[D^T,h_j]G_j$ need the full gradient of $G_j$ on the support of $\partial h_j$, also where it meets $\partial X$. This is bounded by Lemma~\ref{lem:full-gradient} and Theorem~\ref{thm:reg-gauge}(a). The same holds with $D^T$ on the right, and at complex perturbations. On the torus one may also use the localized Hodge identity at interior blocks, as in the proof of Lemma~\ref{lem:int-factors}. The comparison of the local commutators in Theorem~\ref{thm:weak-inverse}(b) follows from the same expansion. With $\fA^{\Tf}_{\rm loc}=D^TD+DD^T+W+a\bQ^T\bQ$, the difference is $\one_X[\fA^{\Tf}_{\rm loc},h_j](G^X_j-G^{X'}_j)+(\one_X-\one_{X'})[\fA^{\Tf}_{\rm loc},h_j]G^{X'}_j$. In the first term $[\fA^{\Tf}_{\rm loc},h_j]$ acts through $D$, the torus divergence $D^T$, $\nabla$, $\bQ$ and $W$, with coefficients and local maps of size $CM^{-1}$; Theorem~\ref{thm:reg-locality}(a) compares these derivatives of the local propagators, also with $D^T$ on the right, in seam form. In the second term $\one_X-\one_{X'}$ projects onto the bonds within one lattice step of $X\setminus X'$, and $[\fA^{\Tf}_{\rm loc},h_j]G^{X'}_j$ is bounded as above.
+  \end{itemize}
+  The result is $\bG^X(s)$, together with $D\bG^X(s)$, $\bG^X(s)D^T$ and $D\bG^X(s)D^T$.
+\item \emph{Averaged gauge operators and the Hessian.}
+  \begin{itemize}
+  \item $\bQ_X\bG^X\bQ_X^T$ on $\ell^2(\mathfrak B(X))$, with $\fA_{\rm loc}=0$.
+  \item (W2) is Proposition~\ref{prop:dirichlet-averaged}(a),(d), and (e) at complex perturbations of the background.
+  \end{itemize}
+  This gives $\boldsymbol\Gamma^X(s)$, hence $\bH^X(s)$, $\bC^X(s)$ and $\omega_0^X(s)=\bH_0^X(s)^T\one_XJ_U$. Then
+  \[
+  W_2^X(s)=d^2\mathcal N(0)\big|_X-\omega_0^X(s)\cdot d^2\Cav_k(0)
+  \]
+  is a weakenable family. Its first term is local, and the second is $\omega_0^X(s)$ times the bounded local kernel of $d^2\Cav_k(0)$ (Proposition~\ref{prop:Q-expansion}(c)).
+
+  For complex perturbations of the background, $J_U$ is not bounded uniformly in $\eta$. There one writes $\ip b{\omega_0}=\ip{J_U}{\bH_0b}$ with $J_U=D^TF^s_U$ (Lemma~\ref{lem:current}), and moves the derivative onto $\bH_0b$, using $|D\bH_0|$. The same remark applies to Proposition~\ref{prop:dirichlet-hessian}(c).
+
+  In the repetition of (L3) the potential $W_2^X(s)$ is put into the non-local part $\mathfrak N$, with $X_i=Y_i=1$, not into $\fA_{\rm loc}$. It depends on $X$ globally, through $\omega^X_0$, so it does not satisfy the requirement of (W1) on local parts. Its plain norm and its compatibility follow from (L3), (L4) with $W=0$ and Theorem~\ref{thm:weak-inverse}(b). In this repetition the local propagators are the inverses of the Dirichlet operators with the potential $W_2^{X_j}$, $X_j=\Lam^v_j\cap X$, which depends on $U$ on all of $\hat X_j$. So (W2) is not Theorems~\ref{thm:reg-gauge}(a) and~\ref{thm:reg-locality}(a) literally. Existence, $\Rea$-coercivity and decay come from Proposition~\ref{prop:reg-complex}, whose hypotheses $W_2^{X_j}$ satisfies (Proposition~\ref{prop:dirichlet-hessian}(b),(c)); the comparison of domains comes from Propositions~\ref{prop:dirichlet-averaged}(d), which allows different potentials on the two domains, and~\ref{prop:dirichlet-hessian}(d), as stated in Section~\ref{sec:reg-gauge}. These comparisons include $P\in\{D,D^T,\nabla\}$, so the comparison of the local commutators in Theorem~\ref{thm:weak-inverse}(b) follows as at the first pass of (L3); the local part is the same. Repeating (L3) and (L4) with the potential $W_2^X$ gives $\boldsymbol\Gamma^X[W_2^X](s)$ and the Dirichlet Hessians $\Delta^{0,X}(s)$. Through the local maps $\hat Z^1$, $\hat Z^2$ it gives the coarse-action parts $\Delta^{\rm c,X}(s)$ of the operators $\Delta^{(X)}_k$, and hence $\Delta^{\rm c}_Y(s)=\one_{\mathfrak F(Y)}\Delta^{\rm c,Y^+}(s)\one_{\mathfrak F(Y)}$, the coarse-action part of $\Delta_Y$ (Section~\ref{sec:localization}). The gauge-fixing part of $\Delta_Y$ is the block-local operator $K^{\rm gf}_Y=\one_{\mathfrak F(Y)}\mathfrak G_W^T\mathfrak G_W\one_{\mathfrak F(Y)}$ of \eqref{eq:gf-local-part}. It needs no walk and is not weakened; it enters at level~(L5) as a local part.
+\item \emph{The fluctuation operator.}
+  \begin{itemize}
+  \item $\fA^X=\Delta_X+r$ on $\ell^2(\mathfrak F(X))$, for $r\ge0$, with
+  \[
+  \fA^X_{\rm loc}=r+K^{\rm gf}_X,\qquad K^{\rm gf}_X=\one_{\mathfrak F(X)}\mathfrak G_W^T\mathfrak G_W\one_{\mathfrak F(X)},\qquad\mathfrak N^X=\Delta^{\rm c}_X\ \text{from (L4)},
+  \]
+  so that $\Delta_X=\Delta^{\rm c}_X+K^{\rm gf}_X$ by \eqref{eq:gf-local-part}. Since $\Delta^{\rm c}_X$ is built from $\Delta^{\rm c,X^+}$, the representations of (L4) are used on the domains $X^+=X^{(R_0)}$.
+  \item The local part $K^{\rm gf}_X$ is block-diagonal: its kernel vanishes unless the two bonds are inner bonds of a common block $B'(y)$, so it has range at most $L$, with entries bounded by $C_L$ (Lemma~\ref{lem:avg-transport}(c)). It depends on $X$ only through the restriction to $\mathfrak F(X)$, i.e.\ through cut terms at $\partial X$, as (W1) requires. At real references $K^{\rm gf}_X\ge0$. It is analytic in the reference: at complex references $\mathfrak G_W$ is taken at the complex base, and $K^{\rm gf}_X$ changes by a block-local operator of size $C_L\delta_c$ (Lemma~\ref{lem:avg-transport}(f) and Remark~\ref{rem:domain-constants}, (DC5)).
+  \item (W2) is Proposition~\ref{prop:local-fluct}(c),(d), with the seam width $w=R_0+10M+2L$. The local propagators on $Y=\Lam^v_j\cap X$ depend on the background on $\widehat{Y^+}$ (Proposition~\ref{prop:local-fluct}(b)), not only on $\hat Y$; this set lies in $(\Lam^v_j)^{(R_v)}$ by the choice of $R_v$ in Section~\ref{sec:weakenable}, which is the form of the data dependence of (W2) used at this level.
+  \item The local operators satisfy $\Rea(\Delta_{\Lam^v_j\cap X}+r)\ge\frac1{16}c_L+r$. So the local propagators $(\Delta_{\Lam^v_j\cap X}+r)^{-1}$ have norm at most $(\frac1{16}c_L+r)^{-1}$ and decay $\big(C_L(\frac1{16}c_L+r)^{-1},\gamma_C\big)$, uniformly in $r$ (Proposition~\ref{prop:local-fluct}(d)).
+  \item The hypothesis of Lemma~\ref{lem:step-small}. Since $[r,h_j]=0$, the local commutator is $[K^{\rm gf}_X,h_j]$, with $h_j$ acting on fields on $\mathfrak F$ through the initial points of the bonds. Its entries are $K^{\rm gf}_X(b,b')(h_j(b'_-)-h_j(b_-))$, with $|b_--b'_-|_\infty\le L$, and $|h_j(x)-h_j(x')|\le CM^{-1}|x-x'|$. So $|[K^{\rm gf}_X,h_j]|_{\gamma_0}\le C_LLM^{-1}$, with $C_L$ including $e^{\gamma_0L}$, and $|[K^{\rm gf}_X,h_j]G^X_j|_{\gamma_0}\le C_GC_LLM^{-1}$. This is the hypothesis with $C_{\rm loc}=C_LL$. It is harmless, since $M$ is chosen after $L$. There are no derivatives at this level. The comparison of the local commutators in Theorem~\ref{thm:weak-inverse}(b) holds as well: $[K^{\rm gf}_X,h_j]=\one_{\mathfrak F(X)}[\mathfrak G_W^T\mathfrak G_W,h_j]\one_{\mathfrak F(X)}$, so the difference is $\one_{\mathfrak F(X)}[\mathfrak G_W^T\mathfrak G_W,h_j](G^X_j-G^{X'}_j)+(\one_{\mathfrak F(X)}-\one_{\mathfrak F(X')})[\mathfrak G_W^T\mathfrak G_W,h_j]G^{X'}_j$. The first term is of seam form by Proposition~\ref{prop:local-fluct}(c),(d); entries with an index on a bond starting in $X\setminus X'$ lie in the seam. The second term lives on such bonds. The constants are $C\,C_G\,C_LLM^{-1}$, uniformly in $r$.
+  \item The margin $R_v$ of $X(j)$ is at least $R_0+4+2r_{\rm loc}$ (Section~\ref{sec:weakenable}).
+  \end{itemize}
+  The constant $C_G=C_L(\frac1{16}c_L+r)^{-1}$ of (W2) is at most $16C_L/c_L$, and $C_{\rm loc}=C_LL$ and $C_{\mathfrak N}$ do not depend on $r$. So $M_1$ and the constants of Theorem~\ref{thm:weak-inverse} are uniform in $r$, and the bound of (a) carries the factor $C_G$. It gives $R_r(s)$, a representation of $(\Delta_k+r)^{-1}$, with $\|R_r\|_{\kappa,\gamma}\le C(c_L+r)^{-1}$.
+\end{enumerate}
+
+\begin{remark}[Boundary conditions of the gauge-field operators]\label{rem:L3-domains}
+The gauge-field Dirichlet operators of Section~\ref{sec:reg-gauge} contain the exterior divergence term $\fA^{\rm ext}_X$, so that all components of the gauge field satisfy Dirichlet conditions. The walks on proper domains need this.
+\begin{itemize}
+\item \emph{Relative boundary conditions do not suffice.} With the interior divergence $D^T_X$ alone, the normal components on the bonds crossing $\partial X$ would be free. These are relative boundary conditions, and the normal trace of $\bG^Xg$ is then of order $1$. The local commutator $[D\one_XD^T,h_j]$ produces, on a crossing bond at the inner point $x$, the term $-\eta^{-1}([D^T,h_j]u)(x)$, whose main part is $\eta^{-1}(\partial_nh_j)u_n$. In $L^2$ this is of order $\eta^{-1/2}M^{-1}$. So for such operators the hypothesis of Lemma~\ref{lem:step-small} fails uniformly in $\eta$ on every proper domain.
+\item \emph{Dirichlet conditions for all components.} With $\fA^{\rm ext}_X$, the local part of the operators is the Dirichlet restriction of the torus operator, so all components satisfy Dirichlet conditions. Coercivity holds in $\tn\cdot_{X,+}$, and the full gradient is controlled up to $\partial X$ (Lemma~\ref{lem:full-gradient}). The local commutators are then bounded, and the cutoff proof of the comparison of domains (Theorem~\ref{thm:reg-locality}(a)) leaves no boundary terms.
+\item \emph{What the term does not affect.} The torus operators, since $\fA^{\rm ext}_{\Tf}=0$, and hence Parts~IV--VII; the scalar operators and the slice objects $S_X$, $R_X$, $P_{\cV,X}$. Enlarging the scalar domain is not needed, and would not restore exact identities on domains, since gradients of scalars supported at exterior points do not lie in $\ell^2_1(X)$. The mass term is kept, because the exterior divergence alone gives no $L^2$ control near the boundary.
+\end{itemize}
+\end{remark}
+
+\begin{corollary}[Weakened covariance]\label{cor:weak-covariance}
+For $M\ge M_1(\kappa,L)$, the formula
+\[
+C_k^{1/2}(s)=\frac1\pi\int_0^\infty\frac{dr}{\sqrt r}\,R_r(s)
+\]
+defines a weakenable family representing $C_k^{1/2}$. Its norm $\|C_k^{1/2}\|_{\kappa',\gamma'}$ is finite for $\kappa'=\kappa-C\delta$, and some $\gamma'>0$ depending on $L$. Here $C\le20$. The walks of (L1)--(L5) and the repetitions of (L3), (L4) with $W_2$, seven in all, cost at most $2\delta$ each. The products between them, at most six, cost $\delta$ each. Its terms are covariant and depend on the background only on their domains. Its margin is that of the families $R_r(s)$, independent of $r$ and of $M$; it is at most $M/16$ for $M$ large, as the definition of weakenable families requires (Section~\ref{sec:weakenable}). The norm is bounded uniformly in the background, real or complex as in Section~\ref{sec:weakenable}; the terms are analytic in the complex perturbation of the background, and real for real backgrounds and real $s$. In the same way the diagonal entries, for $b\in\mathfrak F$,
+\[
+\ell_k(b)=\sum_jh_j(b)\,\ell_{\Lam^v_j}(b)-\int_0^\infty\operatorname{tr}_{\mathfrak g}\big[R^{(\ge1)}_t(b,b)\big]\,dt
+\]
+are represented by weakenable families of numbers $(X_\omega,n_\omega,O_\omega)_{\omega\in\Omega_b}$. Here $R^{(\ge1)}_t$ collects the walk terms of $(\Delta_k+t)^{-1}$ with at least one step, and $\ell_{\Lam^v_j}$ are the densities of Section~\ref{sec:det-local}. Moreover $O_\omega=0$ unless $b\in X_\omega^{(r)}$, and
+\[
+\|\ell_k(b)\|_{\kappa'}:=\sup_\Box\sum_{\omega\in\Omega_b:\,\Box\subset X_\omega}e^{\kappa'\deg\omega}|O_\omega|\le C,
+\]
+uniformly in $b$ and in the background, real or complex as in Section~\ref{sec:weakenable}.
+\end{corollary}
+
+\begin{proof}\hasdetail{cor:weak-covariance}
+By (L5), $\|R_r\|_{\kappa',\gamma'}\le C(c_L+r)^{-1}$, which is integrable against $r^{-1/2}dr$. Interchanging the sum over terms with the integral gives a representation whose terms are $r$-integrals of terms of $R_r$, with the same domains. At $s=1$ it is $C_k^{1/2}$, by $\frac1\pi\int_0^\infty r^{-1/2}(\lambda+r)^{-1}dr=\lambda^{-1/2}$, which also holds for operators with positive real part \cite[(192)--(193)]{DimockI}. The bound of (L5) is uniform in the background and in $r$, and the terms of $R_r(s)$ are analytic in the background and real at real backgrounds and real $s$, since they are built from real operators by sums, products and resolvents at real $r$; the $r$-integral preserves these properties.
+
+For the determinant, the walk terms of $(\Delta_k+t)^{-1}$ with no steps are $\sum_jh_j(\Delta_{\Lam^v_j}+t)^{-1}$. Since $\sum_jh_j(b)=1$, the constant $\frac1{1+t}$ in the formula of Proposition~\ref{prop:det-densities} splits accordingly. So these terms contribute $\sum_jh_j(b)\ell_{\Lam^v_j}(b)$. The terms with $n\ge1$ steps contain $n+1$ resolvents and are $O((c_L+t)^{-2})$, hence integrable in $t$. More precisely, by (L5), $\|R^{(\ge1)}_t\|_{\kappa',\gamma'}\le C(c_L+t)^{-2}$, uniformly in $t$ and in the background. Since $|\operatorname{tr}_{\mathfrak g}O(b,b)|\le C|O|_{\gamma'}$, integration in $t$ gives the norm bound for the terms with steps. The terms without steps are bounded by $|\ell_{\Lam^v_j}(b)|\le C_L$, and their monomials $s^{X(j)}$ have degree at most $C(\rho)$. The index set does not depend on $t$, so the $t$-integral commutes with the sum over terms.
+\end{proof}
+
+By Lemma~\ref{lem:weak-basic}(b), at $s_\Box=0$ outside a union of boxes $Z$, all these unit-lattice objects split into independent blocks, one for each $*$-component of $Z$. After the conversion to margin $0$ of Section~\ref{sec:weakenable}, each block acts on fields and depends on the background only inside its component.
+\begin{itemize}
+\item \emph{Scope.} This is the volume-type localization of the fluctuation covariance, of the coarse Hessian and of the determinant. Dimock's localization step \cite[(225)--(233)]{DimockI} uses in addition sup bounds on the field $W_k(s)$ \cite[Lemma~16, (100)]{DimockI}. Its Yang--Mills analogue needs the fine-lattice field $\bH(s)Z$ pointwise, which is the subject of Section~\ref{sec:pointwise-weak}.
+\item \emph{The first cube.} Unlike \cite[(102)]{DimockI}, the first cube of a walk is included in its monomial. So $G^X(0)=0$, and the background dependence is cut together with the field; the price is a factor $e^{\kappa\mathsf N_{\rm b}}$ per step, which is harmless.
+\item \emph{The order of the parameters.} In \cite{DimockI} the analyticity radius is $M^{1/2}$, i.e.\ $\kappa_1=\frac12\log M$. Here $\kappa$ is fixed first. The rate $\kappa'_w=\kappa-C\delta$ must satisfy the rate conditions collected in Remark~\ref{rem:parameters} and those of Proposition~\ref{prop:localized-pieces}. These involve $\kappa_n$, $\kappa_0$, $c_\sharp$, $c'_\sharp$, $c_\natural$, $c_\flat$ and $C_d$, not $L$. Choosing $\kappa$ after $L$ and before $M$ is consistent with this. The commutator of the gauge-fixing part at level~(L5) is $C_LLM^{-1}$, so it also requires $M$ to be chosen after $L$.
+\end{itemize}
+
+\subsection{The one-loop source in polymer form}\label{sec:one-loop-polymer}
+
+Corollary~\ref{cor:one-loop} bounds the one-loop term by pieces of radius type. The polymer expansion needs pieces of volume type, at the complex points of the graded domains (Definition~\ref{def:graded}). Both follow from Corollary~\ref{cor:weak-covariance} and Lemma~\ref{lem:quadratic-bound}.
+
+For $b\in\mathfrak F$ let $(X_\omega,n_\omega,O_\omega)_{\omega\in\Omega_b}$ be the weakenable family of numbers of Corollary~\ref{cor:weak-covariance} that represents $\ell_k(b)$, converted to margin $0$, and write $X^\sharp_\omega$ for its polymers; $\deg\omega$ denotes the degree before the conversion. The index set, the polymers and the monomials are determined by the geometry of the walks (Lemma~\ref{lem:weak-chain}), not by the background; only the numbers $O_\omega=O_\omega(U)$ depend on it. For a polymer $X$ put
+\[
+\mathfrak e(X,U)=-\frac12\sum_{b\in\mathfrak F}\ \sum_{\omega\in\Omega_b:\,X^\sharp_\omega=X}\big(O_\omega(U)-O_\omega(1)\big).
+\]
+We write $\kappa'$ for the rate of Corollary~\ref{cor:weak-covariance}, $\kappa_2=3^{-d}\kappa'$, and $C$ for constants that may depend on $L$, $M$, $\kappa$ and $\rho$.
+
+\begin{proposition}[One-loop source in polymer form]\label{prop:one-loop-polymer}
+Let $G$ be semisimple and $q_1=2p+6$, with $p$ from Lemma~\ref{lem:large-cubes}. There is $c_a>0$ such that the following holds.
+\begin{enumerate}[label=(\alph*)]
+\item $-\frac12\log\det\Delta_k(U)=-\frac12\log\det\Delta_k(1)+\sum_X\mathfrak e(X,U)$, with absolute convergence, for real $U$ in the setting of Section~\ref{sec:weakenable}, and for complex $U$ in the ball $\mathcal B$ of the proof of Proposition~\ref{prop:complex-ext}.
+\item Each $\mathfrak e(X,\cdot)$ depends only on $U$ on the bonds of $X$, and is a normalized graded activity at $X$ on $\mathcal U(X;c_a,c_a,c_a)$ (Definition~\ref{def:graded}). Moreover
+\[
+\sup_{\mathcal U(X;c_a,c_a,c_a)}|\mathfrak e(X,\cdot)|\le C|X|^2e^{-\kappa_2|X|} .
+\]
+\item Let $X$ have diameter at most $n/2-8$, and let $U=e^{\ii\eta A'}U_r\in\mathcal U(X;c_a,c_a,c_a)$ with $|F_{U_r}|,|J_{U_r}|\le\theta$. Put
+\[
+\mathfrak t=|\nabla A'|_{X^{(3)}}+[\nabla A']_{\alpha,X^{(3)}}+|A'|^2+\theta .
+\]
+If $C(1+|X|)^{q_1}(\mathfrak t+|A'|)\le1$, then
+\[
+|\mathfrak e(X,U)|\le C(1+|X|)^{q_1}\,\mathfrak t^2\,e^{-\kappa_2|X|} .
+\]
+\item Let $\theta_r,\delta_1,\delta_0\le c_a$, and put $\mathfrak t_0=\delta_1+\delta_0^2+\theta_r$. For every polymer $X$ of diameter at most $n/2-8$, and every $U\in\mathcal U(X;\theta_r,\delta_1,\delta_0)$,
+\[
+|\mathfrak e(X,U)|\le C\Big(\mathfrak t_0^2+\exp\big(-c(\mathfrak t_0+\delta_0)^{-1/q_1}\big)\Big)e^{-(\kappa_2-1)|X|},
+\]
+and in any case $|\mathfrak e(X,U)|\le Ce^{-(\kappa_2-1)|X|}$. For polymers of larger diameter, $|\mathfrak e(X,U)|\le C|X|^2e^{-\kappa_2|X|}\le Ce^{-(\kappa_2-1)|X|}e^{-cn/M}$. The constants $C$ and $c$ depend only on $L$, $M$, $\kappa$ and $\rho$, not on $\theta_r,\delta_1,\delta_0$ or $g$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}\hasdetail{prop:one-loop-polymer}
+(a) For real $U$: by Proposition~\ref{prop:det-densities}, $\log\det\Delta_k=\sum_{b\in\mathfrak F}\ell_k(b)$, at $U$ and at $1$. By Corollary~\ref{cor:weak-covariance}, $\ell_k(b)=\sum_{\omega\in\Omega_b}O_\omega$, with absolute convergence. Group the terms by $X^\sharp_\omega$. For complex $U$, both sides are holomorphic in the perturbation on the convex ball $\mathcal B$, and they agree at its real points; the identity theorem applies as in step~(iii) of the proof of Proposition~\ref{prop:complex-ext}.
+
+(b) Each $O_\omega$ depends on the background only on $X_\omega^{(r)}\subset X^\sharp_\omega$. It is invariant under real gauge transformations, since it is the diagonal trace of a covariant kernel or a term $h_j(b)\ell_{\Lam^v_j}(b)$. It is analytic under the complex perturbations of Section~\ref{sec:weakenable}. These are those of Proposition~\ref{prop:reg-complex}. The averaging and the averaged backgrounds at complex references are given by Proposition~\ref{prop:AB}, and the remaining inputs by Proposition~\ref{prop:complex-ext}. A configuration of Definition~\ref{def:bg-activity} with $\eps_a\le\eps_{\max}$ is a complex reference of size at most $C_{\rm cmp}\delta_a$, with $C_{\rm cmp}=4$ of the first item of Section~\ref{sec:complex-references}; so this needs $\eps_a\le\eps_{\max}$ and $C_{\rm cmp}\delta_a<\delta_P$. So $\mathfrak e(X,\cdot)$ is a normalized background activity at $X$ in the sense of Definition~\ref{def:bg-activity}, for some $\eps_a,\delta_a>0$. Remark~\ref{rem:bg-to-graded} makes it a graded activity on $\mathcal U(X;c_a,c_a,c_a)$, if $c_a\le a_2$, $\max(1,B_5)c_a\le\eps_a$ and $2C_{\rm ext}c_a<\delta_a$. For the bound, let $\omega$ satisfy $X^\sharp_\omega=X$. Every box of $X$ touches a box of $X_\omega$, so $\deg\omega\ge|X_\omega|\ge3^{-d}|X|$. Hence
+\[
+\sum_{\omega\in\Omega_b:\,X^\sharp_\omega=X}|O_\omega|\le\sum_{\Box\subset X}\ \sum_{\omega:\,\Box\subset X_\omega}e^{\kappa'\deg\omega}|O_\omega|\,e^{-\kappa'3^{-d}|X|}\le C|X|e^{-\kappa_2|X|},
+\]
+by the norm bound of Corollary~\ref{cor:weak-covariance}, uniformly in $b$ and in the background. At most $CM^d|X|$ bonds $b\in\mathfrak F$ contribute.
+
+(c) Apply Lemma~\ref{lem:quadratic-bound} with $P=X$, $\theta_r=\delta_1=\delta_0=c_a\le\frac12c_{\rm q}$, and a cube $\Lam\supset X^{(3)}$ of side $2R=2\operatorname{diam}(X)+8<n$. Since $\operatorname{diam}(X)\le M|X|$, $R/(4M+2)\le C(1+|X|)$, so $B_P\le C(1+|X|)^p$. Also $D_N\le CM(1+|X|)$, since $X$ is a $*$-connected union of boxes of side at most $M$. Hence
+\[
+\mathfrak m_1\le C\big(\mathfrak m+|A'|^2+(1+|X|)^{p+1}|A'|\theta\big),\qquad\mathfrak s\le C(1+|X|)^{p+2}\mathfrak t ,
+\]
+and $c_*\le\frac12c_{\rm q}+C(1+|X|)^{p+1}(|A'|+\theta)$, $RB_P\theta\le C(1+|X|)^{p+1}\theta$. For a suitable $C$, the condition $C(1+|X|)^{q_1}(\mathfrak t+|A'|)\le1$ implies all hypotheses of the lemma and $\mathfrak s\le\frac12$. The lemma and (b) give $|\mathfrak e(X,U)|\le2\mathfrak s^2C|X|^2e^{-\kappa_2|X|}\le C(1+|X|)^{2p+6}\mathfrak t^2e^{-\kappa_2|X|}$.
+
+(d) The conditions of Definition~\ref{def:graded} are monotone in the three constants, so $\mathcal U(X;\theta_r,\delta_1,\delta_0)\subset\mathcal U(X;c_a,c_a,c_a)$, and (b) gives the second bound, since $|X|^2e^{-|X|}\le C$. For the first, take a representation $U=e^{\ii\eta A'}U_r$ on $X^{(3)}$ as in Definition~\ref{def:graded}, so that $\mathfrak t\le\mathfrak t_0$ and $|A'|<\delta_0$. If $C(1+|X|)^{q_1}(\mathfrak t_0+\delta_0)\le1$, (c) gives $|\mathfrak e(X,U)|\le C(1+|X|)^{q_1}\mathfrak t_0^2e^{-\kappa_2|X|}\le C\mathfrak t_0^2e^{-(\kappa_2-1)|X|}$, since $(1+|X|)^{q_1}e^{-|X|}\le C$. Otherwise $1+|X|>(C(\mathfrak t_0+\delta_0))^{-1/q_1}$, and (b) gives
+\[
+|\mathfrak e(X,U)|\le C|X|^2e^{-\kappa_2|X|}\le Ce^{-(\kappa_2-1)|X|}e^{-|X|/2}\le Ce^{-(\kappa_2-1)|X|}\exp\big(-c(\mathfrak t_0+\delta_0)^{-1/q_1}\big).
+\]
+For polymers of diameter larger than $n/2-8$, $|X|\ge cn/M$.
+\end{proof}
+
+\begin{remark}[Use in the renormalization group]\label{rem:one-loop-polymer}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Why the affine gauge matters.} Without the complex gauge step of Lemma~\ref{lem:quadratic-bound}, the sup norm $|A'|$ would enter $\mathfrak s$ linearly. On the domain of scale $k$, read in the units of scale $j<k$, $|A'|\le L^{-(k-j)}\delta_0$, while $\mathfrak m$ and $\theta$ are $O(L^{-2(k-j)})$ (Remark~\ref{rem:domain-constants}(i)). So $\mathfrak s$ would be of order $L^{-(k-j)}$ instead of $L^{-2(k-j)}$. In $d=4$ there are $L^{4(k-j)}$ polymers of scale $j$ per cube of scale $k$, so already the orders $\ge3$ of an old activity, of size $L^{-3(k-j)}$ per polymer, would not be summable over the scales. With the affine gauge, $|A'|$ enters only through $|A'|^2$ and the smallness condition.
+\item \emph{The next scale.} By Remark~\ref{rem:domain-constants}(i), (d) gives $|\mathfrak e(X,U)|\le Ce^{-(\kappa_2-1)|X|}$ on the domain of step $k+1$, read in the units of step $k$, with $C$ independent of $g$ and of the domain constants. So the one-loop source is a term of order one of the new activity. On that domain $\mathfrak t\le L^{-2}\mathfrak t_0$ and $|A'|\le L^{-1}\delta_0$, so (c) gives a factor $L^{-4}$ per polymer of step $k$ that satisfies its smallness condition. In $d=4$ a grid cube of step $k+1$ contains $L^4$ grid cubes of step $k$, so this factor is exactly compensated: the quadratic part is marginal. It must be extracted as a coupling constant, not bounded.
+\item \emph{What is achieved.} All polymers, wrapping ones included, are normalized by construction: $\mathfrak e(X,1)=0$. Each $\mathfrak e(X,\cdot)$ depends on the background only inside $X$. Joint analyticity in the weakening parameters is not needed, since the determinant lies outside the fluctuation integral (Theorem~\ref{thm:step}) and $\mathfrak e$ is extracted at $s=1$. The pieces of the polymers that do not wrap are the same functions on every torus, and all pieces are covariant under the translations by $M\Z^4$ (Proposition~\ref{prop:one-loop-local}).
+\item \emph{The domain.} Part~(d) uses the graded domains of Definition~\ref{def:graded}, with the complex part controlled on $X^{(3)}$, i.e.\ with a domain margin of at least $3$, not $0$. (In Section~\ref{sec:cluster}, $r_E$ denotes the margin of dependence of an activity; the domain margin is then $r_E+3$.)
+\item \emph{Inputs from the flow.} Four further points are needed to use (d) in a flow. They are supplied by Sections~\ref{sec:flow}, \ref{sec:target-flow} and~\ref{sec:flow4} (Lemma~\ref{lem:raw-new}(b) for the reblocking):
+  \begin{itemize}
+  \item \emph{The decay rate.} $\kappa_2-1>0$ needs $\kappa'>3^d$. Matching the rate $\kappa_n$ of the activity norm needs $(3^{-d}\kappa'-1)/c_\sharp\ge\kappa_n+\kappa_0+2$, with a factor $3^d$ from the conversion of margins. The rate conditions are collected in Remark~\ref{rem:parameters}(1)--(3).
+  \item \emph{The polymer scale.} The polymers here are unions of boxes of the paving, with sides between $M/4$ and $M$, while an activity norm uses Dimock's tree length $d_M$ of the polymer grid \eqref{eq:dM-facts}. The paving is matched to the polymer grid of Section~\ref{sec:flow}.
+  \item \emph{Reblocking and the background.} The polymers are reblocked into polymers of step $k+1$ by Lemma~\ref{lem:reblocking} and Remark~\ref{rem:reblock-margins}. The background $U$ is related to the next coarse configuration through the base $W=U'^{(k)}$ (Section~\ref{sec:step-quantities}, Setting).
+  \item \emph{Wrap-around.} The wrapping polymers, of diameter larger than $n/2-8$ (Section~\ref{subsec:tf-scales}), give the sources $Ce^{-(\kappa_2-1)|X|}e^{-cn/M}$ of~(d). On the domains of Remark~\ref{rem:domain-constants} these are of the order of the other one-loop pieces. Under the torus hypotheses (T0)--(T2) of Lemma~\ref{lem:torus} they are bounded uniformly: at later scales by their supremum, and, summed over all scales, they contribute at most a constant times $e^{-cn_k/M}$ per grid cube of scale $k$ (Lemma~\ref{lem:torus}(c)--(e)).
+  \end{itemize}
+\end{enumerate}
+\end{remark}
+
+\subsection{Torus independence of the one-loop pieces}\label{subsec:torus-independence}
+
+The pieces $\mathfrak e(X)$ of Proposition~\ref{prop:one-loop-polymer} and the Jacobian terms $\log\mathfrak j_c$ of Proposition~\ref{prop:jacobians} are constructed on one torus. Part~XI compares them on tori of different sides (Section~\ref{sec:ol-uv}). This subsection shows that the pieces of the polymers that do not wrap, and the terms $\log\mathfrak j_c$, are the same functions of the configuration on every torus, and that all of them are covariant under the translations by the grid $M\Z^4$ (Proposition~\ref{prop:one-loop-local}). Their common value defines the infinite-volume pieces. No walks on the infinite lattice are constructed. The proof carries every term of the construction of this section from one torus to another (Lemma~\ref{lem:torus-transfer}), by induction over the levels (L1)--(L5). It rests on an inventory of the ingredients (Lemma~\ref{lem:local-inventory}): each of them is given by a local rule in the lattices, the grid and the configuration, and none of them depends on the torus as a whole.
+
+\paragraph{Setting.} Fix $k\ge0$ and use the units of step $k$; the fine spacing is $\eta=L^{-k}$ on every torus. A side $n$ is \emph{admissible} if it satisfies the torus hypotheses (T0)--(T2) of Section~\ref{subsec:tf-scales} at step $k$. For an admissible $n$ let $\Tf[n]=\eta\Z^4/n\Z^4$, with the projection $\pi_n:\eta\Z^4\to\Tf[n]$, and let $\T^{(i)}[n]$ be the image of $L^{i-k}\Z^4$, for $i\le k+1$; so $\T[n]=\T^{(k)}[n]$ and $\T'[n]=\T^{(k+1)}[n]$. The \emph{grid} is the image of $M\Z^4$. All these lattices contain the origin. Since $M$ is a power of $L$ (Section~\ref{subsec:flow-norm}) and $M>L$ (Section~\ref{sec:step-quantities}, Setting), $M\Z^4\subset L^{i-k}\Z^4$ for $i\le k+1$, and since $LM\mid n$ by (T1), all of them project to $\Tf[n]$. On every $\Tf[n]$ the constructions of Section~\ref{sec:weakenable} and of this section at step $k$ (for $k=0$, those of Proposition~\ref{prop:first-step}(c)) are made with the polymer grid of scale $k$ as paving (Section~\ref{subsec:cl-loc}), and with the same parameters (Lemma~\ref{lem:local-inventory}(b)). An index $[n]$ marks the torus where needed, as in $\mathfrak e[n](X,U)$. Put $R_{\rm g}=(\rho+C_v+8)M$. We take the constant in the condition $n\ge C(\rho+C_v)M$ of Section~\ref{sec:weakenable}, which is part of (T0), with $C\ge8$. Since $\rho\ge30$, this gives $4R_{\rm g}<n$.
+
+\begin{definition}[Grid transfers]\label{def:grid-transfer}
+Let $n,n'$ be admissible and $a\in M\Z^4$. A \emph{grid transfer} from $\Tf[n]$ to $\Tf[n']$ is a bijection $\iota:P\to P'$ from a set $P$ of points of $\Tf[n]$ onto a set $P'$ of points of $\Tf[n']$, of one of two kinds:
+\begin{enumerate}[label=(\roman*)]
+\item \emph{(Grid translations.)} $n'=n$, $P=P'=\Tf[n]$, and $\iota=\tau_a$, where $\tau_a(\pi_nx)=\pi_n(x+a)$;
+\item \emph{(Transfers of lifts.)} $P=\pi_n(\tilde P)$ for a set $\tilde P\subset\eta\Z^4$ of $\ell^\infty$-diameter less than $\frac12\min(n,n')$, and $\iota(\pi_nx)=\pi_{n'}(x+a)$ for $x\in\tilde P$.
+\end{enumerate}
+A bond, a plaquette or a unit bond is \emph{based} at its initial point (at $p_-$ for a plaquette $p$), and a point, fine or unit, is based at itself. For such a site $x$ based at a point of $P$, $\iota x$ is the site of the same kind and the same directions based at the image of that point. Configurations $U$ on $\Tf[n]$ and $U'$ on $\Tf[n']$ \emph{agree on $P$} if $U'(\iota b)=U(b)$ for every bond $b$ of $P$, i.e.\ with both endpoints in $P$. Two domains $X$ of $\Tf[n]$ and $X'$ of $\Tf[n']$, or empty sets, are \emph{related} if $X=\Tf[n]$ and $X'=\Tf[n']$, or if $X\subset P$ and $X'=\iota(X)$. For an operator $O$ whose kernel vanishes unless both sites are based in $P$, $\iota_*O$ is the operator with the kernel $(\iota_*O)(\iota x,\iota y)=O(x,y)$, which vanishes at the other pairs of sites; the fibres ($\C$, $\mathfrak g^c$, \dots) at $x$ and at $\iota x$ are identified.
+\end{definition}
+
+For a grid translation every domain $X$ is related to $\tau_aX$, and agreement on $P$ means $U'=\tau_aU$, with $(\tau_aU)(b)=U(b-a)$ as in (G2) of Definition~\ref{def:generation}.
+
+\begin{lemma}[Geometry of grid transfers]\label{lem:grid-transfer}
+Let $\iota:P\to P'$ be a grid transfer from $\Tf[n]$ to $\Tf[n']$, with the vector $a\in M\Z^4$.
+\begin{enumerate}[label=(\alph*)]
+\item $\iota$ preserves the $\ell^\infty$-distances of the tori, and $\iota(x+\eta e_\mu)=\iota x+\eta e_\mu$ if $x,x+\eta e_\mu\in P$. If $S\subset P$, $R\le R_{\rm g}$ and $S^{(R)}\subset P$, then $\iota(S^{(R)})=\iota(S)^{(R)}$. The inverse $\iota^{-1}$ is a grid transfer from $\Tf[n']$ to $\Tf[n]$, with the vector $-a$.
+\item Let $x\in P$, and let $B$ and $B'$ be the closed $\ell^\infty$-balls of radius $R_{\rm g}$ about $x$ in $\Tf[n]$ and about $\iota x$ in $\Tf[n']$. The translation by $a$ of the lifts induces an isometric bijection $\iota_x:B\to B'$. It agrees with $\iota$ on $B\cap P$, maps $Y\cap B$ onto $\iota(Y)\cap B'$ for every set $Y\subset P$, maps the points of the lattices $\T^{(i)}$, $i\le k+1$, and of the grid in $B$ onto those in $B'$, and maps lattice steps to lattice steps.
+\end{enumerate}
+Consequently, let an object be defined on every admissible torus by the same rule, which at a site based at $y$ uses only the lattices $\T^{(i)}$, $i\le k+1$, the grid, the $\ell^\infty$-distance and possibly a domain $Y$, all within distance $R_{\rm g}$ of $y$. Then, for related domains $Y$ and $Y'$, the object of $Y$ at a site $x$ based at a point of $P$ equals the object of $Y'$ at $\iota x$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:grid-transfer}
+For a grid translation all claims are clear, with $\iota_x=\tau_a$; the translation by $a\in M\Z^4$ maps $L^{i-k}\Z^4$, $i\le k+1$, and $M\Z^4$ onto themselves. Let $\iota$ be a transfer of a lift $\tilde P$.
+
+(a) Let $p,q\in P$, with lifts $\tilde p,\tilde q\in\tilde P$. Since $|\tilde p-\tilde q|<\frac12n$, the distance of $p$ and $q$ on $\Tf[n]$ is $|\tilde p-\tilde q|$; since $|\tilde p-\tilde q|<\frac12n'$, it is also the distance of $\iota p=\pi_{n'}(\tilde p+a)$ and $\iota q$. If $q=p+\eta e_\mu$, then $\tilde q-\tilde p-\eta e_\mu\in n\Z^4$ has norm less than $n$, so $\tilde q=\tilde p+\eta e_\mu$ and $\iota q=\iota p+\eta e_\mu$. Let $S^{(R)}\subset P$ with $R\le R_{\rm g}$. The inclusion $\iota(S^{(R)})\subset\iota(S)^{(R)}$ holds since $\iota$ preserves distances. Conversely, let $q'$ be within distance $R$ of $\iota s$, $s\in S$, $s=\pi_n(\tilde s)$ with $\tilde s\in\tilde P$, and choose $w$ with $\pi_{n'}(w)=q'$ and $|w-\tilde s-a|\le R$. The point $q=\pi_n(w-a)$ lies within distance $R$ of $s$, so $q\in P$ and $q=\pi_n(\tilde q)$ with $\tilde q\in\tilde P$. Then $|\tilde q-(w-a)|\le|\tilde q-\tilde s|+|\tilde s-(w-a)|<\frac12n+R_{\rm g}<n$, so $\tilde q=w-a$ and $\iota q=q'$. Finally $P'=\pi_{n'}(\tilde P+a)$, and $\tilde P+a$ has the diameter of $\tilde P$.
+
+(b) Let $x=\pi_n(\tilde x)$ with $\tilde x\in\tilde P$, and let $\tilde B$ be the ball of radius $R_{\rm g}$ about $\tilde x$ in $\eta\Z^4$. Since $4R_{\rm g}<\min(n,n')$, $\pi_n$ maps $\tilde B$ isometrically onto $B$, and $\pi_{n'}$ maps $\tilde B+a$ isometrically onto $B'$. Put $\iota_x(\pi_ny)=\pi_{n'}(y+a)$ for $y\in\tilde B$. Let $p\in B\cap P$, $p=\pi_n(\tilde p)$ with $\tilde p\in\tilde P$, and $p=\pi_n(y)$ with $y\in\tilde B$. Then $|\tilde p-y|\le|\tilde p-\tilde x|+|\tilde x-y|<\frac12n+R_{\rm g}<n$, so $\tilde p=y$ and $\iota_xp=\iota p$. If $Y\subset P$, this gives $\iota_x(Y\cap B)\subset\iota(Y)\cap B'$. Conversely, let $p\in Y$ with $\iota p\in B'$, and write $\iota p=\pi_{n'}(y+a)$ with $y\in\tilde B$. Since $|\tilde p-y|<\frac12n'+R_{\rm g}<n'$ and $\tilde p-y\in n'\Z^4$, $\tilde p=y$, so $p\in B\cap Y$. The translation by $a$ maps the lattices $L^{i-k}\Z^4$, $i\le k+1$, the lattice $M\Z^4$ and the lattice steps onto themselves.
+
+For the consequence, apply (b) at the base point $y$ of $x$. The map $\iota_y$ carries the lattices, the grid and the distances in the ball about $y$ onto those in the ball about $\iota y$, and $Y$ onto $Y'$ there: for $Y\subset P$ by (b), and for $Y=\Tf[n]$ since $\iota_y$ is onto. So the rule gives the same result.
+\end{proof}
+
+\begin{lemma}[Inventory of the ingredients]\label{lem:local-inventory}
+The pieces of Proposition~\ref{prop:one-loop-polymer} and the terms of Proposition~\ref{prop:jacobians} at step $k$ are built from the following ingredients; Steps~2 and~5 of the proof of Lemma~\ref{lem:torus-transfer} list how.
+\begin{enumerate}[label=(\alph*)]
+\item \emph{(Geometry.)} Each of the following is defined on every admissible torus by the same rule, as in the consequence of Lemma~\ref{lem:grid-transfer}, with range at most $R_{\rm g}$:
+  \begin{itemize}
+  \item the unit blocks $B(y)$, the blocks $B_i(y)$ and the contour families $G(y,x)$ of the averagings (Section~\ref{sec:averaging}), the blocks $B'(y)$ of $\T'$, the inner and the crossing bonds, the bonds $b_0(c)$ and the set $\mathfrak F$ (Definition~\ref{def:bonds}), and the plaquettes;
+  \item the grid cubes of scale $k$, which are the boxes of the paving, the polymers, the numbers $|X|$, the neighbourhoods $X^{(r)}$, and the margin conversion $X\mapsto X^\sharp$, with the split of the additive local terms box by box (Section~\ref{sec:weakenable});
+  \item the grid points $z_j$, the functions $\chi_j$ and $h_j=\chi_j^2$ (Lemma~\ref{lem:partition}), the sets $K_j$, $\Lam_j$, $\Lam^v_j$ and $X(j)$; for a domain $Y$, the set $J(Y)$ and the mass profile $m_Y$ (Section~\ref{sec:reg-gauge}), the sets $Y_1$, $\mathfrak B(Y)$, $\hat Y$, $\T'(Y)$, $\mathfrak F(Y)$ and $Y^+=Y^{(R_0)}$ (Sections~\ref{sec:domains} and~\ref{sec:localization}).
+  \end{itemize}
+\item \emph{(Constants.)} $L$, $M$, $\kappa$, $\delta$, $\rho$, $C_v$, $R_v$, $R_0=R_0(L,M)$, the seam widths $w$, the mass coefficient $\kappa_m$, the averaging parameter $a$, the margins $r$ and $r'$, the decay rates, the thresholds $M_1$, and the bounds $\eps$, $\delta_P$, $\eps_a$, $\delta_a$, $c_a$ on the references. They are fixed in the order of Remarks~\ref{rem:parameters} and~\ref{rem:domain-constants}, before the torus. The torus enters only through the lower bounds (T0), (T2) and the divisibility (T1). The IMS scale $M'$ and its partition of unity (Theorem~\ref{thm:step-coercive}, Proposition~\ref{prop:first-step}(b)), the local gauges of Definition~\ref{def:regular} and the model configurations of the proofs enter only proofs of bounds, not the definitions of the operators.
+\item \emph{(Local operators.)} Each of the following operators $\mathcal L$ has a range $r_{\mathcal L}\le R_{\rm g}$. Its kernel $\mathcal L(x,x')$ vanishes unless the base points of $x$ and $x'$ are within distance $r_{\mathcal L}$, and it is given by the same formula on every torus, in the objects of (a), in the domain $Y$ where one appears, and in the configuration on the bonds of the ball of radius $r_{\mathcal L}$ about the base point of $x'$. At complex references it is the holomorphic continuation of the same formula.
+  \begin{itemize}
+  \item The covariant derivative $D=D_U$, $D^T$, $D^T_Y=\one_YD^T$, the projections $\one_Y$, $\one_{\mathfrak F(Y)}$ and $\one_\Box$, the exterior divergence term $\fA^{\rm ext}_Y=D\one_{\Tf\setminus Y}D^T$ (Section~\ref{sec:reg-gauge}, Remark~\ref{rem:L3-domains}), the mass term $\kappa_mm_Y$, and multiplication by $h_j$.
+  \item The averaged backgrounds $W_j=U^{(j)}$, $j\le k$, and among them the base $W=U^{(k)}$, built by the one-step averagings from the averaged contour variables and the group average (Section~\ref{sec:averaging}, Lemma~\ref{lem:one-step-basic}(c); at complex references Proposition~\ref{prop:AB}(i)); the conditions of the averaging domain (Definition~\ref{def:avg-domain}), which are local; and the linearized averages $Q'=Q'_k(U)$, $\bQ=\bQ_k(U)$ and their restrictions $\bQ_Y$ (Proposition~\ref{prop:linearized-averages}(d)).
+  \item The curvature $F_U$ and its symmetrization $F^s_U$, the curvature factor $\mathfrak F$ (Lemma~\ref{lem:curvature}), the current $J_U=D^TF^s_U$ (Lemma~\ref{lem:current}), the second variations $d^2\mathcal N(0)$ (Proposition~\ref{prop:action}; it is a sum of plaquette-local forms) and $d^2\Cav_k(0)$ (Proposition~\ref{prop:Q-expansion}(a),(c)). The potential $W$ of the local part at level~(L3) is $0$; the potential $W_2$ enters the non-local part (level~(L4)).
+  \item The elimination at the base: $\ell_c$, $\zeta_c$, $\hat Z^1$, $\hat Z^2$ and $\mathfrak r_c$ (Lemma~\ref{lem:eliminate}(a)--(d)); the linearized averaged contour variables $\mathfrak G_W$ (Definition~\ref{def:avg-transport}, Lemma~\ref{lem:avg-transport}(a)), $K^Y=\mathfrak G_W^T\one_{\T'(Y)}\mathfrak G_W$ and $K^{\rm gf}_Y=\one_{\mathfrak F(Y)}\mathfrak G_W^T\mathfrak G_W\one_{\mathfrak F(Y)}$ (Section~\ref{sec:localization}).
+  \item At $k=0$: the Hessian $\Delta^0$ of $B\mapsto S(e^{\ii B}U')$ at $0$, $\omega_0=J_{U'}$, and the operator $\Delta_0$ of Proposition~\ref{prop:first-step}(b).
+  \end{itemize}
+\item \emph{(Jacobians.)} For a bond $c$ of $\T'$ put $P_c=\bigcup_{y\in B'(c_-)\cup B'(c_+)}B(y)$, a set of fine points. Then $\log\mathfrak j_c=-\log\det(1+\mathfrak r_c(0))$ (Proposition~\ref{prop:jacobians}(b)) is given by the same formula on every torus in the configuration on the bonds of $P_c$ and the objects of (a) in $P_c$.
+\end{enumerate}
+Consequently, let $\iota:P\to P'$ be a grid transfer, and let $U$ and $U'$ be references that agree on $P$; primes denote the objects at $U'$ on $\Tf[n']$. For every operator $\mathcal L$ of (c), with related domains $Y$, $Y'$ in its definition, and every set $S$ with $S^{(r_{\mathcal L})}\subset P$, $\mathcal L'\one_{\iota S}=\iota_*(\mathcal L\one_S)$; if $S^{(2r_{\mathcal L})}\subset P$, also $\one_{\iota S}\mathcal L'=\iota_*(\one_S\mathcal L)$. If $P_c\subset P$, then $\iota c$ is a bond of $\T'[n']$, $\iota(P_c)=P_{\iota c}$, and $\log\mathfrak j'_{\iota c}(U')=\log\mathfrak j_c(U)$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:local-inventory}
+(a) The lattices and the grid are those of the Setting. The blocks $B_i(y)$ and $B'(y)$ are the cubes of $L^d$ points of the next finer lattice centred at the points $y$ of the coarser one, $L$ being odd, and $B(y)$ is the set of the points of $\Tf$ at distance at most $\frac12(1-\eta)$ from $y\in\T$. The contours of $G(y,x)$ are the coordinate paths from $y$ to $x$ in the box spanned by $y$ and $x$ (Section~\ref{sec:averaging}). A bond is crossing if its endpoints lie in different blocks $B'$, and a positively oriented bond $b$ of direction $\mu$ is a bond $b_0(c)$ if and only if $b_--\frac12(L-1)e_\mu\in\T'$ (Definition~\ref{def:bonds}). The grid cubes of scale $k$ are the unions of the blocks $B(y)$ with $|y-c|_\infty\le\frac12(M-1)$, $c$ in the grid, and they are the boxes of the paving (Sections~\ref{subsec:flow-norm} and~\ref{subsec:cl-loc}). Polymers, $|X|$, $X^{(r)}$ and $X^\sharp$ are defined from the boxes and the distance, and the split of Section~\ref{sec:weakenable} uses only the boxes and the base points. Since $M\mid n$, $\check M=M$, and the $z_j$ are the points of the grid (Sections~\ref{sec:domains} and~\ref{subsec:flow-norm}). Let $\phi$ be the function of the proof of Lemma~\ref{lem:partition}. Since $n\ge8M$, the periodization of $\phi_j$ does not overlap, and $\chi_j(y)=\phi_j(y)\big(\sum_i\phi_i(y)^2\big)^{-1/2}$ with $\phi_i(y)=\prod_\mu\phi((y_\mu-z_{i,\mu})/M)$, the differences read on lifts at distance less than $M$, for the grid points $z_i$ at distance less than $M$ from $y$, and $\phi_i(y)=0$ for the others; this is a rule of range $M$. The sets $K_j$, $\Lam_j$, $\Lam^v_j$ are defined by the distance to $z_j$, at most $\rho M+1$, and $X(j)$ is the union of the boxes that meet $(\Lam^v_j)^{(R_v)}$, within distance $(\rho+C_v+2)M$ of $z_j$. For a domain $Y$, $J(Y)=\{j:\Lam_j\subset Y\}$ and $m_Y=\sum_{j\notin J(Y)}\chi_j^2$; at a point $y$ only the $j$ with $|z_j-y|<M$ contribute, and their $\Lam_j$ lie within distance $4M+1$ of $y$. The sets $Y_1$, $\mathfrak B(Y)$, $\hat Y$, $\T'(Y)$, $\mathfrak F(Y)$ and $Y^+$ are defined from $Y$, the blocks and the distance, within distance $R_0+L\le R_{\rm g}$.
+
+(b) This is the order of the choices in Remarks~\ref{rem:parameters} and~\ref{rem:domain-constants}, and in Sections~\ref{sec:weakenable} and~\ref{sec:nested-walks}; none of these choices involves $n$. The proofs of the lower bounds (Theorem~\ref{thm:step-coercive}, Lemma~\ref{lem:coercive-general}, Proposition~\ref{prop:first-step}(b)) use the IMS partition and the local gauges; the operators themselves are defined without them.
+
+(c) The kernels of $D$, $D^T$ and of the projections are explicit in $U(b)$ for the bonds at the site; $D^T_Y$, $\one_Y$, $\fA^{\rm ext}_Y$ and $m_Y$ involve $Y$ only near the site. By Lemma~\ref{lem:one-step-basic}(c), the one-step average of a bond $c$ depends only on the bonds of $B_j(c_-)\cup B_j(c_+)$, so $W_j$ on a bond of $\T^{(j)}$ depends only on $U$ on the bonds of the unit blocks at its endpoints; the averaged contour variables and the group average are defined by the contour families and the configuration on them (Section~\ref{sec:averaging}). The kernels of $\bQ_k$ and $Q'_k$ are given by Proposition~\ref{prop:linearized-averages}(d) and the formula before it. At complex references the averaged backgrounds and the averages are the continuations of Proposition~\ref{prop:AB}, given by the same formulas. The curvature factor is the multiplication by the coefficients $c_{\mu\nu}$ of Lemma~\ref{lem:curvature} composed with a shift by $2\eta$, and $F_U$, $F^s_U$, $J_U$ are plaquette-local. The second variation $d^2\mathcal N(0)$ is a sum of plaquette-local forms (proof of Lemma~\ref{lem:hessian-gamma}), and $d^2\Cav_k(0)[A,A](c)$ depends only on $A$ and $U$ on the bonds of $B(c_-)\cup B(c_+)$ (Proposition~\ref{prop:Q-expansion}(a)). By Lemma~\ref{lem:eliminate}(a),(c), $\ell_c$ and $\zeta_c$ depend only on the variables and on the base on the bonds of $P_c$, and $\hat Z^1\delta_b$, $\hat Z^2$ are supported within distance $2L$ of $b$ and depend only on the base there (Section~\ref{sec:localization}). By Lemma~\ref{lem:avg-transport}(a), $\mathfrak G_WZ(y,x)$ depends only on $Z$ and $W$ on the bonds of the box spanned by $y$ and $x$. At $k=0$, $\Delta^0$ has a kernel that vanishes unless the two bonds lie in a common plaquette, and $\Delta_0$ has range $2L+2$ (Proposition~\ref{prop:first-step}(b)). Every formula uses the lattices and the configuration only through the objects of (a), and all ranges are at most $4L+2\le R_{\rm g}$.
+
+(d) By Proposition~\ref{prop:jacobians}(b) and Lemma~\ref{lem:eliminate}(b), $\mathfrak r_c(0)$ is determined by the derivative of $\ell_c$ at $Z=0$ with respect to $Z(b_0(c))$, at the base $W$; by (c), this is a formula in $U$ on the bonds of $P_c$.
+
+The consequence follows from Lemma~\ref{lem:grid-transfer}. The kernel of $\mathcal L\one_S$ is supported on pairs of sites based in $S^{(r_{\mathcal L})}\times S$, and its entries use the configuration on the bonds of $S^{(r_{\mathcal L})}\subset P$, on which $U$ and $U'$ agree; for $\one_S\mathcal L$ the corresponding set is $S^{(2r_{\mathcal L})}$. For the Jacobians, $\iota(P_c)=P_{\iota c}$ by Lemma~\ref{lem:grid-transfer}(b), and the formula of (d) gives the same value.
+\end{proof}
+
+\begin{remark}[Global objects]\label{rem:global-objects}
+The following objects depend on the torus as a whole, and they do not enter the pieces as such.
+\begin{itemize}
+\item \emph{Torus operators.} The inverses on the whole torus, such as $\Delta_k$, $C_k$, $\bG$, $\boldsymbol\Gamma_\pi$, $\bH$, $\bC$, $P_\cV$ and $R$ on $\Tf$, enter $\mathfrak e$ only through the terms of their weakened representations, i.e.\ through the families on the domain $\Tf$. Lemma~\ref{lem:torus-transfer} carries these terms one by one: the whole torus is related to the whole torus.
+\item \emph{Constants.} The normalizations $\mathcal N_k$, $N_\chi$ and $\sum_b\ell_k(b;1)$ and the vacuum energy depend on $|\T|$. They are not part of $\mathfrak e$, which is normalized term by term, $O_\omega(U)-O_\omega(1)$, nor of $\log\mathfrak j_c$ (Section~\ref{subsec:tf-vacuum}).
+\item \emph{Criticality.} At every reference $\Delta_k$ is defined by the formula of Section~\ref{sec:localization} (Proposition~\ref{prop:hessian-general}). The minimizer of the variational problem enters only through the reference itself.
+\item \emph{Extensions.} The value of $\mathfrak e(X,\cdot)$ at a point of a graded domain is computed at the cutoff extension of Remark~\ref{rem:bg-to-graded}; it does not depend on the extension, since $\mathfrak e(X,\cdot)$ depends only on the bonds of $X$. The same holds for $\log\mathfrak j_c$ and $P_c$.
+\end{itemize}
+\end{remark}
+
+\begin{lemma}[Transfer between tori]\label{lem:torus-transfer}
+Let $\iota:P\to P'$ be a grid transfer from $\Tf[n]$ to $\Tf[n']$, and let $U$ and $U'$ be references on $\Tf[n]$ and $\Tf[n']$, in the setting of Section~\ref{sec:weakenable}, that agree on $P$; for $k\ge1$ this includes the points of the domain of Definition~\ref{def:bg-activity} used in the proof of Proposition~\ref{prop:one-loop-polymer}(b). Primes denote the objects on $\Tf[n']$ at $U'$.
+\begin{enumerate}[label=(\alph*)]
+\item \emph{(Dirichlet operators.)} Let $Y\subset P$ be a domain with $Y^{(R_v)}\subset P$; for a grid translation, let $Y$ be any domain. Then the Dirichlet operators of Sections~\ref{sec:reg-scalar}, \ref{sec:reg-gauge}, \ref{sec:dirichlet-averaged} and~\ref{sec:localization} on the domains $Y$ and $Y^+$, listed in Step~2 of the proof, and their inverses are carried by $\iota$. For instance $\boldsymbol\Gamma'^{\,\iota Y}=\iota_*\boldsymbol\Gamma^Y$ and $(\Delta'_{\iota Y}+t)^{-1}=\iota_*(\Delta_Y+t)^{-1}$ for $t\ge0$. Moreover $\ell'_{\iota Y}(\iota b)=\ell_Y(b)$ for $b\in\mathfrak F(Y)$.
+\item \emph{(Weakened families.)} Let $\mathcal O$ be one of the following families: a family of one of the levels (L1)--(L4), or of the repetitions of (L3), (L4) with the potential $W_2$, on a domain $X$ (for a factorized family, each of its middle factors); the families $R_r(s)$, $r\ge0$, and $C_k^{1/2}(s)$ on $\Tf[n]$; or the family of numbers that represents $\ell_k(b)$, for a bond $b\in\mathfrak F$ based in $P$ (Corollary~\ref{cor:weak-covariance}). Let $\mathcal O'$ be the same family on $\Tf[n']$, on a domain $X'$ related to $X$, respectively for the bond $\iota b$, and let $r_{\mathcal O}$ be its margin. Then there is a bijection $\omega\mapsto\iota(\omega)$ from the terms $\omega$ of $\mathcal O$ with $X_\omega^{(r_{\mathcal O})}\subset P$ onto the terms $\omega'$ of $\mathcal O'$ with $X_{\omega'}^{(r_{\mathcal O})}\subset P'$, such that
+\[
+X_{\iota(\omega)}=\iota(X_\omega),\qquad n_{\iota(\omega)}(\iota\Box)=n_\omega(\Box)\ \text{for the boxes }\Box\subset P,\qquad O'_{\iota(\omega)}=\iota_*O_\omega ,
+\]
+and with $O'_{\iota(\omega)}=O_\omega$ for the families of numbers. The same holds for the families $D\mathcal O$, $\mathcal OD^T$ and $D\mathcal OD^T$, where they are defined. The bijection acts on the index data of the terms; it is the same for all related domains, and it maps matched terms to matched terms.
+\item \emph{(Margin $0$.)} After the conversion to margin $0$ of Section~\ref{sec:weakenable}, (b) holds with the condition $X^\sharp_\omega\subset P$ in place of $X^{(r_{\mathcal O})}_\omega\subset P$, and $X^\sharp_{\iota(\omega)}=\iota(X^\sharp_\omega)$.
+\end{enumerate}
+For $k=0$ the same holds for the families of Proposition~\ref{prop:first-step}(c), with (a) for the operators $\one_Y(\Delta_0+t)\one_Y$, their inverses and the densities $\ell_Y(b)$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:torus-transfer}
+The map $\iota_*$ is conjugation by the relabelling of the sites. So it commutes with sums, products, transposes and inverses of operators on $\ell^2$-spaces of sites based in $P$, with absolutely convergent integrals over parameters, and with the diagonal traces $\operatorname{tr}_{\mathfrak g}O(b,b)$. We use Lemmas~\ref{lem:grid-transfer} and~\ref{lem:local-inventory} without further mention. For a grid translation the conditions ``$\subset P$'' are void, and the argument below applies to all terms.
+
+\emph{Step 1: domains.} Let $X$, $X'$ be related, and let $j$ be a grid point with $X(j)\subset P$; write $\iota j$ for the index of the grid point $\iota z_j$. By Lemma~\ref{lem:grid-transfer}(b) at $x=z_j$, $\iota(\Lam^v_j)=\Lam^v_{\iota j}$ and $\iota(X(j))=X(\iota j)$, and the domains $\Lam^v_j\cap X$ and $\Lam^v_{\iota j}\cap X'$ are related; their $R_v$-neighbourhoods lie in $X(j)$ and $X(\iota j)$. If $Y\subset P$ and $Y^{(R_0)}\subset P$, then $\iota(Y^+)=\iota(Y)^+$, so $Y^+$ and $\iota(Y)^+$ are related; and $\Tf[n]^+=\Tf[n]$.
+
+\emph{Step 2: Dirichlet operators.} Let $Y$ be as in (a). By Sections~\ref{sec:reg-scalar}, \ref{sec:reg-gauge}, \ref{sec:dirichlet-averaged}, \ref{sec:localization} and~\ref{sec:det-local}, the Dirichlet operators on $Y$ are obtained, in the following order, by finitely many sums, products, transposes and inverses on the finite-dimensional spaces $\ell^2_0(Y)$, $\ell^2_1(Y)$, $\ell^2(Y_1)$, $\ell^2(\mathfrak B(Y))$ and $\ell^2(\mathfrak F(Y))$, from the local operators of Lemma~\ref{lem:local-inventory}(c) on the domains $Y$ and $Y^+$:
+\begin{itemize}
+\item $\fA'_Y=\one_Y(D^TD+aQ'^TQ'^{\vphantom{T}})\one_Y$ and $G'_Y=(\fA'_Y)^{-1}$; $Q'G'_YQ'^T$, $M'^Y=Q'(G'_Y)^2Q'^T$ and their inverses $\boldsymbol\Gamma'^Y$, $(M'^Y)^{-1}$; $H'^Y$, $P_{\cV,Y}$, $R_Y=\one_Y-P_{\cV,Y}$, $S_Y$ and $\Pi_Y$;
+\item $\fA^{Y,\kappa_m}=\fA^Y+\fA^{\rm ext}_Y+\kappa_mm_Y$ (Section~\ref{sec:reg-gauge}), whose local part is the Dirichlet restriction $\one_Y(D^TD+DD^T+a\bQ^T\bQ)\one_Y$, including $\fA^{\rm ext}_Y$, and whose non-local part $\mathfrak N^Y$ is that of level~(L3); its inverse $\bG^Y$, $\boldsymbol\Gamma^Y=(\bQ_Y\bG^Y\bQ_Y^T)^{-1}$, $\bH^Y$ and $\bC^Y$;
+\item $\omega_0^Y$, $W_2^Y$, the same operators with the potential $W_2^Y$ in the non-local part, $\boldsymbol\Gamma^Y[W_2^Y]$, and $\Delta^{0,Y}=\boldsymbol\Gamma^Y[W_2^Y]-a$ (Definition~\ref{def:dirichlet-hessian});
+\item $\Delta^{\rm c,Y}$, $\Delta^{(Y)}_k=\Delta^{\rm c,Y}+K^Y$, the local fluctuation operator $\Delta_Y=\one_{\mathfrak F(Y)}\Delta^{(Y^+)}_k\one_{\mathfrak F(Y)}$ and its resolvents $(\Delta_Y+t)^{-1}$;
+\item $\log\Delta_Y$, an absolutely convergent integral in $t$, and the density $\ell_Y(b)$, a diagonal trace.
+\end{itemize}
+At complex references the same formulas are used, with the continued local operators (Propositions~\ref{prop:reg-complex} and~\ref{prop:complex-ext}). These operators depend on the configuration only on the bonds of $\hat Y$, respectively of $\widehat{Y^+}$ for $\Delta_Y$ and the objects built from it (Sections~\ref{sec:reg-scalar}, \ref{sec:reg-gauge}, \ref{sec:dirichlet-averaged}, Propositions~\ref{prop:dirichlet-hessian}(c) and~\ref{prop:local-fluct}(b)). The margin $R_v\ge R_0+4+2r_{\rm loc}$ of Section~\ref{sec:weakenable}, with $r_{\rm loc}\ge r_{\mathcal L}$ for the operators $\mathcal L$ of Lemma~\ref{lem:local-inventory}(c), contains these sets together with the margins $2r_{\mathcal L}$ of the consequence of Lemma~\ref{lem:local-inventory}. So the configuration enters only on the bonds of $Y^{(R_v)}\subset P$, where $U$ and $U'$ agree. They involve the domain only through $Y$ and $Y^+$, and $\iota(Y^+)=\iota(Y)^+$ by Step~1. So the local operators that enter are carried by $\iota$, and so are the results, since $\iota_*$ commutes with the operations listed. This is (a). For a grid translation the same holds for every domain, including $\Tf[n]$.
+
+\emph{Step 3: one walk.} Consider one application of Theorem~\ref{thm:weak-inverse}, on related domains $X$ and $X'$. Assume that the local parts are built from the operators of Lemma~\ref{lem:local-inventory}(c) and constants, on related domains, and that the terms of the representations $\mathfrak N^Z(s)$ of the non-local parts satisfy the conclusion of (b) for all related domains $Z$, $Z'$. We show that the terms of $G^X(s)$, $DG^X(s)$, $G^X(s)D^T$ and $DG^X(s)D^T$ satisfy the conclusion of (b).
+
+By the construction of the walk (the weakened step and the proof of Theorem~\ref{thm:weak-inverse}), the terms of $G^X(s)$ are the products $\Phi_0\Phi_1\cdots\Phi_m$, $m\ge0$, in which $\Phi_0=h_{j_0}G^X_{j_0}$ and each $\Phi_i$, $i\ge1$, is a term of $\mathcal R^X(s)$, in the regrouped form of the proof of Lemma~\ref{lem:step-small} and with the derivatives regrouped as after the definition of $G^X(s)$. A term of $\mathcal R^X(s)$ is given by a grid point $j$ and its kind, one of the finitely many regrouped pieces listed in the proofs of Lemma~\ref{lem:step-small} and of the weakened step, with the placement of the derivatives. The kinds are of three types: the local commutator $[\fA^X_{\rm loc},h_j]G^X_j$; the commutator of $h_j$ with a term $\omega$ of $\mathfrak N^X(s)$ (with the outer derivatives of the factorization), times $G^X_j$; or the seam term $h_j\one_{Z_j}(O^X_\omega-O^{Z_j}_\omega)\one_{Z_j}G^X_j$, $Z_j=\Lam^v_j\cap X$, with a pair of matched terms of $\mathfrak N^X(s)$ and $\mathfrak N^{Z_j}(s)$. Its polymer is $X(j)$, respectively $X(j)\cup X_\omega$, and its monomial is $s^{X(j)}$, respectively $s^{X(j)}s^{n_\omega}$. A product is a term if the $r$-neighbourhoods of the polymers of consecutive factors meet (Lemma~\ref{lem:weak-chain}); its polymer is the union and its monomial the product. So a term $\Omega$ of $G^X(s)$ is given by its index data: the grid points $j_0,\dots,j_m$, the kinds of the steps and the terms $\omega_i$ of the non-local parts. These data, and the condition that consecutive neighbourhoods meet, do not depend on the configuration, and the index set is the same on all domains (Theorem~\ref{thm:weak-inverse}(b)). The map $\Omega\mapsto\iota(\Omega)$ defined below acts on the index data; so it is the same on all domains, and it maps matched terms to matched terms.
+
+Let $\Omega$ be a term with $X_\Omega^{(r)}\subset P$, $r$ its margin. The polymers of its factors lie in $X_\Omega$, and their margins are at most $r$, since margins only grow under Lemmas~\ref{lem:weak-chain}, \ref{lem:weak-local-ops} and Theorem~\ref{thm:weak-inverse}. So $X(j_i)\subset P$ for all $i$, and the terms $\omega_i$ satisfy $X_{\omega_i}^{(r)}\subset P$. Let $\iota(\Omega)$ be the term with the index data $\iota j_0,\dots,\iota j_m$, the same kinds, and the terms $\iota(\omega_i)$ of the non-local parts on $X'$ and on $\Lam^v_{\iota j_i}\cap X'$; these exist by hypothesis, since the domains are related by Step~1. By Step~1 the polymers of the factors are carried by $\iota$, and so is the condition that consecutive neighbourhoods meet. Hence $\iota(\Omega)$ is a term, with polymer $\iota(X_\Omega)$ and the carried monomial. Its factors are carried by $\iota$: $h_{\iota j}$ and $\fA^{X'}_{\rm loc}$ by Lemma~\ref{lem:local-inventory}, since in the factor of $j$ they act on fields supported in $\Lam^v_j\cap X$ and their ranges are less than $R_v$; the local propagator $G^{X'}_{\iota j}$ by Step~2, since $G^X_j$ depends on $X$ only through $\Lam^v_j\cap X$ and $(\Lam^v_j)^{(R_v)}\subset X(j)\subset P$; the terms of the non-local parts by hypothesis. The derivatives $D^T_X$, $D^T_{Z_j}$ of the regrouping are local operators on related domains. So $O'_{\iota(\Omega)}=\iota_*O_\Omega$. The same construction for the grid transfer $\iota^{-1}$ inverts $\Omega\mapsto\iota(\Omega)$, which is therefore a bijection. The versions with derivatives follow by composing with the local operators $D$ and $D^T$.
+
+\emph{Step 4: products, local factors and additive terms.} The products of Lemma~\ref{lem:weak-chain} are indexed by the tuples of terms whose consecutive $r$-neighbourhoods meet, and those of Lemma~\ref{lem:weak-local-ops}(a) have the polymers and monomials of the factor. If the factors satisfy the conclusion of (b), so do the products, by the argument of Step~3; the margins of the factors are at most that of the product. The additive local terms are split box by box (Section~\ref{sec:weakenable}): the term $T\one_\Box$ has polymer $\Box$ and monomial $s_\Box$, and $T'\one_{\iota\Box}=\iota_*(T\one_\Box)$ for the boxes $\Box$ with $\Box^{(r)}\subset P$. Integrals in $r$ or $t$ of families whose index sets do not depend on the parameter are carried term by term.
+
+\emph{Step 5: the levels.} We follow the order of Section~\ref{sec:nested-walks},
+\[
+\text{(L1)}\to\text{(L2)}\to\text{(L3), (L4) with }W=0\to\omega_0,\ W_2\to\text{(L3), (L4) with }W_2\to\text{(L5)},
+\]
+and check at each level the hypotheses of Step~3 for all related domains.
+\begin{itemize}
+\item (L1): the local part $\one_X(D^TD+aQ'^TQ')\one_X$ is local, and $\mathfrak N=0$. Step~3 gives $G'^X(s)$ and its derivative versions.
+\item (L2): $Q'G'^X(s)Q'^T$ and $M'^X(s)=Q'G'^X(s)G'^X(s)Q'^T$ are products (Step~4); with $\fA_{\rm loc}=0$, Step~3 gives $\boldsymbol\Gamma'^X(s)$ and $(M'^X)^{-1}(s)$, and Step~4 the products $H'^X$, $P^X_\cV$, $R_X$, $S_X$, $DS_X$ and $\Pi_X$, the identities in $R_X$ and $\Pi_X$ being split box by box.
+\item (L3): the local part, including $\fA^{\rm ext}_X$ and $\kappa_mm_X$, is local on related domains. The middle factors of $\mathfrak N^X$ are products of the families of (L1), (L2) with the local operators $D$, $D^T_X$ and $\mathfrak F$ (Step~4). Step~3 gives $\bG^X(s)$ and its derivative versions.
+\item (L4): $\bQ_X\bG^X(s)\bQ_X^T$ is a product; Step~3 gives $\boldsymbol\Gamma^X(s)$, and Step~4 gives $\bH^X(s)$, $\bC^X(s)$, $\omega_0^X(s)$ and $W_2^X(s)=d^2\mathcal N(0)|_X-\omega_0^X(s)\cdot d^2\Cav_k(0)$, with $d^2\mathcal N(0)|_X$ split box by box.
+\item The repetitions of (L3), (L4), with $W_2^X(s)$ in the non-local part: as above, they give $\boldsymbol\Gamma^X[W_2^X](s)$, $\Delta^{0,X}(s)=\boldsymbol\Gamma^X[W_2^X](s)-a$, with $-a$ split box by box, and, by composition with $\hat Z^1$, $\hat Z^2$ (Step~4), $\Delta^{\rm c,X}(s)$ and $\Delta^{\rm c}_Y(s)=\one_{\mathfrak F(Y)}\Delta^{\rm c,Y^+}(s)\one_{\mathfrak F(Y)}$, the domains $Y^+$ being related by Step~1.
+\item (L5), on the domain $\Tf[n]$: the local part $r+K^{\rm gf}_{\Tf}$ is local. The non-local part is $\Delta^{\rm c}_{\Tf}(s)$, and the seam terms use $\Delta^{\rm c}_{\Lam^v_j}(s)$, built on the related domains $(\Lam^v_j)^+$ and $(\Lam^v_{\iota j})^+$. The local propagators $(\Delta_{\Lam^v_j}+r)^{-1}$ are carried by Step~2. Step~3 gives $R_r(s)$, for every $r\ge0$, with an index set that does not depend on $r$.
+\end{itemize}
+
+\emph{Step 6: Corollary~\ref{cor:weak-covariance}.} $C_k^{1/2}(s)$ is the integral of $\pi^{-1}r^{-1/2}R_r(s)$ over $r$, term by term. The family of numbers of $\ell_k(b)$ consists of the terms without steps, $h_j(b)\ell_{\Lam^v_j}(b)$ with polymer $X(j)$ and monomial $s^{X(j)}$, carried by Step~2 with $Y=\Lam^v_j$, and of the terms $-\int_0^\infty\operatorname{tr}_{\mathfrak g}O_\omega(t)(b,b)\,dt$, where $O_\omega(t)$ runs over the terms of $R_t(s)$ with at least one step, carried by Step~5 and the remark at the beginning of the proof. A term vanishes unless $b\in X_\omega^{(r)}$; so the terms with $X_\omega^{(r)}\subset P$ belong to bonds $b$ based in $P$, and $\iota(\omega)$ is a term for $\iota b$. This proves (b).
+
+\emph{Step 7: margin $0$.} If $X^\sharp_\omega\subset P$, then $X_\omega^{(r)}\subset P$, since every point of $X_\omega^{(r)}$ lies in a box that meets $X_\omega^{(r)}$. The boxes are carried by $\iota$, and a box $\Box\subset P$ meets $X_\omega^{(r)}$ if and only if $\iota\Box$ meets $\iota(X_\omega^{(r)})=X_{\iota(\omega)}^{(r)}$. A box of $\Tf[n']$ that meets $X_{\iota(\omega)}^{(r)}$ contains a point $\iota p$, $p\in X^{(r)}_\omega$, and it is the image of the box of $\Tf[n]$ that contains $p$, which lies in $X^\sharp_\omega\subset P$. So $X^\sharp_{\iota(\omega)}=\iota(X^\sharp_\omega)$, and the monomials $s^{X^\sharp_\omega\setminus X_\omega}$ are carried as well. With the inverse transfer this gives (c).
+
+\emph{The case $k=0$.} By Proposition~\ref{prop:first-step}(c) there is one walk, with $\fA^X=\one_X(\Delta_0+r)\one_X$ on $\ell^2(\mathfrak F(X))$, $\mathfrak N=0$, no mass term, and the densities $\ell_{\Lam^v_j}(b)$ of the operators $\one_\Lam\Delta_0\one_\Lam$, $\Lam=\Lam^v_j$. The operator $\Delta_0$ is local (Lemma~\ref{lem:local-inventory}(c)), so Step~2 holds for $\one_Y(\Delta_0+t)\one_Y$, and Steps~3, 6 and~7 apply without change.
+\end{proof}
+
+\begin{proposition}[One-loop locality]\label{prop:one-loop-local}
+Let $k\ge0$, use the units of step $k$, and let $c_a$ be as in Propositions~\ref{prop:one-loop-polymer} and~\ref{prop:jacobians}(c). At $k=0$ the pieces $\mathfrak e(X)$ are those of Proposition~\ref{prop:first-step}(c).
+\begin{enumerate}[label=(\alph*)]
+\item \emph{(Torus independence.)} Let $n$, $n'$ be admissible, let $\tilde X$ be a polymer of scale $k$ of the infinite lattice (Section~\ref{subsec:ol-period-vacpol}) with $\operatorname{diam}\tilde X\le\frac12\min(n,n')-8$, let $a\in M\Z^4$, and let $\iota$ be the transfer of the lift $\tilde X$, from $X=\pi_n(\tilde X)$ onto $X'=\pi_{n'}(\tilde X+a)$. Then $X$ and $X'$ are polymers of scale $k$ that are not wrapping, and
+\[
+\mathfrak e[n'](X',U')=\mathfrak e[n](X,U)
+\]
+for all $U\in\mathcal U(X;c_a,c_a,c_a)$ on $\Tf[n]$ and $U'\in\mathcal U(X';c_a,c_a,c_a)$ on $\Tf[n']$ that agree on $X$. Every polymer $X$ of scale $k$ of $\Tf[n]$ that is not wrapping is $\pi_n(\tilde X)$ for a polymer $\tilde X$ of the infinite lattice with $\operatorname{diam}\tilde X=\operatorname{diam}X$, a \emph{lift} of $X$.
+\item \emph{(Grid covariance.)} For every admissible $n$, every polymer $X$ of scale $k$ of $\Tf[n]$, wrapping or not, every $a\in M\Z^4$ and every $U\in\mathcal U(X;c_a,c_a,c_a)$,
+\[
+\mathfrak e(X+a,\tau_aU)=\mathfrak e(X,U),\qquad(\tau_aU)(b)=U(b-a).
+\]
+The same holds at every reference $U$ in the setting of Section~\ref{sec:weakenable}.
+\item \emph{(Jacobians.)} Let $c$ be a positively oriented bond of $\T'[n]$, $\tilde c$ a bond of $L\Z^4$ with $\pi_n(\tilde c)=c$, $a\in M\Z^4$ and $c'=\pi_{n'}(\tilde c+a)$, and let $\iota$ be the transfer of the lift of $P_c$ that contains $\tilde c$ (Lemma~\ref{lem:local-inventory}(d)). Then $\log\mathfrak j_{c'}[n'](U')=\log\mathfrak j_c[n](U)$ for all $U\in\mathcal U(P_c;c_a,c_a,c_a)$ and $U'\in\mathcal U(P_{c'};c_a,c_a,c_a)$ that agree on $P_c$, and at all references in the setting of Section~\ref{sec:weakenable} that agree on $P_c$. Moreover $\log\mathfrak j_{c+a}(\tau_aU)=\log\mathfrak j_c(U)$.
+\item \emph{(Infinite-volume pieces.)} Let $\tilde X$ be a polymer of scale $k$ of the infinite lattice. Let $\mathcal U_{\rm fl}(\tilde X)$ be the set of the $\mathfrak g^c$-valued fields $B$ on the bonds of $\tilde X^{(3)}$ with $|B|<c_a$ and $|\nabla B|_{\tilde X^{(3)}}+[\nabla B]_{\alpha,\tilde X^{(3)}}<c_a$, where $\nabla$ and the H\"older quotient are those of Definition~\ref{def:graded} with the real part $1$. For an admissible $n$ with $\operatorname{diam}\tilde X\le\frac12n-8$ let $V_B[n]$ be the configuration on $\Tf[n]$ equal to $e^{\ii\eta B}$ on the images of the bonds of $\tilde X^{(3)}$ and to $1$ on the other bonds. Then $V_B[n]\in\mathcal U(\pi_n\tilde X;c_a,c_a,c_a)$, and
+\[
+E^\infty_k(\tilde X,B):=\mathfrak e[n]\big(\pi_n(\tilde X),V_B[n]\big),\qquad B\in\mathcal U_{\rm fl}(\tilde X),
+\]
+does not depend on $n$. The function $E^\infty_k(\tilde X,\cdot)$ is holomorphic on $\mathcal U_{\rm fl}(\tilde X)$, depends only on $B$ on the bonds of $\tilde X$, vanishes at $B=0$, is real for real $B$, and is invariant under small real gauge transformations in the sense of Section~\ref{subsec:ol-period-vacpol}. For $a\in M\Z^4$,
+\[
+E^\infty_k(\tilde X+a,\tau_aB)=E^\infty_k(\tilde X,B),\qquad|E^\infty_k(\tilde X,B)|\le C_{\mathfrak e}e^{-(\kappa_2-1)|\tilde X|},
+\]
+with $(\tau_aB)(b)=B(b-a)$ and $C_{\mathfrak e}$ of Lemma~\ref{lem:raw-new}(b). For every admissible $n$, every polymer $X$ of scale $k$ of $\Tf[n]$ that is not wrapping, every lift $\tilde X$ of $X$, and every $U\in\mathcal U(X;c_a,c_a,c_a)$ that agrees on $X$ with $V_B[n]$ for some $B\in\mathcal U_{\rm fl}(\tilde X)$,
+\[
+\mathfrak e[n](X,U)=E^\infty_k(\tilde X,B).
+\]
+In the same way, for a positively oriented bond $\tilde c$ of $L\Z^4$, with the lift $\tilde P_{\tilde c}$ of $P_c$ that contains it, $J^\infty_k(\tilde c,B):=\log\mathfrak j_{\pi_n\tilde c}[n](V_B[n])$, for the fields $B$ on the bonds of $\tilde P_{\tilde c}^{(3)}$ with the same bounds, does not depend on $n$, has the same properties with $|J^\infty_k|\le C_{\rm jac}$ (Lemma~\ref{lem:raw-new}(b)), and $J^\infty_k(\tilde c+a,\tau_aB)=J^\infty_k(\tilde c,B)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}\hasdetail{prop:one-loop-local}
+(a) Since $\operatorname{diam}\tilde X<\frac12n$, $\pi_n$ is injective on $\tilde X$ and preserves the $\ell^\infty$-distances there. It maps the grid cubes of $\tilde X$ onto distinct grid cubes of $\Tf[n]$, since $M\mid n$, and $*$-adjacent cubes onto $*$-adjacent cubes. So $X$ is a polymer with $|X|=|\tilde X|$ and $\operatorname{diam}X=\operatorname{diam}\tilde X\le\frac12n-8$, i.e.\ it does not wrap; the same holds for $X'$. Conversely, a polymer $X$ that is not wrapping has a lift of $X^{(3)}$ on which the projection preserves the distances (Section~\ref{subsec:gen-period}, Lifts and linear fields). The preimage $\tilde X$ of $X$ in it is a union of grid cubes of $\eta\Z^4$, $*$-connected, with $\operatorname{diam}\tilde X=\operatorname{diam}X\le\frac12n-8$.
+
+Let $\tilde U$ and $\tilde U'$ be the cutoff extensions of Remark~\ref{rem:bg-to-graded} of $U$ and $U'$, for some representations as in Definition~\ref{def:graded}. By the proof of Proposition~\ref{prop:one-loop-polymer}(b) (Proposition~\ref{prop:first-step}(c) for $k=0$), they are references at which the families of Section~\ref{sec:nested-walks} are defined, and $\mathfrak e[n](X,U)=\mathfrak e[n](X,\tilde U)$, $\mathfrak e[n'](X',U')=\mathfrak e[n'](X',\tilde U')$. The extensions equal $U$ and $U'$ on the bonds of $X$ and $X'$, so they agree on $X$. By definition,
+\[
+\mathfrak e[n](X,\tilde U)=-\frac12\sum_{b\in\mathfrak F}\ \sum_{\omega\in\Omega_b:\,X^\sharp_\omega=X}\big(O_\omega(\tilde U)-O_\omega(1)\big).
+\]
+A term with $X^\sharp_\omega=X$ vanishes unless $b\in X^{(r)}_\omega\subset X$, so only the bonds $b$ based in $X$ contribute. Apply Lemma~\ref{lem:torus-transfer}(b),(c) with $P=X$, at the references $(\tilde U,\tilde U')$ and $(1,1)$; the configurations $1$ agree on every set. The map $b\mapsto\iota b$ is a bijection of the bonds of $\mathfrak F$ based in $X$ onto those of $\mathfrak F'$ based in $X'$ (Lemma~\ref{lem:local-inventory}(a)), and $(b,\omega)\mapsto(\iota b,\iota(\omega))$ is a bijection of the pairs with $X^\sharp_\omega=X$ onto the pairs with $X^\sharp_{\omega'}=X'$, with equal values at both references. The sums converge absolutely (proof of Proposition~\ref{prop:one-loop-polymer}(b)), so they are equal.
+
+(b) The set $\mathcal U(X;c_a,c_a,c_a)$ is mapped onto $\mathcal U(X+a;c_a,c_a,c_a)$ by $\tau_a$ (Section~\ref{sec:generations}, after Definition~\ref{def:generation}), and the translate of a cutoff extension of $U$ is a cutoff extension of $\tau_aU$. Apply Lemma~\ref{lem:torus-transfer}(b),(c) to the grid translation $\tau_a$, for which every term is carried and $X^\sharp_{\tau_a(\omega)}=X^\sharp_\omega+a$, and argue as in (a). At a reference $U$ of the setting the lemma applies directly, at the references $U$ and $\tau_aU$.
+
+(c) By Proposition~\ref{prop:jacobians}(c), $\log\mathfrak j_c(U)$ is the value of the formula of Lemma~\ref{lem:local-inventory}(d) at the configuration on the bonds of $P_c$. The lift of $P_c$ that contains $\tilde c$ has diameter less than $2L+1<\frac12\min(n,n')$, so its transfer is a grid transfer, and the consequence of Lemma~\ref{lem:local-inventory} gives the first claim. The second is the case of the grid translation $\tau_a$.
+
+(d) Since $\operatorname{diam}\tilde X^{(3)}<\frac12n$, the projection maps $\tilde X^{(3)}$ isometrically onto $(\pi_n\tilde X)^{(3)}$, and the differences and H\"older quotients of Definition~\ref{def:graded} on $\tilde X^{(3)}$ are those on $(\pi_n\tilde X)^{(3)}$. With the real part $1$, whose curvature and current vanish, and the field $B$, $V_B[n]\in\mathcal U(\pi_n\tilde X;c_a,c_a,c_a)$. For two admissible sides $n$, $n'$, the configurations $V_B[n]$ and $V_B[n']$ agree on $\pi_n\tilde X$ under the transfer of $\tilde X$ with $a=0$, so (a) shows that $E^\infty_k(\tilde X,B)$ does not depend on $n$. The map $B\mapsto V_B[n]$ is holomorphic, and $\mathfrak e(X,\cdot)$ is holomorphic on an open set that contains $\{U|_X:U\in\mathcal U(X;c_a,c_a,c_a)\}$, so $E^\infty_k(\tilde X,\cdot)$ is holomorphic. It depends only on $B$ on the bonds of $\tilde X$, since $\mathfrak e(X,\cdot)$ depends only on $U$ on the bonds of $X$; it vanishes at $B=0$ since $\mathfrak e(X,1)=0$. It is real for real $B$ by the argument for reality in the proof of Lemma~\ref{lem:raw-new}(a), applied to $\mathfrak e(X,\cdot)$, whose terms are real at real references (Corollary~\ref{cor:weak-covariance}). Let $B,B'\in\mathcal U_{\rm fl}(\tilde X)$ with $e^{\ii\eta B'(b)}=e^{\ii\lambda(b_-)}e^{\ii\eta B(b)}e^{-\ii\lambda(b_+)}$ on the bonds of $\tilde X$, for a small real function $\lambda$. Extend $\lambda\circ\pi_n^{-1}$ from $\pi_n\tilde X$ to a real function on $\Tf[n]$ and put $u=e^{\ii\lambda}$. Then $V_B[n]^u\in\mathcal U(\pi_n\tilde X;c_a,c_a,c_a)$, since the graded domains are invariant under real gauge transformations, and $V_B[n]^u$ agrees with $V_{B'}[n]$ on the bonds of $\pi_n\tilde X$. Since $\mathfrak e$ depends only on these bonds and is invariant under real gauge transformations, $E^\infty_k(\tilde X,B')=E^\infty_k(\tilde X,B)$. The grid covariance follows from (b), since $V_{\tau_aB}[n]=\tau_aV_B[n]$ and $\pi_n(\tilde X+a)=\pi_n(\tilde X)+a$, and the bound from Lemma~\ref{lem:raw-new}(b). If $U$ agrees with $V_B[n]$ on $X=\pi_n\tilde X$, then $\mathfrak e[n](X,U)=\mathfrak e[n](X,V_B[n])$, since $\mathfrak e(X,\cdot)$ depends only on the bonds of $X$. For the Jacobians the same arguments apply, with (c) in place of (a) and (b), and with Proposition~\ref{prop:jacobians}(b),(c).
+\end{proof}
+
+\begin{remark}[Use in Part~XI]\label{rem:one-loop-local-use}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{The one-loop part of the new generation.} Let $Y'$ be a polymer of scale $k+1$ that is not wrapping, and let $E'_{\rm ol}(Y',\cdot)$ be the sum of the pieces $\mathfrak e(X)$, $\bar X=Y'$, and of the terms $\log\mathfrak j_c$, $Y'_c=Y'$ (Section~\ref{sec:ol-uv}). These $X$ and $P_c$ lie in $Y'$. A configuration $V_B$ of the flat domain of $Y'$ of scale $k+1$ (Section~\ref{subsec:ol-period-vacpol}), read in the units of step $k$, restricts on $X^{(3)}$ to a field in $\mathcal U_{\rm fl}(\tilde X)$, by Remark~\ref{rem:domain-constants}(i) and (DC1), and likewise on $P_c^{(3)}$. So, by Proposition~\ref{prop:one-loop-local}(d), $E'_{\rm ol}(Y',V_B)$ is the sum of the values of $E^\infty_k$ and $J^\infty_k$ at the lifts. It is the same function on every torus on which $Y'$ does not wrap, with no error term. Moreover $E'_{\rm ol}$ has the grid covariance (G2) of scale $k+1$ on every torus, by (b) and (c): a translation by $M\Z^4$ in the units of scale $k+1$ is a translation by $LM\Z^4\subset M\Z^4$ in those of step $k$, and it maps the grids of both scales onto themselves, so $\overline{X+a}=\bar X+a$ and $Y'_{c+a}=Y'_c+a$.
+\item \emph{Scope.} The pieces of wrapping polymers are bounded by Proposition~\ref{prop:one-loop-polymer}(d) and Lemma~\ref{lem:torus}; they are not compared between tori. Covariance of the single pieces under the reflections of $\mathfrak S^{\rm grid}_k$ is not proved: the partition of unity is not assumed symmetric, and the operators $\boldsymbol\Gamma_\pi$, $\bH$ of the levels (L3), (L4) are not shown to be covariant under reflections at curved backgrounds (Remark~\ref{rem:symmetry-reflections}). The sums over the polymers are invariant under $\mathfrak S_{k+1}$ (Theorem~\ref{thm:sf-step}).
+\end{enumerate}
+\end{remark}

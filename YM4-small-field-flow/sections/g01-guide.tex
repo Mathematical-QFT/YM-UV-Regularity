@@ -1,0 +1,214 @@
+% A guide to the proof, Sections G0--G3 (readability layer). Unnumbered front part: no numbered
+% sections, theorems or displays. Every informal statement cites the result it paraphrases.
+\part*{A guide to the proof}\addcontentsline{toc}{part}{A guide to the proof}
+\phantomsection\label{guide}
+
+This guide describes how the proof is organized. It states no result of its own and proves nothing: every informal statement names the result it paraphrases, and that result is authoritative. Sections~\ref{g:read}--\ref{g:strategy} give the reading paths, the result, the scales and the strategy of the four-dimensional flow. Sections~\ref{g:linear}--\ref{g:oneloop} follow the Parts. Sections~\ref{g:parameters}--\ref{g:hard} give the order of the parameters, the comparison with Ba\l aban and Dimock, and the places where the work is hardest. Appendix~\ref{app:notation} is the notation index.
+
+\gsection{How to read this note}\label{g:read}
+
+\input{figures/fig-G-mainline}
+
+The note has eleven Parts. Table~\ref{tab:G-parts} lists their main results, and Figure~\ref{fig:G-mainline} shows how these results feed Theorems~\ref{thm:N} and~\ref{thm:M}(iv). The main theorems of Section~\ref{sec:intro} are attached to the Parts: Theorems~\ref{thm:A}--\ref{thm:E} to Part~I, \ref{thm:F} to Part~II, \ref{thm:G} to Part~III, \ref{thm:H} to Part~IV, \ref{thm:I} to Part~V, \ref{thm:J} to Part~VI, \ref{thm:K} to Part~VII, \ref{thm:L} and~\ref{thm:N} to Part~X, and \ref{thm:M} to Part~XI. The introduction of each Part lists what it imports and what it exports.
+
+\begin{table}[tbp]
+\centering\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{|p{0.13\textwidth}|p{0.57\textwidth}|p{0.19\textwidth}|}
+\hline
+Part & Main results & On the main line\tabularnewline
+\hline
+I, \S\S\ref{sec:setup}--\ref{sec:gauge-min} & \raggedright Theorems~\ref{thm:A}--\ref{thm:E}: at $U=1$, coercivity (Theorem~\ref{thm:gauge-coercive}), decay and $C^{1,\alpha}$ bounds for the Green functions and the minimizer maps, and decay, $C^1$ and $C^{0,\alpha}$ bounds for the constrained Green function $\bC$ (Theorems~\ref{thm:scalar-green}, \ref{thm:gauge-green}, \ref{thm:H-gauge}, \ref{thm:C-gauge}); interior regularity (Theorem~\ref{thm:local-regularity}) & \raggedright yes; Part~XI uses it in infinite volume (Corollary~\ref{cor:ol-part-one})\tabularnewline
+II, \S\S\ref{sec:background}--\ref{sec:cov-min} & \raggedright Theorem~\ref{thm:F}: the same operators at complex backgrounds close to $1$ in a global gauge (Theorems~\ref{thm:cov-scalar}, \ref{thm:cov-gauge}, \ref{thm:cov-min}) & yes\tabularnewline
+III, \S\S\ref{sec:domains}--\ref{sec:random-walk} & \raggedright Theorem~\ref{thm:G}: Dirichlet operators and coercivity at $(M,\eps)$-regular backgrounds (Theorem~\ref{thm:reg-coercive}), decay (Theorems~\ref{thm:reg-gauge}, \ref{thm:reg-min}), locality (Theorem~\ref{thm:reg-locality}), the scalar random walk (Theorem~\ref{thm:random-walk}) & yes\tabularnewline
+IV, \S\S\ref{sec:averaging}--\ref{sec:chart} & \raggedright Theorem~\ref{thm:H}: Ba\l aban's symmetric averaging; its linearized gauge-adapted form is an averaging pair with $E=0$ (Proposition~\ref{prop:linearized-averages}, Corollary~\ref{cor:parts-apply}); the axial-to-Landau chart (Theorem~\ref{thm:chart}) & yes\tabularnewline
+V, \S\S\ref{sec:var-theorem}--\ref{sec:var-regularity} & \raggedright Theorem~\ref{thm:I}: the variational problem relative to a regular reference (Theorem~\ref{thm:variational}) & yes\tabularnewline
+VI, \S\S\ref{sec:local-gauges}--\ref{sec:induction} & \raggedright Theorem~\ref{thm:J}: the background field $U_k(V)$ for every $k$ (Theorem~\ref{thm:balaban}); regularity from gauge-invariant conditions (Corollary~\ref{cor:regularity}) & yes\tabularnewline
+VII, \S\S\ref{sec:rg-step}--\ref{sec:covariance} & \raggedright Theorem~\ref{thm:K}: one step as a Gaussian integral (Theorem~\ref{thm:step}), coercivity (Theorem~\ref{thm:step-coercive}), the curvature of background fields (Proposition~\ref{prop:sharp-curvature}), lattice symmetry (Proposition~\ref{prop:symmetry}) & yes\tabularnewline
+VIII, \S\S\ref{sec:dirichlet-averaged}--\ref{sec:interaction-local} & \raggedright Dirichlet averaged operators (Proposition~\ref{prop:dirichlet-averaged}), interior bounds (Theorem~\ref{thm:ID}), Dirichlet Hessians and local fluctuation operators (Propositions~\ref{prop:dirichlet-hessian}, \ref{prop:local-fluct}), graded domains (Definition~\ref{def:graded}), the quadratic bound (Lemma~\ref{lem:quadratic-bound}) & \raggedright partly: Theorem~\ref{thm:local-covariance}, Corollary~\ref{cor:large-changes}, Proposition~\ref{prop:det-local}, Corollary~\ref{cor:one-loop} and Section~\ref{sec:interaction-local} are superseded\tabularnewline
+IX, \S\S\ref{sec:weakenable}--\ref{sec:weak-background} & \raggedright weakened inverses (Theorem~\ref{thm:weak-inverse}, Corollary~\ref{cor:weak-covariance}), the one-loop source in polymer form (Proposition~\ref{prop:one-loop-polymer}), torus independence (Proposition~\ref{prop:one-loop-local}), pointwise bounds by tiers (Theorems~\ref{thm:tier-walk}, \ref{thm:HC-pointwise}), the weakened background map (Theorem~\ref{thm:weak-bg}) & \raggedright yes; Proposition~\ref{prop:one-loop-local} serves Part~XI\tabularnewline
+X, \S\S\ref{sec:complex-references}--\ref{sec:flow4} & \raggedright complex references (Propositions~\ref{prop:AB}, \ref{prop:complex-ext}); Theorem~\ref{thm:L}: the step in polymer form (Theorem~\ref{thm:sf-step}); generations and extraction (Propositions~\ref{prop:period-iso}, \ref{prop:extraction}); Theorem~\ref{thm:N}: the flow (Theorem~\ref{thm:sf-flow}, Corollary~\ref{cor:sf-stability}) & yes\tabularnewline
+XI, \S\S\ref{sec:ol-composite}--\ref{sec:gen-locality} & \raggedright Theorem~\ref{thm:M}: composition and symmetry of the one-loop terms (Proposition~\ref{prop:ol-composition}, Lemma~\ref{lem:ol-symmetry}), the Landau-chart formula (Theorem~\ref{thm:ol-chart}), the logarithm (Theorem~\ref{thm:ol-log}), the cumulative coefficient (Theorem~\ref{thm:ol-cumulative}), (F1)--(F3) (Proposition~\ref{prop:flow-F}), the ultraviolet limit (Theorem~\ref{thm:ol-uv}) & \raggedright yes, up to Theorem~\ref{thm:ol-uv}; Section~\ref{sec:gen-locality} and Proposition~\ref{prop:beta-identification} are off it\tabularnewline
+\hline
+\end{tabular}
+\caption{The Parts of the note and their main results. ``On the main line'' refers to the line that ends at Theorems~\ref{thm:sf-flow} and~\ref{thm:ol-uv}, as in the reading guide of Section~\ref{sec:intro}.}\label{tab:G-parts}
+\end{table}
+
+\paragraph{Four reading paths.}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{An overview in one day.} The statements of Theorems~\ref{thm:A}--\ref{thm:N}; Sections~\ref{g:read}--\ref{g:strategy} of this guide; the introductions of the Parts; and the remarks that explain the flow: Remarks~\ref{rem:flow-status}, \ref{rem:parameters}, \ref{rem:sf-reference}, \ref{rem:flow-constants} and~\ref{rem:sf-flow}.
+\item \emph{The main line to Theorem~\ref{thm:N}.} Parts~I--VII. From Part~VIII: Section~\ref{sec:dirichlet-averaged}, the interior estimates of Section~\ref{sec:interior}, Section~\ref{sec:localization} up to Proposition~\ref{prop:local-fluct}, and Section~\ref{sec:det-local} except Proposition~\ref{prop:det-local} and Corollary~\ref{cor:one-loop}. Then Parts~IX and~X. The radius-type results of Part~VIII, Theorem~\ref{thm:local-covariance}, Corollary~\ref{cor:large-changes}, Proposition~\ref{prop:det-local}, Corollary~\ref{cor:one-loop} and Section~\ref{sec:interaction-local}, are replaced on this line by Parts~IX and~X, and each is marked where it appears (the reading guide of Section~\ref{sec:intro}).
+\item \emph{The one-loop line to Theorem~\ref{thm:M}(iv).} Sections~\ref{sec:ol-composite}--\ref{sec:ol-feynman} use Parts~I--VII and, from Part~X, mainly Propositions~\ref{prop:jacobians} and~\ref{prop:first-step} and Lemma~\ref{lem:first-step-formula}. Section~\ref{sec:ol-uv} combines them with the flow; it uses Part~X throughout and the torus independence of Section~\ref{subsec:torus-independence}. Section~\ref{sec:gen-locality} and Proposition~\ref{prop:beta-identification} are not used by Theorem~\ref{thm:ol-uv} (Remark~\ref{rem:ol-remains}(c)).
+\item \emph{The operator theory alone.} Parts~I--III, with Theorems~\ref{thm:A}--\ref{thm:G}. Part~I is self-contained; for the Green function of the fine lattice it uses Appendix~\ref{app:green} (Section~\ref{sec:regularity}). The gauge-field random walk of Theorem~\ref{thm:G}(iv) is completed in Section~\ref{sec:nested-walks} of Part~IX.
+\end{enumerate}
+
+\paragraph{The companion.} The companion volume \emph{Details} works out the steps of the proofs of Parts~VII--XI, and its chapter on the parameter ledger records the constants of these Parts with their dependencies and the order in which they are chosen. Its chapters follow the Parts: Part~VII, Part~VIII, Part~IX, the two halves of Part~X and the two halves of Part~XI. A proof of this note that the companion expands carries the marginal link \textsf{Details}. The link opens the companion at the first Detail on that result; conversely, the companion's references to the note are links into this file. Both kinds of link are relative. They work when the note, \texttt{YM4-small-field-flow.pdf}, and the companion, \texttt{Details/details.pdf}, keep their relative places, and they break if the two files are separated. Acrobat, Skim, Okular and Evince follow links to a named place in another file; macOS Preview follows them poorly. The companion's index of the note's results serves when a link does not work.
+
+\paragraph{Where in the note.} The reading guide in Section~\ref{sec:intro}; the status paragraphs at the head of Sections~\ref{sec:localization}--\ref{sec:interaction-local}.
+
+\paragraph{In the companion.} The chapter ``How to read this volume'', and the index.
+
+\gsection{The result}\label{g:result}
+
+\paragraph{The lattice model.} The gauge group $G$ is compact and connected, and $d=4$ (Section~\ref{sec:intro}). The torus has physical side $\ell$; its finest lattice $\T^{(0)}$ has spacing $\epsilon=L^{-N}$, with the odd block factor $L\ge3$ and the number $N$ of scales (Section~\ref{subsec:tf-scales}). The Wilson action of a configuration $U$ is
+\[
+S(U)=\sum_p\Big(\mathsf N-\tfrac12\operatorname{tr}\big(U(\partial p)+U(\partial p)^{-1}\big)\Big),
+\]
+summed over the positively oriented plaquettes, with no power of the spacing in front, since in four dimensions the action is dimensionless (Section~\ref{sec:action}). The trace is that of a representation $\rho$ by $\mathsf N\times\mathsf N$ matrices, with $\operatorname{tr}_\rho(T^aT^b)=T_\rho\delta^{ab}$ for Hermitian generators $T^a$ (Section~\ref{sec:ol-feynman}). The lattice measure is $\rho_0(V)\prod_bdV(b)$ on $\T^{(0)}$, with the Haar measure on each positively oriented bond, $\rho_0=\exp(-g_0^{-2}S-E_0)$, the bare coupling $g_0$ and a constant $E_0$ (Theorem~\ref{thm:N}).
+
+\paragraph{Normalization of the coupling.} The period density of $S$, its second-order part per unit volume at the linear field of constant curvature $F=F^aT^a$, is $\frac12\sum_{\mu<\nu}\operatorname{tr}(F_{\mu\nu}^2)=\frac12T_\rho\sum_{\mu<\nu}F^a_{\mu\nu}F^a_{\mu\nu}$ (Theorem~\ref{thm:sf-flow}(c)). So $g^{-2}S$ has the period density of the continuum action $\frac1{2g_{\rm std}^2}\sum_{\mu<\nu}\int F^a_{\mu\nu}F^a_{\mu\nu}$ with $g_{\rm std}^2=g^2/T_\rho$; for $SU(\mathsf N)$ in the fundamental representation $T_\rho=\frac12$ and $g_{\rm std}^2=2g^2$ (Lemma~\ref{lem:ol-classical}; Section~\ref{sec:ol-feynman}, the paragraph ``Normalization of the coupling''). The one-loop coefficient per step is $\beta_\infty=\frac{11C_A}{24\pi^2T_\rho}\log L$ for $g^{-2}$, i.e.\ $\frac{11C_A}{24\pi^2}\log L$ for $g_{\rm std}^{-2}$, and $\beta_\infty=\frac{11\mathsf N}{12\pi^2}\log L$ for $SU(\mathsf N)$ in the fundamental representation (Theorem~\ref{thm:ol-log}). Its sign is that of asymptotic freedom (proof of Lemma~\ref{lem:ol-classical}), and its value agrees with the heat-kernel coefficient of the continuum one-loop term (Remark~\ref{rem:ol-heat-kernel}).
+
+\paragraph{The gauge group, Part by Part.} The hypotheses on $G$ grow along the note (Section~\ref{sec:intro}).
+\begin{itemize}
+\item \emph{Parts~I--VI:} $G$ compact and connected.
+\item \emph{Parts~VII--X:} $G$ also semisimple; Part~VII does not use it (Section~\ref{sec:rg-step}). An $\operatorname{Ad}(G)$-invariant vector of $\mathfrak g^c$ then vanishes, so a normalized, gauge-invariant activity has no term of first order and is of second order in the curvature, the current and the complex part (Lemma~\ref{lem:quadratic-bound} and its proof). This makes the one-loop source marginal rather than relevant (Remark~\ref{rem:one-loop-polymer}(b)), and it is why groups with abelian factors are not treated.
+\item \emph{The flow (Sections~\ref{sec:generations}--\ref{sec:flow4}) and Part~XI:} $G$ simple. A quadratic form in a constant curvature that is invariant under conjugation by $G$ and under $B_4$ is then a single multiple of the isotropic form (Lemma~\ref{lem:b4-forms}(a)). So the period density of a generation is $\beta_E$ times that of $S$ (Proposition~\ref{prop:period-iso}), and the running coupling is one number. Part~XI uses the same fact in \eqref{eq:ol-kappa}.
+\end{itemize}
+
+\paragraph{The step and the small-field model.} The renormalization group map $T$ sends a density of the configurations $V$ on $\T=\T^{(k)}$ to the image density of $V'$ on $\T'=\T^{(k+1)}$ under Ba\l aban's one-step averaging $\mathfrak a'$ \eqref{eq:rg-map}. The note iterates the \emph{small-field step} $T_{\rm sf}(\rho)=T^{\rm gf}(\chi^{\rm w}\chi_\xi\,\rho)$ (Definition~\ref{def:small-field-step}). Here $T^{\rm gf}$ is $T$ with Ba\l aban's exponential gauge-fixing function $\mathrm{gf}_W$ (Definition~\ref{def:gf-step}); on the coarse configurations of Lemma~\ref{lem:composition} it agrees with $T$ on integrands that are invariant under the gauge transformations $\mathcal G'$ of the blocks and vanish outside Ba\l aban's regular set $\mathfrak M$ (Lemma~\ref{lem:gf-step-invariance}(iv)). The functions $\chi^{\rm w}$, $\chi_\xi$ are the cutoffs of Table~\ref{tab:G-cutoffs}. The densities of the small-field model are $\rho_{k+1}=\one_{\mathfrak U_{k+1}(h_{k+1})}T_{\rm sf}(\rho_k)$ (Remark~\ref{rem:sf-reference}(c), Theorem~\ref{thm:N}). The threshold $h_k$ and the bound $w$ tend to $0$ with the coupling, while $p_0$ grows; so the small-field domain shrinks with the coupling, unlike Ba\l aban's (Remark~\ref{rem:sf-flow}(a)).
+
+\begin{table}[tbp]
+\centering\small
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{|p{0.19\textwidth}|p{0.31\textwidth}|p{0.17\textwidth}|p{0.19\textwidth}|}
+\hline
+Cutoff & Condition & Size & Defined at\tabularnewline
+\hline
+\raggedright small-field set $\mathfrak U_k(h_k)$ & \raggedright the curvature of $V$ on $\T^{(k)}$ is at most $h_k$ at every plaquette & \raggedright $h_k=p(g_k)\,g_k$ & \raggedright Definition~\ref{def:curvature}, Section~\ref{subsec:flow-parameters}\tabularnewline
+\raggedright fluctuation cutoff $\chi^{\rm w}$ & \raggedright $V(b)=e^{\ii Z(b)}W(b)$ with $|Z(b)|\le w$ on every bond, $W$ the base of the step & \raggedright $w=C_wL^dC_T\,g\,p_0(g)$ & \raggedright Definition~\ref{def:chi-w}, Remark~\ref{rem:flow-constants}(iii)\tabularnewline
+\raggedright white-noise cutoff $\chi_\xi$ & \raggedright $|\xi(b)|\le p_0$ on the bonds of $\mathfrak F$, where $Z=g\,C_k^{1/2}\xi$ on $\mathfrak F$ & \raggedright $p_0=p_0(g)$ & \raggedright Definition~\ref{def:small-field-step}, Section~\ref{subsec:flow-parameters}\tabularnewline
+\hline
+\end{tabular}
+\caption{The cutoffs of the step from scale $k$ to scale $k+1$, at $g=g_k$. The functions $p$, $p_0$ grow more slowly than every power of $g^{-1}$, and $p_0/p\to0$ as $g\to0$, for instance $p_0=(\log g^{-1})^q$, $p=(\log g^{-1})^{q'}$, $0<q<q'$ (Section~\ref{subsec:flow-parameters}); for $\gamma$ small, ($\Gamma$2) gives $8C_wL^dC_Tp_0\le p$, hence $4w\le\frac12h_k$ (Remark~\ref{rem:flow-constants}, Consequences). The cutoffs $\chi^{\rm w}$ and $\chi_\xi$ are not invariant under $\mathcal G'$ (Remark~\ref{rem:sf-reference}(c)).}\label{tab:G-cutoffs}
+\end{table}
+
+\paragraph{The model as one integral.} With $V_0=V$, $V_{k+1}=\mathfrak a_{k+1}(V_k)$ and $W_k$ the base of $V_{k+1}$, the small-field model unrolls to one integral over the configurations of scale~$0$ (Remark~\ref{rem:sf-reference}(c)):
+\[
+\int\rho_K\,dV_K=\int\prod_bdV(b)\ \rho_0(V)\prod_{k<K}\Big[\mathrm{gf}_{W_k}(V_k)\,\chi^{\rm w}_k(V_k)\,\chi_{\xi,k}(V_k)\,\one_{\mathfrak U_{k+1}(h_{k+1})}(V_{k+1})\Big].
+\]
+The cutoffs of step $k$ depend on $V_{k+1}$ as well as on $V_k$, and they are not invariant under $\mathcal G'$, so the small-field steps define a modified model. What a step discards is nonnegative (Lemma~\ref{lem:gf-step-invariance}(iv)); hence the partition function of the small-field model is at most that of the lattice theory with the same counterterm, $Z_{\rm sf}=\int\rho_K\le\int\rho_0=Z_{\rm lat}$ (Remark~\ref{rem:sf-reference}(c)).
+
+\paragraph{The flow in words: Theorem~\ref{thm:N}.} Theorem~\ref{thm:N} summarizes Theorem~\ref{thm:sf-flow}, Propositions~\ref{prop:period-iso}, \ref{prop:extraction}, \ref{prop:flow-continuity} and Corollaries~\ref{cor:bare-continuity}, \ref{cor:sf-stability}. Hypotheses: $G$ simple; the parameters as in Remark~\ref{rem:parameters} (Section~\ref{g:parameters}); $\gamma$ subject to ($\Gamma$1)--($\Gamma$3) of Remark~\ref{rem:flow-constants}; the last torus of side $n_K\ge n_{\min}$, with $\ell L^N$ a power of $L$ (Section~\ref{g:scales}); $g_0\in(0,\gamma]$. Then, at every scale $k$ such that $g_1,\dots,g_k\le\gamma$:
+\begin{itemize}
+\item on the small-field set, $\rho_k(V)=\mathcal Z_k\exp\big(-g_k^{-2}S(U_k)-\eps_k|\T^{(k)}|+\sum_{j\le k}(E^{(j)}-\beta_jS)(U_k)\big)$ at the background field $U_k=U_k(V)$: Ba\l aban's generation form (Theorem~\ref{thm:N}(i));
+\item each generation $E^{(j)}$ is bounded once, at its creation scale, by $\mathsf Ke^{-\kappa_nd_j(X)}$ on domains whose constants do not depend on the coupling, with the rate $\kappa_n$ of Remark~\ref{rem:parameters}(1) and the tree length $d_j(X)$ of the polymer $X$ (Section~\ref{subsec:flow-norm}; Theorem~\ref{thm:N}(ii));
+\item $\beta_j$ is read off from the period density of $E^{(j)}$, which is exactly isotropic; $|\beta_j|\le C_\beta\mathsf K$, $g_j^{-2}=g_{j-1}^{-2}-\beta_j$ and $\frac34g_{j-1}\le g_j\le2g_{j-1}$ (Theorem~\ref{thm:N}(iii), (v));
+\item at a later scale $j+m$, the small polymers of $E^{(j)}$ in a grid cube $\Box$ add up to $\beta_jS_\Box$ up to $C\mathsf KL^{-\alpha m}$ for $m\ge m_0$, the age from which the small polymers are extracted (Definition~\ref{def:polymer-classes}), and the other polymers carry a factor $L^{-m}$ (Theorem~\ref{thm:N}(iv));
+\item every step satisfies the hypotheses of Theorem~\ref{thm:L} (Theorem~\ref{thm:N}(v)), and the generations and coefficients depend continuously on the couplings (Theorem~\ref{thm:N}(vii)).
+\end{itemize}
+The constants depend only on the parameters fixed before $\gamma$ (one also on $p_0$), not on $k$, $K$, the torus or the couplings (Theorem~\ref{thm:N}). No behaviour of the couplings beyond $g_k\le\gamma$ is assumed (Remark~\ref{rem:sf-flow}(a)).
+
+\paragraph{What Theorem~\ref{thm:N}(vi) says.} Let $g_1,\dots,g_K\le\gamma$, and fix the counterterm $E_0$ by $\eps_K=0$; exactly one $E_0$ does this. The partition function of the small-field model is then $\mathcal Z_KI_K$, with an explicit product $\mathcal Z_K$ of normalizations and $e^{-c|\T^{(K)}|}\le I_K\le e^{c|\T^{(K)}|}$, where $c$ depends on the last coupling $g_K$ and on the parameters, not on $N$, $K$, the torus or $g_0,\dots,g_{K-1}$ (Corollary~\ref{cor:sf-stability}). So, at a fixed last coupling, $I_K=e^{O(|\T^{(K)}|)}$ uniformly in the number of steps, with $|\T^{(K)}|=n_K^4$ the volume in the units of the last scale. The bound is crude, per unit volume, which suffices because the final torus is fixed (Remark~\ref{rem:sf-reference}(a)); $\mathcal Z_K$ is not compared with the normalizations of a Gaussian reference (Remark~\ref{rem:sf-reference}(b)).
+
+\paragraph{The ultraviolet limit in words: Theorem~\ref{thm:M}(iv).} This is Theorem~\ref{thm:ol-uv}. Let $G$ be simple, the parameters and the torus as in Theorem~\ref{thm:N}, $p_0(g)=(\log g^{-1})^q$, and $\gamma$ subject to ($\Gamma$1)--($\Gamma$4) and the two further conditions of Theorem~\ref{thm:ol-uv}. There are $g_{\rm uv}>0$ and $C$, independent of $K$ and of the torus, such that for $0<g\le g_{\rm uv}$ and every $K$ some bare coupling $g_0$, depending on $K$, $g$ and the torus, gives a flow in $(0,\gamma]$ with $g_K=g$ and
+\[
+\Big|\frac1{g_k^2}-\frac1{g^2}-(K-k)\beta_\infty\Big|\le C\big(\log(K-k+2)\big)^{6q+1}\qquad(k\le K).
+\]
+At $k=0$: $g_0^{-2}=g^{-2}+K\beta_\infty$ up to a power of $\log(K+2)$, so the bare coupling tends to $0$ as the number of steps grows. With $K=N$ the last lattice is the unit lattice of the torus of physical side $\ell$, so $n_K=\ell$ and the torus conditions read $\ell\ge n_{\min}$, $\ell$ a power of $L$; letting $N\to\infty$ at fixed $\ell$ shrinks $\epsilon=L^{-N}$, and the bound is uniform in $N$ (Section~\ref{subsec:tf-scales}). The theorem concerns the couplings of the small-field model (Remark~\ref{rem:ol-remains}(a)). Theorem~\ref{thm:M}(i)--(iii) compute $\beta_\infty$ (Section~\ref{g:oneloop}).
+
+\paragraph{No step of the main line is conditional.} The hypotheses of Theorems~\ref{thm:K} and~\ref{thm:L} on the density, the coupling and the old activities hold at every step of the flow (Theorem~\ref{thm:gen-step}(a), Theorem~\ref{thm:sf-flow}(e)). The hypothesis $g_k\le\gamma$ of Theorem~\ref{thm:N} holds, up to the last scale, for the bare coupling of Theorem~\ref{thm:ol-uv}. The properties (F1)--(F3) that Theorem~\ref{thm:ol-uv} uses are proved in Proposition~\ref{prop:flow-F}. Proposition~\ref{prop:beta-identification} is proved without a rate, and Theorem~\ref{thm:ol-uv} does not use it (Remark~\ref{rem:ol-remains}(c)).
+
+\paragraph{What is not proved.} The large-field stage and the removal of the small-field modification (Remark~\ref{rem:sf-reference}(d)), hence any statement on the partition function or the correlation functions of the lattice theory itself (Section~\ref{sec:intro}, ``What is not done here''). Any limit of the measure or of correlation functions as $\epsilon\to0$: Theorem~\ref{thm:ol-uv} concerns the couplings only. The exact lower half of the analogue of Ba\l aban's (0.31) for the last $m_1$ steps (Remark~\ref{rem:ol-remains}(c)). A rate, or uniformity in the couplings, in Proposition~\ref{prop:beta-identification} (Remark~\ref{rem:gl-rate}). Smoothness in the couplings; only continuity is proved (Proposition~\ref{prop:flow-continuity}). Bounds linear in the size for gauges on cubes of size $c\,\eps_1^{-1}$; the bounds are polynomial (Remark~\ref{rem:large-cubes}). Gauge groups with abelian factors, and dimensions other than $4$ (Section~\ref{sec:intro}).
+
+\paragraph{Ba\l aban's theorems.} Four of the theorems that the note cites by number concern the variational problem and the flow.
+\begin{itemize}
+\item \cite[Theorem~1]{BalVar}, the variational theorem: Theorem~\ref{thm:I} is its content for one step, given a reference, and Theorem~\ref{thm:J} its version on the torus for every $k$, without nested domains (Section~\ref{sec:intro}, after Theorems~\ref{thm:I} and~\ref{thm:J}).
+\item \cite[Theorem~1]{BalYM4I} asserts the generation form (0.22)--(0.24) with terms that satisfy the later-scale bounds (0.29). \cite[Theorem~3]{BalYM4I} is the inductive statement of the flow under $0<g_k\le\gamma$; Theorem~\ref{thm:sf-flow} is its analogue for the small-field model on the torus (Remark~\ref{rem:sf-flow}(a)).
+\item \cite[Theorem~2]{BalYM4I}, stated for $SU(2)$, gives a bare coupling with $\frac1{g^2}+\beta\log(L^k\varepsilon)^{-1}\le\frac1{g_k^2}\le\frac1{g^2}+\beta'\log(L^k\varepsilon)^{-1}$, $0<\beta\le\beta'$: his (0.31), where $\log(L^k\varepsilon)^{-1}=(K-k)\log L$ for $\varepsilon=L^{-K}$. Theorem~\ref{thm:ol-uv} gives the analogue for the couplings of the small-field flow when $K-k\ge m_1$, and its upper half for all $k$. Ba\l aban's couplings come from his own generations, a different construction (Proposition~\ref{prop:beta-identification}(b); Section~\ref{sec:intro}, after Theorem~\ref{thm:M}).
+\end{itemize}
+
+\paragraph{Where in the note.} Section~\ref{sec:intro}; Remarks~\ref{rem:sf-reference}, \ref{rem:sf-flow} and~\ref{rem:ol-remains}; Theorems~\ref{thm:sf-flow} and~\ref{thm:ol-uv}, Corollary~\ref{cor:sf-stability}.
+
+\paragraph{In the companion.} The chapters on the second halves of Parts~X and~XI.
+
+\gsection{Scales, units and where the fields live}\label{g:scales}
+
+\input{figures/fig-G-scales}
+
+\paragraph{The tower and the units of scale $k$.} On the torus of physical side $\ell$ live the lattices $\T^{(0)},\dots,\T^{(K)}$ of the physical spacings $\epsilon,L\epsilon,\dots,L^K\epsilon$, with $\epsilon=L^{-N}$; the steps go from $\T^{(k)}$ to $\T^{(k+1)}$, $k<K\le N$, and for $K=N$ the last lattice is the physical unit lattice (Section~\ref{subsec:tf-scales}). Figure~\ref{fig:G-scales} shows the tower. Statements about scale $k$ are written in its units. Then $\T^{(k)}$ is the unit lattice, the torus has side $n_k=\ell L^{N-k}$, a lattice $\T^{(i)}$ with $i\ge k$ has spacing $L^{i-k}$, and the fine lattice $\Tf$ has spacing $\eta=L^{-k}$ (Sections~\ref{subsec:tf-scales} and~\ref{subsec:flow-norm}). The fine lattice is $\T^{(0)}$ at every scale; only its spacing in the units changes. A change of units changes the domains and the norms in which an activity is measured, not the activity (Section~\ref{subsec:flow-norm}). Read in the units of scale $j<k$, a point of a domain of scale $k$ lies in a domain of scale $j$ whose bound on the curvature and the current of the real part, and whose bound on the gradient of the complex part, are smaller by $L^{-2(k-j)}$, and whose bound on the complex part is smaller by $L^{-(k-j)}$ (Definition~\ref{def:graded}, Remark~\ref{rem:domain-constants}(i)). The Wilson action carries no power of the spacing, so a change of units does not change the coupling (Section~\ref{sec:action}).
+
+\begin{table}[tbp]
+\centering\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{|p{0.15\textwidth}|p{0.42\textwidth}|p{0.14\textwidth}|p{0.15\textwidth}|}
+\hline
+Symbol & Meaning & In the units of scale $k$ & Where\tabularnewline
+\hline
+$\epsilon=L^{-N}$ & \raggedright spacing of the finest lattice $\T^{(0)}$, physical units; $N$ is the number of scales & $\eta=L^{-k}$ & \S\ref{subsec:tf-scales}\tabularnewline
+$\ell$, $n_k$ & \raggedright physical side of the torus; its side in the units of scale $k$ & $n_k=\ell L^{N-k}$ & \S\ref{subsec:tf-scales}\tabularnewline
+$\T^{(i)}$ & \raggedright lattice of scale $i$; side $n_i$ in its own units & spacing $L^{i-k}$ & \S\ref{subsec:flow-norm}\tabularnewline
+$\Tf$ & \raggedright fine lattice, $\T^{(0)}$; background fields and activities live on it & spacing $\eta$ & \S\ref{subsec:flow-norm}\tabularnewline
+$\T$, $\T'$, $n$ & \raggedright in Part~VII: $\T^{(k)}$, $\T^{(k+1)}$, and $n=n_{k+1}=n_k/L$ the side of $\T'$; in Parts~VI, VIII, IX, $n=n_k$ & spacings $1$, $L$ & \S\ref{sec:rg-step}, \S\ref{subsec:tf-scales}\tabularnewline
+$N=L^k$ & \raggedright in Parts~I--VII, except Section~\ref{ss:31.1}: the number of fine points per unit length, with $\eta=1/N$; unrelated to the number of scales & --- & \S\ref{sec:setup}\tabularnewline
+$B(y)$, $B'(y)$ & \raggedright block of $\Tf$ centred at $y\in\T$; block of $L^4$ points of $\T$ centred at $y\in\T'$ & sides $1$, $L$ & \S\ref{sec:setup}, Def.~\ref{def:bonds}\tabularnewline
+grid cube $\Box$ & \raggedright union of $M^4$ blocks of scale $j$; polymers of scale $j$ are $*$-connected unions of them & side $L^{j-k}M$ & \S\ref{subsec:flow-norm}\tabularnewline
+\hline
+\end{tabular}
+\caption{Scales and units. The fourth column gives the place of the definition.}\label{tab:G-scales}
+\end{table}
+
+\paragraph{Where the fields live.} Table~\ref{tab:G-scales} collects the lattices.
+\begin{itemize}
+\item The density $\rho_k(V)$ is a function of a configuration $V$ on $\T^{(k)}$ (Theorem~\ref{thm:N}(i)). It is evaluated at the background field $U_k(V)$, a configuration on the fine lattice: an element of the minimal orbit of the $k$-step variational problem with averages $V$ (Theorem~\ref{thm:balaban}). So $S(U_k(V))$ and every activity are functions on the fine lattice.
+\item One step goes from $V$ on $\T=\T^{(k)}$ to $V'=\mathfrak a'(V)$ on $\T'=\T^{(k+1)}$. Its reference is the background field $U'=U_{k+1}(V')$, and its base is $W=U'^{(k)}$, the average of $U'$ on $\T^{(k)}$. For $V'$ of small curvature, $\mathfrak a'(W)=V'$ and $U_k(W)=U'$ (Lemma~\ref{lem:composition}).
+\item On the support of $\chi^{\rm w}$, $V=e^{\ii Z}W$ bond by bond (Definition~\ref{def:chi-w}). The values of $Z$ on the middle bonds $b_0(c)$ of the coarse bonds $c$ are fixed by the constraint $\mathfrak a'(V)=V'$, and the fluctuation variables are the values on the other bonds of $\T^{(k)}$, the set $\mathfrak F$ (Definition~\ref{def:bonds}, Lemma~\ref{lem:eliminate}). The white noise is $\xi=g^{-1}C_k^{-1/2}Z$, with the fluctuation covariance $C_k$ at the reference $U'$ (Definition~\ref{def:small-field-step}).
+\item A generation $E^{(j)}$ is a family of activities on the polymers of scale $j$, bounded on the domains of scale $j$ only. At a later scale $k$ it is evaluated at $U_k(V)$, which is again a background field of scale $j$, of the average of $U_k(V)$ on $\T^{(j)}$ (Section~\ref{sec:generations}, Lemma~\ref{lem:later-small-field}(b)).
+\end{itemize}
+
+\paragraph{The torus conditions.} At each scale $k$ the side $n_k$ satisfies (Section~\ref{subsec:tf-scales}):
+\begin{itemize}
+\item (T0) $n_k\ge n_*(L,M,\rho)$, the largest of the torus conditions of the results used; here $\rho$ is the scale of the walk domains of Part~IX (Section~\ref{sec:weakenable}), not a density;
+\item (T1) $LM\mid n_k$;
+\item (T2) $n_k\ge8LM$, so that the polymers with $d_M(X)\le L$ do not wrap around the torus.
+\end{itemize}
+All three hold at every scale $k\le K$ if the last torus satisfies $n_K\ge n_{\min}=\max(8LM,\,n_*)$ and $\ell L^N$ is a power of $L$ (Section~\ref{subsec:tf-scales}, Lemma~\ref{lem:torus}(a)). Polymers of diameter larger than $\frac12n_k-8$ are \emph{wrapping}; they are bounded at all later scales by Lemma~\ref{lem:torus}(c)--(e).
+
+\paragraph{What ``uniform'' means.} The constants of the flow depend only on the parameters of Remark~\ref{rem:parameters}(1)--(5) (one of them also on $p_0$), not on $k$, $K$, $N$, the torus or the couplings (Theorem~\ref{thm:sf-flow}), and all bounds are uniform in $N$ and $K$, given $n_K\ge n_{\min}$ and $\ell L^N$ a power of $L$ (Remark~\ref{rem:sf-flow}(d), Section~\ref{subsec:tf-scales}); in particular as $N\to\infty$ at a fixed physical side $\ell\ge n_{\min}$, a power of $L$, with $K=N$.
+
+\paragraph{Where in the note.} Sections~\ref{subsec:tf-scales} and~\ref{subsec:flow-norm}; the conventions of Section~\ref{sec:rg-step}; Lemmas~\ref{lem:composition}, \ref{lem:torus} and~\ref{lem:later-small-field}; Remark~\ref{rem:domain-constants}(i).
+
+\paragraph{In the companion.} The chapter ``How to read this volume'' (its notation table), and the parameter ledger (the torus).
+
+\gsection{Four-dimensional power counting and the strategy of the flow}\label{g:strategy}
+
+\paragraph{The coupling is marginal.} In four dimensions the Wilson action is dimensionless, so a change of units does not change the coupling. The coupling of the next scale is produced by the fluctuation integral, through the coefficient $\beta$ of $S$ in the effective density (Section~\ref{sec:intro}, the paragraph on Part~VII; Section~\ref{sec:action}). Each step creates terms of order one: the one-loop activities and the Jacobian terms are bounded independently of the coupling, and they are not small (Theorem~\ref{thm:sf-step}). The iteration does not contract them (Remark~\ref{rem:flow-status}).
+
+\paragraph{Power counting of an activity.} A normalized, gauge-invariant activity has no constant and no linear term: it vanishes at $U=1$ by normalization, and its first order vanishes for semisimple $G$ (Lemma~\ref{lem:quadratic-bound}). Its orders in the curvature behave as follows at the later scales (Remark~\ref{rem:one-loop-polymer}(b), Section~\ref{sec:extraction}).
+\begin{itemize}
+\item \emph{Order $0$.} The constants are removed by the normalization and go into the vacuum energy $\eps_k$. It obeys $\eps_{k+1}=L^4\eps_k+\delta_k$, and a single counterterm $E_0$ in the bare density makes $\eps_K=0$ (Remark~\ref{rem:sf-step-remains}(a), Proposition~\ref{prop:vacuum}).
+\item \emph{Order $2$: marginal.} Read in the units of a polymer of scale $j$, the curvature of a configuration of scale $k=j+m$ is of order $L^{-2m}$, so the quadratic part of one polymer is of order $L^{-4m}$. A grid cube of scale $k$ contains $L^{4m}$ grid cubes of scale $j$. So the quadratic part of a generation is of order one per cube at every later scale. It must be extracted as a coupling constant, not bounded (Remark~\ref{rem:one-loop-polymer}(b)).
+\item \emph{Orders $\ge3$: irrelevant.} The orders $\ge3$, together with the non-constant part of the curvature in the quadratic order, contribute $O(L^{-(4+\alpha)m})$ per polymer (Lemma~\ref{lem:later-normal-form}(d)), hence $O(L^{-\alpha m})$ per cube of scale $k$ (Section~\ref{sec:extraction}).
+\end{itemize}
+In the momentum expansion of a vacuum polarization a term linear in $p$ would be relevant. It is excluded by the symmetry of Ba\l aban's averaging (Lemma~\ref{lem:ol-symmetry}, Remark~\ref{rem:ol-remains}(b)); see Section~\ref{g:hard}.
+
+\paragraph{Generations.} The note follows Ba\l aban's organization of the flow \cite[(0.22)--(0.30)]{BalYM4I}. The new terms of the step that creates scale $j$ are kept, as a family on the polymers of scale $j$, in a separate generation $E^{(j)}$ (Section~\ref{sec:generations}). A generation is bounded only at its creation scale, on domains whose constants do not depend on the coupling (Theorem~\ref{thm:N}(ii)). At every later scale only its argument changes: it is evaluated at the background field of that scale (Section~\ref{sec:generations}, Lemma~\ref{lem:later-small-field}). Figure~\ref{fig:G-generation} shows the life of one generation.
+
+\paragraph{The counterterm and the isotropy.} The generation $E^{(j)}$ enters the density together with the counterterm $-\beta_jS$, and the coupling runs by $g_j^{-2}=g_{j-1}^{-2}-\beta_j$ (Theorem~\ref{thm:gen-step}(c)). The number $\beta_j$ is read off from the period density of $E^{(j)}$, the second variation of its activities at the linear fields of constant curvature, per unit volume (Definition~\ref{def:period-density}). A step does not produce a covariant family. The new generation is the average of the raw one over the symmetries of its grid, which keeps the sum and the bound, on a slightly smaller domain (Definition~\ref{def:symmetrization}, Lemma~\ref{lem:symmetrization}). For simple $G$ its period density is then exactly $\beta_j$ times that of $S$, with no anisotropic and no topological part (Proposition~\ref{prop:period-iso}). Exactness is what the extraction uses: at a later scale the cell sums of the generation are cancelled by those of $\beta_jS$, because the two period densities are proportional (Section~\ref{sec:extraction}, ``Cancellation'').
+
+\paragraph{Extraction at later scales.} Let $k=j+m$ and let $\Box$ be a grid cube of scale $k$ (Proposition~\ref{prop:extraction}).
+\begin{itemize}
+\item On a small polymer $X$ of scale $j$, in a complex gauge chosen for $X$, a configuration of scale $k$ is a linear field of constant curvature plus a remainder that is smaller by $L^{-\alpha m}$ (Lemma~\ref{lem:later-normal-form}). So $E^{(j)}(X,U)$ is a quadratic form in the curvature at one point of $X$, up to $O(L^{-(4+\alpha)m})$.
+\item By the grid covariance these forms add up, cell by cell, to the period density, and so does $S_\Box$ (Lemmas~\ref{lem:cell-sums} and~\ref{lem:plaquette-family}). The two cancel. Over the $L^{4m}$ cells the error is $O(L^{-\alpha m})$, for $m\ge m_0$.
+\item The recent polymers ($m<m_0$), the polymers too large for this gauge and the wrapping ones are not expanded; they carry the factor $L^{-m}$ (Lemma~\ref{lem:large-later}). For $m<m_0$ no polymer is small, and the counterterm $-\beta_jS_\Box$ alone is bounded (Proposition~\ref{prop:extraction}).
+\end{itemize}
+In each grid cube of scale $k$ the counterterm $-\beta_jS_\Box$ is grouped with the small polymers of $E^{(j)}$ in $\Box$. The resulting old activities $\mathcal E_k$ are bounded by $C_{\rm old}\mathsf K$, uniformly in $k$: the sum over the generations converges because of the gains $L^{-\alpha m}$ and $L^{-m}$ (Definition~\ref{def:old-activities}, Proposition~\ref{prop:old-activities}(b)). No contraction is used (Remark~\ref{rem:flow-status}).
+
+\paragraph{Where smallness comes from.} The activities are of order one. What is small is the following.
+\begin{itemize}
+\item \emph{The fluctuation cutoff.} The fluctuation field is at most $w\propto g\,p_0(g)$. The old activities enter the new generation only through the mixed sources, of size $\tau$ times their bound, with $\tau\le C_PL^dg_kp_0(g_k)/\delta_1$ (Proposition~\ref{prop:old-activities}(d), Remark~\ref{rem:flow-F}(a)). Here $\tau$ is the relative change of an old activity under the background map of the step, $|f|\le4\tau\|\mathcal E(X)\|$ (Proposition~\ref{prop:composed}), $C_P$ a constant of the step that depends on $\kappa$, $\delta$, $L$, $M$, $\rho$, $\alpha$, but not on $k$, $n$, $\eta$ or $s$ (Section~\ref{sec:step-quantities}, Setting), and $\delta_1$ the gradient budget of the domains (Definition~\ref{def:graded}). Remark~\ref{rem:flow-status} attributes the smallness to this cutoff, as in \cite[(2.41)]{BalYM4II}.
+\item \emph{Parity.} The pure sources are even in the coupling and vanish at coupling $0$, so they are $O(g^2p_0^6)$; there is no term of order $g$ (Proposition~\ref{prop:pure-sources}). Without parity the bound (F3) on the coefficients would be only $O(g\,p_0^3)$, which is not summable along the flow (Remark~\ref{rem:flow-F}(b)).
+\item \emph{The gains at later scales:} $L^{-\alpha m}$ after the extraction and $L^{-m}$ for the other polymers (Proposition~\ref{prop:extraction}, Lemma~\ref{lem:large-later}).
+\end{itemize}
+For the couplings the same sources give: the part of $\beta_{j+1}$ beyond one loop is $O(g_j^2p_0(g_j)^6)$ (Proposition~\ref{prop:flow-F}, (F3)); the one-loop part equals the infinite-volume coefficient up to $e^{-c_2n_{j+1}/M}$ (Proposition~\ref{prop:flow-F}, (F2)); and the one-loop parts add up to $k\beta_\infty+O(1)$ (Theorem~\ref{thm:ol-cumulative}). Along the flow of Theorem~\ref{thm:ol-uv} the errors add up to $O\big((\log(K-k+2))^{6q+1}\big)$.
+
+\paragraph{What weakening buys.} A polymer expansion needs each quantity of the step as a sum over polymers, with a small factor for every box of the region on which a term depends: localization of volume type. Dirichlet approximants and telescoping (Part~VIII) give only radius type, a factor $e^{-\gamma m}$ for a piece that depends on a ball of radius $m$ (Section~\ref{sec:intro}, the paragraph on Parts~VIII and~IX). Part~IX writes the operators of the step as analytic functions of weakening parameters $s=(s_\Box)$ in $\mathbb D_\kappa=\{|s_\Box|\le e^\kappa\}$, one parameter per box (Sections~\ref{sec:weakenable} and~\ref{sec:nested-walks}). Lemma~\ref{lem:localization} then localizes: if $f$ is analytic on $\mathbb D_\kappa$, bounded by $F$, and, when $s_\Box=0$ outside a union of boxes, depends only on the parameters and the data of the component of that union that contains the polymer $Y$, then
+\[
+f(1)=\sum_{Z\supset Y}f_{\rm loc}(Y,Z),\qquad |f_{\rm loc}(Y,Z)|\le F\,e^{-(\kappa-1)|Z\setminus Y|},
+\]
+and $f_{\rm loc}(Y,Z)$ depends only on the data near $Z$. The proof is the fundamental theorem of calculus in each $s_\Box$ outside $Y$, followed by a Cauchy estimate in each differentiated variable: every box of $Z\setminus Y$ costs $e^{-(\kappa-1)}$.
+
+\paragraph{The budget of one step.} The step from scale $k$ to scale $k+1$ produces four kinds of new terms (Theorem~\ref{thm:sf-step}): one-loop activities $\mathfrak e(X)$, bounded by $Ce^{-(\kappa_2-1)|X|}$ with $C$ independent of the coupling for the polymers that do not wrap, with marginal quadratic parts (Proposition~\ref{prop:one-loop-polymer}); Jacobian terms $\log\mathfrak j_c$, bounded by a constant (Proposition~\ref{prop:jacobians}); pure sources $E^\#_{\rm p}$ of order $g^2p_0^6$ (Proposition~\ref{prop:pure-sources}); and mixed sources $E^\#_{\rm m}$ of order $\tau$ times the bound on the old activities (Proposition~\ref{prop:old-activities}(d)). Reblocked, they form the raw new generation, with $\|E'\|^{\rm raw}_{k+1}\le B_{\rm new}+C_{\rm new}(\epsilon_{\rm p}+\epsilon_{\rm m})$ (Lemma~\ref{lem:raw-new}(b)). Here $\epsilon_{\rm p}$ and $\epsilon_{\rm m}$ bound the pure and the mixed pieces of the cluster expansion (Proposition~\ref{prop:localized-pieces}), $C_{\rm new}$ is a constant of the parameters (Remark~\ref{rem:flow-constants}(ii)), and $B^{(0)}_{\rm new}$ is the value of $B_{\rm new}$ for the first step. The first term comes from the one-loop and Jacobian bounds; it does not depend on the domain constants, on $m_0$, on the couplings or on the torus (Remark~\ref{rem:flow-constants}(i)). The bound of every generation is $\mathsf K=2\max(B_{\rm new},B^{(0)}_{\rm new})$, and condition ($\Gamma$3) on $\gamma$ makes the sources fit into it (Remark~\ref{rem:flow-constants}, Theorem~\ref{thm:gen-step}(b)).
+
+\paragraph{Where in the note.} Remark~\ref{rem:flow-status}; the openings of Sections~\ref{sec:generations} and~\ref{sec:extraction}; Remark~\ref{rem:one-loop-polymer}; Lemma~\ref{lem:localization}; Propositions~\ref{prop:period-iso}, \ref{prop:extraction}, \ref{prop:old-activities} and~\ref{prop:flow-F}; Remark~\ref{rem:flow-F}.
+
+\paragraph{In the companion.} The chapters on the two halves of Part~X.

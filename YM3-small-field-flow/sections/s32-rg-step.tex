@@ -1,0 +1,191 @@
+\section{The renormalization group transformation}\label{sec:rg-step}
+
+This part carries out one step of Ba\l aban's renormalization group for pure Yang--Mills theory in the small-field region \cite{BalUV3}. The plan and the target are described in the companion blueprint (\texttt{RG-blueprint}) \cite{Blueprint}, referred to below as ``the blueprint''. Here we derive an exact representation of one step as a Gaussian integral around the background field, and we prove the linear estimates on which the analysis of that integral rests:
+\begin{itemize}
+\item the coercivity and decay of the fluctuation covariance;
+\item the analyticity of the coarse effective action and the decay of its derivatives;
+\item the structure of the background-dependent normalization.
+\end{itemize}
+The polymer expansion of the interaction, its renormalization and the iteration are the subject of later parts.
+
+\paragraph{Conventions for Part VII.} We keep the conventions of Parts~IV--VI. In addition $d=3$ in the statements about couplings, although the constructions of this part work for $d\ge3$, and $G$ is semisimple. Semisimplicity is not used in this part; it is needed for the renormalization in the next one. We work in the \emph{units of step $k$}: the unit lattice is $\T=\T^{(k)}$, the fine lattice is $\Tf$ with $\eta=L^{-k}$, and the next coarse lattice is $\T'=\T^{(k+1)}$, of spacing $L$. Its blocks are $B'(y)=B_{k+1}(y)$, with $L^d$ points of $\T$, and the one-step averaging is $\mathfrak a'=\mathfrak a_{k+1}$. The torus $\T$ has side $Ln$, where $n$ is the side of $\T'$ in its own units. We assume $n\ge n_{\delta=1}$, with $n_\delta$ from Proposition~\ref{prop:sharp-curvature}, and $n\ge80M'_L$, with $M'_L$ from Theorem~\ref{thm:step-coercive}. Fields on $\T$ carry the unweighted norm $\|Z\|^2=\sum_b|Z(b)|^2$.
+
+\subsection{The model and the transformation}
+
+Let $\epsilon=L^{-N}$ be the finest lattice spacing, $g$ the bare coupling, and $g_k^2=g^2L^k\epsilon$ the dimensionless coupling at step $k$. The initial density on the $\epsilon$-lattice is $\rho_0(U)=\exp(-g_0^{-2}S_{\rm lat}(U)-E_0)$, where $S_{\rm lat}(U)=\sum_p(\mathsf N-\operatorname{Re}\operatorname{tr}U(\partial p))$. In the units of step $k$ the $\epsilon$-lattice has spacing $\eta=L^{-k}$, and $g_0^{-2}S_{\rm lat}=g_k^{-2}S$ with the action $S$ of Section~\ref{sec:action}. Indeed $S=\eta^{d-4}S_{\rm lat}$, $d=3$, and $g_0^2=g_k^2\eta$.
+
+The averaging $\mathfrak a'$ uses logarithms, so it is defined only on part of the configuration space. Let $\operatorname{dom}\mathfrak a'$ be the set of real configurations $V$ on $\T$ such that, for every positively oriented bond $c$ of $\T'$ and every $x\in B'(c_-)$,
+\[
+\big|V(\Gamma^{k+1}_{c,x})\,V([c])^{-1}-1\big|\le c_G .
+\]
+For $V\in\operatorname{dom}\mathfrak a'$ the logarithms in Definition~\ref{def:one-step} are defined and lie in $\mathfrak g$, by the choice of $c_G$ (Section~\ref{sec:averaging}), so $\mathfrak a'(V)$ is defined and real. Outside this set a logarithm may be undefined or may leave $\mathfrak g$. The set $\operatorname{dom}\mathfrak a'$ is closed, and $\mathfrak a'$ is continuous on it. It is invariant under real gauge transformations $u$, which conjugate the holonomies above by $u(c_-)$. It contains $\mathfrak U_k(b)$ whenever $dbL^2\le c_G$: by Lemma~\ref{lem:one-step-basic}(a), with $\delta_{k+1}=L$, the logarithms of these holonomies are bounded by $dbL^2$, and $|h-1|\le|\ell(h)|$ for $h\in G$. If $dbL^2<c_G$, it contains $\mathfrak U_k(b)$ in its interior.
+
+For an integrable density $\rho$ on configurations $V$ on $\T$ that vanishes outside $\operatorname{dom}\mathfrak a'$, let $T\rho$ be the image of the measure $\rho(V)\prod_bdV(b)$ under $\mathfrak a'$:
+\[
+\int\varphi\,d(T\rho)=\int\prod_bdV(b)\ \varphi\big(\mathfrak a'(V)\big)\,\rho(V)
+\]
+for bounded Borel functions $\varphi$ of configurations on $\T'$. Here $b$ runs over the positively oriented bonds of $\T$, and $dV(b)$ is the normalized Haar measure. With $\varphi=1$, the total mass of $T\rho$ is $\int\prod_bdV(b)\,\rho(V)$. We write
+\begin{equation}\label{eq:rg-map}
+(T\rho)(V')=\int\prod_{b}dV(b)\ \prod_{c}\delta\big(\mathfrak a'(V)(c)\,V'(c)^{-1}\big)\ \rho(V),
+\end{equation}
+where $c$ runs over the positively oriented bonds of $\T'$ and $\delta$ is the $\delta$-function of $G$ at $1$ with respect to the Haar measure. This formula is a notation for the image measure. If $\delta$ is replaced by a continuous function $\delta_n\ge0$ on $G$ with $\int\delta_n=1$, supported in a neighbourhood of $1$ that shrinks as $n\to\infty$, the right side is a continuous density, and the measures with these densities converge weakly to $T\rho$: for continuous $\varphi$ this follows from Fubini's theorem, the invariance of the Haar measure and the uniform continuity of $\varphi$. The left side denotes a density of $T\rho$ with respect to $\prod_cdV'(c)$, and it is used only where such a density exists. A sufficient condition is that $\rho$ vanishes outside an open subset of $\operatorname{dom}\mathfrak a'$ on which $\mathfrak a'$ is a submersion, i.e.\ its derivative has rank $\dim\mathfrak g$ times the number of positively oriented bonds of $\T'$. Then, near each point of this set, $\mathfrak a'$ is a coordinate projection in suitable analytic coordinates, and for almost every $V'$ the density at $V'$ is the integral of $\rho$ over the fibre $\{\mathfrak a'(V)=V'\}$ with respect to the measure that the two Haar measures induce on it. Integrability of $\rho$ alone does not make this fibre integral finite at every $V'$. If $\rho$ is a bounded Borel function and vanishes outside a compact subset of the open set, the fibre integral converges absolutely at every $V'$; it is then taken as the density at every $V'$, and the usual rules for $\delta$-functions compute it. In that case $\int\prod_cdV'(c)\,(T\rho)(V')=\int\prod_bdV(b)\,\rho(V)$. The density is used only for the small-field step below. There the integrand is bounded, and the cutoff confines it to a compact subset of the region of Lemma~\ref{lem:eliminate}, which gives the submersion, and Proposition~\ref{prop:exact-step} computes the density. Passing to the units of step $k+1$ relabels the configurations, without any Jacobian since they are group valued, and replaces $S$ by $L^{4-d}S=LS$. Hence $g_k^{-2}S$ becomes $g_{k+1}^{-2}S$ with $g_{k+1}^2=Lg_k^2$.
+
+If $\rho$ vanishes outside $\operatorname{dom}\mathfrak a'$ and $\rho(V^u)=\rho(V)$ for all real gauge transformations $u$ on $\T$, then $T\rho$ is gauge invariant on $\T'$: it is invariant under $V'\mapsto V'^{u'}$ for every real gauge transformation $u'$ on $\T'$. This follows from $\mathfrak a'(V^u)=\mathfrak a'(V)^{u|_{\T'}}$ (Lemma~\ref{lem:one-step-basic}), applied to an extension $u$ of $u'$, from the invariance of $\operatorname{dom}\mathfrak a'$, and from the invariance of the Haar measure under $V\mapsto V^u$. All densities below are gauge invariant.
+
+\paragraph{The small-field step.} In the small-field region the density at step $k$ has, by assumption, the form
+\begin{equation}\label{eq:rho-form}
+\rho_k(V)=\exp\Big(-\frac1{g_k^2}S\big(U_k(V)\big)+\mathfrak E_k(V)\Big)\qquad\text{for }V\in\mathfrak U_k(\tilde h),
+\end{equation}
+with $U_k(V)$ the background field of Theorem~\ref{thm:balaban}, a gauge-invariant function $\mathfrak E_k$, measurable and bounded on $\mathfrak U_k(\tilde h)$, and a threshold $\tilde h\le a_1$. The renormalization group studied here is $\rho\mapsto T(\chi^{\rm w}\rho)$, where $\chi^{\rm w}$ restricts the fluctuation field around the background of the step to $|\cdot|\le w$ (Definition~\ref{def:chi-w}). The cutoff depends on $V'$ through the base configuration of the step. In $T(\chi^{\rm w}\rho)$ it is taken at the base of $\mathfrak a'(V)$, and it is set to $0$ unless $V\in\operatorname{dom}\mathfrak a'$ and $\mathfrak a'(V)$ satisfies the hypotheses of Proposition~\ref{prop:exact-step}, under which the base is defined. That proposition shows that, for such $V'$, the cutoff of $V'$ vanishes outside the interior of $\operatorname{dom}\mathfrak a'$, so that the restriction to $\operatorname{dom}\mathfrak a'$ removes nothing, and that $\mathfrak a'$ is a submersion wherever the cutoff is $1$. The cutoff is a Borel function of $V$. Indeed, near each such $V'$, Corollary~\ref{cor:analytic} gives an element $U'$ of the minimal orbit that depends continuously on $V'$. For this choice the cutoff is the indicator function of a closed set composed with continuous maps: $\mathfrak a'$, the base $U'^{(k)}$, the axial representative of Lemma~\ref{lem:axial}(a), and $\ell$. The cutoff does not depend on the choice of $U'$ (Section~\ref{sec:fluctuations}), and finitely many such neighbourhoods cover the compact set of these $V'$. This is the analogue of \cite[(172)]{DimockI}; Ba\l aban's version is \cite[(7)--(13)]{BalUV3}. The large-field complement is not treated here. In Section~\ref{sec:cluster} the small-field condition is also imposed on the white noise, $T_{\rm sf}(\rho)=T(\chi^{\rm w}\chi_\xi\rho)$ (Definition~\ref{def:small-field-step}), as in \cite[(206)]{DimockI}. The cutoff $\chi_\xi$ also depends on $V'$, and it is treated in the same way. It does not depend on the choice of $U'$ either (Section~\ref{sec:cluster}), and it is Borel by the same argument, since $C_k$ depends continuously on the base (Corollary~\ref{cor:covariance}).
+
+\subsection{Curvature of background fields}
+
+Theorem~\ref{thm:balaban} bounds the curvature of $U_k(V)$ by $B_3\eps_1$, where $B_3$ depends on $L$. The small-field thresholds of consecutive steps are compatible only if the curvature of the background is bounded with a constant that does \emph{not} grow with $L$. That is proved here.
+
+The constants of the pointwise bounds of Parts~II and~III must therefore be independent of $L$ and of $M$; note that $M\ge5L$ in Part~VI. We make this explicit. Ba\l aban's averaging pair enters only through one parameter.
+
+\begin{definition}[Parameter of an averaging pair]\label{def:avg-parameter}
+Let $U$ be a real $(1,\eps)$-regular background and $(Q',\bQ)$ an averaging pair with properties (i), (iii) and (iv) of Remark~\ref{rem:general-averaging}. Let $\eps_Q\ge0$. The pair has \emph{parameter $\eps_Q$ at $U$} if the following holds for every $y\in\T$ and every real gauge transformation $u$ in which (B) holds with parameter $\eps$ on $\Lam_4(c_y)$. Here (B) on $\Lam_4(c_y)$ refers to the bonds and differences that involve only points of $\Lam_4(c_y)$, and the H\"older quotient on a cube $\Lam_3(z'')\subset\Lam_4(c_y)$ is taken over the pairs of differences that involve only points of $\Lam_3(z'')$. If $U$ is $(M,\eps)$-regular, every gauge of Definition~\ref{def:regular} on a cube containing $\Lam_4(c_y)$ satisfies (B) with parameter $\eps$ on $\Lam_4(c_y)$ in this sense. Computed in the gauge $u$, on the blocks and tubes contained in $\Lam_4(c_y)$:
+\begin{enumerate}[label=(\alph*)]
+\item $Q'(U^u)-Q_0$ and $\bQ(U^u)-\bQ$ satisfy the bounds of Lemma~\ref{lem:cov-avg}(b) with $C\eps$ replaced by $\eps_Q$: block norms, the bounds from sup norms to values, and the same for the transposes;
+\item the defect $E$ satisfies the bounds of Lemma~\ref{lem:cov-avg}(c) with $C\eps$ replaced by $\eps_Q$, and its transpose satisfies $|E^T\omega|_\infty\le\eps_Q|\omega|_\infty$.
+\end{enumerate}
+\end{definition}
+
+By Lemma~\ref{lem:cov-avg}, the model pair $(Q'(U),\bQ(U))$ of Section~\ref{sec:background} has parameter $C_{\rm mod}\eps$, with $C_{\rm mod}$ depending only on $d$.
+
+\begin{lemma}[Monotonicity of regularity]\label{lem:regular-monotone}
+If $U$ is $(M,\eps)$-regular and $1\le M'\le M$, then $U$ is $(M',\eps)$-regular.
+\end{lemma}
+
+\begin{proof}
+The cube $\{x:|x-z|_\infty\le4M'+2\}$ lies in $\{x:|x-z|_\infty\le4M+2\}$. Restrict the gauge transformation of Definition~\ref{def:regular} to it. The bonds with both endpoints in the smaller cube have both endpoints in the larger one, and every cube $\Lam_3(z')$ in the smaller cube lies in the larger one. So the three bounds of Definition~\ref{def:regular} persist.
+\end{proof}
+
+\begin{lemma}[Uniformity of the constants of Parts~II--III]\label{lem:uniformity}
+Let $d\ge3$ and fix $a>0$, $\alpha\in(0,1)$. Let $M_0$ be the constant of Part~III (Theorem~\ref{thm:reg-coercive}). There are $\eps_{\rm U}$, $\theta_Q$, $C_H$, $\gamma_H>0$, depending only on $d$, $a$, $\alpha$ and $\dim\mathfrak g$, with the following property. Let $k\ge1$ and let the side of $\T$ be at least $8M_0$. Let $M\ge M_0$, let $U_0$ be real and $(M,\eps)$-regular with $\eps\le\eps_{\rm U}$, and let $(Q',\bQ)$ be an averaging pair with properties (i)--(iv) of Remark~\ref{rem:general-averaging} and parameter $\eps_Q\le\theta_Q$ at $U_0$. Then:
+\begin{enumerate}[label=(\alph*)]
+\item Theorem~\ref{thm:reg-scalar} (with $X=\Tf$), Theorems~\ref{thm:reg-coercive} and~\ref{thm:reg-gauge} (with $X=\Tf$), and Theorem~\ref{thm:reg-min} hold at $U_0$ with this pair, in the form stated there: existence, covariance, identities, coercivity, decay and the pointwise bounds in local gauges, with no comparison with the operators at $U=1$. Their constants $c,C,\gamma,c_*$ depend only on $d$, $a$, $\alpha$, $\dim\mathfrak g$: neither on $M$, nor on $N=L^k$, $n$, $k$, nor on the pair beyond $\eps_Q\le\theta_Q$.
+\item Let $\bH=\bH(U_0)$ be the minimizer map of Theorem~\ref{thm:reg-min} (with $W=0$) and $\nabla$ the covariant difference at $U_0$. For every unit-lattice field $B$,
+\begin{equation}\label{eq:H-pointwise}
+|\bH B|_{B(y)}+|\nabla\bH B|_{B(y)}\le C_H\sum_{y'}e^{-\gamma_H|y-y'|}|B(y')| .
+\end{equation}
+\item For Ba\l aban's pair $(Q'_k(U_0),\bQ_k(U_0))$ we have $E=0$, and there are $c_Q,C_Q>0$ such that the pair has parameter $\eps_Q\le C_Q\eps$ for $\eps\le c_Q$. Here $c_Q$, $C_Q$ may depend on $d$, $L$, $G$, $a$, $\alpha$ and $M$ (the conventions of Part~IV). Hence (a) and (b) hold for this pair whenever $\eps\le\eps_{\rm B}=\min(\eps_{\rm U},\theta_Q/C_Q,c_Q)$. In particular \eqref{eq:H-pointwise} holds with $C_H$, $\gamma_H$ independent of $L$ and $M$, for $\eps$ small depending on $L$ and $M$.
+\end{enumerate}
+If the side of $\T$ is less than $8M_0$, (a)--(c) hold as well, with the same constants.
+\end{lemma}
+
+\begin{proof}
+\emph{Step 0: reduction to $M=M_0$.} For $X=\Tf$ every $j$ lies in $J(\Tf)$, so $m_{\Tf}=0$. Hence the torus operators $\fA'_{\Tf}$, $G'$, $\Gamma'$, $P_\cV$, $R$, $S$, $\Pi$, $\fA_\pi=\fA^{\Tf}$, $\bG$, $\boldsymbol\Gamma_\pi$, $\bH$, $\bC$ are defined without reference to $M$. By Lemma~\ref{lem:regular-monotone}, $U_0$ is $(M_0,\eps)$-regular. Apply every result of Part~III with $M=M_0$; their hypotheses are ``$M\ge M_0$ and $(M,\eps)$-regular''. Their constants then depend on $M_0$, which depends only on $d,a,\alpha,\dim\mathfrak g$. Coercivity and decay are properties of the fixed torus operators, so proving them at scale $M_0$ proves them for $U_0$. This proves the independence of $M$. The scale $M_0$ also enters through the partition of unity (Lemma~\ref{lem:partition}), which needs the side of $\T$ to be at least $8M_0$. If the side is smaller, the partition at scale $M_0$ is the trivial one of Section~\ref{sec:domains}. The cube of Definition~\ref{def:regular} at scale $M_0$ then covers $\Tf$, so one real gauge gives the bounds of that definition on all of $\Tf$. The proof of Theorem~\ref{thm:reg-coercive} treats this case, and the other results in (a) do not use the partition. In Steps~1--4 this gauge serves as the local gauge of every cube, and (a)--(c) follow with the same constants.
+
+\emph{Step 1: Part~I inputs.} The model pair at $U=1$ is $(Q_0,\bQ)$ on blocks of side $1$ with $N^d$ fine points. The following constants are used, and none depends on $N\ge2$ (Section~\ref{sec:setup}: $L$ enters only through $N=L^k$; at $N=1$ the trial field of Theorem~\ref{thm:reg-scalar}(c) degenerates, which is why $k\ge1$):
+\begin{itemize}
+\item the block Poincar\'e constants (Lemma~\ref{lem:block-poincare}, Corollary~\ref{cor:poincare-all}), depending on $d$;
+\item the gauge-field coercivity constant $c_g$ (Theorem~\ref{thm:gauge-coercive}), depending on $d$ and $a$: on $a$ directly, on the constants $C_P$, $C_W$ (Lemma~\ref{lem:Q-divergence}) and $C_B$ (Lemma~\ref{lem:biharmonic}), which depend only on $d$, and on the bound in Proposition~\ref{prop:R}(e);
+\item the decay of $P_\cV(1)$ and $dP_\cV(1)d^*$ (Proposition~\ref{prop:R}), depending on $d$ and $a$;
+\item the Combes--Thomas constants (Lemmas~\ref{lem:CT-bounded}, \ref{lem:neumann}, \ref{lem:CT-form}), explicit in the coercivity and conjugation constants;
+\item the interior regularity constant $C_{\rm reg}$ (Theorem~\ref{thm:local-regularity}), depending on $d$ and $\alpha$, for all $N\ge1$.
+\end{itemize}
+All these are statements on the fine lattice with unit blocks. Distances, decay rates and the norms $|\cdot|_{B(y)}$ are measured in unit-lattice units. The supports of the averaging kernels, $B(y)$ and $S_c=B(c_-)\cup B(c_+)$, consist of a fixed number of unit blocks, whatever $L$ is.
+
+\emph{Step 2: where the averaging pair enters.} We list every use of the pair in the proofs of the results in (a). In each, the model bound $C\eps$ is replaced by $\eps_Q$, and the conclusion holds once $\eps_Q\le\theta_Q$, with $\theta_Q$ a threshold of the same kind as $\eps_{\rm U}$.
+\begin{enumerate}[label=(A\arabic*)]
+\item Theorem~\ref{thm:reg-scalar}(a): in the local gauge, $|(Q'\lambda)(y)-(Q_0\tilde\lambda)(y)|\le\eps_Q\|\lambda\|_{B(y)}$, by Definition~\ref{def:avg-parameter}(a) and the locality (iv). The error term becomes $C\eps_Q^2\|\lambda\|_B^2$ and is absorbed.
+\item Theorem~\ref{thm:reg-scalar}(b): hypothesis (ii) of Lemma~\ref{lem:CT-form} uses that $Q'^TQ'$ is block-diagonal, by (iv), and bounded by $(1+\eps_Q)^2$.
+\item Theorem~\ref{thm:reg-scalar}(c): the trial field $\varphi$ built with the model transports in the local gauge satisfies $\|D\varphi\|\le C\|g\|$, as before. For the general pair, $Q'\varphi=g+r$ with $\|r\|\le C(\eps+\eps_Q)\|g\|$, so $\ip{Q'^Tg}\varphi\ge(1-C(\eps+\eps_Q))\|g\|^2$. The bound $M'_X\ge c^2$ uses $\|Q'^Tg\|=\|g\|$, which is (i).
+\item Theorem~\ref{thm:reg-scalar}(d),(e): algebraic. They use (i) for the surjectivity of $Q'$, and (iv) for the facts that $Q'$ maps $\ell^2_0(X)$ to $\ell^2(X_1)$ and that $Q'^TQ'$ does not couple blocks.
+\item Theorem~\ref{thm:reg-scalar}(g) and Theorem~\ref{thm:cov-scalar}(b),(d): $a(Q'^TQ'-Q_0^*Q_0)$ is pointwise admissible with constants $(C\eps_Q,0,1)$ (Lemma~\ref{lem:blocks}(c) with $C\eps$ replaced by $\eps_Q$). The pointwise bound on $H'$ uses $|Q'^Tg|_{B(y)}\le(1+\eps_Q)|g(y)|$, from the transposed bound in Definition~\ref{def:avg-parameter}(a).
+\item Lemmas~\ref{lem:slice}, \ref{lem:Api-identities} and~\ref{lem:domain-identities}: (iii), with the bounds on $E$ from Definition~\ref{def:avg-parameter}(b). The real configuration $V$ enters only through $D_V$, whose transport factors are unitary.
+\item Lemma~\ref{lem:local-coercive}, Step~2: $a(\bQ^T\bQ-\bQ^*\bQ)$ and the terms of $\mathcal K_2$ are admissible perturbations of size $C(\eps_Q+\eps_Q^2)$. The comparison of the scalar ingredients uses (A1)--(A5).
+\item Theorem~\ref{thm:reg-coercive} and Theorem~\ref{thm:reg-gauge}(a): $\bQ^T\bQ$ is local and bounded by $(1+\eps_Q)^2$, by (ii) and (iv). This is all that the double commutators (Lemma~\ref{lem:double-comm}) and hypothesis (ii) of Lemma~\ref{lem:CT-form} use.
+\item Theorem~\ref{thm:reg-gauge}(b): in the local gauge, $a(\bQ^T\bQ-\bQ^*\bQ)$ is pointwise admissible of type~$1$ with constants $(C\eps_Q,0,1)$, and $a\bQ^*\bQ$ with $(0,C,1)$. The terms $\bQ^TESu$, $DRG'(E^T\bQ u)$ and $DRG'(E^TESu)$ of $\mathcal K_2$ are of the form $\bQ^T(\text{bounded})$ or $DRG'(\text{bounded})$ with a factor $\eps_Q$; this uses the transposed bound on $E$ of Definition~\ref{def:avg-parameter}(b). Only sup bounds of the averages enter. No H\"older bound on their kernels is needed, since they contribute to $F_u$ only.
+\item Lemma~\ref{lem:trial-gauge}: the model trial fields in the local gauge, with the Neumann series around the diagonally dominant matrix $T_U$. The margin is $m_\perp(\sigma_0-\sigma_+-\sigma_-)\ge m_\perp/5$ for $N\ge16$, and a fixed margin for $N<16$. The general pair adds a local error of size $C(\eps+\eps_Q)$, which is absorbed for $\eps\le\eps_{\rm U}$ and $\eps_Q\le\theta_Q$. The slice correction uses $\|ESL\|\le C\eps_Q$.
+\item Theorem~\ref{thm:reg-min}: $\bQ_\pi\bG\bQ_\pi^T$ has decay, with constants controlled by (ii) and (iv). The pointwise bound on $\bH B=\bG J$, $J=\bQ_\pi^T\boldsymbol\Gamma_\pi B$, uses three facts:
+  \begin{itemize}
+  \item $|\bQ^T\omega|_{B(y)}\le(1+C\eps_Q)\max|\omega|$, the maximum over the bonds $c$ with $S_c$ meeting $B(y)$ (Lemma~\ref{lem:avg}(c) for $\bQ^*$, and the transposed bound of Definition~\ref{def:avg-parameter}(a));
+  \item the identity $D^T\bQ^T=Q'^TD_V^T+E^T$, from (iii), with the transposed bound on $E$ of Definition~\ref{def:avg-parameter}(b);
+  \item $|Q'^Tg|\le(1+\eps_Q)|g|$.
+  \end{itemize}
+  The transposed sup bounds of the pair and of $E$ enter here, and also in (A5) and (A9). The pointwise bound on $\bC$ uses in addition the forward bounds from sup norms to values of $\bQ$ and of $E$ (Definition~\ref{def:avg-parameter}(a),(b)), through $\bQ_\pi\bG J=\bQ\bG J-ES\bG J$. In each case it enters only as a factor $1+C\eps_Q$, so it affects the smallness condition, not the constants.
+\end{enumerate}
+The explicit contour transports $\Gamma_{y,x}$ of the model pair enter only in (A3) and (A10), as stated in Remark~\ref{rem:general-averaging}. The reality in (i) is used in the G\aa rding inequality (Lemma~\ref{lem:garding}) and in the variational characterizations of $H'$ and $\bH$. No other property of the pair is used.
+
+\emph{Step 3: the constants.} Choose $\theta_Q$, and $\eps_{\rm U}$ not larger than the threshold $\eps_0$ of Parts~II--III, below the thresholds of (A1)--(A11), of Lemma~\ref{lem:CT-stable}, and of Lemma~\ref{lem:bootstrap} (that is, $\eps_*$, depending on $d,\alpha,\gamma$). Then:
+\begin{itemize}
+\item Theorem~\ref{thm:reg-scalar} gives $c,C,\gamma$ depending on $d,a,\alpha,\dim\mathfrak g$, under $(1,\eps)$-regularity.
+\item Lemma~\ref{lem:local-coercive} and Theorem~\ref{thm:reg-coercive} give $\frac{c_g}2$ and $c_*$ for $M\ge M_0$. In their proofs $M_0$ is fixed by $Ce^{-\gamma M_0}\le c_g/8$ and by the absorption of the terms $CM_0^{-2}$, with $C,\gamma$ from the previous item; so $M_0$ is the constant of Part~III and depends only on $d,a,\alpha,\dim\mathfrak g$. In Step~2 of the proof of Lemma~\ref{lem:local-coercive} the pair at $U^u$ is compared directly with the model pair $(Q_0,\bQ)$ at $U=1$, by Definition~\ref{def:avg-parameter}(a) and (A7); so Step~3 concerns the model pair only. For Ba\l aban's pair the pair at $U=1$ is the model pair anyway (Proposition~\ref{prop:linearized-averages}(c)).
+\item Theorem~\ref{thm:reg-gauge}(a) with $X=\Tf$ follows from Lemma~\ref{lem:CT-form}, with $c_*$ and a conjugation constant $C_1$ built from the scalar decay constants. The rate is $\gamma_0=\min(\alpha_1,\frac13,c_*/(2C_1))$. It does not involve $M$.
+\item Theorem~\ref{thm:reg-gauge}(b) follows from Lemma~\ref{lem:bootstrap-local}, with $\gamma'=\frac12\min(\gamma,\gamma_0)$ and a constant depending on $d,\alpha,\gamma,\gamma_0,C_\delta$. Here $C_\delta$ comes from the pointwise bounds of Theorem~\ref{thm:reg-scalar}(g). The letter $M$ in Lemma~\ref{lem:bootstrap-local} is the $L^2$ amplitude of Lemma~\ref{lem:bootstrap}, not the regularity scale. That lemma is used with its invariant inputs: the small inputs are $|u|+|\nabla u|$ on the cubes $\Lam_1(c_z)$, with weights $e^{-\gamma|y-z|}$ and the full covariant gradient ($|u|+|Du|$ for scalar fields). Only the small differential terms multiply them; the large smoothing terms use the local $L^2$ bounds from Combes--Thomas. The terms containing the pair or $E$ in (A5), (A9) and (A11) use their forward and transposed value bounds, not lattice derivatives or H\"older quotients of the averaging kernels. Every composition uses a positive rate no larger than the inverse and perturbation rates (Lemma~\ref{lem:perturbed-inverse}).
+\item Theorem~\ref{thm:reg-min}: $\boldsymbol\Gamma_\pi$ has decay by Lemma~\ref{lem:CT-bounded}, with the lower bound from (A10). The sum form of the pointwise bound of $\bG$ (Theorem~\ref{thm:cov-gauge}(c), at regular backgrounds) and (A11) give (b). Here $\gamma_H$ is half the smallest of the rates above, and $C_H$ is a product of the constants above and $S_{\gamma_H}$ (Lemma~\ref{lem:decay-calculus}).
+\end{itemize}
+Every constant in this chain depends only on $d,a,\alpha,\dim\mathfrak g$. This proves (a) and (b).
+
+\emph{Step 4: (c).} By Proposition~\ref{prop:linearized-averages}(a), (b), (d), (f), Ba\l aban's pair has properties (i), (iii) (with $E=0$ and $V=W_k$ real) and (iv). An $(M,\eps)$-regular $U_0$ has curvature at most $C_{\rm curv}\eps$ (proof of Corollary~\ref{cor:parts-apply}), so $U_0\in\mathfrak U_0(C_{\rm curv}\eps)$. Choose $c_Q$ so that $\eps\le c_Q$ implies $\max(1,C_{\rm curv})\eps\le c_3$ and the hypotheses of Lemma~\ref{lem:avg-local-gauge}. Then, in each gauge of Definition~\ref{def:avg-parameter}, Proposition~\ref{prop:linearized-averages}(e) applies on $\Lam_4(c_y)$, with $\eps$ replaced by $\max(1,C_{\rm curv})\eps$. It gives the kernel bounds with a constant that depends on $L$, by the conventions of Part~IV. Call the resulting constant $C_Q$. The kernel bounds give the block norms by the Schur test, and the sup bounds of the transposes by column sums. Hence $\eps_Q\le C_Q\eps$, and $\eps_Q\le\theta_Q$ for $\eps\le\theta_Q/C_Q$.
+\end{proof}
+
+\begin{remark}[Where $L$ and $M$ do enter]\label{rem:uniformity-limits}
+\begin{enumerate}[label=(\alph*)]
+\item Part~IV provides only an $L$-dependent constant $C_Q$ in Lemma~\ref{lem:uniformity}(c). The corrections $r_j$ of Lemma~\ref{lem:one-step-expansion} are carried by the contours $\Gamma^j_{c,x}$, which share their initial bonds near the corner $c_-$. So the kernel of $\bQ_k(U_0)-\bQ$ may concentrate near the corners of the scale-$j$ blocks, and its sup norm, which controls the transposes, is bounded only by $O(C_L\eps)$, by the bookkeeping in the proof of Proposition~\ref{prop:Q-expansion}(c). Whether this is sharp is not settled here. Lemma~\ref{lem:uniformity} uses the transposes in (A5), (A9) and (A11). This is why \eqref{eq:H-pointwise} is stated only for $\eps$ small depending on $L$. This only affects how small the regularity parameter must be, not $C_H$ or $\gamma_H$.
+\item Two results of Part~III have constants that depend on $M$. The random-walk expansion (Theorem~\ref{thm:random-walk}(a)) gives decay at a rate of order $M^{-1}\log M$, and Theorem~\ref{thm:reg-locality}(b) has the factor $e^{CM}$. Neither is used in Lemma~\ref{lem:uniformity}: there, decay comes from Combes--Thomas. Since $M\ge5L$ in Part~VI, no bound that must be independent of $L$ may use them.
+\item The Dirichlet operators $\fA^{X,\kappa}$ for $X\ne\Tf$ depend on $M$ through the mass profile $m_X$. Their constants are still independent of $M\ge M_0$ (Theorem~\ref{thm:reg-coercive}), but Step~0 does not apply to them, because the operators themselves change with $M$.
+\end{enumerate}
+\end{remark}
+
+Let $C_H$, $\gamma_H$ be the constants of Lemma~\ref{lem:uniformity}(b). By Lemma~\ref{lem:uniformity}(c), \eqref{eq:H-pointwise} holds at every real $(M,\eps)$-regular background $U_0$ with $M\ge M_0$ and $\eps\le\eps_{\rm B}$, with $\bH(U_0)$ the minimizer map for Ba\l aban's pair $(Q'_k(U_0),\bQ_k(U_0))$. Put
+\[
+C_*=\max\Big(1,\ 2dC_H\sum_{w\in\Z^d}e^{-\gamma_H|w|}\big(|w|_\infty+2\big)\Big).
+\]
+Then $C_*$ depends only on $d$, $a$, $\alpha$ and $G$.
+
+
+\begin{proposition}[Curvature of background fields]\label{prop:sharp-curvature}
+For every $\delta>0$ there are $a_\delta\in(0,a_1]$ and an integer $n_\delta\ge n_0$, both depending on $d$, $L$, $G$, $a$, $\alpha$, $M$ and $\delta$, such that for all $k\ge0$, $n\ge n_\delta$ and $V\in\mathfrak U_k(\eps_1)$ with $\eps_1\le a_\delta$, every element of the minimal orbit satisfies $U_k(V)\in\mathfrak U_0\big((C_*+\delta)\eps_1\big)$.
+\end{proposition}
+
+\begin{proof}
+For $k=0$, $U_0(V)=V$ and $C_*\ge1$. Let $k\ge1$ and $U=U_k(V)$. By Theorem~\ref{thm:balaban}, $U$ is $(M,\eps_0)$-regular and lies in $\mathfrak U(\eps_0)$ with $\eps_0=B_3\eps_1$, and $U$ is critical. Fix $R\ge64(M+1)$ as below and a point $y\in\T$. For $\eps_0$ small enough, depending on $R$, Steps~1--3 of the proof of Lemma~\ref{lem:improvement} apply with this $R$. This gives a real gauge transformation $w$ and, on the bonds of $\Lam_{R/4}(y)$, $U^w=e^{\ii\eta\tilde A}$ with $\tilde A=R(u)A^\sharp_*$. Here $A^\sharp_*$ is the Landau representative relative to the spliced reference $U^\sharp$, for which $\eps^\sharp+\beta^\sharp\le K_R\eps_0$.
+
+Let $p$ be a plaquette of $\Tf$ with base point in $B(y)$. Its curvature satisfies $|F_U(p)|=|F_{e^{\ii\eta\tilde A}}(p)|\le|(\partial\tilde A)(p)|+C|\tilde A|^2$, where $\partial\tilde A(p)=\partial_\mu\tilde A_\nu-\partial_\nu\tilde A_\mu$; this follows from Lemma~\ref{lem:log-estimates}(c). By Theorem~\ref{thm:variational}(c), $A^\sharp_*=\bH^\sharp B^\sharp-\bC^\sharp J_{U^\sharp}+\mathcal R$ with $|\mathcal R|_{C^1}\le C(K_R\eps_0)^2$, where $\bH^\sharp=\bH(U^\sharp)$ and $\bC^\sharp=\bC(U^\sharp)$.
+\begin{itemize}
+\item In the gauge $u$, $\nabla_{U^\sharp}$ is the ordinary difference near $y$. The background $U^\sharp$ is real and $(M,\eps^\sharp)$-regular with $\eps^\sharp\le K_R\eps_0$ (Lemma~\ref{lem:splice}). We assume $K_RB_3a_\delta\le\eps_{\rm B}$ of Lemma~\ref{lem:uniformity}(c); this is one more condition on $a_\delta$, which already depends on $L$ and $M$. By \eqref{eq:H-pointwise} applied at $U^\sharp$ (Lemma~\ref{lem:uniformity}(c)),
+\[
+|\partial(R(u)\bH^\sharp B^\sharp)|_{B(y)}\le C_H\sum_{y'}e^{-\gamma_H|y-y'|}|B^\sharp(y')| .
+\]
+\item For $|y'-y|_\infty\le R/4-3$, Step~4 of that proof gives $|B^\sharp(y')|\le d(|y'-y|_\infty+2)\eps_1$. These terms contribute at most $\frac12C_*\eps_1$ to $|\partial\tilde A_\mu|$.
+\item The other terms, the term $\bC^\sharp J_{U^\sharp}$ and the remainder contribute at most $CK_R\,T(R/8)\eps_0+C(K_R\eps_0)^2$, as in Step~4. Here $T$ is defined as in that proof, with $\gamma_7$ replaced by the smaller of $\gamma_H$ and the decay rate of $\bC^\sharp$.
+\end{itemize}
+Altogether
+\[
+|F_U(p)|\le C_*\eps_1+C\big(K_RT(R/8)+K_R^2\eps_0\big)B_3\eps_1+C(K_R\eps_0)^2 .
+\]
+Choose $R$ with $CK_RT(R/8)B_3\le\delta/2$, then $a_\delta\le a_1$ so that the remaining terms are at most $\frac\delta2\eps_1$ for $\eps_0=B_3\eps_1\le B_3a_\delta$; the bound $a_\delta\le a_1$ is needed for Theorem~\ref{thm:balaban}. Every plaquette has its base point in some block. The torus must contain the cubes $\Lam_{R+3}(y)$ without wrapping, and $n\ge n_0$ is needed for Theorem~\ref{thm:balaban}; this fixes $n_\delta=\max(n_0,4R+16)$.
+\end{proof}
+
+The proposition makes the small-field sets of consecutive steps compatible. If $V'$ has curvature at most $h'$ in the units of step $k+1$, then the curvature of $U_{k+1}(V')^{(k)}$, in the units of step $k$, is at most $L^{-2}(1+Ch')(C_*+\delta)h'$, by Proposition~\ref{prop:avg-regular}. With $h'=L^{1/2}h$ (the ratio $g_{k+1}/g_k$), $\delta\le C_*$ and $Ch'\le1$, this is at most $\frac12h$ as soon as $L^{3/2}\ge8C_*$. Since $C_*$ does not depend on $L$, this is a condition on $L$ alone.
+
+\subsection{The background of a step}
+
+\begin{lemma}[Composition of background fields]\label{lem:composition}
+Let $V'$ be a real configuration on $\T'$ whose curvature, in the units of step $k+1$, is at most $\eps'_1\le\min\big(a_{\delta=1},\,a_1/(2C_*+2)\big)$, with $a_\delta$ from Proposition~\ref{prop:sharp-curvature}, and $(C_*+1)\eps'_1\le c_1$. Let $U'=U_{k+1}(V')$ be an element of its minimal orbit, and $V^0=U'^{(k)}$. Then:
+\begin{enumerate}[label=(\alph*)]
+\item $V^0\in\mathfrak U_k(\eps_1)$, in the units of step $k$, with $\eps_1=2(C_*+1)L^{-2}\eps'_1\le a_1$, and $\mathfrak a'(V^0)=V'$;
+\item $U'$ belongs to the minimal orbit of the $k$-step problem for $V^0$: $U_k(V^0)=U'$;
+\item for every real $V$ with $\mathfrak a'(V)=V'$ and $V\in\mathfrak U_k(a'_1)$, $a'_1=\min(a_1,\theta_0L^{-3}B_3^{-1})$, we have $S(U_k(V))\ge S(U')$. Equality holds iff $V=(V^0)^u$ for a real $u$ with $u|_{\T'}=1$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) By Proposition~\ref{prop:sharp-curvature} (with $\delta=1$), $U'$ has curvature at most $(C_*+1)\eps'_1$ in the units of step $k+1$. By Proposition~\ref{prop:avg-regular} its $k$-fold average has curvature at most twice this, in the same units, which is the claim in the units of step $k$. Moreover $\mathfrak a'(V^0)=U'^{(k+1)}=V'$.
+
+(b) Near $U'$, the constraint manifold $\{U^{(k)}=V^0\}$ is a submanifold of $\{U^{(k+1)}=V'\}$, since $U^{(k)}=V^0$ implies $U^{(k+1)}=\mathfrak a'(V^0)=V'$. As sets, $\mathfrak B_k(V^0)\subset\mathfrak B_{k+1}(V')$ is false: the cap $U\in\mathfrak U_0(c_1)$ in the definition of $\mathfrak B$ is weaker in the units of step $k$. Only the local inclusion is used. The configuration $U'$ is a critical point of $S$ on the manifold $\{U^{(k+1)}=V'\}$ near $U'$ and lies on the submanifold $\{U^{(k)}=V^0\}$. So it is critical on $\mathfrak B_k(V^0)$. In the units of step $k$ its curvature and current are smaller than in the units of step $k+1$, so $U'\in\mathfrak U(\theta_0)$ in the units of step $k$. By Theorem~\ref{thm:balaban}(a) at step $k$, $U'$ lies in the unique critical orbit, which is the minimal orbit.
+
+(c) By Theorem~\ref{thm:balaban}(b), $U_k(V)\in\mathfrak U(B_3a'_1)$ in the units of step $k$. In the units of step $k+1$ this gives curvature and current at most $L^3B_3a'_1\le\theta_0$. Hence $U_k(V)\in\mathfrak B_{k+1}(V')\cap\mathfrak U(\theta_0)$, and $S(U_k(V))\ge S(U')$. If equality holds, $U_k(V)$ is a minimizer of the $(k+1)$-step problem, so $U_k(V)=U'^{u}$ with $u|_{\T'}=1$. Then $V=U_k(V)^{(k)}=(V^0)^{u|_\T}$. The converse follows from gauge invariance.
+\end{proof}
+
+So $V^0$ is the minimizer of the coarse action $V\mapsto S(U_k(V))$ on the one-step constraint set, and the background of the $(k+1)$-step problem is the background of $V^0$. We call $V^0$ the \emph{base configuration} of the step. It depends on the choice of $U'$ in its orbit only through a gauge transformation on $\T$ that is trivial on $\T'$.
+
+In the units of step $k$, $U'$ is $(M,B_3\eps'_1)$-regular and lies in $\mathfrak U(B_3\eps'_1)$. Indeed, passing from the units of step $k+1$ to those of step $k$ multiplies Lie fields by $L^{-1}$, curvatures by $L^{-2}$ and currents by $L^{-3}$, and the cubes of Definition~\ref{def:regular} become larger, which only helps (Lemma~\ref{lem:regular-monotone}). Throughout this part we write
+\[
+\eps:=B_3\eps'_1
+\]
+for the regularity parameter of $U'$ as a reference configuration for the $k$-step problem.

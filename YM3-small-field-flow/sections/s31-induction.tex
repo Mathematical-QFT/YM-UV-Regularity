@@ -1,0 +1,112 @@
+\section{The induction over the number of steps}\label{sec:induction}
+
+We now prove Ba\l aban's variational theorem on the torus by induction over $k$. Each step has three parts:
+\begin{itemize}
+\item the solution of the $(k-1)$-step problem for the trivial extension of $V$ is a reference with \emph{exactly} the right averages \cite[Sect.~A]{BalVar};
+\item Theorem~\ref{thm:variational} solves the problem near this reference, with an a priori regularity bound that is worse by a power of $L$;
+\item Lemma~\ref{lem:improvement}, iterated, restores the regularity bound with a constant independent of $k$.
+\end{itemize}
+
+\subsection{The trivial extension}
+
+Let $k\ge1$. A bond $b$ of $\T^{(k-1)}$ in direction $\mu$ is a \emph{crossing bond} if its endpoints lie in different blocks, $b_-\in B_k(y)$ and $b_+\in B_k(y+e_\mu)$; we then write $c(b)=(y,y+e_\mu)$. For a configuration $V$ on $\T$ define $V_0$ on $\T^{(k-1)}$ by
+\[
+V_0(b)=V(c(b))\ \text{ for crossing bonds},\qquad V_0(b)=1\ \text{ for bonds inside a block}
+\]
+\cite[(11)]{BalVar}.
+
+\begin{lemma}[Trivial extension]\label{lem:trivial-extension}
+\begin{enumerate}[label=(\alph*)]
+\item $\mathfrak a_k(V_0)=V$.
+\item Let $p$ be a plaquette of $\T^{(k-1)}$. If $p$ has crossing bonds in both of its directions, then $V_0(\partial p)=V(\partial p')$, where $p'$ is the plaquette of $\T$ spanned by the four blocks containing the corners of $p$. Otherwise $V_0(\partial p)=1$. Hence $F_{V_0}(p)=L^2F_V(p')$ or $0$, and $V\in\mathfrak U_k(\eps_1)$ implies $V_0\in\mathfrak U_{k-1}(L^2\eps_1)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) Let $c=(y,y+e_\mu)$ and $x\in B_k(y)$. The pieces $\Gamma^k_{y,x}$ and $\Gamma^k_{y+e_\mu,x(c)}$ of $\Gamma^k_{c,x}$ stay inside blocks. The straight piece $[x,x(c)]$ contains exactly one crossing bond, from $B_k(y)$ to $B_k(y+e_\mu)$. The same holds for $[c]$. Hence $V_0(\Gamma^k_{c,x})=V(c)=V_0([c])$, all logarithms in Definition~\ref{def:one-step} vanish, and $\mathfrak a_k(V_0)(c)=V_0([c])=V(c)$.
+
+(b) The two bonds of $p$ in direction $\mu$ are crossing or not simultaneously, and they connect the same pair of blocks if the bonds in direction $\nu$ do not cross. In that case $V_0(\partial p)$ is $V(c)V(c)^{-1}=1$ or $1$. If both pairs cross, the four bonds carry the values of $V$ on the four bonds of $\partial p'$, in the order of Definition~\ref{def:curvature}. Finally $F_{V_0}(p)=\delta_{k-1}^{-2}\ell(V_0(\partial p))=L^2\ell(V(\partial p'))=L^2F_V(p')$.
+\end{proof}
+
+In units of $\delta_{k-1}$, curvatures are multiplied by $\delta_{k-1}^2=L^{-2}$. So in its own units, $V_0$ satisfies the same curvature bound $\eps_1$ as $V$.
+
+\subsection{Change of units}
+
+As in the proof of Theorem~\ref{thm:chart}, the $(k-1)$-step structure on $(\Tf,\T^{(k-1)})$, in units of $\delta_{k-1}$, is the $(k-1)$-step structure on a torus of side $Ln$ with fine spacing $L\eta$. The Wilson action changes by a constant factor, so critical points and minimizers are the same.
+
+\begin{lemma}[Change of units]\label{lem:units}
+There is $C_L$, depending only on $d$, $\alpha$, $G$, $L$ and $M$, with the following property. Let $U_0$ be a real configuration on $\Tf$ which, in units of $\delta_{k-1}$, lies in $\mathfrak U(\theta)$ and is $(M,\theta)$-regular. If $C_L\theta\le1$, then in units of $\delta_k=1$, $U_0\in\mathfrak U(L^3\theta)$ and $U_0$ is $(M,C_L\theta)$-regular.
+\end{lemma}
+
+\begin{proof}
+Passing to units of $\delta_k$ divides lengths by $L$ and multiplies Lie fields by $L$, their differences and curvatures by $L^2$, currents by $L^3$, and H\"older quotients of differences by $L^{2+\alpha}$. This gives the first claim. For the second, let $r'=(4M+2)/L$. Every cube $\Lam_{r'}(z)$ carries a gauge with $|A|\le L\theta$ and $|\partial A|\le L^2\theta$, and with H\"older quotients of $\partial A$ at most $L^{2+\alpha}\theta$ on cubes of radius $3/L$. Let $r=r'-2$. Two points of $\Lam_r(z)$ at distance at most $3/L$ lie in a common cube of radius $3/L$ contained in $\Lam_{r'}(z)$. For points at larger distance the quotient is at most $2|\partial A|(L/3)^\alpha$. Hence $U_0$ is $3L^3\theta$-regular on every cube $\Lam_r(z)$. Since $M\ge5L$, $r\ge18$. Lemma~\ref{lem:large-cubes} with $R=4M+2$ gives the claim, with $C_L=3C_E(4M+2)^{p+1}L^3$.
+\end{proof}
+
+\subsection{The theorem}
+
+\begin{theorem}[Ba\l aban's variational theorem on the torus]\label{thm:balaban}
+Assume the conventions of Part~VI, in particular $M\ge\max(M_0,5L)$. Let $d\ge3$, and let $\theta_0$ be as in Theorem~\ref{thm:variational} and $n_0$ as in Lemma~\ref{lem:improvement}. There are $a_1,B_3>0$, depending only on $d$, $L$, $G$, $a$, $\alpha$ and $M$, such that the following holds for all $k\ge0$, all $n\ge n_0$ and every real configuration $V$ on $\T$ with $V\in\mathfrak U_k(\eps_1)$, $\eps_1\le a_1$.
+\begin{enumerate}[label=(\alph*)]
+\item $S|_{\mathfrak B(V)}$ has exactly one critical orbit in $\mathfrak B(V)\cap\mathfrak U(\theta_0)$. This orbit is the set of minimizers of $S$ on $\mathfrak B(V)\cap\mathfrak U(\theta_0)$.
+\item Every element $U_k(V)$ of this orbit lies in $\mathfrak U(B_3\eps_1)$ and is $(M,B_3\eps_1)$-regular.
+\end{enumerate}
+The constants do not depend on $k$, $n$ or $\eta$.
+\end{theorem}
+
+This is \cite[Theorem~1]{BalVar} for a single torus with the small-field condition everywhere. Part~(b) is the regularity statement \cite[(8)--(10)]{BalVar} for cubes of the fixed size $M$. As in \cite{BalVar}, the elements of the orbit are called \emph{background fields} or \emph{minimal configurations}.
+
+\begin{proof}
+\emph{Constants.} Let $C_{\rm base}$ be the constant of the case $k=0$ below, and put
+\[
+B_3=\max(4C_{\rm imp},C_{\rm base}),\qquad K=(1+C_6)C_L .
+\]
+Choose $a_1$ so small that $C_LB_3a_1\le\min(c_6,1)$, $KB_3a_1\le\eps_{\rm imp}$, $B_3a_1\le\theta_0$, and $a_1\le c_1$, $d(8M+6)a_1\le c_G$. These choices do not depend on $k$.
+
+\emph{The case $k=0$.} Then $\eta=1$, $\Tf=\T$, $\mathfrak B(V)=\{V\}$ and $\mathfrak G_0=\{1\}$. We first prove (b); then $V\in\mathfrak U(B_3\eps_1)\subset\mathfrak U(\theta_0)$, and (a) is trivial. The current $J_V=D^T_VF^s_V$ is a combination of at most $4d$ values of $F^s_V$, so $|J_V|\le C\eps_1$. For regularity, fix $z$ and a point $z_0\in\T$ with $|z-z_0|_\infty\le1$, and let $u$ be the axial gauge on $\Lam_{4M+2}(z)$ with $V^u(\Gamma^{\rm ax}_{z_0,x})=1$. As in the proof of Lemma~\ref{lem:adapted-gauge}, $|\ell(V^u(b))|\le d(4M+4)\eps_1$ for every bond $b$ of $\Lam_{4M+2}(z)$. On the unit lattice, for $A=\ell(V^u)$, $|\partial A|\le2|A|$, and the H\"older quotients of $\partial A$ are at most $2|\partial A|\le4|A|$, since distinct points have distance at least $1$. So $V$ is $(M,C_{\rm base}\eps_1)$-regular and lies in $\mathfrak U(C_{\rm base}\eps_1)$, with $C_{\rm base}$ depending only on $d$, $G$ and $M$.
+
+\emph{From $k-1$ to $k$.} Let $V\in\mathfrak U_k(\eps_1)$ with $\eps_1\le a_1$, and let $V_0$ be its trivial extension. In units of $\delta_{k-1}$ the torus has side $Ln\ge n_0$, and $V_0$ has curvature at most $\eps_1$ (Lemma~\ref{lem:trivial-extension}). By the induction hypothesis there is a minimal configuration $U_0=U_{k-1}(V_0)$. In units of $\delta_{k-1}$ it lies in $\mathfrak U(B_3\eps_1)$ and is $(M,B_3\eps_1)$-regular. By Lemma~\ref{lem:units}, in units of $\delta_k$,
+\[
+U_0\in\mathfrak U(L^3B_3\eps_1),\qquad U_0\ \text{is}\ (M,\eps)\text{-regular},\qquad\eps:=C_LB_3\eps_1\le c_6 .
+\]
+Since $U_0^{(k-1)}=V_0$, Lemma~\ref{lem:trivial-extension}(a) gives
+\[
+W_k=U_0^{(k)}=\mathfrak a_k(V_0)=V ,
+\]
+so the hypotheses of Theorem~\ref{thm:variational} hold with $\beta=0$; note $|J_{U_0}|\le L^3B_3\eps_1\le\eps$. Parts (a) and (b) of that theorem give (a).
+
+For (b), let $U$ be an element of the orbit. By Theorem~\ref{thm:variational}(e), $U$ is $(M,\eps_0^{(0)})$-regular and lies in $\mathfrak U(\eps_0^{(0)})$, with $\eps_0^{(0)}=(1+C_6)\eps=KB_3\eps_1\le\eps_{\rm imp}$. If $\eps_0^{(0)}\le B_3\eps_1$ there is nothing to prove, so let $\eps_0^{(0)}>B_3\eps_1\ge4C_{\rm imp}\eps_1$. Define $\eps_0^{(m+1)}=C_{\rm imp}\eps_1+\frac12\eps_0^{(m)}$. If $\eps_0^{(m)}\ge2C_{\rm imp}\eps_1$, then $\eps_0^{(m+1)}\le\eps_0^{(m)}$. By Lemma~\ref{lem:improvement} and induction over $m$, $U$ is $(M,\eps_0^{(m)})$-regular and lies in $\mathfrak U(\eps_0^{(m)})$ for all $m$. Since
+\[
+\eps_0^{(m)}-2C_{\rm imp}\eps_1=2^{-m}\big(\eps_0^{(0)}-2C_{\rm imp}\eps_1\big)\le2^{-m}KB_3\eps_1 ,
+\]
+we have $\eps_0^{(m)}\le2C_{\rm imp}\eps_1+\frac12B_3\eps_1\le B_3\eps_1$ once $2^{m}\ge2K$. This proves (b) with the same $B_3$, and closes the induction.
+\end{proof}
+
+The induction uses Theorem~\ref{thm:variational} with $\beta=0$: the reference has exactly the prescribed averages. On the nested domains of \cite{BalVar} this is not the case, and $\beta$ is of order $\eps_1$ \cite[(14)]{BalVar}. Theorem~\ref{thm:variational} allows $\beta>0$, which is used in Lemma~\ref{lem:improvement} and in Corollary~\ref{cor:analytic} below.
+
+\subsection{Consequences}
+
+\begin{corollary}[Local regularity from gauge-invariant conditions]\label{cor:regularity}
+There are $a_2,B_5>0$, depending only on $d$, $L$, $G$, $a$, $\alpha$ and $M$, such that for all $k\ge0$ and $n\ge n_0$ every real configuration $U\in\mathfrak U(\theta)$ on $\Tf$ with $\theta\le a_2$ is $(M,B_5\theta)$-regular. More precisely, $U$ is gauge equivalent, by a real gauge transformation, to $e^{\ii\eta A}U_k(U^{(k)})$. Here $A$ lies in Ba\l aban's Landau gauge relative to $U_k(U^{(k)})$, and $A$ obeys the bounds of Theorem~\ref{thm:chart} with $\eps+\theta+\beta=(2B_3+1)\theta$.
+\end{corollary}
+
+\begin{proof}
+Let $k=0$. Then $\eta=1$, $\Tf=\T$ and $U^{(0)}=U$. By the case $k=0$ of the proof of Theorem~\ref{thm:balaban}, $\mathfrak B(U)=\{U\}$, so $U_0(U)=U$, and the representation holds with $A=0$, for which the gauge condition and the bounds are trivial. The curvature of $U$ is at most $\theta\le a_1$, so Theorem~\ref{thm:balaban}(b), with $V=U$ and $\eps_1=\theta$, shows that $U$ is $(M,B_3\theta)$-regular.
+
+Let $k\ge1$ and $V=U^{(k)}$. By Proposition~\ref{prop:avg-regular}, $V\in\mathfrak U_k(2\theta)$. Let $2\theta\le a_1$ and $(2B_3+1)\theta\le c_4$. By Theorem~\ref{thm:balaban}, $U_0=U_k(V)$ exists. It is $(M,2B_3\theta)$-regular, satisfies $|J_{U_0}|\le2B_3\theta$, and has $U_0^{(k)}=V$. By Lemma~\ref{lem:axial}(c), the $\mathfrak G_0$-orbit of $U$ contains a configuration $U^{\rm ax}$ with $U'=U^{\rm ax}U_0^{-1}\in\mathrm{Ax}_k$. Transformations in $\mathfrak G_0$ do not change the averages, so $U'^{[k]}=(U^{\rm ax})^{(k)}V^{-1}=1$. Theorem~\ref{thm:chart}, with $\eps=2B_3\theta$ and $\beta=0$, gives $\tilde U=e^{\ii\eta A}$ in the Landau gauge with $(\tilde UU_0)^{\mathsf w_k(\tilde U)}=U^{\rm ax}$ and with the stated bounds. Finally, $e^{\ii\eta A}U_0$ is $(M,2B_3\theta+CB_1(2B_3+1)\theta)$-regular, by the argument in the proof of Proposition~\ref{prop:minimizer-regularity}(c). That argument uses the H\"older bound on the unit cubes $\Lam_1(z)$. For the field $A$ of Theorem~\ref{thm:chart} this bound is given by the proof of Proposition~\ref{prop:a-priori} (Theorem~\ref{thm:local-regularity}(d)) and Remark~\ref{rem:cubes}. So the corollary holds with $B_5=2B_3+CB_1(2B_3+1)$, which is at least the constant $B_3$ of the case $k=0$.
+\end{proof}
+
+Corollary~\ref{cor:regularity} is the torus version of \cite[Sect.~F, Prop.~6]{BalReg} and of the regularity conditions \cite[(3.35)--(3.36)]{BalBackground}. It removes the hypothesis of Part~III for all configurations of Ba\l aban's small-field class: on tori of side $n\ge n_0$, regularity follows from the gauge-invariant bounds on curvature and current. The proof uses the background field as a reference: the local gauges are the Landau gauge relative to $U_k(U^{(k)})$, composed with the local gauges of the background field. The latter come out of the induction.
+
+\begin{corollary}[Analyticity around a background field {\cite[Sect.~G]{BalVar}}]\label{cor:analytic}
+Let $V$ be as in Theorem~\ref{thm:balaban}, and let $U_0$ be an element of its minimal orbit. For $k\ge1$, Theorem~\ref{thm:variational} applies with this reference and $\eps=B_3\eps_1$. For real $B$ on $\T$ with $|B|_\infty\le\beta$ and $B_3\eps_1+\beta\le c_6$, the critical orbit for $e^{\ii B}V$ in $\mathfrak B(e^{\ii B}V)\cap\mathfrak U(\theta_0)$ is unique, and its Landau representative $A_*(B)$ relative to $U_0$ satisfies $A_*(0)=0$. The map $B\mapsto A_*(B)$ extends analytically to complex $B$, and $dA_*(B)\delta B$ decays exponentially away from the support of $\delta B$, as in Theorem~\ref{thm:variational}(f).
+\end{corollary}
+
+\begin{proof}
+$U_0$ is $(M,B_3\eps_1)$-regular with $|J_{U_0}|\le B_3\eps_1$, and $W_k=V$. For $B=0$, the configuration $U_0=\mathsf U(0)$ is critical, and $A=0$ lies in the Landau gauge with $\mathcal Q(1)=1$; by uniqueness, $A_*(0)=0$. For $k\ge1$ the rest is Theorem~\ref{thm:variational}.
+
+Let $k=0$. The operators of Parts~II--V need $k\ge1$ (Section~\ref{sec:setup}), but the conclusions hold directly. Here $\eta=1$, $\Tf=\T$, $\mathfrak G_0=\{1\}$ and $U_0=V$, by the case $k=0$ of the proof of Theorem~\ref{thm:balaban}. The averaging, the correspondence transformation and $\mathcal Q$ are the identity, so $\mathfrak B(e^{\ii B}V)=\{e^{\ii B}V\}$, and the relative field of $e^{\ii B}V$ is $A_*(B)=B$; the Landau gauge condition is void. By Lemma~\ref{lem:log-estimates}(b), the curvature of $e^{\ii B}V$ is at most $\eps_1+4|B|_\infty$, and its current, a combination of at most $4d$ values of $F^s$, is at most $4d$ times this. Since $\eps_1\le B_3\eps_1$, both are at most $20d\,c_6\le\min(\theta_0,c_1)$, by the choice of $c_6$ in the proof of Theorem~\ref{thm:variational}. So the configuration $e^{\ii B}V$ lies in $\mathfrak U(\theta_0)\cap\mathfrak U_0(c_1)$, and its orbit is the unique critical orbit. The map $B\mapsto B$ is entire, $A_*(0)=0$, and $|A_*(B)|_{C^1}\le3|B|_\infty$ by \eqref{eq:lattice-trick}. Finally $dA_*(B)\delta B=\delta B$ is supported on the bond $c$, and its covariant gradient on the bonds within distance $1$ of $c$. This is the decay of Theorem~\ref{thm:variational}(f), with $C_6\ge3e^{\gamma'}$.
+\end{proof}
+
+\begin{remark}[Cubes of size of order $\eps_1^{-1}$]\label{rem:large-cubes}
+Ba\l aban also proves gauges on cubes of side $2M'\le c\,\eps_1^{-1}$, with bounds $B_3M'\eps_1$ linear in the size \cite[(9), (10)]{BalVar}. Theorem~\ref{thm:balaban} and Lemma~\ref{lem:large-cubes} give gauges on cubes of side $2R$ with bounds $C(R/M)^pB_3\eps_1$, polynomial in $R$, for $R^{p+1}\eps_1$ small. Linear bounds should follow by running Lemma~\ref{lem:improvement} with a splicing radius proportional to $R$, with $R$ limited to a power of $\eps_1^{-1}$ by the quadratic error. We do not prove this. The regularity at the fixed scale $M$ is all that Parts~II--V require.
+\end{remark}

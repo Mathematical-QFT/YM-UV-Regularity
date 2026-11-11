@@ -1,0 +1,156 @@
+\section{The iteration and the small-field flow}\label{sec:target-flow}
+
+This section iterates Theorem~\ref{thm:one-step} over the steps. It treats the first step separately, defines the vacuum energy and its counterterm, and states the small-field flow and its consequence for the partition function. The plan and its review are in the blueprint (Appendix~K). The model and the map $T$ are those of Section~\ref{sec:rg-step}. The finest spacing is $\epsilon=L^{-N}$. Here $N$ is the total number of scales, unrelated to $N=L^k$ of Parts~I--VII and to the matrix size $\mathsf N$. The dimensionless couplings are $g_k^2=g^2L^k\epsilon$, so $g_{k+1}^2=Lg_k^2$, and $\rho_0(V)=\exp(-g_0^{-2}S_{\rm lat}(V)-E_0)$ on the $\epsilon$-lattice $\T^{(0)}$. The parameters are chosen in the order of Theorem~\ref{thm:one-step}.
+
+\subsection{Scales and the torus}\label{subsec:tf-scales}
+
+The assumptions on $p$ and $p_0$ of Section~\ref{sec:flow} (small-field parameters) stay in force: $p_k=p(g_k)$, $p_{0,k}=p_0(g_k)$, $p$ decreasing with $p(g)/p(L^{1/2}g)\to1$, $p_0/p\to0$, and $g^\beta p(g)\to0$ for every $\beta>0$. In addition $g\mapsto p(g)g$ is increasing. Powers of $1+\log g^{-1}$ satisfy all of these. The lattice is assumed fine enough that $g_1\le g_*$, i.e.\ $\epsilon\le g_*^2/(Lg^2)$. Let the torus have physical side $\ell$. In the units of step $k$ the lattice $\T^{(k)}$ has side $n_k=\ell L^{N-k}$. The iteration runs for $k=0,\dots,K$, where $K$ is the largest integer with $g_K\le g_*$. Then $L^{-1/2}g_*<g_K\le g_*$ and $n_K=\ell g^2/g_K^2\ge\ell g^2/g_*^2$. Put
+\[
+n_{\min}=\max\big(C_{\rm tor}M,\ n_*(L,M,\rho),\ CM(\log h_*^{-1}+\log L)\big),\qquad h_*=p(L^{-1/2}g_*)\,L^{-1/2}g_* ,
+\]
+with $n_*$, $C_{\rm tor}$ from (T0), (T2), and $h_*\le h_K$ the value of $h=pg$ at the smallest possible final coupling. We assume that the physical volume is not too small, $\ell g^2/g_*^2\ge n_{\min}$, so that $n_K\ge n_{\min}$. We also assume that $\ell L^{N}$ and $M$ are powers of $L$, so that $M\mid n_K$. All bounds below are uniform in $g_k\le g_*$; this mirrors \cite{DimockI}, whose final torus has side $L^{M+\Delta}$.
+
+\begin{lemma}[Torus hypotheses]\label{lem:torus}
+For every $k<K$, (T0)--(T2) and the first alternative of (T3) hold.
+\end{lemma}
+
+\begin{proof}
+$n_k=L^{K-k}n_K\ge Ln_K$ gives (T0) and (T2), and $M\mid n_K$ gives (T1). For (T3): since $p_K\le p_k$ and $g_k^2=L^{-(K-k)}g_K^2$, $\log h_k^{-1}\le\log h_K^{-1}+\frac12(K-k)\log L$, and $\log h_K^{-1}\le\log h_*^{-1}$. Since $L^{K-k}\ge1+(K-k)$, $n_k\ge n_K(1+(K-k))\ge CM\log h_*^{-1}+CM(K-k)\log L\ge CM\log h_k^{-1}$.
+\end{proof}
+
+By Lemma~\ref{lem:torus} and Proposition~\ref{prop:one-loop-polymer}(d), the wrapping one-loop pieces are bounded by $Ch_k^{2-2\epsilon}$, and no separate wrap-around source is needed.
+
+\subsection{The first step}\label{subsec:tf-first}
+
+At $k=0$ the configurations $V$ live on the $\epsilon$-lattice, $U_0(V)=V$, and the background of the step is $U'=U_1(V')$, which is the case $k=1$ of Theorem~\ref{thm:balaban}. The base is $W=U'^{(0)}=U'$. The general analysis of Sections~\ref{sec:step-quantities}--\ref{sec:flow} uses the $k$-step operators at $U'$ with the pair $(Q'_k,\bQ_k)$. At $k=0$ these are the degenerate case of a single fine point per block: Lemma~\ref{lem:uniformity} excludes it, and Theorem~\ref{thm:variational} reduces to $\mathfrak B(V)=\{V\}$. The first step is simpler, and is treated directly.
+
+\begin{proposition}[The first step]\label{prop:first-step}
+Let $k=0$, $\mathcal E_0=0$, and let $V'$ be small field at step $1$. Then the conclusions of Theorem~\ref{thm:one-step} hold at $k=0$, with $\mathcal L\mathcal E_0=\mathcal E^{\rm mix}_0=0$. The step quantities simplify as follows.
+\begin{enumerate}[label=(\alph*)]
+\item \emph{No background map.} $\mathcal S(B)=S(e^{\ii B}U')$, and $A_*$ is not used. The interaction pieces are $v_p(Z)=s_p(e^{\ii\hat Z(Z)}U')-T_2[\cdots](Z)$, local in $Z$ within range $2L+2$.
+\item \emph{The Hessian.} $\Delta_0(Z,Z)=\Delta^0(\hat Z^1Z,\hat Z^1Z)+2\ip{\omega_0}{\hat Z^2(Z)}$, where $\Delta^0$ is the Hessian of $B\mapsto S(e^{\ii B}U')$ at $0$ and $\omega_0$ is the gradient there. $\Delta_0$ is local of range at most $2L+2$, and $\Rea\Delta_0\ge\frac12C_{\rm P}^{-1}$ on $\ell^2(\mathfrak F)$, uniformly on the complex references.
+\item \emph{The walks.} $C_0^{1/2}(s)$ and the determinant densities are given by Theorem~\ref{thm:weak-inverse} and Corollary~\ref{cor:weak-covariance}, with $\fA=\Delta_0+r$, $\mathfrak N=0$ and no mass term.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) For $k=0$ the $k$-step variational problem is trivial: $U_0(e^{\ii B}W)=e^{\ii B}W$, so $\mathcal S(B)=S(e^{\ii B}U')$. Lemma~\ref{lem:eliminate} and Proposition~\ref{prop:exact-step} are one-step statements for the averaging $\mathfrak a'$ from $\T$ to $\T'$ at the base $W=U'$, and they hold at $k=0$. The interaction pieces are those of Definition~\ref{def:interaction-pieces} with $A_*(s;B)$ replaced by $B$. They are local, since $s_p$ and $\hat Z$ are.
+
+(b) At $k=0$, $\Delta^0$ is the second variation of the Wilson action on $\T$ at $U'$. It is a local operator of range $1$, equal to $\|d_{U'}B\|^2$ up to terms bounded by $C|F_{U'}|\|B\|^2$, with $d_{U'}$ the covariant curl. Apply the proof of Theorem~\ref{thm:step-coercive} with $\Delta^0$ in place of $\boldsymbol\Gamma_\pi-a$:
+\begin{itemize}
+\item \emph{IMS.} Localize at scale $M'$; since $\Delta^0$ has range $1$, the error is $CM'^{-2}\|B\|^2$.
+\item \emph{Local gauges.} On each cube of side $2M'$ use a real gauge $u_j$ in which $U'=e^{\ii A_j}$ with $|A_j|+|\partial A_j|\le C_{M'}\eps$ (Definition~\ref{def:regular}, and Lemma~\ref{lem:large-cubes}, which needs $\eps\le\eps_{\rm cmp}(M')$). By Proposition~\ref{prop:action} at $\eta=1$ (for $\eps\le c_5$), $\Delta^0(B,B)=\|D_{U'}B\|^2+d^2\mathcal N(0)[B,B]$ with $|d^2\mathcal N(0)[B,B]|\le C\eps\|B\|^2$, since $\|\nabla B\|^2\le4d\|B\|^2$ at $\eta=1$. With Lemma~\ref{lem:cov-expansion} in the gauge $u_j$, which applies to the covariant curl, this gives $\Delta^0(\chi_jB,\chi_jB)\ge\|\dl(\chi_jB)^{u_j}\|^2-C_{M'}\eps\|\chi_jB\|^2$. This replaces Lemma~\ref{lem:local-comparison}.
+\item \emph{Poincar\'e.} Lemma~\ref{lem:poincare-step}, together with $l'B=0$ for $B=\hat Z^1Z$ (Lemma~\ref{lem:eliminate}(d)). In the gauge $u_j$, $|l'(\chi_jB)-R(u_j)^{-1}q((\chi_jB)^{u_j})|\le C_{M'}\eps\|\chi_jB\|$, by Lemma~\ref{lem:one-step-expansion}(b) and $|A_j|\le C_{M'}\eps$, as in the last paragraph of the proof of Lemma~\ref{lem:local-comparison}. The rest is as in the proof of Theorem~\ref{thm:step-coercive}.
+\end{itemize}
+This gives $\Delta^0(\hat Z^1Z,\hat Z^1Z)\ge(C_{\rm P}^{-1}-CM'^{-2}-CL^2M'^{-2}-C_{M'}\eps)\|\hat Z^1Z\|^2\ge\frac34C_{\rm P}^{-1}\|Z\|^2$, for $M'$ large and then $\eps$ small, since $\|\hat Z^1Z\|\ge\|Z\|$. At $k=0$, $\eta=1$ and $\omega_0=\nabla_BS(e^{\ii B}U')|_{B=0}=J_{U'}$ exactly. It is the multiplier of the trivial $0$-step problem, not of the one-step constrained minimum. That $\ip{\omega_0}{\hat Z^1Z}=0$, i.e.\ the absence of a linear term, follows from Lemma~\ref{lem:composition}(c) at $k=0$. The term $2\ip{\omega_0}{\hat Z^2(Z)}$ is at most $CL^{3d+1}|J_{U'}|\|Z\|^2$, by Lemma~\ref{lem:eliminate}(d), and $|J_{U'}|$ is small by Theorem~\ref{thm:balaban}. Away from criticality $\omega_0:=J_{U'}$, with the same bound. $\Delta_0$ is an explicit local analytic function of $U'$: the Hessian of the Wilson action, composed with the elimination of Lemma~\ref{lem:eliminate} at a complex base. Complex references change it by $O(\delta_c)$, so the lower bound persists for $\Rea\Delta_0$. The range follows from that of $\hat Z^1$ and $\hat Z^2$. The IMS scale $M'$ is chosen after $L$ and before $g_*$, and $n_1\ge80M'$ is included in $n_*$.
+
+(c) The hypotheses of Section~\ref{sec:nested-walks} hold with $\fA^X=\one_X(\Delta_0+r)\one_X$ on $\ell^2(\mathfrak F(X))$:
+\begin{itemize}
+\item (A1): $\fA^X$ is local, and $\mathfrak N=0$;
+\item (A2): the compressions to $\Lam^v_j\cap X$ have $\Rea\ge\frac12C_{\rm P}^{-1}+r$, hence decay by Lemma~\ref{lem:CT-bounded}; the comparison of domains is in seam form, by the resolvent identity and the locality of $\Delta_0$, as in Proposition~\ref{prop:local-fluct}(c);
+\item (A3) is empty.
+\end{itemize}
+The commutator hypothesis of Lemma~\ref{lem:step-small} holds, since $\Delta_0$ has range $2L+2$ and $|\nabla h_j|\le C/M$. So does the comparison of the local commutators in Theorem~\ref{thm:weak-inverse}(b): the difference is $\one_X[\Delta_0,h_j](G^X_j-G^{X'}_j)+(\one_X-\one_{X'})[\Delta_0,h_j]G^{X'}_j$, of seam form by (A2) and supported next to $X\setminus X'$, respectively. Then Theorem~\ref{thm:weak-inverse} and Corollary~\ref{cor:weak-covariance} apply. In the latter, the local densities $\ell_{\Lam^v_j}$ are now the diagonal traces of $\log(\one_\Lam\Delta_0\one_\Lam)$, $\Lam=\Lam^v_j$, by the formula of Proposition~\ref{prop:det-densities}. Proposition~\ref{prop:one-loop-polymer} applies with one change. Its constants $\eps_a,\delta_a$ at $k=0$ satisfy $\eps_a\le\eps_{\rm cc}$ and $C_{\rm cmp}\delta_a\le\delta_{P,0}$, so that every configuration of Definition~\ref{def:bg-activity} is a complex reference of size at most $\delta_{P,0}$ (first item of Section~\ref{sec:complex-references}). Parts (a), (b) obtained analyticity at complex references through Propositions~\ref{prop:reg-complex}, \ref{prop:AB} and~\ref{prop:complex-ext}, which concern $k$-step operators. At $k=0$ this is replaced by the direct statement in (b): $\Delta_0$ is an explicit local analytic function of the reference, coercive under complex perturbations.
+
+The rest of Sections~\ref{sec:step-quantities}--\ref{sec:flow} applies with these replacements:
+\begin{itemize}
+\item Proposition~\ref{prop:interaction-pieces}(a)--(c) and~(e) with $A_*=B$, so that $|A_*|_*\le C_P|B|$ holds trivially, and Proposition~\ref{prop:jacobians}; in place of Proposition~\ref{prop:interaction-pieces}(d), the factorization of the composed pieces proved below;
+\item $r_I=r_L$, since Theorem~\ref{thm:weak-bg} and its radius $R_P$ are not used;
+\item in (Q1), the conditions $w\le\beta_V$ and $w\le\frac12R_P$ are dropped: $\beta_V$ enters only the identification through $A_*(1;B)=A_*(B)$, which is trivial for $A_*=B$, and $R_P$ only through $A_*$;
+\item complex references at $k=0$ are those of size $\delta_c\le\delta_{P,0}$, where $\delta_{P,0}$ is such that the $O(\delta_c)$ change of $\Delta_0$ in (b) is at most $\frac18C_{\rm P}^{-1}$ in norm, and $\delta_{P,0}\le\min(c'_L,cL^{-d-1})$ for the elimination at the complex base $W=U'$ (with $|\mathfrak r_c|\le\frac12$); moreover $\eps+C\delta_{P,0}\le\frac1{20}$ and $\rho_L\le\frac1{20}$, for Proposition~\ref{prop:interaction-pieces}(b) at $k=0$. Since the term $2\ip{\omega_0}{\hat Z^2(Z)}$ is at most $\frac18C_{\rm P}^{-1}\|Z\|^2$ for $g_*$ small, this gives $\Rea\Delta_0\ge(\frac34-\frac18-\frac18)C_{\rm P}^{-1}=\frac12C_{\rm P}^{-1}$;
+\item Section~\ref{sec:cluster} without composed activities, and with Remark~\ref{rem:step-k0} in place of Theorem~\ref{thm:step}.
+\end{itemize}
+\emph{Factorization at $k=0$.} The first sentence of Proposition~\ref{prop:interaction-pieces}(d), a statement for a fixed field $Z$, does not hold at $k=0$: there $v_p(Z)$ does not depend on $s$, and it need not vanish when all $s_\Box$ do. For instance, at $U'=1$, let $Z$ be supported on one free bond $b$ of a plaquette $p$ that contains no bond $b_0(c)$. Then $v_p(Z)=f(Z(b))-T_2[f](Z(b))$ with $f(X)=\mathsf N-\operatorname{tr}\cos X$, which is of order $|Z(b)|^4$ and not $0$ for small real $Z(b)\ne0$. What Lemma~\ref{lem:localization} needs is the factorization of the composed pieces $v_p(Z(s))$, $Z(s)=gC_0^{1/2}(s)\xi$, which we now prove. For a plaquette $p$ let $B'(p)$ be the union of the blocks $B'(y)$, $y\in\T'$, that meet $p$. Its $\infty$-diameter is less than $2L$, since in each coordinate direction the points of $p$ lie in at most two consecutive blocks, and it contains $B'(c_-)\cup B'(c_+)$ for every bond $b_0(c)$ of $p$. By Lemma~\ref{lem:eliminate}(a),(c),(d) and Lemma~\ref{lem:one-step-basic}(c), $\hat Z(Z)$ on the bonds of $p$ depends on $Z$ and on the base $W=U'$ only on the bonds of $B'(p)$, and so does $v_p(Z)$. If $Z=0$ on the bonds of $\mathfrak F$ in $B'(p)$, then $\hat Z(Z)=0$ on the bonds of $p$, since $\zeta_c(0)=0$ by the uniqueness in Lemma~\ref{lem:eliminate}(c); so $t\mapsto s_p(e^{\ii\hat Z(tZ)}U')$ is constant, and $v_p(Z)=0$.
+
+Now let $s_\Box=0$ for $\Box\not\subset Z'$, a union of boxes with $*$-components $Z'_i$. By (c), Corollary~\ref{cor:weak-covariance} and Lemma~\ref{lem:weak-basic}(b), $Z(s)$ vanishes off $Z'^{(r)}$; on $(Z'_i)^{(r)}$ it depends on $\xi$ and on $U'$ only on $(Z'_i)^{(r)}$, and on $s$ only through $s_\Box$, $\Box\subset Z'_i$. Every term of $C_0^{1/2}(s)$ carries a monomial of positive degree (Definition~\ref{def:weak-family}), so $Z(0)=0$. Hence $v_p(Z(s))=0$ unless $B'(p)$ meets $Z'^{(r)}$; in particular $v_p(Z(0))=0$. If $B'(p)$ meets $Z'^{(r)}$, then it meets $(Z'_i)^{(r)}$ for exactly one $i$ and lies in $(Z'_i)^{(r+2L)}$, since its diameter is less than $2L$ and $2r'<M/4$. Then $v_p(Z(s))$ depends on $s$ only through $s_\Box$, $\Box\subset Z'_i$, on $\xi$ only on $(Z'_i)^{(r)}$, and on $U'$ only on $(Z'_i)^{(r+2L)}\subset(Z'_i)^{(r')}$. For a box $\Box\subset Z'_0$, every plaquette based in $\Box$ has a point of $B'(p)$ in $Z'_0$, so this holds with $i=0$. So $V(\Box;s)=g^{-2}\sum_pv_p(Z(s))$, the sum over the plaquettes based in $\Box$, vanishes at $s=0$, depends on $s$ only through the boxes of $Z'_0$, and depends on $\xi$ and $U'$ only on $(Z'_0)^{(r')}$. This is the hypothesis of Lemma~\ref{lem:localization}.
+
+Theorem~\ref{thm:step} is stated for $k\ge1$. Throughout Sections~\ref{sec:step-quantities}--\ref{sec:flow}, in particular in Proposition~\ref{prop:small-field-step} and Theorem~\ref{thm:sf-step}, it is replaced at $k=0$ by Remark~\ref{rem:step-k0}, with the constants listed there. Since $\mathcal E_0=0$, there is no linear part and no mixed class. The torus hypotheses at $k=0$ hold by Lemma~\ref{lem:torus}. The source constant of the first step has its own values of the constants: $\frac12C_{\rm P}^{-1}$ in place of $\frac18c_L$, and its own $C_T$, $r_I$, $r_t$, $\kappa'$ and $M_1^{(0)}$ (Theorem~\ref{thm:one-step}(4)). The constant $B$ of Theorem~\ref{thm:one-step} is taken as the maximum over the first step and the steps $k\ge1$. The rate conditions of Proposition~\ref{prop:sources} hold at $k=0$ with the same choice of the weakening rate.
+\end{proof}
+
+\subsection{The vacuum energy}\label{subsec:tf-vacuum}
+
+Write the density of step $k$ as
+\begin{equation}\label{eq:rho-k}
+\rho_k(V)=\mathcal Z_k\exp\Big(-\frac1{g_k^2}S(U_k(V))-\eps_k|\T^{(k)}|+\sum_X\mathcal E_k(X,U_k(V))\Big),\qquad V\in\mathfrak U_k(p_kg_k),
+\end{equation}
+with $\mathcal Z_0=1$ and $\eps_0=E_0/|\T^{(0)}|$. In the step $k\to k+1$, the constants of Theorem~\ref{thm:sf-step} are split as follows.
+\begin{itemize}
+\item \emph{Explicit normalizations}: $\mathcal Z_{k+1}=\mathcal Z_k\,\mathcal N_kN_\chi\exp\big(-\frac12\sum_{b\in\mathfrak F}\ell_k(b;1)\big)$. These do not depend on the activities.
+\item \emph{Vacuum energy}: $\eps_{k+1}|\T^{(k+1)}|=\eps_k|\T^{(k)}|-\sum_Y\big(E^\#_{\rm p}(Y,1)+E^\#_{\rm m}(Y,1)\big)$. The one-loop pieces and $\log\mathfrak j_c$ vanish at $U'=1$.
+\end{itemize}
+Since $|\T^{(k)}|=L^3|\T^{(k+1)}|$,
+\begin{equation}\label{eq:vacuum-flow}
+\eps_{k+1}=L^3\eps_k+\mathcal L_1\mathcal E_k+\eps^*_k,\qquad\mathcal L_1\mathcal E_k=-\frac{\sum_YE^\#_{\rm m}(Y,1)}{|\T^{(k+1)}|},\quad\eps^*_k=-\frac{\sum_YE^\#_{\rm p}(Y,1)}{|\T^{(k+1)}|}.
+\end{equation}
+The notation $\mathcal L_1$ follows \cite{DimockI}; here $\mathcal L_1\mathcal E_k$ is the mixed class at $U'=1$, which is not linear in $\mathcal E_k$.
+
+\begin{proposition}[Vacuum energy]\label{prop:vacuum}
+Under the hypotheses of Theorem~\ref{thm:one-step} at step $k$,
+\[
+|\mathcal L_1\mathcal E_k|\le o(1)\|\mathcal E_k\|_{k,\kappa_n},\qquad|\eps^*_k|\le C(L,M)g_k^2p_{0,k}^6 .
+\]
+Let $0<\beta'<2-2\epsilon$. There is a unique $E_0$ with $\eps_K=0$; it is determined by the $\mathcal L_1\mathcal E_j+\eps^*_j$, which do not depend on $E_0$. It satisfies $|E_0|/|\T^{(0)}|\le Cg_0^{\beta'}$, and $|\eps_k|\le Cg_k^{\beta'}$ for all $k\le K$, uniformly in $K$.
+\end{proposition}
+
+\begin{proof}
+The number of grid cubes of step $k$ is $|\T^{(k)}|M^{-3}=L^3M^{-3}|\T^{(k+1)}|$. Corollary~\ref{cor:two-classes} and Proposition~\ref{prop:pure-sources} bound $\sum_{Y\supset\Box}|E^\#(Y,1)|$ for each cube $\Box$. This gives the two bounds. With $\|\mathcal E_k\|\le K_{\mathcal E}h_k^{2-2\epsilon}$, and $g^{\beta''}p(g)\to0$, $g^{\beta''}p_0(g)\to0$ for every $\beta''>0$, $\delta_k:=\mathcal L_1\mathcal E_k+\eps^*_k$ satisfies $|\delta_k|\le Cg_k^{\beta'}$. The activities do not depend on the constants $\eps_k$, so \eqref{eq:vacuum-flow} is a linear recursion with given $\delta_k$. Setting $\eps_K=0$ gives $\eps_k=-\sum_{j=k}^{K-1}L^{-3(j-k+1)}\delta_j$, hence
+\[
+|\eps_k|\le C\sum_{j\ge k}L^{-3(j-k+1)}g_j^{\beta'}=Cg_k^{\beta'}\sum_{m\ge0}L^{-3(m+1)}L^{\beta'm/2}\le Cg_k^{\beta'} ,
+\]
+and $E_0=\eps_0|\T^{(0)}|$. This is \cite[Theorem~24, (284)--(288)]{DimockI}.
+\end{proof}
+
+\subsection{The small-field flow}\label{subsec:tf-flow}
+
+\begin{theorem}[Small-field flow]\label{thm:sf-flow}
+Let $G$ be semisimple, let the parameters be chosen as in Theorem~\ref{thm:one-step}, and let $E_0$ be as in Proposition~\ref{prop:vacuum}. Let $\rho_{k+1}:=\one_{\mathfrak U_{k+1}(p_{k+1}g_{k+1})}\,T_{\rm sf}(\rho_k)$ be the iterated small-field step (Definition~\ref{def:small-field-step}), restricted at each step to the small-field set, where $T_{\rm sf}$ is defined. Then for every $k\le K$ and $V\in\mathfrak U_k(p_kg_k)$, $\rho_k$ has the form \eqref{eq:rho-k}, where:
+\begin{enumerate}[label=(\roman*)]
+\item $\mathcal E_k$ satisfies (H1)--(H6) of Section~\ref{sec:flow}: its polymers are grid polymers; $\mathcal E_k(X,\cdot)$ depends on the configuration only on $X$, is analytic on the domain $\mathcal U_k(X)$ (D3$'''$), is invariant under real gauge transformations, normalized, and real for real configurations;
+\item $\|\mathcal E_k\|_{k,\kappa_n}\le K_{\mathcal E}h_k^{2-2\epsilon}$. In particular $\|\mathcal E_k\|_{k,\kappa_n}\le g_k^\beta$ for every $\beta<2-2\epsilon$ and $g_*$ small;
+\item if $k<K$, then $\mathcal E_{k+1}=\mathcal L\mathcal E_k+\mathcal E^{\rm mix}_k+\mathcal E^*_k$. Here $\mathcal L$ is linear with $\|\mathcal L\mathcal E\|\le(2\cdot3^dK_0L^{-\epsilon}(1+o(1))+L^{-1})\|\mathcal E\|$; $\mathcal E^{\rm mix}_k$ is non-linear in $\mathcal E_k$, with $\|\mathcal E^{\rm mix}_k\|\le o(1)\|\mathcal E_k\|$; and $\|\mathcal E^*_k\|\le Bh_{k+1}^{2-2\epsilon}$;
+\item $|\eps_k|\le Cg_k^{\beta'}$, and $\mathcal Z_k$ is the explicit product of the normalizations of the steps; if $k<K$, then $\eps_{k+1}$ is given by \eqref{eq:vacuum-flow}.
+\end{enumerate}
+The activities are evaluated at $U_k(V)$. This is legitimate: $U_k(V)\in\mathcal U_k(X)$ for every $X$, with real part $U_k(V)$ and complex part $0$, since its curvature and current are at most $Ch_k\le h_k^{1-\epsilon/2}$ (Theorem~\ref{thm:balaban}, Proposition~\ref{prop:sharp-curvature}).
+\end{theorem}
+
+\begin{proof}
+Induction on $k$, for arbitrary $E_0$; $E_0$ is fixed afterwards by Proposition~\ref{prop:vacuum}, which uses only (i)--(iii), so there is no circularity. For $k=0$, (i)--(iv) hold with $\mathcal E_0=0$. The step $0\to1$ is Proposition~\ref{prop:first-step}. For $1\le k<K$, the step $k\to k+1$ is Theorem~\ref{thm:one-step}: the torus hypotheses hold by Lemma~\ref{lem:torus}, and its other hypotheses by the induction hypothesis. The factor $\mathcal Z_ke^{-\eps_k|\T^{(k)}|}$ is a constant and is absorbed into the constant of Theorem~\ref{thm:one-step}, since \eqref{eq:rho-form} carries none. The density at step $k$ is of the form \eqref{eq:rho-form} required by Theorem~\ref{thm:step}, with $\mathfrak E_k=\mathcal E_k\circ U_k$. Item (iv) is \eqref{eq:vacuum-flow} and Proposition~\ref{prop:vacuum}. The bound $K_{\mathcal E}h_k^{2-2\epsilon}\le g_k^\beta$ holds since $h_k=p_kg_k$ and $g^{\beta''}p(g)\to0$ for every $\beta''>0$.
+\end{proof}
+
+\begin{corollary}[Small-field stability]\label{cor:sf-stability}
+The partition function of the modified model, $\mathcal Z^{\rm sf}=\int\rho_K(V)\,dV$, satisfies $\mathcal Z^{\rm sf}=\mathcal Z_KI_K$, with $\mathcal Z_K$ the explicit product of normalizations and
+\[
+e^{-c|\T^{(K)}|}\le I_K\le e^{c|\T^{(K)}|},
+\]
+where $c$ depends on $g_*$ and the fixed parameters, but not on $N$ or $K$. Since $|\T^{(K)}|=n_K^3$ with $\ell g^2/g_*^2\le n_K<L\ell g^2/g_*^2$, the volume is bounded above and below in terms of the physical volume, and this is uniform in the lattice spacing.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:sf-flow} with $\eps_K=0$,
+\[
+I_K=\int_{\mathfrak U_K(p_Kg_K)}\exp\Big(-\frac1{g_K^2}S(U_K(V))+\sum_X\mathcal E_K(X,U_K(V))\Big)dV .
+\]
+\begin{itemize}
+\item \emph{Activities.} $|\sum_X\mathcal E_K(X,U)|\le\sum_\Box\sum_{X\supset\Box}\|\mathcal E_K(X)\|_K\le M^{-3}|\T^{(K)}|K_0\|\mathcal E_K\|_{K,\kappa_n}$, by \eqref{eq:dM-facts} and $\kappa_n\ge\kappa_0$. This is $|\T^{(K)}|\,o(1)$.
+\item \emph{Action.} $S\ge0$. The curvature of $U_K(V)$ is at most $Cp_Kg_K$ on $\mathfrak U_K(p_Kg_K)$, so $g_K^{-2}S(U_K(V))\le C|\T^{(K)}|p_K^2$.
+\item \emph{Volume.} The Haar measure of $\mathfrak U_K(p_Kg_K)$ is at most $1$. It contains the configurations $V=e^{\ii B}$ with $|B|_\infty\le ch_K$, whose Haar measure is at least $(c'h_K)^{\dim\mathfrak g\cdot|\mathcal B(\T^{(K)})|}$.
+\end{itemize}
+Together, $|\log I_K|\le C|\T^{(K)}|(p_K^2+\log h_K^{-1}+1)$. This is $c|\T^{(K)}|$, with $c$ depending on $g_*$ and $L$ through $p_K\le p(L^{-1/2}g_*)$ and $h_K\ge h_*$.
+\end{proof}
+
+\begin{remark}[On the corollary and on a Gaussian reference]\label{rem:sf-reference}
+\begin{enumerate}[label=(\alph*)]
+\item A comparison of the action $S(U_K(V))$ with a quadratic form on the small-field set is not available, and it is not used. Small-field configurations on a torus include non-trivial holonomy sectors, and nearly commuting constant modes make the difference of order $|\T|p_K^2$. The crude bounds suffice, because the final torus is fixed.
+\item A Gaussian reference in Lie-algebra variables has non-compact zero modes: the gauge directions of the tree bonds, the residual coarse gauge, and the harmonic modes. And $\mathcal N_k$ contains the Haar density $\sigma(0)^{|\mathfrak F|}$. A reference can be defined as the renormalization group of the quadratic density with the same conventions:
+  \begin{itemize}
+  \item the measure $\sigma(0)\,dA$;
+  \item axial fields;
+  \item the linearized constraint;
+  \item $\chi_\xi$ with $C_k(1)$;
+  \item a compact final domain.
+  \end{itemize}
+  Its normalizations are expected to agree with $\mathcal Z_k$ term by term; this is not checked here, and it is not used. Relating it to the free Gaussian would need $\sum_k|\mathfrak F_k|e^{-p_{0,k}^2/2}\le C|\T^{(K)}|$, a condition on the growth of $p_{0,k}$. The explicit form $\mathcal Z_KI_K$ avoids this.
+\item \emph{The modified model.} Since $T$ preserves integrals (Section~\ref{sec:rg-step}), $\mathcal Z^{\rm sf}$ is the integral of $\rho_0$ times the product of the cutoffs of all steps, pulled back to the configurations of step $0$. This defines the modified model. For $k\ge1$ the density $\rho_k$ vanishes outside $\mathfrak U_k(p_kg_k)$, which lies in $\operatorname{dom}\mathfrak a'$ as soon as $dL^2p_kg_k\le c_G$ (Section~\ref{sec:rg-step}). This holds for $g_*$ small: $g\mapsto p(g)g$ is increasing and $g_k\le g_*$, so $p_kg_k\le p(g_*)g_*$, which tends to $0$ as $g_*\to0$, by $g^\beta p(g)\to0$ with $\beta=1$. So what is discarded at step $k$ is $T((1-\chi^{\rm w}\chi_\xi)\rho_k)$, together with the region of $V'$ outside the small-field set. At $k=0$ the density $\rho_0$ is positive on all configurations, also outside $\operatorname{dom}\mathfrak a'$, where $T$ is not defined; $T_{\rm sf}(\rho_0)$ is defined, since $\chi^{\rm w}$ vanishes outside $\operatorname{dom}\mathfrak a'$ (Proposition~\ref{prop:exact-step}, which holds at $k=0$ by Remark~\ref{rem:step-k0}). What is discarded at the first step is the measure $(1-\chi^{\rm w}\chi_\xi)\rho_0\,dV$ on the configurations of step $0$, together with the region of $V'$ outside the small-field set. In both cases this is more than $\mathcal R_{\rm LF}$.
+\item \emph{Not treated.} The large-field stage, which starts from the discarded parts of every step, and the removal of the small-field modification.
+\end{enumerate}
+\end{remark}

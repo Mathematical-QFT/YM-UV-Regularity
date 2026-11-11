@@ -1,0 +1,80 @@
+\section{Poincar\'e inequalities and scalar coercivity}\label{sec:poincare}
+
+The Laplacian $-\Lap$ on $\Tf$ has eigenvalues as small as $(2\pi/n)^2$. So it controls a field only up to modes that vary on the scale of the whole torus. The averaging term $a\|Q_\sigma f\|^2$ supplies the missing control on the unit scale. The precise statement is a Poincar\'e inequality on unit blocks, uniform in~$\eta$.
+
+\begin{lemma}[Block Poincar\'e inequality]\label{lem:block-poincare}
+For every block $B=B(y)$ and every scalar field $f$,
+\[
+\|f-(Q_0f)(y)\|_B^2\le\frac d2\,\eta^d\sum_{b\subset B}|\partial f(b)|^2 .
+\]
+Here the sum runs over all fine bonds $b=(x,x+\eta e_\mu)$ with both endpoints in $B$, and $\partial f(b)=\partial_\mu f(x)$. Consequently, for every scalar field $f$,
+\begin{equation}\label{eq:poincare}
+\|f-Q_0^*Q_0f\|^2\le\frac d2\|\partial f\|^2,\qquad \|f\|^2\le\frac d2\|\partial f\|^2+\|Q_0f\|^2 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $\bar f=(Q_0f)(y)$ be the mean of $f$ over $B$. Since $B$ has $N^d$ points and volume $1$,
+\[
+\|f-\bar f\|_B^2=\eta^d\sum_{x\in B}|f(x)-\bar f|^2=\frac{\eta^{2d}}2\sum_{x,x'\in B}|f(x)-f(x')|^2 .
+\]
+For $x,x'\in B$ we join $x'$ to $x$ by the lattice path that first moves in direction $1$ from $x'_1$ to $x_1$, then in direction $2$ from $x'_2$ to $x_2$, and so on. It stays in $B$ and has at most $d(N-1)$ steps. Then $f(x)-f(x')$ is a sum of at most $dN$ terms $\pm\eta\,\partial f(b)$, and by Cauchy--Schwarz
+\[
+|f(x)-f(x')|^2\le dN\eta^2\sum_{b\in\text{path}(x',x)}|\partial f(b)|^2=d\eta\sum_{b\in\text{path}(x',x)}|\partial f(b)|^2 .
+\]
+A bond $b=(z,z+\eta e_\mu)$ lies on the $\mu$-th segment of the path only if $z_\nu=x_\nu$ for $\nu<\mu$ and $z_\nu=x'_\nu$ for $\nu>\mu$. The remaining free coordinates are $x'_\nu$ for $\nu<\mu$, $x_\nu$ for $\nu>\mu$, and the pair $(x_\mu,x'_\mu)$. Hence at most $N^{\mu-1}\cdot N^{d-\mu}\cdot N^2=N^{d+1}$ pairs $(x,x')$ use $b$. Therefore
+\[
+\|f-\bar f\|_B^2\le\frac{\eta^{2d}}2\,d\eta\,N^{d+1}\sum_{b\subset B}|\partial f(b)|^2=\frac d2\,\eta^d\sum_{b\subset B}|\partial f(b)|^2,
+\]
+using $\eta N=1$. Summing over blocks gives the first inequality in \eqref{eq:poincare}, since bonds between different blocks only add to the right-hand side. The second follows from the orthogonal decomposition $f=(f-Q_0^*Q_0f)+Q_0^*Q_0f$ and $\|Q_0^*Q_0f\|=\|Q_0f\|$ (Lemma~\ref{lem:avg}(b)).
+\end{proof}
+
+\begin{lemma}[Comparison of averages]\label{lem:compare-avg}
+For $\mu=1,\dots,d$ and every scalar field $f$,
+\[
+\|Q_\mu f-Q_0f\|\le 3\cdot2^d\,\|\partial_\mu f\|,\qquad
+\|D_\nu Q_\sigma f\|\le 6^d\,\|\partial_\nu f\|\quad(\sigma=0,\dots,d).
+\]
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:1d}(e), $Q_\mu f-Q_0f=\iota\,b(a_\mu-1)f=\iota\,b\,g_\mu\,\partial_\mu f$. In direction $\mu$ the operator $a_\mu g_\mu$ has a kernel bounded by $1+\eta\le2$ and supported in an interval of length $2$. In every other direction the kernel is $\one_{[0,1)}$. Lemma~\ref{lem:restriction} gives the constant $2\cdot3\cdot2^{d-1}$. Similarly, $D_\nu Q_\sigma f=\iota\,a_\nu\cK_\sigma\partial_\nu f$ by Lemma~\ref{lem:avg}(d). This is a product of at most three box averages in each direction, with kernels bounded by $1$ and supported in intervals of length at most $3$. Lemma~\ref{lem:restriction} gives a factor at most $4$ in direction $\nu$ and at most $3$ in each other direction.
+\end{proof}
+
+\begin{corollary}[Poincar\'e inequality for all averages]\label{cor:poincare-all}
+There is $C_P$, depending only on $d$, such that for every $\sigma\in\{0,\dots,d\}$ and every scalar field $f$,
+\[
+\|f\|^2\le C_P\big(\|\partial f\|^2+\|Q_\sigma f\|^2\big).
+\]
+For gauge fields, $\|A\|^2\le C_P\big(\|\partial A\|^2+\|\bQ A\|^2\big)$.
+\end{corollary}
+
+\begin{proof}
+By \eqref{eq:poincare} and Lemma~\ref{lem:compare-avg}, $\|f\|^2\le\frac d2\|\partial f\|^2+2\|Q_\sigma f\|^2+2\cdot9\cdot4^d\|\partial f\|^2$. Apply this to each component $A_\mu$ with $\sigma=\mu$ and sum over $\mu$.
+\end{proof}
+
+\begin{corollary}[Scalar coercivity]\label{cor:scalar-coercive}
+Let $a>0$ and $c_0=\min(1,a)/(2+2C_P)$. For every $\sigma$ and every scalar field $f$,
+\[
+\ip f{(-\Lap+aQ_\sigma^*Q_\sigma)f}=\|\partial f\|^2+a\|Q_\sigma f\|^2\ge c_0\big(\|f\|^2+\|\partial f\|^2\big).
+\]
+In particular $-\Lap+aQ_\sigma^*Q_\sigma$ is invertible, and its inverse $G_\sigma$ satisfies $0<G_\sigma\le c_0^{-1}$.
+\end{corollary}
+
+\begin{proof}
+$\|\partial f\|^2+a\|Q_\sigma f\|^2\ge\min(1,a)\big(\frac12\|\partial f\|^2+\frac12(\|\partial f\|^2+\|Q_\sigma f\|^2)\big)$. Then use Corollary~\ref{cor:poincare-all} on the last bracket.
+\end{proof}
+
+This is the scalar half of Theorem~\ref{thm:A}. The next lemma is used in the gauge-field part. It concerns fields with vanishing block averages, i.e.\ generators of the residual gauge transformations.
+
+\begin{lemma}[Fields with vanishing averages]\label{lem:kerQ0}
+If $Q_0\lambda=0$, then
+\[
+\|\lambda\|\le\sqrt{d/2}\,\|\partial\lambda\|,\qquad \|\partial\lambda\|\le\sqrt{d/2}\,\|\Lap\lambda\| .
+\]
+In particular $-\Lap$ is injective on $\cN(Q_0)=\{\lambda:Q_0\lambda=0\}$.
+\end{lemma}
+
+\begin{proof}
+The first inequality is \eqref{eq:poincare} with $Q_0\lambda=0$. For the second, $\|\partial\lambda\|^2=\ip\lambda{-\Lap\lambda}\le\|\lambda\|\|\Lap\lambda\|\le\sqrt{d/2}\,\|\partial\lambda\|\,\|\Lap\lambda\|$.
+\end{proof}

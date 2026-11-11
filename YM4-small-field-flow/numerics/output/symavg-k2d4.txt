@@ -1,0 +1,25 @@
+Part C: d=2, SU(2), L=3
+  C1. independent implementation vs symavg.py (6x6, k=1): averaging 0.0e+00, gauge-adapted average 0.0e+00
+  C2. k=2 (18x18 -> 6x6 -> 2x2), U0 random (amplitude 0.3): E=0, |Q_2 D lambda - D_W2 Q'_2 lambda| = 8.9e-16 (scale 0.30), three random lambda
+      Theorem correspondence(e) at k=2: |Q_2(1^(g)) - 1^(M^(2)(g))| = 6.2e-16  (g random, amplitude 0.2)
+      linearization of Q_2 at U=1 = centred tube average of side 9: 3.0e-15
+  C3. smallest eigenvalue at U=1 of |dB|^2 + |G B|^2 + |q B|^2 (q: the plain constraint (0.12)), and with one term dropped
+    torus  3x3  L=3: 0.149219   (without G: 0.0e+00, without q: 0.0e+00, without d: 0.0e+00)
+    torus  6x6  L=3: 0.121998   (without G: 0.0e+00, without q: 0.0e+00, without d: 0.0e+00)
+    torus  9x9  L=3: 0.125025   (without G: 0.0e+00, without q: 0.0e+00, without d: 0.0e+00)
+    torus 12x12 L=3: 0.121998   (without G: 0.0e+00, without q: 0.0e+00, without d: 0.0e+00)
+    torus 15x15 L=3: 0.123043   (without G: 0.0e+00, without q: 0.0e+00, without d: 0.0e+00)
+    torus  5x5  L=5: 0.097544   (without G: 0.0e+00, without q: 0.0e+00, without d: 0.0e+00)
+    torus 10x10 L=5: 0.079427   (without G: 0.0e+00, without q: 0.0e+00, without d: 0.0e+00)
+    torus 15x15 L=5: 0.082686   (without G: 0.0e+00, without q: 0.0e+00, without d: 0.0e+00)
+
+Part D: d=4, SU(2), L=3, coarse bond c = (0, e_1); families of sizes [1, 2, 6, 24]
+  D1. transformation law of the contour variables (Haar-random g): 5.6e-16;  gauge covariance of (0.12): 3.9e-16;  reversal: 1.1e-16
+  D2. hyperoctahedral covariance of (0.12), all 384 elements of B_4: 3.9e-16   [25 s]
+      control with one ordering per contour family: 368 of 384 elements fail (max 0.74)
+  D3. coefficient of Z(b_0(c)) in the plain constraint at U=1: 0.0370370370 0.0370370370 0.0370370370 (L^{1-d} = 0.0370370370)
+      plain (0.12) = tube average - (gamma_sym(c+) - gamma_sym(c-)): 3.7e-16;  gauge-adapted average = tube average: 3.7e-16  (random direction B)
+  D4. E=0 at U0 random (amplitude 0.3), complex steps through the solver: |Q D lambda - D_V Q' lambda| = 3.3e-16 (scale 0.24)
+      Theorem correspondence(e): |Q(1^(g)) - 1^(m(g))| = 1.3e-16  (g random, amplitude 0.3)
+
+[50 s]

@@ -1,0 +1,770 @@
+\section{The parameter ledger}\label{sec:ledger}
+
+This section collects the constants and parameters of Parts~VII--XI, and the constants of Parts~I--VI that these Parts use. For each constant it records where it is defined, what it depends on, when it is chosen, which conditions are imposed on it and where they are checked, and where it is used. Then it checks that the order of choice has no cycle. The note fixes the order in Remark~\Nref{rem:parameters}, completed by Remarks~\Nref{rem:domain-constants}, \Nref{rem:step-M} and \Nref{rem:flow-constants}, and for Parts~V and~VI in the proofs of Theorems~\Nref{thm:variational} and~\Nref{thm:balaban}. The Part chapters of this volume expand the proofs. The ledger expands only the arguments that run across several Parts, so it uses all of them, and it is best read after the Part chapters. To look up a single constant, go to the tables of Subsection~\ref{subsec:ledger-tables}: their second column says in words what the constant is.
+
+\subsection{How the ledger is organized}\label{subsec:ledger-org}
+
+\paragraph{Stages.} We write the order of choice as a sequence of stages. A constant of a stage may depend on the constants of the earlier stages and on nothing else.
+\begin{itemize}
+\item[S0] The fixed data: $d=4$, the group $G$, the averaging coefficient $a$, the H\"older exponent $\alpha$ (with $\alpha\le\frac12$ from Section~\Nref{sec:weak-background} on), and in Part~XI the representation $\rho$ of the action.
+\item[S\,I--VI] The constants of Parts~I--VI. Each depends on S0, on $L$ and, where stated, on $M$. Those that depend on $L$ or $M$ are fixed as soon as $L$, respectively $M$, is fixed.
+\item[S1] The rate $\kappa_n$ (Remark~\Nref{rem:parameters}(1)).
+\item[S2] The block size $L$ (Remark~\Nref{rem:parameters}(2)).
+\item[S3] The weakening rate $\kappa$ and the loss $\delta$ (Remark~\Nref{rem:parameters}(3)).
+\item[S4] The scale $\rho$ of the weakening, then $M$, then the constants of $M$ (among them $\delta_*$, $C_W$ and $c''_L$ of Part~VIII), then $M'$ (Remark~\Nref{rem:parameters}(4)).
+\item[S5] The domains: $\bar\delta$, $\eps_{\max}$, $\delta_P$, $\delta_{P,0}$, $c_a$, $\delta_1\le\delta_0$, $\theta_r$, $m_0$ (Remark~\Nref{rem:parameters}(5)).
+\item[SF] The constants of the flow, Remark~\Nref{rem:flow-constants}(i),(ii).
+\item[S6] The bound $\gamma$ on the couplings (Remark~\Nref{rem:parameters}(6)).
+\item[SXI] The constants chosen after $\gamma$ in Part~XI ($g_{\rm uv}$, $m_1$).
+\end{itemize}
+A constant marked P is local to one proof.
+
+\paragraph{Names.} Several symbols of the note have more than one meaning. Where a collision could mislead, the ledger uses decorated names, for instance $\eps^{\rm cov}$ for the threshold of Corollary~\Nref{cor:covariance}. Subsection~\ref{subsec:ledger-names} lists them, together with the former names of symbols that the note has renamed.
+
+\paragraph{Status of a check.} A ledger entry is \emph{checked} if the condition is imposed at the place given and holds where the constant is used. If a condition is used but imposed nowhere, the entry says so. Such an entry is a GAP if the condition does not follow from the conditions that are imposed. No entry of the ledger is a GAP for the current note.
+
+\subsection{The complex references and the threshold \texorpdfstring{$\eps_{\max}$}{eps-max}}\label{subsec:ledger-emax}
+
+The activities live on graded domains whose real parts are regular but, in general, not critical, and whose complex parts are complex references of size $\delta_c<\delta_P$. Three constants govern these domains: the cap $\bar\delta$, the threshold $\eps_{\max}$ on the regularity of the real parts, and the size $\delta_P$ of the complex parts. They are fixed in stage S5, after $M$ and $M'$. This subsection checks the order of the three, and the completeness of the list of thresholds that $\eps_{\max}$ must respect.
+
+\begin{detail}[Remark~\Nref{rem:domain-constants} and Proposition~\Nref{prop:complex-ext}]\label{det:ledger-emax}\Ntarget{rem:domain-constants,prop:complex-ext}
+\emph{The cap, the threshold $\eps_{\max}$ and the size $\delta_P$.}
+
+\emph{The idea.} A regularity threshold would naturally be taken at its worst case over the complex references. But the constants at a complex reference are known only for references of size $\delta_c<\delta_P$, and the conditions on $\delta_P$ contain $\eps_{\max}$. So the note computes every threshold by its real-reference proof, with every multiplicative constant doubled and with fixed coercivity constants and rates. These numbers are known before $\bar\delta$ and $\delta_P$, and Proposition~\Nref{prop:complex-ext} shows that they bound the true thresholds at every complex reference of size $\delta_c<\delta_P$. Hence $\eps_{\max}$ is fixed before $\delta_P$.
+
+\emph{What the note says.} After $M$ and $M'$, Remark~\Nref{rem:domain-constants} fixes the cap $\bar\delta\le\min(\delta_{AB},1/C_{\rm cx})$. It lets $\eps_{\max}$ be half the smallest of a listed set of regularity thresholds, each computed by its real-reference proof with every multiplicative constant doubled, $K_H$ included, and with the coercivity constants and rates of Proposition~\Nref{prop:complex-ext}. Then $\delta_P\le\bar\delta$ is chosen by the smallness conditions of Proposition~\Nref{prop:complex-ext}, which are stated with $\eps_{\max}$ (the paragraph ``Smallness'' of its proof). The steps below check that this order closes.
+
+\begin{step}[Why the worst case cannot be used]
+Proposition~\Nref{prop:complex-ext} gives the constants at complex references only for $\delta_c<\delta_P$, and its conditions on $\delta_P$ contain $\eps_{\max}$. The cap $\bar\delta\le\min(\delta_{AB},1/C_{\rm cx})$ does not bound $\bar\delta$ by the radii of Proposition~\Nref{prop:reg-complex}, so for $\delta_c$ near $\bar\delta$ the operators need not exist. So the worst case over $\delta_c\le\bar\delta$ is not known when $\eps_{\max}$ is fixed, and a worst case over $\delta_c<\delta_P$ would create the cycle $\eps_{\max}\to\delta_P\to\eps_{\max}$.
+\end{step}
+
+\begin{step}[The doubled constants]
+The proof of Proposition~\Nref{prop:complex-ext} (step~(vii)) works as follows.
+\begin{itemize}
+\item \emph{Fixed rates and coercivity constants.} The coercivity constants at complex references are fixed: $\frac c2$, with $c$ that of the real reference (Lemma~\Nref{lem:CT-stable}), and at level~(L5) $\frac18c_L$ and $\frac1{16}c_L$. The operators of Parts~II, III and~VIII at a complex reference differ from those at its real part by kernels with decay at a quarter of the minimum of the perturbation rate and the two chosen inverse decay rates in Lemma~\Nref{lem:perturbed-inverse}. Every input decay bound is taken at this fixed rate of the differences. At the decay rate of the operators themselves, the constants at a complex reference are only bounded by about twice the real ones, and not by $1+C\delta_c$.
+\item \emph{The factor $1+C_{\rm cx}\delta_c$.} At these rates every input changes by at most a factor $1+C_{\rm in}\delta_c$. Every multiplicative constant is a nonnegative combination of products of nonnegative, nondecreasing, $1$-homogeneous functions of the inputs and of the constants of earlier levels. So it changes by at most $1+C_{\rm cx}\delta_c\le2$ for $\delta_c\le1/C_{\rm cx}$. Here $C_{\rm cx}$ is built level by level: the constant of a level is computed with the inputs of that level, including the outputs of the earlier levels, multiplied by $1+s$ with $(1+s)^3\le2$. Only then does every input of every level change by at most $1+s$, and every cubic composite constant, such as $\theta'$ of Theorem~\Nref{thm:tier-walk}, by at most $(1+s)^3\le2$. With a single constant for all levels the induction over the levels does not close.
+\item $C_{\rm cx}$ is built from real-reference constants that hold for all $\eps$ below thresholds fixed before $\bar\delta$. So it does not depend on $\bar\delta$, $\eps_{\max}$ or $\delta_P$.
+\item Every joint condition on $\eps$ and $\delta_c$ has the form $\eps+C\delta_c\le T$, with $T$ fixed before both constants.
+\end{itemize}
+We therefore define, for each threshold $T$ in the list below, $T^{(2)}$ as the value of $T$ given by its real-reference proof, with every multiplicative constant replaced by twice its real-reference value, $K_H$ of Theorem~\Nref{thm:weak-bg} included (so that $R_P=\varrho_P/(2K_H)$), and with the fixed coercivity constants and rates just named. Put
+\[
+\eps_{\max}:=\tfrac12\min_TT^{(2)} .
+\]
+This is the rule that the note uses for $M_1$ (Remark~\Nref{rem:parameters}(4)). It needs neither $\bar\delta$ nor $\delta_P$. The dilation $1+s$ is not needed here: a threshold uses only the final factor $\le2$ of each constant. It is needed for $M'_1$, which is chosen with $\theta'$ replaced by $2\theta'$, and inside the construction of $C_{\rm cx}$.
+\end{step}
+
+\begin{step}[The listed thresholds]
+\begin{enumerate}[label=(\roman*)]
+\item $\eps_P$ of Theorem~\Nref{thm:weak-bg}. It is fixed by $4C_P(\eps_P+2\varrho_P)\le1$ and $C(\eps_P+R_P)\le K_H$ (the proof of Theorem~\Nref{thm:weak-bg}), together with the input thresholds listed there. With $C_P$ and $C$ doubled the admissible $\eps_P$ and $\varrho_P$ decrease. The constant $K_H$ stands on the right of the second condition: it is an upper bound, and the condition with $K_H$ replaced by $2K_H$ and $R_P$ by $\varrho_P/(2K_H)$ follows from the real one. So $\eps_P$, $\varrho_P$, $R_P$ computed in this way serve at every complex reference with $\delta_c<\delta_P$, and they do not depend on $\delta_P$. (Taking $K_H$ and $R_P$ at their worst case over $\delta_c<\delta_P$ instead would make $\eps_P$, hence $\eps_{\max}$, depend on $\delta_P$, a cycle.) The joint condition is $\eps_{\max}+C\delta_P\le\eps_P$.
+\item The thresholds of Sections~\Nref{sec:dirichlet-averaged}, \Nref{sec:interior} and~\Nref{sec:interior-lp}:
+\begin{itemize}
+\item $\eps_{\rm ID}$ of Theorem~\Nref{thm:ID};
+\item $\eps_S$ of Proposition~\Nref{prop:scalar-interior} and $\eps_L^{\rm sys}$ of Proposition~\Nref{prop:system-interior};
+\item $\eps'_S$, $\eps''_S$, $\eps'_L$ of Propositions~\Nref{prop:scalar-lp}, \Nref{prop:schauder} and~\Nref{prop:system-lp}, and $\eps'$ of Corollary~\Nref{cor:lp-dirichlet}.
+\end{itemize}
+These thresholds are not recomputed at complex references. Proposition~\Nref{prop:complex-ext} applies the interior estimates in the real gauge of the real part, with the complex part treated as a field satisfying (B) with parameter $\eps+C\delta_c$. So the statements hold with $\eps$ replaced by $\eps+C\delta_c$, at the real thresholds. The joint condition is $\eps_{\max}+C\delta_P\le\min(\eps_{\rm ID},\eps_S,\eps_L^{\rm sys},\eps'_S,\eps'_L,\eps')$. Neither monotonicity nor the explicit form of $\eps_{\rm ID}$, which the note never writes out, is needed.
+\item The condition ``$\eps$ small depending on $M$'' of Section~\Nref{sec:nested-walks} (Section~\Nref{ss:41.3}). It collects the thresholds of Parts~II--III, $\eps_{\rm B}$ of Lemma~\Nref{lem:uniformity}(c) at $M=M_0$, and $\eps^{\rm cov}$ of item~(vi). Its multiplicative constants are those of Part~IX, doubled as in~(i).
+\item $\eps_0$ of Parts~II--III and $c'_3/C$ of Section~\Nref{sec:AB-proof}, and the threshold $\eps_{\rm cc}$ of the comparison between the size of a complex reference and the norm of Proposition~\Nref{prop:reg-complex} (Section~\Nref{sec:complex-references}). The joint condition is $\eps_{\max}+C\delta_P\le\min(\eps_0,c'_3,\eps_{\rm cc})$. All are real-reference numbers; $c'_3$ depends only on $d$, $L$, $G$ (the Setting of Section~\Nref{sec:AB-proof}).
+\item $c_5/C$ of Proposition~\Nref{prop:action}, with the joint condition $C(\eps_{\max}+\delta_P)\le c_5$; and the threshold $C'\eps\le\frac12c$ of the bound on $W_2$ at complex references in the proof of Proposition~\Nref{prop:dirichlet-hessian}(c).
+\item The threshold of Corollary~\Nref{cor:covariance} and Lemma~\Nref{lem:coercive-general}. It is $\eps^{\rm cov}$ of Detail~\ref{det:ledger-eps-M}, of the form $C\eps\le c$ with $c$ a fraction of $c_L$. The complex parts enter only through Lemma~\Nref{lem:coercive-general}, as perturbations of size at most $c''_L$. The joint condition is $\delta_P\le c''_L$.
+\end{enumerate}
+The thresholds of~(i), (iii), (v) and~(vi) have the form $C\eps\le c$ with $C$ a product of multiplicative constants, or are bounds of the type $K_H$ on the right of an inequality. Doubling a multiplicative constant lowers such a threshold, and replacing $K_H$ by $2K_H$ is implied by the real condition. So $T^{(2)}$ is at most the true threshold at every complex reference with $\delta_c<\delta_P$. The thresholds of~(ii) and~(iv) are used unchanged.
+\end{step}
+
+\begin{step}[The order closes]
+Let $U$ be a complex reference of size $\delta_c<\delta_P$, with real part $(M,\eps)$-regular and $\eps\le\eps_{\max}$, where $\delta_P$ satisfies the smallness conditions of Proposition~\Nref{prop:complex-ext}. These include $C\delta_P\le\frac12T^{(2)}$ in each joint condition $\eps+C\delta_c\le T^{(2)}$. Then:
+\begin{itemize}
+\item Proposition~\Nref{prop:complex-ext} applies, and its multiplicative constants are at most twice their real values, since $\delta_c<\delta_P\le\bar\delta\le1/C_{\rm cx}$;
+\item by the previous step, the true thresholds at $U$ are at least $T^{(2)}$;
+\item $\eps+C\delta_c\le\frac12T^{(2)}+\frac12T^{(2)}=T^{(2)}$.
+\end{itemize}
+So every listed result holds at $U$.
+
+The order of the choices is
+\[
+L\to(\delta_{AB},c'_3)\to(\kappa,\delta,\rho)\to M\to M'\to C_{\rm cx}\to\bar\delta\to\eps_{\max}\to\delta_P\to\delta_{P,0}\to(c_a,\delta_1,\delta_0,\theta_r,m_0).
+\]
+\begin{itemize}
+\item The lower bounds on $M$ use real-reference constants, doubled ($M_1$), and $2\theta'$ ($M'_1$), at the fixed rates. So they do not involve $\bar\delta$, $\eps_{\max}$ or $\delta_P$.
+\item $C_{\rm cx}$ depends on $L$, $M$, $M'$, $\kappa$, $\delta$, $\rho$, $\alpha$, $G$, and enters only $\bar\delta$.
+\item The conditions on $\delta_P$ are $\delta_P\le c''_L$; the joint conditions with $\eps_{\max}$ of the previous step; $(1+2K_H)r_P\le c'_3$ at complex references, with $r_P$ computed with the doubled constants; $C_{\rm AB}\delta_P\le cL^{-d-1}$; $\delta_P\le c_{\rm DC}r_ML^{-1}$; and $\delta_P\le\bar\delta$. All quantities on the right are fixed before $\delta_P$.
+\item Nothing chosen after $\delta_P$ enters a condition on $\delta_P$ or on an earlier constant.
+\end{itemize}
+The condition $\delta_P\le c''_L$ also covers the radii at which the bounds on $W_2^X$ at complex references hold. The note gives these bounds by the analyticity of $W_2^X$ and a Cauchy estimate on a ball of twice the radius (Proposition~\Nref{prop:dirichlet-hessian}(c)). The radius $\delta_*$ of that estimate is fixed once, in Part~VIII, before $c''_L$, and $c''_L$ is chosen with $C_{\rm cmp}c''_L\le\delta_*$. So the constant of the change of $W_2^X$ is fixed before $\delta_P$, and it enters $C_{\rm cx}$ without a cycle. The chapter on Part~VIII writes this compressed step out.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Theorem~\Nref{thm:step-coercive}, Lemma~\Nref{lem:local-comparison} and Proposition~\Nref{prop:first-step}]\label{det:ledger-eps-M}\Ntarget{thm:step-coercive,lem:local-comparison,prop:first-step}
+\emph{The threshold $\eps$ against the localization scale $M'$.}
+
+\begin{step}[The steps $k\ge1$]
+Lemma~\Nref{lem:local-comparison} holds for $M'\ge\max(M,L)$, $n\ge80M'$ and $\eps\le\eps_{\rm cmp}(M')$. Here $\eps_{\rm cmp}(M')$ depends only on $M'$, $d$, $L$, $G$, $a$, $\alpha$, $M$. Its proof imposes three conditions:
+\begin{enumerate}[label=(\arabic*)]
+\item $C_E(R/r)^pR\sigma\le1$, with $r=4M+2$, $R=40M'+1$ and $\sigma=3\eps$ (Lemma~\Nref{lem:large-cubes}, on a cube $\Lam_{40M'+1}(z_0)\supset\Lam_{40M'}(z)$, with $z_0\in\Tf$ and $|z-z_0|_\infty\le\eta$; Detail~\ref{d7:lc}, condition (C1)). This bound decreases in $M'$.
+\item $C_{M'}\eps$ lies below the thresholds of Parts~II and~III, for the spliced configuration $U^\natural$.
+\item The hypotheses of Lemmas~\Nref{lem:avg-local-gauge} and~\Nref{lem:avg-transport}(e).
+\end{enumerate}
+In the proof of Theorem~\Nref{thm:step-coercive}, $M'_L\ge\max(M,L)$ is chosen so that the terms that do not involve $\eps$ are at most $\frac14c'C_{\rm P}^{-1}$. These terms are the IMS error $CM'^{-2}$, the commutator term $C_L(L/M')^2$ and $Ce^{-\gamma M'}$. None of them involves $\eps$. Then $\eps_L\le\eps_{\rm cmp}(M'_L)$ with $C_{M'_L}\eps_L\le\frac14c'C_{\rm P}^{-1}$. Corollary~\Nref{cor:covariance} adds $CL^{3d+1}\eps\le\frac14c_L$. Its proof shrinks $\eps$ once more, ``for $\eps_L$ small'': it needs $C\eps\le\frac12c_L$ with the $C$ of Proposition~\Nref{prop:hessian}(b). Lemma~\Nref{lem:coercive-general} repeats this at non-critical references. There the current is at most $\eps$ by hypothesis, and the curvature at most $C_{\rm curv}\eps$, which is absorbed in $C_{M'_L}$. We call the smallest of these thresholds
+\[
+\eps^{\rm cov}:=\min\Big(\eps_L,\ \frac{c_L}{4CL^{3d+1}},\ \frac{c_L}{2C}\Big),
+\]
+with the constants just named. This is item~(v) of Detail~\ref{det:ledger-emax}. The order $M\to M'_L\to\eps_{\rm cmp}(M'_L)\to\eps_L\to\eps^{\rm cov}$ has no cycle. $M'_L$ depends on S0--S4 only, and the constants $c_L$, $C_{\rm P}$, $C$ do not involve $\eps$ (Remark~\Nref{rem:step-M}).
+\end{step}
+
+\begin{step}[The first step, $k=0$]
+Proposition~\Nref{prop:first-step}(b) proves $\Delta^0(\hat Z^1Z,\hat Z^1Z)+\|\mathfrak G_{U'}Z\|^2\ge\frac34C_{\rm P}^{-1}\|Z\|^2$. It uses the IMS partition at the scale $M'$ of Remark~\Nref{rem:parameters}(4), which may exceed $M'_L$, and three conditions on $\eps$:
+\begin{enumerate}[label=(\alph*)]
+\item $\eps\le\eps_{\rm cmp}(M')$, through Lemma~\Nref{lem:large-cubes};
+\item $C_{M'}\eps\le\frac18C_{\rm P}^{-1}$;
+\item $CL^{3d+1}|J_{U'}|\le\frac18C_{\rm P}^{-1}$, for the gradient term.
+\end{enumerate}
+The proof of Proposition~\Nref{prop:first-step} attaches all three to the choice of $a^{(0)}_{\rm step}$ in Lemma~\Nref{lem:first-step-formula}, that is, to critical references with $\eps=B_3\eps'_1$. It then notes that the proof of the lower bound does not use criticality: the bound holds at every real $(M,\eps)$-regular reference with $|J_{U'}|\le\eps$ whose base satisfies $L^d\mathsf a\le c$, for $\eps$ below (a)--(c). Part~(c) of the proposition uses the lower bound of~(b) ``for all fields on $\mathfrak F$'' at the references of the first step. These are the points of the graded domains of scale~$1$, read in the units of scale~$0$ (Remark~\Nref{rem:domain-constants}(ii)), and the points of the domains $\mathcal U(X;c_a,c_a,c_a)$ of the one-loop pieces at $k=0$. Their real parts are regular but not critical. The list of $\eps_{\max}$ in Remark~\Nref{rem:domain-constants} contains $\eps_{\rm cmp}(M'_L)$, through Corollary~\Nref{cor:covariance}, but not (a)--(c); and $\eps_{\rm cmp}(M')$ can be smaller than $\eps_{\rm cmp}(M'_L)$ when $M'>M'_L$.
+\end{step}
+
+\begin{step}[The non-critical references meet (a)--(c)]\label{det:ledger-eps-M-noncrit}
+They do so through the constants $\eps_a$, $\delta_a$ of the one-loop pieces at $k=0$.
+\begin{itemize}
+\item Proposition~\Nref{prop:one-loop-polymer}(b) makes the one-loop pieces background activities ``for some $\eps_a,\delta_a>0$'' (the proof of Proposition~\Nref{prop:one-loop-polymer}). At $k=0$ they are obtained from the coercivity of Proposition~\Nref{prop:first-step}(b) at the references (proof of Proposition~\Nref{prop:first-step}(c)). So the proof forces $\eps^{(0)}_a$ below (a)--(c), and $C_{\rm cmp}\delta^{(0)}_a\le\delta_{P,0}$, with $C_{\rm cmp}=4$ (Detail~\ref{xb:d-k0-thresholds}).
+\item The choice of $c_a$ includes $\max(1,B_5)c_a\le\eps_a$ (the proof of Proposition~\Nref{prop:one-loop-polymer}, Remark~\Nref{rem:bg-to-graded}). Since $c_a$ is a constant of the step, the rule at the end of the proof of Proposition~\Nref{prop:first-step} makes it the smaller of its values at $k=0$ and at $k\ge1$: ``Where the flow uses a constant of the step, it uses the worse of its values at $k=0$ and at $k\ge1$ \dots{} and the smaller smallness threshold.''
+\item By (DC1), $\theta_r\le c_a$. The real part of a point of a graded domain of scale~$1$ is $(M,B_5L^{-2}\theta_r)$-regular, with current at most $L^{-3}\theta_r$, in the units of scale~$0$. So it satisfies (a)--(c), and so do the real parts of the points of $\mathcal U(X;c_a,c_a,c_a)$.
+\end{itemize}
+The proof of Proposition~\Nref{prop:first-step}(c) states the choice explicitly: at $k=0$, $\eps_a\le\min(\eps_{\rm cmp}(M'),c_5)$, $C_{M'}\eps_a\le\frac18C_{\rm P}^{-1}$, $\eps_a$ satisfies the condition on the gradient term, and $\eps_a\le\eps_{\max}$; that is, $\eps^{(0)}_a\le\min(\eps_{\max},\text{(a)--(c)})$. This is acyclic, since $M'$ is fixed in S4, before $\bar\delta$ and $\eps_{\max}$. The use sites of the first step at non-critical references are Lemma~\Nref{lem:raw-new}(b) for $B^{(0)}_{\rm new}$, Proposition~\Nref{prop:gen-one} and Theorem~\Nref{thm:sf-flow} at $k=0$; the chapter on Part~X (second half) checks them.
+\end{step}
+\status{Expanded. For $k=0$ the thresholds are carried by the constant $\eps_a$ of Proposition~\Nref{prop:one-loop-polymer} at $k=0$ and by the rule at the end of the proof of Proposition~\Nref{prop:first-step} for $c_a$.}
+\end{detail}
+
+\begin{detail}[Remark~\Nref{rem:domain-constants} and Proposition~\Nref{prop:one-loop-polymer}]\label{det:ledger-emax-list}\Ntarget{rem:domain-constants,prop:one-loop-polymer}
+\emph{The list of $\eps_{\max}$, and the constants $c_a$, $\eps_a$, $\delta_a$.}
+
+\emph{What the note says.} $\eps_{\max}$ is half the smallest of the regularity thresholds listed in Remark~\Nref{rem:domain-constants}, computed as in Detail~\ref{det:ledger-emax}. The list ends with three thresholds of Parts~IV and~VII. The real parts of all points of the graded domains are then $(M,B_5\theta_r)$-regular with $B_5\theta_r\le\eps_{\max}$, by (DC2), and the results of these Sections apply there.
+
+\begin{step}[Which thresholds are needed where]
+A threshold is needed in $\eps_{\max}$ if the result that carries it is applied at the points of the graded domains. These points are not critical. A threshold that is used only at the background fields $U_{k+1}(V')$, i.e.\ at critical references with $\eps=B_3\eps'_1$, belongs instead to the admissible thresholds (Section~\Nref{subsec:flow-parameters}) and to $a_{\rm step}$ (the proof of Theorem~\Nref{thm:step}). The following table gives each threshold, its source and the references at which it is used. The last column says how it enters the list of Remark~\Nref{rem:domain-constants}.
+
+{\small
+\begin{longtable}{@{}p{0.26\textwidth}p{0.24\textwidth}p{0.18\textwidth}p{0.23\textwidth}@{}}
+\toprule
+threshold & source & used at & in the list\\
+\midrule
+\endhead
+$\eps_P$ & Thm~\Nref{thm:weak-bg} and its proof & all references & listed\\
+$\eps_S$, $\eps_L^{\rm sys}$, $\eps_{\rm ID}$ & Props~\Nref{prop:scalar-interior}, \Nref{prop:system-interior}, Thm~\Nref{thm:ID} & all references & listed (Sects~\Nref{sec:dirichlet-averaged}, \Nref{sec:interior})\\
+$\eps'_S$, $\eps''_S$, $\eps'_L$, $\eps'$ & Sect.~\Nref{sec:interior-lp}, Proposition~\Nref{prop:scalar-lp} to Corollary~\Nref{cor:lp-dirichlet} & all references & listed\\
+``$\eps$ small depending on $M$'' & Section~\Nref{ss:41.3} & all references & listed (Sect.~\Nref{sec:nested-walks})\\
+$\eps_0$ (Parts~II--III) & Thm~\Nref{thm:reg-coercive} & all references & listed\\
+$c'_3/C$ & Sect.~\Nref{sec:AB-proof} & all references & listed\\
+$c_5/C$ & Prop.~\Nref{prop:action} & all references & listed\\
+$\eps^{\rm cov}\le\eps_{\rm cmp}(M'_L)$ & Cor.~\Nref{cor:covariance}, Lemma~\Nref{lem:coercive-general} & all references, $k\ge1$ & listed\\
+$\frac1{20}$ & proof of Prop.~\Nref{prop:interaction-pieces}(b) & complex references & listed\\
+$\eps_{\rm B}$ & Lemma~\Nref{lem:uniformity}(c) & all references (Parts~II--III at Ba\l aban's pair) & listed (Parts~IV and~VII); also named in Sect.~\Nref{ss:41.3}\\
+``$\eps$ small'' of Cor.~\Nref{cor:parts-apply} & Cor.~\Nref{cor:parts-apply} & all references & listed (Parts~IV and~VII); it is $\max(1,C_{\rm curv})\eps\le c_3$ with $c'_3\le c_3$, and the hypotheses of Lemma~\Nref{lem:avg-local-gauge}, inside $\eps_{\rm cmp}$\\
+$\eps_*$ & Lemma~\Nref{lem:sup-bounds} & Part~V & listed (Parts~IV and~VII); see Step~\ref{det:ledger-epsstar}\\
+Thm~\Nref{thm:variational}(d) & Lemma~\Nref{lem:critical-current} and its proof & critical only & admissible threshold, Section~\Nref{subsec:flow-parameters}\\
+$\eps+\beta_V\le\min(c_6,c_7)$ & Thm~\Nref{thm:weak-bg}(c) & critical only & implied by $C_L^{\rm units}B_3a_1\le c_6\le c_7$ (proofs of Theorems~\Nref{thm:balaban} and~\Nref{thm:variational})\\
+$\eps\le c_6/2$ & Setting of Sect.~\Nref{sec:coarse-action} & critical only & implied, Detail~\ref{det:ledger-r1}\\
+first-step thresholds (a)--(c) & Prop.~\Nref{prop:first-step}(b) and its proof & all references, $k=0$ & not in the list; met through $\eps^{(0)}_a$ and $c_a$ (proof of Prop.~\Nref{prop:first-step}(c); Detail~\ref{det:ledger-eps-M})\\
+\bottomrule
+\end{longtable}
+}
+\end{step}
+
+\begin{step}[The threshold $\eps_*$]\label{det:ledger-epsstar}
+Lemma~\Nref{lem:sup-bounds} holds for $\eps\le\eps_*$, where $\eps_*$ depends on $L$, $G$, $a$, $\alpha$ and $M_0$ but not on $M$. Section~\Nref{sec:chart} belongs to Part~IV, and Remark~\Nref{rem:domain-constants} lists $\eps_*$ among the thresholds of Parts~IV and~VII. So $\eps_*$ is fixed before $M$ and does not affect the order. The bound $|\omega_0|\le C\eps$ on the multiplier in Lemma~\Nref{lem:hessian-gamma}, whose bounds on $W_2$ are used at every reference, does not need Lemma~\Nref{lem:sup-bounds}: it follows by block Cauchy--Schwarz, as in the proof of Proposition~\Nref{prop:dirichlet-hessian}(b).
+\end{step}
+
+\begin{step}[The constants $c_a$, $\eps_a$, $\delta_a$]
+Proposition~\Nref{prop:one-loop-polymer}(b) proves that each one-loop piece $\mathfrak e(X,\cdot)$ is a normalized background activity ``for some $\eps_a,\delta_a>0$''. Its proof needs Proposition~\Nref{prop:complex-ext}, which holds for $\delta_c<\delta_P$. Definition~\Nref{def:bg-activity} uses closed bounds $\le\delta_a$, and, for $\eps_a\le\eps_{\max}$, a configuration of that definition is a complex reference of size at most $C_{\rm cmp}\delta_a$, with $C_{\rm cmp}=4$ (Detail~\ref{d9:one-loop}, Step~3); so $4\delta_a<\delta_P$ is needed. By Remark~\Nref{rem:bg-to-graded}, the piece is then a graded activity on $\mathcal U(X;c_a,c_a,c_a)$ if
+\[
+c_a\le a_2,\qquad\max(1,B_5)c_a\le\eps_a,\qquad 2C_{\rm ext}c_a<\delta_a .
+\]
+These three conditions belong to the choice of $c_a$ in ``There is $c_a>0$'' (Proposition~\Nref{prop:one-loop-polymer}); they are not free conditions. The constants $\eps_a$ and $\delta_a$ are existential. The proof shows which values serve: every $\eps_a$ at most the thresholds of the list of $\eps_{\max}$, and at $k=0$ also at most the first-step thresholds (a)--(c) of Detail~\ref{det:ledger-eps-M}; every $\delta_a$ with $4\delta_a<\delta_P$, and at $k=0$ also $4\delta_a<\delta_{P,0}$. For instance
+\[
+\eps_a:=\eps_{\max}\quad(k\ge1),\qquad\eps^{(0)}_a:=\min(\eps_{\max},\text{(a)--(c)}),\qquad\delta_a:=\tfrac18\min(\delta_P,\delta_{P,0}).
+\]
+Then $c_a$ is chosen after $\delta_P$ and $\delta_{P,0}$, as in Remark~\Nref{rem:parameters}(5). It is subject to:
+\begin{itemize}
+\item the three conditions above; for the third, $c_a\le\delta_a/(4C_{\rm ext})$ suffices;
+\item (DC1), $c_a\le\min(\frac12c_{\rm q},a_2,1)$, and (DC5), $c_a\le c_{\rm DC}r_ML^{-2}$ (Remark~\Nref{rem:domain-constants});
+\item $c_a\le c_JL^{-d-2}$, from Proposition~\Nref{prop:jacobians}(c), restated in Remark~\Nref{rem:step-quantities-output}(c).
+\end{itemize}
+All the constants on the right sides are fixed before $c_a$. By the rule at the end of the proof of Proposition~\Nref{prop:first-step}, $c_a$ is the smaller of its values at $k=0$ and at $k\ge1$.
+\end{step}
+\status{New argument: the values of $\eps_a$, $\delta_a$ that the existential statement of Proposition~\Nref{prop:one-loop-polymer} allows. No threshold is missing from the list once the first-step thresholds are read through $\eps^{(0)}_a$.}
+\end{detail}
+
+\subsection{The constants of Parts~V and~VI}\label{subsec:ledger-VVI}
+
+Parts~VII--XI use the constants of Theorems~\Nref{thm:variational} and~\Nref{thm:balaban} through $\theta_0$, $c_6$, $C_6$, $\gamma'$, $a_1$, $B_3$, and through $a_2$, $B_5$ of Corollary~\Nref{cor:regularity}. This subsection checks the two orders of choice in Parts~V and~VI, and the first radii of Part~VII.
+
+\begin{detail}[Theorem~\Nref{thm:variational}]\label{det:ledger-c6c7}\Ntarget{thm:variational}
+\emph{The order $c_7\to\theta_0\to c_6$.}
+
+\emph{What the note says} (the proof of Theorem~\Nref{thm:variational}). First $B_1$, $C_H$, $C_C$, $K$, $r_2^{\rm V}$, $r_3$ and $c_7$ are fixed; they do not depend on $\theta_0$. Then $\theta_0$ is fixed, subject to $\theta_0\le\min(c_4/3,c_7)$, $\rho_1\le r_2^{\rm V}/2$, $C\rho_1<1$ and $\rho_2+C_H\beta\le r_3$, all for $\eps+\beta\le\theta_0$; off the main line, $\theta_0$ also satisfies the condition for Proposition~\Nref{prop:map-compare}(a) (Detail~\ref{det:ledger-off}). Finally
+\[
+c_6\le\min\big(c_4/3,\ c_7,\ \theta_0,\ \theta_0/C,\ B_1\theta_0/K',\ \min(\theta_0,c_1)/(20d),\ \min(c_3,c_5)/C_6\big).
+\]
+
+\begin{step}[The first group does not involve $\theta_0$ or $c_6$]
+\begin{itemize}
+\item $B_1$, $c_4$, $r_u$ come from Theorem~\Nref{thm:chart}.
+\item $C_H$, $C_C$ come from Lemma~\Nref{lem:sup-bounds}(d) (Proposition~\Nref{prop:contraction}), and $K=4C_C(1+C_H)$.
+\item $r_2^{\rm V}$ comes from Lemma~\Nref{lem:linearizing}, and $r_3\le r_2^{\rm V}$ from Lemma~\Nref{lem:V-bounds}.
+\end{itemize}
+These lemmas are stated for $\eps$ below their own thresholds and have no other parameter.
+
+The constant $c_7$ is decreased three times:
+\begin{itemize}
+\item for the contraction (the proof of Proposition~\Nref{prop:contraction});
+\item for the minimality (Proposition~\Nref{prop:minimality});
+\item in Lemma~\Nref{lem:Lstar-coercive}, to be at most the thresholds of Theorems~\Nref{thm:reg-scalar} and~\Nref{thm:reg-coercive} and of Proposition~\Nref{prop:action}, with $C'c_7\le\frac12c_*$.
+\end{itemize}
+In the contraction step, $\rho_2\le C(\eps+\theta_0+\beta)$ with an explicit $C$. Since $\rho_1=2B_1(\eps+\theta_0+\beta)$ (Section~\Nref{subsec:reduction}) and $\rho_2=2\rho_1+C_H\beta+K(\eps+\beta)$ (Proposition~\Nref{prop:contraction}), we may take $C=4B_1+C_H+K$. Under $\eps+\beta\le c_7$ and $\theta_0\le c_7$ this gives $\rho_2\le2Cc_7$. So each smallness requirement in the proofs of Propositions~\Nref{prop:contraction} and \Nref{prop:minimality} is a condition on $c_7$ alone, with constants of the first group. $C'$ depends only on the constants of Propositions~\Nref{prop:action}, \Nref{prop:Q-expansion}, \Nref{prop:euler-lagrange}, Theorem~\Nref{thm:reg-scalar} and Lemmas~\Nref{lem:curvature}, \Nref{lem:weitzenbock} (Lemma~\Nref{lem:Lstar-coercive}). None of these involves $\theta_0$ or $c_6$.
+\end{step}
+
+\begin{step}[The conditions on $\theta_0$]\label{det:ledger-c6c7-theta}
+For $\eps+\beta\le\theta_0$ we have $\rho_1\le4B_1\theta_0$ and $\rho_2\le(8B_1+C_H+K)\theta_0$. So the four conditions on $\theta_0$ are upper bounds on $\theta_0$ by constants of the first group.
+\end{step}
+
+\begin{step}[Thresholds used but not listed]
+The proofs of Part~V use further thresholds on $\eps$ that the proof of Theorem~\Nref{thm:variational} does not name:
+\begin{itemize}
+\item $\eps_*$ of Lemma~\Nref{lem:sup-bounds}, which every bound with $C_H$, $C_C$ needs;
+\item $\eps_{\rm B}$ of Lemma~\Nref{lem:uniformity}(c) at $M=M_0$;
+\item the threshold of Lemma~\Nref{lem:X-coercive}, which needs $C\eps\le\frac12$ for a positive $c_X$;
+\item the smallness behind ``Hence $\mathcal O$ is invertible'' and ``the operator on the right has norm at most $\frac12$'' (the proofs of Propositions~\Nref{prop:euler-lagrange}, \Nref{prop:analyticity}). This is a smallness of $|A_*|_{C^1}$ and of $\eps+\rho_2$, so it is a condition on $c_7$, not only on $\eps$.
+\end{itemize}
+They are not missing in substance. Section~\Nref{ss:25.2} states the theorem ``for $\eps$ below the threshold at $M=M_0$; this threshold includes $\eps_{\rm B}$''. Each of them is a constant of Parts~II--V at $M_0$, and none involves $\theta_0$ or $c_6$. So the ledger reads $c_7$ as also bounded by
+\[
+\eps_V:=\min\big(\eps_*,\ \eps_{\rm B}(M_0),\ \eps_{\rm X},\ \eps_{\rm EL}\big),
+\]
+where $\eps_{\rm X}$ is the threshold of Lemma~\Nref{lem:X-coercive} and $\eps_{\rm EL}$ the smallest of the thresholds in the proofs of Propositions~\Nref{prop:euler-lagrange} and~\Nref{prop:analyticity}; the order is unchanged.
+\end{step}
+
+\begin{step}[The condition $C_6c_6\le\min(c_3,c_5)$]
+The proof of Proposition~\Nref{prop:coarse-action}(a) uses $|A_*(B)|_{C^1}\le C_6(\eps+|B|_\infty)\le c_5$, so that $\Phi$ is analytic at $A_*(B)$ by Proposition~\Nref{prop:action}. The same proof uses Proposition~\Nref{prop:Q-expansion}(c) at $A_*(B)$, which needs $|A_*(B)|_\infty\le c_3$. Both follow from the last condition of the list, $c_6\le\min(c_3,c_5)/C_6$, since $\eps+|B|_\infty<c_6$ on the domain of Theorem~\Nref{thm:variational}(f).
+
+This condition creates no cycle. The constant $C_6$ is the largest of the constants in Theorem~\Nref{thm:variational}(c)--(f). These are $K'=K+C_H+1$ (Section~\Nref{ss:26.3}), the constants of Propositions~\Nref{prop:minimizer-regularity}, \Nref{prop:euler-lagrange} and~\Nref{prop:analyticity}, and $3e^{\gamma'}$ (Corollary~\Nref{cor:analytic} and its proof). Each holds for all $\eps+\beta$ below thresholds fixed before $c_6$ and does not involve $c_6$. So $C_6$ is fixed before $c_6$. Decreasing $c_6$ is harmless at every use: $r_1=c_6/4$, $C^{\rm units}_LB_3a_1\le c_6$, $K_R\eps_{\rm imp}\le c_6$, $\eps+\beta_V\le\min(c_6,c_7)$.
+
+The two bounds also follow by a second route, which the note does not need. In the proof of Proposition~\Nref{prop:analyticity}, $A_*(B)=A'_*-\bH\mathcal D(A'_*)$ with $|A'_*|_{C^1}\le\rho_2+C_H\beta\le r_3$. The radius $r_3\le r_2^{\rm V}$ of Lemma~\Nref{lem:V-bounds} is chosen so that Proposition~\Nref{prop:action}(a) applies at $A'-\bH\mathcal D(A')$ for $|A'|_{C^1}\le r_3$ (the proof of Lemma~\Nref{lem:V-bounds}), and the radius $r_2^{\rm V}$ of Lemma~\Nref{lem:linearizing} gives $|A|\le(1+C_H)r_2^{\rm V}\le\frac12c_3$ (the proof of Lemma~\Nref{lem:linearizing}). And $\eps\le c_7$ is below the threshold of Proposition~\Nref{prop:action}.
+\end{step}
+\status{Expanded. The thresholds of Part~V that the proof of Theorem~\Nref{thm:variational} does not name are constants of Parts~II--V at $M_0$, fixed before $\theta_0$ and $c_6$; Section~\Nref{ss:25.2} states the theorem for $\eps$ below the threshold at $M=M_0$. The bound $c_7\le\eps_V$ is the ledger's explicit reading of these choices.}
+\end{detail}
+
+\begin{detail}[Theorem~\Nref{thm:balaban}]\label{det:ledger-a1B3}\Ntarget{thm:balaban}
+\emph{The constants $a_1$ and $B_3$.}
+
+\emph{What the note says} (the proof of Theorem~\Nref{thm:balaban}). $B_3=\max(4C_{\rm imp},C_{\rm base})$ and $K=(1+C_6)C^{\rm units}_L$. The constant $a_1$ is chosen with
+\begin{gather*}
+C^{\rm units}_LB_3a_1\le\min(c_6,1),\qquad KB_3a_1\le\eps_{\rm imp},\qquad B_3a_1\le\theta_0,\\
+a_1\le c_1,\qquad d(8M+6)a_1\le c_G,\qquad B_3a_1\le c'_3 .
+\end{gather*}
+
+\begin{step}[The inputs come first]
+\begin{itemize}
+\item $C_{\rm imp}=K_1C_7dS_1(4M+7)$ (Step~5 of the proof of Lemma~\Nref{lem:improvement}), with $K_1=\max(5,C_7)$ and $S_1$ from the decay $\gamma_7$ of Proposition~\Nref{prop:localized} (the proof of Lemma~\Nref{lem:improvement}).
+\item $\eps_{\rm imp}$ is fixed by $K_1C_7K_R^2\eps_{\rm imp}\le\frac14$, $K_R\eps_{\rm imp}\le c_6$, $\eps_{\rm imp}\le\theta_0$, $C_8R^q\eps_{\rm imp}\le1$ and $C_9(1+C_8R^q)\eps_{\rm imp}\le c_1$ (the proof of Lemma~\Nref{lem:improvement}). Here $R\ge64(M+1)$ with $K_1C_7K_RT(R/8)\le\frac14$, $K_R=2C_9(1+C_8R^q)$, and $n_0=4R+16$.
+\item $C^{\rm units}_L=3C_E(4M+2)^{p+1}L^3$ (the proof of Lemma~\Nref{lem:units}), with $C_E\ge1$ and $p$ of Lemma~\Nref{lem:large-cubes}.
+\item $C_{\rm base}$ (the proof of Theorem~\Nref{thm:balaban}) comes from $|\ell(V^u(b))|\le d(4M+4)\eps_1$, from the unit-lattice bounds $|\partial A|\le2|A|$ and $[\partial A]_\alpha\le2|\partial A|\le4|A|$ for $A=\ell(V^u)$, and from $|J_V|\le C\eps_1$. It depends only on $d$, $G$ and $M$.
+\item $c_6$, $C_6$, $\theta_0$ (Part~V), $c_1$ (Part~IV) and $c_G$ (Section~\Nref{ss:21.2}).
+\end{itemize}
+None of these involves $a_1$ or $B_3$. So $B_3$ is fixed after them, and $a_1$ after $B_3$.
+\end{step}
+
+\begin{step}[The induction does not change the constants]
+From $k-1$ to $k$ (the proof of Theorem~\Nref{thm:balaban}), the hypotheses are verified with the same numbers:
+\begin{itemize}
+\item Lemma~\Nref{lem:units} needs $C^{\rm units}_LB_3\eps_1\le1$;
+\item Theorem~\Nref{thm:variational} needs $\eps=C^{\rm units}_LB_3\eps_1\le c_6$ and $|J_{U_0}|\le L^3B_3\eps_1\le\eps$, since $C^{\rm units}_L\ge L^3$;
+\item Lemma~\Nref{lem:improvement} needs $KB_3\eps_1\le\eps_{\rm imp}$ and $n\ge n_0$.
+\end{itemize}
+The induction closes with $2C_{\rm imp}\le\frac12B_3$. No constant depends on $k$. At $k=0$, Corollary~\Nref{cor:analytic} uses $\eps_1\le B_3\eps_1$, i.e.\ $B_3\ge1$. This holds, since $C_{\rm base}\ge d(4M+4)$.
+\end{step}
+
+\begin{step}[What inherits $M$]
+$B_3$ grows at least linearly in $M$, and $a_1$ decays polynomially in $M$. Through them, the following depend on $M$:
+\begin{itemize}
+\item $a'_1=\min(a_1,\theta_0L^{-3}B_3^{-1})$ (Lemma~\Nref{lem:composition}(c));
+\item $a_\delta$ and $n_\delta$ (Proposition~\Nref{prop:sharp-curvature});
+\item $r_2$ of Lemma~\Nref{lem:step-quadratic} and $a_{\rm step}$ (the proof of Theorem~\Nref{thm:step});
+\item the admissible thresholds (Section~\Nref{subsec:flow-parameters});
+\item $a_2$ and $B_5=2B_3+CB_1(2B_3+1)$ (the proof of Corollary~\Nref{cor:regularity});
+\item (DC1), (DC2), $B_P$ (Lemma~\Nref{lem:quadratic-bound}), $C_{\rm nf}$ (Lemma~\Nref{lem:later-normal-form}), $\Theta^\flat$ and $m_0$;
+\item $n_0$ and with it $n_*$ (Section~\Nref{subsec:tf-scales}, paragraph ``Torus hypotheses'').
+\end{itemize}
+All of them are fixed in S4 or later. None enters $L$, $\kappa$, $\delta$ or the thresholds $M_1$, $M'_1$, $M_{\mathfrak N}$. So there is no cycle through $M$.
+\end{step}
+
+\begin{step}[Two consequences used later]
+\begin{itemize}
+\item $B_3a_1$ lies below the thresholds $\eps_0$ of Parts~II--III. Indeed $C^{\rm units}_L\ge1$ gives $B_3a_1\le c_6\le c_7$, and $c_7$ is at most the thresholds of Theorems~\Nref{thm:reg-scalar} and~\Nref{thm:reg-coercive} (Lemma~\Nref{lem:Lstar-coercive}), which are the numbers $\eps_0$ of these theorems. So the operators of Parts~II--III exist at every background field $U_k(V)$, $V\in\mathfrak U_k(a_1)$, which is $(M,B_3a_1)$-regular by Theorem~\Nref{thm:balaban}(b). This is used in Part~XI at arbitrary small-field $V$.
+\item Part~XI also applies Proposition~\Nref{prop:AB} at such background fields (proof of Theorem~\Nref{thm:ol-chart}). That proposition assumes curvature at most $c'_3$, a constant of $d$, $L$, $G$ (the Setting of Section~\Nref{sec:AB-proof}). This is the last condition of the list, $B_3a_1\le c'_3$; it does not follow from the others, nor from $\theta_0\le\frac13c_4$. It is acyclic: $c'_3$ is fixed in S2, before $M$ and $a_1$. It is used in Part~XI only.
+\end{itemize}
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:coarse-action}, Lemma~\Nref{lem:step-quadratic}, Theorem~\Nref{thm:step}]\label{det:ledger-r1}\Ntarget{prop:coarse-action,lem:step-quadratic,thm:step}
+\emph{The radius $r_1=c_6/4$ and the first radii of Part~VII.}
+
+\begin{step}[$r_1$ and the nested balls]
+The symbol $r_1$ is defined only in the Setting of Section~\Nref{sec:coarse-action}, by $r_1:=c_6/4$, under the assumption $\eps\le c_6/2$. It does not occur in Parts~V--VI. For $|B|_\infty<2r_1$ one has $\eps+|B|_\infty<c_6$, which is the domain of Theorem~\Nref{thm:variational}(f). The later statements use smaller balls:
+\begin{itemize}
+\item $|B|_\infty<r_1$ for Proposition~\Nref{prop:coarse-action}(c), with margin $r_1$ for the Cauchy estimate;
+\item $|B|_\infty\le r_1/2$ for (d);
+\item $|\hat\beta|_\infty\le r_1/4$ for Proposition~\Nref{prop:base-dependence};
+\item $c'_L\le r_1/4$ (Corollary~\Nref{cor:covariance}(c));
+\item $|\hat Z(Z)|_\infty\le r_1/2$ in Lemma~\Nref{lem:step-quadratic}.
+\end{itemize}
+The constants of Proposition~\Nref{prop:coarse-action} depend on $r_1$ only through $c_6$, so they do not depend on $M$.
+\end{step}
+
+\begin{step}[The condition $\eps\le c_6/2$ holds]
+In Part~VII, $\eps=B_3\eps'_1$ (Section~\Nref{ss:31.3}). The hypotheses of Lemma~\Nref{lem:composition} give $\eps'_1\le a_1/(2C_*+2)$, and $C_*\ge1$. By the proof of Theorem~\Nref{thm:balaban}, $C^{\rm units}_LB_3a_1\le c_6$ with $C^{\rm units}_L\ge3L^3\ge81$. Hence $\eps\le B_3a_1/4\le c_6/324$. So the assumption $\eps\le c_6/2$ in the Setting of Section~\Nref{sec:coarse-action} holds, although the list of conditions on $a_{\rm step}$ (the proof of Theorem~\Nref{thm:step}) does not mention it. The same chain gives $B_3a_1\le\frac12c_6$, used in the Setting of Section~\Nref{sec:ol-composite}.
+\end{step}
+
+\begin{step}[$r_2$ and $a_{\rm step}$]
+$r_2=\min(cL^{-2d-2},cL^{-d}a'_1)$ (Lemma~\Nref{lem:step-quadratic}), with $c$ subject to $2cL^{-2d-2}\le\frac12r_L$, $2cL^{-2d-2}\le\frac12c_0L^{-1}$, $CL^{-d-2}c\le\frac14r_1$ and $Cc\le\frac12$. The proof of Lemma~\Nref{lem:ol-one-step} adds $c\le\frac1{16}$. This condition is not in the list of Lemma~\Nref{lem:step-quadratic}, but it is of the same kind, an upper bound on $c$ by an absolute number, and can be added there. $a_{\rm step}$ is chosen with $4(C_*+1)L^{-2}a_{\rm step}\le a'_1$ and so that Lemmas~\Nref{lem:composition}, \Nref{lem:eliminate}, Theorem~\Nref{thm:step-coercive} and Corollary~\Nref{cor:covariance} apply with $\eps=B_3\eps'_1$ (the proof of Theorem~\Nref{thm:step}). All inputs are fixed in S4 before $a_{\rm step}$.
+\end{step}
+\status{Expanded. One implicit step written out ($\eps\le c_6/2$); the condition $c\le\frac1{16}$ in the proof of Lemma~\Nref{lem:ol-one-step} belongs to the list of Lemma~\Nref{lem:step-quadratic}.}
+\end{detail}
+
+\subsection{The scales, the rates and the side of the torus}\label{subsec:ledger-scales}
+
+\begin{detail}[Remark~\Nref{rem:step-M}]\label{det:ledger-M0}\Ntarget{rem:step-M}
+\emph{$M_0$, and the constants that do not depend on $M$.}
+
+The lower bounds $M\ge M_1,M'_1,M_{\mathfrak N},M^{(0)}_1$ of Remark~\Nref{rem:parameters}(4) are not circular only if the constants entering them do not depend on $M$. The note asserts this in four places; we check how each assertion rests on the next.
+
+\begin{step}[$M_0$]
+$M_0$ is fixed in Theorem~\Nref{thm:reg-coercive} by $Ce^{-\gamma M_0}\le c_g/8$ and by the absorption of the terms $CM_0^{-2}$, with $C$, $\gamma$ of Parts~II--III (Step~3 of the proof of Lemma~\Nref{lem:uniformity}). It depends only on $d$, $a$, $\alpha$ and $\dim\mathfrak g$, and comes before $L$.
+\end{step}
+
+\begin{step}[Parts~II--V]\label{det:ledger-M0-parts}
+An $(M,\eps)$-regular reference is $(M_0,\eps)$-regular (Lemma~\Nref{lem:regular-monotone}). The torus operators of Parts~II and~III do not depend on the regularity scale. This is Step~0 of the proof of Lemma~\Nref{lem:uniformity}. On $X=\Tf$ the mass function $m_{\Tf}$ of the partition vanishes, so $\fA'_{\Tf}$, $G'$, $\Gamma'$, $P_\cV$, $R$, $S$, $\Pi$, $\fA_\pi$, $\bG$, $\boldsymbol\Gamma_\pi$, $\bH$, $\bC$ are defined without $M$. The results of Part~III hold under ``$M\ge M_0$ and $(M,\eps)$-regular'', so they may be applied with $M=M_0$, and coercivity and decay are properties of these fixed operators. The chapter on Part~VII expands this step. Hence the constants of Parts~II--III, and those of Theorem~\Nref{thm:variational}, may be taken at $M=M_0$ (Section~\Nref{ss:25.2}). For the averaging of Part~IV, the Setting of Section~\Nref{sec:AB-proof} states that the proofs of Sections~\Nref{sec:averaging} and~\Nref{sec:adapted} do not use $M$. The ledger takes these statements from the chapter on Part~VII.
+
+Theorem~\Nref{thm:ID} states that its constants do not depend on $M\ge M_0$. In its proof, $M$ enters only through the width $8M$ of the set where the mass terms of two domains differ; that is a seam width, not a constant. The threshold $\eps_{\rm ID}$ is never written out (chapter on Part~VIII).
+\end{step}
+
+\begin{step}[Part~VII, Remark~\Nref{rem:step-M}]\label{det:ledger-M0-VII}
+\begin{itemize}
+\item $c_L=\frac12\min(c_D,1)C_{\rm P}^{-1}$. Here $c_D$ is absolute (Proposition~\Nref{prop:eff-action-gauge}), and $C_{\rm P}$ depends only on $d$ and $L$ (Lemma~\Nref{lem:poincare-step}).
+\item The upper bound $C_L$ and the decay $\gamma_1$ of $\Delta_k$ come from Proposition~\Nref{prop:hessian}(c), which is Proposition~\Nref{prop:coarse-action}(c) at $B=0$. Its constants come from Theorem~\Nref{thm:variational}, from Propositions~\Nref{prop:action} and~\Nref{prop:Q-expansion}, from $r_1=c_6/4$, and from Lemma~\Nref{lem:X-coercive}, which rests on Theorem~\Nref{thm:reg-coercive}. All of these are free of $M$ by Step~2.
+\item $C'_L$ and $\gamma_C$ come from these by Lemma~\Nref{lem:CT-bounded}; the complex part of $\gamma_C$ also uses the bound $A_L$ of Detail~\ref{d7:covc}.
+\item $c'_L\le r_1/4$, and the bounds at complex bases come through Proposition~\Nref{prop:base-dependence}. $c'_L$ is chosen after the radius $r_*$ and the bound $A_L$ of Detail~\ref{d7:covc}, which come from the same constants and do not depend on $M$ either.
+\item The constant $C_L$ of Theorem~\Nref{thm:step}(d) comes from Lemma~\Nref{lem:step-quadratic} on the disc $|Z|_\infty\le2cL^{-2d-2}$. Its $c$ depends on $d$, $G$, $L$ and $c_6$.
+\end{itemize}
+Remark~\Nref{rem:step-M} also says that $M$ enters Lemma~\Nref{lem:local-comparison} through the factor $e^{CM}$ of Theorem~\Nref{thm:reg-locality}(b). The proof uses only the seam form of that theorem, whose seam has width $10M$; its distance from the inner cube is at least $20M'-M'-10M\ge9M'$ because $M'\ge M$, up to the fixed collar allowance already absorbed in the estimate. The remark is therefore more cautious than needed, but not wrong.
+\end{step}
+
+\begin{step}[Part~IX, Section~\Nref{ss:41.3}]
+The constants $C_G$, $C_{\rm loc}$, $C_{\mathfrak N}$ and the rates $\gamma_0$ enter $M_1$ (Theorem~\Nref{thm:weak-inverse}).
+\begin{itemize}
+\item At (L1)--(L3) they come from the torus operators and from Theorem~\Nref{thm:reg-coercive}, both free of $M$ by Step~\ref{det:ledger-M0-parts}.
+\item At (L4)--(L5) they come from Propositions~\Nref{prop:dirichlet-averaged}, \Nref{prop:dirichlet-hessian} and~\Nref{prop:local-fluct}, and from the constants of Step~\ref{det:ledger-M0-VII}.
+\item The non-local parts $\mathfrak N$ come from Theorem~\Nref{thm:weak-inverse}(b) at the earlier levels. These constants are free of $M$ only once $M$ exceeds the thresholds of those earlier levels.
+\end{itemize}
+So the condition $M\ge M_1$ is to be read level by level: $M_1:=\max_\ell M_1^{(\ell)}$, where $M_1^{(\ell)}$ is computed with the constants of level~$\ell$, and these are valid for all $M\ge\max_{\ell'<\ell}M_1^{(\ell')}$. Each $M_1^{(\ell)}$ is a number fixed before $M$, so the maximum is too. This is how Section~\Nref{ss:41.3} and Remark~\Nref{rem:parameters}(4) define $M_1$. Its arguments $M_1(\kappa,\delta,C_G,C_{\rm loc},C_{\mathfrak N},\gamma_0,\rho,C_v)$ include $C_v$ of Section~\Nref{sec:weakenable}, which is fixed with $\rho$, before $M$. The margin satisfies $R_0(L,M)\le C_LM$ (Proposition~\Nref{prop:local-fluct}), which is used to fix $\rho$ before $M$ (Section~\Nref{sec:nested-walks}). The proof of Proposition~\Nref{prop:local-fluct} gives it: $R_0(L,M)=2L+10M+\frac2{\gamma'}\log^+\frac{16C_{\rm seam}}{c_L}$, where $C_{\rm seam}$, $c_L$ and $\gamma'$ do not depend on $M$, so this is at most $C_LM$ for $M\ge1$.
+\end{step}
+\status{Literal repetition of Remark~\Nref{rem:step-M}, item by item; the step on Part~IX is Expanded.}
+\end{detail}
+
+\begin{detail}[Remark~\Nref{rem:parameters}(1)--(3); Corollary~\Nref{cor:weak-covariance}]\label{det:ledger-rates}\Ntarget{rem:parameters,cor:weak-covariance}
+\emph{The rates are chosen before $M$.}
+
+\begin{step}[The constants of the rate conditions depend on $d$ only]
+\begin{itemize}
+\item $c_\flat$, $c_\sharp$ and $c_\natural=2\sqrt d$ are the constants of $d_M$ as a decay functional (Definition~\Nref{def:decay-functional}); $c'_\sharp=\max(c_\sharp,c_\natural)$.
+\item $C_d=3^d(\log C_0+3^d+2)$, with $C_0$ the polymer count (the proof of Theorem~\Nref{thm:mayer}).
+\item $\kappa_0\ge1$ and $K_0$ come from \Neqref{eq:dM-facts} (Section~\Nref{subsec:flow-norm}).
+\end{itemize}
+They depend on $d$ only. So $\kappa_n\ge2(1+C_d+\kappa_0)$ (S1) involves only $d$. The conditions on $L$ in~(2) involve $C=2\sqrt d$ of Remark~\Nref{rem:reblock-margins} and $C_*$ of Proposition~\Nref{prop:sharp-curvature}, which depends on $a$, $\alpha$, $G$ but not on $L$ (Section~\Nref{ss:31.2}).
+\end{step}
+
+\begin{step}[The loss]\label{det:ledger-rates-loss}
+$\kappa'_w=\kappa-C\delta$, with $C\le20$ (Corollary~\Nref{cor:weak-covariance}). The count is: seven walks, those of (L1)--(L5) and the repetitions of (L3), (L4) with $W_2$, at most $2\delta$ each, and boundedly many products, $\delta$ each (Section~\Nref{ss:41.3}). The number $20$ is absolute. So the three conditions of~(3) involve $\kappa$, $\delta$ and constants of $d$ only, and do not involve $L$ or $M$.
+\end{step}
+
+\begin{step}[The rate arithmetic of Remark~\Nref{rem:parameters}]
+Let $a(Z)\le\bar Ae^{-\lambda d_M(Z)}$ with $\lambda\ge\kappa_0+1$. After reblocking, the decay rate in $d_{LM}$ is $(\lambda-\kappa_0)(L-C3^d)-1\ge3(\lambda-\kappa_0)-1$, for $L\ge C3^d+3$.
+\begin{itemize}
+\item This is at least $\kappa_n$ if $\lambda\ge\kappa_n+\kappa_0+2$, since then $3(\lambda-\kappa_0)-1\ge3\kappa_n+5$.
+\item It is at least $\kappa_n$ for $\lambda=\kappa_n-1-C_d$ (the mixed class). Indeed $3(\kappa_n-1-C_d-\kappa_0)-1\ge\kappa_n$ is $2\kappa_n\ge3C_d+3\kappa_0+4$, which follows from $2\kappa_n\ge4+4C_d+4\kappa_0$.
+\item The one-loop pieces have rate $(3^{-d}\kappa'_w-1)/c_\sharp$ in $d_M$, since $|X|\ge d_M(X)/c_\sharp$; the pure class has $(\kappa'_w-2)/c'_\sharp-C_d$. By the first two conditions of~(3), both are at least $\kappa_n+\kappa_0+2$.
+\item The third condition of~(3) is that of Proposition~\Nref{prop:localized-pieces}.
+\end{itemize}
+\end{step}
+
+\begin{step}[The first step]
+At $k=0$ the operator is $\fA^X=\one_X(\Delta_0+r)\one_X$. It has (W1) local, $\mathfrak N=0$ and (W3) empty (the proof of Proposition~\Nref{prop:first-step}). So its walks are a subset of those counted in Step~\ref{det:ledger-rates-loss}, its loss $C^{(0)}\delta$ satisfies $C^{(0)}\le C$, and $\kappa'^{(0)}\ge\kappa'_w$. The rate conditions of~(3) are lower bounds on $\kappa'_w$. So they hold at $k=0$, which is what the proof of Proposition~\Nref{prop:first-step} asserts (``with the same choice of the weakening rate''). The count at $k=0$ belongs to the chapter on Part~X (second half).
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Section~\Nref{subsec:tf-scales}; Lemma~\Nref{lem:torus}]\label{det:ledger-torus}\Ntarget{subsec:tf-scales,lem:torus}
+\emph{The side of the torus.}
+
+\begin{step}[$n_*$ and $n_{\min}$ are fixed in S4]
+(T0) takes $n_*$ to be the largest of:
+\begin{itemize}
+\item $n_0=4R+16$ of Lemma~\Nref{lem:improvement} and Corollary~\Nref{cor:regularity}, for $n_k$ (the proof of Lemma~\Nref{lem:improvement}). It depends on S0, $L$ and $M$.
+\item $n_\delta$ at $\delta=1$ of Proposition~\Nref{prop:sharp-curvature}, for $n_{k+1}$ (the proof of Proposition~\Nref{prop:sharp-curvature}). It depends on S0, $L$ and $M$.
+\item $80M'$, for $n_{k+1}$. Here $M'\ge M'_L$ is the parameter of Remark~\Nref{rem:parameters}(4).
+\item $8M_0$, for $n_{k+1}$.
+\item $C(\rho+C_v)M$ with $C\ge8$, for $n_k$ (the Setting of Section~\Nref{sec:weakenable}).
+\end{itemize}
+So $n_*$ depends on S0--S4, and on no domain constant, no $\gamma$ and no coupling. This confirms Remark~\Nref{rem:parameters}. The notation $n_*(L,M,\rho)$ hides the dependence on $M'$, $C_v$, $M_0$ and S0. The same holds for $n_{\min}=\max(C_{\rm tor}LM,n_*)$ with $C_{\rm tor}=8$ (Section~\Nref{subsec:tf-scales}, paragraph ``Torus hypotheses'').
+\end{step}
+
+\begin{step}[Every lower bound on the side follows from $n_K\ge n_{\min}$]
+Since $n_k=L^{K-k}n_K$, every $n_k$ with $k\le K$ is at least $n_{\min}$. The lower bounds on the side used in Parts~VI--XI are the following.
+\begin{itemize}
+\item $n\ge n_\delta$ and $n\ge80M'_L$ for $n=n_{k+1}$ (Part~VII, Section~\Nref{sec:rg-step}, paragraph ``Conventions for Part VII''). They follow from (T0), which contains them with the factor $L$.
+\item The side is at least $8M_0$ (Lemma~\Nref{lem:uniformity}). It follows from (T0).
+\item $n\ge80M'$ and boxes of side at most $120M'+3<80M'L$ (Lemma~\Nref{lem:local-comparison}; Proposition~\Nref{prop:first-step}(b)). These follow from (T0).
+\item $n\ge8M$ for the partition of Lemma~\Nref{lem:partition} at the scales $M_0$, $M$ and $M'$. It is implied: $n_k\ge8LM$ by (T2), and $80M'\ge8M'$.
+\item $n\ge n_0$ for Theorem~\Nref{thm:balaban} and Corollary~\Nref{cor:regularity} at scale $k$, and at scale $k+1$ through $n_\delta\ge n_0$. One also needs all boxes of Part~VI to have sides less than $n$ (Section~\Nref{sec:local-gauges}, paragraph ``Conventions for Part VI''). These boxes have side at most $3(R+3)<4R+16$, so this is implied too.
+\item A cube $\Lambda$ with $2R<n$ in Lemma~\Nref{lem:quadratic-bound}, and the cubes of side $2\operatorname{diam}X+8<n$ of Proposition~\Nref{prop:one-loop-polymer}(c). Both hold for non-wrapping polymers by Lemma~\Nref{lem:torus}(b) and (T2).
+\item $n\ge C(\rho+C_v)M$ and $4R_{\rm g}<n$ with $R_{\rm g}=(\rho+C_v+8)M$ (Section~\Nref{subsec:torus-independence}). This holds since $8(\rho+C_v)M>4(\rho+C_v+8)M$ for $\rho\ge30$.
+\item $M\mid n_k$ (the proof of Lemma~\Nref{lem:small-polymers}) and $n_k\ge8LM$ (the Setting of Section~\Nref{sec:generations}, the proof of Lemma~\Nref{lem:large-later}, Section~\Nref{subsec:flow4-old}). These are (T1) and (T2).
+\item $n\ge8$ for the operators of Part~I in Part~XI (Section~\Nref{subsec:ol-infinite-volume}, paragraph ``Fields and kernels'', Section~\Nref{subsec:ol-vp-function}, paragraph ``Background derivatives''). It is implied.
+\item The sides of scale $j+1$ are at least $n_{\min}$ (the proof of Theorem~\Nref{thm:ol-cumulative}, Theorem~\Nref{thm:ol-uv}, the Setting of Section~\Nref{subsec:gl-setting}). This holds by definition.
+\end{itemize}
+The bound $C(1+m+R_0)\le n$ in the proof of Corollary~\Nref{cor:one-loop} is a case split in $m$, not a hypothesis. Lemma~\Nref{lem:torus}(a)--(e) uses only $L\ge3$, $M\ge64$ and (T0)--(T2).
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:first-step}, Lemma~\Nref{lem:first-step-formula}]\label{det:ledger-first}\Ntarget{prop:first-step,lem:first-step-formula}
+\emph{The constants of the first step.}
+
+The first step has its own constants (the proof of Proposition~\Nref{prop:first-step}):
+\begin{itemize}
+\item $c^{(0)}_L=2C_{\rm P}^{-1}$;
+\item $C_T$, $r_I=r_L$, $r_t$, $\kappa'$ and $M^{(0)}_1$;
+\item $\delta_{P,0}$ (the proof of Proposition~\Nref{prop:first-step});
+\item $a^{(0)}_{\rm step}$ and $r^{(0)}_2$ (the proof of Lemma~\Nref{lem:first-step-formula}).
+\end{itemize}
+The flow uses the worse of the two values of each.
+\begin{itemize}
+\item \emph{$M^{(0)}_1$.} It is computed from $\Rea\Delta_0\ge\frac12C_{\rm P}^{-1}$, a norm change at most $\frac18C_{\rm P}^{-1}$ and the range $2L+2$ (Remark~\Nref{rem:parameters}(4), the proof of Proposition~\Nref{prop:first-step}). These depend on $d$ and $L$, not on $\delta_{P,0}$ or $M'$. So $M^{(0)}_1$ is fixed in S4, before $M$.
+\item \emph{$\delta_{P,0}$.} It is fixed so that the $O(\delta_c)$ change of $\Delta_0$ is at most $\frac18C_{\rm P}^{-1}$, with $\delta_{P,0}\le\min(c'_L,cL^{-d-1})$ (the proof of Proposition~\Nref{prop:first-step}). This needs only $L$ and Part~VII constants. It is fixed in S5, after $\delta_P$ as Remark~\Nref{rem:parameters}(5) says, though it does not need $\delta_P$. It is not required to be $\le\bar\delta$. Nothing at $k=0$ needs this: Propositions~\Nref{prop:reg-complex}, \Nref{prop:AB} and~\Nref{prop:complex-ext} are not used at $k=0$ (the proof of Proposition~\Nref{prop:first-step}).
+\item \emph{$\kappa'$.} See Detail~\ref{det:ledger-rates}.
+\item \emph{$a^{(0)}_{\rm step}$ and $r^{(0)}_2$.} They are fixed with $\gamma$-free constants of the first step. They carry the thresholds (a)--(c) of Detail~\ref{det:ledger-eps-M} at critical references. At non-critical references these thresholds hold through $\eps^{(0)}_a$ and $c_a$ (Detail~\ref{det:ledger-eps-M}, Step~\ref{det:ledger-eps-M-noncrit}).
+\end{itemize}
+\status{Expanded.}
+\end{detail}
+
+\subsection{The coupling}\label{subsec:ledger-coupling}
+
+\begin{detail}[Remarks~\Nref{rem:parameters}(6) and~\Nref{rem:flow-constants}; Proposition~\Nref{prop:flow-F}; Theorem~\Nref{thm:ol-uv}]\label{det:ledger-gamma}\Ntarget{rem:parameters,rem:flow-constants,prop:flow-F,thm:ol-uv}
+\emph{The bound $\gamma$ against ($\Gamma$1)--($\Gamma$4), and the constants chosen after it.}
+
+\begin{step}[The functions $p$, $p_0$]
+Section~\Nref{subsec:flow-parameters} fixes $g_p\in(0,1]$ and two functions on $(0,g_p]$:
+\begin{itemize}
+\item $p$ is decreasing, $g\mapsto gp(g)$ is increasing, $p_0/p\to0$, and $g^\nu p(g)\to0$ for every $\nu>0$;
+\item $p_0\ge1$ is continuous and decreasing, and $g\mapsto gp_0(g)$ is increasing.
+\end{itemize}
+The example is $p_0=(\log g^{-1})^q$, $p=(\log g^{-1})^{q'}$ with $0<q<q'$ and $g_p=e^{-\max(1,q')}$ (Section~\Nref{subsec:flow-parameters}). Remark~\Nref{rem:parameters} does not place $p$, $p_0$, $g_p$ in the order. They enter no constant of S0--SF. They enter only the thresholds $h_k=p_kg_k$, the cutoffs $p_{0,k}$, and the constant $C'$ of Theorem~\Nref{thm:N}(vi), which is stated to depend on $p_0$. So they may be fixed at any time before $\gamma$, and the ledger puts them at the start of S6.
+\end{step}
+
+\begin{step}[The constants of the flow are fixed before $\gamma$]
+\begin{itemize}
+\item Lemma~\Nref{lem:raw-new}(b) gives the constants $B_{\rm new}$ and $B^{(0)}_{\rm new}$. By Remark~\Nref{rem:flow-constants}(i) they depend on S0--S4, through the one-loop and Jacobian bounds and through $K_0$. They do not depend on the domain constants. The constants of Proposition~\Nref{prop:one-loop-polymer}(d) depend only on $L$, $M$, $\kappa$, $\rho$, ``not on $\theta_r,\delta_1,\delta_0$ or $g$'' (Proposition~\Nref{prop:one-loop-polymer}(d)), and the bound of Proposition~\Nref{prop:one-loop-polymer}(b) is uniform in the background (the proof of Proposition~\Nref{prop:one-loop-polymer}); so $C_{\mathfrak e}$ can be chosen independent of $c_a$. The loss $\delta$ is an S3 parameter, listed in Remark~\Nref{rem:flow-constants}(i). Then $\mathsf K=2\max(B_{\rm new},B^{(0)}_{\rm new})$.
+\item $C_{\rm old}$ (Proposition~\Nref{prop:old-activities}(b)) depends on $m_0$ and $C_{\rm ex}$, both from S5.
+\item $C_\beta=18d^2K_0M^{-2}(\delta_1^\flat)^{-2}$ (Proposition~\Nref{prop:period-iso}(b)).
+\item $C_{\rm new}$ and $C^{(0)}_{\rm new}$ depend on S1--S5 and on the constants $A$, $c_\natural$ of the Mayer expansion.
+\item $c_{\rm F}$ (($\Gamma$4) of Remark~\Nref{rem:flow-constants}) is
+\[
+c_{\rm F}=\min\Big(\frac{R_P}{2C_wL^dC_T},\ \frac{\delta_1}{2C_PL^d},\ \frac{\delta_1\epsilon_*}{4C_P^2L^dC_{\rm old}\mathsf Ke^{c_\natural(\kappa_n-1)}}\Big).
+\]
+\end{itemize}
+None of these involves $\gamma$, a coupling, the number of steps $K$ or the torus. Nothing in S5 uses $\mathsf K$.
+\end{step}
+
+\begin{step}[The conditions on $\gamma$]
+($\Gamma$1) is $C_\beta\mathsf K\gamma^2\le\frac34$. ($\Gamma$3) is $C_{\rm new}(\epsilon_{\rm p}+\epsilon_{\rm m})\le B_{\rm new}$, with its first-step analogue. ($\Gamma$4) is $2gp_0(g)\le c_{\rm F}$. ($\Gamma$2) collects the conditions of one step on the coupling (Remark~\Nref{rem:parameters}):
+\begin{itemize}
+\item $\gamma p(\gamma)$ is admissible and at most $\min(a_{\rm step},a^{(0)}_{\rm step})$;
+\item (Q1) and $2g\le r_t$;
+\item $\tau<\frac12$, which is (Q3);
+\item $8C_wL^dC_Tp_0\le p$, which gives (Q2) by $L^2\ge8(C_*+1)$;
+\item $\epsilon_{\rm p}\le\frac12\epsilon_*$ and $\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)}\le\frac14\epsilon_*$.
+\end{itemize}
+Here $w=C_wL^dC_Tgp_0$, $\tau=C_PL^dgp_0/\delta_1$, $\epsilon_{\rm p}=C_Pgp_0^3$, $\epsilon_{\rm m}=C_P\tau C_{\rm old}\mathsf K$, and $r_t\ge cp_0^{-3}$ with $c$ fixed before $\gamma$ (Proposition~\Nref{prop:pure-sources}).
+
+\emph{Feasibility.} Since $p_0\ge1$, each condition follows once four quantities are small: $\gamma$, $\gamma p(\gamma)$, $\sup_{g\le\gamma}gp_0(g)^3$ and $\sup_{g\le\gamma}p_0(g)/p(g)$. All four tend to $0$ as $\gamma\to0$, by the properties of $p$ and $p_0$. All other quantities in the conditions are fixed before $\gamma$. Each condition stays true when $\gamma$ is decreased. So there is no cycle.
+
+\emph{Completeness.} The conditions on the coupling used in the proofs of Theorems~\Nref{thm:gen-step} and~\Nref{thm:sf-flow}, and of Proposition~\Nref{prop:first-step}, are contained in ($\Gamma$1)--($\Gamma$3). The one not written there is the inclusion $\mathfrak U_k(h_k)\subset\mathfrak M$ (Remark~\Nref{rem:sf-reference}(c)). It follows from ($\Gamma$2), (DC1) and (DC5): $h_k$ is admissible, so $h_k<\theta_r\le c_a\le c_{\rm DC}r_ML^{-2}$, which is below the margin $\frac18\eps_M$ of $\mathfrak M$. ($\Gamma$4) is used only in Proposition~\Nref{prop:flow-F}. A search of \texttt{s51}--\texttt{s52} finds no further condition on $\gamma$; the ``$g$ small'' there is the parameter of Laplace's method at a fixed $V$ and torus.
+\end{step}
+
+\begin{step}[The constant $C_3$ of (F3)]\label{det:ledger-gamma-C3}
+$C_3=C_\beta C_{\rm new}\epsilon_*(C_{\rm pure}+c_{\rm F}^{-2})$ (Proposition~\Nref{prop:flow-F}). Its proof uses $r_{\rm F}^{-2}\le r_t^{-2}+p_0^2c_{\rm F}^{-2}$ and $r_t^{-2}\le C_{\rm pure}p_0^6$. The formula is correct with
+\[
+C_{\rm pure}:=\Big(\frac{C_PM^dC_T^3}{c\,r_I^3}\Big)^2+\Big(\frac{2C_T}{r_I}\Big)^2 ,
+\]
+read off from $r_t=\min\big(cr_I^3(C_PM^dC_T^3p_0^3)^{-1},\,r_I(2C_Tp_0)^{-1}\big)$ (Proposition~\Nref{prop:pure-sources}) and $p_0\ge1$. Here $C_P$ is the generic constant of the step inside $r_t$ (the convention in the Setting of Section~\Nref{sec:step-quantities}). $C_3$ is fixed after SF and before $\gamma$.
+\end{step}
+
+\begin{step}[After $\gamma$: $g_{\rm uv}$, $C$, $m_1$]
+Theorem~\Nref{thm:ol-uv} adds $\gamma\le e^{-3q}$ and $C_3\gamma^2p_0(\gamma)^6\le\frac12\beta_\infty$. Both are upper bounds on $\gamma$ by numbers fixed before it. The second stays true as $\gamma$ decreases, because $g\mapsto g^2p_0(g)^6$ is increasing on $(0,e^{-3q}]$.
+
+In the proof:
+\begin{itemize}
+\item $C_4=C_2\sum_{m\ge0}e^{-c_2L^m}$ (the proof of Theorem~\Nref{thm:ol-uv}).
+\item $C_5=2C+C_4$ (the proof of Theorem~\Nref{thm:ol-uv}). Here $C$ bounds the remainders $r_k$ of Theorem~\Nref{thm:ol-cumulative}, $c_k=k\beta_\infty+r_k$ (the proof of Theorem~\Nref{thm:ol-uv}). The note does not state what this $C$ depends on. From the proofs of Theorems~\Nref{thm:ol-log} and~\Nref{thm:ol-cumulative} it depends on $d$, $G$, the representation, $L$ and $a$, and not on $M$, $K$ or the torus. The chapter on Part~XI (second half) checks this.
+\item $g_{\rm uv}$ is any number with $g_{\rm uv}<\gamma(1+C_5\gamma^2)^{-1/2}$ (the proof of Theorem~\Nref{thm:ol-uv}). It is chosen after $\gamma$.
+\item $m_1$ is chosen after $C$ and $\beta_\infty$ (the proof of Theorem~\Nref{thm:ol-uv}).
+\end{itemize}
+None of these feeds back into $\gamma$.
+\end{step}
+\status{Expanded. The dependence of the $O(1)$ of Theorem~\Nref{thm:ol-cumulative} is pointed to the chapter on Part~XI.}
+\end{detail}
+
+\subsection{The ledger tables}\label{subsec:ledger-tables}
+
+\providecommand{\ldgfl}[1]{\texttt{#1}}
+\newcommand{\ldghead}{\toprule symbol & role & defined & depends on & stage & conditions (imposed; checked) & used at\\ \midrule}
+
+The tables list the constants by stage. The column ``role'' says in words what the constant is; the column ``defined'' names the statement or proof of the note that introduces it. Conditions are quoted from the note; ``(Det.~$x$)'' refers to the Detail of this chapter where the condition is checked. Constants used once inside one proof are omitted.
+
+{\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.092\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.135\textwidth}>{\raggedright\arraybackslash}p{0.125\textwidth}>{\raggedright\arraybackslash}p{0.05\textwidth}>{\raggedright\arraybackslash}p{0.228\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}@{}}
+\caption*{\normalsize Table A. Fixed data, and the constants of Parts~I--VI}\\
+\ldghead\endfirsthead
+\ldghead\endhead
+$d$, $G$ & dimension; structure group & Thm~\Nref{thm:N} & --- & S0 & $d=4$; $G$ compact, connected, semisimple (simple in Parts~X--XI) & everywhere\\
+$a$, $\alpha$ & coefficient of the averaging term; H\"older exponent & Sect.~\Nref{ss:1.3} & --- & S0 & $\alpha\le\frac12$ from Sect.~\Nref{sec:weak-background} on & $\beta=\min(\alpha,\frac12)$ (Sect.~\Nref{sec:tiers})\\
+$c_D$ & lower constant of the effective gauge action & Prop.~\Nref{prop:eff-action-gauge} & absolute & S0 & --- & $c_L$ Rem.~\Nref{rem:step-M}\\
+$c_G$ & radius in $G$ on which the logarithm is used & Sect.~\Nref{ss:21.2} & $G$ & S0 & $c_G\le\frac14$ & $d(8M+6)a_1\le c_G$ proof of Thm~\Nref{thm:balaban}; (Q1) Sect.~\Nref{sec:cluster}, paragraph ``Parameters''\\
+$r_M$, $C_M$ & radius and Lipschitz constant of the group average & Lem.~\Nref{lem:group-average} & $G$ & S0 & --- & $\eps_M$ Sect.~\Nref{ss:32.2}; (DC5); $C_{\rm AB}$, $\kappa_{\rm AB}$\\
+$c_1$ & threshold for one-step regularity of averaged fields & Lem.~\Nref{lem:one-step-regularity} & $G$ & S0 & --- & $a_1\le c_1$; $(C_*+1)h\le c_1$ Sect.~\Nref{subsec:flow-parameters}\\
+$C_E$, $p$ & constant and power for passing from small to large cubes & Lem.~\Nref{lem:large-cubes} & $d$, $\alpha$, $G$ & S0 & $C_E\ge1$, $p\ge1$ & $C^{\rm units}_L$; $\eps_{\rm cmp}$; $q_1=2p+6$ Prop.~\Nref{prop:one-loop-polymer}\\
+$L$ & block factor of the renormalization group & Sect.~\Nref{ss:2.1}; Rem.~\Nref{rem:parameters}(2) & S0, S1 & S2 & odd, $L\ge3$; $M\ge5L$ (Sect.~\Nref{sec:local-gauges}, paragraph ``Conventions for Part VI''); $L\ge C3^d+3$, $L^2\ge8(C_*+1)$ (Rem.~\Nref{rem:parameters}(2); Det.~\ref{det:ledger-rates}) & everywhere\\
+$M_0$ & smallest admissible regularity scale & Thm~\Nref{thm:reg-coercive} & $d$, $a$, $\alpha$, $\dim\mathfrak g$ & SI--VI & $Ce^{-\gamma M_0}\le c_g/8$, absorption of $CM_0^{-2}$ (Step~3 of proof of Lem.~\Nref{lem:uniformity}) & $M\ge M_0$ Rem.~\Nref{rem:parameters}(4)\\
+$\eps_0$, $c_*$, $\kappa_m$ & regularity threshold, coercivity and mass of Parts~II--III & Thm~\Nref{thm:reg-coercive} & $d$, $a$, $\alpha$, $\dim\mathfrak g$; not $M$ & SI--VI & --- & $\eps_{\max}$; $\delta_P$ proof of Prop.~\Nref{prop:complex-ext}; $C'c_7\le\frac12c_*$\\
+$\delta_0(W)$ & radius for complex perturbations of the background & Prop.~\Nref{prop:reg-complex} & the potential $W$; $L$ & SI--VI & $\delta\le\delta_0$ & the radii in the first condition on $\delta_P$ proof of Prop.~\Nref{prop:complex-ext}\\
+$\eps_{\rm U}$, $\theta_Q$, $C^{\rm unif}_H$, $\gamma_H$ & constants of Parts~II--III for every averaging pair with parameter $\le\theta_Q$, uniform in $k$, $n$, $M$ & Lem.~\Nref{lem:uniformity} & $a$, $\alpha$, $\dim\mathfrak g$ & SI--VI & $\eps_{\rm U}\le\eps_0$ and the thresholds of (A1)--(A11) (Step~3 of proof of Lem.~\Nref{lem:uniformity}) & $C_*$ Sect.~\Nref{ss:31.2}\\
+$c_Q$, $C_Q$, $\eps_{\rm B}$ & constants of the bound $\eps_Q\le C_Q\eps$ ($\eps\le c_Q$) on the parameter of Ba\l aban's pair; the resulting threshold & Lem.~\Nref{lem:uniformity}(c) & stated: $d,\allowbreak L,\allowbreak G,\allowbreak a,\allowbreak \alpha,\allowbreak M$; proof: no $M$ & after $L$ & $\eps\le\eps_{\rm B}=\min(\eps_{\rm U},\theta_Q/C_Q,c_Q)$; taken at $M_0$ (Sect.~\Nref{ss:25.2}) & $K_RB_3a_\delta\le\eps_{\rm B}$ proof of Prop.~\Nref{prop:sharp-curvature}; Sect.~\Nref{ss:41.3}\\
+$c_3$, $c'_3$ & radius of the expansion of $\mathcal Q$; its reduction for (AB) & Prop.~\Nref{prop:Q-expansion}; Setting of Sect.~\Nref{sec:AB-proof} & $d$, $L$, $G$ & after $L$ & $a\le c'_3\le c_3$ & $\eps_{\max}$; $\delta_P$ proof of Prop.~\Nref{prop:complex-ext}, step~(iii)\\
+$c_4$, $r_u$, $B_1$ & radius and constants of the axial-to-Landau chart & Thm~\Nref{thm:chart} & $L$, $G$, $a$, $\alpha$, $M_0$; not $M$ & after $L$ & $\theta_0,c_6\le c_4/3$ (Sect.~\Nref{subsec:reduction}) & $\rho_1$ Sect.~\Nref{subsec:reduction}; $B_5$\\
+$c_5$ & radius of analyticity of the action & Prop.~\Nref{prop:action} & convention Sect.~\Nref{sec:averaging}, paragraph ``Conventions for Parts IV and V'': $d$, $L$, $G$, $a$, $\alpha$; not $M$ (Rem.~\Nref{rem:step-M}) & after $L$ & $\eps\le c_5$, $|A|_\infty\le c_5$ & $c_7$; $\eps_{\max}$; $\delta_P$ proof of Prop.~\Nref{prop:complex-ext}; proof of Prop.~\Nref{prop:coarse-action}\\
+$\eps_*$, $C_H$, $C_C$ & threshold of the sup-norm bounds; $C^1$ bounds of $\bH$ and $\bC$ & Lem.~\Nref{lem:sup-bounds}; Prop.~\Nref{prop:contraction} & $L,\allowbreak G,\allowbreak a,\allowbreak \alpha,\allowbreak M_0$; not $M$ & after $L$ & $\eps\le\eps_*$ (not listed in proof of Thm~\Nref{thm:variational}; Det.~\ref{det:ledger-c6c7}) & $K=4C_C(1+C_H)$; proof of Lem.~\Nref{lem:hessian-gamma}\\
+$r_2^{\rm V}$, $r_3$ & radii of the linearizing map $\mathcal D$ and of the bounds on $\mathcal V$ & Lems.~\Nref{lem:linearizing}, \Nref{lem:V-bounds} & Parts~II--V & after $L$ & $r_3\le r_2^{\rm V}$; $r_3$ so that Prop.~\Nref{prop:action} applies & $\theta_0$ proof of Thm~\Nref{thm:variational}\\
+$c_7$ & threshold of the contraction for the variational problem & Prop.~\Nref{prop:contraction} & first group in proof of Thm~\Nref{thm:variational} & after $L$ & decreased proof of Prop.~\Nref{prop:contraction}, Prop.~\Nref{prop:minimality}, Lem.~\Nref{lem:Lstar-coercive} ($C'c_7\le\frac12c_*$); $c_7\le\eps_V$ (Det.~\ref{det:ledger-c6c7}) & $\theta_0$, $c_6$\\
+$\theta_0$ & class $\mathfrak U(\theta_0)$ of the uniqueness & Thm~\Nref{thm:variational} and its proof & $c_4$, $c_7$, $B_1$, $C_H$, $K$, $r_2^{\rm V}$, $r_3$ & after $L$ & $\theta_0\le\min(c_4/3,c_7)$, $\rho_1\le r_2^{\rm V}/2$, $C\rho_1<1$, $\rho_2+C_H\beta\le r_3$; for Prop.~\Nref{prop:map-compare}, $4C_{\rm map}S_{\gamma_{\rm map}/4}(1+8B_1+C_H+K)\theta_0\le1$ (Det.~\ref{det:ledger-off}) & $a_1$; $a'_1$; $\eps_{\rm imp}$; Setting of Sect.~\Nref{sec:ol-composite}\\
+$c_6$ & smallness of $\eps+\beta$ in the variational theorem & Thm~\Nref{thm:variational} & $\theta_0$, $c_7$, $c_4$, $B_1$, $K'$, $c_1$ & after $L$ & list in proof of Thm~\Nref{thm:variational}; $c_6\le\min(c_3,c_5)/C_6$ (Det.~\ref{det:ledger-c6c7}) & $r_1$; $a_1$; $\eps_{\rm imp}$\\
+$C_6$, $\gamma'$ & constant and decay rate of the minimizer bounds & Thm~\Nref{thm:variational} & the constants of (c)--(f) & after $L$ & $C_6\ge3e^{\gamma'}$ (proof of Cor.~\Nref{cor:analytic}) & $K=(1+C_6)C^{\rm units}_L$; proof of Prop.~\Nref{prop:coarse-action}\\
+$R$, $n_0$, $\eps_{\rm imp}$, $C_{\rm imp}$ & constants of the improvement of regularity & Lem.~\Nref{lem:improvement} and its proof, Step~5 of proof of Lem.~\Nref{lem:improvement} & $d,\allowbreak L,\allowbreak G,\allowbreak a,\allowbreak \alpha,\allowbreak M$ & after $M$ & $R\ge64(M+1)$, $K_1C_7K_RT(R/8)\le\frac14$; list for $\eps_{\rm imp}$ in proof of Lem.~\Nref{lem:improvement} & $B_3$, $a_1$; $n_*$\\
+$C^{\rm units}_L$ & loss of regularity under a change of units & Lem.~\Nref{lem:units} & $d,\allowbreak \alpha,\allowbreak G,\allowbreak L,\allowbreak M$ & after $M$ & $C^{\rm units}_L\theta\le1$; $=3C_E(4M+2)^{p+1}L^3\ge L^3$ & $K$, $a_1$; Setting of Sect.~\Nref{sec:ol-composite}\\
+$C_{\rm base}$, $B_3$, $a_1$ & constants of the background field at all scales & Thm~\Nref{thm:balaban} and its proof & $d,\allowbreak L,\allowbreak G,\allowbreak a,\allowbreak \alpha,\allowbreak M$ & after $M$ & list in proof of Thm~\Nref{thm:balaban}; $B_3a_1\le c'_3$ (Det.~\ref{det:ledger-a1B3}) & Part~VII thresholds; admissible $h$\\
+$a_2$, $B_5$ & threshold and constant of the regularity of configurations of small curvature & Cor.~\Nref{cor:regularity} and its proof & $a_1$, $B_3$, $B_1$, $c_4$ & after $M$ & $2a_2\le a_1$, $(2B_3+1)a_2\le c_4$ & (DC1), (DC2); $\Theta$\\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.092\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.135\textwidth}>{\raggedright\arraybackslash}p{0.125\textwidth}>{\raggedright\arraybackslash}p{0.05\textwidth}>{\raggedright\arraybackslash}p{0.228\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}@{}}
+\caption*{\normalsize Table B. The rates and the block size (S1--S3)}\\
+\ldghead\endfirsthead
+\ldghead\endhead
+$\kappa_0$, $K_0$ & constants of the decay functional $d_M$ & \Neqref{eq:dM-facts}, Sect.~\Nref{subsec:flow-norm} & $d$ & S1 & $\kappa_0\ge1$ & $\kappa_n$; $c'$; $C_\beta$; rates\\
+$c_\flat$, $c_\sharp$, $c_\natural$ & comparison constants of a decay functional & Def.~\Nref{def:decay-functional}; values in Sect.~\Nref{subsec:flow-norm} & $d$ & S1 & $c_\flat=3^{-d}$, $c_\sharp=\sqrt d$, $c_\natural=2\sqrt d$ & (3); $c'_\sharp$ Cor.~\Nref{cor:two-classes}\\
+$C_d$, $A$, $\epsilon_*$ & constants of the polymer (Mayer) expansion & Thm~\Nref{thm:mayer} and its proof & $d$ & S1 & $C_d=c_\flat^{-1}(\log C_0+3^d+2)$ & $\kappa_n$; ($\Gamma$2); $c_{\rm F}$\\
+$\kappa_n$ & decay rate of the activity norms & Rem.~\Nref{rem:parameters}(1) & $C_d$, $\kappa_0$ & S1 & $\kappa_n\ge2(1+C_d+\kappa_0)$ & norms; $c'$; $c_{\rm F}$\\
+$C$ (reblocking) & loss of decay under reblocking & Rem.~\Nref{rem:reblock-margins} & $d$ & S1 & $C=2\sqrt d$ & $L\ge C3^d+3$\\
+$C_*$ & curvature constant of the background field, $U_k(V)\in\mathfrak U_0((C_*+\delta)\eps_1)$ & Sect.~\Nref{ss:31.2} & $a$, $\alpha$, $G$; not $L$ & SI--VI & $C_*\ge1$ & $L^2\ge8(C_*+1)$; admissible $h$ Sect.~\Nref{subsec:flow-parameters}\\
+$c'$ & parameter of the polymer classes & Def.~\Nref{def:polymer-classes} & $L$, $\kappa_n$, $\kappa_0$ & S2 & $c'=10\log L/(\kappa_n-\kappa_0)$ & $R_m$ Lem.~\Nref{lem:later-normal-form}; $m_0$\\
+$\kappa$, $\delta$ & weakening rate; loss per walk or product & Sect.~\Nref{sec:weakenable}, paragraph ``Monomials'', Lem.~\Nref{lem:weak-chain}; Rem.~\Nref{rem:parameters}(3) & $d$ & S3 & three rate conditions in Rem.~\Nref{rem:parameters}(3) (Det.~\ref{det:ledger-rates}) & Part~IX\\
+$\kappa'_w$, $\kappa_2$ & rate of the weakened covariance; of the one-loop pieces & Cor.~\Nref{cor:weak-covariance}; Sect.~\Nref{sec:one-loop-polymer} & $\kappa$, $\delta$ & S3 & $\kappa'_w=\kappa-C\delta$, $C\le20$; $\kappa_2=3^{-d}\kappa'_w$ & rates in Rem.~\Nref{rem:parameters}; $C_T$\\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.092\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.135\textwidth}>{\raggedright\arraybackslash}p{0.125\textwidth}>{\raggedright\arraybackslash}p{0.05\textwidth}>{\raggedright\arraybackslash}p{0.228\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}@{}}
+\caption*{\normalsize Table C. The scales $\rho$, $M$, $M'$, and the constants of Parts~VII--IX fixed with them (S4)}\\
+\ldghead\endfirsthead
+\ldghead\endhead
+$\rho$ & size of the local cubes of the walk, in units of $M$ & Setting of Sect.~\Nref{sec:weakenable}; \Neqref{eq:rho-choice}, Sect.~\Nref{sec:nested-walks} & $L$ (through $R_0\le C_LM$) & S4 & $(\rho-1)M-w\ge\frac14(\rho-1)M$, e.g.\ $\rho\ge2R_0/M+30$ & $n_*$; $R_{\rm g}$ Setting of Sect.~\Nref{subsec:torus-independence}\\
+$R_0(L,M)$ & localization margin of the fluctuation operator & Prop.~\Nref{prop:local-fluct} & $L$, $M$ & S4 & $R_0(L,M)\ge2L+2$, $R_0(L,M)\le C_LM$ (proof of Prop.~\Nref{prop:local-fluct}) & $\rho$; seam width (Sect.~\Nref{sec:nested-walks})\\
+$C_v$, $R_v$ & dependence margin of the local propagators & Sect.~\Nref{sec:weakenable}, paragraph ``Boxes and polymers'' & $L$ & S4 & $R_v\le C_vM$ & $\mathsf N_{\rm b}$; $n_*$; $M_1$ (Det.~\ref{det:ledger-M0})\\
+$r$, $r'$ & largest margin of the weakened families; dependence margin $r'=r+2L+2$ of the pieces & Def.~\Nref{def:weak-family}; Setting of Sect.~\Nref{sec:step-quantities} & $L$ & S4 & $r\le M/16$ (Def.~\Nref{def:weak-family}, Setting of Sect.~\Nref{sec:step-quantities}); $r_E+3\le r$ (Prop.~\Nref{prop:composed}; true since $r\ge2L+2$); $r'=r+2L+2$ & $M\ge16r$; factorization\\
+$C_G$, $C_{\rm loc}$, $C_{\mathfrak N}$, $\gamma_0$ & constants and rate of the walk inputs & Sect.~\Nref{ss:41.2} & $L$, $\kappa$, $\delta$; not $M$ (Sect.~\Nref{ss:41.3}) & S4 & valid for $M$ above the earlier levels (Det.~\ref{det:ledger-M0}) & $M_1$\\
+$M_1$ & lower bound on $M$ for the walks & Thm~\Nref{thm:weak-inverse} & $\kappa$, $\delta$, $C_G$, $C_{\rm loc}$, $C_{\mathfrak N}$, $\gamma_0$, $\rho$, $C_v$ & S4 & level by level (Det.~\ref{det:ledger-M0}) & $M\ge M_1$\\
+$M_{\mathfrak N}$, $M'_1$, $\theta'$ & lower bounds on $M$ for the tiers; tier constant & Prop.~\Nref{prop:nl-tiers}; Thm~\Nref{thm:tier-walk} & $\kappa$, $\delta$, Part~IX constants (doubled) & S4 & $M'_1\ge M_{\mathfrak N}$ & $M\ge M'_1$\\
+$M^{(0)}_1$ & lower bound on $M$ for the first step & Rem.~\Nref{rem:parameters}(4), proof of Prop.~\Nref{prop:first-step} & $d$, $L$ & S4 & --- (Det.~\ref{det:ledger-first}) & $M\ge M^{(0)}_1$\\
+$M$ & regularity scale and grid size & Rem.~\Nref{rem:parameters}(4) & S0--S3, $\rho$ & S4 & $M>32(L+1)$, a power of $L$; $M$ at least $M_0$, $5L$, $M_1$, $M^{(0)}_1$, $M'_1$, $64$ and $16r$ & everywhere\\
+$a_\delta$, $n_\delta$ & curvature threshold and torus side for the step bound & Prop.~\Nref{prop:sharp-curvature} & $d,\allowbreak L,\allowbreak G,\allowbreak a,\allowbreak \alpha,\allowbreak M,\allowbreak \delta$ & S4 & $a_\delta\le a_1$, $n_\delta\ge n_0$ & Lem.~\Nref{lem:composition}; (T0)\\
+$a'_1$ & threshold of the composition lemma & Lem.~\Nref{lem:composition}(c) & $a_1$, $\theta_0$, $L$, $B_3$ & S4 & $a'_1=\min(a_1,\theta_0L^{-3}B_3^{-1})$ & $r_2$; $a_{\rm step}$\\
+$\eps_M$, $\mathfrak M$ & Ba\l aban's regular set and its bound & Sect.~\Nref{ss:32.2} & $r_M$, $L$ & S2 & $\eps_M=r_M/(8L^2)$ & (DC5) reasons in Rem.~\Nref{rem:domain-constants}\\
+$c_0$ & radius in $Z$ on which the averaged contour variables of $e^{\ii Z}W_\circ$ are defined & Lem.~\Nref{lem:exp-gauge}(c) & $G$ & S0 & $|Z|_\infty\le c_0L^{-1}$ & $r_I$ Sect.~\Nref{subsec:sq-interaction}; (DC5)\\
+$\rho_L$, $r_L$ & radii of the local elimination & Lem.~\Nref{lem:eliminate} & $d$, $G$, $L$ & S2 & $\rho_L=cL^{-d-1}$, $r_L=c^2L^{-2d-1}$ & $r_2\le r_L$; $r_I$\\
+$r_1$ & radius of the coarse action & Setting of Sect.~\Nref{sec:coarse-action} & $c_6$ & after $L$ & $\eps\le c_6/2$ (implied, Det.~\ref{det:ledger-r1}) & Prop.~\Nref{prop:coarse-action}; $c'_L\le r_1/4$\\
+$C$, $\gamma_1$ & bounds of the coarse action and its Hessian & Prop.~\Nref{prop:coarse-action} & Part~V, $r_1$; not $M$ & after $L$ & --- & Prop.~\Nref{prop:hessian}(c)\\
+$r_2$ & radius of the fluctuation field in the step & Lem.~\Nref{lem:step-quadratic} & $d$, $G$, $L$, $r_1$, $a'_1$ & S4 & the list of Lem.~\Nref{lem:step-quadratic}; $c\le\frac1{16}$ (proof of Lem.~\Nref{lem:ol-one-step}) & $w\le r_2$ (Q1)\\
+$C_{\rm P}$ & one-step Poincar\'e constant & Lem.~\Nref{lem:poincare-step} & $d$, $L$ & S2 & --- & $c_L$; first step\\
+$\eps_{\rm cmp}(M')$, $C_{M'}$ & threshold of the local comparison with a flat field & Lem.~\Nref{lem:local-comparison} & $M'$, $d$, $L$, $G$, $a$, $\alpha$, $M$ & S4 & three conditions in proof of Lem.~\Nref{lem:local-comparison} & $\eps_L$; first step\\
+$c_L$, $M'_L$, $\eps_L$ & coercivity of the step; IMS scale; threshold & Thm~\Nref{thm:step-coercive} and its proof & $c_L$: $d$, $L$; others: $d,\allowbreak L,\allowbreak G,\allowbreak a,\allowbreak \alpha,\allowbreak M$ & S4 & $\eps_L\le\eps_{\rm cmp}(M'_L)$, $C_{M'_L}\eps_L\le\frac14c'C_{\rm P}^{-1}$ & $\eps^{\rm cov}$; $M'\ge M'_L$\\
+$M'$ & IMS localization scale of the step & Rem.~\Nref{rem:parameters}(4) & $M'_L$; the first step & S4 & $M'\ge M'_L$; $CM'^{-2}+C_L(L/M')^2\le\frac18C_{\rm P}^{-1}$ (proof of Prop.~\Nref{prop:first-step}) & $C_{\rm cx}$; $n_*$\\
+$C_L$, $\gamma_1$, $C'_L$, $\gamma_C$, $c'_L$ & bounds and decay of $\Delta_k$ and $C_k$; radius at complex bases & Cor.~\Nref{cor:covariance} & not $M$ (Rem.~\Nref{rem:step-M}) & after $L$ & $c'_L\le r_1/4$ and the bound of Det.~\ref{d7:covc} & (L5); $\delta_{P,0}$\\
+$\eps^{\rm cov}$ & threshold for the covariance at all references & Det.~\ref{det:ledger-eps-M} & $\eps_L$, $c_L$, $L$ & S4 & --- & $\eps_{\max}$\\
+$a_{\rm step}$, $C_L$ & curvature threshold of one step (on the data $V'$); its constant & Thm~\Nref{thm:step} and its proof & $d,\allowbreak L,\allowbreak G,\allowbreak a,\allowbreak \alpha,\allowbreak M$ & S4 & $4(C_*+1)L^{-2}a_{\rm step}\le a'_1$; applicability in proof of Thm~\Nref{thm:step} & ($\Gamma$2)\\
+$\delta_*$, $C_W$ & radius and Lipschitz constant of $W_2^X$ at complex references & proof of Prop.~\Nref{prop:dirichlet-hessian}(c) & $d$, $L$, $G$, $\alpha$, $M$ & S4, after $M$ & $2C\delta_*\le\frac12\min(\eps_0,c'_3)$, $2C\delta_*\le\frac12c_5$, $2C'\delta_*\le\frac12c$; the radii of Props.~\Nref{prop:reg-complex}, \Nref{prop:AB}, \Nref{prop:dirichlet-averaged}(e) at $2\delta_*$; $C_W=C(1+2\delta_*)/\delta_*$ & $c''_L$, $C''_L$; $C_{\rm cx}$ (step~(vii) of proof of Prop.~\Nref{prop:complex-ext})\\
+$c''_L$ & radius of the complex perturbations in the coercivity & Lem.~\Nref{lem:coercive-general} and its proof & $d$, $L$, $G$, $\alpha$, $M$ (through $\delta_*$, $C_W$), $c_L$, $c'_L$ & S4, after $M$ & $C_{\rm AB}c''_L\le c'_L$, $C_{\rm cmp}c''_L\le\delta_*$, $C''_Lc''_L\le\frac18c_L$ & $\delta_P\le c''_L$ (proof of Prop.~\Nref{prop:complex-ext})\\
+$\eps_{\rm ID}$, $\eps_S$, $\eps_L^{\rm sys}$ & thresholds of the Dirichlet and interior estimates & Thm~\Nref{thm:ID}, Prop.~\Nref{prop:scalar-interior}, Prop.~\Nref{prop:system-interior} & $d$, $\alpha$, $\dim\mathfrak g$, $\kappa_m$ & SI--VI & $\eps_{\rm ID}$ never written out & $\eps_{\max}$; $\delta_P$\\
+$\eps'_S$, $\eps''_S$, $\eps'_L$, $\eps'$ & thresholds of the interior $L^p$ estimates & Sect.~\Nref{sec:interior-lp} & $d$, $\alpha$, $\dim\mathfrak g$, $\kappa_m$ & SI--VI & --- & $\eps_{\max}$; $\delta_P$\\
+$C_P$, $K_H$, $r_P$, $\eps_P$, $\varrho_P$, $R_P$ & constants and radii of the weakened background map & Thm~\Nref{thm:weak-bg}; Sect.~\Nref{ss:45.3} & $\kappa$, $\delta$, $L$, $M$, $\rho$, $\alpha$; $M'_L$ (a function of $M$) through Sect.~\Nref{ss:41.3} & S4 & $4C_P(\eps_P+2\varrho_P)\le1$, $C(\eps_P+R_P)\le K_H$ (proof of Thm~\Nref{thm:weak-bg}); at complex references $2K_H$ and the doubled constants (Det.~\ref{det:ledger-emax}) & $r_I$; (Q1); $c_{\rm F}$\\
+$C_J$ & current of a critical field against its curvature & Lem.~\Nref{lem:critical-current} & $d$, $G$, $\alpha$, $a$; not $L$, $M$ & S0 & the threshold $a(L,M)$ on $\eps_1$ (Lem.~\Nref{lem:critical-current}) depends on $L$, $M$ & admissible $h$ Sect.~\Nref{subsec:flow-parameters}\\
+$n_*$, $C_{\rm tor}$, $n_{\min}$ & smallest admissible torus side & Sect.~\Nref{subsec:tf-scales}, paragraph ``Torus hypotheses'' & S0--S4 & S4 & (T0)--(T2) (Det.~\ref{det:ledger-torus}) & Thm~\Nref{thm:N}\\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.092\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.135\textwidth}>{\raggedright\arraybackslash}p{0.125\textwidth}>{\raggedright\arraybackslash}p{0.05\textwidth}>{\raggedright\arraybackslash}p{0.228\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}@{}}
+\caption*{\normalsize Table D. The domains, the complex references and the constants of the step (S5)}\\
+\ldghead\endfirsthead
+\ldghead\endhead
+$C_{\rm AB}$, $\kappa_{\rm AB}$ & constants of the averaged backgrounds (AB) & Setting of Sect.~\Nref{sec:AB-proof} & $d$, $C_M$ & S0 & $C_{\rm AB}=14d+3$, $\kappa_{\rm AB}=16C_MC_{\rm AB}$ & (DC5); $\delta_P$ proof of Prop.~\Nref{prop:complex-ext}\\
+$\delta_{AB}$ & radius of (AB) at complex references & Lem.~\Nref{lem:AB-rep}; Prop.~\Nref{prop:AB} & $d$, $L$, $G$ & after $L$ & --- & $\bar\delta$; $\delta_P\le\delta_{AB}$\\
+$C_{\rm cx}$ & factor $1+C_{\rm cx}\delta_c$ of the constants other than the coercivity constants and rates at complex references & Prop.~\Nref{prop:complex-ext} and its proof, step~(vii) & $L$, $M$, $M'$, $\kappa$, $\delta$, $\rho$, $\alpha$, $G$ & S5 & $C_{\rm cx}\bar\delta\le1$ & $\bar\delta$ only\\
+$\bar\delta$ & cap on the size of complex references & Rem.~\Nref{rem:domain-constants} & $\delta_{AB}$, $C_{\rm cx}$ & S5 & $\bar\delta\le\min(\delta_{AB},1/C_{\rm cx})$ & $\delta_P\le\bar\delta$\\
+$\eps_{\max}$ & regularity bound of the real parts of the domains & Rem.~\Nref{rem:domain-constants} & the list (Det.~\ref{det:ledger-emax-list}) & S5 & $\eps_{\max}\le\frac12$; rule of Det.~\ref{det:ledger-emax}; first-step thresholds through $\eps^{(0)}_a$ (Det.~\ref{det:ledger-eps-M}) & (DC2); $\delta_P$; $\eps_a$\\
+$\delta_P$ & size of the complex references, $k\ge1$ & Prop.~\Nref{prop:complex-ext} & see Det.~\ref{det:ledger-emax} & S5 & proof of Prop.~\Nref{prop:complex-ext} & (DC4), (DC5); $\delta_a$\\
+$\delta_{P,0}$ & size of the complex references, $k=0$ & proof of Prop.~\Nref{prop:first-step} & $L$, $c'_L$, $C_{\rm P}$ & S5 & $\delta_{P,0}\le\min(c'_L,cL^{-d-1})$ & (DC4)\\
+$\eps_a$, $\delta_a$ & domain of the background activities & Def.~\Nref{def:bg-activity}; proof of Prop.~\Nref{prop:one-loop-polymer} & existential in the note & S5 & $4\delta_a<\min(\delta_P,\delta_{P,0})$; e.g.\ $\eps_a=\eps_{\max}$, $\eps^{(0)}_a=\min(\eps_{\max},\text{(a)--(c)})$, $\delta_a=\frac18\min(\delta_P,\delta_{P,0})$ (Det.~\ref{det:ledger-emax-list}) & $c_a$\\
+$c_{\rm q}$, $C_0$, $c_{\rm an}$ & constants of the quadratic bound on activities & Lem.~\Nref{lem:quadratic-bound} and its proof & $d$, $\alpha$, $G$ & S0 & $C_0$ first, then $c_{\rm q}\le c(C_0)$, $c_{\rm q}\le c_{\rm an}$ & (DC1)\\
+$C_{\rm ext}$ & extension of activities to graded domains & Rem.~\Nref{rem:bg-to-graded} & $d$, $\alpha$, the cutoff & S0 & --- & (DC4); $c_a$\\
+$c_{\rm DC}$ & constant of (DC5) & (DC5), Rem.~\Nref{rem:domain-constants} & $d$, $G$ & S0 & $c_{\rm DC}\le\frac1{128}$, and small for Rem.~\Nref{rem:domain-constants} & (DC5)\\
+$C_{\rm refl}$, $C_{\rm sym}$ & change of the domains under grid symmetries & Lem.~\Nref{lem:grid-domains}; (DC6) of Rem.~\Nref{rem:domain-constants} & $d$ & S0 & $C_{\rm sym}=2C_{\rm refl}$ & (DC6)\\
+$c_a$ & size of the domains of the one-loop pieces & Prop.~\Nref{prop:one-loop-polymer} & $\eps_a$, $\delta_a$, $a_2$, $c_{\rm q}$, $r_M$, $L$, $c_J$, $C_{\rm ext}$, $B_5$ & S5 & proof of Prop.~\Nref{prop:one-loop-polymer}; (DC1), (DC5); $c_a\le c_JL^{-d-2}$ (Prop.~\Nref{prop:jacobians}(c), Rem.~\Nref{rem:step-quantities-output}(c)); the smaller of its $k=0$ and $k\ge1$ values & $\theta_r$, $\delta_0$\\
+$\delta_1\le\delta_0$, $\theta_r$ & constants of the graded domains & Def.~\Nref{def:graded}; (DC1)--(DC6) & $c_a$, $B_5$, $\eps_{\max}$, $L$, $\delta_P$, $\delta_{P,0}$, $C_{\rm ext}$, $C_{\rm sym}$ & S5 & (DC1)--(DC6), Rem.~\Nref{rem:domain-constants}; order $c_a$, $\delta_1\le\delta_0$, $\theta_r$ (Rem.~\Nref{rem:parameters}(5)) & the domains; admissible $h$\\
+$\delta^\flat_1$ & smaller $\delta_1$ of the generation domains & Sect.~\Nref{sec:generations}, paragraph ``Grid symmetries and the generation domains'' & $\delta_1$ & S5 & $\delta^\flat_1=\frac14\delta_1$ & $\mathcal U^\flat$; $C_\beta$\\
+$C_{\rm nf}$, $\Theta$, $R_m$ & constants of the normal form of later activities & Lem.~\Nref{lem:later-normal-form} & $d$, $\alpha$, $G$, $M$, $c'$ & S5 & \Neqref{eq:nf-m0} & $m_0$\\
+$\Theta^\flat$, $m_0$ & normal form on $\mathcal U^\flat$; age from which old polymers are small or large & Sect.~\Nref{subsec:extraction-cells}, paragraph ``The normal form on the domains $\mathcal U^\flat$''; Def.~\Nref{def:polymer-classes}, Rem.~\Nref{rem:parameters}(5) & $L$, $c'$, $M$, $\theta_r$, $\delta_0$, $\delta^\flat_1$, $B_5$ & S5 & $L^m\ge2(2+c'm)+1$ and \Neqref{eq:nf-m0} with $\Theta^\flat=4\Theta-3$ for $m\ge m_0$ & small polymers; $C_{\rm old}$\\
+$C_{\rm cs}$, $C_s$, $C_{\rm ex}$, $C_{\rm ne}$ & constants of the extraction & Lem.~\Nref{lem:cell-sums}(b), Lem.~\Nref{lem:plaquette-family}(c), Prop.~\Nref{prop:extraction}, Lem.~\Nref{lem:large-later} & $C_{\rm nf}$, $M$, $K_0$, $\Theta^\flat$, $C_\beta$, $m_0$ & S5 & --- & Prop.~\Nref{prop:extraction}; $C_{\rm old}$\\
+$C_\beta$ & bound on the coefficient $\beta_E$ & Prop.~\Nref{prop:period-iso}(b) & $d$, $K_0$, $M$, $\delta^\flat_1$ & S5 & $C_\beta=18d^2K_0M^{-2}(\delta^\flat_1)^{-2}$ & ($\Gamma$1); $C_2$; $C_3$\\
+$r_I$, $c_I$ & radius of the interaction pieces & Sect.~\Nref{subsec:sq-interaction} & $r_L$, $R_P$, $c_0$, $L$ & S5 & $r_I=\min(r_L,\allowbreak c_IL^{-d}R_P,\allowbreak\frac1{32}c_0L^{-1})$ & (Q1); $r_t$\\
+$C_P$ (step) & generic constant of the step quantities & convention Setting of Sect.~\Nref{sec:step-quantities} & $\kappa$, $\delta$, $L$, $M$, $\rho$, $\alpha$, also through $R_P$ (S4); not $\delta_P$ & S5 & generic: several numbers & $\tau$; $\epsilon_{\rm p}$; $\epsilon_{\rm m}$; $c_{\rm F}$\\
+$C_T$ & bound on the fluctuation field by the white noise & Sect.~\Nref{subsec:sq-interaction} & $\kappa'$, $\gamma'$; uniform in the reference & S5 & $C_T=2^d\sqrt d\|C^{1/2}_k\|_{\kappa',\gamma'}$ & $w$; $r_t$; $c_{\rm F}$\\
+$C_w$ & bound on the eliminated field & Sect.~\Nref{sec:cluster}, paragraph ``Parameters'' & $d$, $G$ & S0 & from $|\hat Z(Z)|_\infty\le C_wL^d|Z|_\infty$ & $w=C_wL^dC_Tgp_0$\\
+$c_J$, $C_{\rm conv}$ & Jacobian threshold; norm conversion & Prop.~\Nref{prop:jacobians}(c); Lem.~\Nref{lem:norm-conversion} & $c_J$: $d$, $G$, $L$; $C_{\rm conv}$: $d$, $\alpha$, $G$ & after $L$ & --- & $c_a$; $\tau$\\
+$\tau$, $\zeta$, $r_E$ & parameters of the composed activities & Prop.~\Nref{prop:composed} & $C_P$, $C_{\rm conv}$, $\delta_1$; $g$ & flow & $\zeta\le\frac12R_P$; $r_E+3\le r$; $\tau<\frac12$ is (Q3) & old activities\\
+$\epsilon_{\rm p}$, $\epsilon_{\rm m}$ & sizes of the pure and mixed pieces & Prop.~\Nref{prop:localized-pieces} & $C_P$, $g$, $p_0$, $\tau$, $\|\mathcal E_k\|$ & flow & $\epsilon_{\rm p}\le\frac12\epsilon_*$, $\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)}\le\frac14\epsilon_*$ & ($\Gamma$2), ($\Gamma$3)\\
+$r_t$ & radius in $t$ of the pure sources & Prop.~\Nref{prop:pure-sources} & $r_I$, $C_P$, $M$, $C_T$; $p_0$ & S5 & $r_t\ge cp_0^{-3}$, $c$ fixed before $\gamma$; $2g\le r_t$ & ($\Gamma$2); $C_3$\\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.092\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.135\textwidth}>{\raggedright\arraybackslash}p{0.125\textwidth}>{\raggedright\arraybackslash}p{0.05\textwidth}>{\raggedright\arraybackslash}p{0.228\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}@{}}
+\caption*{\normalsize Table E. The constants of the flow (SF)}\\
+\ldghead\endfirsthead
+\ldghead\endhead
+$C_{\mathfrak e}$, $C_{\rm jac}$ & bounds on the one-loop and Jacobian pieces & Lem.~\Nref{lem:raw-new}(b) & S0--S5 & SF & --- & $B_{\rm new}$\\
+$B_{\rm new}$, $B^{(0)}_{\rm new}$ & size of the raw new generation & Lem.~\Nref{lem:raw-new}(b) & S0--S4; not the domain constants (Prop.~\Nref{prop:one-loop-polymer}(d) and its proof) & SF & --- & $\mathsf K$; ($\Gamma$3)\\
+$\mathsf K$ & bound on all generations & Rem.~\Nref{rem:flow-constants}(i) & $B_{\rm new}$, $B^{(0)}_{\rm new}$ & SF & $\mathsf K=2\max(B_{\rm new},B^{(0)}_{\rm new})$ & Thm~\Nref{thm:gen-step}; Thm~\Nref{thm:N}\\
+$C_{\rm old}$ & bound on the old activities & Prop.~\Nref{prop:old-activities}(b) & $m_0$, $C_{\rm ex}$, S5 & SF & --- & $\epsilon_{\rm m}$; $c_{\rm F}$\\
+$C_{\rm new}$, $C^{(0)}_{\rm new}$ & constant of the new activities & Lem.~\Nref{lem:raw-new}(b) and its proof & S1--S5, $A$, $c_\natural$ & SF & --- & ($\Gamma$3); $C_3$\\
+$c_{\rm F}$ & constant in ($\Gamma$4) & ($\Gamma$4), Rem.~\Nref{rem:flow-constants} & $R_P$, $C_w$, $C_T$, $\delta_1$, $C_P$, $\epsilon_*$, $C_{\rm old}$, $\mathsf K$, $\kappa_n$ & SF & the formula in ($\Gamma$4), Rem.~\Nref{rem:flow-constants} & ($\Gamma$4)\\
+$C_{\rm vac}$, $C'_{\rm vac}$ & constants of the vacuum energy & proof of Thm~\Nref{thm:sf-flow} & $\mathsf K$, $C_{\rm old}$; $C'_{\rm vac}$ also $p_0$, $g_p$ & SF & --- & Thm~\Nref{thm:N}(vi)\\
+$c$ (stability) & constant of the stability bound & Cor.~\Nref{cor:sf-stability} & $g_K$ and S0--SF & after $g_K$ & --- & Thm~\Nref{thm:N}(vi)\\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.092\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.135\textwidth}>{\raggedright\arraybackslash}p{0.125\textwidth}>{\raggedright\arraybackslash}p{0.05\textwidth}>{\raggedright\arraybackslash}p{0.228\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}@{}}
+\caption*{\normalsize Table F. The coupling and Part~XI (S6, SXI)}\\
+\ldghead\endfirsthead
+\ldghead\endhead
+$g_p$, $p$, $p_0$, $q<q'$ & small-field and white-noise parameters as functions of $g$ & Sect.~\Nref{subsec:flow-parameters} & --- & S6 & monotonicity and limits in Sect.~\Nref{subsec:flow-parameters} (Det.~\ref{det:ledger-gamma}) & $h_k=p_kg_k$; ($\Gamma$2)\\
+$\gamma$ & bound on the couplings & Sect.~\Nref{subsec:flow-parameters}; Rem.~\Nref{rem:parameters}(6); Rem.~\Nref{rem:flow-constants}(iii) & S0--SF, $C_3$, $\beta_\infty$ & S6 & ($\Gamma$1)--($\Gamma$4); $\gamma\le e^{-3q}$, $C_3\gamma^2p_0(\gamma)^6\le\frac12\beta_\infty$ & everywhere\\
+$C_2$, $c_2$ & constants of (F2) & Prop.~\Nref{prop:flow-F} & $d$, $K_0$, $M$, $\delta^\flat_1$, $\mathsf K$ & SF & $c_2=\frac14$ & $C_4$\\
+$C_3$ & constant of (F3) & Prop.~\Nref{prop:flow-F} & $C_\beta$, $C_{\rm new}$, $\epsilon_*$, $C_{\rm pure}$, $c_{\rm F}$ & SF & $C_{\rm pure}$ as in Det.~\ref{det:ledger-gamma} & $\gamma$; Thm~\Nref{thm:ol-uv}\\
+$\beta_\infty$ & asymptotic one-loop coefficient per step & Thm~\Nref{thm:ol-log} & $C_A$, $T_\rho$, $L$ & after $L$ & $\beta_\infty=\frac{11C_A}{24\pi^2T_\rho}\log L$ & $\gamma$; Thm~\Nref{thm:ol-uv}\\
+$C$ ($r_k$) & bound on the remainder of the cumulative coefficient & Thm~\Nref{thm:ol-cumulative}; proof of Thm~\Nref{thm:ol-uv} & not stated; $d$, $G$, $\rho$, $L$, $a$ from the proofs & after $L$ & $|r_k|\le C$ & $C_5$\\
+$C_4$, $C_5$ & constants of the ultraviolet limit & proof of Thm~\Nref{thm:ol-uv} & $C_2$, $c_2$, $L$, $C$ & SF & --- & $g_{\rm uv}$\\
+$g_{\rm uv}$, $C$, $m_1$ & range $g\le g_{\rm uv}$ of $g=g_K$; constant and length $m_1$ of the bounds on $g_k^{-2}$ & Thm~\Nref{thm:ol-uv}, its proof & $\gamma$, $C_5$, $\beta_\infty$, $C_3$ & SXI & $g_{\rm uv}<\gamma(1+C_5\gamma^2)^{-1/2}$ & Thm~\Nref{thm:M}(iv)\\
+$\mathsf K'$, $\mathsf K''$ & bounds in generation locality & Def.~\Nref{def:gl-convergent}; Lem.~\Nref{lem:gl-limits}(c) & S0--SF, fixed couplings & SF & --- & Prop.~\Nref{prop:beta-identification}\\
+\bottomrule
+\end{longtable}
+}
+
+\paragraph{Constants local to Part~XI.} The one-loop computation of Sections~\Nref{sec:ol-composite}--\Nref{sec:ol-feynman} uses constants that do not enter the order of choice. They are the parameter $g$ of Laplace's method at a fixed configuration and torus (Proposition~\Nref{prop:ol-laplace} and its proof), $\varrho_g=g^{1/2}$ and $\varrho_0$ (the Setting of Section~\Nref{sec:ol-chart}), the chart radius $\theta\le\theta_0$ and the admissible pairs (the Setting of Section~\Nref{sec:ol-composite}), the folding and Bloch constants $c_0$, $c_g$, $c_{\rm QGQ}$ (Lemma~\Nref{lem:ol-folding} to Lemma~\Nref{lem:ol-bloch}), the Faddeev--Popov constant $c_0$ (Proposition~\Nref{prop:ol-FP}), the fixed mass $m=1$ (Section~\Nref{subsec:ol-vp-split}), the range $r_0$ (Section~\Nref{subsec:ol-vp-function}, paragraph ``Background derivatives''), $K_D$ (Lemma~\Nref{lem:ol-power-counting}(b)) and $c_{\log}$ (Theorem~\Nref{thm:ol-log}). None of them is a condition on $\gamma$: the ``$g$ small'' of Sections~\Nref{sec:ol-composite} and~\Nref{sec:ol-chart} concerns the Laplace parameter $g\to0$, and the outputs do not depend on $g$. They are treated in the chapters on Part~XI.
+
+\subsection{The order of choice is acyclic}\label{subsec:ledger-order}
+
+Collecting Tables~A--F and the details above, the constants can be chosen in the following order. Every dependency recorded in the tables points to an earlier item.
+\begin{enumerate}[label=(\arabic*)]
+\item S0: $d$, $G$, $a$, $\alpha$; the constants of $d$ and $G$ alone ($c_G$, $r_M$, $C_M$, $c_1$, $C_E$, $p$, $c_0$, $c_D$, $C_{\rm AB}$, $c_{\rm q}$, $C_{\rm ext}$, $c_{\rm DC}$, $C_{\rm refl}$, $C_w$, $C_{\rm conv}$, $C_{\rm curv}$); then $M_0$, $\eps_0$, $c_*$, $\eps_{\rm U}$, $\theta_Q$, $C^{\rm unif}_H$, $\gamma_H$, $C_*$, and the interior thresholds $\eps_S$, $\eps_L^{\rm sys}$, $\eps_{\rm ID}$, $\eps'_S$, $\eps''_S$, $\eps'_L$, $\eps'$.
+\item S1: $\kappa_0$, $K_0$, $c_\flat$, $c_\sharp$, $c_\natural$, $C_d$, $A$, $\epsilon_*$, the reblocking $C=2\sqrt d$; then $\kappa_n$.
+\item S2: $L$. Then the constants of $L$ alone: $c_3$, $c'_3$, $c_5$, $\delta_{AB}$, $c_4$, $r_u$, $B_1$, $C_{\rm P}$, $c_L$, $\rho_L$, $r_L$, $\eps_M$, $c_J$, $c'$, $\beta_\infty$, $c_Q$, $C_Q$, $\eps_{\rm B}$. Then Part~V: $C_H$, $C_C$, $\eps_*$, $K$, $r_2^{\rm V}$, $r_3$, $c_7$, then $\theta_0$, then $C_6$, then $c_6$ and $r_1=c_6/4$; then the constants of Part~VII that do not depend on $M$ ($C$, $\gamma_1$ of Proposition~\Nref{prop:coarse-action}, $C_L$, $\gamma_1$, $C'_L$, then $r_*$, $A_L$ and $c'_L$ of Detail~\ref{d7:covc}, then $\gamma_C$).
+\item S3: $\kappa$, $\delta$, $\kappa'_w$, $\kappa_2$.
+\item S4: $R_0(L,\cdot)$ through $R_0\le C_LM$, $C_v$, $r$, $\rho$; then the constants of the levels and $M_1$ (level by level), $M_{\mathfrak N}$, $M'_1$, $M^{(0)}_1$; then $M$. Then the constants of $M$: $R$, $n_0$, $\eps_{\rm imp}$, $C_{\rm imp}$, $C^{\rm units}_L$, $C_{\rm base}$, $B_3$, $a_1$, $a_2$, $B_5$, $a_\delta$, $n_\delta$, $a'_1$, $r_2$, $\eps_{\rm cmp}$, $M'_L$, $\eps_L$, $\eps^{\rm cov}$, $a_{\rm step}$, the Part~IX constants $C_P$, $K_H$, $r_P$, $\eps_P$, $\varrho_P$, $R_P$, $C_J$; then $\delta_*$, $C_W$ and $c''_L$ (proofs of Proposition~\Nref{prop:dirichlet-hessian}(c) and Lemma~\Nref{lem:coercive-general}); then $M'$; then $n_*$ and $n_{\min}$.
+\item S5: $C_{\rm cx}$, $\bar\delta$, $\eps_{\max}$, $\delta_P$, $\delta_{P,0}$, $\eps_a$, $\delta_a$, $c_a$, $\delta_1\le\delta_0$, $\theta_r$, $\delta_1^\flat$, $\Theta$, $\Theta^\flat$, $C_{\rm nf}$, $m_0$, then $C_{\rm cs}$, $C_s$, $C_\beta$, $C_{\rm ex}$, $C_{\rm ne}$, and the step constants $r_I$, $C_T$, $C_P$, $r_t$.
+\item SF: $C_{\mathfrak e}$, $C_{\rm jac}$, $B_{\rm new}$, $B^{(0)}_{\rm new}$, $\mathsf K$; $C_{\rm old}$, $C_{\rm new}$, $C^{(0)}_{\rm new}$; $c_{\rm F}$; $C_2$, $c_2$, $C_3$, $C_4$, the $C$ of Theorem~\Nref{thm:ol-cumulative}, $C_5$.
+\item S6: $g_p$, $p$, $p_0$; then $\gamma$, subject to ($\Gamma$1)--($\Gamma$4) and, for Theorem~\Nref{thm:ol-uv}, $\gamma\le e^{-3q}$ and $C_3\gamma^2p_0(\gamma)^6\le\frac12\beta_\infty$.
+\item SXI: $g_{\rm uv}$, the $C$ and $m_1$ of Theorem~\Nref{thm:ol-uv}.
+\end{enumerate}
+Every lower bound on $M$ in~(5) uses only constants of (1)--(4) and $R_0(L,\cdot)$, $C_v$, $r$, $\rho$, listed before $M$ in~(5), with the doubling of Detail~\ref{det:ledger-emax}. Every condition on $\gamma$ is an upper bound by quantities of (1)--(7). The torus enters only through $n_K\ge n_{\min}$, which is fixed in~(5). The couplings enter no constant. So the order has no cycle, with the rule of Detail~\ref{det:ledger-emax} for $\eps_{\max}$ and with the conditions $c_6\le\min(c_3,c_5)/C_6$ and the condition on $\theta_0$ for Proposition~\Nref{prop:map-compare} (proof of Theorem~\Nref{thm:variational}), and $B_3a_1\le c'_3$ (proof of Theorem~\Nref{thm:balaban}). The constants $\delta_*$, $C_W$ and $c''_L$ are fixed in Part~VIII after $M$ (the paragraph ``Three constants fixed in Part~VIII'' after Remark~\Nref{rem:parameters}, and the paragraph ``Conventions at complex references'' before Proposition~\Nref{prop:complex-ext}). $\delta_*$ and $C_W$ enter $c''_L$; $C_W$ also enters $C_{\rm cx}$ (step~(vii) of the proof of Proposition~\Nref{prop:complex-ext}), hence $\bar\delta$; and $c''_L$ enters $\delta_P\le c''_L$. The consumers outside the three, $C_{\rm cx}$, $\bar\delta$ and $\delta_P$, are in~(6). The thresholds $c_7\le\eps_V$ and the values of $\eps_a$, $\delta_a$ of Detail~\ref{det:ledger-emax-list} are within the note's quantifiers.
+
+\subsection{Off the main line, and names}\label{subsec:ledger-names}
+
+\begin{detail}[Proposition~\Nref{prop:map-compare}, Theorem~\Nref{thm:interaction-local}, Corollary~\Nref{cor:one-loop}]\label{det:ledger-off}\Ntarget{prop:map-compare,thm:interaction-local,cor:one-loop}
+\emph{Three items in parts that the main line does not use.}
+
+Section~\Nref{sec:interaction-local} and Corollary~\Nref{cor:one-loop} are of radius type and superseded on the main line (Section~\Nref{ss:1.3}, paragraph ``Reading guide''). Proposition~\Nref{prop:map-compare} is used only inside Section~\Nref{sec:interaction-local}; the proof of Theorem~\Nref{thm:variational} cites it only for its condition on $\theta_0$. The note states each of the following three items; the Detail checks the constants.
+
+\begin{enumerate}[label=(\roman*)]
+\item \emph{The radius $\rho_2$ in Proposition~\Nref{prop:map-compare}(a).} The contraction of the Dirichlet background map needs $\sum_{y'}K(y,y')e^{\gamma'|y-y'|}\le\frac14$ with $K(y,y')=C_{\rm map}(\eps+\rho_2)e^{-\gamma_{\rm map}|y-y'|/2}$. The radius $\rho_2\ge4B_1\theta_0$ does not shrink with $\eps$ and $|B|$, so the smallness must come from $\theta_0$. The proof of Theorem~\Nref{thm:variational} imposes $4C_{\rm map}S_{\gamma_{\rm map}/4}(1+8B_1+C_H+K)\theta_0\le1$, with $S_\gamma=\sum_{z\in\Z^d}e^{-\gamma|z|}$ as in Section~\Nref{sec:decay}, and Proposition~\Nref{prop:map-compare} takes $r_4\le\theta_0$. This suffices: for $\eps+|B|_\infty\le\theta_0$ one has $\rho_1\le4B_1\theta_0$ and $\rho_2\le(8B_1+C_H+K)\theta_0$ (Detail~\ref{det:ledger-c6c7}, Step~\ref{det:ledger-c6c7-theta}), so $C_{\rm map}(\eps+\rho_2)S_{\gamma_{\rm map}/4}\le\frac14$. The constants $C_{\rm map}$, $\gamma_{\rm map}$ come from Theorem~\Nref{thm:ID} and \Neqref{eq:dgradV-block}. They do not involve $\theta_0$, and they are free of $M$ (Detail~\ref{det:ledger-M0}, Step~\ref{det:ledger-M0-parts}). So the condition on $\theta_0$ creates no cycle. It makes $\theta_0$, and through $c_6$ and $r_1$ the constants of Part~VII, depend on these constants, which are fixed after $L$. Another route would run the contraction on a ball of radius $C(\eps+|B|_\infty)$, as Theorem~\Nref{thm:weak-bg} does with its own radius $\varrho_P$.
+\item \emph{$r_5$ and $\gamma_5$.} Theorem~\Nref{thm:interaction-local} defines $r_5$ and $\gamma_5$, and its proof uses $\eps\le r_5$. The chapter on Part~VIII checks the definitions.
+\item \emph{Corollary~\Nref{cor:one-loop}.} Its proof uses Remark~\Nref{rem:bg-to-graded} with a small constant $c_{\rm ol}$, with $c_{\rm ol}\le\frac12c_{\rm q}$, $c_{\rm ol}\le a_2$, $\max(1,B_5)c_{\rm ol}\le\eps_a$ and $2C_{\rm ext}c_{\rm ol}<\delta_a$. The coercivity constant $c_L=\frac12\min(c_D,1)C_{\rm P}^{-1}$ is a fixed number and could not serve here. The main line uses $c_a$ instead (Proposition~\Nref{prop:one-loop-polymer}).
+\end{enumerate}
+\status{Expanded. Off the main line; no main-line statement depends on these items.}
+\end{detail}
+
+\paragraph{Former names.} The note uses the names in the second column of the following table. The first column gives the former names, used in earlier versions of the note. The last row renames conditions of this volume, not of the note.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.48\textwidth}@{}}
+\toprule
+former name & current name & object\\
+\midrule\endhead
+$C_k$, $C_j$, $dC_k$, $d^2C_k$, $C^{(2)}_k$ & $\Cav_k$, $\Cav_j$, $d\Cav_k$, $d^2\Cav_k$, $C^{{\rm av},(2)}_k$ & the averaging remainder (Proposition~\Nref{prop:Q-expansion}); the covariance $C_k=\Delta_k^{-1}$ keeps its name\\
+$\mathfrak F(A')$ & $\cJ(A')$ & the functional of Proposition~\Nref{prop:contraction}\\
+$|B(y')|$ & $|B|_{y'}$ & the value of a coarse field at $y'$ (Theorem~\Nref{thm:E})\\
+$M(\mathbf U)$, $M(\{U_i\})$ & $\Av(\mathbf U)$, $\Av(\{U_i\})$ & the group average (Lemma~\Nref{lem:group-average})\\
+$K^X$, $K^v$ & $\cK^X$, $\cK^v$ & the parametrices (Lemma~\Nref{lem:parametrix-X}, Theorem~\Nref{thm:random-walk}(b)); the gauge-fixing form $K^X$ keeps its name\\
+$E=L^{-d}\sum_xH_x$ & $\Eloop$ & the loop average (Lemma~\Nref{lem:AB-bounds}); the defect $E$ keeps its name\\
+$C_L$ & $C^{\rm units}_L$ & the constant of Lemma~\Nref{lem:units}\\
+$C_P$ & $C^{\rm patch}_P$ & the constant of Lemma~\Nref{lem:patching}\\
+$r_2$ & $r_2^{\rm V}$ & the radius of Lemma~\Nref{lem:linearizing}; $r_2$ of Lemma~\Nref{lem:step-quadratic} keeps its name\\
+$\gamma'=\gamma_{k+1}$ & $\gamma'_{\rm lin}$ & the linearized contour variable of the step (Section~\Nref{sec:fluctuations})\\
+(A1)--(A3) of Section~\Nref{sec:nested-walks} & (W1)--(W3) & the hypotheses of the walk; (A1)--(A11) of Lemma~\Nref{lem:uniformity} keep their names\\
+box (a product of intervals) & rectangle & Section~\Nref{sec:tiers}, Lemma~\Nref{lem:trace}\\
+(T1)--(T3) of the chapter on Part~X & (FS1)--(FS3) & the conditions on the first step in this volume\\
+\bottomrule
+\end{longtable}
+}
+
+\paragraph{Symbols with several meanings.} The following symbols still have more than one meaning in the note. The ledger, and the other chapters where a reader could be misled, use the names in the second column.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.2\textwidth}>{\raggedright\arraybackslash}p{0.6\textwidth}@{}}
+\toprule
+note & this volume & meanings\\
+\midrule\endhead
+$C_L$ & $C_L$; $C^{\rm AB}_L$ & Theorem~\Nref{thm:step} and Corollary~\Nref{cor:covariance} (free of $M$); Proposition~\Nref{prop:AB}(iii)--(v); Proposition~\Nref{prop:local-fluct}\\
+$C_P$ & $C_P$ & Theorem~\Nref{thm:weak-bg}; the generic constant of the step (the Setting of Section~\Nref{sec:step-quantities}), several numbers, one of them in $C_3$ (Detail~\ref{det:ledger-gamma})\\
+$C_{\rm P}$ & $C_{\rm P}$ & Lemma~\Nref{lem:poincare-step} (upright P)\\
+$\eps_L$ & $\eps_L$; $\eps_L^{\rm sys}$ & Theorem~\Nref{thm:step-coercive}; Proposition~\Nref{prop:system-interior}, the one meant in the proof of Proposition~\Nref{prop:complex-ext}\\
+$\eps_*$, $\epsilon_*$ & $\eps_*^{\rm boot}$; $\eps_*$; $\epsilon_*$ & Lemma~\Nref{lem:bootstrap} (Step~3 of the proof of Lemma~\Nref{lem:uniformity}); Lemma~\Nref{lem:sup-bounds}; Theorem~\Nref{thm:mayer}\\
+$K$ & $K$; $K^{\rm ind}$; $K$ & $4C_C(1+C_H)$ (Proposition~\Nref{prop:contraction}); $(1+C_6)C^{\rm units}_L$ (the proof of Theorem~\Nref{thm:balaban}); the number of steps of the flow\\
+$C_H$ & $C_H$; $C^{\rm unif}_H$ & Section~\Nref{sec:chart} (the proof of Lemma~\Nref{lem:one-scale}); Lemma~\Nref{lem:sup-bounds}(d) (Proposition~\Nref{prop:contraction}); Lemma~\Nref{lem:uniformity} (free of $L$, enters $C_*$)\\
+$N$ & $N=L^k$; $N$ & the number of fine points per unit after $k$ steps (Section~\Nref{ss:2.1}); the exponent in the side $n_k=\ell L^{N-k}$ of the tori of the flow (Section~\Nref{subsec:tf-scales})\\
+$C_T$ & $C_T^{\rm tier}$; $C_T$ & the tier constant (Lemma~\Nref{lem:int-factors}, Lemma~\Nref{lem:endpoint-factors}); the covariance constant of the step (Section~\Nref{subsec:sq-interaction})\\
+$M_1$ & $M_1$ & Theorem~\Nref{thm:random-walk}; Theorem~\Nref{thm:weak-inverse}, the one of Remark~\Nref{rem:parameters}(4)\\
+$C_d$ & $C_d$ & Lemma~\Nref{lem:weak-chain}; Theorem~\Nref{thm:mayer}, the one of Remark~\Nref{rem:parameters}(1)\\
+$\gamma$, $\gamma_1$ & --- & the coupling bound $\gamma$ (Section~\Nref{subsec:flow-parameters}) and many decay rates (e.g.\ Lemma~\Nref{lem:period-vacpol}(d)); $\gamma_1$ of Corollary~\Nref{cor:covariance} and of Lemma~\Nref{lem:int-factors}\\
+$\rho$ & $\rho$; $\rho_{\rm rep}$ & the weakening scale (Part~IX); the representation (Part~XI)\\
+$a$ & $a$ & the averaging coefficient; a curvature bound in $\mathfrak U_j(a)$, $a(L,M)$ (Lemma~\Nref{lem:critical-current}) and $a\le C\eps$ (the Setting of Section~\Nref{sec:AB-proof})\\
+$c_0$ & $c_0$ & Lemma~\Nref{lem:exp-gauge}(c) and Lemma~\Nref{lem:avg-transport}(f); Lemma~\Nref{lem:ol-bloch}; the Faddeev--Popov constant (Proposition~\Nref{prop:ol-FP})\\
+$\delta_0$ & $\delta_0$; $\delta_0(W)$ & the domain constant (Definition~\Nref{def:graded}); the radius of Proposition~\Nref{prop:reg-complex}\\
+$n_0$, $r_0$, $r_1$ & --- & $n_0=4R+16$ and the function $n_0(A')$ (Section~\Nref{ss:45.2}, paragraph ``The functional and its gradient''); several ranges $r_0$ (Lemma~\Nref{lem:weak-local-ops}(a), Proposition~\Nref{prop:ol-laplace}, Section~\Nref{subsec:ol-vp-function}, paragraph ``Background derivatives''); $r_1=c_6/4$ and several local radii\\
+$\kappa$ & $\kappa_m$; $\kappa$ & the mass parameter of Part~III (Theorem~\Nref{thm:reg-coercive}); the weakening rate (Part~IX)\\
+\bottomrule
+\end{longtable}
+}

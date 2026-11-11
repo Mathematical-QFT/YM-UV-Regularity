@@ -1,0 +1,166 @@
+\section{Local regularity on the fine lattice}\label{sec:regularity}
+
+The Combes--Thomas method gives $L^2$ bounds between unit blocks. To obtain bounds on values, derivatives and H\"older quotients that are uniform in $\eta$, we use an interior regularity estimate for the lattice Laplacian. This is the lattice analogue of the classical fact that a solution of $-\Lap u=F$ with bounded $F$ is $C^{1,\alpha}$ in the interior for every $\alpha<1$.
+
+\subsection{The Green function of the fine lattice}\label{ss:6.1}
+
+Let $g_1$ be the Green function of $-\Lap$ on the infinite unit lattice $\Z^d$:
+\[
+g_1(x)=\frac1{(2\pi)^d}\int_{[-\pi,\pi]^d}\frac{e^{\ii p\cdot x}}{\sum_\mu4\sin^2(p_\mu/2)}\,dp ,
+\]
+which is well defined, since $|p|^{-2}$ is integrable near $0$ in four dimensions, and satisfies $-\Lap g_1=\delta_0$. On $\eta\Z^d$ put $g_\eta(x)=\eta^{2-d}g_1(x/\eta)$. Then the convolution
+\[
+(\cG h)(x)=\sum_{x'\in\eta\Z^d}\eta^d\,g_\eta(x-x')\,h(x')
+\]
+satisfies $-\Lap\cG h=h$ and $\cG(-\Lap h)=h$ for every finitely supported $h$ on $\eta\Z^d$. For the second identity, sum by parts. Since $\cG$ is a convolution, it commutes with all lattice derivatives: $\partial_\mu\cG h=(\partial_\mu g_\eta)\star h$, and similarly for $\partial^*_\mu$.
+
+\begin{proposition}[Decay of derivatives]\label{prop:green-eta}
+For every word $\partial^\beta$ of length $|\beta|\le3$ in the operators $\partial_\mu,\partial^*_\mu$,
+\[
+|\partial^\beta g_\eta(x)|\le C_\beta\,(|x|+\eta)^{2-d-|\beta|},\qquad x\in\eta\Z^d,
+\]
+with $C_\beta$ depending only on $\beta$.
+\end{proposition}
+
+\begin{proof}
+By scaling, $\partial^\beta g_\eta(x)=\eta^{2-d-|\beta|}(\nabla^\beta g_1)(x/\eta)$, where $\nabla^\beta$ is the corresponding word of unit-lattice differences. By Theorem~\ref{thm:green-unit} in Appendix~\ref{app:green}, $|\nabla^\beta g_1(z)|\le C_\beta(1+|z|)^{2-d-|\beta|}$.
+\end{proof}
+
+We also need two elementary lattice sums.
+
+\begin{lemma}[Lattice sums]\label{lem:lattice-sums}
+Let $x\in\eta\Z^d$ and $R\ge\eta$.
+\begin{enumerate}[label=(\alph*)]
+\item For $0\le s<d$: $\sum_{|x'-x|\le R}\eta^d(|x-x'|+\eta)^{-s}\le C_{d,s}R^{d-s}$.
+\item For $\sqrt d\,\eta\le r\le R$: $\sum_{r<|x'-x|\le R}\eta^d|x-x'|^{-d}\le C_d\,(1+\log(R/r))$.
+\item For $s>d$ and $r\ge\sqrt d\,\eta$: $\sum_{|x'-x|>r}\eta^d|x-x'|^{-s}\le C_{d,s}\,r^{d-s}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $W(x')=x'+[-\eta/2,\eta/2)^d$. For $z\in W(x')$ we have $|z-x|+\eta\le(1+\sqrt d)(|x-x'|+\eta)$. Hence each term in (a) is at most $(1+\sqrt d)^s\int_{W(x')}(|z-x|+\eta)^{-s}dz$. The cubes $W(x')$ are disjoint and contained in the ball of radius $R+\sqrt d\eta\le(1+\sqrt d)R$, which gives (a). In (b), $|x-x'|>r\ge\sqrt d\eta$ implies $\frac12|x-x'|\le|z-x|\le\frac32|x-x'|$ for $z\in W(x')$. Hence the sum is at most $(3/2)^d\int_{r/2\le|z-x|\le3R/2}|z-x|^{-d}dz=(3/2)^d|S^{d-1}|\log(3R/r)$. The same comparison gives (c).
+\end{proof}
+
+\subsection{The regularity estimate}\label{ss:6.2}
+
+For $z\in\R^d$ and $r>0$ let $\Lam_r=\{x\in\Tf:|x-z|_\infty\le r\}$. Since $n\ge8$, $\Lam_3$ can be identified with a subset of $\eta\Z^d$.
+
+\begin{theorem}[Interior regularity]\label{thm:local-regularity}
+Let $\alpha\in(0,1)$. There is $C$, depending only on $\alpha$, such that the following holds for every lattice spacing $\eta\le1$, in particular $\eta=1/N$ with $N\ge1$, and all $z$; for a spacing not of the form $1/N$, $\Lam_r$ is the set of $x\in\eta\Z^d$ with $|x-z|_\infty\le r$. Let $u,F:\Lam_3\to\R$ and $g=(g_\mu):\Lam_3\to\R^d$ satisfy
+\[
+-\Lap u=F+\sum_\mu\partial^*_\mu g_\mu\qquad\text{at every point of }\Lam_2 .
+\]
+\begin{enumerate}[label=(\alph*)]
+\item If $g=0$: $\ |u|_{\Lam_1}+|\partial u|_{\Lam_1}+\Hol{\partial u}{\Lam_1}\le C\big(|F|_{\Lam_2}+\|u\|_{\Lam_2}\big)$.
+\item In general: $\ |u|_{\Lam_1}+\Hol{u}{\Lam_1}\le C\big(|F|_{\Lam_2}+|g|_{\Lam_3}+\|u\|_{\Lam_2}\big)$.
+\item If $g=0$: $\ \max_{\mu,\nu}|\partial_\mu\partial_\nu u|_{\Lam_1}\le C\big(|F|_{\Lam_2}+\Hol{F}{\Lam_2}+\|u\|_{\Lam_2}\big)$.
+\item (Divergence form with H\"older data.) $\ |u|_{\Lam_1}+|\partial u|_{\Lam_1}+\Hol{\partial u}{\Lam_1}\le C\big(|F|_{\Lam_2}+|g|_{\Lam_3}+\Hol g{\Lam_3}+\|u\|_{\Lam_2}\big)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[scale=0.9]
+\fill[fgreen!10] (-1.75,-1.75) rectangle (1.75,1.75);
+\fill[white] (-1.5,-1.5) rectangle (1.5,1.5);
+\draw[fblue,very thick] (-1,-1) rectangle (1,1);
+\draw[gray,thick] (-2,-2) rectangle (2,2);
+\draw[gray,dashed] (-3,-3) rectangle (3,3);
+\draw[fgreen,thick] (-1.5,-1.5) rectangle (1.5,1.5);
+\draw[fgreen,thick] (-1.75,-1.75) rectangle (1.75,1.75);
+\node[fblue] at (0,0) {$\Lam_1$};
+\node[gray] at (2.5,2.6) {$\Lam_3$};
+\node[gray,anchor=west] at (2.05,1.3) {$\Lam_2$};
+\node[fgreen!70!black,font=\small] (lab) at (0,-2.5) {$\nabla\chi\ne0$};\draw[fgreen!70!black,->] (lab.north)--(0,-1.64);
+\draw[<->] (1,0)--(1.5,0) node[midway,below,font=\small] {$\tfrac12$};
+\node[align=left,anchor=west,font=\small] at (3.4,0.6) {$\chi=1$ inside the inner green square,\\ $\chi=0$ outside the outer one.\\ The commutator supports lie in the green\\ annulus enlarged by at most $2\eta$.\\ For $\eta\le\frac1{16}$ this enlarged annulus is\\ at distance $\ge\frac14$ from $\Lam_{1+2\eta}$.};
+\end{tikzpicture}
+\caption{Geometry of the proof of Theorem~\ref{thm:local-regularity}.}
+\label{fig:cutoff}
+\end{figure}
+
+\begin{proof}
+\emph{Step 0: coarse lattices.} Let $\eta>\frac1{16}$ (for $\eta=1/N$: $N<16$). Then $|u(x)|\le\eta^{-d/2}\|u\|_{\Lam_2}\le16^{d/2}\|u\|_{\Lam_2}$ for $x\in\Lam_2$, and $\Hol{v}{X}\le2\eta^{-\alpha}|v|_X$. A first difference at a point of $\Lam_1$ involves only points of $\Lam_{1+\eta}\subset\Lam_2$ and costs a factor at most $2/\eta\le32$. This proves (a), (b) and (d). For (c) with $\eta\le\frac12$, a second difference at a point of $\Lam_1$ involves only points of $\Lam_{1+2\eta}\subset\Lam_2$ and costs a factor at most $4/\eta^2$. If $\eta>\frac12$ (for $\eta=1/N$: $N=1$), the difference $\partial_\mu\partial_\mu u(x)$ involves $u(x+2\eta e_\mu)$, which may lie outside $\Lam_2$. Put $v=x+\eta e_\mu$. Since $g=0$ in (c), the equation at $v\in\Lam_2$ gives
+\[
+\eta^2\partial_\mu\partial_\mu u(x)=(2d-2)\,u(v)-\sum_{\nu\ne\mu}\big(u(v+\eta e_\nu)+u(v-\eta e_\nu)\big)-\eta^2F(v),
+\]
+and all points on the right lie in $\Lam_2$. The mixed differences $\partial_\mu\partial_\nu u(x)$, $\mu\ne\nu$, involve only points of $\Lam_2$. We assume $\eta\le\frac1{16}$ from now on.
+
+\emph{Step 1: cutoff.} Fix $\chi\in C^\infty(\R^d)$ with $0\le\chi\le1$, $\chi=1$ on $\{|x-z|_\infty\le\frac32\}$ and $\chi=0$ on $\{|x-z|_\infty\ge\frac74\}$. Its lattice differences up to order three are bounded by absolute constants. Let $v=\chi u$, extended by zero to $\eta\Z^d$. Write $S_\mu u(x)=u(x+\eta e_\mu)$. The discrete Leibniz rules
+\[
+\partial_\mu(\chi u)=\chi\,\partial_\mu u+(\partial_\mu\chi)S_\mu u,\qquad
+\partial_\mu^*(\varphi w)=\varphi\,\partial^*_\mu w+(\partial^*_\mu\varphi)S_\mu^{-1}w,
+\]
+and $S_\mu^{-1}\partial_\mu u=-\partial^*_\mu u$ give, after a short computation,
+\begin{equation}\label{eq:commutator}
+-\Lap(\chi u)=\chi(-\Lap u)+\sum_\mu\big(\partial^*_\mu m_\mu+n_\mu\big),\qquad
+\begin{aligned}
+m_\mu&=(\partial_\mu\chi)S_\mu u-(\partial^*_\mu\chi)u,\\
+n_\mu&=(\partial^*_\mu\partial^*_\mu\chi)S_\mu^{-1}u .
+\end{aligned}
+\end{equation}
+The functions $m_\mu$, $n_\mu$ vanish outside the annulus $A=\Lam_{7/4+2\eta}\setminus\Lam_{3/2-2\eta}$, where the differences of $\chi$ (up to second order, involving points at distance up to $2\eta$) can be non-zero. They involve $u$ only at points of $\Lam_2$, and $|m_\mu|+|n_\mu|\le C|u|$ at neighbouring points. Similarly $\chi\,\partial^*_\mu g_\mu=\partial^*_\mu(\chi g_\mu)-(\partial^*_\mu\chi)S_\mu^{-1}g_\mu$. Hence
+\[
+-\Lap v=\Phi_1+\Phi_2+\sum_\mu\partial^*_\mu(\chi g_\mu+m_\mu),\qquad
+\Phi_1=\chi F-\sum_\mu(\partial^*_\mu\chi)S^{-1}_\mu g_\mu,\quad \Phi_2=\sum_\mu n_\mu .
+\]
+All terms vanish outside $\Lam_2$. Since $v$ has finite support,
+\begin{equation}\label{eq:rep}
+v=\cG\Phi_1+\cG\Phi_2+\sum_\mu(\partial^*_\mu g_\eta)\star(\chi g_\mu)+\sum_\mu(\partial^*_\mu g_\eta)\star m_\mu .
+\end{equation}
+For $x\in\Lam_{1+2\eta}$ we have $v(x)=u(x)$. So $u$, $\partial u$ and $\partial\partial u$ on $\Lam_1$ can be computed from \eqref{eq:rep}.
+
+\emph{Step 2: the terms supported in the annulus.} Points of $\Lam_{1+2\eta}$ have distance at least $\frac12-4\eta\ge\frac14$ from $A$. By Proposition~\ref{prop:green-eta}, every derivative of order at most three of $g_\eta$ is bounded by a constant on $\{|x|\ge\frac14\}$. Therefore, for $x\in\Lam_{1+2\eta}$ and $|\beta|\le2$,
+\[
+|\partial^\beta\cG\Phi_2(x)|+\sum_\mu|\partial^\beta(\partial^*_\mu g_\eta)\star m_\mu(x)|\le C\sum_{x'\in A}\eta^d\Big(|\Phi_2(x')|+\sum_\mu|m_\mu(x')|\Big)\le C\|u\|_{\Lam_2},
+\]
+by Cauchy--Schwarz. For $|\beta|\le1$ the derivatives of order one more are also bounded (they involve at most three derivatives of $g_\eta$), so these terms and their first derivatives are Lipschitz on $\Lam_1$; for (c) only the sup bounds with $|\beta|=2$ are needed. A Lipschitz function on $\Lam_1$ is H\"older: join $x,x'$ by a monotone lattice path inside $\Lam_1$, of length at most $\sqrt d|x-x'|\le2d$.
+
+\emph{Step 3: the near terms in (a) and (b).} Here $\Phi_1$ and $\chi g$ are bounded by $C(|F|_{\Lam_2}+|g|_{\Lam_3})$ and supported in $\Lam_2$. By Lemma~\ref{lem:lattice-sums}(a) with $s=d-2$ and $s=d-1$, for $x\in\Lam_{1+2\eta}$,
+\[
+|\cG\Phi_1(x)|+|\partial\cG\Phi_1(x)|+|(\partial^*g_\eta)\star(\chi g)(x)|\le C(|F|_{\Lam_2}+|g|_{\Lam_3}).
+\]
+This proves the sup bounds in (a) and (b), and shows that $\cG\Phi_1$ is Lipschitz on $\Lam_1$. It remains to estimate the H\"older quotient of a convolution $k\star h$ with $|h|\le M$ supported in $\Lam_2$. Here $k=\partial_\mu g_\eta$ in (a), and $k=\partial^*_\mu g_\eta$ in (b). In both cases $|k(y)|\le C(|y|+\eta)^{1-d}$, and every first difference of $k$ is bounded by $C(|y|+\eta)^{-d}$. Let $x,x'\in\Lam_1$, $\delta=|x-x'|\ge\eta$. Split the sum over $x''$ at $|x-x''|=4\sqrt d\,\delta$. On the near part, by Lemma~\ref{lem:lattice-sums}(a) with $s=d-1$ (note $|x'-x''|\le(4\sqrt d+1)\delta$),
+\[
+\sum_{|x-x''|\le4\sqrt d\delta}\eta^d\big(|k(x-x'')|+|k(x'-x'')|\big)\le C\delta ,
+\]
+On the far part we join $x$ to $x'$ by a monotone lattice path of at most $\sqrt d\delta/\eta$ steps. Every point $w$ of the path, and its neighbours, satisfies $|w-x''|\ge\frac12|x-x''|$. Hence $|k(x-x'')-k(x'-x'')|\le C\sqrt d\,\delta\,|x-x''|^{-d}$, and by Lemma~\ref{lem:lattice-sums}(b)
+\[
+\sum_{4\sqrt d\delta<|x-x''|\le5\sqrt d}\eta^d|k(x-x'')-k(x'-x'')|\le C\delta\big(1+\log(1/\delta)\big)\le C_\alpha\delta^\alpha .
+\]
+Here we may assume $\delta\le1$, the case $\delta>1$ being covered by the sup bound. Multiplying by $M$ proves the H\"older bounds in (a) and (b).
+
+\emph{Step 4: second derivatives, (c).} Fix $x\in\Lam_1$ and let $\tilde\chi\in C^\infty_c$, with $0\le\tilde\chi\le1$, be equal to $1$ on $\{|x'-z|_\infty\le\frac74\}$ and supported in $\{|x'-z|_\infty<\frac{15}8\}$. Write $\chi F(x'')=\big[\chi F(x'')-\chi F(x)\tilde\chi(x'')\big]+\chi F(x)\tilde\chi(x'')$. Then
+\[
+\partial_\mu\partial_\nu\cG(\chi F)(x)=\sum_{x''}\eta^d(\partial_\mu\partial_\nu g_\eta)(x-x'')\big[\chi F(x'')-\chi F(x)\tilde\chi(x'')\big]+\chi F(x)\,\cG(\partial_\mu\partial_\nu\tilde\chi)(x),
+\]
+because convolution commutes with differences. The last term is bounded by $C|F|_{\Lam_2}$, since $\partial_\mu\partial_\nu\tilde\chi$ is bounded and supported in $\Lam_2$: a second difference at $x'$ involves only points within $\infty$-distance $2\eta\le\frac18$ of $x'$, and $\frac{15}8+\frac18=2$. In the sum, the term $x''=x$ vanishes. For $x''\in\Lam_{7/4}$ the bracket is at most $\Hol{\chi F}{\Lam_2}|x-x''|^\alpha$. For $x''\notin\Lam_{7/4}$ we have $|x-x''|\ge\frac34$, and the bracket is at most $|F|_{\Lam_2}$. Using $|\partial_\mu\partial_\nu g_\eta(y)|\le C|y|^{-d}$ for $y\ne0$ and Lemma~\ref{lem:lattice-sums}(a) with $s=d-\alpha$, the sum is at most $C(\Hol{\chi F}{\Lam_2}+|F|_{\Lam_2})$. Finally $\Hol{\chi F}{\Lam_2}\le\Hol F{\Lam_2}+C|F|_{\Lam_2}$. The second derivatives of $\cG\Phi_2$ and of the $m$-terms were estimated in Step~2.
+
+\emph{Step 5: divergence form with H\"older data, (d).} By Steps 2 and 3, all terms of \eqref{eq:rep} except $w=\sum_\mu(\partial^*_\mu g_\eta)\star G_\mu$, $G_\mu=\chi g_\mu$, already satisfy the bounds of (d); note that $\Phi_1$ is bounded by $C(|F|_{\Lam_2}+|g|_{\Lam_3})$. The field $G$ vanishes outside $\Lam_2$, $|G|\le|g|_{\Lam_3}$, and $[G]_\alpha:=\Hol G{\eta\Z^d}\le\Hol g{\Lam_3}+C|g|_{\Lam_3}$. Here $\Hol G{\eta\Z^d}$ is the H\"older quotient over all pairs of points. For $z,z'\in\Lam_3$ we use $|\chi(z)g(z)-\chi(z')g(z')|\le|g(z)-g(z')|+|\chi(z)-\chi(z')|\,|g(z')|$. If $z\in\Lam_3$ and $z'\notin\Lam_3$, then $G(z')=\chi(z')=0$ and $|G(z)|=|\chi(z)-\chi(z')|\,|g(z)|$; if both points lie outside $\Lam_3$, the difference is zero. The bounded Lipschitz norm of $\chi$ gives the stated bound. We have $\partial_\nu w=\sum_\mu K_{\nu\mu}\star G_\mu$ with $K=K_{\nu\mu}=\partial_\nu\partial^*_\mu g_\eta$. By Proposition~\ref{prop:green-eta}, $|K(y)|\le C|y|^{-d}$ for $y\ne0$ and every first difference of $K$ at $y$ is bounded by $C(|y|+\eta)^{-d-1}$.
+
+\emph{Box cancellation.} Let $B$ be a \emph{lattice box}, i.e.\ the set of lattice points $z$ with $|z-c|_\infty\le r$, and let $\partial B$ be the set of points of $B$ with a lattice neighbour outside $B$. Let $v$ be a lattice point with $\operatorname{dist}_\infty(v,\partial B)\ge s\ge\eta$. Write $h=\partial^*_\mu g_\eta$, so that $K(v-z)$ is a difference quotient of $h(v-z)$ in the variable $z_\nu$. Summing over $z\in B$ telescopes along the lines parallel to $e_\nu$, so that $\sum_{z\in B}\eta^dK(v-z)$ equals $\eta^{d-1}$ times a sum of at most $2(2r/\eta+1)^{d-1}$ values $h(v-z')$. Here $z'$ is either a point of $\partial B$ or a lattice point just outside $B$, one lattice step from a point of $\partial B$. So $|v-z'|_\infty+\eta\ge s$; if $v\notin B$, then $z'=v$ is possible. The set of points $z'$ depends only on $B$, not on $v$. By Proposition~\ref{prop:green-eta}, $|h(y)|\le C(|y|+\eta)^{1-d}$, so each value is at most $Cs^{1-d}$. Since $\eta\le s$, the number of values times $\eta^{d-1}$ is at most $2(2r+\eta)^{d-1}\le2^d(r+s)^{d-1}$. Hence
+\begin{equation}\label{eq:box}
+\Big|\sum_{z\in B}\eta^dK(v-z)\Big|\le C\,(r/s+1)^{d-1}.
+\end{equation}
+
+\emph{Sup bound.} In this step $z$ denotes a summation variable; the centre of the cubes $\Lam_r$ is fixed. Let $Q_0$ be the lattice box of radius $\frac52$ with the same centre as $\Lam_1$; it contains the support of $G$, and $\partial Q_0$ has $\infty$-distance at least $\frac32-\eta$ from $\Lam_1$. For $x\in\Lam_1$, $\sum_z\eta^dK(x-z)G(z)=\sum_{z\in Q_0}\eta^dK(x-z)(G(z)-G(x))+G(x)\sum_{z\in Q_0}\eta^dK(x-z)$. The first sum is at most $C[G]_\alpha\sum_{z\in Q_0\setminus\{x\}}\eta^d|x-z|^{\alpha-d}\le C[G]_\alpha$ by Lemma~\ref{lem:lattice-sums}(a), the second at most $C|G|$ by \eqref{eq:box}.
+
+\emph{H\"older bound.} Let $x,x'\in\Lam_1$ and $\delta=|x-x'|_\infty$; we may assume $\eta\le\delta\le\frac18$. With $S(v)=\sum_{z\in Q_0}\eta^dK(v-z)$,
+\[
+(K\star G)(x)-(K\star G)(x')=\sum_{z\in Q_0}\eta^d\big(K(x-z)-K(x'-z)\big)\big(G(z)-G(x)\big)+G(x)\big(S(x)-S(x')\big).
+\]
+By the telescoping argument, $S(v)$ is $\eta^{d-1}$ times a sum of $O(\eta^{1-d})$ values $h(v-z')$, over a set of points $z'$ near $\partial Q_0$ that does not depend on $v$. These points are at distance $\ge1$ from $\Lam_1$, where $h$ has bounded derivatives. Hence $|S(x)-S(x')|\le C\delta$. Let $B=\{z:|z-x|_\infty\le2\delta\}$. On $B$,
+\[
+\sum_{z\in B}\eta^d|K(x-z)||G(z)-G(x)|\le C[G]_\alpha\sum_{0<|z-x|\le2\sqrt d\delta}\eta^d|x-z|^{\alpha-d}\le C[G]_\alpha\,\delta^\alpha,
+\]
+and
+\[
+\sum_{z\in B}\eta^dK(x'-z)\big(G(z)-G(x)\big)=\sum_{z\in B}\eta^dK(x'-z)\big(G(z)-G(x')\big)+\big(G(x')-G(x)\big)\sum_{z\in B}\eta^dK(x'-z).
+\]
+The first term on the right is at most $C[G]_\alpha\delta^\alpha$, since $|z-x'|\le3\sqrt d\delta$ on $B$. The second is at most $[G]_\alpha(\sqrt d\delta)^\alpha\cdot C$ by \eqref{eq:box}, because $x'$ has $\infty$-distance at least $\delta$ from $\partial B$. Outside $B$ we have $|x-z|_\infty>2\delta$; a monotone path from $x$ to $x'$ stays at $\infty$-distance at least $\frac12|x-z|_\infty$ from $z$, so $|K(x-z)-K(x'-z)|\le C\delta|x-z|^{-d-1}$. Let $r=\max(2\delta,\sqrt d\,\eta)$. By Lemma~\ref{lem:lattice-sums}(c),
+\[
+\sum_{|x-z|>r}\eta^d\,C\delta|x-z|^{-d-1}\,[G]_\alpha|x-z|^\alpha\le C[G]_\alpha\,\delta\cdot r^{\alpha-1}\le C[G]_\alpha\,\delta^\alpha .
+\]
+If $r>2\delta$, the remaining points with $2\delta<|x-z|_\infty$ and $|x-z|\le\sqrt d\eta$ are at most $C$ in number. Each contributes at most $\eta^d\cdot C\eta^{-d}\cdot[G]_\alpha(\sqrt d\eta)^\alpha\le C[G]_\alpha\delta^\alpha$.
+Collecting the terms gives $\Hol{\partial w}{\Lam_1}\le C([G]_\alpha+|G|)$, and (d) follows.
+\end{proof}

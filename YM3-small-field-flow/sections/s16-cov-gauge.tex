@@ -1,0 +1,105 @@
+\section{The gauge-field Green function with a background}\label{sec:cov-gauge}
+
+\subsection{The slice projection}
+
+The residual gauge directions are $D\cN(Q'(U))$, and Ba\l aban's gauge slice is
+\[
+\mathcal S(U)=\{A:\ R(U)D^TA=0\}.
+\]
+At $U=1$ the identities $dd=0$ and $\bQ d=\dl Q_0$ made the slice and the gauge directions interact trivially with the action and the averaging. With a background these identities fail by the curvature operator $\mathfrak F=DD$ and the defect $E(U)$. Following Ba\l aban \cite[(3.118)--(3.119)]{BalBackground}, we correct for this with the projection onto the slice along the gauge directions. Let
+\[
+S(U)=G'(U)R(U)D^T,\qquad \Pi(U)=I-DS(U).
+\]
+
+\begin{lemma}[Slice projection]\label{lem:slice}
+For $\eps\le\eps_0$:
+\begin{enumerate}[label=(\alph*)]
+\item $S\,D\nu=\nu$ for $\nu\in\cN(Q'(U))$, and $\ran S\subset\cN(Q'(U))$. Hence $SDS=S$ and $\Pi^2=\Pi$.
+\item $\Pi D\nu=0$ for $\nu\in\cN(Q'(U))$, and $RD^T\Pi=0$. Thus $\Pi$ is the projection onto $\mathcal S(U)$ along $D\cN(Q'(U))$, and $\Pi A=A$ for $A\in\mathcal S(U)$.
+\item $D\Pi=D-\mathfrak FS$ and $\bQ(U)\Pi=\bQ(U)-E(U)S$.
+\item At $U=1$: $\Pi(1)=I-dG_0Rd^*$, $d\Pi(1)=d$ and $\bQ\Pi(1)=\bQ$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) For $\nu\in\cN(Q')$ we have $D^TD\nu\in\cW$, so $RD^TD\nu=D^TD\nu$ and $G'D^TD\nu=\nu$ by Proposition~\ref{prop:cov-R}(c). Also $\ran S\subset\ran G'R\subset\cN(Q')$ by the same proposition.
+
+(b) The first claim follows from (a). Next, $RD^T\Pi=RD^T-RD^TDG'RD^T=RD^T-R\,RD^T=0$, by $D^TDG'R=R$.
+
+(c) $D\Pi=D-DDS$. Moreover $\bQ DS=(D_VQ'+E)S=ES$, because $Q'S=Q'G'RD^T=0$.
+
+(d) At $U=1$, $\mathfrak F=0$ and $E=0$.
+\end{proof}
+
+\subsection{The operator and its inverse}
+
+Let $W\in\cW(\eps,\gamma_W)$ and $\mathfrak B=D^TD+W$, so that $q_U(A,A')=\mathrm b(A,\mathfrak BA')$. Define
+\[
+\mathfrak A_\pi(U)=\Pi^T\mathfrak B\,\Pi+DR\,D^T+a\,\Pi^T\bQ(U)^T\bQ(U)\,\Pi .
+\]
+It is transpose-symmetric. By Lemma~\ref{lem:slice}(d), at $U=1$ and $W=0$ it reduces to the operator $\bL_a$ of Section~\ref{sec:gauge-coercivity}. The first term is Ba\l aban's gauge-invariant extension of the form $q_U$ \cite[(3.118)--(3.120), (3.128)]{BalBackground}. Ba\l aban's averaging term is $a\,\bQ^T\bQ$ rather than $a\,\Pi^T\bQ^T\bQ\Pi$. The two coincide when $E=0$, which holds for his averaging. With $E\ne0$ the version with $\Pi$ is needed, since it is what makes $\bQ_\pi\bG DR=0$ in Theorem~\ref{thm:cov-gauge}(d). The difference is the term $\mathcal K_2$ below, which is the only genuinely new ingredient.
+
+\begin{remark}[The threshold depends on $\gamma_W$]\label{rem:gammaW}
+The threshold $\eps_0$ below cannot be chosen uniformly as $\gamma_W\to0$. Let $U=1$, fix $\mu$ and $t\in\mathfrak g$ with $|t|=1$, let $e$ be the constant gauge field with $e_\mu=t$ and $e_\nu=0$ for $\nu\ne\mu$, and let $W=-aP$, where $P$ is the orthogonal projection onto the multiples of $e$. Since $\|e\|^2=n^d$ and every block has volume $1$, $\|\one_yW\one_{y'}\|=an^{-d}$. Moreover $Wu$ is constant, with $|Wu|\le an^{-d}\sum_{y'}|u|_{B(y')}$. Torus distances are at most $dn/2$, so $W\in\cW(\eps_n,1/n)$ with $\eps_n=ae^{d/2}n^{-d}$. On the other hand $de=0$ and $d^*e=0$, so $\Pi(1)e=e$ by Lemma~\ref{lem:slice}(d). Also $\bQ^*\bQ e=e$, because $Q_\mu1=1$ and $Q_\mu^*1=1$ (Lemma~\ref{lem:avg}(b)). Hence $\mathfrak A_\pi(1)e=\Pi(1)^T(-ae+ae)=0$, although $\eps_n\to0$ as $n\to\infty$.
+\end{remark}
+
+\begin{lemma}[Identities]\label{lem:Api-identities}
+\begin{enumerate}[label=(\alph*)]
+\item $\mathfrak A_\pi D\nu=D(D^TD\nu)$ for $\nu\in\cN(Q'(U))$. Consequently $\mathfrak A_\pi DG'Rh=DRh$ for every scalar field $h$.
+\item For $A,A'\in\mathcal S(U)$: $\mathrm b(A,\mathfrak A_\pi A')=q_U(A,A')+a\,\mathrm b(\bQ A,\bQ A')$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) $\Pi D\nu=0$ kills the first and last terms, and $RD^TD\nu=D^TD\nu$. Apply this with $\nu=G'Rh$, for which $D^TD\nu=Rh$. (b) For $A\in\mathcal S$, $\Pi A=A$ and $RD^TA=0$.
+\end{proof}
+
+\begin{theorem}[Gauge-field Green function with a background]\label{thm:cov-gauge}
+For $\eps\le\eps_0$:
+\begin{enumerate}[label=(\alph*)]
+\item $\mathfrak A_\pi(U)=\bL_a+\delta_\pi$, where $\delta_\pi$ is admissible of size $C\eps$ and pointwise admissible of type $1$ with constants $(C\eps,C,\gamma)$.
+\item $\bG(U)=\mathfrak A_\pi(U)^{-1}$ exists and is analytic in $A$ and $W$. The operators $\bG$, $D\bG$, $\bG D^T$, $D\bG D^T$ have decay $(C,\gamma)$, and $\bG(U)-\bG$ (with derivatives) has decay $(C\eps,\gamma)$.
+\item For all $y,y'$ and $J$ supported in $B(y')$,
+\[
+|\bG J|_{B(y)}+|\partial\bG J|_{B(y)}+\Hol{\partial\bG J}{B(y)}\le Ce^{-\gamma|y-y'|}|J|_{B(y')} .
+\]
+\item $\bG DR=DG'R$, $RD^T\bG=RG'D^T$, and $\bQ_\pi\bG DR=0$, where $\bQ_\pi=\bQ(U)\Pi$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) Using $DRD^T=DD^T-DP_\cV D^T$ and $\bL_a=-\Lap-dP_\cV(1)d^*+a\bQ^*\bQ$, we get
+\[
+\delta_\pi=(D^TD+DD^T+\Lap)+W-\big(DP_\cV(U)D^T-dP_\cV(1)d^*\big)+a(\bQ^T\bQ-\bQ^*\bQ)+\mathcal K_1+\mathcal K_2,
+\]
+with $\mathcal K_1=\Pi^T\mathfrak B\Pi-\mathfrak B$ and $\mathcal K_2=a(\Pi^T\bQ^T\bQ\Pi-\bQ^T\bQ)$. By Lemma~\ref{lem:slice}(c), $\mathfrak BD=D^T\mathfrak F+WD$ and $D^TD^T=\mathfrak F^T$. Hence
+\begin{align*}
+\mathcal K_1&=-\mathfrak BDS-(\mathfrak BDS)^T+S^T\big(\mathfrak F^T\mathfrak F+D^TWD\big)S,\qquad \mathfrak BDS=D^T\mathfrak FS+WDS,\\
+\mathcal K_2&=-a\big(\bQ^TES+(\bQ^TES)^T\big)+aS^TE^TES .
+\end{align*}
+\emph{Admissibility.} Every term is of the form $X M Y$ with $X,Y\in\mathfrak D$ and $M$ a composition of decaying operators containing at least one factor of size $C\eps$: $\mathfrak F$ or $W$ or $E$, the differences in Lemma~\ref{lem:cov-avg}(b), $T=D-d$, or $P_\cV(U)-P_\cV(1)$. For example $D^T\mathfrak FS=D^T(\mathfrak FG'R)D^T$, and
+\[
+DP_\cV(U)D^T-dP_\cV(1)d^*=D\big(P_\cV(U)-P_\cV(1)\big)D^T+TP_\cV(1)D^T+dP_\cV(1)T^T .
+\]
+The decay of the factors comes from Theorem~\ref{thm:cov-scalar} and Proposition~\ref{prop:cov-R}.
+
+\emph{Pointwise admissibility.} The first, second and fourth terms are covered by Lemma~\ref{lem:blocks}(a)--(c). By Proposition~\ref{prop:cov-R}(e) and Lemma~\ref{lem:blocks}(d), $DP_\cV(U)D^Tu$ and $dP_\cV(1)d^*u$ contribute to $F_u$ with a bound $C\sum e^{-\gamma|y-y'|}\|u\|_{B(y')}$. For $\mathcal K_1,\mathcal K_2$ we use the following facts. Write $Su=G'D^Tu-G'P_\cV D^Tu$. By Theorem~\ref{thm:cov-scalar}(b) and Proposition~\ref{prop:cov-R}(e),
+\[
+|Su|+[Su]_\alpha\le C\textstyle\sum e^{-\gamma|\cdot|}\big(|u|+\|u\|\big),\qquad |DSu|+[DSu]_\alpha\le C\sum e^{-\gamma|\cdot|}\big(|u|+[u]_\alpha+\|u\|\big).
+\]
+Moreover $S^T=DRG'$, and $DRG'f=DG'f-DP_\cV G'f$ is bounded and H\"older whenever $f$ is bounded, again by Theorem~\ref{thm:cov-scalar}(b). With these:
+\begin{itemize}
+\item $D^T\mathfrak FSu=\sum_\mu\partial^*_\mu g_\mu+(\text{bounded})$ with $g=\mathfrak FSu$. By Lemma~\ref{lem:curvature}, $|g|+[g]_\alpha\le C\eps(|Su|+[Su]_\alpha)$.
+\item $WDSu$ and its H\"older quotient are bounded by $\eps(|DSu|+[DSu]_\alpha)$, by the definition of $\cW$.
+\item $(\mathfrak BDS)^Tu=DRG'(\mathfrak F^TDu+D^TWu)$. Here $\mathfrak F^TDu$ is bounded by $C\eps(|u|+|\partial u|)$. Moreover $DG'D^T(Wu)$ is bounded by $C(|Wu|+[Wu]_\alpha)$ by the H\"older part of Theorem~\ref{thm:cov-scalar}(b), and $DP_\cV G'D^T(Wu)$ by $C\|Wu\|$ on nearby blocks, by Proposition~\ref{prop:cov-R}(e).
+\item $S^T\mathfrak F^T\mathfrak FSu=DRG'(\mathfrak F^T\mathfrak FSu)$, and the terms of $\mathcal K_2$ are $\bQ^TESu$, $DRG'(E^T\bQ u)$ and $DRG'(E^TESu)$. They are of the form $DRG'(\text{bounded})$ or $\bQ^T(\text{bounded})$, with bounds containing a factor $\eps$.
+\item $S^TD^TWDSu=DRG'D^Tf$ with $f=WDSu$. Here a derivative of $f$ appears, so boundedness of $f$ is not enough. By the second item, $f$ is bounded and H\"older, with a factor $\eps$. Write $DRG'D^Tf=DG'D^Tf-DP_\cV G'D^Tf$. The first term is bounded by $C(|f|+[f]_\alpha)$ by the H\"older part of Theorem~\ref{thm:cov-scalar}(b), and the second by $C\|f\|$ on nearby blocks, by Proposition~\ref{prop:cov-R}(e).
+\end{itemize}
+All bounds are summed with exponential weights, local in the sense of Definition~\ref{def:pointwise-admissible}. Using $[u]_\alpha\le C(|u|+|\partial u|)$ on cubes, this proves pointwise admissibility of type $1$.
+
+(b) The operator $\bL_a$ satisfies the hypotheses of Lemma~\ref{lem:CT-form} (proof of Theorem~\ref{thm:gauge-green}). Apply Lemmas~\ref{lem:CT-stable} and~\ref{lem:perturbed-inverse}. Analyticity follows as in Theorem~\ref{thm:cov-scalar}.
+
+(c) Let $u=\bG J$. Then $-\Lap u=J+dP_\cV(1)d^*u-a\bQ^*\bQ u-\delta_\pi u$, where the middle terms are pointwise admissible with constants $(0,C,\gamma)$, with $\gamma>0$ chosen no larger than $1$, the rate in part~(a), and a rate of Proposition~\ref{prop:cov-R}(e) at $U=1$. We fix this rate before reducing $\eps_0$ to satisfy the threshold of Lemma~\ref{lem:bootstrap}. The $L^2$ decay of $u$ is given by (b). Apply Lemma~\ref{lem:bootstrap} of type $1$.
+
+(d) The first identity follows from Lemma~\ref{lem:Api-identities}(a), and the second by transposition, since $\bG^T=\bG$, $G'^T=G'$ and $R^T=R$. The third follows from $\bQ_\pi\bG DR=\bQ\Pi DG'R=0$, by Lemma~\ref{lem:slice}(b), because $G'R$ maps into $\cN(Q')$.
+\end{proof}

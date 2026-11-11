@@ -1,0 +1,118 @@
+\section{Domains, partitions of unity and two general lemmas}\label{sec:domains}
+
+Part~II needs the background to be close to $1$ in a single global gauge. Ba\l aban's conditions are local: on every cube there is a gauge in which the background is close to $1$. To work with local conditions we need operators that live on bounded regions and depend only on the background in a neighbourhood of width $1$ of these regions, together with a mechanism that turns local information into global estimates. This part provides both.
+\begin{itemize}
+\item \emph{Dirichlet operators} on unions of blocks (this section and Section~\ref{sec:reg-scalar}). Their decay and regularity follow as in Part~I, because the Poincar\'e inequality, Combes--Thomas and local regularity are local.
+\item \emph{Coercivity from local information} (Section~\ref{sec:reg-gauge}). The scalar operators are coercive block by block. For the gauge-field operator we use an IMS localization at a large scale $M$: on each cube of size $M$ we work in the local gauge, perturb around $U=1$, and use the coercivity of Part~I. Near the boundary of a domain we add a mass term. This makes the local operators coercive without any further gauge-theoretic input. The gauge-field operators also get Dirichlet conditions for all components, through the divergence at the exterior points next to the domain.
+\item \emph{Comparison of domains and locality in the background} (Sections~\ref{sec:reg-scalar}, \ref{sec:reg-gauge}). If two backgrounds agree on a region, the corresponding operators agree deep inside it up to exponentially small errors.
+\item \emph{Ba\l aban's random-walk expansion} (Section~\ref{sec:random-walk}), which writes the scalar Green function as a convergent sum of products of local propagators. For the gauge-field Green function the walk is completed in Section~\ref{sec:nested-walks}.
+\end{itemize}
+Unlike Part~II, no Fourier analysis is used for backgrounds $U\neq1$.
+
+\subsection{Domains and field spaces}
+
+\begin{definition}[Domains]\label{def:domain}
+A \emph{domain} is a non-empty union of blocks $X=\bigcup_{y\in X_1}B(y)$, $X_1\subset\T$. We write:
+\begin{itemize}
+\item $\ell^2_0(X)$ for the scalar fields vanishing outside $X$;
+\item $\ell^2_1(X)$ for the gauge fields vanishing on all bonds with no endpoint in $X$;
+\item $\ell^2(X_1)$ and $\ell^2(\mathcal B_1(X))$ for unit-lattice scalar fields supported in $X_1$ and unit-lattice gauge fields supported on unit bonds with an endpoint in $X_1$.
+\end{itemize}
+In all cases $\one_X$ denotes the orthogonal projection onto the corresponding space. For an operator $\fA$ on torus fields, $\fA_X=\one_X\fA\one_X$, regarded as an operator on $\ell^2(X)$, is its \emph{Dirichlet restriction} to $X$. We write $\hat X$ for the set of points at $\infty$-distance at most $1$ from $X$. The torus $\Tf$ is itself a domain, with $\hat\Tf=\Tf$.
+\end{definition}
+
+The exterior derivative maps $\ell^2_0(X)$ into $\ell^2_1(X)$: if $\lambda$ vanishes outside $X$, then $d\lambda$ vanishes on bonds without an endpoint in $X$. The adjoint of $d:\ell^2_0(X)\to\ell^2_1(X)$ is $d^*_X=\one_Xd^*$. The same holds for the covariant derivative $D$ and $D^T_X=\one_XD^T$. On $\ell^2_1(X)$ we use the norm
+\[
+\tn{A}_X^2=\|A\|^2+\|DA\|^2+\|D^T_XA\|^2 ,
+\]
+and on $\ell^2_0(X)$ the norm $\tn\lambda_X^2=\|\lambda\|^2+\|D\lambda\|^2$. For $X=\Tf$ and $U=1$ these are equivalent to $\|A\|^2+\|\partial A\|^2$ and $\|\lambda\|^2+\|\partial\lambda\|^2$, by Lemma~\ref{lem:hodge}. Fields in $\ell^2(X)$ are extended by zero, so $DA$ includes the values on bonds and plaquettes that cross the boundary of $X$.
+
+\begin{remark}[Why Dirichlet restrictions]
+For a local operator such as $-\Lap+aQ_\sigma^*Q_\sigma$, the quadratic form of $\fA_X$ is the restriction of the torus form to fields supported in $X$. Coercivity is therefore inherited. Moreover $\fA_X$ depends only on the coefficients of $\fA$ inside $\hat X$. For operators built from inverses, such as the projection $R$, the Dirichlet version is defined by applying the construction to Dirichlet restrictions of local operators (Sections~\ref{sec:reg-scalar}, \ref{sec:reg-gauge}). It is not the Dirichlet restriction of the torus operator. This is what makes the local operators depend only on the background in $\hat X$. For the gauge-field operator, the local part is the Dirichlet restriction of the torus operator $D^TD+DD^T$. This needs the divergence at the exterior points next to $X$, which $D^T_X=\one_XD^T$ omits (Section~\ref{sec:reg-gauge}).
+\end{remark}
+
+\subsection{Partitions of unity at scale \texorpdfstring{$M$}{M}}
+
+Let $M\ge1$ be an integer, and assume $n\ge8M$. (If $n<8M$, the torus is covered by a single cube of the size considered below. The local hypothesis of Section~\ref{sec:reg-scalar} then gives the global hypothesis (B) with parameter $2\eps$, and Part~II applies. In this case we use the trivial partition: a single index $j=0$, with any point $z_0$ of the torus as its centre, $\chi_0=1$ and $K_0=\Lam_0=\Tf$ in place of the sets defined below. Lemmas~\ref{lem:partition}--\ref{lem:local-norms} hold for it trivially, since every commutator with $\chi_0$ vanishes.) Let $M'=n/\lceil n/M\rceil\in[M/2,M]$, and let $z_j$ run over the points of the grid $M'\Z^d$ on the torus.
+
+\begin{lemma}[Partition of unity]\label{lem:partition}
+There are smooth functions $\chi_j$ on the torus with the following properties:
+\begin{enumerate}[label=(\alph*)]
+\item $\sum_j\chi_j^2=1$;
+\item $\chi_j$ vanishes outside $K_j=\{x:|x-z_j|_\infty\le M\}$;
+\item $|\partial^\beta\chi_j|\le C_\beta M^{-|\beta|}$ for all lattice derivatives;
+\item every point lies in at most $3^d$ of the sets $K_j$.
+\end{enumerate}
+The constants depend only on $d$.
+\end{lemma}
+
+\begin{proof}
+Let $\phi$ be a smooth function on $\R$ with $\phi=1$ on $[-\frac12,\frac12]$, $\phi=0$ outside $(-1,1)$ and $0\le\phi\le1$. Put $\phi_j(x)=\prod_\mu\phi\big((x_\mu-z_{j,\mu})/M\big)$, periodized. Then $\sum_k\phi_k^2\ge1$, since every point is within $\infty$-distance $M'/2\le M/2$ of some $z_k$. Take $\chi_j=\phi_j/(\sum_k\phi_k^2)^{1/2}$. Property (c) follows from $M'\ge M/2$. For (d), $n\ge8M$ gives $\lceil n/M\rceil\le n/M+1\le9n/(8M)$, so $M'\ge8M/9>2M/3$, and an interval of length $2M$ contains at most three points of $M'\Z$.
+\end{proof}
+
+For each $j$ let $\Lam_j$ be the union of the blocks that meet $\{x:|x-z_j|_\infty\le3M\}$. Thus $K_j$ lies at $\infty$-distance at least $2M-1$ from $\Tf\setminus\Lam_j$.
+
+\begin{lemma}[IMS localization]\label{lem:IMS}
+Let $\fA$ be a real symmetric operator on $\ell^2_1(X)$ (or $\ell^2_0(X)$). Then
+\[
+\fA=\sum_j\chi_j\fA\chi_j+\frac12\sum_j\big[\chi_j,[\chi_j,\fA]\big].
+\]
+\end{lemma}
+
+\begin{proof}
+Expand $[\chi,[\chi,\fA]]=\chi^2\fA-2\chi\fA\chi+\fA\chi^2$, sum over $j$, and use $\sum_j\chi_j^2=1$.
+\end{proof}
+
+Here $\chi_j$ acts on scalar fields by multiplication, on gauge fields by $(\chi_jA)(b)=\chi_j(b_-)A(b)$, and on $2$-forms by $(\chi_jF)(p)=\chi_j(p_-)F(p)$, with $p_-$ the base point of the plaquette $p$. The double commutators are small whenever $\fA$ is built from derivatives and operators with exponential decay.
+
+\begin{lemma}[Double commutators]\label{lem:double-comm}
+Let $\fA=\sum_iX_i^TM_iY_i$ be a finite sum of operators on $\ell^2_1(X)$. Here each $X_i$ and each $Y_i$ is $1$, the derivative $D$ from gauge fields to $2$-forms, or the divergence $D^T_X$, and each $M_i$ has decay $(C_M,\gamma)$, as an operator between the corresponding field spaces. Then
+\[
+\Big|\Big\langle A,\sum_j\big[\chi_j,[\chi_j,\fA]\big]A\Big\rangle\Big|\le\frac{C\,C_M}{M^2}\,\tn A_X^2 ,
+\]
+with $C$ depending only on $d$, $\gamma$ and the number of terms.
+\end{lemma}
+
+\begin{proof}
+\emph{Derivatives.} Let $Z\in\{D,D^T_X\}$. The value of $Zg$ at a point or a plaquette is a sum of transported values of $g$ at distance at most $2\eta$, divided by $\eta$. So $[\chi_j,Z]$ is a sum of multiplications by differences of $\chi_j$ over distances at most $2\eta$, divided by $\eta$, composed with shifts and unitary transports. The coefficients of $[\chi_j,[\chi_j,Z]]$ are the squares of these differences, divided by $\eta$. By Lemma~\ref{lem:partition}(c),(d),
+\[
+\|[\chi_j,Z]\|\le CM^{-1},\qquad\sum_j\|[\chi_j,Z]g\|^2\le CM^{-2}\|g\|^2,\qquad\Big\|\sum_j[\chi_j,[\chi_j,Z]]\Big\|\le C\eta M^{-2}.
+\]
+
+\emph{Decaying operators.} Let $K$ have decay $(C_M,\gamma)$, fix blocks $y$, $y'$, and write $\chi_j=\chi_j(c_y)+\psi_j$. Constants commute with $K$, so $\one_y[\chi_j,K]\one_{y'}=\one_y[\psi_j,K]\one_{y'}$ and $\one_y[\chi_j,[\chi_j,K]]\one_{y'}=\one_y[\psi_j,[\psi_j,K]]\one_{y'}$. Moreover $|\psi_j|\le CM^{-1}$ on $B(y)$ and $|\psi_j|\le CM^{-1}(1+|y-y'|)$ on $B(y')$, and only boundedly many $j$ have $\chi_j\ne0$ on $B(y)\cup B(y')$. Hence $\sum_j[\chi_j,[\chi_j,K]]$ has decay $(CC_MM^{-2},\gamma/2)$, and its norm is at most $CC_MM^{-2}$ by Lemma~\ref{lem:decay-calculus}(a). In the same way $\sum_j\|[\chi_j,K]g\|^2\le CC_M^2M^{-2}\|g\|^2$. Decay is a bound on blocks, so no bound on the individual entries of $K$ is used. For operators between unit-lattice spaces, where decay is a kernel bound, the argument is the kernel bound $\sum_j(\chi_j(x)-\chi_j(x'))^2|K(x,x')|\le CM^{-2}|x-x'|^2|K(x,x')|$ together with the Schur test.
+
+\emph{The form.} Since $[\chi_j,\cdot\,]$ is a derivation,
+\[
+\begin{aligned}
+{}[\chi_j,[\chi_j,X^TMY]]={}&[\chi_j,[\chi_j,X^T]]MY+X^T[\chi_j,[\chi_j,M]]Y+X^TM[\chi_j,[\chi_j,Y]]\\
+&+2[\chi_j,X^T][\chi_j,M]Y+2[\chi_j,X^T]M[\chi_j,Y]+2X^T[\chi_j,M][\chi_j,Y].
+\end{aligned}
+\]
+Pair with $A$, sum over $j$, and use the Cauchy--Schwarz inequality in the sums over $j$. Every term is bounded by $CC_MM^{-2}(\|A\|+\|XA\|+\|YA\|)^2$. For example, the fourth term gives $2\sum_j|\ip{[\chi_j,X]A}{[\chi_j,M]YA}|\le2\big(\sum_j\|[\chi_j,X]A\|^2\big)^{1/2}\big(\sum_j\|[\chi_j,M]YA\|^2\big)^{1/2}\le CC_MM^{-2}\|A\|\,\|YA\|$. Since $\|XA\|,\|YA\|\le\tn A_X$ for $X,Y\in\{1,D,D^T_X\}$, the claim follows. No derivative of $M_i$ enters.
+\end{proof}
+
+\begin{lemma}[Localized norms]\label{lem:local-norms}
+For every $A\in\ell^2_1(X)$,
+\[
+\sum_j\|\chi_jA\|^2=\|A\|^2,\qquad \sum_j\tn{\chi_jA}_X^2\ge\tfrac12\tn A_X^2-CM^{-2}\|A\|^2 .
+\]
+\end{lemma}
+
+\begin{proof}
+The first identity is Lemma~\ref{lem:partition}(a). For the second, the Leibniz rule gives $D(\chi_jA)=\chi_j^{\sharp}DA+(\text{differences of }\chi_j)\cdot A$, where $\chi_j^\sharp$ denotes $\chi_j$ evaluated at shifted points. Hence $|D(\chi_jA)|^2\ge\frac12(\chi_j^\sharp)^2|DA|^2-C|\partial\chi_j|^2|A|^2$. Summing over $j$ and using $\sum_j(\chi_j^\sharp)^2=1$ (the partition identity at the shifted point) gives the bound for $D$. The term $D^T_X$ is treated in the same way.
+\end{proof}
+
+\subsection{An algebraic comparison formula}
+
+\begin{lemma}[Comparison of inverses]\label{lem:compare-inverse}
+Let $X'\subset X$ be domains, and let $\fA$ and $\fA'$ be invertible operators on $\ell^2(X)$ and $\ell^2(X')$. Define $\Delta=\fA\one_{X'}-\one_{X'}\fA'\one_{X'}$, as an operator from $\ell^2(X')$ to $\ell^2(X)$. Then
+\[
+\one_{X'}\fA^{-1}\one_{X'}-\fA'^{-1}=-\one_{X'}\fA^{-1}\Delta\,\fA'^{-1}.
+\]
+\end{lemma}
+
+\begin{proof}
+For $f\in\ell^2(X')$ let $u=\fA'^{-1}f\in\ell^2(X')$. Then $\fA u=\one_{X'}\fA'u+\Delta u=f+\Delta u$, so $u=\fA^{-1}f+\fA^{-1}\Delta u$. Apply $\one_{X'}$.
+\end{proof}
+
+In applications, $\Delta$ is the sum of two kinds of terms. First, terms that couple $X'$ across its boundary; for scalar second-order local operators these include ``cut-bond'' terms of the form $\one_{X\setminus X'}D^T\one_{\rm cut}D\one_{X'}$. On gauge-field spaces the complementary projection is $\one_X-\one_{X'}$, which need not equal $\one_{X\setminus X'}$. Second, differences of domain-dependent ingredients, including mass profiles and non-local terms, which are supported near the cut or exponentially small away from $X\setminus X'$. Derivative factors may occur at one or both ends of these terms. The cut-bond terms, however, contain one-sided derivatives at the cut, which are not bounded uniformly in $\eta$, so the sharp-cut form of the identity is not used for the bounds. The comparisons are proved with a smooth cutoff instead (Theorem~\ref{thm:reg-scalar}(e)); this gives exponential smallness of the difference away from $X\setminus X'$, uniformly in $\eta$.

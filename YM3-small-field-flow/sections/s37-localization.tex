@@ -1,0 +1,171 @@
+\section{Localization of the Hessian and of the fluctuation covariance}\label{sec:localization}
+
+\paragraph{Status.} The localization of this section and of Section~\ref{sec:interaction-local} is of radius type (Section~\ref{sec:interaction-local}, Summary). The polymer expansion of Part~X needs volume type, which Part~IX provides. The main line uses from this section Lemma~\ref{lem:hessian-gamma}, Definition~\ref{def:dirichlet-hessian}, Proposition~\ref{prop:dirichlet-hessian}, Lemma~\ref{lem:coercive-general} and Proposition~\ref{prop:local-fluct}. Theorem~\ref{thm:local-covariance} and Corollary~\ref{cor:large-changes} (Section~\ref{subsec:local-cov-expansion}) are superseded by the weakened representations of Section~\ref{sec:nested-walks} and are not used later.
+
+\subsection{The telescoping principle}
+
+For a finite set $\mathsf S$ of unit points and $m\ge0$ let $\Lam_m(\mathsf S)$ be the union of the blocks $B(y)$ with $\operatorname{dist}(y,\mathsf S)\le m$, and let $m_{\mathsf S}$ be the least $m$ with $\Lam_m(\mathsf S)=\Tf$.
+
+\begin{lemma}[Telescoping]\label{lem:telescoping}
+Let $F^X$ be numbers attached to the domains $X=\Lam_m(\mathsf S)$, $0\le m\le m_{\mathsf S}$, with $F^{\Tf}=F$ and $|F^{\Lam_m(\mathsf S)}-F^{\Lam_{m-1}(\mathsf S)}|\le Ke^{-\gamma m}$. Then
+\[
+F=\sum_{m=0}^{m_{\mathsf S}}F_m,\qquad F_0=F^{\Lam_0(\mathsf S)},\quad F_m=F^{\Lam_m(\mathsf S)}-F^{\Lam_{m-1}(\mathsf S)},\qquad|F_m|\le Ke^{-\gamma m}\ (m\ge1).
+\]
+If each $F^X$ is a function of the background that depends only on its restriction to a set $\mathcal R(X)$, is analytic, and is invariant (or covariant) under real gauge transformations, and if $\mathcal R(\Lam_{m-1}(\mathsf S))\subset\mathcal R(\Lam_m(\mathsf S))$ for $1\le m\le m_{\mathsf S}$, then $F_m$ has the same properties with $\mathcal R(\Lam_m(\mathsf S))$.
+\end{lemma}
+
+The proof is the identity of the telescoping sum. By the inclusion, $F^{\Lam_m(\mathsf S)}$ and $F^{\Lam_{m-1}(\mathsf S)}$ both depend only on the background on $\mathcal R(\Lam_m(\mathsf S))$, and so does $F_m$. Theorem~\ref{thm:local-covariance}, Proposition~\ref{prop:det-local} and Theorem~\ref{thm:interaction-local} are applications of this lemma; Corollary~\ref{cor:composed} uses the same telescoping identity directly. In these three applications $\mathcal R(X)$ is $\widehat{X^+}$ (Theorem~\ref{thm:local-covariance}, Proposition~\ref{prop:det-local}) or $\hat X$ together with the bonds of $\mathfrak B(X)$ for the coarse field (Theorem~\ref{thm:interaction-local}); these sets increase with $X$, so the inclusion holds. The estimates needed are comparison bounds for approximants on nested domains, whose differences have seam form.
+
+\subsection{The coarse Hessian as an operator of Part~II}
+
+Let $\bH_0=\bH[0]$ be the minimizer map without potential, and for a regular background $U$ put
+\[
+\omega_0=\bH_0^TJ_U,\qquad\ip A{W_2A}=d^2\mathcal N(0)[A,A]-\ip{\omega_0}{d^2C_k(0)[A,A]},
+\]
+with $\mathcal N$ the nonlinear part of the action at $U$ (Proposition~\ref{prop:action}) and $C_k$ that of the gauge-adapted averaging (Proposition~\ref{prop:Q-expansion}).
+
+\begin{lemma}[{The Hessian is $\boldsymbol\Gamma_\pi[W_2]-a$}]\label{lem:hessian-gamma}
+$W_2$ is a real symmetric bounded operator with $\|W_2\|\le C\eps$ and $\|\one_yW_2\one_{y'}\|\le C\eps e^{-\gamma|y-y'|}$. If $U$ is critical, i.e.\ $U=U'$ is the background of the $k$-step problem for $W=U^{(k)}$, then $\omega_0$ is its multiplier and
+\[
+\Delta^0=\boldsymbol\Gamma_\pi[W_2]-a,
+\]
+where $\Delta^0$ is the Hessian of Proposition~\ref{prop:hessian} and $\boldsymbol\Gamma_\pi[W_2]$ is the operator of Theorem~\ref{thm:reg-min} with the potential $W_2$.
+\end{lemma}
+
+\begin{proof}
+At $A=0$ the second derivative $d^2\mathcal N(0)$ is a sum of plaquette-local bilinear forms. By the first part of Lemma~\ref{lem:div-curvature}, it is a local operator with $|d^2\mathcal N(0)[h,h']|\le C\eps\|h\|\,\|h'\|$; its proof is the computation of the proof of Proposition~\ref{prop:action}(c) at $A=0$, with the lattice trick \eqref{eq:lattice-trick}. By Proposition~\ref{prop:Q-expansion}(c), $|d^2C_k(0)[h,h](c)|\le C\|h\|^2_{S_c}$. By Cauchy--Schwarz on blocks, as in the proof of Proposition~\ref{prop:dirichlet-hessian}(b), $|\omega_0(c)|\le\sum_{y'}\|\one_{y'}\bH_0\one_c\|\,\|J_U\|_{B(y')}\le C\eps$, by the block decay of $\bH_0$ (Theorem~\ref{thm:reg-min}) and $|J_U|\le\eps$. Hence the bounds. The coefficients $\omega_0(c)$ depend on $U$ through the decaying kernel of $\bH_0^T$.
+
+If $U$ is critical, the Euler--Lagrange equation at $B=0$ gives $J=\bQ^T\omega$. So $\bH_0^TJ=(\bQ\bH_0)^T\omega=\omega$. By Proposition~\ref{prop:hessian}(a), $\Delta^0(B,B)=\min\{\|DA\|^2+\ip A{W_2A}:\bQ A=B,\ RD^TA=0\}$. By Theorem~\ref{thm:cov-min}(b) with the potential $W_2$, the minimizer is $\bH[W_2]B$. On the constraint set $\ip A{\fA_\pi A}=\|DA\|^2+\ip A{W_2A}+a\|B\|^2$. The minimum of $\ip A{\fA_\pi A}$ over $\{\bQ A=B\}$ is $\ip B{\boldsymbol\Gamma_\pi B}$ and is attained at $\bH[W_2]B$. Only the $L^2$ properties of $W_2$ enter: the coercivity of Theorem~\ref{thm:reg-coercive} uses $W$ only through $\|W\|$, and the variational characterization is algebraic.
+\end{proof}
+
+\subsection{Dirichlet Hessians}
+
+\begin{definition}[Dirichlet Hessian]\label{def:dirichlet-hessian}
+For a domain $X$ put
+\[
+\begin{aligned}
+\omega_0^X&=(\bH_0^X)^T\one_XJ_U\quad\text{on }\mathfrak B(X),\\
+\ip A{W_2^XA}&=d^2\mathcal N(0)[\one_XA,\one_XA]-\ip{\omega_0^X}{d^2C_k(0)[A,A]}_{\mathfrak B(X)},
+\end{aligned}
+\]
+for $A\in\ell^2_1(X)$, and
+\[
+\Delta^{0,X}=\boldsymbol\Gamma^X[W_2^X]-a\qquad\text{on }\ell^2(\mathfrak B(X)).
+\]
+\end{definition}
+
+\begin{proposition}[Dirichlet Hessians]\label{prop:dirichlet-hessian}
+\begin{enumerate}[label=(\alph*)]
+\item For $X=\Tf$: $\omega_0^{\Tf}=\omega_0$ and $\Delta^{0,\Tf}=\boldsymbol\Gamma_\pi[W_2]-a$. This is $\Delta^0$ if $U$ is critical.
+\item $|\omega_0^X|\le C\eps$, $\|W_2^X\|\le C\eps$, and $\Delta^{0,X}$ has decay $(C,\gamma)$, uniformly in $X$.
+\item $\omega_0^X$, $W_2^X$ and $\Delta^{0,X}$ depend only on $U$ on $\hat X$ and are covariant under real gauge transformations. They are analytic under complex perturbations of $U$ as in Proposition~\ref{prop:reg-complex}. The potential $W_2^X$ is real symmetric at real $U$ and has range $\le3$ in $A$, but it depends on $U$ on all of $\hat X$. It satisfies the hypotheses of Proposition~\ref{prop:reg-complex} for existence, $\Rea$-coercivity and decay; its comparison of domains is (d). The analyticity and the changes under complex perturbations come from:
+  \begin{itemize}
+  \item $d^2\mathcal N(0)$ and the kernel of $d^2C_k(0)$ are local and analytic in the background (Propositions~\ref{prop:action} and~\ref{prop:Q-expansion}, and Proposition~\ref{prop:AB} at complex references);
+  \item $\ip b{\omega^X_0}=\ip{F^s_U}{D\bH^X_0b}$, with $D\bH^X_0$ analytic by Proposition~\ref{prop:reg-complex} at $W=0$;
+  \item the changes of size $C\delta$ follow from Cauchy's estimate on a ball of twice the radius.
+  \end{itemize}
+\item For $X'\subset X$ and $c,c'\in\mathfrak B(X')$,
+\[
+\begin{aligned}
+|\omega_0^X(c)-\omega_0^{X'}(c)|&\le C\eps\sum_{w\in\Sigma}e^{-\gamma|c-w|},\\
+|\Delta^{0,X}(c,c')-\Delta^{0,X'}(c,c')|&\le C\sum_{w\in\Sigma}e^{-\gamma'(|c-w|+|w-c'|)},
+\end{aligned}
+\]
+with $\Sigma$ as in Proposition~\ref{prop:dirichlet-averaged}(d) and some $\gamma'>0$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a)--(c) follow from Proposition~\ref{prop:dirichlet-averaged} and Lemma~\ref{lem:hessian-gamma}. The bound $|\omega_0^X|\le C\eps$ needs no pointwise estimate. By Cauchy--Schwarz on blocks, $|\omega_0^X(c)|\le\sum_{y'}\|\one_{y'}\bH_0^X\one_c\|\,\|J_U\|_{B(y')}\le C\eps\sum_{y'}e^{-\gamma|c-y'|}$, using only the block kernel bounds of $\bH^X_0$ and $|J_U|\le\eps$. (d) The bound for $\omega_0$ follows from Proposition~\ref{prop:dirichlet-averaged}(d) for $\bH_0$, since $J_U$ is local and $|J_U|\le\eps$. Then $W_2^X-W_2^{X'}$ on $X'$ is bounded near $w$ by $C\eps\sum_{s\in\Sigma}e^{-\gamma|w-s|}$. The $d^2\mathcal N$ parts differ only on bonds within distance $1$ of $X\setminus X'$. Insert this into Proposition~\ref{prop:dirichlet-averaged}(d) for $\boldsymbol\Gamma$. Since $\sum_we^{-\gamma(|c-w|+|w-c'|)}e^{-\gamma|w-s|}\le Ce^{-\gamma'(|c-s|+|s-c'|)}$, the result has seam form.
+
+\emph{Complex perturbations in (c).} Let $U_\delta$ be as in Proposition~\ref{prop:reg-complex}, of size $\delta<2\delta_*$, with $\delta_*$ fixed at the end of this paragraph. In a local real gauge of $U$, $U_\delta=e^{\ii\eta A_0}$ with $A_0$ satisfying (B) with parameter $C(\eps+\delta)$ (Section~\ref{sec:complex-references}). This uses the bound on $\partial\delta\!A$: with a sup bound alone, $H_p-1$ would only be $O(\eta\delta)$. Hence $|H_p(U_\delta)-1|\le C\eta^2(\eps+\delta)$, $\|R(U_\delta(b))^{\pm1}\|\le2$ and $|F^s_{U_\delta}|\le C(\eps+\delta)$ (step~(v) of the proof of Proposition~\ref{prop:complex-ext}). The proof of the bound on $W_0$ in Lemma~\ref{lem:div-curvature} uses only these three bounds, the transports being bounded by $2$ instead of $1$. So $d^2\mathcal N_{U_\delta}(0)$ is a local operator of $L^2$ norm at most $C(\eps+\delta)$. Read $\omega_0^X$ through the identity $\ip b{\omega_0^X}=\ip{F^s}{D\bH^X_0b}$ of (c), and use Proposition~\ref{prop:AB}(iii),(vi) for $d^2C_k(0)$. Then $W_2^X(U_\delta)$ is holomorphic in $\delta\!A$, of range $\le3$, with $\|W_2^X(U_\delta)\|\le C(\eps+\delta)$, for every $\delta\!A$ of size $<2\delta_*$. The Schwarz lemma on the complex lines $t\mapsto U_{t\,\delta\!A}$, $|t|<2\delta_*/\delta$, gives $\|W_2^X(U_\delta)-W_2^X(U)\|\le C(\eps+2\delta_*)\,\delta/\delta_*$. For $\delta\le\delta_*$ this is at most $C(\eps+2\delta_*)$. So $W_2^X$ satisfies the range-$3$ clause of Proposition~\ref{prop:reg-complex} at these perturbations once $C'(\eps+2\delta_*)\le c$, with $c$ the stability threshold of Lemma~\ref{lem:CT-stable}. Here $\delta_*>0$ is fixed once, depending on $d$, $L$, $G$ and $\alpha$, for all $\eps$ with $\eps\le\frac12\min(\eps_0,c'_3)$, $C\eps\le\frac12c_5$ and $C'\eps\le\frac12c$; it does not depend on $M\ge M_0$, since the radii and constants involved are those of Parts~II, III and~VIII, which do not depend on $M\ge M_0$, and those of Propositions~\ref{prop:AB} and~\ref{prop:action}. It satisfies $2C\delta_*\le\frac12\min(\eps_0,c'_3)$, $2C\delta_*\le\frac12c_5$, $2C'\delta_*\le\frac12c$, and the radius conditions of Propositions~\ref{prop:reg-complex} (with $W=0$), \ref{prop:AB} and~\ref{prop:dirichlet-averaged}(e) at size $2\delta_*$. With $C'\eps\le\frac12c$, a threshold of this section, the clause holds for all $\delta\le\delta_*$. Moreover $\|W_2^X(U_\delta)-W_2^X(U)\|\le C_W\delta$ with $C_W=C(1+2\delta_*)/\delta_*$, a fixed constant. The constant $c'_L$ of Lemma~\ref{lem:coercive-general} is taken with $C_{\rm cmp}c'_L\le\delta_*$, with $C_{\rm cmp}=4$ of Section~\ref{sec:complex-references}.
+\end{proof}
+
+\subsection{The fluctuation operator on domains}
+
+We return to the step of Part~VII. Its operator $\Delta_k$ acts on fields on the free bonds $\mathfrak F$ of $\T$ (Definition~\ref{def:bonds}), via the elimination maps $\hat Z^1$, $\hat Z^2$ of Lemma~\ref{lem:eliminate}. These depend only on $W=U^{(k)}$ within distance $2L$, and $\hat Z^1\delta_b$ is supported within distance $2L$ of $b$. For a domain $X$ and free bonds $b,b'$ for which $\hat Z^1\delta_b$, $\hat Z^1\delta_{b'}$ are supported in $\mathfrak B(X)$, define the \emph{Dirichlet entries}
+\[
+\Delta^{(X)}_k(b,b')=\Delta^{0,X}\big(\hat Z^1\delta_b,\hat Z^1\delta_{b'}\big)+\big(\text{polarization of }Z\mapsto2\ip{\omega_0^X}{\hat Z^2(Z)}\big)(b,b'),
+\]
+and $\Delta^{(X)}_k(b,b')=0$ otherwise. For $X=\Tf$ these are the entries of $\Delta_k$ (Lemma~\ref{lem:step-quadratic}).
+
+Fix a margin $R_0\ge2L+2$. For a domain $Y$ let $Y^+=Y^{(R_0)}$, let $\mathfrak F(Y)$ be the set of free bonds starting in $Y$, and define the \emph{local fluctuation operator}
+\[
+\Delta_Y=\one_{\mathfrak F(Y)}\Delta^{(Y^+)}_k\one_{\mathfrak F(Y)}\qquad\text{on }\ell^2(\mathfrak F(Y)).
+\]
+
+For a regular background $U$ that is not necessarily critical, we \emph{define} $\Delta_k=\Delta^{(\Tf)}_k$ and $C_k=\Delta_k^{-1}$, with the elimination at the base $W=U^{(k)}$. This agrees with Part~VII when $U$ is critical (Proposition~\ref{prop:dirichlet-hessian}(a)).
+
+\begin{lemma}[Coercivity at general backgrounds]\label{lem:coercive-general}
+Under the smallness hypotheses of Corollary~\ref{cor:covariance}, but for any real regular $U$ with $|J_U|\le\eps$ (critical or not), $\frac14c_L\le\Delta_k\le C_L$ on $\ell^2(\mathfrak F)$. For complex perturbations of size at most $c'_L/C_{\rm AB}$ in the local gauges, if moreover $\eps\le\eps_{\rm cc}$ and $\eps$ is below the thresholds of the proof of Proposition~\ref{prop:dirichlet-hessian}(c), with $c'_L$ decreased so that $C_{\rm cmp}c'_L\le\delta_*$ (proof of Proposition~\ref{prop:dirichlet-hessian}(c)) and so that the changes in the proof are at most $\frac18c_L$, $\Rea\Delta_k\ge\frac18c_L$.
+\end{lemma}
+
+\begin{proof}
+Theorem~\ref{thm:step-coercive} and Lemma~\ref{lem:local-comparison}, at the scale $M'_L$ and for $\eps\le\eps_{\rm cmp}(M'_L)$, which is part of the smallness hypotheses of Corollary~\ref{cor:covariance}, do not use criticality: they give $\boldsymbol\Gamma_\pi[0]-a\ge c_L$ on $\mathcal Z$. By Lemma~\ref{lem:hessian-gamma}, $\|W_2\|\le C\eps$. Lemma~\ref{lem:perturbed-inverse}, applied to $\bQ\bG[W]\bQ^T$, gives $\|\boldsymbol\Gamma_\pi[W_2]-\boldsymbol\Gamma_\pi[0]\|\le C\eps$. Hence $\Delta^{0,\Tf}\ge(c_L-C\eps)$ on $\mathcal Z$. The term $2\ip{\omega_0}{\hat Z^2}$ is bounded by $CL^{3d+1}\eps\|Z\|^2$, since $|\omega_0|\le C\eps$. At a complex perturbation of size at most $c'_L/C_{\rm AB}$ the base is $e^{\ii\beta}W$ with $|\beta|_\infty\le c'_L$ (Proposition~\ref{prop:AB}(i)), so Corollary~\ref{cor:covariance}(c) applies there, and all operators change by $O(c'_L)$ in norm (Proposition~\ref{prop:reg-complex}, and for $W_2$ the proof of Proposition~\ref{prop:dirichlet-hessian}(c)); the constant contains $C_W$. We decrease $c'_L$ so that these changes are at most $\frac18c_L$. Decreasing $c'_L$ keeps Corollary~\ref{cor:covariance}(c) true, and $\delta_*$ does not depend on $M$, so the constants of Remark~\ref{rem:step-M} remain free of $M$.
+\end{proof}
+
+\begin{proposition}[Local fluctuation operators]\label{prop:local-fluct}
+There is $R_0(L,M)\le C_LM$ such that for $R_0\ge R_0(L,M)$, under the hypotheses of Lemma~\ref{lem:coercive-general}:
+\begin{enumerate}[label=(\alph*)]
+\item $\Delta_{\Tf}=\Delta_k$, and $\|\Delta_Y-\one_{\mathfrak F(Y)}\Delta_k\one_{\mathfrak F(Y)}\|\le C_Le^{-\gamma'(R_0-2L-10M)/2}$, with $\gamma'$ of Proposition~\ref{prop:dirichlet-hessian}(d), taken valid also at the complex perturbations of Lemma~\ref{lem:coercive-general}. Hence $\Delta_Y\ge\frac18c_L$, and $C_Y=\Delta_Y^{-1}$ has decay $(C_L,\gamma_C)$ uniformly in $Y$.
+\item $\Delta_Y$ and $C_Y$ depend only on $U$ on $\widehat{Y^+}$. They are covariant, and analytic under the complex perturbations of Lemma~\ref{lem:coercive-general}, with $\Rea\Delta_Y\ge\frac1{16}c_L$. At complex perturbations the current $J_U$ is not bounded uniformly in $\eta$. Wherever $\omega_0$ enters, write $\ip b{\omega_0^X}=\ip{F^s_U}{D\bH_0^Xb}$ and use the decay of $D\bH_0^X$, as in Section~\ref{sec:nested-walks}, level~(L4); the proofs of Proposition~\ref{prop:dirichlet-hessian}(b),(c),(d) and Lemma~\ref{lem:coercive-general} are to be read this way. In the proof of Proposition~\ref{prop:dirichlet-hessian}(d) this gives $\ip b{\omega_0^X-\omega_0^{X'}}=\ip{F^s_U}{D(\bH_0^X-\bH_0^{X'})b}$, which is of seam form, at all fine unit points, by Proposition~\ref{prop:dirichlet-averaged}(d),(e) for $D\bH_0$ at the complex perturbation.
+\item For $Y\subset Y'$ and $b,b'\in\mathfrak F(Y)$,
+\[
+|(C_{Y'}-C_Y)(b,b')|+|(\Delta_{Y'}-\Delta_Y)(b,b')|\le C_L\sum_{w\in\Sigma_Y}e^{-\gamma''(|b-w|+|w-b'|)},
+\]
+where $\Sigma_Y$ is the set of unit points within distance $R_0+10M+2L$ of $Y'\setminus Y$.
+\item \emph{(Uniformity in $r\ge0$.)} $\Rea(\Delta_Y+r)\ge\frac1{16}c_L+r$, and $(\Delta_Y+r)^{-1}$ has decay $\big(C_L(\frac1{16}c_L+r)^{-1},\gamma_C\big)$ uniformly in $r$ and $Y$. Also (c) holds for $(\Delta_Y+r)^{-1}$, with an extra factor $(\frac1{16}c_L+r)^{-1}$ on the right. Indeed, $r$ cancels from the operator of Lemma~\ref{lem:compare-inverse}, and conjugation does not see it, since $(K+r)_\alpha-(K+r)=K_\alpha-K$. This is the form used at level~(L5) of Section~\ref{sec:nested-walks} and in Proposition~\ref{prop:det-local}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) For $b,b'\in\mathfrak F(Y)$ the supports of $\hat Z^1\delta_b$, $\hat Z^1\delta_{b'}$ lie at distance at least $R_0-2L$ from $\Tf\setminus Y^+$. By Proposition~\ref{prop:dirichlet-hessian}(d) with $X=\Tf$ and $X'=Y^+$, together with the locality of $\hat Z^1$, $\hat Z^2$,
+\[
+|\Delta_k(b,b')-\Delta^{(Y^+)}_k(b,b')|\le C_Le^{-\gamma'(R_0-2L-10M)/2}e^{-\gamma'|b-b'|/2}.
+\]
+Here the sum over the points $w$ of the seam is taken with half of the rate in the distance to the seam, which absorbs the number of these points. A Schur bound gives the norm estimate, with a constant $C_{\rm seam}$. By the same proof, read as in (b), the bound holds also at the complex perturbations of Lemma~\ref{lem:coercive-general}; we take $C_{\rm seam}$ and $\gamma'$ valid at real $U$ and at these perturbations. Put $R_0(L,M):=2L+10M+\frac2{\gamma'}\log^+\frac{16C_{\rm seam}}{c_L}$. For $R_0\ge R_0(L,M)$ the norm in (a) is at most $\frac1{16}c_L$, at real $U$ and at these complex perturbations. The constants $C_{\rm seam}$, $c_L$ and $\gamma'$ do not depend on $M$, so $R_0(L,M)\le C_LM$ for $M\ge1$; and $R_0(L,M)\ge2L+2$. Then $\one_{\mathfrak F(Y)}\Delta_k\one_{\mathfrak F(Y)}\ge\frac14c_L$, as a compression of $\Delta_k$ (Lemma~\ref{lem:coercive-general}). This gives the lower bound, since $\frac14-\frac1{16}\ge\frac18$, and Lemma~\ref{lem:CT-bounded} gives the decay.
+
+(b) follows from Proposition~\ref{prop:dirichlet-hessian}(c), the locality of the elimination, and (a) for complex perturbations: there $\Rea\one_{\mathfrak F(Y)}\Delta_k\one_{\mathfrak F(Y)}\ge\frac18c_L$ by Lemma~\ref{lem:coercive-general}, so $\Rea\Delta_Y\ge\frac18c_L-\frac1{16}c_L$.
+
+(c) Apply Lemma~\ref{lem:compare-inverse} with $\fA=\Delta_{Y'}$ and $\fA'=\Delta_Y$. The operator $\Delta=\Delta_{Y'}\one_{\mathfrak F(Y)}-\one_{\mathfrak F(Y)}\Delta_Y\one_{\mathfrak F(Y)}$ has two kinds of entries. For $b\in\mathfrak F(Y)$ they are $\Delta^{(Y'^+)}_k(b,b')-\Delta^{(Y^+)}_k(b,b')$, of seam form by Proposition~\ref{prop:dirichlet-hessian}(d), since $Y'^+\setminus Y^+$ lies within distance $R_0$ of $Y'\setminus Y$. For $b\in\mathfrak F(Y')\setminus\mathfrak F(Y)$ they are entries $\Delta^{(Y'^+)}_k(b,b')$ with $b$ starting in $Y'\setminus Y$, bounded by $C_Le^{-\gamma_1|b-b'|}$. Both have seam form, and the decay of $C_{Y'}$ and $C_Y$ gives the bound for $C$. The bound for $\Delta$ is the first kind of entry.
+\end{proof}
+
+\subsection{Local expansion of the covariance}\label{subsec:local-cov-expansion}
+
+This subsection is not on the main line (see the status paragraph at the beginning of the section).
+
+\begin{theorem}[Localization of the fluctuation covariance]\label{thm:local-covariance}
+For free bonds $b,b'$ let $\mathsf S=\{b_-,b'_-\}$ and $\Lam_m=\Lam_m(\mathsf S)$. Then
+\[
+C_k(b,b')=\sum_{m\ge0}C_{k,m}(b,b'),\qquad\Delta_k(b,b')=\sum_{m\ge0}\Delta_{k,m}(b,b'),
+\]
+with $C_{k,0}=C_{\Lam_0}(b,b')$ and $C_{k,m}=C_{\Lam_m}(b,b')-C_{\Lam_{m-1}}(b,b')$ for $m\ge1$, and similarly for $\Delta_k$. Each $C_{k,m}(b,b')$ and $\Delta_{k,m}(b,b')$ depends only on $U$ on $\widehat{\Lam_m^+}$. They are covariant, analytic under complex perturbations, and bounded by
+\[
+|C_{k,m}(b,b')|+|\Delta_{k,m}(b,b')|\le C'_Le^{-\gamma_2(m+|b-b'|)} .
+\]
+\end{theorem}
+
+\begin{proof}
+Lemma~\ref{lem:telescoping} with Proposition~\ref{prop:local-fluct}(c) for $Y=\Lam_{m-1}\subset Y'=\Lam_m$. The points $w\in\Sigma_Y$ have distance at least $m-1-R_0-10M-2L$ from $\mathsf S$. So
+\[
+\sum_{w\in\Sigma_Y}e^{-\gamma''(|b-w|+|w-b'|)}\le C_Le^{-\gamma''(m-R_0')/2}e^{-\gamma''|b-b'|/2},
+\]
+with $R'_0=R_0+10M+2L+1$. The factor $e^{\gamma''R'_0/2}$ is absorbed into $C'_L$, and $\gamma_2=\gamma''/2$.
+\end{proof}
+
+\begin{corollary}[Locality under large changes of the background]\label{cor:large-changes}
+Let $U_1$, $U_2$ be two backgrounds satisfying the hypotheses above, which coincide on the bonds of $\hat Y$ for a domain $Y$. Then for free bonds $b,b'$ starting in $Y$, with $\delta=\operatorname{dist}(\{b_-,b'_-\},\Tf\setminus Y)$,
+\[
+|C_k(U_1)(b,b')-C_k(U_2)(b,b')|+|\Delta_k(U_1)(b,b')-\Delta_k(U_2)(b,b')|\le C_Le^{-\gamma_2(\delta-R'_0)} .
+\]
+\end{corollary}
+
+\begin{proof}
+The terms with $\widehat{\Lam_m^+}\subset\hat Y$, i.e.\ $m\le\delta-R'_0$, coincide. The others sum to at most $C_Le^{-\gamma_2(\delta-R'_0)}$.
+\end{proof}
+
+Corollary~\ref{cor:large-changes} compares two arbitrary regular backgrounds that agree on a region. They may differ by large amounts elsewhere, which Proposition~\ref{prop:base-dependence} does not cover. For backgrounds of two renormalization group steps, $C_k(U_i)$ is the true fluctuation covariance of Part~VII.
+
+\begin{remark}[Use in the cluster expansion]
+\emph{Note added.} The radius-type localization of this section is not sufficient for the polymer expansion (Section~\ref{sec:interaction-local}). The main line now uses the weakened random walks of Part~IX, with the operators of this section as local inverses; Proposition~\ref{prop:local-fluct} is used there at level~(L5). The original remark follows. Theorem~\ref{thm:local-covariance} is the input for a cluster expansion with an interpolated covariance, e.g.\ the Brydges--Kennedy forest formula. That formula needs only the decay of the kernel and the positivity of the interpolated covariance. The entries of $C_k$ then appear in the activities, and expanding each entry by the theorem makes the dependence on the background local. Ba\l aban's random-walk expansion \cite{BalBackground} is an alternative. It can be built from the local inverses $C_Y$, with the parametrix of Section~\ref{sec:random-walk} and the local entries $\Delta_{k,m}$ in the remainder, but it is not needed here.
+\end{remark}

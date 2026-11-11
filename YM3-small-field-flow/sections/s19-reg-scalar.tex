@@ -1,0 +1,112 @@
+\section{Regular backgrounds and scalar operators on domains}\label{sec:reg-scalar}
+
+\subsection{Local regularity}
+
+Fix $\alpha\in(0,1)$. Backgrounds in this part are real ($G$-valued); complex perturbations are treated at the end of Section~\ref{sec:reg-gauge}.
+
+\begin{definition}[Regular backgrounds]\label{def:regular}
+Let $M\ge1$ be an integer and $\eps\in(0,1]$. A real background $U$ is \emph{$(M,\eps)$-regular} if the following holds for every $z\in\Tf$. On the cube $\hat\Lam=\{x:|x-z|_\infty\le4M+2\}$ there is a $G$-valued gauge transformation $u$ such that $U^u=e^{\ii\eta A}$ on all bonds with both endpoints in $\hat\Lam$, with
+\[
+|A|\le\eps,\qquad|\partial A|\le\eps,\qquad\Hol{\partial A}{\Lam_3(z')}\le\eps\quad\text{whenever }\Lam_3(z')\subset\hat\Lam .
+\]
+\end{definition}
+
+Every background satisfying (B) with parameter $\eps$ is $(M,\eps)$-regular for every $M$. Regularity is a local condition: the gauges on different cubes are unrelated. In Ba\l aban's framework it is a consequence of gauge-invariant local conditions on the curvature. On cubes of size $M$ one obtains gauges with bounds proportional to $M$ \cite[(3.35)--(3.36)]{BalBackground}, via the axial gauge and a change to a Landau-type gauge \cite[Theorem~2]{BalReg}. In Parts~II--V we take regularity as a hypothesis. Part~VI shows that it follows from Ba\l aban's gauge-invariant conditions: the background fields are regular (Theorem~\ref{thm:balaban}), and so is every real configuration with small curvature and current (Corollary~\ref{cor:regularity}).
+
+Two consequences are used repeatedly. If $U$ is $(1,\eps)$-regular, then on every block and its neighbours the covariant derivative is, in a suitable gauge, $\partial+T$ with $\|T\|\le C\eps$ (Lemma~\ref{lem:cov-expansion}). The curvature operator $\mathfrak F=DD$ satisfies $|(\mathfrak F\lambda)_{\mu\nu}(x)|\le C\eps|\lambda(x+\eta e_\mu+\eta e_\nu)|$; this bound is gauge covariant, and it holds by Lemma~\ref{lem:curvature} in the local gauge. Hence $|\mathfrak F\lambda|_\infty\le C\eps|\lambda|_\infty$ and $\|\mathfrak F\lambda\|\le C\eps\|\lambda\|$.
+
+\emph{Change of local gauge.} Let $u_1$, $u_2$ be gauges in which (B) holds with parameter $\eps$ on a box $\Lam$, with $U^{u_i}=e^{\ii\eta A_i}$ there; for instance, $\Lam$ is the intersection of two cubes of Definition~\ref{def:regular}. Put $L=R(u_2u_1^{-1})$, so that $R(u_2)f=L\,R(u_1)f$ for every field $f$. For a bond $(x,x+\eta e_\mu)$ of $\Lam$ let $V_i(x)=R(e^{\ii\eta A_{i,\mu}(x)})$. Since $U^{u_2}=(U^{u_1})^{u_2u_1^{-1}}$, we have $V_2(x)L(x+\eta e_\mu)=L(x)V_1(x)$, hence
+\[
+\partial_\mu L(x)=V_2(x)^{-1}\Big(L(x)\,\frac{V_1(x)-1}\eta-\frac{V_2(x)-1}\eta\,L(x)\Big).
+\]
+The matrices $L(x)$ and $V_i(x)$ are orthogonal. Since $|A_i|,|\partial A_i|\le\eps$, the factors $(V_i-1)/\eta$ are bounded by $C\eps$ and change by at most $C\eta\eps$ between neighbouring points. So $|\partial L|\le C\eps$. The second difference of $L$ is bounded by $C\eps$ wherever its complete stencil lies in $\Lam$. Hence $|\partial L(x)-\partial L(x')|\le C\eps|x-x'|$ on a common lifted box, provided the relevant coordinate paths and stencils lie in that lift, with distance measured there. For a field $f$ put $\tilde f_i=R(u_i)f$. The product rule $\partial_\mu\tilde f_2(x)=\partial_\mu L(x)\,\tilde f_1(x+\eta e_\mu)+L(x)\,\partial_\mu\tilde f_1(x)$ gives, on every common lifted box $Q\subset\Lam$ of side at most $8$, with all relevant stencils and coordinate paths contained in that lift, sup norms over $Q$, and distances measured in the lift,
+\begin{gather*}
+|\partial\tilde f_2|\le|\partial\tilde f_1|+C\eps|f|,\qquad\Hol{\tilde f_2}Q\le\Hol{\tilde f_1}Q+C\eps|f|,\\
+\Hol{\partial\tilde f_2}Q\le\Hol{\partial\tilde f_1}Q+C\eps\big(|f|+|\partial\tilde f_1|\big).
+\end{gather*}
+For gauge fields the same holds, with $L(b_-)$ in place of $L(x)$. So H\"older quotients of a field and of its first differences, computed in two local gauges, differ by at most $C\eps$ times the sup norms of the field and of its first differences. For the applications below, fix a gauge on $\Lam_4(c_y)$ and consider data on $\Lam_3(c_y)$ and source pieces supported strictly inside $\Lam_1(c_{y'})$. The required H\"older bounds transfer between these local gauges with a fixed larger constant. To prove this, use radius-one cubes on a half-unit grid. A pair at torus $\infty$-distance less than $\frac12$, together with its required stencils, fits in a common such cube; its coordinate paths stay inside the good-gauge cubes. If $n=8$, $\Lam_4(c_y)$ is the whole torus. If $n\ge9$, every omitted coordinate interval has width at least one, so such a close pair cannot cross it. The other quotients are bounded by four times the supremum. For a source piece supported inside $\Lam_1(c_{y'})$, pairs with a point outside $\Lam_3(c_{y'})$ are controlled by this fixed support margin. No assertion on an arbitrary proper periodic box without such a collar is used.
+
+\subsection{Scalar operators on domains}
+
+For a domain $X$ and a regular background $U$ define, on $\ell^2_0(X)$ and on $\ell^2(X_1)$:
+\begin{align*}
+\fA'_X&=\one_X\big(D^TD+aQ'(U)^TQ'(U)\big)\one_X, & G'_X&=(\fA'_X)^{-1}, & \Gamma'_X&=(Q'G'_XQ'^T)^{-1},\\
+H'_X&=G'_XQ'^T\Gamma'_X, & C'_X&=G'_X-H'_XQ'G'_X, & M'_X&=Q'(G'_X)^2Q'^T,\\
+P_{\cV,X}&=G'_XQ'^T(M'_X)^{-1}Q'G'_X, & R_X&=\one_X-P_{\cV,X}, & S_X&=G'_XR_XD^T_X .
+\end{align*}
+Here $Q'=Q'(U)$ maps $\ell^2_0(X)$ to $\ell^2(X_1)$, because the block averages of a field supported in $X$ vanish on blocks outside $X$. All these operators depend only on the restriction of $U$ to bonds in $\hat X$. They are covariant under gauge transformations on $\hat X$, as in Proposition~\ref{prop:covariance}. For $X=\Tf$ they are the operators of Section~\ref{sec:cov-scalar}. Let $\cN_X=\{\lambda\in\ell^2_0(X):Q'\lambda=0\}$ and $\cW_X=D^T_XD\,\cN_X$.
+
+\begin{theorem}[Scalar operators at regular backgrounds]\label{thm:reg-scalar}
+There are $\eps_0,c,C,\gamma>0$, depending only on $d$, $a$, $\alpha$ and $\dim\mathfrak g$, such that the following holds for every $(1,\eps)$-regular background with $\eps\le\eps_0$ and every domain $X$.
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Coercivity:} $\ip\lambda{\fA'_X\lambda}\ge c\tn\lambda_X^2$ for $\lambda\in\ell^2_0(X)$.
+\item \emph{Decay:} $G'_X$, $DG'_X$, $G'_XD^T_X$ and $DG'_XD^T_X$ have decay $(C,\gamma)$.
+\item \emph{Lower bounds:} $Q'G'_XQ'^T\ge c$ and $M'_X\ge c^2$. Moreover $\Gamma'_X$ and $(M'_X)^{-1}$ have decay $(C,\gamma)$.
+\item \emph{The projection:} $R_X$ is the orthogonal projection onto $\cW_X$. For $h\in\cW_X$ one has $G'_Xh\in\cN_X$ and $D^T_XDG'_Xh=h$; equivalently $Q'G'_XR_X=0$ and $D^T_XDG'_XR_X=R_X$. The operators $P_{\cV,X}$, $DP_{\cV,X}$, $P_{\cV,X}D^T_X$, $DP_{\cV,X}D^T_X$, $S_X$ and $DS_X$ have decay $(C,\gamma)$.
+\item \emph{Comparison of domains:} let $X'\subset X$, let $\Sigma=\Sigma(X,X')$ be the set of unit points of $X_1$ at distance at most $2$ from $X\setminus X'$ (the \emph{seam}), and let $F_X$ be any of the operators in (b)--(d), with $F_{X'}$ its analogue on $X'$, both extended by zero. Then for all unit points $y,y'$,
+\[
+\|\one_y(F_X-F_{X'})\one_{y'}\|\le C\sum_{w\in\Sigma}e^{-\gamma(|y-w|+|w-y'|)}.
+\]
+The bound covers the blocks of the initial points of all bonds on which the gauge-field versions $DG'$, $G'D^T$, $DG'D^T$, $DP_\cV$, $P_\cV D^T$, $DP_\cV D^T$, $S$ and $DS$ act or take values, including the bonds that cross $\partial X'$, whose initial points may lie outside $X'_1$. In particular $\|\one_y(F_X-F_{X'})\one_{y'}\|\le C'e^{-\gamma(\operatorname{dist}(y,\Sigma)+\operatorname{dist}(y',\Sigma))/2}$, and $\|\one_K(F_X-F_{X'})\|\le C'e^{-\gamma\operatorname{dist}(K,\Sigma)/2}$ for every set $K$ of blocks, by a Schur bound.
+\item \emph{Locality in the background:} if $U$ and $U'$ are $(1,\eps)$-regular and coincide on the bonds of $\hat X'$, $X'\subset X$, then $F_X(U)-F_X(U')$ satisfies the same bound.
+\item \emph{Pointwise bounds ($d\ge3$, $X=\Tf$):} the bounds of Theorem~\ref{thm:cov-scalar}(b), (d) and Proposition~\ref{prop:cov-R}(e) hold. Here $|\partial\cdot|$ is replaced by $|D\cdot|$ in the sup norms, and the H\"older quotients of $\partial(\cdot)$ on $B(y)$ are computed in a gauge in which (B) holds near $B(y)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{(a)} Fix a block $B=B(y)\subset X$ and a gauge $u$ in which (B) holds on a neighbourhood of $B$. Put $\tilde\lambda=R(u)\lambda$, so $|\tilde\lambda|=|\lambda|$. On bonds with both endpoints in $B$, $|D_U\lambda|=|(\partial+T)\tilde\lambda|$ with $\|T\|\le C\eps$, where $T$ only involves values in $B$. By Lemma~\ref{lem:block-poincare}, $\|\tilde\lambda-(Q_0\tilde\lambda)(y)\|_B^2\le\frac d2\|\partial\tilde\lambda\|^2_{\mathrm{in}(B)}$, where $\mathrm{in}(B)$ denotes the bonds inside $B$. Moreover $R(U(\Gamma_{y,x}))\lambda(x)=R(u(y))^{-1}R(U^u(\Gamma_{y,x}))\tilde\lambda(x)$, and $|U^u(\Gamma_{y,x})-1|\le C\eps$. Hence $|(Q'\lambda)(y)|\ge|(Q_0\tilde\lambda)(y)|-C\eps\|\lambda\|_B$. Combining,
+\[
+\|\lambda\|_B^2\le d\,\|\partial\tilde\lambda\|^2_{\mathrm{in}(B)}+2|(Q_0\tilde\lambda)(y)|^2\le2d\,\|D\lambda\|^2_{\mathrm{in}(B)}+4|(Q'\lambda)(y)|^2+C\eps^2\|\lambda\|_B^2 .
+\]
+Summing over the blocks of $X$ and absorbing the last term for $C\eps^2\le\frac12$ gives $\|\lambda\|^2\le C(\|D\lambda\|^2+\|Q'\lambda\|^2)$. This implies (a), as in Corollary~\ref{cor:scalar-coercive}, since $\ip\lambda{\fA'_X\lambda}=\|D\lambda\|^2+a\|Q'\lambda\|^2$.
+
+\emph{(b)} Apply Lemma~\ref{lem:CT-form}, with $\partial$ replaced by $D$. Its proof uses $\partial$ only through Lemma~\ref{lem:conj-derivative}. For $D$ the same computation gives $(D_\mu)_\alpha=D_\mu+Y$ with $\|Y\|\le e|\alpha|$, since $R(U)$ is an isometry. Conjugation preserves $\ell^2_0(X)$. Hypothesis (ii) follows as in Lemma~\ref{lem:conj-forms}, because $Q'^TQ'$ is block-diagonal and bounded.
+
+\emph{(c)} Let $g\in\ell^2(X_1)$ and $\psi(x)=\prod_\mu\sin^2(\pi x_\mu)$ for $x\in B(0)$. Then $m=\eta^d\sum_{x\in B(0)}\psi(x)=2^{-d}$ for $N\ge2$. Define $\varphi(x)=m^{-1}\psi(x-y)\,R(U(\Gamma_{y,x}))^{-1}g(y)$ for $x\in B(y)$, $y\in X_1$. Then $Q'\varphi=g$ and $\ip{Q'^Tg}\varphi=\|g\|^2$. In the local gauge, $\varphi$ is $m^{-1}\psi$ times a transport of $g(y)$ along $\Gamma_{y,x}$. The contours $\Gamma_{y,x}$ and $\Gamma_{y,x+\eta e_\mu}$ consist of at most $dN$ pairs of parallel bonds at distance $\eta$, plus at most one further bond. So, by (B), the transports at neighbouring points differ by at most $C\eta\eps$. Across the faces of blocks, $\psi$ is of order $\eta^2$. Hence $\|D\varphi\|\le C\|g\|$, and $\ip\varphi{\fA'_X\varphi}\le C\|g\|^2$. Since $\fA'_X$ is positive, Cauchy--Schwarz in the inner product $\ip\cdot{\fA'_X\cdot}$ gives
+\[
+\ip{Q'^Tg}{G'_XQ'^Tg}\ge\frac{\ip{Q'^Tg}\varphi^2}{\ip\varphi{\fA'_X\varphi}}\ge\frac{\|g\|^2}C .
+\]
+Then $\|G'_XQ'^Tg\|\|g\|\ge\ip{Q'^Tg}{G'_XQ'^Tg}$ and $\|Q'^Tg\|=\|g\|$ give $M'_X\ge c^2$. Both operators have decay, by (b) and the locality of $Q'$. Lemma~\ref{lem:CT-bounded} gives the decay of the inverses.
+
+\emph{(d)} The proof of Proposition~\ref{prop:cov-R}(b),(c) is purely algebraic. It uses $\fA'^T_X=\fA'_X$, the invertibility of $\fA'_X$ (for the injectivity of $D^T_XD$ on $\cN_X$), and the surjectivity of $Q'$ and $Q'G'_X$. All of these hold on $X$. The decay statements are compositions of (b) and (c).
+
+\emph{(e)} We use a smooth cutoff instead of the sharp cut, which would produce boundary terms. Let $\chi$ be a smooth function, at unit scale, of a mollified torus distance to $X\setminus X'$, with $|\partial^k\chi|\le C$ for $k\le2$. It vanishes at distance at most $1$ and equals $1$ at distance at least $3$. In particular it vanishes on $X\setminus X'$ and on the blocks of $X'$ adjacent to $X\setminus X'$, and it is smooth also across $\partial X$. Thus $1-\chi$ and $\partial\chi$, restricted to $X'$, and the one-mesh enlargements needed for their commutator stencils, are supported in blocks $B(y)$ whose unit labels satisfy $\operatorname{dist}(y,\Sigma)\le R_d$, where one may take $R_d=6+3\sqrt d$. This is a distance between unit labels, and $R_d$ depends only on the fixed dimension. This changes only the constant in the seam bound.
+
+Let $f\in\ell^2_0(X')$ and $u=G'_Xf$. The field $\chi u$ lies in $\ell^2_0(X')$ and vanishes near the cut. On such fields $\fA'_X$ and $\fA'_{X'}$ agree: $D^TD(\chi u)$ vanishes at the points of $X\setminus X'$, the values outside $X$ are projected out, and $Q'^TQ'$ is block-local. Hence $\fA'_{X'}(\chi u)=\chi f+[\fA'_X,\chi]u$, and
+\[
+G'_Xf-G'_{X'}f=(1-\chi)G'_Xf-G'_{X'}(1-\chi)f+G'_{X'}[\fA'_X,\chi]G'_Xf
+\]
+as fields on $\Tf$. The commutator is $[D^TD,\chi]=D^T[D,\chi]+[D^T,\chi]D$, a sum of first-order operators with bounded coefficients supported where $\partial\chi\ne0$, plus the block-local $a[Q'^TQ',\chi]$. Since $G'_{X'}$ contains the projection $\one_{X'}$, $G'_{X'}D^T$ acts as $G'_{X'}D^T_{X'}$. By the decay of $G'_X$, $DG'_X$ and $G'_{X'}D^T_{X'}$ from (b), each term has a kernel bounded by $C\sum_{w\in\Sigma}e^{-\gamma(|y-w|+|w-y'|)}$, for all unit points $y,y'$: the identity holds as an identity of torus fields, and the decay bounds of (b) hold at all blocks, also at those of the initial points of the bonds crossing $\partial X'$. If an input or output block has its label in $(X\setminus X')_1$, that label belongs to $\Sigma$. The individual decay bounds of both $F_X$ and $F_{X'}$ then bound their difference by the corresponding seam summand. For gauge-field input or output, $F_{X'}$ need not vanish there: a bond crossing $\partial X'$ can have its initial point in such a block. For $DG'$ apply $D$ to the identity; $G'D^T$ follows by transposition. For $DG'D^T$ use the analogous identity with the cutoff on the input,
+\[
+G'_XD^T_X-G'_{X'}D^T_{X'}=(1-\chi)G'_XD^T_X-G'_{X'}D^T_{X'}(1-\chi)-G'_{X'}[D^T,\chi]+G'_{X'}[\fA'_X,\chi]G'_XD^T_X ,
+\]
+in which every factor is bounded, and apply $D$ to it. An earlier version used a sharp-cut identity with $G'_XD^T_X$ in place of $G'_X\one_{X\setminus X'}D^T\one_{\rm cut}$. That identity is not correct: it adds the term $G'_X\one_{X'}D^T\one_{\rm cut}DG'_{X'}$. The correct sharp-cut identity contains the factor $G'_X\one_{X\setminus X'}D^T\one_{\rm cut}$, which is of order $\eta^{-1/2}$. For the composite operators in (c) and (d), write the difference of two products as a telescoping sum of products in which exactly one factor is replaced by its difference. Composing a kernel of the form $\sum_{w\in\Sigma}e^{-\gamma(|y-w|+|w-y'|)}$ with kernels that decay exponentially gives a kernel of the same form, with a smaller $\gamma$. For the unit-lattice inverses use Lemma~\ref{lem:compare-inverse} on $\ell^2(X_1)$.
+
+\emph{(f)} $F_{X'}(U)=F_{X'}(U')$, because these operators depend only on $U$ on $\hat X'$. Write $F_X(U)-F_X(U')=[F_X(U)-F_{X'}(U)]-[F_X(U')-F_{X'}(U')]$ and apply (e) twice.
+
+\emph{(g)} In a gauge in which (B) holds on $\Lam_4(c_y)$, the equation $\fA'u=f$ takes on $\Lam_3(c_y)$ the form treated in Theorem~\ref{thm:cov-scalar}(b). Lemma~\ref{lem:bootstrap-local} below therefore applies, of type~$1$ for $G'f$ and of type~$0$ for $G'D^T_\mu f$ with bounded $f$, with the $L^2$ decay from (b). The perturbation is local and block-local, so its small inputs are bounded by the invariant norms $\bar N^i_z$ of that lemma. For bounded H\"older $f$ split $f$ with a partition of unity at unit scale, as in the proof of Theorem~\ref{thm:cov-scalar}(b). Here the H\"older quotient of $f$ on $\Lam_3(c_{y'})$ is computed in a gauge in which (B) holds on $\Lam_4(c_{y'})$. The piece $\chi_{y'}f$ is supported in $\Lam_1(c_{y'})$. On $\Lam_3(c_y)$ it is moved to the gauge of $\Lam_4(c_y)$ by the change of local gauge after Definition~\ref{def:regular}, in the collared form stated at the end of that paragraph. This costs only a larger constant, so Lemma~\ref{lem:bootstrap-local} applies to each piece. The statements for $H'$, $C'$, $P_\cV$ and $S$ follow from those for $G'$ exactly as in Section~\ref{sec:cov-scalar}.
+\end{proof}
+
+\begin{lemma}[Bootstrap in local gauges]\label{lem:bootstrap-local}
+Let $d\ge3$ and $i\in\{0,1\}$, and let $U$ be $(1,\eps)$-regular. For each $y\in\T$ let $u_y$ be a real gauge in which (B) holds on $\Lam_4(c_y)$, and $\tilde u_y=R(u_y)u$. Let $\nabla$ be the covariant gradient: $\nabla v=Dv$ for scalar fields, and $\nabla v$ has the components $D_\nu v_\mu$ for gauge fields. Put $\bar N^0_z(v)=|v|_{\Lam_1(c_z)}$ and $\bar N^1_z(v)=|v|_{\Lam_1(c_z)}+|\nabla v|_{\Lam_1(c_z)}$; these norms are invariant under real gauge transformations. Suppose that for each $y$ the field $\tilde u_y$ satisfies on $\Lam_2(c_y)$ an equation $-\Lap\tilde u_y=J_y+\delta_y\tilde u_y$, with $J_y=J_{F,y}+\sum_\mu\partial^*_\mu J_{g,y,\mu}$ and, for some $y_0$, $M>0$, $\gamma_2>0$ and all $y$,
+\[
+\|u\|_{B(y)}+|J_{F,y}|_{\Lam_2(c_y)}+|J_{g,y}|_{\Lam_3(c_y)}+i\,\Hol{J_{g,y}}{\Lam_3(c_y)}\le Me^{-\gamma_2|y-y_0|}.
+\]
+Suppose moreover that for every field $v$ there are fields $F_y[v]$ and $g_y[v]$ with $\delta_yR(u_y)v=F_y[v]+\sum_\mu\partial^*_\mu g_y[v]_\mu$ on $\Lam_2(c_y)$ and
+\[
+|F_y[v]|_{\Lam_2(c_y)}+|g_y[v]|_{\Lam_3(c_y)}+i\,\Hol{g_y[v]}{\Lam_3(c_y)}\le\sum_ze^{-\gamma|y-z|}\big(\eps\,\bar N^i_z(v)+C_\delta\|v\|_{B(z)}\big).
+\]
+Let $\gamma'=\frac12\min(\gamma,\gamma_2)$. If $\eps\le\eps_*$, then for $i=1$
+\[
+|u|_{B(y)}+|\nabla u|_{B(y)}+\Hol{\partial\tilde u_y}{B(y)}\le CMe^{-\gamma'|y-y_0|},
+\]
+and for $i=0$, $|u|_{B(y)}+\Hol{\tilde u_y}{B(y)}\le CMe^{-\gamma'|y-y_0|}$. For gauge fields the bound on $|\nabla u|$ contains that on $|Du|$.
+\end{lemma}
+
+\begin{proof}
+Put $\mathcal N=\max_ye^{\gamma'|y-y_0|}\bar N^i_y(u)$. The lattice is finite, so $\mathcal N<\infty$, and $\mathcal N$ is invariant under real gauge transformations. On the stencils based in $\Lam_3(c_y)$, $R(u_y)$ is orthogonal, and by (B) on $\Lam_4(c_y)$ the transports of $U^{u_y}$ differ from $1$ by at most $C\eta\eps$; so there $|\tilde u_y|=|u|$, $|\partial\tilde u_y|\le|\nabla u|+C\eps|u|$ and $|\nabla u|\le|\partial\tilde u_y|+C\eps|u|$. Apply Theorem~\ref{thm:local-regularity}(d) for $i=1$, and (b) for $i=0$, to the equation on $\Lam_2(c_y)$, with $F=J_{F,y}+F_y[u]$ and $g=J_{g,y}+g_y[u]$ on $\Lam_3(c_y)$. The cube $\Lam_2(c_y)$ meets at most $C$ blocks. As in the proof of Lemma~\ref{lem:bootstrap}, the two hypotheses give
+\[
+\mathcal N\le(1+C\eps)C_0M+(1+C\eps)^2C_{\rm reg}S_{\gamma/2}\,\eps\,\mathcal N .
+\]
+So $\eps_*=\min\{1,[2(1+C)^2C_{\rm reg}S_{\gamma/2}]^{-1}\}$ suffices. It does not depend on $M$, $C_\delta$ or $\gamma_2$. The H\"older bound follows from the same local estimate. The small inputs of $\delta_y$ are the gauge-invariant norms $\bar N^i_z$; ordinary differences of $R(u_y)v$ at blocks far from $y$, where the gauge $u_y$ is not controlled, do not enter. The H\"older hypotheses on $J_y$ refer to the gauge $u_y$; data with H\"older bounds in another local gauge are moved to it by the change of local gauge after Definition~\ref{def:regular}. For $i=0$ only values and block $L^2$ norms enter, and these are invariant under real gauge transformations; no H\"older bound on the divergence data is used.
+\end{proof}

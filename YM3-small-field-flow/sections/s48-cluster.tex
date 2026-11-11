@@ -1,0 +1,250 @@
+\section{The cluster expansion}\label{sec:cluster}
+
+This section evaluates the fluctuation integral of one small-field step as a sum of polymer activities. It follows Dimock's small-field scheme \cite[Sects.~4.3--4.6, App.~B]{DimockI}:
+\begin{itemize}
+\item the small-field condition is imposed on the white noise;
+\item the integrand is localized in the white noise by the weakening parameters;
+\item the result is integrated by a Mayer and polymer expansion.
+\end{itemize}
+The inputs are those of Section~\ref{sec:step-quantities} and Part~IX. The plan and its review are in the blueprint (Appendix~I). Notation is as in Section~\ref{sec:step-quantities}: $\xi$ is the white-noise field on the free bonds $\mathfrak F$, $W$ the base, $U'$ the reference, and $g=g_k$.
+
+\paragraph{Parameters.} Let $p_0=p_{0,k}\ge1$. Put
+\[
+w:=C_wL^dC_Tgp_0,\qquad\zeta:=w,
+\]
+with $C_T$ from Section~\ref{subsec:sq-interaction} and $C_w$ the constant in $|\hat Z(Z)|_\infty\le C_wL^d|Z|_\infty$ (Lemma~\ref{lem:eliminate}). We assume:
+\begin{enumerate}[label=(Q\arabic*)]
+\item $gC_Tp_0\le\frac12r_I$, and $w\le\min(r_2,r_L,\frac12c_G,\beta_V,\frac12R_P)$;
+\item $2(C_*+1)L^{-2}\eps'_1+Cw\le\tilde h$, where $\tilde h$ is the threshold of the density, together with the other hypotheses of Theorem~\ref{thm:step} on the thresholds: $\tilde h\le a_1$ and $\eps'_1\le a_{\rm step}$;
+\item $\tau<\frac12$ in Proposition~\ref{prop:composed}, for the domains of the old activities.
+\end{enumerate}
+In the renormalization group $\tilde h=p_kg_k$, $\eps'_1=p_{k+1}g_{k+1}$ and $h=h_k$. Then (Q2) holds if $L^{3/2}\ge4(C_*+1)p_{k+1}/p_k$ and $CL^dC_Tp_0\le\frac12p_k$, and $h_k\le a_1$, $h_{k+1}\le a_{\rm step}$ for $g_*$ small. (Q1) holds for $g_*$ small, since $g_kp_{0,k}\to0$ (Section~\ref{sec:flow}, small-field parameters). (Q3) holds for $g_*$ small, since $\tau\le C_PL^dg_kp_{0,k}h_k^{-(1-\epsilon)}=C_PL^dg_k^{\epsilon}p_{0,k}p_k^{-(1-\epsilon)}\to0$ (Section~\ref{subsec:sq-composed}).
+
+\subsection{The small-field step}\label{subsec:cl-step}
+
+\begin{definition}[White-noise cutoff and small-field step]\label{def:small-field-step}
+For a configuration $V$ on $\T$ in the support of $\chi^{\rm w}$, let $Z_V$ be the free-bond values of the relative field of the axial representative of Definition~\ref{def:chi-w}, and $\xi_V=g^{-1}C_k^{-1/2}Z_V$, with $C_k$ at the reference $U'$. Put
+\[
+\chi_\xi(V)=\prod_{b\in\mathfrak F}\one\big(|\xi_V(b)|\le p_0\big),
+\]
+and define the small-field step by $T_{\rm sf}(\rho)=T(\chi^{\rm w}\chi_\xi\rho)$.
+\end{definition}
+
+The function $\chi_\xi$ is invariant under the gauge transformations of Definition~\ref{def:chi-w}, by construction, and it is covariant under global ones. Indeed $C_k$ is covariant (Proposition~\ref{prop:hessian-general}(e)), so $\xi_V$ transforms bondwise like $Z_V$, and $|\xi_V(b)|$ is invariant. So $T_{\rm sf}$ is a renormalization group map on gauge-invariant densities, with a kernel that depends on $V'$ through $U'$. It is defined for $V'$ small field at step $k+1$, since $C_k$ depends on $U'$ everywhere. This is the small-field step of \cite[(206)]{DimockI}; the difference
+\[
+\mathcal R_{\rm LF}=T(\chi^{\rm w}\rho)-T_{\rm sf}(\rho)=T\big(\chi^{\rm w}(1-\chi_\xi)\rho\big)
+\]
+belongs to the large-field stage, which is not treated here. Because $C_k$ is global in $U'$, that stage will need a version of $\chi_\xi$ that depends on regions.
+
+\begin{lemma}[White noise]\label{lem:white-noise}
+Assume (Q1). For $|\xi|_\infty\le p_0$ and $s\in\mathbb D_{\kappa'}$, put $Z(s)=gC_k^{1/2}(s)\xi$. Then $|Z(s)|_\infty\le gC_Tp_0$ and $|\hat Z(Z(s))|_\infty\le w$. In particular, on the support of $\chi_\xi$:
+\begin{itemize}
+\item $\chi^{\rm w}=1$;
+\item all the step quantities of Section~\ref{sec:step-quantities} are defined at $Z(s)$, for every $s\in\mathbb D_{\kappa'}$;
+\item the composed configurations lie in the domains of the old activities, by (Q3).
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+$|C_k^{1/2}(s)\xi|_\infty\le C_T|\xi|_\infty$ (Section~\ref{subsec:sq-interaction}), and $C_k^{1/2}(1)=C_k^{1/2}$ (Corollary~\ref{cor:weak-covariance}), and $|\hat Z(Z)|_\infty\le C_wL^d|Z|_\infty$ (Lemma~\ref{lem:eliminate}(c),(d)). At $s=1$, $\hat Z(Z(1))$ is the axial relative field, so $\chi^{\rm w}=1$. The other statements follow from (Q1), (Q3) and the definitions of $r_I$ and $\zeta$.
+\end{proof}
+
+\begin{proposition}[The small-field step]\label{prop:small-field-step}
+Assume (Q1)--(Q3), and let $\rho$ be as in Theorem~\ref{thm:step}. Then
+\[
+T_{\rm sf}(\rho)(V')=\mathcal N_kN_\chi\exp\Big(-\frac1{g^2}S(U')-\frac12\sum_{b\in\mathfrak F}\ell_k(b)+\sum_c\log\mathfrak j_c+\mathfrak E(U')\Big)\int d\mu^*(\xi)\,e^{\delta\mathcal E(\xi)},
+\]
+where $d\mu^*=N_\chi^{-1}\chi_\xi\,d\mu_I$ is the product over $b\in\mathfrak F$ of standard Gaussian measures on $\mathfrak g$ restricted to $|\xi(b)|\le p_0$. Further, $N_\chi=\exp(-\eps^0|\mathfrak F|)$ with $\eps^0=O(p_0^{\dim\mathfrak g-2}e^{-p_0^2/2})$, and
+\[
+\delta\mathcal E(\xi)=-\frac1{g^2}\mathcal V(Z)+\mathfrak J(Z)+\big(\mathfrak E(e^{\ii\hat Z(Z)}W)-\mathfrak E(U')\big),\qquad Z=gC_k^{1/2}\xi .
+\]
+\end{proposition}
+
+\begin{proof}
+By (Q2), the hypothesis of Theorem~\ref{thm:step} holds with the cutoff $w$. This is the analogue of \cite[Lemma~15]{DimockI}: on the support of $\chi^{\rm w}$ the configuration $e^{\ii\hat Z}W$ has curvature at most $2(C_*+1)L^{-2}\eps'_1+Cw\le\tilde h$, as in the proof of Theorem~\ref{thm:step}. The factor $\chi_\xi$ is a function of $Z$ on $\mathfrak F$. So the proof of Theorem~\ref{thm:step} applies to $\chi^{\rm w}\chi_\xi\rho$, with $\chi_\xi$ carried along in the integrand. Substitute $Y=C_k^{1/2}\xi$, so that $d\mu_{C_k}(Y)$ becomes $d\mu_I(\xi)$. By Lemma~\ref{lem:white-noise}, $\chi^{\rm w}(\hat Z(gY))=1$ on the support of $\chi_\xi$. Pull out $\mathfrak E(U')$ \cite[(211)--(212)]{DimockI}. The value of $N_\chi$ is the Gaussian mass of $\{|\xi(b)|\le p_0\}$ per bond, for $\mathfrak g$-valued $\xi(b)$.
+\end{proof}
+
+At references that are not real and critical, or outside the small-field region, the right-hand side is the definition of the step (Remark~\ref{rem:source-free}).
+
+\subsection{Localization in the white noise}\label{subsec:cl-loc}
+
+Write the integrand with the weakening parameters:
+\[
+\delta\mathcal E(\xi;s)=-\sum_\Box V(\Box;s)+\sum_\Box\mathfrak J_\Box(Z(s))+\sum_Xf(X;s,Z(s)),
+\]
+with $V(\Box;s)$ as in Section~\ref{subsec:sq-interaction}, $\mathfrak J_\Box$ the terms of $\mathfrak J$ grouped by the box of their bond, and $f$ as in Proposition~\ref{prop:composed}. At $s=1$ this is $\delta\mathcal E(\xi)$, by Corollary~\ref{cor:weak-covariance} ($C_k^{1/2}(1)=C_k^{1/2}$), Proposition~\ref{prop:interaction-pieces}(c) and Theorem~\ref{thm:weak-bg}(c).
+
+\begin{definition}[Decay functional]\label{def:decay-functional}
+A \emph{decay functional} is a function $\mathsf d\ge0$ on polymers with constants $c_\flat\in(0,1]$, $c_\sharp\ge1$, $c_\natural\ge1$ such that
+\[
+c_\flat|Z|-1\le\mathsf d(Z)\le c_\sharp(|Z|-1),\qquad\mathsf d(Z_1\cup Z_2)\le\mathsf d(Z_1)+\mathsf d(Z_2)+c_\natural
+\]
+for touching polymers $Z_1,Z_2$. Examples are $|Z|-1$ (with $c_\flat=c_\sharp=c_\natural=1$), and Dimock's tree length $d_M$ \cite[(119)]{DimockI}, with $c_\flat=3^{-d}$ by \cite[(122)]{DimockI}, $c_\sharp=\sqrt d$ and $c_\natural=2\sqrt d$. Adding the boxes of $Z\setminus X$ one at a time, each touching the previous union, gives $\mathsf d(Z)\le\mathsf d(X)+c_\natural|Z\setminus X|$ for $X\subset Z$.
+\end{definition}
+
+The old activities are indexed by connected unions $X$ of boxes. Each $\mathcal E_k(X,\cdot)$ depends on the configuration on $X^{(r_E)}$, where $r_E$ is the margin of dependence, and is a graded activity at $X^{(r_E)}$ in the sense of Proposition~\ref{prop:composed}, with its domain controlled on $X^{(r_E+3)}$. Part~(b) of Proposition~\ref{prop:composed} needs $r_E\le r$. We assume $r_E+3\le r$ (for $r_E=0$ this is $r\ge3$, Section~\ref{sec:step-quantities}, Setting), which keeps $X^{(r_E+3)}$ inside $Z^{(r')}$ for $X\subset Z$, where the extension of the reference is not felt; in Section~\ref{sec:flow}, $r_E=0$. The paving of Section~\ref{sec:weakenable} is taken to be the polymer grid, which needs $M\mid n$. They are assumed to satisfy $\sup|\mathcal E_k(X,\cdot)|\le\|\mathcal E_k\|e^{-\kappa_n\mathsf d(X)}$, the supremum over the graded domain at $X^{(r_E)}$ ($\mathcal U_k(X)$ for $r_E=0$), for a decay functional $\mathsf d$ and the rate $\kappa_n$ of the activity norm. The norm itself is fixed in P6.
+
+\begin{proposition}[Localized pieces]\label{prop:localized-pieces}
+Assume (Q1)--(Q3), $\kappa'-1\ge c_\natural\kappa_n+\log(1/c_\flat)$, and the decay of the old activities stated above. On the support of $\chi_\xi$,
+\[
+\delta\mathcal E(\xi)=\sum_ZE_{\rm p}(Z)+\sum_ZE_{\rm m}(Z),
+\]
+the sums running over polymers. Each piece depends on $\xi$ and $U'$ only on the bonds of $Z^{(r')}$, and on the old activities only through $\mathcal E_k(X,\cdot)$ with $X\subset Z$. Each piece is invariant under real gauge transformations, and real at real references for real $\xi$. The pure pieces are analytic in the reference on all complex references of Section~\ref{sec:complex-references} with $\delta_c<\delta_P$ whose real part is $(M,\eps)$-regular with $\eps\le\eps_{\max}$. The mixed pieces $E_{\rm m}(Z)$ are analytic in the reference on the set of references at which the hypothesis of Proposition~\ref{prop:composed} on $U'$ holds for every $X\subset Z$. The pieces satisfy, uniformly for $|\xi|_\infty\le p_0$,
+\[
+|E_{\rm p}(Z)|\le\epsilon_{\rm p}\,e^{-(\kappa'-2)|Z|},\qquad|E_{\rm m}(Z)|\le\epsilon_{\rm m}\,e^{-(\kappa_n-1)\mathsf d(Z)},
+\]
+with $\epsilon_{\rm p}=C_Pgp_0^3$ and $\epsilon_{\rm m}=C_P\tau\|\mathcal E_k\|$.
+\end{proposition}
+
+\begin{proof}
+Apply Lemma~\ref{lem:localization} on $\mathbb D_{\kappa'}$ to each term. Its hypotheses hold by Lemma~\ref{lem:white-noise}, Propositions~\ref{prop:interaction-pieces}(a),(d), \ref{prop:jacobians}(a) and~\ref{prop:composed}(a),(b), and Lemma~\ref{lem:weak-basic}(b) and Corollary~\ref{cor:weak-covariance} for $C_k^{1/2}(s)$. These give analyticity in the reference on the domains stated, jointly with $s$.
+\begin{itemize}
+\item \emph{Interaction.} With $Y=\Box$, the bound $F\le C_Pg^{-2}M^d(gC_Tp_0/r_I)^3=C_Pgp_0^3$ holds (Section~\ref{subsec:sq-interaction}).
+\item \emph{Jacobians.} $F\le C_P(L^{2d+1}gp_0+g^2p_0^2)\le C_Pgp_0^3$ (Theorem~\ref{thm:step}(e)), since $p_0\ge1$ and $C_P$ may depend on $L$.
+\item \emph{Pure pieces.} Put $E_{\rm p}(Z)=\sum_{\Box\subset Z}(f_{\rm loc}(\Box,Z)$ of these terms$)$. Then $|E_{\rm p}(Z)|\le|Z|F e^{\kappa'-1}e^{-(\kappa'-1)|Z|}$, and $|Z|e^{-|Z|}\le1$ gives the bound after adjusting $C_P$ by $e^{\kappa'}$.
+\item \emph{Mixed pieces.} Here $Y=X$. Indeed, $\mathcal E_k(X,\cdot)$ depends on the configuration on $X^{(r_E)}$ with $r_E\le r$, and by Theorem~\ref{thm:weak-bg}(d) and Lemma~\ref{lem:weak-basic}(b), $A_*$ on $(Z'_0)^{(r)}$ depends on $s$ only through the boxes of $Z'_0$. So the hypothesis of Lemma~\ref{lem:localization} holds with $Y$ the set of boxes of $X$. Proposition~\ref{prop:composed} gives $F\le4\tau\|\mathcal E_k\|e^{-\kappa_n\mathsf d(X)}$, so
+\[
+|f_{\rm loc}(X,Z)|\le4\tau\|\mathcal E_k\|e^{-\kappa_n\mathsf d(X)-(\kappa'-1)|Z\setminus X|}.
+\]
+By Definition~\ref{def:decay-functional}, $\mathsf d(Z)\le\mathsf d(X)+c_\natural|Z\setminus X|$. So
+\[
+|f_{\rm loc}(X,Z)|\le4\tau\|\mathcal E_k\|e^{-\kappa_n\mathsf d(Z)}e^{-(\kappa'-1-c_\natural\kappa_n)|Z\setminus X|}.
+\]
+Summing over $X\subset Z$, which over-counts the connected $X$ harmlessly,
+\[
+\sum_{X\subset Z}e^{-(\kappa'-1-c_\natural\kappa_n)|Z\setminus X|}\le\big(1+e^{-(\kappa'-1-c_\natural\kappa_n)}\big)^{|Z|}\le e^{c_\flat|Z|}\le e^{\mathsf d(Z)+1}.
+\]
+This defines $E_{\rm m}(Z)=\sum_{X\subset Z}f_{\rm loc}(X,Z)$, with the bound stated.
+\end{itemize}
+Data dependence, analyticity and invariance are Lemma~\ref{lem:localization}(a),(c). Reality: at a real reference and for real $\xi$ and real $s$, all the functions localized are real (Corollary~\ref{cor:weak-covariance} for $C_k^{1/2}(s)$, and the realness of $s_p$, $\hat Z$, the Jacobians and the old activities). The localization takes real derivatives and integrals over $t\in[0,1]^{Z\setminus Y}$, so the pieces are real. Margins are not converted (Remark~\ref{rem:localization-margins}).
+\end{proof}
+
+\subsection{The Mayer and polymer expansion}\label{subsec:cl-mayer}
+
+Two polymers are \emph{incompatible} if they touch, i.e.\ if a box of one shares a point with a box of the other. Non-touching polymers are at distance at least $M/4>2r'$ (Section~\ref{sec:step-quantities}, Setting). So pieces of non-touching polymers depend on disjoint sets of free bonds, and are independent under the product measure $d\mu^*$.
+
+We use the cluster expansion of Koteck\'y and Preiss \cite{KP}, in the following form. Let $\mathcal K$ be a set of objects $\gamma$ (``gas polymers''), each with a support $\operatorname{supp}\gamma$, a polymer, and a complex activity $k(\gamma)$. Call two objects compatible if their supports do not touch. Then
+\[
+\sum_{\{\gamma_1,\dots,\gamma_n\}\text{ compatible}}\ \prod_ik(\gamma_i)=\exp\Big(\sum_{\mathcal C}\phi^T(\mathcal C)\prod_{\gamma\in\mathcal C}k(\gamma)\Big),
+\]
+the sum running over the clusters $\mathcal C$, i.e.\ the finite multisets of objects whose incompatibility graph is connected, with the Ursell coefficients $\phi^T$. This holds with absolute convergence if there are functions $a,b\ge0$ on $\mathcal K$ with
+\begin{equation}\label{eq:KP}
+\sum_{\gamma'\not\sim\gamma}|k(\gamma')|e^{a(\gamma')+b(\gamma')}\le a(\gamma)\qquad\text{for all }\gamma .
+\end{equation}
+In that case $\sum_{\mathcal C\not\sim\gamma}|\phi^T(\mathcal C)\prod_{\gamma'\in\mathcal C}k(\gamma')|e^{\sum_{\gamma'\in\mathcal C}b(\gamma')}\le a(\gamma)$, the sum running over the clusters containing an object incompatible with $\gamma$ \cite{KP}.
+
+\begin{theorem}[Polymer expansion of the fluctuation integral]\label{thm:mayer}
+Let $\mathsf d$ be a decay functional. There are $C_d$, $A$ and $\epsilon_*>0$, depending only on $d$ and the constants of $\mathsf d$, with the following property. Let $E(Z)$, indexed by polymers, be complex functions of $\xi$ and of further parameters. Suppose each $E(Z)$ depends on $\xi$ only on the free bonds of $Z^{(r')}$, and on the other spatial data, such as the reference, only on $Z^{(r')}$; global parameters, such as the coupling or an interpolation parameter, are allowed. Suppose also
+\[
+|E(Z)|\le\epsilon\,e^{-\kappa(\mathsf d(Z)+c_\natural)}\qquad\text{for }|\xi|_\infty\le p_0,
+\]
+with $\kappa\ge C_d$ and $\epsilon\le\epsilon_*$. Then
+\[
+\int\exp\Big(\sum_ZE(Z)\Big)d\mu^*=\exp\Big(\sum_YE^\#(Y)\Big),
+\]
+where $Y$ runs over polymers, and:
+\begin{enumerate}[label=(\alph*)]
+\item $E^\#(Y)$ depends only on the functions $E(Z)$ with $Z\subset Y$, and on the data only on $Y^{(r')}$;
+\item $\sum_{Y\supset\Box}|E^\#(Y)|e^{(\kappa-C_d)(\mathsf d(Y)+c_\natural)}\le A\epsilon$ for every box $\Box$;
+\item if the $E(Z)$ are analytic in a parameter, uniformly, so is $E^\#(Y)$; if they are invariant under real gauge transformations, so is $E^\#(Y)$, since $d\mu^*$ is invariant under the bondwise orthogonal action $\xi(b)\mapsto R(u(b_-))\xi(b)$;
+\item if the $E(Z)$ are even under a joint transformation of a parameter and $\xi\mapsto-\xi$, then $E^\#(Y)$ is even in the parameter;
+\item if the $E(Z)$ are real for real $\xi$ at some value of the parameters, so is $E^\#(Y)$ at that value.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{Mayer expansion.} Put $K(Z)=e^{E(Z)}-1$, so $|K(Z)|\le2|E(Z)|$ for $\epsilon\le1$. Expand $\prod_Z(1+K(Z))$ as a sum over finite sets of distinct polymers. Group each set into its connected components for touching, the clusters of polymers $\Gamma$, with supports $\operatorname{supp}\Gamma=\bigcup_{Z\in\Gamma}Z$, which are polymers. Distinct components do not touch, so the integral factorizes:
+\[
+\int\prod_Z(1+K(Z))\,d\mu^*=\sum_{\{\Gamma_1,\dots,\Gamma_n\}\text{ compatible}}\ \prod_ik(\Gamma_i),\qquad k(\Gamma)=\int\prod_{Z\in\Gamma}K(Z)\,d\mu^* .
+\]
+Then $|k(\Gamma)|\le\prod_{Z\in\Gamma}2\epsilon e^{-\kappa(\mathsf d(Z)+c_\natural)}$.
+
+\emph{A tree count.} For weights $u(Z)\ge0$ let $S(\Box)$ be the sum of $\prod_{Z\in\Gamma}u(Z)$ over the clusters $\Gamma$ with a polymer containing $\Box$, and $S_*=\sup_\Box S(\Box)$. Remove from such a $\Gamma$ a polymer $Z_0\ni\Box$. The rest splits into touching-connected families, each containing a polymer that contains a box $\Box'$ touching $Z_0$. Two such families cannot contain the same $\Box'$, since they would touch. There are at most $3^d|Z_0|$ such boxes. Hence $S(\Box)\le\sum_{Z_0\ni\Box}u(Z_0)(1+S_*)^{3^d|Z_0|}$. Restrict first to polymers of size at most $N$, so that all sums are finite, and let $N\to\infty$. Put $\eta:=\sup_\Box\sum_{Z\ni\Box}u(Z)e^{3^d|Z|}$, and scale all weights by $\lambda\in[0,1]$. Then $S_*$ is a continuous function of $\lambda$ that vanishes at $\lambda=0$. While $S_*\le1$, the inequality gives $S_*\le\lambda\eta$, since $(1+S_*)^{3^d|Z_0|}\le e^{3^d|Z_0|}$. So $S_*$ never exceeds $\lambda\eta$, and $S_*\le\eta$ whenever $\eta\le1$.
+
+\emph{Polymer expansion.} Apply the Koteck\'y--Preiss theorem to the objects $\Gamma$, with $a(\Gamma)=A\epsilon|\operatorname{supp}\Gamma|$ and $b(\Gamma)=\beta(\mathsf d(\operatorname{supp}\Gamma)+c_\natural)$, $\beta=\kappa-C_d$. Along a spanning tree of the touching graph of $\Gamma$, the subadditivity of $\mathsf d$ gives
+\[
+\mathsf d(\operatorname{supp}\Gamma)+c_\natural\le\sum_{Z\in\Gamma}(\mathsf d(Z)+c_\natural),\qquad|\operatorname{supp}\Gamma|\le\sum_{Z\in\Gamma}|Z|\le c_\flat^{-1}\sum_{Z\in\Gamma}(\mathsf d(Z)+c_\natural).
+\]
+Objects $\Gamma'$ incompatible with $\Gamma$ have a polymer containing a box that touches $\operatorname{supp}\Gamma$, and there are at most $3^d|\operatorname{supp}\Gamma|$ such boxes. So the left side of \eqref{eq:KP} is at most $3^d|\operatorname{supp}\Gamma|\,S_*$, with
+\[
+u(Z)=2\epsilon\,e^{-(\kappa-\beta-A\epsilon c_\flat^{-1})(\mathsf d(Z)+c_\natural)}\le2\epsilon\,e^{-(C_d-c_\flat^{-1})c_\flat|Z|},
+\]
+for $A\epsilon\le1$, using $\mathsf d(Z)+c_\natural\ge c_\flat|Z|$. The number of polymers $Z\ni\Box$ with $|Z|=m$ is at most $C_0^m$, with $C_0$ depending on $d$. Choose $C_d=c_\flat^{-1}(\log C_0+3^d+2)$. Then $\eta\le C_1\epsilon$, so $S_*\le C_1\epsilon$, and \eqref{eq:KP} holds with $A=3^dC_1$ for $\epsilon\le\epsilon_*$.
+
+\emph{The output.} Group the clusters $\mathcal C$ of objects by $Y=\bigcup_{\Gamma\in\mathcal C}\operatorname{supp}\Gamma$, a polymer since $\mathcal C$ is connected. Put $E^\#(Y)=\sum_{\mathcal C:\,\cup\operatorname{supp}=Y}\phi^T(\mathcal C)\prod_{\Gamma\in\mathcal C}k(\Gamma)$. Then (a) holds, since each $k(\Gamma)$ involves only the $E(Z)$ with $Z\in\Gamma$, and $\bigcup_{Z\in\Gamma}Z^{(r')}\subset Y^{(r')}$. For (b), subadditivity gives $e^{\beta(\mathsf d(Y)+c_\natural)}\le\prod_{\Gamma\in\mathcal C}e^{b(\Gamma)}$. The clusters with $Y\supset\Box$ are incompatible with the single-box object $\{\Box\}$, a legitimate object since a box is a polymer. So the Koteck\'y--Preiss bound gives $\sum_{Y\supset\Box}|E^\#(Y)|e^{\beta(\mathsf d(Y)+c_\natural)}\le a(\{\Box\})=A\epsilon$. For (c), all sums converge uniformly, and $d\mu^*$ is invariant under the bondwise orthogonal action with the symmetric cutoff. For (d), $d\mu^*$ is even, so each $k(\Gamma)$ is even in the parameter, and the combinatorics do not depend on $\xi$. For (e), $d\mu^*$ is a real measure, so each $k(\Gamma)$ is real, and the Ursell coefficients $\phi^T$ are real; the series converges absolutely.
+\end{proof}
+
+\begin{corollary}[Two decay classes]\label{cor:two-classes}
+In the situation of Proposition~\ref{prop:localized-pieces}, put $c'_\sharp=\max(c_\sharp,c_\natural)$. Let $\kappa_n-1\ge C_d$, $(\kappa'-2)/c'_\sharp\ge\kappa_n-1$, $\epsilon_{\rm p}\le\frac12\epsilon_*$ and $\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)}\le\frac14\epsilon_*$. Then $\int e^{\delta\mathcal E}d\mu^*=\exp(\sum_Y(E^\#_{\rm p}(Y)+E^\#_{\rm m}(Y)))$, where:
+\begin{itemize}
+\item $E^\#_{\rm p}$ is the output of Theorem~\ref{thm:mayer} for the pure pieces alone. It satisfies
+\[
+\sum_{Y\supset\Box}|E^\#_{\rm p}(Y)|e^{((\kappa'-2)/c'_\sharp-C_d)(\mathsf d(Y)+c_\natural)}\le A\epsilon_{\rm p} .
+\]
+\item $E^\#_{\rm m}=E^\#-E^\#_{\rm p}$ satisfies
+\[
+\sum_{Y\supset\Box}|E^\#_{\rm m}(Y)|e^{(\kappa_n-1-C_d)(\mathsf d(Y)+c_\natural)}\le4A\,\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)} .
+\]
+\end{itemize}
+\end{corollary}
+
+\begin{proof}
+Since $\mathsf d(Z)+c_\natural\le c'_\sharp|Z|$, the pure pieces satisfy $|E_{\rm p}(Z)|\le\epsilon_{\rm p}e^{-((\kappa'-2)/c'_\sharp)(\mathsf d(Z)+c_\natural)}$. Theorem~\ref{thm:mayer} gives the first bound. The mixed pieces satisfy $|E_{\rm m}(Z)|\le\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)}e^{-(\kappa_n-1)(\mathsf d(Z)+c_\natural)}$. For the full system at the rate $\kappa_n-1$, replace $E_{\rm m}$ by $\lambda E_{\rm m}$ with complex $|\lambda|\le R=\epsilon_*/(2\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)})\ge2$. Then $\epsilon=\epsilon_{\rm p}+|\lambda|\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)}\le\epsilon_*$, and Theorem~\ref{thm:mayer} applies uniformly in $\lambda$; $E^\#(Y;\lambda)$ is analytic in $\lambda$, and $E^\#(Y;0)=E^\#_{\rm p}(Y)$. Cauchy's formula on $|\lambda|=R\ge2$ gives
+\[
+|E^\#(Y;1)-E^\#(Y;0)|\le\frac2R\cdot\frac1{2\pi}\oint|E^\#(Y;\lambda)|\,\frac{|d\lambda|}{|\lambda|}.
+\]
+Summing over $Y$ under the integral, with $A\epsilon_*$ from Theorem~\ref{thm:mayer}(b), gives the second bound.
+\end{proof}
+
+The rate of the mixed class is the rate $\kappa_n$ of the activity norm minus $1+C_d$. It is recovered in P6 by the reblocking gain $d_M(X)\ge L\,d_{LM}(\bar X)-C|\bar X|$ of Dimock's tree length (blueprint, Appendix~F). This needs $\kappa_n\ge C(C_d+\kappa_0+1)$.
+
+\subsection{\texorpdfstring{The order $g$ and the size of the pure sources}{The order g and the size of the pure sources}}\label{subsec:cl-order}
+
+Replace $g$ by a complex parameter $t$ in the fluctuation only: $Z=tC_k^{1/2}(s)\xi$, and $t^{-2}$ in front of the interaction pieces, as in the blueprint, Appendix~G. The prefactor of Proposition~\ref{prop:small-field-step} and $\mathfrak E(U')$ do not depend on $t$.
+
+\begin{proposition}[Pure sources]\label{prop:pure-sources}
+Let $r_t=\min\big(c\,r_I^3(C_PM^dC_T^3p_0^3)^{-1},\ r_I(2C_Tp_0)^{-1}\big)$, with $c$ small, the constant $C_P$ including the factors $e^{\kappa'}$. For $|t|\le r_t$ the pure pieces, with $t$ in place of $g$, satisfy the hypotheses of Theorem~\ref{thm:mayer} with $\epsilon\le\frac12\epsilon_*$, as in the proof of Corollary~\ref{cor:two-classes}. The output $E^\#_{\rm p}(Y;t)$ is analytic and even in $t$, and $E^\#_{\rm p}(Y;0)=0$. Hence, for $2g\le r_t$,
+\[
+\sum_{Y\supset\Box}|E^\#_{\rm p}(Y;g)|e^{((\kappa'-2)/c'_\sharp-C_d)(\mathsf d(Y)+c_\natural)}\le C_Pg^2p_0^6 .
+\]
+\end{proposition}
+
+\begin{proof}
+For $|t|\le r_t$: $|t|C_Tp_0\le\frac12r_I$, by the second entry of the minimum. The pure pieces only need $|Z|_\infty\le\frac12r_I$: Propositions~\ref{prop:interaction-pieces}(a),(b) and~\ref{prop:jacobians}(a). The parts of (Q1) that involve $w$, Lemma~\ref{lem:white-noise} and the identification of Proposition~\ref{prop:interaction-pieces}(c) are used only at $t=g$, where they hold by (Q1). So the bounds of Proposition~\ref{prop:localized-pieces} for the pure pieces hold with $g$ replaced by $|t|$. That is, $\epsilon_{\rm p}(t)\le C_P|t|p_0^3$, plus the Jacobian term $C_P|t|p_0$. This is at most $\frac12\epsilon_*$ for $c$ small. Analyticity in $t$ follows from Theorem~\ref{thm:mayer}(c). Every pure piece depends on $(t,\xi)$ only through $t^{-2}$ and $tC_k^{1/2}(s)\xi$: the interaction pieces are Taylor remainders of order three in $Z$ for every $s$ (Definition~\ref{def:interaction-pieces}), and $\mathfrak J$ depends on $Z$. Since $t^{-2}v_p(s;tY)$ is analytic at $t=0$, being a remainder of order three, the pieces are analytic and even under $(t,\xi)\mapsto(-t,-\xi)$. The localization takes $s$-derivatives at fixed $\xi$. So Theorem~\ref{thm:mayer}(d) applies, and $E^\#_{\rm p}$ is even in $t$. At $t=0$ every pure piece vanishes, so $E^\#_{\rm p}(Y;0)=0$. So $E^\#_{\rm p}(Y;t)/t^2$ is analytic on $|t|\le r_t$. Cauchy's formula on $|t|=r_t$ gives, for $2g\le r_t$, $|E^\#_{\rm p}(Y;g)|\le2(g/r_t)^2\frac1{2\pi}\oint|E^\#_{\rm p}(Y;t)|\,|dt|/r_t$. Summing over $Y$ under the integral, with Theorem~\ref{thm:mayer}(b) and $r_t^{-2}\le C_Pp_0^6$ (both entries of the minimum, $p_0\ge1$), gives the bound. In particular there is no term of order $g$.
+\end{proof}
+
+\subsection{The step in polymer form}\label{subsec:cl-output}
+
+\begin{theorem}[Small-field step in polymer form]\label{thm:sf-step}
+Let $G$ be semisimple, and let $\rho$ be as in Theorem~\ref{thm:step}. Assume (Q1)--(Q3), $2g\le r_t$, the decay of the old activities, and the hypotheses of Proposition~\ref{prop:localized-pieces} and Corollary~\ref{cor:two-classes}. Then, at real critical references with $V'$ small field,
+\[
+\begin{aligned}
+T_{\rm sf}(\rho)(V')=\mathcal N_kN_\chi\exp\Big(&-\frac1{g^2}S(U')-\frac12\sum_b\ell_k(b;1)+\sum_X\mathfrak e(X,U')+\sum_c\log\mathfrak j_c\\
+&+\mathfrak E(U')+\sum_Y\big(E^\#_{\rm p}(Y,U')+E^\#_{\rm m}(Y,U')\big)\Big),
+\end{aligned}
+\]
+with $\mathfrak e$ from Proposition~\ref{prop:one-loop-polymer} and $\ell_k(b;1)$ the density of Proposition~\ref{prop:det-densities} at $U'=1$. At other references the right-hand side is the definition of the step (Remark~\ref{rem:source-free}). Every term depends on $U'$ only near its polymer, is invariant under real gauge transformations, and is real at real references (Theorem~\ref{thm:mayer}(e)). The terms $\mathfrak e(X)$, $\log\mathfrak j_c$ and $E^\#_{\rm p}$ are analytic in the reference on the complex references of Section~\ref{sec:complex-references} with $\delta_c<\delta_P$ whose real part is $(M,\eps)$-regular with $\eps\le\eps_{\max}$ ($\mathfrak e$ and $\log\mathfrak j_c$ on the graded domains of Propositions~\ref{prop:one-loop-polymer} and~\ref{prop:jacobians}). The terms $E^\#_{\rm m}(Y)$ and $\mathfrak E$ are analytic on the references at which Proposition~\ref{prop:composed} applies to the old polymers inside $Y$, respectively to all old polymers; Remark~\ref{rem:extension} shows that this suffices for the flow. Moreover:
+\begin{itemize}
+\item $E^\#_{\rm p}$ is $O(g^2p_0^6)$, with decay rate $(\kappa'-2)/c'_\sharp-C_d$ (Proposition~\ref{prop:pure-sources});
+\item $E^\#_{\rm m}$ is $O(\tau\|\mathcal E_k\|e^{c_\natural\kappa_n})$, with decay rate $\kappa_n-1-C_d$ (Corollary~\ref{cor:two-classes});
+\item $\mathfrak e(X)$ and $\log\mathfrak j_c$ are $O(h^{2-2\epsilon})$ on D3$'''$ (Propositions~\ref{prop:one-loop-polymer}, \ref{prop:jacobians}), for polymers of diameter at most $n/2-8$. Larger polymers give $e^{-cn/M}$.
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+Combine Proposition~\ref{prop:small-field-step}, Proposition~\ref{prop:localized-pieces}, Corollary~\ref{cor:two-classes}, Proposition~\ref{prop:pure-sources}, and Proposition~\ref{prop:one-loop-polymer} for the determinant. The locality in $U'$ follows from the data dependence on $Y^{(r')}$ in Theorem~\ref{thm:mayer}(a).
+\end{proof}
+
+\begin{remark}[Normalization and what remains]\label{rem:sf-step-remains}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Normalization.} The new activities are normalized by subtracting their values at $U'=1$. The constant $\sum_YE^\#(Y,1)$ goes into the vacuum energy, and $\log\mathcal N_k$, $\log N_\chi$ and $-\frac12\sum_b\ell_k(b;1)$ into the explicit normalization $\mathcal Z_{k+1}$ (Section~\ref{subsec:tf-vacuum}). Only bounds per grid cube are needed for the vacuum energy; no periodicity and no Gaussian reference are used.
+\item \emph{The old activities} at $U'$, $\mathfrak E(U')=\sum_X\mathcal E_k(X,U')$, depend on $U'$ on the margins of their own domains. Together with the reblocking and rescaling, they form the linear part of the flow (P6).
+\item \emph{Not treated here.}
+  \begin{itemize}
+  \item The reblocking to polymers of step $k+1$, and the comparison of the rates with the activity norm. This includes the recovery of the loss $C_d$ for the mixed class (P6, P7).
+  \item The large-field remainder $\mathcal R_{\rm LF}$.
+  \item The decay assumed for the old activities, which is part of the induction (P6, P7).
+  \item The wrap-around polymers.
+  \end{itemize}
+\end{enumerate}
+\end{remark}

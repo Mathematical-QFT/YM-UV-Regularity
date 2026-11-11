@@ -1,0 +1,225 @@
+\section{The weakened background map}\label{sec:weak-background}
+
+This section constructs the weakened version of the background map $B\mapsto A_*(B)$ of Part~V. It is the fixed point of a contraction built with the weakened operators of Section~\ref{sec:tiers}. The localization of the step needs three properties of it:
+\begin{itemize}
+\item analyticity in the weakening parameters $s\in\mathbb D_\kappa$;
+\item factorization when $s_\Box=0$ outside a union of boxes;
+\item a bound in $C^{1,\beta}$ that is linear in $B$ and uniform in $s$.
+\end{itemize}
+The plan, and its review, are in the blueprint (Appendix~E). Two points of the construction are not obvious.
+\begin{itemize}
+\item \emph{The current is removed from the equation.} At a critical background $\bC J=0$. The weakened $\bC(s)J$ does not vanish, and it would produce a field of size $C(\kappa)|J|$ even at $B=0$. Without the source the fixed point vanishes at $B=0$ for every $s$.
+\item \emph{No second derivatives are needed.} The gradient of the interaction is written with derivatives outside, so that every term is either bounded or the divergence of a H\"older field. These are exactly the inputs of $\bC(s)$ and $\bC(s)D^T$ in Theorem~\ref{thm:HC-pointwise}. In particular no bound on $D^TD\bH(s)$ is used.
+\end{itemize}
+
+\paragraph{Setting.} We keep the setting of Section~\ref{sec:tiers}, with $d=3$ and $W=0$. We fix $\alpha\le\frac12$, so that $\beta=\min(\alpha,\frac12)=\alpha$; the activity domain of the next stage uses the exponent $\alpha$.
+\begin{itemize}
+\item \emph{The reference.} $U_0$ is a real $(M,\eps)$-regular background with $|J_{U_0}|\le\eps$, in the units of step $k$. It is $(1,\eps)$-regular, so Proposition~\ref{prop:action} applies. The bound on the current is used only in Theorem~\ref{thm:weak-bg}(c). Elsewhere only the regularity of $U_0$ enters, through $|\mathsf F|\le C\eps$, where $\mathsf F=F^s_{U_0}$ is the symmetrized curvature of Lemma~\ref{lem:current}. We write $\mathsf F$ to avoid a clash with the weakening parameter $s$. In the renormalization group step, $U_0=U_{k+1}(V_{k+1})$. That background is critical for the $k$-step problem (Lemma~\ref{lem:composition}), but criticality is used only in Theorem~\ref{thm:weak-bg}(c).
+\item \emph{The operators.} $\bG(s)$, $\bH(s)$, $\bC(s)$ are the weakened operators on $\Tf$ of Section~\ref{sec:tiers}, at $U_0$, evaluated at $s\in\mathbb D_\kappa$.
+\item \emph{Bilinear forms.} For complex fields, $\ip\cdot\cdot$ denotes the bilinear form $\mathrm b$, and gradients and transposes are taken with respect to it. On real fields this is the inner product of Part~V.
+\item \emph{Norms.} We write $|A|_*=\sup_y|A|_{1,\beta;y}$ for fine fields, and $|\omega|_\infty$ for coarse fields. For $2$-forms,
+\[
+|g|_{(2)}=\sup_y\big(|g|_{B(y)}+[\tilde g_y]_{\beta,\Lam_1(c_y)}\big).
+\]
+\item \emph{Constants.} $C_P$ denotes constants that may depend on $\kappa,\delta,L,M,\rho,\alpha$, but not on $k$, $n$, $\eta$ or $s\in\mathbb D_\kappa$. We assume $M\ge M_1'$, as in Theorem~\ref{thm:HC-pointwise}, and $M\ge64$. Then the margin $r\le M/16$ of the weakened families satisfies $M/4-2r-2>2$.
+\item \emph{Norms and the activity domain.} The H\"older quotients in $|\cdot|_{1,\beta;y}$ are taken on $\Lam_1(c_y)$, as in the definition of the tiers in Section~\ref{sec:tiers}. Pairs of points at distance at most $1$ lie in a common cube $\Lam_1(c_y)$. Between the local gauges of Corollary~\ref{cor:regularity} and those of the blocks, the change of gauge alters H\"older quotients by at most $C\eps$ times the $C^1$ norm, as in the proof of Theorem~\ref{thm:ID}(b). So $|A|_*$ bounds the quantities that define the graded activity domains (Definition~\ref{def:graded}: covariant derivatives, H\"older quotients on the cubes $\Lam_3$ and the sup norm of the complex perturbation) up to a constant $C_{\rm conv}$, not $1+C\eps$: pairs at distance more than $1$ cost a factor $2$ (Lemma~\ref{lem:norm-conversion}).
+\end{itemize}
+
+\subsection{The current at critical backgrounds}
+
+\begin{lemma}[Current of critical backgrounds]\label{lem:critical-current}
+Let $U'$ be a real background field of the $k$-step problem, i.e.\ an element of the minimal orbit of Theorem~\ref{thm:balaban}, with $\eps_1\le a(L,M)$ small. Let $\bH$ be its minimizer map. Then
+\[
+J_{U'}=\bQ^T\omega_0,\qquad\omega_0=\bH^TJ_{U'}=(D\bH)^TF^s_{U'},
+\]
+and $|J_{U'}|_\infty\le C_J|F_{U'}|_\infty$. The constant $C_J$ depends only on $d$, $G$, $\alpha$ and the parameter $a$ of the averaging term. In particular it does not depend on $L$ or $M$.
+\end{lemma}
+
+\begin{proof}
+By Corollary~\ref{cor:analytic}, $A_*(0)=0$ relative to $U_0=U'$. The Euler--Lagrange equation (Theorem~\ref{thm:variational}(d)) at $A_*=0$ reads $\nabla\Phi(0)=d\mathcal Q(0)^T\omega_0$, with $\nabla\Phi(0)=J_{U'}$ (Proposition~\ref{prop:action}) and $d\mathcal Q(0)=\bQ$ (Proposition~\ref{prop:Q-expansion}). This is also the identity used in the proof of Proposition~\ref{prop:coarse-action}. Since $\bQ\bH=I$, $\bH^T\bQ^T=I$, so $\omega_0=\bH^TJ_{U'}$. By Lemma~\ref{lem:current}(a), $J_{U'}=D^TF^s_{U'}$, so $\bH^TJ_{U'}=(D\bH)^TF^s_{U'}$. For a coarse bond $c$,
+\[
+|\omega_0(c)|\le\sum_{y}\|\one_c(D\bH)^T\one_y\|\,\|F^s\|_{B(y)}\le C\,|F^s|_\infty ,
+\]
+by the $L^2$ decay of $D\bH$ (Theorem~\ref{thm:cov-min}(b), at regular backgrounds Theorem~\ref{thm:reg-min}). Moreover $|F^s|\le2|F|$ by Lemma~\ref{lem:current}(c), and $|\bQ^T\omega|_\infty\le2|\omega|_\infty$ once $\eps_1$ is small depending on $L$. This follows from Proposition~\ref{prop:linearized-averages}(e): $\bQ^T$ differs from the transpose of the flat tube average by an operator of norm at most $C_L\eps$ from sup norms to sup norms. The flat transpose has sup norm at most $1$, since its kernel is nonnegative with column sums $\sum_yw_\mu(y,x)=1$ (Lemma~\ref{lem:avg}(a),(c)).
+
+\emph{Constants.} The constants of Parts~II and~III depend on the averaging pair only through the properties listed in Remark~\ref{rem:general-averaging}, by Lemma~\ref{lem:uniformity}(a). So they do not depend on $L$, provided the background is regular with $\eps$ small depending on $L$ and $M$, as there. For $M\ge M_0$ they do not depend on $M$ either.
+\end{proof}
+
+With Proposition~\ref{prop:sharp-curvature}, the curvature and the current of $U_k(V)$ are both bounded by $(1+C_J)(C_*+\delta)\eps_1$. These constants do not grow with $L$ or $M$. In the units of step $k$ this gives $\theta(U_{k+1})\le(1+C_J)(C_*+\delta)L^{-3/2}h_k$. With the activity domain D3$'''$ of the blueprint (Appendix~F), whose real budget is $h_k^{1-\epsilon/2}$, this puts the reference of the step into the domain for $g_*$ small, without a condition on $L$.
+
+\subsection{The weakened equation}
+
+\paragraph{The linearizing map.} For a fine field $A'$, let $\mathcal D_s(A')$ be the coarse field $X$ that solves
+\begin{equation}\label{eq:Ds}
+X=C_k\big(A'-\bH(s)X\big),
+\end{equation}
+with $C_k$ the nonlinear part of the averaging (Proposition~\ref{prop:Q-expansion}). At $s=1$ this is the equation of Lemma~\ref{lem:linearizing}.
+
+\paragraph{The functional and its gradient.} Put
+\[
+\begin{aligned}
+\cV_s(A')={}&-\ip{\bH(s)\mathcal D_s(A')}{J}-\ip{DA'}{D\bH(s)\mathcal D_s(A')}\\
+&+\tfrac12\ip{D\bH(s)\mathcal D_s(A')}{D\bH(s)\mathcal D_s(A')}+\mathcal N\big(A'-\bH(s)\mathcal D_s(A')\big),
+\end{aligned}
+\]
+with $J=J_{U_0}$ and $\mathcal N$ as in Proposition~\ref{prop:action}. At $s=1$ this is the functional $\cV$ of Section~\ref{sec:var-solution}. Write $A=A'-\bH(s)\mathcal D_s(A')$ and $d\mathcal D_s=d\mathcal D_s(A')$. Using $J=D^T\mathsf F$ (Lemma~\ref{lem:current}(a)), the gradient is
+\begin{equation}\label{eq:gradV-s}
+\nabla\cV_s(A')=n_0(A')+D^Tn_2(A'),
+\end{equation}
+where
+\[
+\begin{aligned}
+n_2(A')&=-D\bH(s)\mathcal D_s(A'),\\
+n_0(A')&=-d\mathcal D_s^T(D\bH(s))^T\big(DA'-D\bH(s)\mathcal D_s(A')+\mathsf F\big)+\nabla\mathcal N(A)-d\mathcal D_s^T\bH(s)^T\nabla\mathcal N(A).
+\end{aligned}
+\]
+This is the gradient formula of Lemma~\ref{lem:V-bounds}, term by term. There are three differences. $D^TD\bH\mathcal D$ is kept as $D^T(D\bH\mathcal D)$; $\bH^TD^T$ is written as $(D\bH)^T$; and $\bH^TJ$ is written as $(D\bH)^T\mathsf F$.
+
+\paragraph{The map.} For a coarse field $B$, put
+\begin{equation}\label{eq:Ts}
+\mathcal T_s(A_1)=-\bC(s)\,\nabla\cV_s\big(A_1+\bH(s)B\big),
+\end{equation}
+on fine fields $A_1$ on $\Tf$, without the constraint $A_1\in\cX$. Given a fixed point $A_1$, put
+\[
+A'_s=A_1+\bH(s)B,\qquad A_*(s;B)=A'_s-\bH(s)\mathcal D_s(A'_s).
+\]
+Compared with \eqref{eq:fixed-point}, the source $J$ is missing. At a critical reference and $s=1$ this changes nothing, because $\bC J=0$ there (Theorem~\ref{thm:weak-bg}(c)).
+
+\subsection{Bounds}
+
+\begin{lemma}[Linear inputs]\label{lem:weak-bg-linear}
+For $s\in\mathbb D_\kappa$:
+\begin{enumerate}[label=(\alph*)]
+\item $|\bC(s)f|_*\le C_P|f|_\infty$ and $|\bC(s)D^Tg|_*\le C_P|g|_{(2)}$;
+\item $|\bH(s)\omega|_*\le C_P|\omega|_\infty$ and $|D\bH(s)\omega|_{(2)}\le C_P|\omega|_\infty$;
+\item $|\bH(s)^Tf|_\infty\le C_P|f|_\infty$ and $|(D\bH(s))^Tg|_\infty\le C_P|g|_\infty$ for fine fields $f$ and $2$-forms $g$.
+\end{enumerate}
+
+\end{lemma}
+
+\begin{proof}
+(a) and the first part of (b) are Theorem~\ref{thm:HC-pointwise}, summed over $y'$. Its kernel $e^{-\gamma|y-y'|}$ has $\sum_{y'}e^{-\gamma|y-y'|}=S_\gamma$. For the second part of (b), write $D\bH(s)\omega=D\bG(s)\bQ^T\boldsymbol\Gamma(s)\omega$. Here $\bQ^T\boldsymbol\Gamma(s)$ maps coarse fields to bounded fine fields, i.e.\ to tier $1$. Theorem~\ref{thm:tier-walk}(a) gives $D\bG(s)\colon1\to2$ in a global tier norm, which is the bound in $|\cdot|_{(2)}$. For (c), the values of a coarse field on the bonds starting at $y$ are bounded by its block norm there. Then
+\[
+\|\one_y\bH(s)^Tf\|\le\sum_{y'}\|\one_y\bH(s)^T\one_{y'}\|\,\|f\|_{B(y')}\le C|\bH(s)|_\gamma\,|f|_\infty ,
+\]
+because blocks have volume $1$ and fields have at most $C$ components and the decay norm $|\cdot|_\gamma$ is invariant under transposition. Finally $|\bH(s)|_\gamma+|D\bH(s)|_\gamma\le2^d\|\bH\|^D_{\kappa,\gamma}$ (Lemma~\ref{lem:weak-basic}(a)), and $\|\bH\|^D_{\kappa,\gamma}$ is finite, since $\bH(s)=\bG(s)\bQ^T\boldsymbol\Gamma(s)$ is a product of the output of Theorem~\ref{thm:weak-inverse}(a) at level (L3), the local factor $\bQ^T$ and the output at level (L4) (Lemmas~\ref{lem:weak-local-ops}(a) and~\ref{lem:weak-chain}).
+\end{proof}
+
+\begin{lemma}[The weakened linearizing map]\label{lem:Ds}
+There is $r_P>0$, depending on the constants $C_P$, with the following property. For $s\in\mathbb D_\kappa$ and complex $A'$ with $|A'|_\infty\le r\le r_P$, equation \eqref{eq:Ds} has a unique solution $\mathcal D_s(A')$ in $\{|X|_\infty\le r_P\}$. It is analytic in $(s,A')$ for $s$ in the interior of $\mathbb D_\kappa$, and
+\[
+|\mathcal D_s(A')|_\infty\le C_Pr^2,\qquad|d\mathcal D_s(A')^T\omega|_\infty\le C_Pr\,|\omega|_\infty .
+\]
+\end{lemma}
+
+\begin{proof}
+Let $K_H$ be the constant of Lemma~\ref{lem:weak-bg-linear}(b), so that $|\bH(s)X|_*\le K_H|X|_\infty$. For $|X|_\infty,|X'|_\infty\le r_P$, Proposition~\ref{prop:Q-expansion}(b) gives, with $|A'-\bH(s)X|_\infty\le(1+K_H)r_P$,
+\[
+\begin{aligned}
+&|C_k(A'-\bH(s)X)|_\infty\le C(1+K_H)^2r_P^2,\\
+&|C_k(A'-\bH(s)X)-C_k(A'-\bH(s)X')|_\infty\le2C(1+K_H)r_PK_H|X-X'|_\infty .
+\end{aligned}
+\]
+For $r_P$ small, the map is a contraction of the ball into itself, and $(1+K_H)r_P\le c_3$. The fixed point is analytic, since the map is analytic and the contraction is uniform. Inserting $|A'|_\infty\le r$ into the first bound gives $|X|\le C(r+K_H|X|)^2$, hence $|X|\le C_Pr^2$. Differentiating \eqref{eq:Ds} gives $d\mathcal D_s=(I+dC_k(A)\bH(s))^{-1}dC_k(A)$, hence
+\[
+d\mathcal D_s^T=dC_k(A)^T\big(I+\bH(s)^TdC_k(A)^T\big)^{-1}.
+\]
+By Proposition~\ref{prop:Q-expansion}(c), $|dC_k(A)^T\omega|_\infty\le C|A|_\infty|\omega|_\infty$. By Lemma~\ref{lem:weak-bg-linear}(c), the operator norm of $\bH(s)^TdC_k(A)^T$ on coarse sup norms is at most $C_PC(1+K_H)r_P$, which is $\le\frac12$ for $r_P$ small. The Neumann series gives the bound.
+\end{proof}
+
+\begin{lemma}[The gradient]\label{lem:gradV-s}
+There are $r_P'>0$ and $C_P$ such that for $s\in\mathbb D_\kappa$ and complex $A'$ with $|A'|_{C^1}\le r\le2r'_P$,
+\[
+|n_0(A')|_\infty\le C_P(\eps+r)r,\qquad|n_2(A')|_{(2)}\le C_Pr^2 .
+\]
+For $|A'|_{C^1},|\tilde A'|_{C^1}\le r\le r'_P$,
+\[
+|n_0(A')-n_0(\tilde A')|_\infty\le C_P(\eps+r)|A'-\tilde A'|_{C^1},\qquad|n_2(A')-n_2(\tilde A')|_{(2)}\le C_Pr|A'-\tilde A'|_{C^1} .
+\]
+\end{lemma}
+
+\begin{proof}
+Choose $r'_P\le r_P/2$ with $4r'_P\le c_5$ and $2K_HC_Pr'_P\le1$. By Lemma~\ref{lem:Ds}, $|\mathcal D_s|\le C_Pr^2$. So $|A|_{C^1}\le r+K_HC_Pr^2\le2r$, by Lemma~\ref{lem:weak-bg-linear}(b) and $|\cdot|_{C^1}\le|\cdot|_*$. By Lemma~\ref{lem:weak-bg-linear}(b), $|n_2|_{(2)}\le C_P|\mathcal D_s|_\infty\le C_Pr^2$. The terms of $n_0$ are bounded as follows:
+\begin{itemize}
+\item $|DA'|_\infty\le C|A'|_{C^1}$, $|D\bH(s)\mathcal D_s|_\infty\le C_Pr^2$, and $|\mathsf F|_\infty\le C\eps$ by regularity of $U_0$. Lemma~\ref{lem:weak-bg-linear}(c) and Lemma~\ref{lem:Ds} then bound the first term by $C_Pr(r+\eps)$.
+\item $|\nabla\mathcal N(A)|_\infty\le C(\eps+2r)2r$, by Proposition~\ref{prop:action}(a), for $2r\le c_5$.
+\item The last term is bounded by $C_Pr\cdot C_P(\eps+2r)2r$.
+\end{itemize}
+These bounds hold on the complex ball $|A'|_{C^1}\le2r'_P$, and $n_0$, $n_2$ are analytic there. The Lipschitz bounds follow from the Cauchy estimate in the direction $A'-\tilde A'$, as in the proof of Lemma~\ref{lem:V-bounds}(a).
+\end{proof}
+
+Only $|A'|_{C^1}$ enters, not the H\"older quotients of $\nabla A'$. The sources of $\bC(s)$ are bounded, and those of $\bC(s)D^T$ are $2$-forms of the form $D\bH(s)\omega$. The regularity of the output comes entirely from Lemma~\ref{lem:weak-bg-linear}(a).
+
+\subsection{The theorem}
+
+\begin{theorem}[Weakened background map]\label{thm:weak-bg}
+There are $\eps_P,\varrho_P>0$ and $C_P$, depending on $\kappa,\delta,L,M,\rho,\alpha$, such that, with $R_P=\varrho_P/K_H$, the following holds for $\eps\le\eps_P$, every reference $U_0$ as in the setting, and every complex coarse field $B$ with $|B|_\infty\le R_P$.
+\begin{enumerate}[label=(\alph*)]
+\item \emph{(Existence and bounds.)} For every $s\in\mathbb D_\kappa$, $\mathcal T_s$ has a unique fixed point $A_1(s;B)$ in $\{|A_1|_*\le\varrho_P\}$. With $A_*(s;B)$ as above,
+\[
+|A_1(s;B)|_*\le C_P(\eps+|B|_\infty)|B|_\infty,\qquad|A_*(s;B)|_*\le C_P|B|_\infty,\qquad A_*(s;0)=0 .
+\]
+\item \emph{(Analyticity.)} $A_*(s;B)$ is analytic in $(s,B)$ for $s$ in the interior of $\mathbb D_\kappa$ and $|B|_\infty<R_P$, continuous up to the boundary, and real for real $s$, $B$.
+\item \emph{(Identification.)} If $U_0$ is critical, i.e.\ $U_0=U_k(V)$ as in Corollary~\ref{cor:analytic}, then $A_*(1;B)=A_*(B)$ for $|B|_\infty\le\min(R_P,\beta_V)$, real or complex. Here $\beta_V$ is the radius of Corollary~\ref{cor:analytic} and Proposition~\ref{prop:contraction}, i.e.\ $\eps+\beta_V\le\min(c_6,c_7)$.
+\item \emph{(Factorization.)} Let $Z$ be a union of boxes with $*$-components $Z_i$, and let $s_\Box=0$ for all $\Box\not\subset Z$. Then $A_*(s;B)$ vanishes outside $Z^{(r)}$. On $Z_i^{(r)}$ it depends only on $B$ on the coarse bonds of $Z_i^{(r)}$, on $U_0$ on $Z_i^{(r+1)}$, and on the weakening parameters only through $s_\Box$, $\Box\subset Z_i$. Here $r\le M/16$ is the largest margin of the weakened families $\bC$, $\bH$, $D\bH$ and their transposes, including the range added by local factors (Lemma~\ref{lem:weak-local-ops}(a)).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{(a)} Let $b=|B|_\infty\le R_P$ and $|A_1|_*\le\varrho_P$. Then $r:=|A'|_*\le|A_1|_*+K_Hb\le2\varrho_P$. By \eqref{eq:gradV-s}, Lemma~\ref{lem:weak-bg-linear}(a) and Lemma~\ref{lem:gradV-s}, with $2\varrho_P\le r'_P$,
+\[
+|\mathcal T_s(A_1)|_*\le C_P|n_0|_\infty+C_P|n_2|_{(2)}\le C_P(\eps+r)r,\qquad|\mathcal T_s(A_1)-\mathcal T_s(\tilde A_1)|_*\le C_P(\eps+2\varrho_P)|A_1-\tilde A_1|_* .
+\]
+Choose $\eps_P$, $\varrho_P$ with $4C_P(\eps_P+2\varrho_P)\le1$ and $C(\eps_P+R_P)\le K_H$, with $C$ the constant of the estimate in (c). The threshold $\eps_P$ also contains the smallness conditions on $\eps$ of the inputs: $\eps\le c_5$ (Proposition~\ref{prop:action}), $a\le c_3$ (Proposition~\ref{prop:Q-expansion}), the condition ``$\eps$ small depending on $M$'' of Section~\ref{sec:nested-walks}, and the thresholds of Sections~\ref{sec:interior} and~\ref{sec:interior-lp}. Then $\mathcal T_s$ maps the ball $\{|A_1|_*\le\varrho_P\}$ into itself and is a contraction with constant $\frac14$. At the fixed point, $|A_1|_*\le\frac14(|A_1|_*+K_Hb)$, so $|A_1|_*\le K_Hb$ and $r\le2K_Hb$. Inserting this once more gives $|A_1|_*\le C_P(\eps+2K_Hb)2K_Hb\le C_P(\eps+b)b$. Next, $|A_*|_*\le|A'_s|_*+K_H|\mathcal D_s(A'_s)|_\infty\le C_Pb$. For $B=0$:
+\begin{itemize}
+\item $\mathcal D_s(0)=0$, since $X=0$ solves \eqref{eq:Ds} and the solution is unique;
+\item $\nabla\mathcal N(0)=0$;
+\item every term of $n_0(0)$ and $n_2(0)$ contains $\mathcal D_s(0)$, $d\mathcal D_s(0)=dC_k(0)\cdots=0$ or $\nabla\mathcal N(0)$.
+\end{itemize}
+So $\mathcal T_s(0)=0$, and the fixed point is $0$.
+
+\emph{(b)} $\mathcal T_s(A_1)$ is analytic in $(s,A_1,B)$. The weakened operators are analytic in $s$ in the interior of $\mathbb D_\kappa$, and bounded uniformly on $\mathbb D_\kappa$ (Lemma~\ref{lem:weak-basic}(a)). $\mathcal D_s$ is analytic by Lemma~\ref{lem:Ds}. The functions $\nabla\mathcal N$ and $C_k$ are analytic. The iterates $\mathcal T_s^m(0)$ are therefore analytic, and they converge uniformly. For real $s$ and $B$ every term of the weakened families is a real operator, so the iterates are real.
+
+\emph{(c)} At $s=1$, the weakened families represent the operators of Part~V: $\bC(1)=\bC$ by \eqref{eq:C-identity}, and $\bH(1)=\bH$. Hence $\mathcal D_1=\mathcal D$ and $\nabla\cV_1=\nabla\cV$. By Lemma~\ref{lem:Ds} with the ball $|X|\le r_P$, $\mathcal D_1=\mathcal D$. Since $U_0$ is critical, $A_*(0)=0$. At $B=0$ this forces the fixed point $A_{1,*}$ of Proposition~\ref{prop:contraction} to vanish: $A_{1,*}=\bH\mathcal D(A_{1,*})$ and $\bQ A_{1,*}=0$ give $\mathcal D(A_{1,*})=0$. Hence $0=\mathcal T(0)=-\bC(J+\nabla\cV(0))=-\bC J$. So $\mathcal T_1$ coincides with the map $\mathcal T$ of \eqref{eq:fixed-point}. Let $B$ be real with $|B|_\infty\le\min(R_P,\beta_V)$, and let $A_{1,*}$ be the fixed point of Proposition~\ref{prop:contraction}. The estimate in its proof, now without the term $C_C\eps$ that came from $\bC J$, gives $|A_{1,*}|_{C^1}\le C(\eps+b)b\le K_Hb$. By Lemma~\ref{lem:gradV-s}, only $|A'|_{C^1}$ enters the bound for $\mathcal T_1$. So $|A_{1,*}|_*=|\mathcal T_1(A_{1,*})|_*\le C_P(\eps+2K_Hb)2K_Hb\le\varrho_P$. Thus $A_{1,*}$ lies in the ball of (a), and by uniqueness $A_{1,*}=A_1(1;B)$. Then $A_*(1;B)=A_{1,*}+\bH B-\bH\mathcal D(A_{1,*}+\bH B)=A_*(B)$, by the definition of $A_*$ after Proposition~\ref{prop:contraction}. Both sides are analytic in $B$ (Corollary~\ref{cor:analytic} and (b)), so the identity extends to complex $B$.
+
+\emph{(d)} By Lemma~\ref{lem:weak-basic}(b), applied to the weakened families $\bC$, $\bH$ and their transposes and derivatives, the following hold at such $s$:
+\begin{itemize}
+\item each operator vanishes off $Z^{(r)}\times Z^{(r)}$;
+\item it is block diagonal over the $Z_i^{(r)}$;
+\item its block on $Z_i$ depends on $U_0$ only on $Z_i^{(r)}$.
+\end{itemize}
+For $\bH(s)$ and $\bH(s)^T$ the coarse side consists of the bonds in $Z^{(r)}$.
+
+\emph{Locality of the nonlinear maps.}
+\begin{itemize}
+\item $C_k(A)(c)$ depends only on $A$ on the bonds of $S_c=B(c_-)\cup B(c_+)$ (Proposition~\ref{prop:Q-expansion}(a)), and on $U_0$ there (Proposition~\ref{prop:linearized-averages}(d) and Lemma~\ref{lem:one-step-basic}). It vanishes if $A=0$ there, and so does $dC_k(A)(c)$.
+\item $\mathcal N=\sum_pn_p$ is a sum of plaquette terms, each a function of $A$ and $U_0$ on the bonds of $p$, vanishing to second order at $A|_p=0$. So $\nabla\mathcal N(A)(b)$ depends only on $A$ on the plaquettes containing $b$, and vanishes if $A=0$ there.
+\item $\mathsf F$ is local in $U_0$.
+\end{itemize}
+
+\emph{The class preserved by the iteration.} Let $\mathcal K$ be the class of pairs $(A_1,X)$ of fine and coarse fields with the following property. $A_1$ vanishes outside $Z^{(r)}$ and $X$ outside $Z^{(r+1)}$. Here the coarse bonds of a set are the bonds starting in it. $X=\mathcal D_s(A')$ can be non-zero on coarse bonds that end in $Z^{(r)}$ but start outside it, since $C_k(\cdot)(c)$ depends on $S_c$; but $\bH(s)$ sees only the coarse bonds starting in $Z^{(r)}$, by Lemma~\ref{lem:weak-basic}(b). The restrictions to $Z_i^{(r)}$, respectively $Z_i^{(r+1)}$, depend only on $B$ on the coarse bonds of $Z_i^{(r)}$, on $U_0$ on $Z_i^{(r+1)}$, and on $s_\Box$ for $\Box\subset Z_i$. For $B$ this holds because $B$ enters the iterations only through $\bH(s)B$ in $A'_s=A_1+\bH(s)B$, and the block of $\bH(s)$ on $Z_i$ reads only the coarse bonds starting in $Z_i^{(r)}$ (Lemma~\ref{lem:weak-basic}(b)). The blocks of the weakened operators have the last property by Lemma~\ref{lem:weak-basic}(b).
+\begin{itemize}
+\item \emph{The inner iteration.} By the locality just described, the iteration of \eqref{eq:Ds}, started at $0$, stays in $\mathcal K$. The components are at distance at least $M/4-2r-2>2$, so the local maps do not connect them.
+\item \emph{The outer iteration.} The same holds for $n_0$ and $n_2$, including the Neumann series for $d\mathcal D_s^T$, whose terms are products of operators of the class. Finally $\mathcal T_s$ maps into the range of $\bC(s)$. So $\mathcal T_s$ preserves the class.
+\end{itemize}
+The fixed point is the limit of the iterates from $0$, so it lies in the class, and so does $A_*(s;B)$.
+\end{proof}
+
+\subsection{Remarks}
+
+\begin{remark}[Why the current is removed]
+Keep $J$ in \eqref{eq:Ts}, as in \eqref{eq:fixed-point}. At a critical reference $\bC J=0$, but for $s\ne1$ the term $-\bC(s)J=-\bC(s)\bQ^T\omega_0$ does not vanish, so $A_*(s;0)\ne0$. Then the composed activities of Proposition~\ref{prop:composed} do not vanish at $Z=0$. The mixed pieces of the cluster expansion would have a part independent of the fluctuation, which destroys both the bound by $\tau$ and their vanishing at $Z=0$. Nor is the term small in general. At complex references $J$ is not bounded uniformly in $\eta$ (Proposition~\ref{prop:complex-ext}(c)), and the source would have to be read as $-\bC(s)D^TF^s$, with the operator $\bC(s)D^T$ of Theorem~\ref{thm:HC-pointwise}. It is then of order $C_P$ times the current of the real part and the derivatives of the complex part, and $C_P$ grows with $M$, which is chosen after $L$. Removing $J$ is the only change to the equation, and it is invisible at $s=1$.
+\end{remark}
+
+\begin{remark}[References that are not critical]\label{rem:weak-bg-noncritical}
+Parts~(a), (b), (d) hold for every real regular reference. At a non-critical reference the fixed point at $s=1$ is the critical point of $\mathfrak F-\ip{\cdot}{J}$, not of $\mathfrak F$. This is the intended definition. The activities of the next step must be analytic on a domain that contains non-critical configurations. There the step formulas are definitions, and they must contain no source term. There is no linear term in the fluctuation. In the background map, the source $-\bC(s)J$ is removed. The current still enters through $(D\bH(s))^T\mathsf F$ in $n_0$, but only multiplied by $d\mathcal D_s^T=O(|A'|)$. At real critical backgrounds they agree with the renormalization group, which is where they are evaluated (blueprint, Appendix~E, ``Activities away from critical backgrounds''). Complex references, i.e.\ complex perturbations of $U_0$, need the complex versions of the interior estimates. They are treated in Section~\ref{sec:complex-references} (Proposition~\ref{prop:complex-ext}(d)).
+\end{remark}
+
+\begin{remark}[Use in the step]
+In the step, $B=\hat Z(Z)$ with $Z$ the free-bond fluctuation (Lemma~\ref{lem:eliminate}). With the white-noise representation, $Z=g_kC_k^{1/2}(s)\xi$, $|\xi|\le p_{0,k}$.
+\begin{itemize}
+\item \emph{Two radii.} The large radius $R_P$, which does not depend on $g_k$, is used for the Cauchy bounds on the Taylor remainders of order three in $Z$. The small one, $|B|_\infty\le C_PL^dp_{0,k}g_k$, gives $|A_*(s;B)|_*\le C_P^2L^dp_{0,k}g_k$. This is below the budgets $\frac12h_k^{1-\epsilon}$ and $\frac12h_k^{1-2\epsilon}$ of the activity domain D3$'''$ (blueprint, Appendix~F) once $g_*$ is small, using the norm conversion of the setting.
+\item \emph{Factorization.} The local elimination $\hat Z$ has range $2L$ in block units. So, after composition with $\hat Z$, the factorization of Theorem~\ref{thm:weak-bg}(d) requires $M\ge CL$.
+\end{itemize}
+These are the inputs of the localization lemma (Lemma~\ref{lem:localization}) for the interaction pieces and the composed activities (Section~\ref{sec:step-quantities}).
+\end{remark}

@@ -1,0 +1,149 @@
+\section{Configurations and the nonlinear averaging}\label{sec:averaging}
+
+In Parts~I--III the averaging was linear. Ba\l aban's renormalization group uses a nonlinear block averaging of lattice gauge fields \cite{BalAvg}. It is defined one scale at a time, with blocks of $L^d$ points, and the $k$-step averaging is the composition of $k$ one-step averagings. This part develops the nonlinear input of the variational problem:
+\begin{itemize}
+\item the averaging and the regularity of averaged configurations (this section);
+\item the axial gauge and the \emph{gauge-adapted averaging}, whose linearization is the averaging operator to which Parts~II and~III apply (Section~\ref{sec:adapted});
+\item the expansion of the Wilson action (Section~\ref{sec:action});
+\item the axial-to-Landau chart: every real configuration with small curvature and prescribed averages has a representative in Ba\l aban's Landau gauge relative to a regular reference configuration, with bounds (Section~\ref{sec:chart}).
+\end{itemize}
+Part~V uses these results to solve the variational problem relative to a regular reference configuration.
+
+\paragraph{Conventions for Parts IV and V.} We assume $d\ge3$, because the pointwise bounds of Parts~II and~III are used. From now on constants may depend on $L$, in contrast to Parts~I--III. Unless stated otherwise, $C,c>0$ depend only on $d$, $L$, the group $G\subset U(\mathsf N)$, including the radius $c_G$ of its logarithm chart (defined below), the averaging parameter $a$ of Part~I, the H\"older exponent $\alpha$, and the integer $M\ge M_0$ of Part~III, which we fix once and for all; in Part~VI we also assume $M\ge5L$. The letter $a$ also denotes curvature bounds, as in the classes $\mathfrak U_j(a)$ of Definition~\ref{def:curvature}; there it is unrelated to the averaging parameter. All Lie algebra valued fields are measured in the units of the unit lattice $\T$. A configuration on a lattice of spacing $\delta$ is written $X=e^{\ii\delta B}$, and $B$ is called its Lie field.
+
+\subsection{Scales and contours}
+
+For $j=0,\dots,k$ let $\delta_j=L^j\eta$ and $\T^{(j)}=(\delta_j\Z/n\Z)^d$. Thus $\T^{(0)}=\Tf$, $\T^{(k)}=\T$, and $\T^{(j)}\subset\T^{(j-1)}$. For $j\ge1$ and $y\in\T^{(j)}$ the \emph{block}
+\[
+B_j(y)=\{x\in\T^{(j-1)}:\ y_\mu\le x_\mu<y_\mu+\delta_j,\ \mu=1,\dots,d\}
+\]
+has $L^d$ points. The points of $\Tf$ in the scale-$j$ block of $y$ form $B^{(j)}(y)=B_1(B_2(\cdots B_j(y)))$; in particular $B^{(k)}(y)=B(y)$ is the block of Part~I.
+
+For $x\in B_j(y)$ let $\Gamma^j_{y,x}$ be the contour on $\T^{(j-1)}$ from $y$ to $x$ that changes the coordinates in the order $d,d-1,\dots,1$ \cite[(1.7)]{BalPropI}. It stays in $B_j(y)$ and has at most $d(L-1)$ bonds. For a bond $c=(y,y+\delta_je_\mu)$ of $\T^{(j)}$ and $x\in B_j(y)$ put $x(c)=x+\delta_je_\mu\in B_j(c_+)$. Let $[x,x(c)]$ be the straight contour of $L$ bonds and $[c]=[c_-,c_+]$. The contour
+\[
+\Gamma^j_{c,x}=\Gamma^j_{c_-,x}\cup[x,x(c)]\cup\big(\Gamma^j_{c_+,x(c)}\big)^{-1}
+\]
+runs from $c_-$ to $c_+$ through $x$. Its two contour pieces are translates of each other by $\delta_je_\mu$.
+
+\subsection{Configurations, curvature and lattice Stokes}
+
+A \emph{configuration} on $\T^{(j)}$ assigns $Y(b)\in G^c$ to the oriented bonds, with $Y(-b)=Y(b)^{-1}$. It is \emph{real} if it is $G$-valued. Products along contours are written $Y(\Gamma)$. A gauge transformation $g:\T^{(j)}\to G^c$ acts by $Y^g(b)=g(b_-)Y(b)g(b_+)^{-1}$, so that $Y^g(\Gamma)=g(\Gamma_-)Y(\Gamma)g(\Gamma_+)^{-1}$.
+
+For a matrix $h$ with $|h-1|<1$ let $\ell(h)=-\ii\log h$ be the principal logarithm, defined by the power series, so that $e^{\ii\ell(h)}=h$. Norms of matrices are Hilbert--Schmidt norms, as in Part~II. We fix $c_G>0$ so small that $\ell$ maps $\{g\in G:|g-1|\le c_G\}$ into $\mathfrak g$, and $\{g\in G^c:|g-1|\le c_G\}$ into $\mathfrak g^c$; all group elements below satisfy such a bound. The radius $c_G$ depends on the group $G\subset U(\mathsf N)$, not only on $\mathsf N$. For $m\ge7$ the circle $G_m=\{\operatorname{diag}(e^{\ii t},e^{\ii mt}):t\in\R\}\subset U(2)$ contains $g=\operatorname{diag}(e^{2\pi\ii/m},1)$, with $|g-1|=2\sin(\pi/m)<1$ and $\ell(g)=\operatorname{diag}(2\pi/m,0)\notin\mathfrak g_m=\{\operatorname{diag}(s,ms):s\in\R\}$. So every threshold below $c_G$ depends on $G$, including the radius $c_G$ of its logarithm chart, and not only on $\mathsf N$.
+
+\begin{lemma}[Elementary estimates]\label{lem:log-estimates}
+There is $C$, depending only on $\mathsf N$, such that:
+\begin{enumerate}[label=(\alph*)]
+\item For $|X|\le\frac12$: $|e^{\ii X}-1|\le2|X|$. For $|h-1|\le\frac12$: $|\ell(h)|\le2|h-1|$.
+\item For $G$-valued $g_1,\dots,g_m$ with $\sum_i|\ell(g_i)|\le c_G$: $|\ell(g_1\cdots g_m)|\le\sum_i|\ell(g_i)|$. Moreover $\ell(hgh^{-1})=h\ell(g)h^{-1}$ and $\ell(g^{-1})=-\ell(g)$.
+\item For $X_1,\dots,X_m\in\mathfrak g^c$ with $s=\sum_i|X_i|\le\frac14$: $\ell(e^{\ii X_1}\cdots e^{\ii X_m})=\sum_iX_i+\beta$, where $\beta$ is an analytic function of the $X_i$ with $|\beta|\le Cs^2$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) and (c) follow from the power series of $\exp$ and $\log$; (c) is the Baker--Campbell--Hausdorff formula with the elementary bound on its remainder \cite[(30)]{BalAvg}. For (b), the Hilbert--Schmidt inner product defines a bi-invariant Riemannian metric on $U(\mathsf N)$, and the distance from $1$ to $g$ is $|\ell(g)|$ when this is smaller than $\pi$. The triangle inequality and bi-invariance give $\operatorname{dist}(1,g_1\cdots g_m)\le\sum_i\operatorname{dist}(1,g_i)$.
+\end{proof}
+
+A closed contour $\Gamma$ based at $z$ is \emph{spanned by $m$ plaquettes} if, in the groupoid of contours (with backtracking cancelled), $\Gamma=\prod_{i=1}^m\gamma_i(\partial p_i)^{\pm1}\gamma_i^{-1}$ for plaquettes $p_i$ and contours $\gamma_i$ from $z$ to the base point of $p_i$. Then $Y(\Gamma)=\prod_iY(\gamma_i)Y(\partial p_i)^{\pm1}Y(\gamma_i)^{-1}$ for every configuration $Y$.
+
+\begin{lemma}[Lattice Stokes]\label{lem:stokes}
+Let $Y$ be real and let $\Gamma$ be spanned by $p_1,\dots,p_m$ with $\sum_i|\ell(Y(\partial p_i))|\le c_G$. Then $|\ell(Y(\Gamma))|\le\sum_i|\ell(Y(\partial p_i))|$. On the lattice $\T^{(j-1)}$:
+\begin{enumerate}[label=(\roman*)]
+\item the loop $\Gamma^j_{c,x}\cup[c]^{-1}$ is spanned by at most $dL^2$ plaquettes;
+\item for neighbours $x,x'\in B_j(y)$, the loop $\Gamma^j_{y,x}\cup[x,x']\cup(\Gamma^j_{y,x'})^{-1}$ is spanned by at most $dL$ plaquettes;
+\item a closed contour of $m$ bonds contained in a box of side $s$ lattice spacings, at most half the side of the torus, is spanned by at most $dsm$ plaquettes.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+The bound follows from Lemma~\ref{lem:log-estimates}(b). (i) Since $\Gamma^j_{c_+,x(c)}$ is the translate of $\Gamma^j_{c_-,x}$ by $\delta_je_\mu$, the loop bounds the surface swept by $\Gamma^j_{c_-,x}$ under this translation. It consists of at most $d(L-1)\cdot L$ plaquettes. (ii) The two contours agree up to the segment in direction $\nu$, where $x'=x+\delta_{j-1}e_\nu$. After it they run parallel at distance $\delta_{j-1}$, through at most $d(L-1)$ further bonds. (iii) Join every vertex of the contour to its first vertex by the coordinate-ordered path inside the box. Each bond of the contour, together with the two paths to its endpoints, bounds a surface of at most $ds$ plaquettes.
+\end{proof}
+
+\begin{definition}[Curvature and regularity classes]\label{def:curvature}
+For a plaquette $p=p_{\mu\nu}(x)$, $\mu<\nu$, of $\T^{(j)}$ write $Y(\partial p)=Y(b_1)Y(b_2)Y(b_3)^{-1}Y(b_4)^{-1}$ with $b_1=(x,x+\delta_je_\mu)$, $b_2=(x+\delta_je_\mu,x+\delta_je_\mu+\delta_je_\nu)$, $b_3=(x+\delta_je_\nu,x+\delta_je_\mu+\delta_je_\nu)$, $b_4=(x,x+\delta_je_\nu)$. If $|Y(\partial p)-1|\le c_G$, the \emph{curvature} is $F_Y(p)=\delta_j^{-2}\ell(Y(\partial p))$. For $a>0$ let $\mathfrak U_j(a)$ be the set of real configurations on $\T^{(j)}$ with $|F_Y(p)|\le a$ for all plaquettes.
+\end{definition}
+
+The curvature transforms by $F_{Y^g}(p)=g(x)F_Y(p)g(x)^{-1}$, so $\mathfrak U_j(a)$ is invariant under real gauge transformations. The bound $|F_Y|\le a$ is Ba\l aban's condition $|Y(\partial p)-1|\le a\delta_j^2$ up to a factor $1+O(a\delta_j^2)$ \cite[(1.7)]{BalReg}. In unit-lattice units it says that the field strength is at most $a$. For fine configurations we add a condition on the current in Section~\ref{sec:action}.
+
+\subsection{The one-step averaging}
+
+\begin{definition}[Ba\l aban's averaging {\cite[(42)]{BalAvg}}]\label{def:one-step}
+For a configuration $Y$ on $\T^{(j-1)}$ define the configuration $\mathfrak a_j(Y)$ on $\T^{(j)}$ by
+\[
+\mathfrak a_j(Y)(c)=\exp\Big(\ii L^{-d}\sum_{x\in B_j(c_-)}\ell\big(Y(\Gamma^j_{c,x})\,Y([c])^{-1}\big)\Big)\,Y([c]),
+\]
+whenever the logarithms are defined. Put $\mathfrak a^{(0)}=\mathrm{id}$, $\mathfrak a^{(j)}=\mathfrak a_j\circ\mathfrak a^{(j-1)}$, and $U^{(j)}=\mathfrak a^{(j)}(U)$ for configurations $U$ on $\Tf$.
+\end{definition}
+
+Each loop $Y(\Gamma^j_{c,x})Y([c])^{-1}$ is the holonomy of a small loop based at $c_-$. The average of their logarithms corrects the straight-line transport $Y([c])$.
+
+\begin{lemma}[Basic properties]\label{lem:one-step-basic}
+\begin{enumerate}[label=(\alph*)]
+\item If $Y\in\mathfrak U_{j-1}(b)$ with $db\delta_j^2\le c_G$, then $\mathfrak a_j(Y)$ is defined and real, and
+\[
+\big|\ell\big(Y(\Gamma^j_{c,x})Y([c])^{-1}\big)\big|\le db\delta_j^2 .
+\]
+\item \emph{(Covariance.)} For every real gauge transformation $g$ on $\T^{(j-1)}$, $\mathfrak a_j(Y^g)=\mathfrak a_j(Y)^{g|_{\T^{(j)}}}$.
+\item \emph{(Locality.)} $\mathfrak a_j(Y)(c)$ depends only on $Y$ on the bonds of $B_j(c_-)\cup B_j(c_+)$, i.e.\ bonds with both endpoints in this set.
+\end{enumerate}
+Part (b) also holds for $G^c$-valued $g$ close to $1$, whenever all logarithms are defined: $\ell(ghg^{-1})=g\ell(h)g^{-1}$ holds for such $g$ and $h$, by analytic continuation from the real case.
+
+Consequently $\mathfrak a^{(k)}(U^u)=\mathfrak a^{(k)}(U)^{u|_\T}$ for all real gauge transformations $u$ on $\Tf$, and $U^{(k)}(c)$ depends only on $U$ on the bonds of $B(c_-)\cup B(c_+)$.
+\end{lemma}
+
+\begin{proof}
+(a) Lemma~\ref{lem:stokes}(i) gives the bound, since each plaquette contributes at most $b\delta_{j-1}^2$ and $dL^2\delta_{j-1}^2=d\delta_j^2$. The average of elements of $\mathfrak g$ lies in $\mathfrak g$. (b) $Y^g(\Gamma^j_{c,x})Y^g([c])^{-1}=g(c_-)Y(\Gamma^j_{c,x})Y([c])^{-1}g(c_-)^{-1}$, and $\ell$ commutes with conjugation. Hence the exponential is conjugated by $g(c_-)$, and $Y^g([c])=g(c_-)Y([c])g(c_+)^{-1}$. (c) is clear from the definition.
+\end{proof}
+
+The covariance in (b) is with respect to the values of $g$ at the points of the coarse lattice. Exact covariance with respect to an \emph{average} of $g$ cannot be expected. A blockwise rule $\phi$ with $\phi(1)=1$ satisfying $\mathfrak a(Y^g)=\mathfrak a(Y)^{\phi(g)}$ for all $g$ must be a homomorphism from $G^{B_j(y)}$ to $G$. For simple $G$, the nontrivial continuous homomorphisms of this kind are, up to automorphisms, evaluations at a single point. This is why the residual gauge group of the variational problem is
+\[
+\mathfrak G_0=\{u:\Tf\to G:\ u(y)=1\text{ for }y\in\T\},
+\]
+and not the group of transformations with vanishing block averages. Section~\ref{sec:adapted} shows how Ba\l aban nevertheless arrives at an averaging whose linearization is covariant with respect to averaged gauge transformations.
+
+\subsection{Regularity of averaged configurations}
+
+\begin{lemma}[One step]\label{lem:one-step-regularity}
+There are $c_1,C_1>0$ such that, if $Y\in\mathfrak U_{j-1}(b)$ with $b\delta_j^2\le c_1$, then $\mathfrak a_j(Y)\in\mathfrak U_j\big(b(1+C_1b\delta_j^2)\big)$.
+\end{lemma}
+
+\begin{proof}
+Write $\delta=\delta_{j-1}$, $\delta'=\delta_j$. Fix a plaquette $p'$ of $\T^{(j)}$ in the $(\mu,\nu)$-plane with corners $y,\ y_1=y+\delta'e_\mu,\ y_2=y_1+\delta'e_\nu,\ y_3=y+\delta'e_\nu$. The four averaged bonds of $\partial p'$ depend only on $Y$ in the box $R=B_j(\{y,y_1,y_2,y_3\})$. By Lemma~\ref{lem:one-step-basic}(b) and the gauge invariance of $|F|$ we may replace $Y$ by $\tilde Y=Y^v$, where $v$ is a real gauge transformation on $R$ with $\tilde Y(\Gamma'_{y,x})=1$ for all $x\in R$. Here $\Gamma'_{y,x}$ is the coordinate-ordered contour from $y$ to $x$ inside $R$.
+
+\emph{Size of $\tilde Y$.} For a bond $b=(x,x')$ of $R$, the loop $\Gamma'_{y,x}\cup b\cup(\Gamma'_{y,x'})^{-1}$ is spanned by at most $(d+2)L$ plaquettes, as in Lemma~\ref{lem:stokes}(ii). Its holonomy is $\tilde Y(b)$. Hence $\tilde Y(b)=e^{\ii\delta A(b)}$ with $|\delta A(b)|\le(d+2)b\delta\delta'$.
+
+\emph{Averages.} Every contour used for $\partial p'$ has at most $3dL$ bonds in $R$, so the sum of $|\delta A|$ along it is at most $\sigma=3d(d+2)b\delta'^2\le\frac14$. By Lemma~\ref{lem:log-estimates}(c), $\ell(\tilde Y(\gamma))=\delta A(\gamma)+O(\sigma^2)$ for each such contour, where $A(\gamma)=\sum_{b\in\gamma}\pm A(b)$ is the signed sum. Therefore
+\[
+\mathfrak a_j(\tilde Y)(c)=\exp\Big(\ii\delta L^{-d}\sum_{x}\big(A(\Gamma^j_{c,x})-A([c])\big)+O(\sigma^2)\Big)e^{\ii\delta A([c])+O(\sigma^2)}=e^{\ii\delta\,\overline{A(\Gamma_{c,\cdot})}+O(\sigma^2)},
+\]
+with $\overline{A(\Gamma_{c,\cdot})}=L^{-d}\sum_{x\in B_j(c_-)}A(\Gamma^j_{c,x})$. Multiplying the four averaged bonds of $\partial p'$, again by Lemma~\ref{lem:log-estimates}(c),
+\[
+\ell\big(\mathfrak a_j(\tilde Y)(\partial p')\big)=\delta L^{-d}\sum_{x\in B_j(y)}\Big(A(\Gamma^j_{c_1,x})+A(\Gamma^j_{c_2,x+\delta'e_\mu})-A(\Gamma^j_{c_3,x+\delta'e_\nu})-A(\Gamma^j_{c_4,x})\Big)+O(\sigma^2),
+\]
+where $c_1=(y,y_1)$, $c_2=(y_1,y_2)$, $c_3=(y_3,y_2)$, $c_4=(y,y_3)$. We used the translation invariance of the contours: $B_j(y_1)=B_j(y)+\delta'e_\mu$ and $\Gamma^j_{y_1,x+\delta'e_\mu}=\Gamma^j_{y,x}+\delta'e_\mu$. In the bracket the pieces $\Gamma^j_{y_i,\cdot}$ cancel in pairs. What remains is $A(\partial S_x)$, where $S_x$ is the square of side $\delta'$ with corner $x$ in the $(\mu,\nu)$-plane. By the abelian Stokes formula $A(\partial S_x)=\sum_{p\subset S_x}A(\partial p)$, a sum over $L^2$ plaquettes. By Lemma~\ref{lem:log-estimates}(c) again, $\delta A(\partial p)=\ell(\tilde Y(\partial p))+O((\delta\delta'b)^2)$, and $|\ell(\tilde Y(\partial p))|\le b\delta^2$. Altogether
+\[
+|\ell(\mathfrak a_j(\tilde Y)(\partial p'))|\le L^2b\delta^2+CL^2(b\delta\delta')^2+C\sigma^2\le b\delta'^2\big(1+C_1b\delta'^2\big).\qedhere
+\]
+\end{proof}
+
+\begin{proposition}[Regularity of averages {\cite[Prop.~2]{BalAvg}}]\label{prop:avg-regular}
+Possibly after decreasing $c_1$, so that $2c_1$ satisfies the hypothesis of Lemma~\ref{lem:one-step-regularity}, for $U\in\mathfrak U_0(a)$ with $a\le c_1$ and all $j\le k$, $U^{(j)}\in\mathfrak U_j(a(1+Ca))\subset\mathfrak U_j(2a)$.
+\end{proposition}
+
+\begin{proof}
+Let $b_0=a$ and $b_j=b_{j-1}(1+C_1b_{j-1}\delta_j^2)$. As long as $b_{i}\le2a$ for $i<j$, Lemma~\ref{lem:one-step-regularity} applies, and
+\[
+b_j\le a\exp\Big(2C_1a\sum_{i\le j}\delta_i^2\Big)\le a\,e^{3C_1a},
+\]
+because $\sum_{i\le k}\delta_i^2\le\sum_{m\ge0}L^{-2m}\le\frac43$. For $a$ small this is at most $a(1+Ca)\le2a$, which closes the induction.
+\end{proof}
+
+The proposition is local: the bound for a plaquette of $\T^{(j)}$ only uses the curvature of $U$ on the scale-$j$ blocks containing its corners. We also need the size of averaged configurations in a gauge in which $U$ is small.
+
+\begin{lemma}[Averages in a local gauge]\label{lem:avg-local-gauge}
+Let $U\in\mathfrak U_0(a)$ with $a\le c_1$. Let $\Lam$ be a union of blocks $B(y)$, and suppose $U=e^{\ii\eta A}$ on the bonds of $\Lam$ with $|A|\le s$, where $s+4da\le\frac12c_G$. Then for every $j$ and every bond $c$ of $\T^{(j)}$ with $B^{(j)}(c_-)\cup B^{(j)}(c_+)\subset\Lam$ we have $U^{(j)}(c)=e^{\ii\delta_jA_j(c)}$ with $|A_j(c)|\le s+4da$.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:one-step-basic}(a) and Proposition~\ref{prop:avg-regular}, the exponent in Definition~\ref{def:one-step} is at most $2da\delta_j^2$. By Lemma~\ref{lem:log-estimates}(b), $|\ell(U^{(j)}(c))|\le2da\delta_j^2+\sum_{b\in[c]}|\ell(U^{(j-1)}(b))|$. The straight contour $[c]$ has $L$ bonds. Hence $\max|A_j|\le\max|A_{j-1}|+2da\delta_j$, and $\sum_j\delta_j\le2$.
+\end{proof}

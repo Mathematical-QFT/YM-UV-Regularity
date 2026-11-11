@@ -1,0 +1,299 @@
+\section{The vacuum polarization at the trivial background}\label{sec:ol-vacpol}
+
+This section reduces the marginal tensor of $\Gamma^{(1)}_k$ to that of a lattice one-loop term in the background Feynman gauge, up to a bounded error. Section~\ref{sec:ol-feynman} computes the latter. Throughout, $d=4$, $U_0=1$, $\eta=L^{-k}$, and the constants of the norm bounds (Lemmas~\ref{lem:ol-kernel-bounds}, \ref{lem:ol-vertex-bounds}, \ref{lem:ol-power-counting} and~\ref{lem:ol-remainders}, Proposition~\ref{prop:ol-reduction}) do not depend on $k$, $\eta$ or the side $n$ of the torus. The kernel decay of the operators in infinite volume (Section~\ref{subsec:ol-infinite-volume}), and the errors $O(|p|^3)$ in Lemmas~\ref{lem:ol-torus-limit} and~\ref{lem:ol-coarse-map}, which are identities at fixed $k$, may depend on $\eta$. We use the units of scale $k$: the fine lattice is $\eta\Z^4$, and the unit lattice is $\Z^4$.
+
+\paragraph{Strategy.} At $U=1$ the operators of Theorem~\ref{thm:ol-chart} commute with the translations of the unit lattice, so the vacuum polarization is a one-loop lattice integral, written in infinite volume with the tools of Section~\ref{subsec:ol-infinite-volume}. The marginal tensor of $\Gamma^{(1)}_k$, a function of the coarse field, is that of a function $\widehat\Gamma$ of the fine field (Lemma~\ref{lem:ol-coarse-map}): $T_{\Gamma^{(1)}_k}=T_{\rm fine}$. The leading part of $\widehat\Gamma$ is the background Feynman-gauge operator $\bL_{\rm F}$ with the fixed mass $m=1$ (Section~\ref{subsec:ol-vp-split}). Its ultraviolet cutoff is the fine spacing $\eta$; in the infrared the mass regularizes it, as the averaging term $a\bQ_k^T\bQ_k$ regularizes $\bL_*$, and at $U=1$ the two operators are $\langle\partial\rangle^2$ and $\bL_a$. Its $p^2$-coefficient grows like $\mathsf b\log(1/\eta)=k\mathsf b\log L$ (Theorem~\ref{thm:ol-log}). The rest is bounded uniformly in $k$: the averaging terms are operators of finite rank per cell (Lemma~\ref{lem:ol-remainders}), the mass term raises the power-counting degree of the $p^2$-coefficient to at least $6$ (Lemma~\ref{lem:ol-power-counting} and the proof of Proposition~\ref{prop:ol-reduction}), and the coarse determinants act on fields with finitely many components per cell. So $T_{\rm fine}=T_{\rm F}+O(1)$ (Proposition~\ref{prop:ol-reduction}), and with Theorem~\ref{thm:ol-log} the coefficient of $T_{\Gamma^{(1)}_k}$ is $k\beta_\infty+O(1)$ (Theorem~\ref{thm:ol-cumulative}).
+
+\subsection{The function and its second variation}\label{subsec:ol-vp-function}
+
+Let $\widehat\Gamma(U)=\widehat\Gamma(U,0)$ be the function of Lemma~\ref{lem:ol-offshell},
+\[
+\widehat\Gamma(U)=-\tfrac12\log\det\bL_*(U)-\tfrac12\log\det\big(\bQ_k\bG_*\bQ_k^T\big)(U)+\log\det\fA'(U)+\tfrac12\log\det M'(U).
+\]
+Here $\bL_*(U)=q_2^0(U)+D_URD_U^T+a\bQ_k^T\bQ_k$, where $q_2^0$ is $q_2$ with the multiplier set to $0$. The function $\widehat\Gamma$ is defined, analytic and gauge invariant on the backgrounds near $1$, critical or not, and its first variation at $U=1$ vanishes (Lemma~\ref{lem:ol-offshell}(a),(b)). By Corollary~\ref{cor:ol-ghost} and Lemma~\ref{lem:ol-offshell}(d), the second variation of $\Gamma^{(1)}_k$ at $V=1$ is that of $V\mapsto\widehat\Gamma(U_k(V))$ plus three terms that come from the multiplier. In infinite volume these terms are of order $|p|^3$ (Lemma~\ref{lem:ol-torus-limit}(c)), so the marginal tensor of $\Gamma^{(1)}_k$ is that of $V\mapsto\widehat\Gamma(U_k(V))$ (Lemma~\ref{lem:ol-coarse-map}).
+
+\paragraph{Infinite volume.} We use the framework of Section~\ref{subsec:ol-infinite-volume}. At $U=1$ every operator below is a local operator of Section~\ref{sec:setup}, an operator of Corollary~\ref{cor:ol-part-one}, a power of $\langle\partial\rangle=(1-\Lap)^{1/2}$ on the fine scalar or gauge fields (Lemma~\ref{lem:ol-bloch}(f)), or a product of such operators. We denote their infinite-volume limits, which lie in the class $\mathscr P$ of periodic kernels with kernel decay, by the same letters; on the torus of side $n\ge8$ the operators are the periodizations of these limits. The Bloch fibres, the trace per cell $\operatorname{Tr}_1$, the norms $\|\cdot\|_r$, H\"older's inequality, the rank bound, the conjugates $O^{(p)}=e^{-\ii p\cdot\hat x}Oe^{\ii p\cdot\hat x}$ and the commutators $[\hat x_\mu,O]$ are those of Lemmas~\ref{lem:ol-bloch} and~\ref{lem:ol-trace-tools}. The position $x(b)$ of a bond $b$ is its initial point $b_-$. Momenta $p\in\R^4$ refer to the unit lattice. For $q\in\R^4$ put $|\hat q|^2=\sum_\mu4\eta^{-2}\sin^2(\eta q_\mu/2)$ and $\langle q\rangle=(1+|\hat q|^2)^{1/2}$. On the fine Brillouin zone $[-\pi/\eta,\pi/\eta]^4$, $\frac2\pi|q|\le|\hat q|\le|q|$ (Lemma~\ref{lem:symbols}(a)), and $\eta\langle q\rangle\le1+2\sqrt d$ for all $q$, since $\eta\le1$ and $|\hat q|\le2\sqrt d/\eta$.
+
+\paragraph{Fourier multipliers.} An operator $O\in\mathscr P$ between spaces of fine scalar or gauge fields that commutes with the translations of $\eta\Z^4$ is a \emph{Fourier multiplier}: $O(e^{\ii q\cdot x}\phi)=e^{\ii q\cdot x}o(q)\phi$ for $q\in\R^4$, with a matrix $o(q)$, its \emph{symbol}. For gauge fields, $e^{\ii q\cdot x}\phi$ with $\phi=(\phi_\mu)$ denotes the field $b\mapsto e^{\ii q\cdot b_-}\phi_\mu$ on the bonds of direction $\mu$. By Fourier analysis on $\eta\Z^4$ (the Fourier transform is unitary from $\ell^2(\eta\Z^4)$ onto $L^2([-\pi/\eta,\pi/\eta]^4)$, and the kernel of $O$ is $(\eta/2\pi)^4\int e^{\ii q\cdot(x-y)}o(q)\,d^4q$; multiplying it by $(x-y)_\mu$ and integrating by parts in $q_\mu$ gives the symbol of $[\hat x_\mu,O]$), $\|O\|=\sup_q\|o(q)\|$; products of multipliers have the products of the symbols as symbols; $\langle\partial\rangle^t$ has the symbol $\langle q\rangle^t$; $O^{(p)}$ has the symbol $o(q+p)$; and $[\hat x_\mu,O]$ has the symbol $\ii\partial_{q_\mu}o(q)$. Hence, if $\|o(q)\|\le C\langle q\rangle^s$ for all $q$, then
+\begin{equation}\label{eq:ol-multiplier-order}
+\|\langle\partial\rangle^{-a}O\langle\partial\rangle^{-b}\|\le C\qquad\text{for all real $a,b$ with $a+b=s$.}
+\end{equation}
+We then say that $O$ has \emph{degree} $s$.
+
+\begin{lemma}[Kernel bounds for the averaging]\label{lem:ol-kernel-bounds}
+Write $(\bQ_k(U)h)(c)=\eta^d\sum_bK_U(c,b)h(b)$ and $(Q'_k(U)\lambda)(y)=\eta^d\sum_xT_U(y,x)\lambda(x)$, as in Propositions~\ref{prop:Q-expansion}(c) and~\ref{prop:linearized-averages}, and let $U=e^{\ii\eta A}$, with a complex fine field $A$.
+\begin{enumerate}[label=(\alph*)]
+\item $K_U(c,b)$ vanishes unless $b$ starts in $S_c=B(c_-)\cup B(c_+)$, and it depends only on the values of $A$ on the bonds of $S_c$, by one formula on all tori of sides $n\ge8$ and on $\eta\Z^4$. It is holomorphic in $A$ for $|A|_\infty<\delta_{AB}$, and bounded by $C$ there. The same holds for $T_U(y,x)$, with $x\in B(y)$ and the bonds of $B(y)$. The nonlinear part $\Cav_k(h)$ relative to $U$ is, at the bond $c$, an analytic function of $h$ and $A$ on the bonds of $S_c$, given by one formula.
+\item The first and second derivatives of $K_U(c,b)$ at $A=0$ in the directions $A_1$, $A_2$ are bounded by $C\prod_i\max_{S_c}|A_i|$, the maximum over the bonds of $S_c$, uniformly in $k$; likewise those of $T_U(y,x)$, with $\max_{B(y)}$.
+\item Let $Z$ map the fine gauge fields to the coarse gauge fields, with $(Zh)(c)=\eta^d\sum_bZ(c,b)h(b)$, where $Z(c,b)=0$ unless $b$ starts in $S_c$, and $|Z(c,b)|\le C'$. Then $\|Z^T\|=\|Z\|\le2dC'$, in the inner products of Section~\ref{sec:setup}. The same holds, with the bound $C'$, for maps from the fine to the coarse scalar fields whose kernels are supported on the pairs $(y,x)$ with $x\in B(y)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:ol-kernel-bounds}
+(a) The supports and the locality are Propositions~\ref{prop:linearized-averages}(d) and~\ref{prop:Q-expansion}(a), which hold at complex references by Proposition~\ref{prop:AB}(iii),(iv). The averaging is composed of the local one-step averages (Lemma~\ref{lem:one-step-basic}(c)), given by the same formula on every torus. Holomorphy and the bounds are Proposition~\ref{prop:AB}(iii),(iv),(vi), at the real reference $U_r=1$, with constants uniform in $k$. The same induction as in the proof of Proposition~\ref{prop:Q-expansion}(a), with the reference as a second argument, shows that $B_k(c)$, hence $\Cav_k(h)(c)$, depends on $(h,A)$ only on the bonds of $S_c$: at scale $j$ the one-step maps use $W_{j-1}$, $W_j$ and the averaged contour variables of $W_{j-1}$ only on the blocks of the bonds involved (Lemma~\ref{lem:one-step-basic}(c)), and these lie in $B^{(j)}(c_-)\cup B^{(j)}(c_+)$. At complex references the same holds by Proposition~\ref{prop:AB}(ii),(iii).
+
+(b) Only the values on $S_c$ enter, so we may replace $A_i$ by $A_i\one_{S_c}$, whose sup norm is $\max_{S_c}|A_i|$. If $\max_{S_c}|A_i|\le1$, the function $(z_1,z_2)\mapsto K_{e^{\ii\eta(z_1A_1+z_2A_2)}}(c,b)$ is holomorphic and bounded by $C$ for $|z_1|+|z_2|<\delta_{AB}$, and Cauchy's estimate bounds its derivatives of orders $1$ and $2$ at $0$. Likewise for $T_U$.
+
+(c) By the Cauchy--Schwarz inequality, $|(Zh)(c)|^2\le\big(\eta^d\sum_{b}|Z(c,b)|^2\big)\|h\|^2_{S_c}\le2dC'^2\|h\|^2_{S_c}$, since $2dN^d$ bonds start in $S_c$. Each fine bond starts in at most $2d$ of the sets $S_c$, so $\sum_c\|h\|^2_{S_c}\le2d\|h\|^2$, and $\|Z\|\le2dC'$. For scalar fields the blocks contain $N^d$ points and partition $\Tf$.
+\end{proof}
+
+\paragraph{Background derivatives.} Let $X(U)$ be a family of operators between field spaces, given on every torus of side $n\ge8$ and analytic in $U=e^{\ii\eta A}$ near $1$. Its \emph{background derivatives} at $U=1$ are the derivatives $\partial_bX$ and $\partial_b\partial_{b'}X$ at $A=0$ with respect to the values $A(b)$ and $A(b')$ on positively oriented bonds; they are linear, respectively bilinear, in the elements of $\mathfrak g^c$ to which they are applied. We call \emph{elementary} the families $D_U$ on scalar fields, the covariant curl $D_U$, $\mathcal F_U=d^2\mathcal N_U(0)$, $\bQ_k(U)$, $Q'_k(U)$, their transposes, and the operators $\mathcal C^c_U$ defined by $\mathcal C_U[\omega]=\sum_c\mathcal C^c_U[\omega(c)]$ (Lemma~\ref{lem:ol-offshell}). They are local: there is an absolute $r_0$ such that, on every torus and on $\eta\Z^4$, the entry of an elementary family at $(s,s')$ vanishes unless $|s-s'|\le r_0$, and it is an analytic function of the values of $A$ on the bonds within distance $r_0$ of $x(s)$, given by one formula for all $n\ge8$. The entries of $\mathcal C^c_U$ vanish unless $s$ and $s'$ start in $S_c$, and they depend only on $A$ on the bonds of $S_c$ (Lemma~\ref{lem:local-inventory}(c), Proposition~\ref{prop:Q-expansion}(a), and the proof of Lemma~\ref{lem:ol-kernel-bounds}(a)). For $D_U$, the curl and $\mathcal F_U$ the entries are polynomials in those of the $U(b)^{\pm1}$ (proof of Lemma~\ref{lem:ol-offshell}(a)); for the other families this is Lemma~\ref{lem:ol-kernel-bounds}(a). So the background derivatives of an elementary family are periodic kernels of finite range, the same on all tori and on $\eta\Z^4$, which vanish unless $s$, $s'$, $b$ and $b'$ lie within distance $2r_0$ of each other.
+
+The operators $\bL_*$, $\bG_*$, $\bQ_k\bG_*\bQ_k^T$ and its inverse, $\fA'$, $G'=\fA'^{-1}$, $M'$, $M'^{-1}$, $P_\cV$ and $R$, the operators $\bL_{\rm F}$, $\fA'_{\rm F}$ of Section~\ref{subsec:ol-vp-split} and their inverses, and the operators $\bL_*(U,\omega)$, $\bG_*(U,\omega)$, $\bQ_k\bG_*(U,\omega)\bQ_k^T$ of Lemma~\ref{lem:ol-offshell}, are obtained from elementary families by finitely many sums, products and inverses. At $U=1$ (and $\omega=0$) each of them is an operator of Corollary~\ref{cor:ol-part-one}, a sum of products of local operators of Section~\ref{sec:setup}, or $\langle\partial\rangle^{\pm2}$, so on the tori it is the periodization of its limit in $\mathscr P$. We call such families \emph{admissible}. By the Leibniz rule and $\partial_b(X^{-1})=-X^{-1}(\partial_bX)X^{-1}$, the background derivatives of an admissible family are finite sums, with a number of terms independent of $n$, of products
+\begin{equation}\label{eq:ol-derivative-products}
+O_0\,L\,O_1\qquad\text{and}\qquad O_0\,L\,O_1\,L'\,O_2 ,
+\end{equation}
+where the $O_i$ are products of values at $U=1$ of admissible and elementary families, and $L$, $L'$ are background derivatives of elementary families: $L=\partial_bE$ and $L'=\partial_{b'}E'$, or $L=\partial_b\partial_{b'}E$ in the first form. The derivatives with respect to the values $\omega(c)$ have the same form, with $\partial_{\omega(c)}\bL_*(U,\omega)=-\mathcal C^c_U$ in place of $L$ or $L'$. On $\eta\Z^4$ the same expressions, with the limits in $\mathscr P$, define $\partial_bX$ and $\partial_b\partial_{b'}X$. By Lemma~\ref{lem:ol-folding}(a), their entries at $(s,s')$ are bounded by $Ce^{-\gamma(|x(s)-b_-|+|b_--x(s')|)}$, respectively by $Ce^{-\gamma(|x(s)-b_-|+|b_--b'_-|+|b'_--x(s')|)}$. So, for bounded fields $A$ and $A'$, the sums
+\[
+\delta X[A]=\sum_b\partial_bX\,A(b),\qquad\delta^2X[A,A']=\sum_{b,b'}\partial_b\partial_{b'}X\,A(b)A'(b')
+\]
+converge absolutely, entrywise, to kernels with kernel decay. They satisfy the Leibniz rule and $\delta(X^{-1})=-X^{-1}(\delta X)X^{-1}$.
+
+\paragraph{The background field.} For $p\in\R^4$ and $\eps\in(\mathfrak g^c)^4$ let $A_{p,\eps}(b)=e^{\ii p\cdot b_-}\eps_\mu$ on the bonds $b$ of direction $\mu$, $\bar\eps=(\eps_\mu^*)$ and $|\eps|=\max_\mu|\eps_\mu|$. Since $\mathfrak g$ consists of Hermitian matrices, $A_{p,\eps}+A_{-p,\bar\eps}$ is real. The \emph{vertices} of an admissible family $X$ are
+\[
+\mathsf V_1(p)=e^{-\ii p\cdot\hat x}\,\delta X[A_{p,\eps}],\qquad\mathsf V_1(-p)=e^{\ii p\cdot\hat x}\,\delta X[A_{-p,\bar\eps}],\qquad\mathsf V_2(p)=\delta^2X[A_{-p,\bar\eps},A_{p,\eps}],
+\]
+where $\hat x$ is the position on the target space of $X$; so $\mathsf V_1(-p)$ is formed with $\bar\eps$. We write $\mathsf V_i^X$ when the family must be named. Since $A_{p,\eps}(b+a)=e^{\ii p\cdot a}A_{p,\eps}(b)$ for $a\in\Z^4$, the vertices are periodic, so they lie in $\mathscr P$. Their entries are absolutely convergent sums of the entries of $\partial_bX$ and $\partial_b\partial_{b'}X$ times phases $e^{\pm\ii p\cdot(b_--x(s))}$. So they are analytic in $p$, in the norm of operators, and their $p$-derivatives have the same form, with polynomial factors. By the Leibniz rule,
+\[
+\mathsf V_1^{YZ}(p)=\mathsf V_1^Y(p)Z+Y^{(p)}\mathsf V_1^Z(p),\qquad\mathsf V_1^{Y^{-1}}(p)=-(Y^{-1})^{(p)}\mathsf V_1^Y(p)Y^{-1},
+\]
+and similarly for $\mathsf V_2$. For an admissible family $X$ whose inverse is admissible put, with $X=X(1)$,
+\begin{equation}\label{eq:ol-second-variation}
+S_X(p)=\operatorname{Tr}_1\big(X^{-1}\mathsf V_2(p)\big)-\operatorname{Tr}_1\big(X^{-1}\mathsf V_1(-p)^{(p)}(X^{-1})^{(p)}\mathsf V_1(p)\big).
+\end{equation}
+By Lemma~\ref{lem:ol-torus-limit}(a) below, this is the second variation of $\log\det X$ per unit cell in the directions $A_{-p,\bar\eps}$ and $A_{p,\eps}$. Its $p^2$-coefficient is obtained by differentiating twice in $p$ at $p=0$. Each derivative falls on a vertex or produces a commutator with $\hat x$, since $\partial_p(O^{(p)})=-\ii[\hat x,O^{(p)}]$ and $[\hat x_\mu,X^{-1}]=X^{-1}[X,\hat x_\mu]X^{-1}$ (Lemma~\ref{lem:ol-trace-tools}(d)).
+
+\begin{lemma}[The infinite-volume limit at the trivial background]\label{lem:ol-torus-limit}
+Let $\mathfrak N$ be the set of the sides $n\ge8$ of the tori on which $\Gamma^{(1)}_k$ is defined (Section~\ref{sec:ol-composite}); it contains all large $n$. Kernels are taken with respect to the unweighted pairings $\sum_b\operatorname{tr}(A(b)A'(b))$ over the positively oriented fine, respectively coarse, bonds (on the coarse lattice this is the trace pairing of Section~\ref{sec:action}), and the Lie algebra indices are suppressed as in Definition~\ref{def:marginal-tensor}.
+\begin{enumerate}[label=(\alph*)]
+\item Let $X$ be an admissible family whose inverse is admissible. The kernels of the second variations at $U=1$ of $\log\det X$ on the tori of the sides $n\in\mathfrak N$ converge with uniform decay (Lemma~\ref{lem:ol-folding}(e)) to a periodic kernel $\Pi_X$ on the bonds of $\eta\Z^4$ with kernel decay. For $p\in\R^4$,
+\[
+\sum_b\sum_{b'}\Pi_X(b,b')\operatorname{tr}\big(A_{-p,\bar\eps}(b)A_{p,\eps}(b')\big)=S_X(p),
+\]
+where the first sum runs over the positively oriented bonds $b$ with $x(b)$ in a cell.
+\item The second variations of $\widehat\Gamma$ at $U=1$ converge with uniform decay to the real symmetric periodic kernel $\Pi=-\frac12\Pi_{\bL_*}-\frac12\Pi_{\bQ_k\bG_*\bQ_k^T}+\Pi_{\fA'}+\frac12\Pi_{M'}$, which has kernel decay. It annihilates the gradients $d\lambda$ of the scalar fields $\lambda$ of polynomial growth, in particular the constant fields. The \emph{vacuum polarization} of $\widehat\Gamma$ at $U=1$, its second variation per cell as in (a), is $-\frac12S_{\bL_*}-\frac12S_{\bQ_k\bG_*\bQ_k^T}+S_{\fA'}+\frac12S_{M'}$. The same holds for the function $\widehat\Gamma_{\rm F}$ of Section~\ref{subsec:ol-vp-split}, with the vacuum polarization $-\frac12S_{\bL_{\rm F}}+S_{\fA'_{\rm F}}$.
+\item The second variations of $\Gamma^{(1)}_k$ at $V=1$ on the tori of the sides $n\in\mathfrak N$ converge with uniform decay to $\bH_\infty^{\sf T}\Pi\bH_\infty+\Xi$. Here $\Xi$ is a real symmetric periodic kernel on the bonds of $\Z^4$ with kernel decay, and its Fourier transform, in the convention of Definition~\ref{def:marginal-tensor}, satisfies $\Xi(p)=O(|p|^3)$. In particular $\Gamma^{(1)}_k$ satisfies the assumptions made above Definition~\ref{def:marginal-tensor}, and the hypothesis of Lemma~\ref{lem:ol-symmetry}(c) holds for $\Phi=\Gamma^{(1)}_k$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:ol-torus-limit}
+(a) On the torus of side $n$, the second variation of $\log\det X$ at $U=1$ has the kernel $\operatorname{Tr}(X^{-1}\partial_b\partial_{b'}X)-\operatorname{Tr}(X^{-1}\partial_bX\,X^{-1}\partial_{b'}X)$, with $\operatorname{Tr}$ the trace of operators on the torus. By \eqref{eq:ol-derivative-products} and the cyclicity of the trace, it is a finite sum, with a number of terms independent of $n$, of traces $\operatorname{Tr}(O_0LO_1L')$ and $\operatorname{Tr}(O_0L)$. Here the $O_i$ are periodizations of products of elements of $\mathscr P$; in the first form $L$ is local at $b$ and $L'$ at $b'$, and in the second $L=\partial_b\partial_{b'}E$ is local at both. Written out, each trace is a sum over the sites $s_1,s_2$ within distance $2r_0$ of $b$ and $s_3,s_4$ within distance $2r_0$ of $b'$ of products of entries of the $O_i$ and of $L$ and $L'$ at these sites. The number of these sites is bounded independently of $n$; the entries of $L$ and $L'$ do not depend on $n$; and the entries of the $O_i$ are bounded by $Ce^{-\gamma|s-s'|_n}$ and converge as $n\to\infty$ (Lemma~\ref{lem:ol-folding}(a),(c)). Hence the kernels are bounded by $Ce^{-\gamma|b-b'|_n}$ and converge entrywise: they converge with uniform decay to the kernel $\Pi_X$ given by the same sums with the limits in $\mathscr P$. It is periodic, since its constituents are.
+
+For the second variation per cell, write $\Pi_X(b,b')=\operatorname{Tr}(X^{-1}\partial_b\partial_{b'}X)-\operatorname{Tr}(X^{-1}\partial_bX\,X^{-1}\partial_{b'}X)$ on $\eta\Z^4$, with the background derivatives on $\eta\Z^4$ defined above. The sums over $b$ in the cell, over $b'$ and over the sites of the traces converge absolutely, by the kernel decay. Each summand is invariant under the simultaneous translation of all bonds and sites by $a\in\Z^4$, since the phases of $A_{-p,\bar\eps}(b)$ and $A_{p,\eps}(b')$ cancel. So the sum may be taken over all $b$, with the first site of the trace, the row index of the first factor $X^{-1}$, in the cell $\Sigma_0$. Summing first over $b$ and $b'$ gives the kernels of $\delta X[A_{-p,\bar\eps}]=e^{-\ii p\cdot\hat x}\mathsf V_1(-p)$ and $\delta X[A_{p,\eps}]=e^{\ii p\cdot\hat x}\mathsf V_1(p)$, respectively of $\delta^2X[A_{-p,\bar\eps},A_{p,\eps}]=\mathsf V_2(p)$. The result is $\sum_{s\in\Sigma_0}\operatorname{tr}W(s,s)$, with $W=X^{-1}\mathsf V_2(p)$ and with
+\[
+W=X^{-1}e^{-\ii p\cdot\hat x}\mathsf V_1(-p)X^{-1}e^{\ii p\cdot\hat x}\mathsf V_1(p)=X^{-1}\mathsf V_1(-p)^{(p)}(X^{-1})^{(p)}\mathsf V_1(p),
+\]
+operators in $\mathscr P$. By Lemma~\ref{lem:ol-trace-tools}(a) this is $S_X(p)$.
+
+(b) The convergence and the formula for the vacuum polarization follow from (a), since $\widehat\Gamma$ is the sum of the four terms. On each torus the second variation of the real analytic function $\widehat\Gamma$ is real and symmetric, and so is the limit. On each torus $\widehat\Gamma$ is gauge invariant with vanishing first variation at $1$ (Lemma~\ref{lem:ol-offshell}(a),(b)), so its second variation annihilates the gradients $d\lambda$ (Remark~\ref{rem:marginal-orders}): $\Pi_nd=0$ for the kernels $\Pi_n$ on the tori. The scalar gradient $d$ is local, so $(\Pi_nd)(b,x)$ is a finite sum, which converges to $(\Pi d)(b,x)$; hence $\Pi d=0$, and $\Pi(d\lambda)=(\Pi d)\lambda=0$ for $\lambda$ of polynomial growth, by Lemma~\ref{lem:ol-folding}(a). The constant field with the components $\eps_\mu$ is $d\lambda$ with $\lambda(x)=\eps\cdot x$. For $\widehat\Gamma_{\rm F}$ the same argument applies: it is gauge invariant with vanishing first variation, by the argument of Lemma~\ref{lem:ol-offshell}(a),(b), since $D_U$ and $\mathcal F_U$ are covariant.
+
+(c) Let $n\in\mathfrak N$. By Lemma~\ref{lem:ol-offshell}(d), the second variation of $\Gamma^{(1)}_k$ at $V=1$ has the kernel
+\[
+\bH^{\sf T}\Pi_n\bH+\bD\Pi^{A\omega}_n\bH+\bH^{\sf T}(\Pi^{A\omega}_n)^{\sf T}\bD+\bD\Pi^{\omega\omega}_n\bD,
+\]
+where $\Pi_n$ is the second variation of $\widehat\Gamma$, $\widehat\Gamma_{A\omega}[A,\omega]=\sum_{c,b}\Pi^{A\omega}_n(c,b)\operatorname{tr}(\omega(c)A(b))$ and $\widehat\Gamma_{\omega\omega}[\omega,\omega']=\sum_{c,c'}\Pi^{\omega\omega}_n(c,c')\operatorname{tr}(\omega(c)\omega'(c'))$, all on the torus of side $n$, and $\bD$ is real symmetric. By (b), $\Pi_n\to\Pi$ with uniform decay. The kernels $\Pi^{A\omega}_n$ and $\Pi^{\omega\omega}_n$ are sums of traces as in (a), with the local insertions $-\mathcal C^c_U$ at the coarse bonds $c$, so by the argument of (a) they converge with uniform decay to periodic kernels $\Pi^{A\omega}$ and $\Pi^{\omega\omega}$ with kernel decay. The operators $\bH$ and $\bD$ are the periodizations of $\bH_\infty$ and $\bD\in\mathscr P$ (Proposition~\ref{prop:ol-IM}(a), Corollary~\ref{cor:ol-part-one}), so they converge with uniform decay. By Lemma~\ref{lem:ol-folding}(e), the kernels converge with uniform decay to $\bH_\infty^{\sf T}\Pi\bH_\infty+\Xi$, with
+\[
+\Xi=\bD\Pi^{A\omega}\bH_\infty+\bH_\infty^{\sf T}(\Pi^{A\omega})^{\sf T}\bD+\bD\Pi^{\omega\omega}\bD,
+\]
+which is real, symmetric and periodic, with kernel decay.
+
+For a kernel $Y\in\mathscr P$ on the coarse gauge fields, $Ye_{p,\eps}=e_{p,Y(p)\eps}$, with the fields $e_{p,\eps}$ of Corollary~\ref{cor:ol-umklapp}, since a cell of $\Z^4$ contains one bond of each direction. So $(YY')(p)=Y(p)Y'(p)$, and $Y^{\sf T}(p)=Y(p)^*$ for real $Y$. Hence
+\[
+\Xi(p)=\bD(p)\,(\Pi^{A\omega}\bH_\infty)(p)+(\Pi^{A\omega}\bH_\infty)(p)^*\,\bD(p)+\bD(p)\Pi^{\omega\omega}(p)\bD(p).
+\]
+\begin{itemize}
+\item $\bD(p)=O(|p|^2)$. On every torus $0\le\ip B{\bD B}\le C_D\|\dl B\|^2$ (Proposition~\ref{prop:eff-action-gauge}). By Lemma~\ref{lem:ol-bloch}(e), $0\le\bD\le C_D\dl^*\dl$ on $\ell^2(\Z^4)$, and by Lemma~\ref{lem:ol-bloch}(c) the same holds for the fibres. In the bond-midpoint convention the fibre at $p$ and the Fourier transform at $p$ are conjugate by a diagonal unitary matrix of phases, and the Fourier transform of $\dl^*\dl$ is $|\hat p|^2\delta_{\mu\nu}-\hat p_\mu\hat p_\nu\le|p|^2$, with $\hat p_\mu=2\sin(p_\mu/2)$. So $\|\bD(p)\|\le C_D|p|^2$.
+\item $(\Pi^{A\omega}\bH_\infty)(p)=O(|p|)$. By Lemma~\ref{lem:ol-offshell}(b), $\Pi^{A\omega}_n\,d=0$ on every torus; as in (b), $\Pi^{A\omega}d=0$, and $\Pi^{A\omega}$ annihilates the fine constant fields. By Proposition~\ref{prop:ol-IM}(e), $\bH_\infty$ maps the coarse constant fields to the fine ones, so $(\Pi^{A\omega}\bH_\infty)(0)=0$. The function $(\Pi^{A\omega}\bH_\infty)(p)$ is analytic, by the kernel decay.
+\item $\Pi^{\omega\omega}(p)$ is bounded near $p=0$, by the kernel decay.
+\end{itemize}
+So $\Xi(p)=O(|p|^3)$. Finally, $\Gamma^{(1)}_k$ is real analytic and gauge invariant (Proposition~\ref{prop:ol-laplace}), with vanishing first variation at $1$, and the limit of its second variations is invariant under the translations of $\Z^4$. So the assumptions made above Definition~\ref{def:marginal-tensor} hold, and so does the hypothesis of Lemma~\ref{lem:ol-symmetry}(c).
+\end{proof}
+
+\paragraph{From the coarse field to the fine field.} We use the bond-midpoint convention of Section~\ref{subsec:ol-marginal} for the coarse and for the fine fields, with the fields $e_{q,\eps}$ on the bonds of $\Z^4$ and $e'_{q,\eps}$ on the bonds of $\eta\Z^4$ of Corollary~\ref{cor:ol-umklapp}, $\eps\in\C^4$, and the pairing $(g,f)_1$ over the bonds with base point in a cell of the proof of Lemma~\ref{lem:ol-pullback}. For a periodic kernel $\Pi$ on the fine bonds with kernel decay and $q'-q\in2\pi\Z^4$ let
+\[
+\eps^{\sf T}\Pi(q,q')\eps'=(e'_{-q,\eps},\Pi e'_{q',\eps'})_1 ,
+\]
+so that $\Pi$ couples only momenta with $q'-q\in2\pi\Z^4$. For the second variation $\Pi$ of $\widehat\Gamma$, $\Pi(p,p)$ is the vacuum polarization of Lemma~\ref{lem:ol-torus-limit}(b) in the bond-midpoint convention. In the convention of $A_{p,\eps}$, with the values at the initial points of the bonds, it is $P(p)^*\Pi(p,p)P(p)$, with $P(p)=\operatorname{diag}(e^{-\ii\eta p_\mu/2})$. If $\Pi(p,p)$ vanishes at $p=0$ and has no term linear in $p$, the two have the same terms of order at most $2$ in $p$.
+
+\begin{lemma}[The coarse map]\label{lem:ol-coarse-map}
+Let $\Pi$ be a real symmetric periodic kernel on the bonds of $\eta\Z^4$, with kernel decay, that annihilates the constant fields. Then $\Pi(p,p)$ is real analytic, $\Pi(0,0)=0$, and $\Pi(p,p+2\pi\ell)=O(|p|)$ for every $\ell\in\Z^4$. The kernel $\bH_\infty^{\sf T}\Pi\bH_\infty$ on the bonds of $\Z^4$ is real, symmetric and periodic, with kernel decay, and
+\[
+(\bH_\infty^{\sf T}\Pi\bH_\infty)(p)=\Pi(p,p)+O(|p|^3).
+\]
+If moreover (a) $\Pi(p,p)=O(|p|^2)$, i.e.\ there is no term linear in $p$, then $\Pi(p,p)=T_{\rm fine}(p)+O(|p|^3)$ with a tensor $T_{\rm fine}$, the $p^2$-tensor of $\Pi(p,p)$, and $(\bH_\infty^{\sf T}\Pi\bH_\infty)(p)=T_{\rm fine}(p)+O(|p|^3)$. For the second variation $\Pi$ of $\widehat\Gamma$ at $U=1$ the hypothesis on the constant fields and (a) both hold, and the marginal tensor of $\Gamma^{(1)}_k$ is $T_{\Gamma^{(1)}_k}=T_{\rm fine}$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:ol-coarse-map}
+The analyticity follows from the kernel decay. By Corollary~\ref{cor:ol-umklapp}, which applies to $\bH_\infty$ by Proposition~\ref{prop:ol-IM}(e), $\bH_\infty e_{p,\eps}=\sum_{\ell\in\mathcal L}e'_{p+2\pi\ell,k_\ell(p)\eps}$, a finite sum over $\mathcal L=\{0,\dots,N-1\}^4$, with $k_0(p)=I+O(|p|^2)$ and $k_\ell(p)=O(|p|^2)$ for $\ell\ne0$. Since $\bH_\infty$ is real, $\bH_\infty e_{-p,\eps}=\sum_\ell e'_{-p-2\pi\ell,\overline{k_\ell(p)}\eps}$. By the definition of the Fourier transform, $\eps^{\sf T}(\bH_\infty^{\sf T}\Pi\bH_\infty)(p)\eps'=(\bH_\infty e_{-p,\eps},\Pi\bH_\infty e_{p,\eps'})_1$, so
+\[
+(\bH_\infty^{\sf T}\Pi\bH_\infty)(p)=\sum_{\ell,\ell'\in\mathcal L}k_\ell(p)^*\,\Pi(p+2\pi\ell,p+2\pi\ell')\,k_{\ell'}(p),
+\]
+a finite sum. For a periodic kernel $Y$, $(g,Yf)_1=(Y^{\sf T}g,f)_1$, by the grouping of the proof of Lemma~\ref{lem:ol-folding}(a). Since $\Pi$ is symmetric and annihilates the constant fields $e'_{0,\eps}$, it follows that $\Pi(0,2\pi\ell)=0$ and $\Pi(2\pi\ell,0)=0$ for all $\ell$. So $\Pi(p,p+2\pi\ell)$ and $\Pi(p+2\pi\ell,p)$ are $O(|p|)$, and in particular $\Pi(0,0)=0$. Hence the term $\ell=\ell'=0$ of the sum is $\Pi(p,p)+O(|p|^2)O(|p|)=\Pi(p,p)+O(|p|^3)$, the terms with exactly one of $\ell,\ell'$ equal to $0$ are $O(|p|)O(|p|^2)$, and the terms with $\ell,\ell'\ne0$ are $O(|p|^4)$. This proves the first claim. Under (a), $\Pi(p,p)$ has a term of order $2$, $T_{\rm fine}(p)$, and the second claim follows.
+
+For the second variation $\Pi$ of $\widehat\Gamma$, the kernel is real, symmetric and periodic with kernel decay, and it annihilates the constant fields (Lemma~\ref{lem:ol-torus-limit}(b)); hypothesis (a) holds by the paragraph after this lemma. By Lemma~\ref{lem:ol-torus-limit}(c), $\Pi_{\Gamma^{(1)}_k}(p)=(\bH_\infty^{\sf T}\Pi\bH_\infty)(p)+\Xi(p)=T_{\rm fine}(p)+O(|p|^3)$.
+\end{proof}
+
+Hypothesis (a) holds for the second variation $\Pi$ of $\widehat\Gamma$. The function $\widehat\Gamma$ is invariant under $\mathfrak S_k$ on the real regular backgrounds near $1$: for $r\in\mathfrak S_k$, the operators at $rU$ that enter $\widehat\Gamma$ are conjugate to those at $U$ by the orthogonal maps $r_U$, $r$ and $r_W$ of Proposition~\ref{prop:symmetry}(c). Indeed, $q_2^0(U)$ is the Hessian of $\Phi_U$ at $0$, which is covariant by Proposition~\ref{prop:symmetry}(c)(iii); $D_U$ on scalar fields and $\bQ_k$ are covariant by~(c)(i); and $R$, $\fA'$ and $M'$ by~(c)(ii). Hence $\bL_*$, $\bG_*$ and $\bQ_k\bG_*\bQ_k^T$ are conjugated by $r_U$ and $r_W$, and the four determinants do not change. Only operators that are covariant under all of $\mathfrak S_k$ at curved backgrounds enter; the gauge-field operators of Proposition~\ref{prop:symmetry}(c)(iv), such as $\bH$ and $\bC$, are not used, since they are covariant under reflections only at $U=1$ (Remark~\ref{rem:symmetry-reflections}). So the second variations of $\widehat\Gamma(e^{\ii\eta A})$ at $A=0$ on the tori are invariant under $\mathfrak S_k$, and so is their limit $\Pi$, in particular under the point reflection about a point of $\Z^4$. In the bond-midpoint convention for the fine bonds this gives $\Pi(-p,-p)=\Pi(p,p)$, by the computation in the proof of Lemma~\ref{lem:ol-symmetry}(c). Together with $\Pi(0,0)=0$ (Lemma~\ref{lem:ol-coarse-map}), the term linear in $p$ vanishes. Alternatively, (a) follows from Lemma~\ref{lem:ol-symmetry}(c), whose hypothesis holds by Lemma~\ref{lem:ol-torus-limit}(c): $\Pi_{\Gamma^{(1)}_k}(p)=O(|p|^2)$, and $\Pi(p,p)=\Pi_{\Gamma^{(1)}_k}(p)-\Xi(p)+O(|p|^3)$ by the first part of Lemma~\ref{lem:ol-coarse-map}. In the convention of $A_{p,\eps}$, $\Pi(p,p)$ is multiplied by the phases $e^{\pm\ii\eta(p_\mu-p_\nu)/2}$, which change it only by $O(|p|^3)$. No summability over the Umklapp components is needed: at fixed $\eta$ there are $N^4$ of them, and the conclusion of Lemma~\ref{lem:ol-coarse-map} is an identity at fixed $k$.
+
+\subsection{The splitting}\label{subsec:ol-vp-split}
+
+Write
+\[
+\bL_*=\bL_{\rm F}+\mathbf Y-m^2,\qquad \bL_{\rm F}(U)=D_U^TD_U+D_UD_U^T+\mathcal F_U+m^2,\qquad\mathbf Y=-D_UP_\cV D_U^T+a\bQ_k^T\bQ_k ,
+\]
+with a fixed mass $m=1$. As in Proposition~\ref{prop:hessian}, $D_U$ denotes the covariant curl in the first term and the covariant gradient of scalars in the second. $D_U^TD_U+\mathcal F_U$ is the Hessian of the Wilson action at the background $U$ in the chart $e^{\ii\eta h}U$, with $\mathcal F_U=d^2\mathcal N_U(0)$ and the nonlinear part $\mathcal N_U$ of Proposition~\ref{prop:action}, lattice artefacts included. $D_UD_U^T$ is the Feynman gauge-fixing term, and $D_URD_U^T=D_UD_U^T-D_UP_\cV D_U^T$. At $U=1$ the Hodge identity is exact (Lemma~\ref{lem:hodge}), and $\mathcal F_1=0$ (Proposition~\ref{prop:action}). So $\bL_{\rm F}(1)=-\Lap+m^2=\langle\partial\rangle^2$, and $\bL_*(1)$ is the operator $\bL_a$ of Part~I. In the same way,
+\[
+\fA'=\fA'_{\rm F}+\mathbf Y'-m^2,\qquad\fA'_{\rm F}(U)=D_U^TD_U+m^2,\qquad\mathbf Y'=aQ'^TQ',
+\]
+with $\fA'_{\rm F}(1)=\langle\partial\rangle^2$ on scalar fields. Let
+\[
+\widehat\Gamma_{\rm F}(U)=-\tfrac12\log\det\bL_{\rm F}(U)+\log\det\fA'_{\rm F}(U),
+\]
+the one-loop term of the lattice theory in the background Feynman gauge with mass $m$, and $T_{\rm F}$ the $p^2$-tensor of its vacuum polarization at $U=1$ (Lemma~\ref{lem:ol-torus-limit}(b)).
+
+The vertices of $\bL_{\rm F}$ and $\fA'_{\rm F}$ are local at the fine scale. Their bounds are degree-sharp: each $p$-derivative and each commutator with $\hat x$ gains one factor $\langle\partial\rangle^{-1}$.
+
+\begin{lemma}[The vertices of the Feynman operators]\label{lem:ol-vertex-bounds}
+Let $X\in\{\bL_{\rm F},\fA'_{\rm F}\}$, $p\in\R^4$ with $|p|\le\pi$, and $|\eps|\le1$. Then $X(1)$, $[X(1),\hat x_\mu]$ and the vertices $\mathsf V_1(p)$, $\mathsf V_2(p)$ of $X$ are Fourier multipliers, with the symbols $x(q)=(|\hat q|^2+m^2)\,I$, $-\ii\partial_{q_\mu}x(q)$, $v_1(q;p,\eps)$ and $v_2(q;p,\eps)$.
+\begin{enumerate}[label=(\alph*)]
+\item $v_1(q;0,\eps)=\sum_\mu2\eta^{-1}\sin(\eta q_\mu)\operatorname{ad}\eps_\mu$, acting on each component.
+\item For multi-indices $\alpha,\beta\in\N^4$ with $|\alpha|+|\beta|\le2$, with $C$ depending only on $G$ and $\rho$,
+\[
+|\partial_p^\alpha\partial_q^\beta v_1(q;p,\eps)|\le C\langle q\rangle^{1-|\alpha|-|\beta|},\qquad|\partial_p^\alpha\partial_q^\beta v_2(q;p,\eps)|\le C\langle q\rangle^{-|\alpha|-|\beta|},
+\]
+and $|\partial_q^\beta x(q)|\le C\langle q\rangle^{2-|\beta|}$ for $1\le|\beta|\le2$.
+\end{enumerate}
+Consequently, with $\mathsf D=\partial_p^\alpha\operatorname{ad}_{\hat x}^\beta$, where $\operatorname{ad}_{\hat x}^\beta=\operatorname{ad}_{\hat x_1}^{\beta_1}\cdots\operatorname{ad}_{\hat x_4}^{\beta_4}$ and $\operatorname{ad}_{\hat x_\mu}O=[\hat x_\mu,O]$, the operators $\mathsf D\mathsf V_1(p)$, $\mathsf D\mathsf V_2(p)$ and $\operatorname{ad}_{\hat x}^\beta[X,\hat x_\mu]$ ($|\beta|\le1$) have the degrees $1-|\alpha|-|\beta|$, $-|\alpha|-|\beta|$ and $1-|\beta|$; by \eqref{eq:ol-multiplier-order}, for all real $a$, $b$,
+\begin{equation}\label{eq:ol-vertex-bounds}
+\begin{gathered}
+\|\langle\partial\rangle^{-a}\mathsf D\mathsf V_1(p)\langle\partial\rangle^{-b}\|\le C\quad(a+b=1-|\alpha|-|\beta|),\\
+\|\langle\partial\rangle^{-a}\mathsf D\mathsf V_2(p)\langle\partial\rangle^{-b}\|\le C\quad(a+b=-|\alpha|-|\beta|),\\
+\|\langle\partial\rangle^{-a}\operatorname{ad}_{\hat x}^\beta[X,\hat x_\mu]\langle\partial\rangle^{-b}\|\le C\quad(a+b=1-|\beta|,\ |\beta|\le1).
+\end{gathered}
+\end{equation}
+In particular $\|\mathsf V_1\langle\partial\rangle^{-1}\|+\|\langle\partial\rangle^{-1}\mathsf V_1\|+\|\mathsf V_2\|+\|\partial_p\mathsf V_1\|+\|\langle\partial\rangle\partial_p^2\mathsf V_2\langle\partial\rangle\|+\|[X,\hat x]\langle\partial\rangle^{-1}\|\le C$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:ol-vertex-bounds}
+\emph{Multipliers.} $S$ is invariant under the translations of $\eta\Z^4$, so $D_U$ and $\mathcal F_U$ are covariant under them, and so is $X$. At $U=1$, $X(1)=-\Lap+m^2$ componentwise (Lemma~\ref{lem:hodge}, $\mathcal F_1=0$), whose symbol is $x(q)$; $[X,\hat x_\mu]=-[\hat x_\mu,X]$ has the symbol $-\ii\partial_{q_\mu}x(q)$. For the translation $\tau_a$ by $a\in\eta\Z^4$, $\tau_a\delta X[A]\tau_a^{-1}=\delta X[A(\cdot-a)]$ and $\tau_ae^{-\ii p\cdot\hat x}\tau_a^{-1}=e^{\ii p\cdot a}e^{-\ii p\cdot\hat x}$, while $A_{p,\eps}(b-a)=e^{-\ii p\cdot a}A_{p,\eps}(b)$. The phases cancel, so $\mathsf V_1(p)$ commutes with the translations of $\eta\Z^4$; likewise $\mathsf V_2(p)$. The vertices have finite range, so they are Fourier multipliers.
+
+\emph{Scaling.} By the proof of Lemma~\ref{lem:ol-scaling}, after the positions are rescaled by $\eta^{-1}$, $X(U)$ is $\eta^{-2}$ times the operator $X_{\rm V}(U)$ or $X_{\rm S}(U)$ of Section~\ref{subsec:ol-lattice-integral} on $\Z^4$, with $\mathrm m=m\eta$, and $e^{\ii\eta tA_{p,\eps}}=e^{\ii t\eta A'}$, where $A'$ is the field $A_{\eta p,\eps}$ on the bonds of $\Z^4$. A fine plane wave of momentum $q$ is a plane wave of momentum $\eta q$ on $\Z^4$. Hence
+\[
+v_1(q;p,\eps)=\eta^{-1}w_1(\eta q;\eta p,\eps),\qquad v_2(q;p,\eps)=w_2(\eta q;\eta p,\eps),
+\]
+where $w_1$, $w_2$ are the vertices $v_1^{X_{\rm V}}$, $v_2^{X_{\rm V}}$ or $v_1^{X_{\rm S}}$, $v_2^{X_{\rm S}}$ of Section~\ref{subsec:ol-lattice-integral}. These are trigonometric polynomials in $(Q,P)\in\R^4\times\R^4$, linear, respectively sesquilinear, in $\eps$, and they do not depend on $\eta$.
+
+(a) \emph{First-order gauge covariance.} Let $\eps$ be real, $\lambda(x)=\sum_\mu x_\mu\eps_\mu$, and $u_s=e^{-\ii s\lambda}$. Then $1^{u_s}(b)=e^{-\ii s\lambda(b_-)}e^{\ii s\lambda(b_+)}=e^{\ii\eta A_s(b)}$, with $A_s(b)$ analytic in $s$ and $A_s=sA_{0,\eps}+O(s^2)$ on each bond, since $\lambda(b_+)-\lambda(b_-)=\eta\eps_\mu$ for $b$ of direction $\mu$. The families $D_U$ and $\mathcal F_U$ are covariant, $X(U^u)=R(u)X(U)R(u)^{-1}$, with $R(u)$ acting by $R(u(x(s)))$; for $\mathcal F_U$ this follows from $S(e^{\ii\eta h}U^u)=S(e^{\ii\eta R(u)^{-1}h}U)$, as in the proof of Lemma~\ref{lem:ol-offshell}(a). Every entry of $X(e^{\ii\eta A})$ depends on finitely many values of $A$. So, differentiating $X(1^{u_s})=R(u_s)X(1)R(u_s)^{-1}$ entrywise at $s=0$,
+\[
+\mathsf V_1(0)=\delta X[A_{0,\eps}]=-\ii\big[\operatorname{ad}\lambda(\hat x),X(1)\big]=-\ii\sum_\mu\operatorname{ad}\eps_\mu\,[\hat x_\mu,X(1)],
+\]
+since $X(1)$ acts as the identity on $\mathfrak g^c$. Its symbol is $\sum_\mu\operatorname{ad}\eps_\mu\,\partial_{q_\mu}x(q)$, which is (a). By linearity (a) extends to complex $\eps$. This is consistent with Lemma~\ref{lem:ol-naive-limit}.
+
+(b) For $|\alpha|+|\beta|\ge1$, $\partial_p^\alpha\partial_q^\beta v_1(q;p,\eps)=\eta^{|\alpha|+|\beta|-1}(\partial_P^\alpha\partial_Q^\beta w_1)(\eta q;\eta p,\eps)$, which is bounded by $C\eta^{|\alpha|+|\beta|-1}$, since the derivatives of a trigonometric polynomial are bounded on $\R^8$. As $\eta\le(1+2\sqrt d)\langle q\rangle^{-1}$, this is at most $C\langle q\rangle^{1-|\alpha|-|\beta|}$. For $\alpha=\beta=0$, by (a), $|v_1(q;0,\eps)|\le\sum_\mu|2\eta^{-1}\sin(\eta q_\mu)|\,|\operatorname{ad}\eps_\mu|\le C|\hat q|$, since $|2\sin(2\theta)|\le4|\sin\theta|$, and $|v_1(q;p,\eps)-v_1(q;0,\eps)|\le|p|\sup|\partial_pv_1|\le C\pi$; so $|v_1|\le C\langle q\rangle$. In the same way $|\partial_p^\alpha\partial_q^\beta v_2|\le C\eta^{|\alpha|+|\beta|}\le C\langle q\rangle^{-|\alpha|-|\beta|}$. Finally $\partial_{q_\mu}x(q)=2\eta^{-1}\sin(\eta q_\mu)$, bounded by $2|\hat q_\mu|$, and $\partial_{q_\mu}\partial_{q_\nu}x(q)=2\cos(\eta q_\mu)\delta_{\mu\nu}$. The operator bounds follow from \eqref{eq:ol-multiplier-order}, since $p$-derivatives and commutators with $\hat x$ of multipliers are the multipliers with the derivatives of the symbols (with factors $\ii$).
+\end{proof}
+
+At $U=1$ the vertex $\mathsf V_1(0)$ is thus a commutator with a linear function. There is no term of order $\eta^{-1}$ without a derivative, for instance from the lattice artefacts of $\mathcal F_U$; this is the content of the degree-sharpness of $\mathsf V_1$.
+
+\begin{lemma}[Integrability]\label{lem:ol-integrability}
+$\|\langle\partial\rangle^{-1}\|_r$ is bounded uniformly in $\eta$ if and only if $r>4$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:ol-integrability}
+By Lemma~\ref{lem:ol-trace-tools}(a), $\operatorname{Tr}_1\langle\partial\rangle^{-r}$ is the sum over the cell of the diagonal entries. The cell contains $\eta^{-4}$ fine points, and the diagonal entry of a multiplier with symbol $\langle q\rangle^{-r}$ is $\eta^4\int\langle q\rangle^{-r}d^4q/(2\pi)^4$, the integral over the fine Brillouin zone $[-\pi/\eta,\pi/\eta]^4$. So $\operatorname{Tr}_1\langle\partial\rangle^{-r}$ is the number of components times $\int(1+|\hat q|^2)^{-r/2}\,d^4q/(2\pi)^4$. Here $|\hat q|\ge\frac2\pi|q|$, and $|\hat q|\le|q|$. The integral is bounded uniformly in $\eta$ if and only if $r>4$.
+\end{proof}
+
+\begin{lemma}[Power counting]\label{lem:ol-power-counting}
+Let $F_1,\dots,F_m\in\mathscr B$ be operators between field spaces, with $F_1\cdots F_m$ defined. Let $\langle\partial\rangle$ act on the fine fields as above and as the identity on the coarse fields. Suppose that $F_j=\langle\partial\rangle^{a_j}B_j\langle\partial\rangle^{b_j}$, with $B_j\in\mathscr B$, $\|B_j\|_\infty\le C_0$, and integers $a_j,b_j\le1$, where $a_j=0$ if the target of $F_j$ consists of coarse fields and $b_j=0$ if its source does; and that $b_j+a_{j+1}\le0$ for $1\le j<m$.
+\begin{enumerate}[label=(\alph*)]
+\item Then $\|\langle\partial\rangle^{-a_1}F_1\cdots F_m\langle\partial\rangle^{-b_m}\|_\infty\le C_0^m$.
+\item Let $F_1\cdots F_m$ map a space of fine fields to itself, let $b_m+a_1\le0$, and put $D=-\sum_{j=1}^m(b_j+a_{j+1})$, with $a_{m+1}=a_1$. If $D>4$, then $|\operatorname{Tr}_1(F_1\cdots F_m)|\le C_0^m\max\operatorname{Tr}_1\langle\partial\rangle^{-D}\le K_DC_0^m$, the maximum over the fine field spaces involved, with $K_D$ independent of $\eta$.
+\item Let $F_1\cdots F_m$ map a field space to itself, let $b_m+a_1\le0$, and let some $B_j$ have rank at most $r$ per cell. Then $|\operatorname{Tr}_1(F_1\cdots F_m)|\le rC_0^m$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:ol-power-counting}
+At fixed $\eta$ all operators involved are bounded, and the powers of $\langle\partial\rangle$ lie in $\mathscr P\subset\mathscr B$ (Lemma~\ref{lem:ol-bloch}(f)). (a) We have
+\[
+F_1\cdots F_m=\langle\partial\rangle^{a_1}B_1\langle\partial\rangle^{b_1+a_2}B_2\cdots\langle\partial\rangle^{b_{m-1}+a_m}B_m\langle\partial\rangle^{b_m},
+\]
+and $\|\langle\partial\rangle^{e}\|_\infty\le1$ for $e\le0$.
+
+(b) By the cyclicity of $\operatorname{Tr}_1$ (Lemma~\ref{lem:ol-trace-tools}(a)),
+\[
+\operatorname{Tr}_1(F_1\cdots F_m)=\operatorname{Tr}_1\big(B_1\langle\partial\rangle^{-e_1}B_2\cdots B_m\langle\partial\rangle^{-e_m}\big),
+\]
+with $e_j=-(b_j+a_{j+1})\ge0$ and $\sum_je_j=D$. Apply H\"older's inequality (Lemma~\ref{lem:ol-trace-tools}(b)), with the exponent $\infty$ for the $B_j$ and $D/e_j$ for the factors with $e_j>0$. Since $\|\langle\partial\rangle^{-e_j}\|_{D/e_j}=(\operatorname{Tr}_1\langle\partial\rangle^{-D})^{e_j/D}$, the product of these norms is at most $\max\operatorname{Tr}_1\langle\partial\rangle^{-D}$, which is bounded uniformly in $\eta$ by Lemma~\ref{lem:ol-integrability}, since $D>4$.
+
+(c) By cyclicity, $\operatorname{Tr}_1(F_1\cdots F_m)=\operatorname{Tr}_1(B_jR)$, with $R=\langle\partial\rangle^{b_j}F_{j+1}\cdots F_mF_1\cdots F_{j-1}\langle\partial\rangle^{a_j}$. The exponents of $\langle\partial\rangle$ at the ends of $R$ are $b_j+a_{j+1}\le0$ and $b_{j-1}+a_j\le0$, so $\|R\|_\infty\le C_0^{m-1}$, as in (a). By H\"older's inequality and the rank bound (Lemma~\ref{lem:ol-trace-tools}(b),(c)), $|\operatorname{Tr}_1(B_jR)|\le\|B_j\|_1\|R\|_\infty\le r\|B_j\|_\infty\|R\|_\infty$.
+\end{proof}
+
+\begin{lemma}[Properties of the remainders]\label{lem:ol-remainders}
+Let $|\eps|\le1$, put $\mathsf V_0^X=X(1)$, and let $\mathsf D=\partial_p^\alpha\operatorname{ad}_{\hat x}^\beta$ with $|\alpha|+|\beta|\le2$, the $p$-derivatives taken at $p=0$.
+\begin{enumerate}[label=(\alph*)]
+\item For $X\in\{\mathbf Y,\mathbf Y'\}$ and $i=0,1,2$, the operators $\mathsf D\mathsf V_i^X$ lie in $\mathscr P$, have rank at most $C$ per cell, i.e.\ fibres of rank at most $C$, and norm at most $C$.
+\item For $X\in\{\bQ_k,Q'_k,\bQ_k^T,Q'^T_k,\bQ_k\bG_*\bQ_k^T,M'\}$ and $i=0,1,2$, the operators $\mathsf D\mathsf V_i^X$ lie in $\mathscr P$ and have norm at most $C$. Moreover $\|(\bQ\bG\bQ^*)^{-1}\|+\|M^{-1}\|\le C$.
+\end{enumerate}
+The constants do not depend on $k$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:ol-remainders}
+\emph{Membership in $\mathscr P$.} The values at $U=1$ and the vertices of admissible and elementary families lie in $\mathscr P$, and $\mathscr P$ is closed under sums, products, $O\mapsto O^{(p)}$ and $[\hat x_\mu,\cdot\,]$ (Lemmas~\ref{lem:ol-folding}(a) and~\ref{lem:ol-trace-tools}(d)); the $p$-derivatives of the vertices have kernels of the same form, with polynomial factors. This uses the exponential decay at fixed $\eta$; the bounds below use only the algebra and Part~I.
+
+\emph{The factors.} Write $\mathbf Y=-(D_UG'Q'^T)M'^{-1}(Q'G'D_U^T)+a\bQ_k^T\bQ_k$, with $D_U$ on scalar fields, and $\mathbf Y'=aQ'^TQ'$. We use the following factors at $U=1$ and $p=0$, with $\mathsf D'=\partial_p^{\alpha'}\operatorname{ad}_{\hat x}^{\beta'}$, $|\alpha'|+|\beta'|\le2$.
+\begin{enumerate}[label=(\roman*)]
+\item \emph{Propagators}: $G'$ and $\bG$. By Lemma~\ref{lem:ol-bloch}(g), $\|\langle\partial\rangle G'\langle\partial\rangle\|\le c_0^{-1}$ and $\|\langle\partial\rangle\bG\langle\partial\rangle\|\le c_g^{-1}$.
+\item \emph{Multipliers}: $D$ and $D^T$ on scalar fields, of degree $1$, since the symbol of $D_\mu$ is $\eta^{-1}(e^{\ii\eta q_\mu}-1)$, of modulus $|\hat q_\mu|$. Their operators $\mathsf D'\mathsf V_i$ with $i+|\alpha'|+|\beta'|\ge1$ have degree at most $0$: $\delta D_U[A]\lambda(b)=\ii\operatorname{ad}A(b)\,\lambda(b_+)$ and $\delta^2D_U[A,A']\lambda(b)=-\frac\eta2\{\operatorname{ad}A(b),\operatorname{ad}A'(b)\}\lambda(b_+)$, so $\mathsf V_1^D$ and $\mathsf V_2^D$ are bounded multipliers that do not depend on $p$, and the commutators with $\hat x$ differentiate the symbols, which gives bounded multipliers. Further, the operators $\mathsf D'\mathsf V_i^Y$ and $\mathsf D'[Y,\hat x_\mu]$ of $Y\in\{\fA'_{\rm F},\bL_{\rm F}\}$, of degree at most $1$ by Lemma~\ref{lem:ol-vertex-bounds}.
+\item \emph{Coarse factors}: the operators $\mathsf D'\mathsf V_i$, $i=0,1,2$, of $\bQ_k$, $Q'_k$ and their transposes, and $M^{-1}$. By Lemma~\ref{lem:ol-kernel-bounds}, their kernels have the form of Lemma~\ref{lem:ol-kernel-bounds}(c), with $C'$ independent of $k$: the $p$-derivatives and the commutators with $\hat x$ multiply the kernels by bounded factors such as $(b'_--c_-)^{\alpha'}$ and $(c_--b_-)^{\beta'}$, with $b,b'$ in $S_c$, and the vertices are the derivatives of the kernels in the directions $e^{\ii p\cdot(b'_--c_-)}\eps\one_{S_c}$, of sup norm at most $1$. So they are bounded by $C$. Moreover $M\ge c_{\rm QGQ}^2$ (Lemma~\ref{lem:ol-bloch}(g)).
+\end{enumerate}
+
+\emph{(a)} By the Leibniz rule for the vertices, $\partial_p(O^{(p)})=-\ii[\hat x,O^{(p)}]$, the product rule for $[\hat x_\mu,\cdot\,]$ and $[\hat x_\mu,O^{-1}]=O^{-1}[O,\hat x_\mu]O^{-1}$ (Lemma~\ref{lem:ol-trace-tools}(d)), each operator $\mathsf D\mathsf V_i^{\mathbf Y'}$ is a finite sum of coarse factors and their products, and each operator $\mathsf D\mathsf V_i^{\mathbf Y}$ is a finite sum, with a number of terms independent of $k$, of such products and of products
+\[
+F_0\,G'\,I_1\,G'\,I_2\cdots I_{l-1}\,G'\,F_l .
+\]
+Here every $I_j$ is a single multiplier or a product of coarse factors, possibly empty, and $F_0$, $F_l$ are multipliers derived from $D$, respectively $D^T$. Indeed, the operations act on the factors by the Leibniz rule. On a propagator $G'$ they produce $-G'\mathsf V^{\fA'}_iG'$, $G'[\fA',\hat x_\mu]G'$, or sums of products $G'IG'IG'$ and $G'IG'$, with $\fA'=\fA'_{\rm F}+\mathbf Y'-m^2$, whose vertices and commutators are multipliers or products of coarse factors. On $M'^{-1}$ they produce $-M^{-1}(\mathsf D'\mathsf V_i^{M'})M^{-1}$ and products of such terms, where $M'=Q'G'G'Q'^T$ expands in the same way, $G'G'$ being two propagators with an empty insertion. On the other factors they produce factors of the same kind. Give each $G'$ the exponents $(-1,-1)$; a multiplier of degree $1$ the exponent $1$ on the side of a neighbouring propagator and $0$ on the other side; and all other factors the exponents $(0,0)$. Every multiplier of degree $1$ has a propagator as a neighbour, and no two of them are adjacent. So all gaps $b_j+a_{j+1}$ are at most $0$, and the exponents at the ends are $0$. Lemma~\ref{lem:ol-power-counting}(a) bounds each product by $C$. Every term contains a factor that maps into the coarse fields, namely one of the operators $\mathsf D'\mathsf V_i$ of $Q'$ or of $\bQ_k$, because the operations do not remove these factors. So it factors through the coarse fields, whose cell carries $\dim\mathfrak g$, respectively $d\dim\mathfrak g$, dimensions, and Lemma~\ref{lem:ol-trace-tools}(c) gives the rank bound.
+
+\emph{(b)} For $\bQ_k$, $Q'_k$ and their transposes these are the coarse factors. For $\bQ_k\bG_*\bQ_k^T$ and $M'=Q'G'^2Q'^T$ the same expansion gives products $F_0PI_1P\cdots PF_l$ with propagators $P=\bG$, respectively $P=G'$, insertions $I_j$ that are single multipliers, coarse factors, or operators of (a) for $\mathbf Y$ and $\mathbf Y'$, which enter through $\bL_*=\bL_{\rm F}+\mathbf Y-m^2$ and $\fA'=\fA'_{\rm F}+\mathbf Y'-m^2$, and coarse factors $F_0$, $F_l$; for $M'$ the factor $G'^2$ is two adjacent propagators. The same assignment of exponents and Lemma~\ref{lem:ol-power-counting}(a) bound them by $C$. Finally $\|(\bQ\bG\bQ^*)^{-1}\|\le c_{\rm QGQ}^{-1}$ and $\|M^{-1}\|\le c_{\rm QGQ}^{-2}$, by Lemma~\ref{lem:ol-bloch}(g).
+\end{proof}
+
+So the multiscale structure of the averaging enters only through operators of finite rank per cell, and contributes nothing that grows with $k$.
+
+\subsection{The reduction}\label{subsec:ol-vp-trace}
+
+\begin{proposition}[Reduction to the Feynman part]\label{prop:ol-reduction}
+The $p^2$-tensor of the vacuum polarization of $\widehat\Gamma$ at $U=1$ is $T_{\rm F}+O(1)$, uniformly in $k$: $T_{\rm fine}=T_{\rm F}+O(1)$.
+\end{proposition}
+
+\begin{proof}\hasdetail{prop:ol-reduction}
+In the bond-midpoint convention the vacuum polarizations of $\widehat\Gamma$ and of $\widehat\Gamma_{\rm F}$ vanish at $p=0$, since their kernels annihilate the constant fields (Lemma~\ref{lem:ol-torus-limit}(b)), and they have no term linear in $p$: for $\widehat\Gamma$ by the paragraph after Lemma~\ref{lem:ol-coarse-map}, and for $\widehat\Gamma_{\rm F}$ by Remark~\ref{rem:ol-symmetry} below. So $T_{\rm fine}$ and $T_{\rm F}$ are their terms of order $2$ in $p$ also in the convention of $A_{p,\eps}$, in which Lemma~\ref{lem:ol-torus-limit}(b) gives them. Hence $T_{\rm fine}-T_{\rm F}$ is the term of order $2$ in $p$ of
+\[
+-\tfrac12\big(S_{\bL_*}-S_{\bL_{\rm F}}\big)+\big(S_{\fA'}-S_{\fA'_{\rm F}}\big)-\tfrac12S_{\bQ_k\bG_*\bQ_k^T}+\tfrac12S_{M'},
+\]
+and it suffices to bound the second derivatives of these four terms in $p$ at $p=0$, for $|\eps|\le1$, uniformly in $k$. At fixed $k$ the fibres are finite-dimensional, so $\operatorname{Tr}_1$ is continuous in the norm of operators, and all functions below are smooth in $p$ and $t$; the derivatives may be taken under $\operatorname{Tr}_1$ and under the integral over $t$. Only the values at $p=0$ enter, where $O^{(0)}=O$; so no bound on the conjugates $O^{(p)}$ for $p\ne0$ is needed.
+
+\emph{The differences of determinants.} For $t\in[0,1]$ let
+\[
+X_t=(1-t)\bL_{\rm F}+t\bL_*=\bL_{\rm F}+t(\mathbf Y-m^2),
+\]
+with the vertices $\mathsf V_i^{\bL_{\rm F}}+t\mathsf V_i^{\mathbf Y}$. At $U=1$, $X_0=\langle\partial\rangle^2$, since $m=1$, and $X_1=\bL_a$. So $X_t\ge c_1\langle\partial\rangle^2$, with $c_1=\min(1,c_g)$ (Lemma~\ref{lem:ol-bloch}(g)). Hence $X_t^{-1}\in\mathscr P$ (Lemma~\ref{lem:ol-bloch}(d)), $\|\langle\partial\rangle X_t^{-1}\langle\partial\rangle\|\le c_1^{-1}$, and we let $S_{X_t}$ be the right side of \eqref{eq:ol-second-variation}, with $X_t^{-1}\in\mathscr P$ and the vertices $\mathsf V_i^{\bL_{\rm F}}+t\mathsf V_i^{\mathbf Y}$; it is an expression in infinite volume and is not identified with a limit of tori. Since $\partial_tX_t^{-1}=-X_t^{-1}(\mathbf Y-m^2)X_t^{-1}$ and $\partial_t\mathsf V_i^{X_t}=\mathsf V_i^{\mathbf Y}$,
+\[
+S_{\bL_*}-S_{\bL_{\rm F}}=\int_0^1\partial_tS_{X_t}\,dt,
+\]
+where $\partial_tS_{X_t}(p)$ is obtained from \eqref{eq:ol-second-variation} for $X_t$ by replacing, in all possible ways, one factor $X_t^{-1}$ or $(X_t^{-1})^{(p)}$ by $-X_t^{-1}(\mathbf Y-m^2)X_t^{-1}$ or its conjugate, or one vertex by the corresponding vertex of $\mathbf Y$. Differentiate twice in $p$ at $p=0$, with $\partial_p(O^{(p)})=-\ii[\hat x,O^{(p)}]$, $[\hat x_\mu,X_t^{-1}]=X_t^{-1}[X_t,\hat x_\mu]X_t^{-1}$ and $[X_t,\hat x_\mu]=[\bL_{\rm F},\hat x_\mu]+t[\mathbf Y,\hat x_\mu]$. Every resulting term is a numerical multiple, bounded independently of $k$, of $\operatorname{Tr}_1$ of a cyclic product $P_1I_1P_2I_2\cdots P_lI_l$ with $P_j=X_t^{-1}$, in which every \emph{insertion} $I_j$ is one of
+\begin{enumerate}[label=(\roman*)]
+\item $m^2$, or a multiplier $\mathsf D\mathsf V_i^{\bL_{\rm F}}$ ($i=1,2$) or $\mathsf D[\bL_{\rm F},\hat x_\mu]$, with $\mathsf D$ as in Lemma~\ref{lem:ol-vertex-bounds};
+\item an operator $\mathsf D\mathsf V_i^{\mathbf Y}$, $i=0,1,2$, of Lemma~\ref{lem:ol-remainders}(a);
+\end{enumerate}
+and at least one $I_j$ is $m^2$ or of kind (ii). The number of terms does not depend on $k$. Give each $P_j$ the exponents $(-1,-1)$, $m^2$ and the operators of kind (ii) the exponents $(0,0)$, and a multiplier of degree $s=1,0,-1,-2$ (Lemma~\ref{lem:ol-vertex-bounds}) the exponents $(1,0)$, $(0,0)$, $(0,-1)$, $(-1,-1)$, respectively. All exponents are at most $1$, and every gap is at most $0$. Each insertion of degree $s_j$ contributes $(1-a_j)+(1-b_j)=2-s_j$ to $D$ in Lemma~\ref{lem:ol-power-counting}(b): $D=\sum_j(2-s_j)$.
+
+\emph{Terms with an insertion of kind (ii).} By Lemma~\ref{lem:ol-remainders}(a) it has rank at most $C$ per cell and norm at most $C$. Lemma~\ref{lem:ol-power-counting}(c) bounds the term by $C$.
+
+\emph{The other terms.} Here exactly one insertion is $m^2$, produced by $\partial_t$, and all other insertions are multipliers of kind (i). The second variation \eqref{eq:ol-second-variation} has $D=2$: the tadpole has one insertion $\mathsf V_2$ of degree $0$, and the bubble two insertions $\mathsf V_1$ of degree $1$. The derivative $\partial_t$ adds a propagator and the insertion $m^2$, so $D=4$. Each $p$-derivative either lowers the degree of an insertion by one, by Lemma~\ref{lem:ol-vertex-bounds}, or replaces a propagator $P$ by $P[\bL_{\rm F},\hat x_\mu]P$, which adds an insertion of degree $1$; a second commutator with the same propagator gives $P[\bL_{\rm F},\hat x]P[\bL_{\rm F},\hat x]P$ or $P[\hat x_\nu,[\bL_{\rm F},\hat x_\mu]]P$, with insertions of degree $1$ and $0$. Either way $D$ grows by at least one per derivative. So $D\ge6$, and Lemma~\ref{lem:ol-power-counting}(b) bounds the term by $C$. Five factors would suffice: if the second $p$-derivatives and commutators of $\mathsf V_1$ and the first of $\mathsf V_2$ were only bounded, and the second of $\mathsf V_2$ only of degree $-1$, every term would still have $D\ge5>4$.
+
+The scalar pair is treated in the same way, with $X'_t=\fA'_{\rm F}+t(\mathbf Y'-m^2)$, $X'_0=\langle\partial\rangle^2$, $X'_1=-\Lap+aQ_0^*Q_0\ge c_0\langle\partial\rangle^2$, the vertices of $\fA'_{\rm F}$ (Lemma~\ref{lem:ol-vertex-bounds}) and Lemma~\ref{lem:ol-remainders}(a) for $\mathbf Y'$.
+
+\emph{The coarse determinants.} Let $X\in\{\bQ_k\bG_*\bQ_k^T,M'\}$. At $U=1$, $X^{-1}$ is $(\bQ\bG\bQ^*)^{-1}$ or $M^{-1}$, which lie in $\mathscr P$. The second derivative of $S_X$ at $p=0$ is a finite sum of numerical multiples of $\operatorname{Tr}_1$ of products of $X^{-1}$, of $[\hat x_\mu,X^{-1}]=X^{-1}[X,\hat x_\mu]X^{-1}$ and $[\hat x_\nu,[\hat x_\mu,X^{-1}]]$, and of the operators $\mathsf D\mathsf V_i^X$, $i=0,1,2$. By Lemma~\ref{lem:ol-remainders}(b) all of them are bounded by $C$. They act on the coarse fields, whose cell carries at most $d\dim\mathfrak g$ dimensions, so $|\operatorname{Tr}_1O|\le d\dim\mathfrak g\,\|O\|$ (Lemma~\ref{lem:ol-trace-tools}(c)). Hence these terms are $O(1)$.
+\end{proof}
+
+\begin{remark}[Symmetry]\label{rem:ol-symmetry}
+$\widehat\Gamma_{\rm F}$ is built from the Wilson action and the covariant derivative of scalar fields only: $\bL_{\rm F}=q_2^0+D_UD_U^T+m^2$ and $\fA'_{\rm F}=D_U^TD_U+m^2$, with $D_U$ on scalar fields. The argument of Proposition~\ref{prop:symmetry}(c)(i),(iii) for these two objects uses only $S\circ r=S$ and the definition of $D_U$, so it applies to every lattice symmetry of the fine lattice. Hence $\widehat\Gamma_{\rm F}$ is invariant under the hypercubic symmetries of the fine lattice, and, by the tensor algebra in the proof of Lemma~\ref{lem:ol-symmetry}(c), with the transversality of the kernels given by Lemma~\ref{lem:ol-torus-limit}(b), $T_{\rm F}(p)=\beta_{\rm F}(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$, with no term linear in $p$. The full function $\widehat\Gamma$ is invariant under $\mathfrak S_k$ on the real regular backgrounds near $U=1$, by the paragraph after Lemma~\ref{lem:ol-coarse-map}. By this invariance and the same tensor algebra, the $p^2$-tensor of $\widehat\Gamma$ is isotropic as well, and so is the remainder $O(1)$ of Proposition~\ref{prop:ol-reduction}, the difference of two isotropic tensors. This agrees with Lemma~\ref{lem:ol-symmetry}, which gives the isotropy of $T_{\Gamma^{(1)}_k}$ directly.
+\end{remark}

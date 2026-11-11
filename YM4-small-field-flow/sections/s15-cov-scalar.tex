@@ -1,0 +1,76 @@
+\section{Scalar operators with a background}\label{sec:cov-scalar}
+
+Throughout Sections~\ref{sec:cov-scalar}--\ref{sec:cov-min} we assume (B) with parameter $\eps$, fix $a>0$ and $\alpha\in(0,1)$, and let $C,\gamma$ denote constants depending only on $a,\alpha$, $\dim\mathfrak g$ and, from Section~\ref{sec:cov-gauge} on, the decay rate $\gamma_W>0$ of the potential term $W$. The rate $\gamma_W$ is fixed first. The statement ``for $\eps\le\eps_0$'' means for $\eps$ below a threshold depending on the same quantities. It cannot be chosen uniformly as $\gamma_W\to0$ (Remark~\ref{rem:gammaW}).
+
+The scalar operators are built from
+\[
+\mathfrak A'(U)=D^TD+a\,Q'(U)^TQ'(U),\qquad \mathfrak A'(1)=-\Lap+aQ_0^*Q_0 .
+\]
+At real $U$, $\ip\lambda{\mathfrak A'(U)\lambda}=\|D\lambda\|^2+a\|Q'(U)\lambda\|^2$. This is the operator $\Delta'_a$ of \cite[(3.24)]{BalBackground} on a single torus. Its inverse $G'(U)$ is \cite[$G'$, (3.25)]{BalBackground}.
+
+\begin{theorem}[Scalar operators with a background]\label{thm:cov-scalar}
+For $\eps\le\eps_0$:
+\begin{enumerate}[label=(\alph*)]
+\item $\mathfrak A'(U)=\mathfrak A'(1)+\delta'$, where $\delta'$ is admissible of size $C\eps$ and pointwise admissible of both types with constants $(C\eps,0,1)$. Hence $G'(U)=\mathfrak A'(U)^{-1}$ exists and is analytic in $A$. Moreover $G'$, $DG'$, $G'D^T$, $DG'D^T$ have decay $(C,\gamma)$, and $G'(U)-G_0$ composed with derivatives has decay $(C\eps,\gamma)$.
+\item For $f$ supported in $B(y')$,
+\begin{align*}
+|G'f|_{B(y)}+|\partial G'f|_{B(y)}+\Hol{\partial G'f}{B(y)}&\le Ce^{-\gamma|y-y'|}|f|_{B(y')},\\
+|G'D_\mu^Tf|_{B(y)}+\Hol{G'D_\mu^Tf}{B(y)}&\le Ce^{-\gamma|y-y'|}|f|_{B(y')}.
+\end{align*}
+If $f$ is merely bounded and H\"older, then
+\[
+|\partial G'D^T_\mu f|_{B(y)}+\Hol{\partial G'D^T_\mu f}{B(y)}\le C\sum_{y'}e^{-\gamma|y-y'|}\big(|f|_{\Lam_3(c_{y'})}+\Hol f{\Lam_3(c_{y'})}\big).
+\]
+\item $Q'G'Q'^T$ differs from $Q_0G_0Q_0^*$ by an operator with decay $(C\eps,\gamma)$. Its inverse $\Gamma'(U)$ exists and has decay $(C,\gamma)$.
+\item The minimizer map $H'(U)=G'Q'^T\Gamma'$ satisfies $Q'H'=I$. For real $U$, $H'g$ is the unique minimizer of $\|D\lambda\|^2$ subject to $Q'(U)\lambda=g$. Moreover $|H'g|_{B(y)}+|\partial H'g|_{B(y)}+\Hol{\partial H'g}{B(y)}\le C\sum_{y'}e^{-\gamma|y-y'|}|g(y')|$.
+\item The constrained Green function $C'(U)=G'-H'Q'G'$ satisfies $Q'C'=0=C'Q'^T$. For every $f$, $C'f$ is the unique $\nu\in\cN(Q'(U))$ with $\mathrm b(D\nu',D\nu)=\mathrm b(\nu',f)$ for all $\nu'\in\cN(Q'(U))$. The operators $C'$, $DC'$, $C'D^T$ and $DC'D^T$ have decay $(C,\gamma)$, $C'(U)-C'(1)$ composed with derivatives has decay $(C\eps,\gamma)$, and the pointwise bounds of (b) hold with $G'$ replaced by $C'$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) $\delta'=(D^TD+\Lap)+a(Q'^TQ'-Q_0^*Q_0)$, so Lemma~\ref{lem:blocks}(a),(c) applies. The operator $\mathfrak A'(1)$ satisfies the hypotheses of Lemma~\ref{lem:CT-form} by the proof of Theorem~\ref{thm:scalar-green}. Lemmas~\ref{lem:CT-stable} and~\ref{lem:perturbed-inverse} give the decay statements. Analyticity holds because $\mathfrak A'(U)$ is a polynomial in the entries of $R(e^{\ii\eta A})$, and its inverse exists with a uniform bound on the open set where (B) holds.
+
+(b) Let $u=G'f$. Then $-\Lap u=J-\delta'u-aQ_0^*Q_0u$ with $J=f$. The term $aQ_0^*Q_0u$ is pointwise admissible with constants $(0,C,1)$, and $\|u\|_{B(y)}\le Ce^{-\gamma|y-y'|}\|f\|$ by (a). Lemma~\ref{lem:bootstrap} of type $1$ gives the first bound. For $u=G'D^T_\mu f$ we have $J=\partial^*_\mu f+T^T_\mu f$, with $J_g=fe_\mu$ bounded. Lemma~\ref{lem:bootstrap} of type $0$ applies. For bounded H\"older $f$ that is not localized, split $f=\sum_{y'}\chi_{y'}f$ with a smooth partition of unity $(\chi_{y'})$ subordinate to the cubes $\Lam_1(c_{y'})$, with bounded derivatives. Then $[\chi_{y'}f]_\alpha\le C(|f|+[f]_\alpha)_{\Lam_3(c_{y'})}$. Apply Lemma~\ref{lem:bootstrap} of type $1$ to each piece, with $J_g=\chi_{y'}fe_\mu$, and sum; this explains the $\Lam_3$ norms on the right-hand side.
+
+(c) $Q'G'Q'^T-Q_0G_0Q_0^*=(Q'-Q_0)G'Q'^T+Q_0(G'-G_0)Q'^T+Q_0G_0(Q'^T-Q_0^*)$. By Lemma~\ref{lem:cov-avg}(b) and (a), this has decay $(C\eps,\gamma)$. Since $Q_0G_0Q_0^*\ge c_F$, the bounded version of Lemma~\ref{lem:perturbed-inverse} applies.
+
+(d) $Q'H'=Q'G'Q'^T\Gamma'=I$. For real $U$ the variational characterization is proved exactly as in Lemma~\ref{lem:H-variational}, with $\ip f{\mathfrak A'f}=\|Df\|^2+a\|g\|^2$ on $\{Q'f=g\}$. The pointwise bound follows from (b) applied to $f=Q'^T\Gamma'g$, whose values on $B(y'')$ are bounded by $(1+C\eps)|\Gamma'g(y'')|$, by Lemma~\ref{lem:cov-avg}(a),(b). The factor $1+C\eps$ appears because $R(U(\Gamma))^{-1}$ need not be an isometry for complex $U$.
+
+(e) The identities are algebraic. If $u=C'f$, then $\mathfrak A'u=f-Q'^T\Gamma'Q'G'f$ and $Q'u=0$. Hence $D^TDu=f-Q'^T\omega$, which gives the characterization. For uniqueness, let $\nu\in\cN(Q')$ with $\mathrm b(D\nu',D\nu)=0$ for all $\nu'\in\cN(Q')$. Then $D^TD\nu\in\cN(Q')^{\perp_{\mathrm b}}=\ran Q'^T$, say $D^TD\nu=Q'^T\omega$. Hence $\mathfrak A'\nu=Q'^T\omega$, i.e.\ $\nu=G'Q'^T\omega$. Then $0=Q'\nu=Q'G'Q'^T\omega$ gives $\omega=0$ by (c), and so $\nu=0$. The bounds follow from $C'f=G'f-H'(Q'G'f)$ and from (a), (c) and (d); at $U=1$, $C'(1)$ is the operator $C_\sigma$ of Proposition~\ref{prop:C-scalar} with $\sigma=0$.
+\end{proof}
+
+\subsection{The gauge-fixing projection}\label{ss:14.1}
+
+Let
+\[
+\cW(U)=D^TD\,\cN(Q'(U)),\qquad \cV(U)=\ran\big(G'(U)Q'(U)^T\big),\qquad M'(U)=Q'G'^2Q'^T,
+\]
+\[
+P_\cV(U)=G'Q'^TM'^{-1}Q'G',\qquad R(U)=I-P_\cV(U).
+\]
+At $U=1$, $\cW(1)$ is the subspace $\cW=-\Lap\,\cN(Q_0)$ of Section~\ref{ss:8.5}, for $\mathfrak g^c$-valued fields. The subspace $\cW(U)$ is not the class $\cW(\eps,\gamma_W)$ of potentials (Definition~\ref{x:12.4}). The projection $R(U)$ has a background as its argument; for a group element or a gauge transformation $u$, $R(u)$ is the adjoint action of Section~\ref{ss:12.1}, applied pointwise.
+
+\begin{proposition}[The projection $R(U)$]\label{prop:cov-R}
+For $\eps\le\eps_0$:
+\begin{enumerate}[label=(\alph*)]
+\item $M'(U)$ is invertible and $M'^{-1}$ has decay $(C,\gamma)$.
+\item $R(U)^2=R(U)=R(U)^T$, $\ran R(U)=\cW(U)$ and $\ker R(U)=\cV(U)$. In particular $R(U)$ does not depend on $a$. For real $U$, it is the orthogonal projection onto $\cW(U)$, as in \cite[(3.21), (3.25)]{BalBackground}.
+\item For $h\in\cW(U)$: $G'h=C'h\in\cN(Q'(U))$ and $D^TDG'h=h$. Equivalently, $Q'G'R=0$ and $D^TDG'R=R$.
+\item $P_\cV$, $DP_\cV$, $P_\cV D^T$ and $DP_\cV D^T$ have decay $(C,\gamma)$, and $P_\cV(U)-P_\cV(1)$ has decay $(C\eps,\gamma)$.
+\item Pointwise: $P_\cV h=G'Q'^T\omega$ with $|\omega(y)|\le C\sum_{y'}e^{-\gamma|y-y'|}\|h\|_{B(y')}$. Hence $|P_\cV h|_{B(y)}+|\partial P_\cV h|_{B(y)}+\Hol{\partial P_\cV h}{B(y)}\le C\sum_{y'}e^{-\gamma|y-y'|}\|h\|_{B(y')}$. The same holds for $P_\cV D^Tu$, with $\|h\|$ replaced by $\|u\|$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) $M'(U)-M'(1)$ has decay $(C\eps,\gamma)$ by Theorem~\ref{thm:cov-scalar}, and $M'(1)=M\ge c_F^2$ (Proposition~\ref{prop:R}). Apply Lemma~\ref{lem:perturbed-inverse}.
+
+(b) With $T=G'Q'^T$ we have $T^T=Q'G'$, because $\mathfrak A'^T=\mathfrak A'$, and $P_\cV=T(T^TT)^{-1}T^T$. Hence $P_\cV^2=P_\cV=P_\cV^T$, $\ran P_\cV=\cV$, and $\ker P_\cV=\ker(Q'G')$. For $\nu\in\cN(Q')$,
+\[
+Q'G'D^TD\nu=Q'G'(\mathfrak A'-aQ'^TQ')\nu=Q'\nu=0,
+\]
+so $\cW\subset\ker(Q'G')$. The map $D^TD$ is injective on $\cN(Q')$: if $D^TD\nu=0$ with $Q'\nu=0$, then $\mathfrak A'\nu=0$, so $\nu=0$. Since $Q'$ is onto ($Q'Q'^T=I$), $\dim\cW=\dim\cN(Q')$. On the other hand $Q'G'$ is onto, because $Q'G'Q'^T$ is invertible, so $\dim\ker(Q'G')=\dim\cN(Q')$ as well. Therefore $\cW=\ker P_\cV=\ran R$. Finally $\mathrm b(G'Q'^T\omega,D^TD\nu)=\mathrm b(\omega,Q'G'D^TD\nu)=0$, so $\cV$ is the $\mathrm b$-annihilator of $\cW$, which does not involve $a$.
+
+(c) If $h=D^TD\nu$ with $\nu\in\cN(Q')$, then $\mathfrak A'\nu=h$, so $G'h=\nu$. Moreover $C'h=G'h-H'Q'G'h=\nu$.
+
+(d) and (e) are compositions of operators with decay, using Theorem~\ref{thm:cov-scalar}(b) for the pointwise statement.
+\end{proof}

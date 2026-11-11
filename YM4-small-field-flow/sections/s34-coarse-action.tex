@@ -1,0 +1,136 @@
+\section{The coarse effective action}\label{sec:coarse-action}
+
+The integrand of Proposition~\ref{prop:exact-step} depends on the fluctuation in two ways: through the explicit gauge-fixing weight $e^{-g^{-2}\Phi_W}$ of Lemma~\ref{lem:exp-gauge}, and through the action of the background field, $S(U_k(e^{\ii\hat Z}W))$. In this section we study the latter as a function of the coarse configuration. Its gradient is the Lagrange multiplier of the variational problem; its derivatives decay along trees; and its Hessian at the base configuration is comparable with the operator $\boldsymbol\Gamma_\pi-a$ of Part~II. All statements hold for every unit-lattice field $B$ in the stated balls. None of them uses the one-step constraint or a gauge condition on $B$, so they apply to the fields $\hat Z(Z)$ of Section~\ref{sec:fluctuations}, which satisfy the constraint, and to arbitrary fields on all bonds of $\T$ alike.
+
+\paragraph{Setting.} In this section $k\ge1$: the $k$-step operators of Parts~II--V at $U'$ need at least one averaging step (Section~\ref{sec:setup}). The first step, $k=0$, is treated in Section~\ref{subsec:tf-first} (Lemma~\ref{lem:first-step-formula}). Let $W$ be a real configuration on $\T$ in $\mathfrak U_k(\eps_1)$, $\eps_1\le a_1$, and let $U'$ be an element of its minimal orbit. Let $\eps$ be a number such that $U'$ is $(M,\eps)$-regular with $|J_{U'}|\le\eps$; by Theorem~\ref{thm:balaban} one may take $\eps=B_3\eps_1$, and in Section~\ref{sec:fluctuations} we take $\eps=B_3\eps'_1$ (end of Section~\ref{sec:rg-step}). We assume $\eps\le c_6/2$, and we put $r_1:=c_6/4$. In Section~\ref{sec:fluctuations}, $W$ is the base configuration $V^0$ and $U'$ the $(k+1)$-step background. For complex unit-lattice fields $B$ with $|B|_\infty<2r_1$, so that $\eps+|B|_\infty<c_6$, let $A_*(B)$ be the Landau representative relative to $U'$ given by Theorem~\ref{thm:variational}(f), for the coarse configuration $e^{\ii B}W$, and put
+\[
+\mathcal S(B)=\Phi\big(A_*(B)\big),\qquad\Phi(A)=S(e^{\ii\eta A}U').
+\]
+The bounds of Proposition~\ref{prop:coarse-action}(c) are stated on the smaller ball $|B|_\infty<r_1$. The margin $r_1$ between the two balls is used only for Cauchy's estimate in the proof of the third-derivative bound. For real $B$, $\mathcal S(B)$ is the minimum of $S$ on $\mathfrak B(e^{\ii B}W)\cap\mathfrak U(\theta_0)$: by Theorem~\ref{thm:variational}(a),(b) the orbit of $\mathsf U(A_*(B))$ is the set of minimizers there, and $S(\mathsf U(A))=\Phi(A)$. If moreover $e^{\ii B}W\in\mathfrak U_k(a_1)$, this orbit is the minimal orbit of Theorem~\ref{thm:balaban}(a), and $\mathcal S(B)=S(U_k(e^{\ii B}W))$; this is the case in all uses below. In particular $\mathcal S$ depends only on the configuration $e^{\ii B}W$, and not on the choice of the reference $U'$.
+
+For bonds $c_1,\dots,c_m$ of $\T$ let $\tau(c_1,\dots,c_m)=\min_{z}\sum_i|c_i-z|$; for $m=2$ this is $|c_1-c_2|$. It satisfies $\tau(c_1,\dots,c_m)\le|c_1-x|+\tau(x,c_2,\dots,c_m)$.
+
+\subsection{Gradient and decay of derivatives}\label{ss:33.1}
+
+\begin{proposition}[The coarse effective action]\label{prop:coarse-action}
+There are $C,\gamma_1>0$, independent of $k$, $n$, $\eta$ and $W$, such that:
+\begin{enumerate}[label=(\alph*)]
+\item $\mathcal S$ is analytic on $\{|B|_\infty<2r_1\}$ and real for real $B$.
+\item $\nabla\mathcal S(B)=\omega(B)$, where for real $B$, $\omega(B)$ is the multiplier of Proposition~\ref{prop:euler-lagrange} for the coarse configuration $e^{\ii B}W$; $\omega$ is analytic, and $|\omega(B)|_\infty\le C(\eps+|B|_\infty)$ for $|B|_\infty<2r_1$.
+\item For $|B|_\infty<r_1$ and all bonds $c_1,c_2,c_3$:
+\[
+|\partial_{c_1}\partial_{c_2}\mathcal S(B)|\le Ce^{-\gamma_1|c_1-c_2|},\qquad|\partial_{c_1}\partial_{c_2}\partial_{c_3}\mathcal S(B)|\le Ce^{-\gamma_1\tau(c_1,c_2,c_3)},
+\]
+where $\partial_c$ is the derivative with respect to $B(c)$, the components being suppressed.
+\item Put $\omega_0=\omega(0)$ and $\Delta^0=d^2\mathcal S(0)$. For $|B|_\infty\le r_1/2$,
+\[
+\mathcal S(B)=\mathcal S(0)+\ip{\omega_0}B+\tfrac12\Delta^0(B,B)+\mathcal S_3(B),\qquad|\mathcal S_3(B)|\le C|B|_\infty\|B\|^2 .
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}\hasdetail{prop:coarse-action}
+(a) $A_*$ is analytic with $|A_*(B)|_{C^1}\le C_6(\eps+|B|_\infty)\le c_5$, and $\Phi$ is analytic there (Proposition~\ref{prop:action}).
+
+(b) For real $B$, Proposition~\ref{prop:euler-lagrange} gives $\nabla\Phi(A_*(B))=d\mathcal Q(A_*(B))^T\omega(B)$. Differentiating the constraint $\ell(\mathcal Q(e^{\ii\eta A_*(B)}))=B$ gives $d\mathcal Q(A_*)\,dA_*(B)=I$. Hence
+\[
+d\mathcal S(B)h=\ip{\nabla\Phi(A_*)}{dA_*h}=\ip{\omega}{d\mathcal Q(A_*)dA_*h}=\ip\omega h .
+\]
+Applying $\bH^T$ to the Euler--Lagrange equation gives
+\[
+\omega(B)=\big((I+d\Cav_k(A_*)\bH)^{-1}\big)^T\bH^T\nabla\Phi(A_*(B)).
+\] This expression is analytic in complex $B$ and defines the continuation of $\omega$. The identities $\nabla\Phi(A_*)=d\mathcal Q(A_*)^T\omega$ and $\nabla\mathcal S=\omega$ hold for real $B$, hence for complex $B$ by the identity theorem: the real ball is a totally real submanifold of maximal dimension. The bound for real $B$ is Proposition~\ref{prop:euler-lagrange}; for complex $B$ it follows from the formula, Lemma~\ref{lem:sup-bounds}, Proposition~\ref{prop:action}(a), and the identity $\bH^TD^TDA_*=(\boldsymbol\Gamma_\pi-a)\bQ A_*$. This is the second identity in the proof of Lemma~\ref{lem:V-bounds}; it applies since $RD^TA_*=RD^TA'_*=0$ also for complex $B$ (Lemma~\ref{lem:linearizing}, $A'_*\in\bH B+\cX$). The bound $|A_*|_{C^1}\le C(\eps+|B|_\infty)$ alone would not bound $D^TDA_*$ pointwise.
+
+(c) \emph{Second derivatives.} We prove the bound on the larger ball $|B|_\infty<2r_1$. Let $|B|_\infty<2r_1$. Differentiating $d\mathcal S(B)h=\ip{\nabla\Phi(A_*)}{dA_*h}$ once more,
+\[
+d^2\mathcal S(B)[h_1,h_2]=d^2\Phi(A_*)[dA_*h_1,dA_*h_2]-\ip{\omega}{d^2\Cav_k(A_*)[dA_*h_1,dA_*h_2]},
+\]
+where we used $\ip{\nabla\Phi}{d^2A_*[h_1,h_2]}=\ip\omega{d\mathcal Q\,d^2A_*[h_1,h_2]}$ and the second derivative of the constraint, $d\mathcal Q\,d^2A_*[h_1,h_2]+d^2\Cav_k(A_*)[dA_*h_1,dA_*h_2]=0$. Now:
+\begin{itemize}
+\item $d^2\Phi(A)=D^TD+d^2\mathcal N(A)$, where $d^2\mathcal N(A)$ is a sum of plaquette-local terms with bounded coefficients (proof of Proposition~\ref{prop:action}(c));
+\item $d^2\Cav_k(A)[u,v](c)$ is bounded by $C\|u\|_{S_c}\|v\|_{S_c}$, by polarization of Proposition~\ref{prop:Q-expansion}(c);
+\item by Theorem~\ref{thm:variational}(f), which holds for complex $B$ with $\eps+|B|_\infty<c_6$, and here $\eps+|B|_\infty<2r_1+2r_1=c_6$: $|dA_*\delta_{c_i}|+|\nabla dA_*\delta_{c_i}|\le Ce^{-\gamma'|x-c_i|}$.
+\end{itemize}
+Hence $|\partial_{c_1}\partial_{c_2}\mathcal S(B)|\le C\sum_xe^{-\gamma'(|x-c_1|+|x-c_2|)}\eta^d\le Ce^{-\gamma'|c_1-c_2|/2}$ for $|B|_\infty<2r_1$.
+
+\emph{Third derivatives.} Let $|B|_\infty<r_1$, and let $e$ be a unit vector of $\mathfrak g$. For complex $t$ with $|t|<2r_1-|B|_\infty$ we have $|B+te\,\delta_{c_3}|_\infty<2r_1$. Since $2r_1-|B|_\infty>r_1$, the function $t\mapsto\partial_{c_1}\partial_{c_2}\mathcal S(B+te\,\delta_{c_3})$ is analytic on a neighbourhood of the closed disc $|t|\le r_1$, and, by the bound just proved on the larger ball, it is bounded there by $Ce^{-\gamma'|c_1-c_2|/2}$. By Cauchy's estimate on the circle $|t|=r_1$,
+\[
+|\partial_{c_1}\partial_{c_2}\partial_{c_3}\mathcal S(B)|\le Cr_1^{-1}e^{-\gamma'|c_1-c_2|/2}.
+\]
+The left side is symmetric in $c_1,c_2,c_3$. So the bound holds with $|c_1-c_2|$ replaced by the largest distance $D$ between two of the three bonds. Taking $z=c_1$ in the definition of $\tau$ gives $\tau(c_1,c_2,c_3)\le|c_2-c_1|+|c_3-c_1|\le2D$. This proves (c) with $\gamma_1=\gamma'/4$. No bound on the second or higher derivatives of $A_*$ on the fine lattice is used.
+
+(d) Fix $B$ and a bond $c$, and let $R(s)=\omega(sB)(c)$ for complex $s$ with $|s|\,|B|_\infty<r_1$. By (c), $|R'(s)|=|d\omega(sB)B(c)|\le C\sum_{c'}e^{-\gamma_1|c-c'|}|B(c')|=:K_c$ on this disc. By the Schwarz lemma applied to $R'(s)-R'(0)$, $|R'(s)-R'(0)|\le4K_c|B|_\infty r_1^{-1}$ for $|s|\le1$, when $|B|_\infty\le r_1/2$. By (b),
+\[
+\mathcal S_3(B)=\int_0^1\ip{\omega(tB)-\omega_0-t\,d\omega(0)B}B\,dt,\qquad|\mathcal S_3(B)|\le C|B|_\infty\sum_c K_c|B(c)|\le C|B|_\infty\|B\|^2,
+\]
+by the Schur test.
+\end{proof}
+
+Part (b) is the discrete form of the statement that the derivative of the minimal action with respect to the constraint is the Lagrange multiplier. Part (c) is what makes the coarse action, and the Gaussian measure it defines, local.
+
+\subsection{The Hessian at the base configuration}\label{ss:33.2}
+
+Recall that $\bH=\bH(U')$, $\cX=\{A:RD^TA=0,\ \bQ A=0\}$ and $\boldsymbol\Gamma_\pi=\boldsymbol\Gamma_\pi(U')$ are taken at $U'$ with the averaging pair $(Q'_k(U'),\bQ_k(U'))$, and that
+\begin{equation}\label{eq:H-effective}
+\bH^TD^TD\bH=\boldsymbol\Gamma_\pi-a .
+\end{equation}
+This follows from the first identity in the proof of Lemma~\ref{lem:V-bounds} and $S\bH=G'RD^T\bH=0$. At $U'=1$ the right-hand side is the operator $\bD$ of Proposition~\ref{prop:eff-action-gauge}.
+
+\begin{proposition}[The Hessian]\label{prop:hessian}
+\begin{enumerate}[label=(\alph*)]
+\item For real $B$,
+\[
+\Delta^0(B,B)=\min\big\{q_2(A,A):\ \bQ A=B,\ RD^TA=0\big\},
+\]
+\[
+q_2(A,A)=\|DA\|^2+d^2\mathcal N(0)[A,A]-\ip{\omega_0}{d^2\Cav_k(0)[A,A]},
+\]
+and the minimum is attained at $A=dA_*(0)B$.
+\item $\big|\Delta^0(B,B)-\ip B{(\boldsymbol\Gamma_\pi-a)B}\big|\le C\eps\|B\|^2$.
+\item $\Delta^0$ is real symmetric with decay $(C,\gamma_1)$.
+\item For every real gauge transformation $u$ on $\Tf$, replacing $(W,U')$ by $(W^{u|_\T},U'^u)$ replaces $\Delta^0$ by $R(u)\Delta^0R(u)^{-1}$ and $\omega_0$ by $R(u)\omega_0$, where $R(u)$ acts on unit-lattice fields by $R(u(b_-))$.
+\item For every $r\in\mathfrak S_k$, replacing $(W,U')$ by $(rW,rU')$ replaces $\Delta^0$ by $r_W\Delta^0r_W^{-1}$ and $\omega_0$ by $r_W\omega_0$. Here $(r_WB)(b)=B(r^{-1}b)$, with $B(-b)=-R(W(b))^{-1}B(b)$ on negatively oriented bonds, as in Proposition~\ref{prop:linearized-averages}(g); $r_W$ is orthogonal.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}\hasdetail{prop:hessian}
+(a) Let $A^1$ satisfy $\bQ A^1=B$ and $RD^TA^1=0$. Put $A(t)=tA^1-\bH\mathcal D(tA^1)$. By Lemma~\ref{lem:linearizing}, $RD^TA(t)=0$ and $\ell(\mathcal Q(e^{\ii\eta A(t)}))=tB$. Moreover $\mathcal D(tA^1)=t^2C^{{\rm av},(2)}_k(A^1)+O(t^3)$, where $C^{{\rm av},(2)}_k(A)=\frac12d^2\Cav_k(0)[A,A]$. For real $t$ near $0$ the configuration $\mathsf U(A(t))$ lies in $\mathfrak B(e^{\ii tB}W)\cap\mathfrak U(\theta_0)$. By Theorem~\ref{thm:variational}(b), $\mathcal S(tB)\le\Phi(A(t))$. Expand $\Phi$ with Proposition~\ref{prop:action}:
+\[
+\Phi(A(t))=\mathcal S(0)+t\ip J{A^1}+t^2\Big(\tfrac12\|DA^1\|^2+\tfrac12d^2\mathcal N(0)[A^1,A^1]-\ip J{\bH C^{{\rm av},(2)}_k(A^1)}\Big)+O(t^3),
+\]
+with $J=J_{U'}=\nabla\Phi(0)=\bQ^T\omega_0$. Then $\ip J{A^1}=\ip{\omega_0}B$ and $\ip J{\bH C^{{\rm av},(2)}_k(A^1)}=\ip{\omega_0}{C^{{\rm av},(2)}_k(A^1)}$, since $\bQ\bH=I$. The terms of first order agree with those of $\mathcal S(tB)$. So the inequality for $t\to0$ gives $\Delta^0(B,B)\le q_2(A^1,A^1)$.
+
+For equality, expand $\mathcal S(tB)=\Phi(A_*(tB))$ directly. We have $A_*(tB)=tA^1+t^2A^2+O(t^3)$ with $A^1=dA_*(0)B$, both in the slice, and the constraint gives $\bQ A^1=B$, $\bQ A^2+C^{{\rm av},(2)}_k(A^1)=0$. Hence the coefficient of $t^2$ is $\frac12\|DA^1\|^2+\frac12d^2\mathcal N(0)[A^1,A^1]+\ip J{A^2}$, and $\ip J{A^2}=\ip{\omega_0}{\bQ A^2}=-\ip{\omega_0}{C^{{\rm av},(2)}_k(A^1)}$. So $\Delta^0(B,B)=q_2(A^1,A^1)$.
+
+(b) Write $A=\bH B+h$ with $h\in\cX$. Then $\|DA\|^2=\|D\bH B\|^2+\|Dh\|^2$, since $\ip{Dh}{D\bH B}=0$ for $h\in\cX$, and $\|D\bH B\|^2=\ip B{(\boldsymbol\Gamma_\pi-a)B}$ by \eqref{eq:H-effective}. By Proposition~\ref{prop:action}(c) at $A=0$, $|d^2\mathcal N(0)[A,A]|\le C\eps(\|A\|^2+\|\nabla A\|^2)$. By Proposition~\ref{prop:Q-expansion}(c) and $|\omega_0|\le C\eps$, $|\ip{\omega_0}{d^2\Cav_k(0)[A,A]}|\le C\eps\|A\|^2$. Moreover:
+\begin{itemize}
+\item $\|\bH B\|+\|\nabla\bH B\|\le C\|B\|$, by the decay of $\bH$ and $D\bH$, the identity $D^T\bH B=P_\cV D^T\bH B$, and Lemma~\ref{lem:weitzenbock};
+\item $\|h\|^2+\|\nabla h\|^2\le c_X^{-1}\|Dh\|^2$, by Lemma~\ref{lem:X-coercive}.
+\end{itemize}
+Hence
+\[
+\ip B{(\boldsymbol\Gamma_\pi-a)B}-C\eps\|B\|^2+(1-C\eps)\|Dh\|^2\le q_2(A,A).
+\]
+Taking the minimum over $h$ gives the lower bound; $h=0$ gives the upper bound.
+
+(c) is Proposition~\ref{prop:coarse-action}(c) at $B=0$. (d) follows from the covariance of the variational problem, Theorem~\ref{thm:variational}(g), and $\mathcal S$ depending only on $e^{\ii B}W$: $(e^{\ii B}W)^{u|_\T}=e^{\ii R(u)B}W^{u|_\T}$.
+
+(e) Apply Theorem~\ref{thm:variational}(h) with the reference $U_0=U'$ and $V=W$, so $\beta=0$; its hypotheses hold since $W_k(U')=W$ and $\eps\le c_6/2$. Its first sentence gives that $rU'$ is real and $(M,\eps)$-regular with $|J_{rU'}|\le\eps$, and that $(rU')^{(k)}=rW$. This needs no bound $\eps\le\eps_{\rm B}$. By Theorem~\ref{thm:balaban}(c), $rW\in\mathfrak U_k(\eps_1)$, and the minimal orbit of $rW$ is the image under $r$ of the minimal orbit of $W$; since $U'$ lies in the latter, $rU'$ lies in the former. So the setting applies to $(rW,rU')$, with the same $\eps$. By the convention on reversed bonds, $e^{\ii r_WB}(rW)=r(e^{\ii B}W)$. For real $B$ with $|B|_\infty<r_1$, Theorem~\ref{thm:variational}(h) gives $A_*(r_WB;rU')=r_{U'}A_*(B;U')$, and $\Phi_{rU'}(r_{U'}A)=\Phi_{U'}(A)$ by $e^{\ii\eta\,r_{U'}A}\,rU'=r(e^{\ii\eta A}U')$ and $S\circ r=S$. Hence $\mathcal S_{rW}(r_WB)=\mathcal S_W(B)$ for real $B$, where the index denotes the base, and for complex $B$ by the identity theorem. Differentiating at $B=0$ and using that $r_W$ preserves the pairing gives the claim. Only the coarse action enters. The operators $\boldsymbol\Gamma_\pi$, $\bH$, $\bC$ of Parts~II--III are not covariant under reflections at curved backgrounds (Remark~\ref{rem:symmetry-reflections}), and (e) is not derived from~(b).
+\end{proof}
+
+\subsection{Dependence on the base configuration}\label{ss:33.3}
+
+Let $\hat\beta$ be a complex unit-lattice field with $|\hat\beta|_\infty\le r_1/4$, and $\hat W=e^{\ii\hat\beta}W$ (bondwise product). For real $\hat\beta$ we have $\mathcal S_{\hat W}(B)=\mathcal S_W(B\star\hat\beta)$, with $B\star\hat\beta=\ell(e^{\ii B}e^{\ii\hat\beta})$ bondwise. We use this formula as the definition for complex $\hat\beta$. It defines $\mathcal S_{\hat W}$ analytically in $(\hat\beta,B)$ for $|B|_\infty\le r_1/4$, and in particular $\omega_0(\hat W)$ and $\Delta^0(\hat W)$.
+
+\begin{proposition}[Dependence on the base]\label{prop:base-dependence}
+$\omega_0(\hat W)$ and $\Delta^0(\hat W)$ are analytic in $\hat\beta$. Their derivatives with respect to $\hat\beta(c)$ satisfy
+\[
+|\partial_{\hat\beta(c)}\omega_0(\hat W)(c_1)|\le Ce^{-\gamma_1|c-c_1|},\qquad|\partial_{\hat\beta(c)}\Delta^0(\hat W)(c_1,c_2)|\le Ce^{-\gamma_1\tau(c,c_1,c_2)} .
+\]
+\end{proposition}
+
+\begin{proof}\hasdetail{prop:base-dependence}
+$\omega_0(\hat W)=\partial_B\mathcal S_W(B\star\hat\beta)|_{B=0}$ and $\Delta^0(\hat W)=\partial^2_B\mathcal S_W(B\star\hat\beta)|_{B=0}$. The map $(B,\hat\beta)\mapsto B\star\hat\beta$ is bondwise analytic. Its derivatives in $B$ at $B=0$ are bondwise analytic functions of $\hat\beta$. The chain rule expresses the derivatives in terms of $d^m\mathcal S_W(\hat\beta)$, $m\le3$, contracted with bondwise factors. Proposition~\ref{prop:coarse-action}(c) at $B=\hat\beta$, with $|\hat\beta|_\infty\le r_1/4<r_1$, gives the bounds.
+\end{proof}
+
+Proposition~\ref{prop:base-dependence} controls the dependence on small changes of the base configuration. Changes that are not small, for example replacing the configuration far away by a different one, require a representation of the operators by terms that depend on the background only locally. This is the random-walk expansion of Section~\ref{sec:random-walk}, which will be developed for the present operators in the next part.

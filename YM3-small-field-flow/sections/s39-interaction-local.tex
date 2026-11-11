@@ -1,0 +1,179 @@
+\section{Localization of the background map and of the interaction}\label{sec:interaction-local}
+
+\paragraph{Status.} This section is not on the main line. Its localization is of radius type (Summary below). It is superseded by the weakened background map of Section~\ref{sec:weak-background} and the step quantities of Section~\ref{sec:step-quantities}. Only the scaling of the plaquette terms in the proof of Theorem~\ref{thm:interaction-local} is used later, in Proposition~\ref{prop:interaction-pieces}.
+
+The interaction $\mathcal V$ of Theorem~\ref{thm:step}, and the old activities composed with the background map $Z\mapsto e^{\ii\eta A_*(\hat Z(Z))}U$, depend on the fluctuation and on the background through the nonlinear map $B\mapsto A_*(B)$ of Part~V. That map is the fixed point of a contraction. We approximate it by fixed points of maps built with Dirichlet operators and with cut-off sources, so that every nonlinear expression is evaluated in the interior of a domain. The contraction needs pointwise bounds with derivatives for the Dirichlet operators at interior points. These are provided by Theorem~\ref{thm:ID}, proved in Section~\ref{sec:interior}.
+
+\subsection{Comparison of fixed points}
+
+For fields $h$ write $|h|_{1}(x)=|h(x)|+|\nabla h(x)|$, the gradient involving only neighbours of $x$, and for a unit point $y$ put $a_y(h)=\sup_{x\in B(y)}|h|_1(x)$. The comparison is made in these block quantities. Theorem~\ref{thm:ID} gives bounds from block suprema of the data to block quantities of the output; it gives no bound on a fine-lattice kernel, and none is used.
+
+\begin{lemma}[Comparison of fixed points]\label{lem:fp-compare}
+Let $\Omega$ be a domain, let $\chi$ be a function with $0\le\chi\le1$, $\chi=1$ on $\Omega_{(2)}$, $\chi=0$ on $\Tf\setminus\Omega_{(1)}$, $|\nabla\chi|\le1$, and let $\Sigma\supset\Omega\setminus\Omega_{(2)}$. Let $\mathcal T$ be a map of fields on $\Tf$ with fixed point $A$, and $\mathcal T_\Omega$ a map of fields on $\Omega$ with fixed point $A^\Omega$. Assume, for the unit points $y$ with $B(y)\subset\Omega$:
+\begin{enumerate}[label=(\roman*)]
+\item for fields $A_1,A_2$ in a ball containing $A$ and $\tilde A=\chi A^\Omega+(1-\chi)A$,
+\[
+a_y\big(\mathcal T(A_1)-\mathcal T(A_2)\big)\le\sum_{y'}K(y,y')\,a_{y'}(A_1-A_2),\qquad\sup_y\sum_{y'}K(y,y')e^{\gamma'|y-y'|}\le\tfrac14 ;
+\]
+\item $a_y\big(\mathcal T(\tilde A)-\mathcal T_\Omega(A^\Omega)\big)\le\sigma e^{-\gamma'\operatorname{dist}(y,\Sigma)}$.
+\end{enumerate}
+Then $a_y(A-A^\Omega)\le2\sigma e^{-\gamma'\operatorname{dist}(y,\Sigma)}$ for $B(y)\subset\Omega$.
+\end{lemma}
+
+\begin{proof}
+Let $\delta=A-A^\Omega$ on $\Omega$, and $\|\delta\|_w=\sup_ya_y(\delta)e^{\gamma'\operatorname{dist}(y,\Sigma)}$, the supremum over the $y$ with $B(y)\subset\Omega$; it is finite. Then
+\[
+\delta=\big(\mathcal T(A)-\mathcal T(\tilde A)\big)+\big(\mathcal T(\tilde A)-\mathcal T_\Omega(A^\Omega)\big),\qquad A-\tilde A=\chi\delta .
+\]
+Since $\chi$ vanishes on the outer layer $\Omega\setminus\Omega_{(1)}$, the field $\chi\delta$ vanishes off $\Omega_{(1)}$, its gradient involves $\delta$ only on $\Omega$, and $|\nabla(\chi\delta)|\le|\nabla\delta|+|\nabla\chi||\delta|$. So $a_{y'}(\chi\delta)\le2a_{y'}(\delta)$ if $B(y')\subset\Omega$, and $a_{y'}(\chi\delta)=0$ otherwise. Since $e^{-\gamma'\operatorname{dist}(y',\Sigma)}\le e^{\gamma'|y-y'|}e^{-\gamma'\operatorname{dist}(y,\Sigma)}$, assumption (i) bounds $a_y$ of the first term by $\frac12\|\delta\|_we^{-\gamma'\operatorname{dist}(y,\Sigma)}$. Assumption (ii) bounds the second. Hence $\|\delta\|_w\le\frac12\|\delta\|_w+\sigma$.
+\end{proof}
+
+The hybrid field $\tilde A$ is what allows a comparison of the torus map with a map defined only on $\Omega$, without boundary estimates for the latter.
+
+\subsection{Dirichlet background maps}
+
+Let $U$ be a background as in Section~\ref{sec:dirichlet-averaged}, and let $B$ be a complex unit-lattice field with $|B|_\infty\le r_1$. Recall from Section~\ref{sec:var-solution} that $A_*(B)=A'-\bH\mathcal D(A')$ with $A'=A_1+\bH B$, where $A_1$ is the fixed point of
+\[
+\mathcal T(A_1)=-\bC\big(J+\nabla\mathcal V(A_1+\bH B)\big).
+\]
+The gradient $\nabla\mathcal V$ is the sum of the terms listed in the proof of Lemma~\ref{lem:V-bounds}(a). Write each of them with the derivatives outside, e.g.\ $\bH^TD^TDA'=(D\bH)^T(DA')$ and $D^TD\bH\mathcal D=D^T(D\bH\mathcal D)$. Then it is a composition of:
+\begin{itemize}
+\item the operators $\bH$, $\bH^T$, $D\bH$, $(D\bH)^T$;
+\item the derivatives $d\mathcal D$, $d\mathcal D^T$;
+\item local functions of $A'$ and $\nabla A'$ (from $\nabla\mathcal N$);
+\item one outer $D^T$, absorbed by $\bC D^T$.
+\end{itemize}
+
+\begin{definition}[Dirichlet background map]\label{def:dirichlet-map}
+Fix $R_1\ge10$. For a domain $X$ let $\Omega_X=X_{(4)}$. Let $\zeta$ be a smooth function on $\Tf$ with $\zeta=1$ on $X_{(R_1)}$, $\zeta=0$ off $X_{(R_1-2)}$, and bounded derivatives (up to second order and H\"older), and let $\hat\zeta$ be the indicator of the unit bonds in $\mathfrak B(X_{(R_1)})$. Fine fields on $\Omega_X$ are extended by $0$. Every pairing over $X$ that involves the field $A'$, such as $(D\bH^X)^T(DA')$, is evaluated with $\zeta A'$ in place of $A'$, so that the extension by zero creates no jump. Define:
+\begin{itemize}
+\item $\mathcal D^X(A')$ as the fixed point of $Y\mapsto\hat\zeta C_k(A'-\bH^XY)$;
+\item $\nabla\mathcal V^X$ by replacing, in the expression for $\nabla\mathcal V$:
+  \begin{itemize}
+  \item every operator by its Dirichlet version on $X$ (Proposition~\ref{prop:dirichlet-averaged}) with $W=0$;
+  \item $\mathcal D$ by $\mathcal D^X$;
+  \item $J$ and $\nabla\mathcal N$ by $\zeta J$ and $\zeta\nabla\mathcal N$;
+  \end{itemize}
+  and multiplying the result by $\zeta$;
+\item $\mathcal T^X(A_1)=-\bC^X\zeta\big(J+\nabla\mathcal V^X(A_1+\bH^X\hat\zeta B)\big)$, restricted to $\Omega_X$;
+\item $A^X_*(B)=A'^X-\bH^X\hat\zeta\mathcal D^X(A'^X)$ on $\Omega_X$, where $A'^X=A^X_1+\bH^X\hat\zeta B$ and $A^X_1$ is the fixed point of $\mathcal T^X$.
+\end{itemize}
+\end{definition}
+
+Every nonlinear expression is evaluated on $X_{(R_1-2)}\subset\Omega_X$, where Theorem~\ref{thm:ID} gives pointwise bounds with derivatives. By construction:
+\begin{itemize}
+\item $A^X_*(B)$ depends only on $U$ on $\hat X$ and on $B$ on $\mathfrak B(X)$;
+\item it is covariant under real gauge transformations on $\hat X$;
+\item it is analytic in $(B,U)$;
+\item for $X=\Tf$ it equals $A_*(B)$.
+\end{itemize}
+
+\begin{proposition}[Comparison of background maps]\label{prop:map-compare}
+There are $r_4,C,\gamma_4>0$ such that for $\eps+|B|_\infty\le r_4$:
+\begin{enumerate}[label=(\alph*)]
+\item $\mathcal T^X$ is a contraction on $\{|A_1|_1\le\rho_2\text{ on }\Omega_X\}$, uniformly in $X$, and $|A^X_*(B)|_1\le C(\eps+|B|_\infty)$ on $\Omega_X$;
+\item the H\"older quotients $\Hol{\nabla A^X_*(B)}{B(y)}$, for blocks in $\Omega_X$, are bounded by $C(\eps+|B|_\infty)$, by the H\"older parts of Theorem~\ref{thm:ID};
+\item for domains $X'\subset X$ and $x\in\Omega_{X'}$,
+\[
+|A^X_*(B)-A^{X'}_*(B)|_1(x)\le C(\eps+|B|_\infty)\,e^{-\gamma_4\operatorname{dist}(x,\Sigma')},
+\]
+where $\Sigma'$ is the set of points within distance $R_1+10M+4$ of $(\Tf\setminus X')\cup(X\setminus X')$. The H\"older quotients $\Hol{\nabla(A^X_*(B)-A^{X'}_*(B))^\sim_y}{B(y)}$, for blocks $B(y)\subset\Omega_{X'}$, obey the same bound with $x=y$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) The proof of Proposition~\ref{prop:contraction} applies on $\Omega_X$, with Lemma~\ref{lem:sup-bounds} replaced by Theorem~\ref{thm:ID}. The sources are cut off to $X_{(R_1)}$, so they are evaluated where the interior bounds hold. The map $\mathcal D^X$ is defined by the contraction of Lemma~\ref{lem:linearizing}: $C_k(A)(c)$ for $c\in\mathfrak B(X_{(R_1)})$ depends on $A$ on $S_c\subset\Omega_X$, and only the sup norm of $\bH^XY$ there enters.
+
+(b) follows from the H\"older parts of Theorem~\ref{thm:ID} as in (a). (c) Apply Lemma~\ref{lem:fp-compare} with $\mathcal T=\mathcal T^X$ (regarded as a map of fields on $\Omega_X$), $\mathcal T_\Omega=\mathcal T^{X'}$, $\Omega=\Omega_{X'}$ and $\Sigma=\Sigma'\cap\Omega_{X'}$. Choose $r_4$ so that the bound of (a) gives $|A^X_1|_1,|A^{X'}_1|_1\le\frac16\rho_2$. Since $|\nabla\chi|\le1$, $|\chi a+(1-\chi)b|_1\le3\max(|a|_1,|b|_1)$, so the hybrid field $\tilde A$ also lies in $\{|A_1|_1\le\frac12\rho_2\}$, where (i) is proved. The lemma gives $a_y(A^X_1-A^{X'}_1)\le2\sigma e^{-\gamma'\operatorname{dist}(y,\Sigma)}$. For $x\in B(y)$, $\operatorname{dist}(x,\Sigma')\ge\operatorname{dist}(y,\Sigma')-1$, which gives the pointwise form of (c).
+
+\emph{Hypothesis (i).} The derivative of $\mathcal T^X$ in $A_1$ is $-\bC^X\zeta\,d\nabla\mathcal V^X(A'^X)$. On the torus, \eqref{eq:dgradV-block} in the proof of Proposition~\ref{prop:analyticity} bounds $d\nabla\mathcal V$ in block form, with the factor $C(\eps+\rho_2)$. Its proof uses the block bounds of $\bH$, $D\bH$, their transposes and $D^TD\bH$, the kernels of $d\mathcal D$ and $d\mathcal D^T$, the local bound for $d\nabla\mathcal N$, and the mixed bound \eqref{eq:d2D-mixed} of Lemma~\ref{lem:linearizing}. The same proof applies to $\nabla\mathcal V^X$, with Theorem~\ref{thm:ID} in place of Lemma~\ref{lem:sup-bounds}. Indeed $\hat\zeta$ restricts $d^2C_k$ to the coarse bonds of $X_{(R_1)}$, whose sets $S_c$ are interior, and $\zeta$ restricts the sources and the output to $X_{(R_1-2)}$. So $\bH^X$, $D\bH^X$, their transposes and $D^TD\bH^X$ are needed only at interior blocks, where Theorem~\ref{thm:ID}(c),(d) gives block bounds with exponential decay. In particular
+\begin{gather*}
+\big|(d^2\mathcal D^X[h,\cdot])^T\omega\big|_{B(y)}\le C|\omega|_\infty\sum_{y'}e^{-\gamma|y-y'|}a_{y'}(h),\\
+\big|d\nabla\mathcal V^X(A')h\big|_{B(y)}\le C(\eps+\rho_2)\sum_{y'}e^{-\gamma|y-y'|}a_{y'}(h),
+\end{gather*}
+with $|f|_{B(y)}$ the supremum of $|f|$ on $B(y)$. By Theorem~\ref{thm:ID}(a),(b), $a_y(\bC^X\zeta f)\le C\sum_{y'}e^{-\gamma|y-y'|}|f|_{B(y')}$. Composing, (i) holds with $K(y,y')=C_{\rm map}(\eps+\rho_2)e^{-\gamma_{\rm map}|y-y'|/2}$. Then $\sum_{y'}K(y,y')e^{\gamma'|y-y'|}\le\frac14$ for $\gamma'\le\gamma_{\rm map}/4$, by the choice of $\theta_0$ in Section~\ref{sec:var-regularity}: $\eps+|B|_\infty\le r_4\le\theta_0$, where we take $r_4\le\theta_0$, and $\rho_2\le(8B_1+C_H+K)\theta_0$, with $B_1$, $C_H$ and $K$ as there (this $K$ is the constant $4C_C(1+C_H)$ of Section~\ref{sec:var-solution}, not the kernel above). No bound on a fine-lattice kernel of $d\mathcal T^X$ is used.
+
+\emph{Hypothesis (ii).} $\mathcal T^X(\tilde A)-\mathcal T^{X'}(A^{X'})$ is a sum of three kinds of terms:
+\begin{itemize}
+\item differences of Dirichlet operators on $X$ and $X'$, which have seam form by the pointwise comparison of Theorem~\ref{thm:ID}(e) and are applied to fields bounded by $C(\eps+|B|_\infty)$;
+\item differences of the cutoffs $\zeta_X-\zeta_{X'}$ and $\hat\zeta_X-\hat\zeta_{X'}$, supported within distance $R_1$ of $\Tf\setminus X'$;
+\item terms in which $\tilde A$ and $A^{X'}$ differ, i.e.\ outside $\Omega_{X'(2)}$, which lie in $\Sigma'$.
+\end{itemize}
+Each kind contributes at most $C(\eps+|B|_\infty)e^{-\gamma\operatorname{dist}(y,\Sigma')}$ to $a_y$, after composition with the decaying block kernels. Since $M$ may be much larger than $R_1$, the mass terms of $\fA^{X,\kappa}$ and $\fA^{X',\kappa}$ are active on parts of $X_{(R_1)}$; their difference is part of the comparison of domains and is included in $\Sigma'$. The same comparison applies to $\mathcal D^X$ and to $A^X_*=A'^X-\bH^X\hat\zeta\mathcal D^X(A'^X)$.
+
+\emph{H\"older quotients in (c).} Write $\delta=A_1^X-A_1^{X'}$ on $\Omega_{X'}$ as $\big(\mathcal T^X(A^X_1)-\mathcal T^X(\tilde A)\big)+\big(\mathcal T^X(\tilde A)-\mathcal T^{X'}(A^{X'}_1)\big)$. The derivative of $\mathcal T^X$ is $\bC^X\zeta$ applied to $d\nabla\mathcal V^X$, and the block bound for $d\nabla\mathcal V^X$ in the proof of hypothesis~(i) maps the block quantities $a_{y'}$ to block suprema, with the same exponential weights. Theorem~\ref{thm:ID}(a),(c) therefore bound the H\"older quotients of the gradient of the first term by $C$ times the weighted bound on $a_{y'}(\chi\delta)$ just proved. The second term is bounded by the H\"older parts of Theorem~\ref{thm:ID}(e), as in the proof of hypothesis~(ii). The same applies to $\bH^X\hat\zeta\mathcal D^X$, which gives the H\"older part of (c).
+\end{proof}
+
+\subsection{Localization of the interaction}
+
+Write $\Phi(A)-\Phi(0)=\sum_ps_p(A)$, where, with $H=U(\partial p)$ and $H_A=(e^{\ii\eta A}U)(\partial p)$,
+\[
+s_p(A)=\tfrac12\eta^{d-4}\operatorname{tr}\big(H+H^{-1}-H_A-H_A^{-1}\big)
+\]
+is the difference of the plaquette terms of the analytic Wilson action of Section~\ref{sec:action}. It depends only on $A$ on the bonds of $p$ and is holomorphic in complex $A$; for real $A$ it equals $\eta^{d-4}\operatorname{Re}\operatorname{tr}(H-H_A)$. The real part itself is not holomorphic, and it is not used at complex fields. Then $|s_p(A)-s_p(A')|\le C\eta^d(\eps+|A|_1+|A'|_1)\,|A-A'|_1$ near $p$, by the expansion of Proposition~\ref{prop:action}.
+
+\begin{theorem}[Localization of the interaction]\label{thm:interaction-local}
+Let $r_5=\min\big(r_2,\frac12r_L,r_4/(1+2CL^d)\big)$, with $r_2$ of Lemma~\ref{lem:step-quadratic}, $r_L$ and $C$ of Lemma~\ref{lem:eliminate}(c), and $r_4$ of Proposition~\ref{prop:map-compare}; and let $\gamma_5=\gamma_4$ of Proposition~\ref{prop:map-compare}. In the setting of Theorem~\ref{thm:step}, with $U=U'$ and $\eps\le r_5$, there are pieces $\mathcal V_{p,m}$, indexed by plaquettes $p$ of $\Tf$ and $m\ge0$, such that for complex $Z$ with $|Z|_\infty\le r_5$:
+\[
+\mathcal V(Z)=\sum_p\sum_{m\ge0}\mathcal V_{p,m}(Z),
+\]
+where:
+\begin{itemize}
+\item $\mathcal V_{p,m}$ depends only on $Z$ and $U$ in $\widehat{\Lam_m(\{p\})}$ (enlarged by $2L$ for $Z$);
+\item it is analytic and invariant under real gauge transformations;
+\item it is of third order in $Z$, with $|\mathcal V_{p,m}(Z)|\le C_L|Z|^3_{\Lam_m(\{p\})}e^{-\gamma_5m}\eta^d$.
+\end{itemize}
+Here $|Z|_{\Lam}$ is the supremum of $Z$ on the free bonds within distance $2L$ of $\Lam$.
+\end{theorem}
+
+\begin{proof}
+For a domain $X$ containing $p$ in $X_{(R_1+1)}$, put $F^X_p(B)=s_p(A^X_*(B))-s_p(A^X_*(0))$. For $X=\Tf$ this is $s_p(A_*(B))-s_p(A_*(0))$, and $A_*(0)=0$ since $U'$ is critical. By Proposition~\ref{prop:map-compare}(c), for $X=\Lam_m(\{p\})$ and $X'=\Lam_{m-1}(\{p\})$, $m\ge m_1=R_1+10M+5$,
+\[
+|F^{\Lam_m}_p(B)-F^{\Lam_{m-1}}_p(B)|\le C(\eps+|B|_\infty)^2e^{-\gamma_4(m-m_1)}\eta^{d-4}\eta^4 ,
+\]
+since $s_p$ carries the factor $\eta^{d-4}$ and is of order $\eta^4$ in the fields. Lemma~\ref{lem:telescoping}, started at $m_1$ (the pieces with $m<m_1$ are $0$, and $F_{p,m_1}=F^{\Lam_{m_1}}_p$), gives $\mathcal S(B)-\mathcal S(0)=\sum_p\sum_mF_{p,m}(B)$, with pieces depending only on $B$ and $U$ in $\widehat{\Lam_m(\{p\})}$, and $|F_{p,m}(B)|\le Ce^{\gamma_4m_1}(\eps+|B|_\infty)^2e^{-\gamma_5m}\eta^d$. For $|Z|_\infty\le2r_5$ we have $|\hat Z(Z)|_\infty\le CL^d|Z|_\infty$ (Lemma~\ref{lem:eliminate}(c)), so $\eps+|\hat Z(Z)|_\infty\le r_4$, and Proposition~\ref{prop:map-compare} applies at $B=\hat Z(Z)$. Put $G_{p,m}(Z)=F_{p,m}(\hat Z(Z))$. These are analytic, vanish at $Z=0$, and by Lemma~\ref{lem:eliminate} depend on $Z$ only within distance $2L$ of $\Lam_m(\{p\})$.
+
+Let $T_2G$ denote the Taylor polynomial of degree $2$ at $Z=0$. Since the sums converge absolutely,
+\[
+\sum_{p,m}T_2G_{p,m}=T_2\big(\mathcal S(\hat Z)-\mathcal S(0)\big)=\tfrac12\Delta_k(Z,Z)
+\]
+by Lemma~\ref{lem:step-quadratic}; the linear term vanishes. Hence $\mathcal V_{p,m}=G_{p,m}-T_2G_{p,m}$ sum to $\mathcal V$. For the bound fix $Z$ with $0<|Z|_\infty\le r_5$, and put $g(t)=\mathcal V_{p,m}(tZ)$. The comparison bounds hold on the complex ball of radius $2r_5$, where $\sup|G_{p,m}|\le C(\eps+2r_5)^2e^{-\gamma_5m}\eta^d$. So $g$ is analytic for $|t|<2r_5/|Z|_\infty$. By Cauchy's estimate each Taylor term of $t\mapsto G_{p,m}(tZ)$ of degree at most $2$ obeys the same bound there, so $|g(t)|\le4C(\eps+2r_5)^2e^{-\gamma_5m}\eta^d$. Since $g$ vanishes to third order at $t=0$, the maximum principle for $g(t)/t^3$ on the discs $|t|\le\varrho$, $\varrho<2r_5/|Z|_\infty$, and the limit $\varrho\to2r_5/|Z|_\infty$ give
+\[
+|\mathcal V_{p,m}(Z)|\le4C(\eps+2r_5)^2(2r_5)^{-3}|Z|_\infty^3e^{-\gamma_5m}\eta^d\le\tfrac92Cr_5^{-1}|Z|_\infty^3e^{-\gamma_5m}\eta^d ,
+\]
+using $\eps\le r_5$. The factor $r_5^{-1}$ is part of $C_L$. Since $G_{p,m}$ depends on $Z$ only within distance $2L$ of $\Lam_m(\{p\})$, $|Z|_\infty$ may be replaced by $|Z|_{\Lam_m(\{p\})}$. Gauge invariance follows from the covariance of $A^X_*$ and the invariance of $s_p$.
+\end{proof}
+
+The same argument localizes the old activities composed with the background map. An activity has its own domain, so the radius depends on it. Let $P$ be a domain, let $m_1$ be the least $m$ with $P^{(2)}\subset\Omega_{\Lam_m(P)}$, and let $\chi_P$ be a smooth function, equal to $1$ on $P^{(1)}$ and to $0$ off $P^{(2)}$, with bounded derivatives. For $m\ge m_1$ the field $\chi_PA^{\Lam_m(P)}_*(\hat Z(Z))$ is defined on $\Tf$; the cutoff, not an extension by zero, keeps its derivatives bounded. By Proposition~\ref{prop:map-compare}, Lemma~\ref{lem:eliminate}(c) and \eqref{eq:cov-vs-flat}, there is $C_{\rm a}$, depending only on $d$, $\alpha$, $G$, $L$, $M$ and $R_1$, such that the following holds in the local gauges of $U'$, for complex $Z$ with $|Z|_\infty\le r_5$. The sup norm, the gradient and the H\"older quotient of $\chi_PA^{\Lam_m(P)}_*(\hat Z(Z))$ are at most $C_{\rm a}(\eps+L^d|Z|_\infty)$. For $m>m_1$, those of $\chi_P\big(A^{\Lam_m(P)}_*-A^{\Lam_{m-1}(P)}_*\big)(\hat Z(Z))$ are at most $C_{\rm a}(\eps+L^d|Z|_\infty)e^{-\gamma_4m}$. For the latter, the points of $P^{(2)}$ are at distance at least $m-R_1-10M-8$ from the set $\Sigma'$ of Proposition~\ref{prop:map-compare}(c), and the factor $e^{\gamma_4(R_1+10M+8)}$ is part of $C_{\rm a}$.
+
+\begin{corollary}[Composed activities]\label{cor:composed}
+Let $F$ be a background activity at a domain $P$, with parameters $\eps_a,\delta_a$ (Definition~\ref{def:bg-activity}). Assume $\eps\le\eps_a$ and $C_{\rm a}\eps\le\frac14\delta_a$, and let $0<r_F\le r_5$ with $C_{\rm a}L^dr_F\le\frac14\delta_a$. Then, for complex $Z$ with $|Z|_\infty\le r_F$,
+\[
+F\big(e^{\ii\eta A_*(\hat Z(Z))}U'\big)=\sum_{m\ge m_1}F_m(Z),
+\]
+where $F_m$ depends only on $U'$ in $\widehat{\Lam_m(P)}$ and on $Z$ within distance $2L$ of $\Lam_m(P)$, is analytic and gauge invariant, and satisfies $|F_m|\le2e^{\gamma_4m_1}\|F\|e^{-\gamma_4m}$.
+\end{corollary}
+
+\begin{proof}
+For $m\ge m_1$ let $A_m=\chi_PA^{\Lam_m(P)}_*(\hat Z(Z))$ and $V_m=e^{\ii\eta A_m}U'$. On $P^{(1)}$, $V_m$ equals $e^{\ii\eta A^{\Lam_m(P)}_*(\hat Z(Z))}U'$, so by the locality of $F$ the value $F(V_m)$ does not depend on the choice of $\chi_P$. If $\Lam_m(P)=\Tf$, then $A^{\Lam_m(P)}_*=A_*$ and $F(V_m)$ is the left side. Put $F_{m_1}=F(V_{m_1})$ and $F_m=F(V_m)-F(V_{m-1})$ for $m>m_1$; the sum is finite. The reference $U'$ is real, $(M,\eps_a)$-regular and $|J_{U'}|\le\eps_a$, since $\eps\le\eps_a$. By the hypotheses and the choice of $C_{\rm a}$, $A_{m-1}$ has sup norm, gradient and H\"older quotient at most $\frac12\delta_a$, and $A_m-A_{m-1}$ at most $\frac12\delta_ae^{-\gamma_4m}$. So $f(t)=F\big(e^{\ii\eta(A_{m-1}+t(A_m-A_{m-1}))}U'\big)$ is analytic and bounded by $\|F\|$ for $|t|<e^{\gamma_4m}$, and the Schwarz lemma for $f-f(0)$ gives $|F_m|=|f(1)-f(0)|\le2\|F\|e^{-\gamma_4m}$. Also $|F_{m_1}|\le\|F\|$. The dependence on $U'$ and $Z$ follows from that of $A^X_*$ (on $U$ on $\hat X$ and on $B$ on $\mathfrak B(X)$) and from the range $2L$ of $\hat Z$. Analyticity follows from that of $A^X_*$, $\hat Z$ and $F$, and gauge invariance from the covariance of $A^X_*$ and $\hat Z$ and the invariance of $F$; $\chi_P$ is scalar.
+\end{proof}
+
+\subsection{Summary}
+
+The background-dependent ingredients of one renormalization group step have the following representations as sums of local pieces with exponential decay:
+\begin{itemize}
+\item the fluctuation covariance and the quadratic form, entrywise (Theorem~\ref{thm:local-covariance});
+\item the determinant, as a background-independent constant plus normalized activities of second order in the curvature and current (Corollary~\ref{cor:one-loop});
+\item the interaction, as pieces of third order in the fluctuation (Theorem~\ref{thm:interaction-local}), and the old activities composed with the background map (Corollary~\ref{cor:composed}).
+\end{itemize}
+The first two use only kernel bounds. The last two also use the interior pointwise bounds of Theorem~\ref{thm:ID}.
+
+All four are of \emph{radius type}. A piece that depends on the fields and on the background in a ball $\Lam_m$ is bounded by $e^{-\gamma m}$. The polymer expansion of the next stage needs \emph{volume type}, i.e.\ a fixed small factor for every cube of the dependence region, as in \cite[(116)--(122)]{DimockI}. A ball of radius $m$ contains of order $m^d$ cubes, so in $d\ge2$ the bound $e^{-\gamma m}$ does not suffice. Ba\l aban and Dimock obtain volume-type localization from random-walk expansions with weakening parameters. For the operators of Parts~II and~III these require the nested walks of Section~\ref{sec:nested-walks}. The Dirichlet operators of Part~III and Theorem~\ref{thm:ID} are the local propagators of such walks. The results of this part are therefore inputs to that construction, but they do not replace it.
+The local Jacobians $\mathfrak J$ and the factors $\mathfrak j_c$ of Theorem~\ref{thm:step} are local already. These are the inputs \textsf{I8b}, \textsf{I8c} and \textsf{I9b} of the blueprint, in radius-type form. The plan at this point was that the next part would:
+\begin{itemize}
+\item construct volume-type localizations by random walks with weakening, with the Dirichlet operators of Parts~III and~VIII as local propagators;
+\item perform the cluster expansion of the Gaussian integral with these activities;
+\item normalize the resulting activities at the trivial background (Lemma~\ref{lem:quadratic-bound});
+\item control the change of units in the norm of the blueprint, Appendix~A.
+\end{itemize}
+This was carried out in Parts~IX and~X, with volume-type inputs from Part~IX in place of the radius-type ones above, and the activity norm of Section~\ref{sec:flow} in place of that of the blueprint, Appendix~A.

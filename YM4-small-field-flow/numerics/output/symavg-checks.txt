@@ -1,0 +1,61 @@
+d=2, SU(2), L=3, centred blocks, coarse torus 2x2, fine 6x6; seed 1
+family sizes: [1, 2]
+Informative checks: A1, A3 (point group), A4 (e)-(f), A5, A6(b), A7, A8. The lines marked [construction] hold
+algebraically once the transformation law of A2 holds; they test the implementation only.
+
+A1. The group average M (0.5)-(0.10), families of n elements
+  n= 2: equation 1.9e-16 | inverse 5.6e-17 | two-sided equivariance (Haar u,v) 2.8e-16 | permutation 0.0e+00 | midpoint 2.6e-16 | derivative at coincident family = mean 1.9e-16
+  n= 3: equation 5.6e-17 | inverse 4.9e-17 | two-sided equivariance (Haar u,v) 5.8e-16 | permutation 1.0e-16 | midpoint nan | derivative at coincident family = mean 1.9e-16
+  n= 5: equation 2.2e-16 | inverse 5.6e-17 | two-sided equivariance (Haar u,v) 2.5e-16 | permutation 1.1e-16 | midpoint nan | derivative at coincident family = mean 5.6e-17
+  n=24: equation 1.8e-15 | inverse 1.4e-16 | two-sided equivariance (Haar u,v) 1.8e-16 | permutation 2.2e-16 | midpoint nan | derivative at coincident family = mean 2.8e-17
+  weights of the derivative at a family scaled by t, max_i |W_i - I/n| (sum_i W_i = I):
+    t=0.800, diameter 1.2432: max |W_i - I/n| = 6.51e-02 (ratio to diameter: 0.0524), |sum W_i - I| = 3.3e-16
+    t=0.400, diameter 0.6012: max |W_i - I/n| = 3.22e-02 (ratio to diameter: 0.0536), |sum W_i - I| = 3.3e-16
+    t=0.200, diameter 0.2949: max |W_i - I/n| = 1.61e-02 (ratio to diameter: 0.0546), |sum W_i - I| = 7.6e-17
+    t=0.100, diameter 0.1459: max |W_i - I/n| = 8.06e-03 (ratio to diameter: 0.0553), |sum W_i - I| = 2.2e-16
+    t=0.050, diameter 0.0726: max |W_i - I/n| = 4.04e-03 (ratio to diameter: 0.0556), |sum W_i - I| = 2.2e-16
+    t=0.025, diameter 0.0362: max |W_i - I/n| = 2.02e-03 (ratio to diameter: 0.0558), |sum W_i - I| = 2.2e-16
+
+A2. Gauge covariance under an arbitrary (Haar-random) gauge transformation g
+  contour variables M       : max |U^g(y,x) - g(y) U(y,x) g(x)^{-1}| = 5.1e-16
+  contour variables logmean : max |U^g(y,x) - g(y) U(y,x) g(x)^{-1}| = 7.0e-01
+  contour variables tree    : max |U^g(y,x) - g(y) U(y,x) g(x)^{-1}| = 3.6e-16
+  averaging (0.12) with M     contour variables: max |a(U^g) - a(U)^{g|T}| = 5.2e-16
+  averaging (0.12) with tree  contour variables: max |a(U^g) - a(U)^{g|T}| = 3.3e-16
+  ("logmean" is the shortcut that fails; "tree" is covariant but not symmetric)
+
+A3. Point-group and reversal covariance of (0.12); U random, amplitude 0.3
+  [construction] reversal: max |a(U)(-c) - a(U)(c)^{-1}| = 2.1e-16
+  all  families: id 0.0e+00  rot90 3.2e-16  rot180 2.6e-16  rot270 1.9e-16  refl1 2.1e-16  refl2 1.9e-16  transp 2.4e-16  antitransp 3.2e-16
+  one  families: id 0.0e+00  rot90 4.4e-01  rot180 1.8e-16  rot270 3.7e-01  refl1 1.8e-16  refl2 1.1e-16  transp 3.6e-01  antitransp 4.4e-01
+  gauge-adapted average Q relative to U0: max over D4 of |Q_{rU0}(rX) - r Q_{U0}(X)| = 6.4e-16
+
+A4. The averaged axial gauge and Theorem correspondence (k=1); U0, X random, amplitude 0.3
+  [construction] g of Lemma axial(a), arbitrary h: max_(y,x) |X^(g)_W(y,x) - 1| = 1.0e-15,  |g|_T - h| = 0.0e+00
+  [construction] U and U^u, u in G_0 Haar-random: distance of their axial representatives (h=1) = 1.0e-15
+  [construction] Definition adapted: |avg(X^(g_X)) - tau_X(c-)^{-1} Xbar R(V)(tau_X(c+))| = 5.1e-16
+  [construction] Theorem correspondence(d): on the axial slice tau = 1 (1.8e-16) and Q = Xbar (2.6e-16)
+  Theorem correspondence (e), (f), nonlinear; g random near 1 (amplitude 0.3), h Haar-random:
+    M        contour variables: (e) |Q(1^(g)) - 1^(m(g))| = 5.9e-16, |w_1(1^(g)) - E_1(m(g)) g^{-1}| = 4.3e-16;  (f) |m(E_1(h)g) - h m(g)| = 2.6e-16, |m(w_1(X))| = 8.2e-17
+    tree     contour variables: (e) |Q(1^(g)) - 1^(m(g))| = 3.2e-16, |w_1(1^(g)) - E_1(m(g)) g^{-1}| = 5.6e-16;  (f) |m(E_1(h)g) - h m(g)| = 3.1e-16, |m(w_1(X))| = 1.7e-16
+    logmean  contour variables: (e) |Q(1^(g)) - 1^(m(g))| = 9.3e-03, |w_1(1^(g)) - E_1(m(g)) g^{-1}| = 4.6e-02;  (f) |m(E_1(h)g) - h m(g)| = 2.2e-16, |m(w_1(X))| = 1.1e-16
+
+A5. Linearization at U = 1 (scalar coefficient, colour-diagonal)
+  gauge-adapted Q (averaged contour variables) = centred tube average: 8.3e-17
+  plain (0.12) = tube average - D'gamma_sym: 5.6e-17   (|D'gamma_sym| = 0.222)
+  gauge-adapted Q with the tree contour in the gauge = tube average + D'(gamma_tree - gamma_sym): 5.6e-17;  distance from the tube average 0.111
+  coefficient of Z(b_0(c)) in the plain constraint: [0.333333333333] (L^{1-d} = 0.333333); in other coarse bonds: 0.0e+00
+  composition of two centred tube averages = centred tube average of side L^2: 0.0e+00; block averages: 0.0e+00   (fine torus 18x18)
+
+A6. Linearized averages at a random real U0 (amplitude 0.3): Proposition linearized-averages
+  Balaban's scheme           : [construction] (a) |Q'Q'^T - I| = 4.4e-16   (b) |Q D - D_V Q'| = 3.6e-16   (scale |Q D| = 0.11)
+  tree contour in the gauge  : [construction] (a) |Q'Q'^T - I| = 3.3e-16   (b) |Q D - D_V Q'| = 4.3e-16   (scale |Q D| = 0.11)
+  log-mean contour variables : [construction] (a) |Q'Q'^T - I| = 4.4e-16   (b) |Q D - D_V Q'| = 5.4e-03   (scale |Q D| = 0.11)
+  (f) Haar-random u: |W_1(U0^u) - W_1(U0)^u| = 4.7e-16, |Q'(U0^u)R(u) - R(u|T)Q'(U0)| = 2.8e-16, |Q(U0^u)R(u) - R(u|T)Q(U0)| = 4.4e-16
+
+A7. Claim Y2-tree (3x3 block, 12 bonds, 8-bond subsets):
+  spanning trees 192, of which transposition-invariant 0; transposition-invariant subsets 15
+  subsets on which the linearized constraint G is invertible: 16, of which spanning trees 16
+
+A8. The pipeline with the iterative solver of (0.10) also for two-element families
+  |a(U) iterative - a(U) midpoint| = 1.1e-16;  D4 covariance 3.2e-16;  E=0 by complex steps through the solver 3.5e-16

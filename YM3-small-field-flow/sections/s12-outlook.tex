@@ -1,0 +1,62 @@
+\section{Outlook}\label{sec:outlook}
+
+\paragraph{What has been done.}
+\begin{itemize}
+\item \emph{Part~I} treats the trivial background $U=1$ on the torus.
+\item \emph{Part~II} extends the results to backgrounds close to $1$ in a global gauge, by perturbation.
+\item \emph{Part~III} replaces the global hypothesis by local regularity: on every cube of size of order $M$ there is a gauge in which the background is close to $1$. It provides:
+  \begin{itemize}
+  \item Dirichlet operators on unions of blocks;
+  \item a local proof of coercivity by IMS localization;
+  \item locality of all operators in the domain and in the background;
+  \item Ba\l aban's random-walk expansion for the scalar Green function; for the gauge-field Green function it is completed in factorized form in Part~IX (Section~\ref{sec:nested-walks}).
+  \end{itemize}
+\item \emph{Part~IV} constructs Ba\l aban's nonlinear averaging, the axial gauge and the gauge-adapted averaging, and proves the axial-to-Landau chart. The linearized averaging is exactly covariant ($E=0$), and Parts~II and~III apply to it: the real statements under properties (i)--(iv) of Remark~\ref{rem:general-averaging}, the analytic ones with property (v) in addition.
+\item \emph{Part~V} solves the variational problem relative to a regular reference configuration. It gives existence, uniqueness and minimality of the background field, second-order and H\"older bounds, the Euler--Lagrange equation, analyticity in the coarse field, and exponential decay of the derivative.
+\item \emph{Part~VI} carries out the induction over the number of steps. This proves Ba\l aban's variational theorem on the torus with constants independent of $k$ (Theorem~\ref{thm:balaban}). As a consequence, every real configuration with small curvature and current is regular (Corollary~\ref{cor:regularity}). So the hypothesis of Part~III is a consequence of gauge-invariant conditions.
+\item \emph{Part~VII} writes one small-field renormalization group step exactly as a Gaussian integral around the background field (Theorem~\ref{thm:step}). It proves the linear input: coercivity and decay of the fluctuation covariance, analyticity and tree decay of the coarse effective action, and local determinant densities.
+\item \emph{Part~VIII} localizes the dependence on the background, including large changes, by Dirichlet approximants and telescoping:
+  \begin{itemize}
+  \item for the fluctuation covariance and the coarse Hessian (Theorem~\ref{thm:local-covariance}, Corollary~\ref{cor:large-changes});
+  \item for the determinant, which becomes a constant plus normalized one-loop activities of second order in the curvature (Corollary~\ref{cor:one-loop});
+  \item for the interaction and the composed activities (Theorem~\ref{thm:interaction-local}, Corollary~\ref{cor:composed}). This uses interior pointwise bounds with derivatives for the Dirichlet operators (Theorem~\ref{thm:ID}). They are proved by absorption at all scales inside a single cube, for a local elliptic system in which two scalar potentials of the slice projection are additional unknowns (Section~\ref{sec:interior}).
+  \end{itemize}
+  This localization is of radius type. On the main line it is superseded by Parts~IX and~X. From Part~VIII the main line keeps the interior bounds, the Dirichlet Hessians and local fluctuation operators, the local determinant densities, the graded domains and the quadratic bound for normalized activities (Lemma~\ref{lem:quadratic-bound}).
+\item \emph{Part~IX} gives the volume-type localization by random walks with weakening parameters: for the covariance, its square root, the coarse Hessian and the determinant in $L^2$ norms (Section~\ref{sec:nested-walks}); pointwise $C^{1,\beta}$ bounds for the weakened propagators, through interior $L^p$ estimates and tier norms (Sections~\ref{sec:interior-lp}, \ref{sec:tiers}); and the weakened background map (Theorem~\ref{thm:weak-bg}).
+\item \emph{Part~X} carries out the small-field renormalization group in Dimock's scheme:
+  \begin{itemize}
+  \item complex references, including Ba\l aban's averaged backgrounds (Proposition~\ref{prop:AB}, Proposition~\ref{prop:complex-ext});
+  \item the weakened step quantities and the localization lemma (Section~\ref{sec:step-quantities});
+  \item the white-noise cutoff and the Mayer and polymer expansion; by parity there is no term of order $g$ (Section~\ref{sec:cluster});
+  \item the activity norm on the graded domain D3$'''$, the linear part and one step of the flow (Theorem~\ref{thm:one-step});
+  \item the first step, the vacuum energy and the small-field flow (Theorem~\ref{thm:sf-flow}, Corollary~\ref{cor:sf-stability}; Theorem~\ref{thm:K}).
+  \end{itemize}
+\end{itemize}
+
+\paragraph{How the induction closes.} The reference at step $k$ is the solution of the $(k-1)$-step problem for the trivial extension of $V$, and it has exactly the prescribed averages. Theorem~\ref{thm:variational} then solves the problem at step $k$. Its regularity bound is not good enough to continue, because the change of units from $\delta_{k-1}$ to $\delta_k$ costs a power of $L$. The local improvement (Lemma~\ref{lem:improvement}) uses only Theorem~\ref{thm:variational} itself, applied with a different reference. This reference is spliced to the trivial configuration near a given point and coincides with the solution far away. Near the point, the solution is then $\bH$ applied to the coarse field in an axial gauge, up to an error that is exponentially small in the splicing radius times the a priori bound, plus a quadratic error. The coarse field in the axial gauge is controlled by the curvature of $V$. Two features make this work on the torus:
+\begin{itemize}
+\item the uniformity of Theorem~\ref{thm:variational} in the reference;
+\item the polynomial loss in the patching of local gauges (Lemma~\ref{lem:large-cubes}), which is beaten by the exponential decay of $\bH$ and $\bC$.
+\end{itemize}
+
+\paragraph{Why the global hypothesis was not enough.} Applied up to a real gauge transformation, hypothesis (B) is a condition on the real gauge orbit, so it does not break gauge invariance. But it is not local, and it is restrictive. By the isoperimetric argument of Section~\ref{sec:background}, every Wilson loop obeys a perimeter bound. Field strengths of size $\eps$ that are coherent over many blocks, and backgrounds with non-zero flux through a $2$-cycle, are excluded. Moreover the renormalization group needs small-field conditions that factorize over local regions, and operators whose dependence on distant changes of the background is weak. Part~III provides both: regularity is a local condition, and Theorem~\ref{thm:reg-locality} gives the locality. Part~VI shows that the local condition is implied by Ba\l aban's gauge-invariant small-field conditions.
+
+A naive comparison of $G(U)$ and $G(U')$ through the resolvent identity would produce the difference $D_U-D_{U'}$, whose norm can be of order $\eta^{-1}$ where the backgrounds differ. The proof of Theorem~\ref{thm:reg-locality} avoids this. It compares each background with a Dirichlet operator on the region where they agree. Changing the domain at a fixed background produces cut couplings and differences of domain-dependent ingredients, including mass profiles and non-local terms, which are supported near the cut or exponentially small away from it. Derivative factors may occur at one or both ends of these terms; the estimates use the corresponding bounded undifferentiated or differentiated propagators.
+
+\paragraph{Relation to Ba\l aban's construction.} Ba\l aban works with Dirichlet operators on domains \cite{BalBackground} and with local regularity on cubes \cite[(3.35)--(3.36)]{BalBackground}, and builds the global operators by random walks. His positivity comes from \cite[Theorem~3.11]{BalBackground} and local axial-gauge estimates \cite[Lemma~2.4]{BalPropII}. Our route differs in several technical points:
+\begin{itemize}
+\item coercivity comes from IMS localization together with the coercivity of Part~I;
+\item the local gauge-field propagators carry a mass term near the boundary of their domain;
+\item the normalization of the gauge transformation from the axial to the Landau gauge is built into a recursive correspondence map (Theorem~\ref{thm:correspondence}). Ba\l aban's nonlinear averages of gauge transformations then appear only through the identity for pure gauges;
+\item the second-order regularity of the minimizer is derived from the Euler--Lagrange equation, which follows from gauge invariance and a transversality argument. We do not use the alternative equation \cite[(143)]{BalVar};
+\item the local improvement of the regularity constants is obtained on the torus, by changing the reference configuration, instead of on nested domains (Lemma~\ref{lem:improvement}). The local regularity of general small-field configurations is derived from that of the background fields, through the chart (Corollary~\ref{cor:regularity}).
+\end{itemize}
+The random-walk expansion is used only for the explicit localized representation, not for the estimates.
+
+\paragraph{Next steps.}
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Verification.} The small-field flow is written out, and its parts have been reviewed by independent AI agents, but the note has not been checked by a human expert. The companion documents (the blueprint, an audit and a verification report) record the plan, the reviews and the points to check first.
+\item \emph{Large fields and nested domains,} where Dirichlet operators on irregular domains are essential. This is the analogue of \cite{DimockII,DimockIII}. It must control what the small-field model of Theorem~\ref{thm:K} discards at every step, and so remove the modification. Since the covariance $C_k$ depends on the background everywhere, the white-noise cutoff of Section~\ref{sec:cluster} will need a version that depends on regions. Part~III treats arbitrary unions of blocks, so this is the natural setting for them. The splicing of Part~VI is a torus device. On nested domains the reference no longer has exactly the prescribed averages, and the analysis on domains of Part~III must be extended to the nonlinear problem.
+\item \emph{Gauges on cubes of size up to $c\,\eps_1^{-1}$} with bounds linear in the size (Remark~\ref{rem:large-cubes}).
+\item \emph{Gauge groups with abelian factors.} The irrelevance of normalized activities uses semisimplicity (Lemma~\ref{lem:quadratic-bound}). For abelian factors, gauge-invariant terms linear in the curvature can occur, and they must be treated separately.
+\end{enumerate}

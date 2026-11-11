@@ -1,0 +1,27 @@
+d=2, SU(2), L=3, centred blocks, coarse torus 2x2, fine 6x6; free links 40 of 72; seed 21, amplitude 0.25
+predictions: LHS_tree - RHS = -(d/2) dim(g) |T| log L = -13.1833474640;  LHS_exp - LHS_tree = (n_lambda/2) log 2 = 33.2710646669, n_lambda = 96
+   it  0: S = 6.28951713635132  |dX| = 5.75e+00  mu = 0
+   it  1: S = 5.37718137229591  |dX| = 3.70e+00  mu = 0
+   it  2: S = 4.49792016724163  |dX| = 5.04e+00  mu = 0
+   it  3: S = 3.26146899318257  |dX| = 2.38e+00  mu = 0
+   it  4: S = 2.79477450433723  |dX| = 3.61e+00  mu = 0
+   it  5: S = 1.99965231301758  |dX| = 2.08e+00  mu = 0
+   it  6: S = 0.86078494805498  |dX| = 8.12e-01  mu = 0
+   it  7: S = 0.28922706619710  |dX| = 5.08e-01  mu = 0
+   it  8: S = 0.17457657433302  |dX| = 2.03e-01  mu = 0
+   it  9: S = 0.17452198373948  |dX| = 4.96e-03  mu = 0
+   it 10: S = 0.17452198360235  |dX| = 1.07e-05  mu = 0
+   it 11: S = 0.17452198360235  |dX| = 1.55e-11  mu = 0
+   it 12: S = 0.17452198360235  |dX| = 7.17e-16  mu = 0
+  V0: S(U0) = 0.1745219836, constraint residual 3.8e-16
+  V0: LHS_tree = 25.6603815938   (multiplier residual 3.2e-16, smallest Cholesky pivot 3.789e-01)
+  V0: LHS_exp  = 58.9314462607   (multiplier residual 3.6e-16, smallest Cholesky pivot 1.112e-01);  LHS_exp - LHS_tree - (n_lambda/2) log 2 = 6.5e-11
+  V0: PARTS 25.6603815938 -88.4506189240 -3.7774432472 131.0717912290 -88.4657034189 -3.8659110240
+  V0: RHS = a=0.5: 38.8437290578 (signs 1,1)  a=2.0: 38.8437290578 (signs 1,1)   (EL residual 3.7e-16, |q2 D N(Q')| = 2.2e-11, |Q D N(Q')| = 5.2e-16)
+  V0: LHS_tree - RHS = -13.1833474640;  LHS_tree - RHS - prediction = -2.5e-11
+  V0: chart independence, tree contour in the gauge: RHS = 38.8437290578 (|Q D N| = 5.0e-16);  LHS_tree - RHS - prediction = -2.4e-11
+  V0: negative control, log-mean contour variables in the gauge (E != 0): |Q D N| = 4.0e-05;  LHS_tree - RHS - prediction = 2.1e-04
+  V0: point group, rot90 : constraint residual 6.2e-16;  LHS_tree(rV) - LHS_tree(V) = 4.4e-11,  RHS(rU0) - RHS(U0) = 1.9e-12
+  V0: point group, refl1 : constraint residual 4.4e-16;  LHS_tree(rV) - LHS_tree(V) = -1.2e-11,  RHS(rU0) - RHS(U0) = 3.5e-12
+  V0: point group, transp: constraint residual 5.6e-16;  LHS_tree(rV) - LHS_tree(V) = 4.4e-11,  RHS(rU0) - RHS(U0) = -5.6e-12
+  V0: [855 s]

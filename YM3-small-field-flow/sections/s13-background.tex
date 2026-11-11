@@ -1,0 +1,153 @@
+\section{Background fields: setting and hypotheses}\label{sec:background}
+
+In this part of the paper we extend the results of Sections~\ref{sec:scalar}--\ref{sec:gauge-min} to operators depending on a non-trivial background field $U$. These are the operators $G(U)$, $H(U)$, $\mathfrak G(U)$, $R(U)$, $G'(U)$ of \cite{BalBackground}, which enter the variational problem \cite{BalVar}. Two features distinguish this part from the case $U=1$.
+\begin{itemize}
+\item The fields take values in the (complexified) Lie algebra, and the operators involve parallel transport. Everything is proved for complex backgrounds near real ones. Analyticity in the background then comes for free.
+\item The gauge directions no longer decouple from the action. Ba\l aban handles this by replacing the quadratic form by its gauge-invariant extension, built with the projection $\Pi(U)$ onto the gauge slice along the residual gauge directions \cite[(3.118)--(3.119)]{BalBackground}. We use the same construction (Section~\ref{sec:cov-gauge}).
+\item We work with a simplified averaging operator: only the main term of Ba\l aban's linearized averaging. For it, the covariance identity $\bQ(U)D_U=D_VQ'(U)$, which is exact for Ba\l aban's full operator \cite[(3.114)--(3.115)]{BalBackground}, holds only up to a small ``defect'' $E(U)$. We correct for the defect by one additional term in the averaging part of the operator. With this correction all exact identities of Section~\ref{sec:gauge-min} are restored.
+\end{itemize}
+
+\paragraph{The global small-field hypothesis.} We assume that the background is close to $1$ \emph{in a single global gauge} (hypothesis (B) below). Ba\l aban's conditions are local. They consist of a gauge-invariant bound on the curvature \cite[(2)]{BalVar} and, for the propagators, of the requirement that on each cube of size $M$ there be a gauge in which $U$ is close to $1$, with bounds proportional to $M$ \cite[(3.35)--(3.36)]{BalBackground}. Hypothesis (B) is a condition on the background $U$ as given; a real gauge transformation can destroy it. The existence of a $G$-valued gauge transformation that carries $U$ to a background satisfying (B) is a condition on the real gauge orbit of $U$. All operators below are defined covariantly, and they transform covariantly under $G$-valued gauge transformations (Proposition~\ref{prop:covariance}). Hence their bounds hold for every background that is gauge equivalent, by a $G$-valued gauge transformation, to one satisfying (B), with derivatives replaced by covariant derivatives and H\"older quotients taken in the gauge in which (B) holds. The comparisons with the operators at $U=1$ are different: they hold in that gauge, and they transfer only as comparisons with the transformed reference $1^u$. Apart from these comparisons, the special gauge is only a device in the proofs. For $G^c$-valued gauge transformations the operator $R(u)$ need not be an isometry, and the bounds do not transfer.
+
+\paragraph{How restrictive (B) is.} Hypothesis (B) is much stronger than Ba\l aban's local conditions, and it is not a local condition. The basic constraint is an isoperimetric bound. Let $S$ be a planar lattice region and $\partial S$ its boundary contour. If (B) holds, then $|U(\partial S)-1|\le e^{\eps|\partial S|}-1$, where $|\partial S|$ is the length of $\partial S$ in unit lengths. So all Wilson loops obey a perimeter bound with constant $\eps$.
+
+A background whose field strength is of size $\eps$ and \emph{coherent} over a region of side $\ell$ has $U(\partial S)\approx e^{\ii\eps\ell^2}$ for squares $S$ of side $\ell$. In the abelian case, for $\eps\ell^2<\pi$, the perimeter bound then forces $\ell\lesssim4$. Thus (B) essentially requires the background to be close to flat on all scales larger than $O(1)$. Field strengths of size $\eps$ are allowed only if they average out on the unit scale. Backgrounds with non-zero flux through a $2$-cycle of the torus are the extreme case. In the abelian case, every gauge with $\eta|A|<\pi/4$ has vanishing total flux, because each plaquette angle is then the principal one and the flux is a sum of differences. So non-zero flux forces $|A|\ge\pi/(4\eta)$ somewhere, whatever the size of the torus.
+
+Flat backgrounds, on the other hand, can satisfy (B). For a real flat background, if the holonomies $h_\mu$ around the cycles lie in a common maximal torus of $G$ (always the case for $U(\mathsf N)$ and $SU(\mathsf N)$), one writes $h_\mu=e^{\ii\theta_\mu}$ with commuting $\theta_\mu$ and spreads them evenly, $A_\mu=\theta_\mu/n$. This gives (B) once $n\ge C_G/\eps$. For other groups (e.g.\ $SO(3)$) commuting holonomies need not lie in a common torus.
+
+Coherent field strengths of size $\eps$ over many blocks are natural inputs for the variational problem and typical configurations in the renormalization group. Hypothesis (B) excludes them. Section~\ref{sec:outlook} discusses the consequences and the route back to local conditions.
+
+\subsection{Lie algebra valued fields}
+
+Let $G\subset U(\mathsf N)$ be a compact connected Lie group, and let $\mathfrak g$ be the real Lie algebra of hermitian matrices $X$ with $e^{\ii tX}\in G$ for every $t\in\R$, following the convention of \cite{BalPropI,BalBackground}. Connectedness is used through $\det R(g)=1$ on $\mathfrak g$, for $g\in G$ and for $g\in G^c$ (Propositions~\ref{prop:exact-step} and~\ref{prop:jacobians}). For connected $G$ this holds: $\det R(e^{\ii X})=e^{\ii\operatorname{tr}\operatorname{ad}X}=1$, since $\operatorname{ad}X$ is antisymmetric for the trace form, and $G$ and $G^c$ are generated by exponentials. For disconnected groups it can fail: on $(SU(2)\times SU(2))\rtimes\Z_2$ the exchange of the factors has $\det R=-1$. Let $\mathfrak g^c=\mathfrak g+\ii\mathfrak g$ be its complexification. On $\mathfrak g^c$ we use the bilinear form $\mathrm b(X,Y)=\operatorname{tr}(XY)$ and the Hilbert--Schmidt norm $|X|=(\operatorname{tr}X^*X)^{1/2}$; on $\mathfrak g$ the two are related by $\mathrm b(X,X)=|X|^2$. Then $|[X,Y]|\le2|X||Y|$, and for $Z\in\mathfrak g^c$ the operator $R(e^{Z})Y=e^ZYe^{-Z}=e^{\operatorname{ad}Z}Y$ satisfies
+\begin{equation}\label{eq:Ad-bound}
+\|R(e^{Z})-1\|\le e^{2|Z|}-1 .
+\end{equation}
+
+Scalar fields, gauge fields and $2$-forms are now $\mathfrak g^c$-valued. The inner products of Section~\ref{sec:setup} are replaced by
+\[
+\mathrm b(f,g)=\eta^d\sum_x\operatorname{tr}\big(f(x)g(x)\big)\ \ \text{(bilinear)},\qquad \ip fg=\eta^d\sum_x\operatorname{tr}\big(f(x)^*g(x)\big)\ \ \text{(hermitian)},
+\]
+with the analogous expressions for gauge fields, $2$-forms and unit-lattice fields; norms $\|\cdot\|$ always refer to $\ip\cdot\cdot$. The \emph{transpose} $X^T$ of a linear operator is taken with respect to $\mathrm b$. If $X$ maps $\mathfrak g$-valued fields to $\mathfrak g$-valued fields, $X^T$ is the complex-linear extension of its adjoint on real fields.
+
+Choosing an orthonormal basis $(t_a)$ of $\mathfrak g$, every $\mathfrak g^c$-valued field is a $\dim\mathfrak g$-tuple of complex scalar fields. All operators of Part~I act componentwise and are real. Hence every result of Sections~\ref{sec:setup}--\ref{sec:gauge-min} holds for $\mathfrak g^c$-valued fields. The $L^2$ statements hold with the same constants. For the pointwise statements, the kernel arguments of Section~\ref{sec:regularity} go through with Hilbert--Schmidt norms; applying them componentwise instead costs a factor depending on $\dim\mathfrak g$. In particular, for real symmetric $K$ the coercivity bounds of Theorem~\ref{thm:A} hold for $\Rea\ip u{Ku}$ with complex $u$.
+
+\subsection{Backgrounds and the hypothesis (B)}
+
+A \emph{background} is an assignment of $U(b)\in G^c$ to the oriented bonds $b$ of $\Tf$, with $U(-b)=U(b)^{-1}$. We write $U_\mu(x)=U(x,x+\eta e_\mu)$, and $U(\Gamma)$ for the ordered product along a contour $\Gamma$. A gauge transformation is a map $u:\Tf\to G^c$; it is \emph{real} if $u$ takes values in $G$. It acts by $U^u(b)=u(b_-)U(b)u(b_+)^{-1}$ on backgrounds and by $\lambda\mapsto R(u)\lambda$ on scalar and gauge fields.
+
+Fix $\alpha\in(0,1)$ and $\eps>0$.
+
+\begin{definition}[Hypothesis (B)]
+A background satisfies (B) with parameter $\eps$ if $U_\mu(x)=e^{\ii\eta A_\mu(x)}$ for a $\mathfrak g^c$-valued gauge field $A$ with
+\[
+|A|_{\Tf}\le\eps,\qquad|\partial A|_{\Tf}\le\eps,\qquad\sup_z\Hol{\partial A}{\Lam_3(z)}\le\eps .
+\]
+\end{definition}
+
+These bounds have the form of Ba\l aban's regularity conditions on the background in a cube \cite[(3.35)--(3.36)]{BalBackground}, and of the regularity bounds \cite[(9)]{BalVar} that the minimizers satisfy, but here they are imposed in one global gauge. The set of $A$ satisfying (B) with strict inequalities is open and convex. The uniform bounds and the analyticity statements below hold on the smallness domains specified in the respective results. Operators that involve $W$ are analytic in $(A,W)$; they are analytic in $A$ alone for fixed $W$ or for an analytic choice $W=W(A)$.
+
+\subsection{Covariant derivatives and curvature}
+
+For scalar fields,
+\[
+(D_\mu\lambda)(x)=\frac{R(U_\mu(x))\lambda(x+\eta e_\mu)-\lambda(x)}\eta,\qquad (D\lambda)_\mu=D_\mu\lambda,
+\]
+and for gauge fields $(DA)_{\mu\nu}=D_\mu A_\nu-D_\nu A_\mu$, where $D_\mu$ acts on the scalar field $A_\nu$. This is \cite[(3.3), (3.4)]{BalBackground}. We write $D=D_U$ when the background must be indicated. The transposes $D^T$ play the role of $d^*$. At $U=1$ we recover $d$ and $d^*$.
+
+\begin{lemma}[Expansion of covariant derivatives]\label{lem:cov-expansion}
+Assume (B) with $\eps\le1$. Then $D_\mu=\partial_\mu+T_\mu$ with $(T_\mu\lambda)(x)=\tau_\mu(x)\lambda(x+\eta e_\mu)$, where $\tau_\mu(x)=\eta^{-1}\big(R(e^{\ii\eta A_\mu(x)})-1\big)$ is a linear map of $\mathfrak g^c$ satisfying
+\[
+|\tau_\mu|\le 2e^2\eps,\qquad|\partial_\nu\tau_\mu|\le C\eps,\qquad\Hol{\partial_\nu\tau_\mu}{\Lam_3(z)}\le C\eps .
+\]
+Consequently, on scalar fields and componentwise on gauge fields,
+\begin{equation}\label{eq:DTD-normal}
+D^TD=-\Lap+\sum_\mu\partial^*_\mu(a_\mu\,\cdot\,)+b,
+\end{equation}
+where $a_\mu$ and $b$ are multiplication operators composed with shifts by at most $\eta$, with $|a_\mu|+|\partial a_\mu|+|b|\le C\eps$ and $\Hol{\partial a_\mu}{\Lam_3(z)}+\Hol{b}{\Lam_3(z)}\le C\eps$. The same normal form holds for $D^TD+DD^T$ on gauge fields, which equals $-\Lap$ componentwise when $U=1$ (Lemma~\ref{lem:hodge}).
+\end{lemma}
+
+\begin{proof}
+The formula for $D_\mu$ is immediate. The bounds on $\tau$ follow from \eqref{eq:Ad-bound}. Moreover $\tau_\mu(x)=\phi(\eta A_\mu(x))\,\ii\operatorname{ad}A_\mu(x)$, where $\phi(Z)=(e^{\ii\operatorname{ad}Z}-1)/(\ii\operatorname{ad}Z)$ is an entire function of $Z$; differentiating gives the bounds on $\partial\tau$ and its H\"older quotient. Next, $D^T_\mu=\partial^*_\mu+T^T_\mu$ with $(T^T_\mu w)(x)=\tau_\mu(x-\eta e_\mu)^Tw(x-\eta e_\mu)$. Write
+\[
+D^T_\mu D_\mu=\partial^*_\mu\partial_\mu+\partial^*_\mu T_\mu+T_\mu^T\partial_\mu+T^T_\mu T_\mu .
+\]
+The second term is already in divergence form with $a_\mu u=\tau_\mu S_\mu u$. For the third, $T^T_\mu\partial_\mu u=-\tilde\tau_\mu\,\partial^*_\mu u$ with $\tilde\tau_\mu(x)=\tau_\mu(x-\eta e_\mu)^T$, and the discrete Leibniz rule gives $\tilde\tau_\mu\partial^*_\mu u=\partial^*_\mu(\tilde\tau_\mu u)-(\partial^*_\mu\tilde\tau_\mu)S_\mu^{-1}u$. The last term is bounded. Collecting terms gives \eqref{eq:DTD-normal}. The computation for gauge fields is the same, term by term.
+\end{proof}
+
+On scalar fields $DD\ne0$ in general. Let $\mathfrak F=D\circ D$ (scalar fields to $2$-forms) denote the \emph{curvature operator}.
+
+\begin{lemma}[Curvature operator]\label{lem:curvature}
+$(\mathfrak F\lambda)_{\mu\nu}(x)=c_{\mu\nu}(x)\,\lambda(x+\eta e_\mu+\eta e_\nu)$ with
+\[
+c_{\mu\nu}(x)=\eta^{-2}\Big(R\big(U_\mu(x)U_\nu(x+\eta e_\mu)\big)-R\big(U_\nu(x)U_\mu(x+\eta e_\nu)\big)\Big).
+\]
+Under (B) with $\eps\le1$, $|c_{\mu\nu}|\le C\eps$ and $\Hol{c_{\mu\nu}}{\Lam_3(z)}\le C\eps$.
+\end{lemma}
+
+\begin{proof}
+Expanding $D_\mu D_\nu\lambda(x)$ gives four terms. After antisymmetrization in $(\mu,\nu)$, the three terms $-R(U_\mu(x))\lambda(x+\eta e_\mu)$, $-R(U_\nu(x))\lambda(x+\eta e_\nu)$ and $\lambda(x)$ cancel. This leaves the formula. Write $c=\eta^{-2}R(X_2)\big(R(X_2^{-1}X_1)-1\big)$. Then $X_2^{-1}X_1=e^{-\ii a'}e^{-\ii b}e^{\ii a}e^{\ii b'}$, where
+\[
+a=\eta A_\mu(x),\quad a'=\eta A_\mu(x+\eta e_\nu),\quad b=\eta A_\nu(x),\quad b'=\eta A_\nu(x+\eta e_\mu).
+\]
+Let $\Psi(a,a',b,b')=e^{-\ii a'}e^{-\ii b}e^{\ii a}e^{\ii b'}-1$, an entire function. Then
+\[
+\Psi(a,a',b,b')=\big[\Psi(a,a',b,b')-\Psi(a,a,b,b)\big]+\Psi(a,a,b,b).
+\]
+By Hadamard's lemma the bracket equals $(a'-a)\cdot\Psi_1+(b'-b)\cdot\Psi_2$, with $\Psi_i$ analytic functions of $(a,a',b,b')$. Moreover $a'-a=\eta^2\partial_\nu A_\mu(x)$ and $b'-b=\eta^2\partial_\mu A_\nu(x)$. The group commutator $\Psi(a,a,b,b)$ vanishes when $a=0$ or $b=0$, so it equals $\sum_{i,j}a_ib_j\Psi_{ij}(a,b)$ with analytic $\Psi_{ij}$. Hence $\eta^{-2}\Psi$ is a sum of products of $\partial A$, of $A\otimes A$, and of analytic functions of the four arguments $\eta A(\cdot)$. Each argument is bounded by $\eta\eps\le1$ and Lipschitz in $x$ with constant $\eta\eps$, and $|A\otimes A|\le\eps^2\le\eps$. Each factor is therefore bounded by $C\eps$ or $C$, and is H\"older on $\Lam_3(z)$ with seminorm $C\eps$. Finally $\big(R(X_2^{-1}X_1)-1\big)Y=[\Psi,Y](1+\Psi)^{-1}$ for every $Y$, and $(1+\Psi)^{-1}=X_1^{-1}X_2$ is a product of four exponentials of arguments of size at most $\eta\eps\le1$, hence bounded and Lipschitz in $x$. Also $R(X_2)$ is Lipschitz.
+\end{proof}
+
+At leading order $c_{\mu\nu}\approx\ii\operatorname{ad}F_{\mu\nu}$, where $F$ is the curvature on the unit scale.
+
+\subsection{The quadratic form of the action}
+
+\begin{definition}[Admissible potential terms]
+For $\eps,\gamma>0$, let $\cW(\eps,\gamma)$ be the set of linear operators $W$ on gauge fields such that $W^T=W$ and, for all $y,y'$ and all $u$,
+\[
+\|\one_yW\one_{y'}\|\le\eps e^{-\gamma|y-y'|},\qquad
+|Wu|_{\Lam_1(c_y)}+\Hol{Wu}{\Lam_1(c_y)}\le\eps\sum_{y'}e^{-\gamma|y-y'|}\big(|u|_{\Lam_1(c_{y'})}+\Hol u{\Lam_1(c_{y'})}\big).
+\]
+Here and below $c_y$ is the centre of the block $B(y)$.
+\end{definition}
+
+The quadratic form that replaces $\|dA\|^2$ is
+\[
+q_U(A,A')=\mathrm b(DA,DA')+\mathrm b(A,WA'),\qquad W\in\cW(\eps,\gamma).
+\]
+Two potentials motivate this definition. For $W=\Delta'(U)$, the curvature term of \cite[(3.10)]{BalBackground}, $q_U(A,A)$ is the second-order term of the Wilson action at $U$. It is expected to be a local operator whose coefficients are, up to bounded analytic factors, the curvature coefficients $c_{\mu\nu}$ of Lemma~\ref{lem:curvature}. The linearizing transformation of the variational problem \cite[(79)]{BalVar}, \cite[(3.127)--(3.128)]{BalBackground} produces a further quadratic term $-2\langle HC^{(2)}(A),J\rangle$, proportional to the source $J$. We do not verify that these two terms belong to $\cW$, and nothing below uses it. The results of Part~II are stated for general $W$. Later parts use $W=0$, except for the potential $W_2$ of Section~\ref{sec:localization}, for which only $L^2$ statements are used; they are proved there.
+
+\subsection{Averaging operators with a background}
+
+For $y\in\T$ and $x\in B(y)$, let $\Gamma_{y,x}$ be Ba\l aban's contour from $y$ to $x$ inside $B(y)$ \cite[(1.7)]{BalPropI}: it changes the coordinates in the order $d,d-1,\dots,1$. For $x_j=x+j\eta e_\mu$, let $[x,x_j]$ be the straight contour. Define
+\begin{align*}
+(Q'(U)\lambda)(y)&=\eta^d\sum_{x\in B(y)}R\big(U(\Gamma_{y,x})\big)\lambda(x),\\
+(\bQ(U)A)_\mu(y)&=\eta^d\sum_{x\in B(y)}\eta\sum_{j=0}^{N-1}R\big(U(\Gamma_{y,x}\cup[x,x_j])\big)A_\mu(x_j).
+\end{align*}
+Both average after parallel transport to the corner $y$. At $U=1$ they reduce to $Q_0$ and $\bQ$. $Q'(U)$ is the linear scalar averaging of \cite[(3.18), (3.19)]{BalBackground}. $\bQ(U)$ is the main term \cite[(125)]{BalAvg} of the linearization \cite[(124)]{BalAvg} of the one-step gauge-field averaging; the remaining small terms of \cite[(124)]{BalAvg} are dropped. On the unit lattice let $V(y,y+e_\mu)=U([y,y+e_\mu])$ (straight contour), and $(D_Vg)_\mu(y)=R(V(y,y+e_\mu))g(y+e_\mu)-g(y)$.
+
+\begin{lemma}[Properties of the averages]\label{lem:cov-avg}
+Assume (B) with $\eps\le1$.
+\begin{enumerate}[label=(\alph*)]
+\item $Q'(U)Q'(U)^T=I$, and $(Q'(U)^Tg)(x)=R\big(U(\Gamma_{y(x),x})\big)^{-1}g(y(x))$.
+\item $Q'(U)-Q_0$ and $\bQ(U)-\bQ$ act within distance $2$ (that is, $\one_y(\cdot)\one_{y'}=0$ for $|y-y'|>2$), have block norms at most $C\eps$, and satisfy the pointwise bounds $|(Q'(U)-Q_0)\lambda(y)|\le C\eps|\lambda|_{B(y)}$, $|(\bQ(U)-\bQ)A(y)|\le C\eps|A|_{B(y)\cup B(y+e_\mu)}$. The same holds for the transposes.
+\item \emph{(Covariance defect.)} $\bQ(U)D_U=D_VQ'(U)+E(U)$, where
+\begin{multline*}
+(E(U)\lambda)_\mu(y)=\eta^d\sum_{x'\in B(y+e_\mu)}\Big[R\big(U(\Gamma_{y,x'-e_\mu}\cup[x'-e_\mu,x'])\big)\\
+-R\big(V(y,y+e_\mu)U(\Gamma_{y+e_\mu,x'})\big)\Big]\lambda(x').
+\end{multline*}
+In particular $E(U)$ acts within distance $2$, $|E(U)\lambda(y)|\le C\eps|\lambda|_{B(y+e_\mu)}$, and $\|E(U)\|\le C\eps$. Moreover $|E(U)^T\omega|_\infty\le C\eps|\omega|_\infty$: by the formula, $(E(U)^T\omega)(x')$ is a sum of $d$ terms, one for each $\mu$, each the transpose of a bracket of norm at most $C\eps$ applied to $\omega_\mu(y)$ with $x'\in B(y+e_\mu)$.
+\item \emph{(Gauge covariance.)} For every gauge transformation $u$, $Q'(U^u)R(u)=R(u|_\T)Q'(U)$, $\bQ(U^u)R(u)=R(u|_\T)\bQ(U)$, $D_{U^u}R(u)=R(u)D_U$ and $E(U^u)R(u)=R(u|_\T)E(U)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) uses $R(X)^T=R(X^{-1})$ with respect to $\mathrm b$, together with the fact that the blocks partition $\Tf$. (b) Every contour involved has at most $(d+1)N$ bonds, so $|U(\Gamma)-1|\le e^{(d+1)\eps}-1$ and similarly for $U(\Gamma)^{-1}$, by submultiplicativity. Then $R(g)Y-Y=(g-1)Yg^{-1}+Y(g^{-1}-1)$ gives $\|R(g)-1\|\le|g-1||g^{-1}|+|g^{-1}-1|\le C\eps$ for $g=U(\Gamma)$. (c) Along each line the sum over $j$ telescopes:
+\[
+\eta\sum_{j=0}^{N-1}R\big(U(\Gamma\cup[x,x_j])\big)(D_\mu\lambda)(x_j)=R\big(U(\Gamma\cup[x,x+e_\mu])\big)\lambda(x+e_\mu)-R(U(\Gamma))\lambda(x),
+\]
+with $\Gamma=\Gamma_{y,x}$. Summing over $x\in B(y)$, the second terms give $Q'(U)\lambda(y)$, and the first terms differ from $R(V)Q'(U)\lambda(y+e_\mu)$ exactly by $E(U)\lambda$. Both transports in the bracket are within $C\eps$ of $1$, by the bound in (b). (d) is the usual transformation law of contour products, $U^u(\Gamma)=u(\Gamma_-)U(\Gamma)u(\Gamma_+)^{-1}$.
+\end{proof}
+
+\begin{remark}[Which averaging?]
+Only properties (a)--(d) of $Q'(U)$ and $\bQ(U)$ are used below; the identity in (a) supplies a right inverse of $Q'(U)$, and the formula for $Q'(U)^T$ in (a) is used, with the bounds of (b), for pointwise bounds and trial fields. Ba\l aban's $k$-step averaging is a composition of nonlinear one-step averagings with intermediate backgrounds \cite[(3.15)]{BalBackground}, linearized with the full formula \cite[(124)]{BalAvg}. For it the covariance identity $\bQ(U)D_U=D_VQ'(U)$ is exact \cite[(3.114)--(3.115)]{BalBackground}, i.e.\ $E=0$; the identities \cite[(3.124), (3.152)]{BalBackground} are consequences. Our model keeps only the main term \cite[(125)]{BalAvg}, and the defect $E(U)$ is the price of this simplification. Our treatment does not require $E=0$. Its real statements apply to every averaging with properties (i)--(iv) of Remark~\ref{rem:general-averaging}, which correspond to (a)--(d) above; the analytic statements need in addition property (v) of that remark. In Part~IV we construct Ba\l aban's averaging and show that its linearization has these properties with $E=0$ (Proposition~\ref{prop:linearized-averages}, Corollary~\ref{cor:parts-apply}).
+\end{remark}

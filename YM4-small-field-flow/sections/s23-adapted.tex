@@ -1,0 +1,381 @@
+\section{The averaged axial gauge and the gauge-adapted averaging}\label{sec:adapted}
+
+The linear theory of Parts~II and~III is formulated in Ba\l aban's Landau gauge, with the residual gauge transformations $\cN(Q'(U))$, i.e.\ those with vanishing \emph{averages}. The nonlinear averaging of Section~\ref{sec:averaging} is covariant with respect to the \emph{values} of gauge transformations at the points of $\T$. Ba\l aban bridges the two by an intermediate gauge, the axial gauge, and by a modified averaging \cite[Sect.~C]{BalAvg}. In four dimensions the axial gauge is defined through the averaged contour variables; this is Ba\l aban's Euclidean invariant axial gauge \cite[pp.~253--254]{BalYM4I}. Ba\l aban uses it through exponential gauge-fixing functions in the integral. Here it is an algebraic condition, the \emph{averaged axial gauge}. This section develops the construction in a form adapted to our needs. The main results are the correspondence theorem (Theorem~\ref{thm:correspondence}), the expansion of the gauge-adapted averaging (Proposition~\ref{prop:Q-expansion}), and the properties of its linearization (Proposition~\ref{prop:linearized-averages}). The last one shows that Parts~II and~III apply to Ba\l aban's averaging.
+
+All algebraic statements of this section follow from the transformation law \eqref{eq:Y2-law} of averaged relative contour variables, from the fact that every point lies in exactly one block, and from the reality of the averaged contour variables of real configurations. They use no tree and no multiplicativity of contour variables under concatenation.
+
+\subsection{The reference configuration and relative configurations}\label{ss:22.1}
+
+Fix a real configuration $U_0\in\mathfrak U_0(a)$ on $\Tf$ with $a\le c_1$, and put $W_j=U_0^{(j)}$. By Proposition~\ref{prop:avg-regular}, $W_j\in\mathfrak U_j(2a)$. By Lemma~\ref{lem:stokes-avg}, with $\eps=2a\delta_j^2$, all averaged contour variables $W_j(y,x)$, $y\in\T^{(j+1)}$, $x\in B_{j+1}(y)$, are defined and real, their families lie in $\cD_{6a\delta_{j+1}^2}$, and $|\ell(W_j(y,x)W_j(\Gamma)^{-1})|\le6a\delta_{j+1}^2$ for $\Gamma\in G(y,x)$. A \emph{relative configuration} at scale $j$ is a configuration $X$ on $\T^{(j)}$ close to $1$; it represents the configuration $XW_j$ (bondwise product). We use the following notation.
+\begin{itemize}
+\item \emph{Relative transports.} $X_W(\Gamma)=(XW_j)(\Gamma)\,W_j(\Gamma)^{-1}$. For $\Gamma=b_1\cdots b_m$ this is $\prod_iR(W_j(\Gamma_{<i}))X(b_i)$, with $\Gamma_{<i}=b_1\cdots b_{i-1}$ and $R(Y)Z=YZY^{-1}$.
+\item \emph{Averaged relative contour variables.} For $X$ at scale $j-1$, $y\in\T^{(j)}$ and $x\in B_j(y)$,
+\[
+\begin{aligned}
+X_W(y,x)&=(XW_{j-1})(y,x)\,W_{j-1}(y,x)^{-1}\\
+&=\Av\big(\{X_W(\Gamma)\,W_{j-1}(\Gamma)\,W_{j-1}(y,x)^{-1}\}_{\Gamma\in G(y,x)}\big),
+\end{aligned}
+\]
+whenever $(XW_{j-1})(y,x)$ is defined; the second form is Lemma~\ref{lem:group-average}(b). In particular $1_W(y,x)=1$, and $X_W(y,x)=X_W(\Gamma)$ if $G(y,x)=\{\Gamma\}$.
+\item \emph{Relative gauge action.} $X^{(g)}=(XW_j)^gW_j^{-1}$, i.e.\ $X^{(g)}(b)=g(b_-)X(b)\,R(W_j(b))\big(g(b_+)^{-1}\big)$. Then $(X^{(g)})^{(h)}=X^{(hg)}$, and $X^{(g)}_W(\Gamma)=g(\Gamma_-)\,X_W(\Gamma)\,R(W_j(\Gamma))\big(g(\Gamma_+)^{-1}\big)$. The configurations $1^{(g)}$ are the \emph{pure gauges}.
+\item \emph{Relative averages.} For $X$ at scale $j-1$ put $\overline X=\mathfrak a_j(XW_{j-1})W_j^{-1}$. By Lemma~\ref{lem:one-step-basic}(b), $\overline{X^{(g)}}=\overline X^{(g|_{\T^{(j)}})}$ for real $g$. For a fine relative configuration $U'$ put $U'^{[j]}=(U'U_0)^{(j)}W_j^{-1}$, the iterated relative average.
+\item \emph{Lie fields.} We write $X=e^{\ii\delta_jB}$, and $D_{W_j}\lambda(b)=\delta_j^{-1}\big(R(W_j(b))\lambda(b_+)-\lambda(b_-)\big)$. At $j=0$ this is the covariant derivative $D_{U_0}$ of Part~II; at $j=k$ it is the unit-lattice derivative $D_V$ with $V=W_k$. To first order, $(e^{\ii\delta_jB})^{(e^{\ii\lambda})}=e^{\ii\delta_j(B-D_{W_j}\lambda)}$. On reversed bonds the relative configuration is $X(-b)=R(W_j(b))^{-1}(X(b)^{-1})$, since $(XW_j)(-b)=(XW_j)(b)^{-1}$; correspondingly $B(-b)=-R(W_j(b))^{-1}B(b)$. Only positively oriented bonds carry independent variables.
+\end{itemize}
+Applying \eqref{eq:avg-contour-gauge} to $(XW_{j-1})^g=X^{(g)}W_{j-1}$ gives the \emph{transformation law}
+\begin{equation}\label{eq:Y2-law}
+X^{(g)}_W(y,x)=g(y)\,X_W(y,x)\,R\big(W_{j-1}(y,x)\big)\big(g(x)^{-1}\big).
+\end{equation}
+It holds for real $g$ of any size whenever $(XW_{j-1})(y,x)$ is defined, and for $G^c$-valued $g$ with $\kappa(g(y))\le2$ if the family $\{(XW_{j-1})(\Gamma)\}_{\Gamma\in G(y,x)}$ lies in $\cD_{r_M/2}$. It has the form of the law for single contours, with $W_{j-1}(y,x)$ in place of $W_{j-1}(\Gamma)$. The unitarity of $R(W_{j-1}(y,x))$ comes from the reality of $W_{j-1}(y,x)$.
+
+\begin{definition}[Averaging domain]\label{def:avg-domain}
+A relative configuration $X$ at scale $j-1$ lies in the \emph{averaging domain} at scale $j$ if for all $y\in\T^{(j)}$ and $x\in B_j(y)$ the family $\{(XW_{j-1})(\Gamma)\}_{\Gamma\in G(y,x)}$ lies in $\cD_{r_M/2}$, and $|\Lambda_{c,x}(XW_{j-1})-1|\le\frac12c_G$ for all bonds $c$ of $\T^{(j)}$, with both orientations, and $x\in B_j(c_-)$. A fine relative configuration $U'$ lies in the averaging domain up to scale $j$ if, for $i=1,\dots,j$, $U'^{[i-1]}$ is defined and lies in the averaging domain at scale $i$.
+\end{definition}
+
+If $X$ lies in the averaging domain at scale $j$, then $X_W(y,x)$ and $\overline X$ are defined. For real $g$, $X^{(g)}$ lies in the averaging domain too. For $G^c$-valued $g$ with $\kappa(g(y))\le2$ at the points $y\in\T^{(j)}$, the averaged contour variables of $X^{(g)}W_{j-1}$ and $\overline{X^{(g)}}$ are defined, \eqref{eq:Y2-law} holds, and $\overline{X^{(g)}}=\overline X^{(g|_{\T^{(j)}})}$, by Lemma~\ref{lem:one-step-basic}(b). A real $X$ lies in the averaging domain at scale $j$ if $|\ell((XW_{j-1})(\partial p))|\le\eps_M$ for all plaquettes $p$, by Lemma~\ref{lem:stokes-avg} and $r_M\le\frac14c_G$; in particular if $XW_{j-1}\in\mathfrak U_{j-1}(b)$ with $8b\delta_j^2\le r_M$. A real fine $U'$ with $U'U_0\in\mathfrak U_0(c_1)$ lies in the averaging domain up to scale $k$, since $U'^{[i]}W_i=(U'U_0)^{(i)}\in\mathfrak U_i(2c_1)$ and $16c_1\le r_M$. For real $U'$ and real $g$, $U'^{(g)}$ lies in the averaging domain up to scale $j$ if and only if $U'$ does, since $(U'^{(g)})^{[i]}=(U'^{[i]})^{(g|_{\T^{(i)}})}$. The conditions are local, by Lemma~\ref{lem:one-step-basic}(c): a statement about $\overline X(c)$ or $X_W(y,x)$ needs them only for the families and loops of the blocks involved, and this is how the domain, and Lemma~\ref{lem:one-step-basic}(b), are used below.
+
+\subsection{The averaged axial gauge}\label{ss:22.2}
+
+\begin{definition}[Averaged axial gauge {\cite[(1.19)]{BalReg}, \cite[pp.~253--254]{BalYM4I}}]\label{def:axial}
+A relative configuration $X$ at scale $j-1$ is \emph{axial at scale $j$} if the averaged contour variables $(XW_{j-1})(y,x)$ are defined and
+\[
+X_W(y,x)=1,\quad\text{i.e.}\quad(XW_{j-1})(y,x)=W_{j-1}(y,x),\qquad y\in\T^{(j)},\ x\in B_j(y).
+\]
+A fine relative configuration $U'$ belongs to $\mathrm{Ax}_j$ if $U'^{[i-1]}$ is defined and axial at scale $i$ for $i=1,\dots,j$.
+\end{definition}
+
+In the rest of the note, ``axial'' means averaged axial. The condition is invariant under the lattice symmetries (Proposition~\ref{prop:linearized-averages}(g)). The axial gauge of a single coordinate-ordered contour per point is not invariant under the permutations of the axes.
+
+For $h$ on $\T^{(j)}$ let $\mathcal E_j(h)$ be the function on $\T^{(j-1)}$ given by
+\[
+\mathcal E_j(h)(x)=R\big(W_{j-1}(y,x)\big)^{-1}h(y),\qquad x\in B_j(y),
+\]
+and put $\mathcal E^{(j)}=\mathcal E_1\circ\cdots\circ\mathcal E_j$. This is the extension of $h$ from $\T^{(j)}$ to $\Tf$ by parallel transport with the averaged contour variables of the background. It is multiplicative, $\mathcal E^{(j)}(hh')=\mathcal E^{(j)}(h)\mathcal E^{(j)}(h')$, and it does not change values at the points of $\T^{(j)}$, since $W_{j-1}(y,y)=1$.
+
+\begin{lemma}[Axial transformations]\label{lem:axial}
+\begin{enumerate}[label=(\alph*)]
+\item Let $X$ be a relative configuration at scale $j-1$ in the averaging domain at scale $j$, and $h$ a function on $\T^{(j)}$ with $\kappa(h(y))\le2$ for all $y$, e.g.\ a real one. There is exactly one $G^c$-valued $g$ on $\T^{(j-1)}$ with $g|_{\T^{(j)}}=h$ and $X^{(g)}$ axial at scale $j$, namely
+\[
+g(x)=R\big(W_{j-1}(y,x)\big)^{-1}\big(h(y)\,X_W(y,x)\big),\qquad x\in B_j(y).
+\]
+If $X$ is axial at scale $j$, this is $g=\mathcal E_j(h)$. If $X$ and $h$ are real, so is $g$.
+\item Let $U'$ be a real fine relative configuration in the averaging domain up to scale $j$, and $h$ a real function on $\T^{(j)}$. There is exactly one real $g$ on $\Tf$ with $g|_{\T^{(j)}}=h$ and $U'^{(g)}\in\mathrm{Ax}_j$. If $U'\in\mathrm{Ax}_j$, this is $g=\mathcal E^{(j)}(h)$.
+\item Every orbit of $\mathfrak G_0$ in $\mathfrak U_0(c_1)$ contains exactly one $U$ with $UU_0^{-1}\in\mathrm{Ax}_k$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) Every $g$ with $g|_{\T^{(j)}}=h$ satisfies $\kappa(g(y))\le2$ at the points of $\T^{(j)}$. By \eqref{eq:Y2-law}, $X^{(g)}_W(y,x)=1$ if and only if
+\[
+R\big(W_{j-1}(y,x)\big)g(x)=h(y)\,X_W(y,x).
+\]
+Since the blocks partition $\T^{(j-1)}$, this determines $g$; for $x=y$ it gives $g(y)=h(y)$. For axial $X$ the right side is $h(y)$. (b) For real $g$, $(U'^{(g)})^{[i-1]}=(U'^{[i-1]})^{(g|_{\T^{(i-1)}})}$, and it lies in the averaging domain at scale $i$. By (a), its axiality at scale $i$ determines $g|_{\T^{(i-1)}}$ uniquely from $g|_{\T^{(i)}}$, and the result is real. Proceed from $i=j$ down to $i=1$. (c) is (b) with $j=k$, $h=1$ and $U'=UU_0^{-1}$, which lies in the averaging domain up to scale $k$.
+\end{proof}
+
+Part (a) needs the averaged contour variables of $XW_{j-1}$ to be defined, i.e.\ a smallness condition at the scale. For real configurations it holds on the regular configurations of Section~\ref{sec:averaging}, and this domain is invariant under real gauge transformations and under the lattice symmetries.
+
+\subsection{The gauge-adapted averaging and the correspondence theorem}\label{ss:22.3}
+
+For a relative configuration $X$ at scale $j-1$ let
+\[
+\tau_X(y)=\exp\Big(\ii L^{-d}\sum_{x\in B_j(y)}\ell\big(X_W(y,x)\big)\Big),\qquad y\in\T^{(j)},
+\]
+be the block average of the averaged relative contour variables. Let $g_X$ be the transformation of Lemma~\ref{lem:axial}(a) with $h=\tau_X^{-1}$.
+
+\begin{definition}[Gauge-adapted averaging]\label{def:adapted}
+The \emph{modified one-step average} is $\tilde{\mathfrak a}_j(X)=\overline{X^{(g_X)}}=\overline X^{(\tau_X^{-1})}$, i.e.
+\[
+\tilde{\mathfrak a}_j(X)(c)=\tau_X(c_-)^{-1}\,\overline X(c)\,R(W_j(c))\big(\tau_X(c_+)\big).
+\]
+The \emph{gauge-adapted averaging} is $\mathcal Q_0=\mathrm{id}$, $\mathcal Q_j=\tilde{\mathfrak a}_j\circ\mathcal Q_{j-1}$, and $\mathcal Q=\mathcal Q_k$. For a fine relative configuration $U_1$ put $X_i=\mathcal Q_i(U_1)$ and define the \emph{correspondence transformation}
+\[
+\mathsf w_0(U_1)=1,\qquad\mathsf w_j(U_1)=\mathcal E^{(j-1)}\big(g_{X_{j-1}}\big)\,\mathsf w_{j-1}(U_1).
+\]
+Finally let $\mathfrak m_j(g)(y)=g(y)\exp\big(\ii L^{-d}\sum_{x\in B_j(y)}\ell(g(y)^{-1}R(W_{j-1}(y,x))g(x))\big)$ and $\mathfrak M^{(j)}=\mathfrak m_j\circ\cdots\circ\mathfrak m_1$; these are Ba\l aban's averages of gauge transformations \cite[(78)--(80)]{BalAvg}, with averaged contour variables.
+\end{definition}
+
+This is Ba\l aban's construction \cite[(58)--(63), (88)--(92)]{BalAvg}, with the averaged contour variables of \cite[(0.11)]{BalYM4I} in place of the contour variables: the modified average first moves $X$ to the axial gauge at scale $j$, with a normalization chosen at the coarse points, and then averages. All maps are defined when the configurations involved are sufficiently close to $1$: $X$ lies in the averaging domain, the logarithms in $\tau_X$ and $\mathfrak m_j$ are defined, and $\kappa(\tau_X(y))\le2$. Precise domains are given in Lemma~\ref{lem:one-step-expansion}. We say that the maps are defined at $U_1$ up to scale $j$ if this holds for $X_0,\dots,X_{j-1}$.
+
+\begin{theorem}[Correspondence]\label{thm:correspondence}
+Let $U_1$ be a real fine relative configuration in the averaging domain up to scale $j$, at which the maps above are defined up to scale $j$. In~(b), (e) and~(f) the functions $h$ and $g$ are real.
+\begin{enumerate}[label=(\alph*)]
+\item $U_1^{(\mathsf w_j(U_1))}\in\mathrm{Ax}_j$ and $\big(U_1^{(\mathsf w_j(U_1))}\big)^{[j]}=\mathcal Q_j(U_1)$.
+\item The transformations $g$ with $U_1^{(g)}\in\mathrm{Ax}_j$ are exactly $g=\mathcal E^{(j)}(h)\,\mathsf w_j(U_1)$, with $h$ a function on $\T^{(j)}$.
+\item At the points $y\in\T^{(j)}$: $\mathsf w_j(U_1)(y)=\tau_{X_{j-1}}(y)^{-1}\tau_{X_{j-2}}(y)^{-1}\cdots\tau_{X_0}(y)^{-1}$.
+\item If $X_{j-1}$ is axial at scale $j$, then $\mathsf w_j(U_1)=\mathsf w_{j-1}(U_1)$ and $\mathcal Q_j(U_1)=\overline{X_{j-1}}$.
+\item \emph{(Pure gauges.)} If the maps are defined at $1^{(g)}$, then $\mathcal Q_j(1^{(g)})=1^{(\mathfrak M^{(j)}(g))}$ and $\mathsf w_j(1^{(g)})=\mathcal E^{(j)}(\mathfrak M^{(j)}(g))\,g^{-1}$.
+\item \emph{(Normalization.)} $\mathfrak m_j(\mathcal E_j(h)g)=h\,\mathfrak m_j(g)$, and $\mathfrak M^{(j)}(\mathsf w_j(U_1))=1$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a), (b) By induction on $j$; the case $j=0$ is trivial. All configurations and transformations below are real, so the averaging domain is preserved, and the relative averages are covariant. Let $U''=U_1^{(\mathsf w_{j-1})}\in\mathrm{Ax}_{j-1}$, so that $U''^{[j-1]}=X_{j-1}=:X$. By Lemma~\ref{lem:axial}(b), the transformations preserving $\mathrm{Ax}_{j-1}$ for $U''$ are $\mathcal E^{(j-1)}(h')$ with $h'$ on $\T^{(j-1)}$, and $(U''^{(\mathcal E^{(j-1)}(h'))})^{[j-1]}=X^{(h')}$. Hence $U_1^{(g)}\in\mathrm{Ax}_j$ iff $g=\mathcal E^{(j-1)}(h')\mathsf w_{j-1}$ with $X^{(h')}$ axial at scale $j$. By Lemma~\ref{lem:axial}(a), the latter $h'$ are exactly $\mathcal E_j(h'')\,g_X$, $h''$ on $\T^{(j)}$, because $X^{(g_X)}$ is axial and the transformations preserving its axiality are the $\mathcal E_j(h'')$. By multiplicativity $g=\mathcal E^{(j)}(h'')\,\mathcal E^{(j-1)}(g_X)\,\mathsf w_{j-1}=\mathcal E^{(j)}(h'')\,\mathsf w_j$. For $g=\mathsf w_j$,
+\[
+(U_1^{(\mathsf w_j)})^{[j]}=\overline{(U''^{(\mathcal E^{(j-1)}(g_X))})^{[j-1]}}=\overline{X^{(g_X)}}=\tilde{\mathfrak a}_j(X)=\mathcal Q_j(U_1).
+\]
+(c) $\mathcal E^{(i)}$ does not change values at points of $\T^{(i)}\supset\T^{(j)}$, and $g_{X_i}=\tau_{X_i}^{-1}$ on $\T^{(i+1)}$. (d) If $X$ is axial, then $\tau_X=1$ and $g_X=\mathcal E_j(1)=1$.
+
+(e) One step: let $X=1^{(g)}$ at scale $j-1$. By \eqref{eq:Y2-law} and $1_W(y,x)=1$, $X_W(y,x)=g(y)R(W(y,x))(g(x))^{-1}$. Since $1$ is axial and $X^{(g_X)}=1^{(g_Xg)}$, Lemma~\ref{lem:axial}(a) gives $g_Xg=\mathcal E_j(h)$ with $h=(g_Xg)|_{\T^{(j)}}=\tau_X^{-1}g$. Using $\ell(k^{-1})=-\ell(k)$ and $\ell(RkR^{-1})=R\ell(k)R^{-1}$,
+\[
+\begin{aligned}
+h(y)&=\exp\Big(-\ii L^{-d}\sum_x\ell\big(g(y)R(W(y,x))g(x)^{-1}\big)\Big)g(y)\\
+&=g(y)\exp\Big(\ii L^{-d}\sum_x\ell\big(g(y)^{-1}R(W(y,x))g(x)\big)\Big)=\mathfrak m_j(g)(y).
+\end{aligned}
+\]
+Hence $\tilde{\mathfrak a}_j(1^{(g)})=\overline{1^{(\mathcal E_j(h))}}=1^{(h)}$ and $g_X=\mathcal E_j(\mathfrak m_j(g))g^{-1}$. Iterating, with $X_{j-1}=1^{(\mathfrak M^{(j-1)}(g))}$,
+\[
+\mathsf w_j(1^{(g)})=\mathcal E^{(j-1)}\big(\mathcal E_j(\mathfrak M^{(j)}g)(\mathfrak M^{(j-1)}g)^{-1}\big)\,\mathcal E^{(j-1)}(\mathfrak M^{(j-1)}g)\,g^{-1}=\mathcal E^{(j)}(\mathfrak M^{(j)}g)\,g^{-1}.
+\]
+(f) For $g'=\mathcal E_j(h)g$, $g'(y)^{-1}R(W(y,x))g'(x)=g(y)^{-1}h(y)^{-1}h(y)R(W(y,x))g(x)$, which gives the first identity. For the second, by induction and the first identity, $\mathfrak M^{(j)}(\mathsf w_j)=\mathfrak m_j(g_X\,\mathfrak M^{(j-1)}(\mathsf w_{j-1}))=\mathfrak m_j(g_X)$. By the defining relation of $g_X$, $g_X(y)^{-1}R(W(y,x))g_X(x)=X_W(y,x)$, so $\mathfrak m_j(g_X)=\tau_X^{-1}\tau_X=1$.
+\end{proof}
+
+Part~(f) shows that $\mathsf w_k(U_1)$ is the transformation singled out in \cite[(1.29)]{BalReg} by Ba\l aban's normalization $\mathfrak M^{(k)}(g)=1$. We never need that normalization explicitly: the transformation is given by the recursion, and its values at the coarse points by~(c). Parts~(c) and~(d) use only the definitions and Lemma~\ref{lem:axial}(a), so they hold for complex $U_1$ as well, whenever the maps are defined at $U_1$ up to scale $j$.
+
+\subsection{Expansion of the modified average}\label{ss:22.4}
+
+We now expand the modified average around the trivial relative configuration. At scale $j$ write $\delta=\delta_{j-1}$, $\delta'=\delta_j$, $W=W_{j-1}$. For a relative Lie field $B$ at scale $j-1$ and a contour $\gamma=b_1\cdots b_m$ on $\T^{(j-1)}$ let
+\[
+B^W(\gamma)=\sum_iR(W(\gamma_{<i}))B(b_i),
+\]
+so that $\ell\big((e^{\ii\delta B})_W(\gamma)\big)=\delta B^W(\gamma)+O((\delta\sum_i|B(b_i)|)^2)$ by Lemma~\ref{lem:log-estimates}(c). The averaged contour variables are linearized by the following transports.
+
+\begin{definition}[Averaged relative transport]\label{def:avg-transport}
+Let $W$ be a configuration on $\T^{(j-1)}$ whose families $\{W(\Gamma)\}_{\Gamma\in G(y,x)}$ lie in $\cD_{r_M/2}$ for all $y\in\T^{(j)}$ and $x\in B_j(y)$. For $\Gamma\in G(y,x)$ let $\omega_\Gamma=\omega_\Gamma(W;y,x)$ be the weights of Lemma~\ref{lem:group-average}(d) at this family. For a relative Lie field $B$ at scale $j-1$ put
+\[
+\lambda_W(y,x)[B]=\sum_{\Gamma\in G(y,x)}\omega_\Gamma\,B^W(\Gamma),\qquad\mathfrak G_WB(y,x)=\lambda_W(y,x)[B].
+\]
+\end{definition}
+
+The definition applies to any pair of lattices of spacings $\delta$ and $L\delta$ with centred blocks; in particular $\mathfrak G_W$ is the linearized averaged contour variable of the step in Part~VII.
+
+\begin{lemma}[Averaged relative transports]\label{lem:avg-transport}
+Let $W$ be as in Definition~\ref{def:avg-transport}, $y\in\T^{(j)}$ and $x\in B_j(y)$.
+\begin{enumerate}[label=(\alph*)]
+\item $\lambda_W(y,x)[B]=\delta^{-1}\frac{d}{ds}\big|_{s=0}\ell\big((e^{\ii s\delta B}W)(y,x)\,W(y,x)^{-1}\big)$. It is linear in $B$, depends only on $B$ and $W$ on the bonds of the box spanned by $y$ and $x$, and is holomorphic in $W$. For real $W$ and real $B$ it is real.
+\item If $W=1$ on the bonds of this box, then $\lambda_1(y,x)[B]=|G(y,x)|^{-1}\sum_{\Gamma\in G(y,x)}B(\Gamma)$ is the mean of the line integrals $B(\Gamma)=\sum_{b\in\Gamma}\pm B(b)$.
+\item Let $W$ be real. Then $\sum_\Gamma|\omega_\Gamma|\le1+C_M\max_\Gamma|\ell(W(\Gamma)W(y,x)^{-1})|$ and $|\lambda_W(y,x)[B]|\le2(L-1)\sum_\Gamma|\omega_\Gamma|\,\max|B|$, the maximum over the bonds of the box. If $W\in\mathfrak U_{j-1}(b)$ with $8b\delta_j^2\le r_M$, then $\sum_\Gamma|\omega_\Gamma|\le1+3C_Mb\delta_j^2$.
+\item \emph{(Covariance.)} For a real gauge transformation $u$,
+\[
+\lambda_{W^u}(y,x)[R(u)B]=R(u(y))\,\lambda_W(y,x)[B],\qquad(R(u)B)(b)=R(u(b_-))B(b).
+\]
+For $r\in\mathfrak S_j$, $\lambda_{rW}(y,x)[r_WB]=\lambda_W(r^{-1}y,r^{-1}x)[B]$, where $(r_WB)(b)=B(r^{-1}b)$, with $B(-b)=-R(W(b))^{-1}B(b)$.
+\item \emph{(Local comparison.)} Suppose that $W=e^{\ii\delta B_W}$ on the bonds of $B_j(y)$, with a $\mathfrak g^c$-valued $B_W$ such that $|B_W|\le\eps$ and $L\delta\eps\le c$. Then
+\[
+\big|\lambda_W(y,x)[B]-\lambda_1(y,x)[B]\big|\le CL^2\delta\eps\max|B|,
+\]
+the maximum over the bonds of $B_j(y)$. The constants $C,c$ depend only on $G$.
+\item \emph{(Complex bases.)} Let $W$ be real with $W\in\mathfrak U_{j-1}(b)$ and $8b\delta_j^2\le\frac14r_M$, and let $\hat W=e^{\ii\delta\beta}W$ on the bonds of the box spanned by $y$ and $x$, with a $\mathfrak g^c$-valued $\beta$ such that $L\delta\max|\beta|\le c$. Then $\hat W$ satisfies the hypothesis of Definition~\ref{def:avg-transport} at $(y,x)$, and
+\[
+\big|\lambda_{\hat W}(y,x)[B]-\lambda_W(y,x)[B]\big|\le CL^2\delta\max|\beta|\,\max|B| .
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) By Lemma~\ref{lem:group-average}(b), $(e^{\ii s\delta B}W)(y,x)W(y,x)^{-1}=\Av(\{(e^{\ii s\delta B})_W(\Gamma)\,U_\Gamma\})$ with $U_\Gamma=W(\Gamma)W(y,x)^{-1}$ and $\Av(\{U_\Gamma\})=1$, and $(e^{\ii s\delta B})_W(\Gamma)=e^{\ii s\delta B^W(\Gamma)+O(s^2)}$. The quantities $H_\Gamma$ of Lemma~\ref{lem:group-average}(d) are the same for $\{U_\Gamma\}$ and for $\{W(\Gamma)\}$, so the weights are the same, and the formula follows from Lemma~\ref{lem:group-average}(d). Locality is clear, holomorphy follows from that of the weights, and reality from Lemma~\ref{lem:group-average}(d) and the reality of $R(W)$. (b) At $W=1$ the family is $\{1,\dots,1\}$, so $H_\Gamma=0$ and $\omega_\Gamma=|G(y,x)|^{-1}I$. (c) The first bound is Lemma~\ref{lem:group-average}(d). The second holds because $R(W(\cdot))$ is unitary and $\Gamma$ has at most $2(L-1)$ bonds. For the third, $|\ell(W(\Gamma)W(y,x)^{-1})|\le3(L-1)^2b\delta^2\le3b\delta_j^2$ by Lemma~\ref{lem:stokes-avg}(i). (d) $(e^{\ii s\delta B}W)^u=e^{\ii s\delta R(u)B}W^u$, and $r(e^{\ii s\delta B}W)=e^{\ii s\delta r_WB}\,rW$. Apply (a), \eqref{eq:avg-contour-gauge}, $(rY)(y,x)=Y(r^{-1}y,r^{-1}x)$, and $\ell(uhu^{-1})=u\ell(h)u^{-1}$.
+
+(e) The contours $\gamma$ of the families have at most $2L$ bonds, so $|\ell(W(\gamma'))|\le4L\delta\eps$ for all initial pieces $\gamma'$, by Lemma~\ref{lem:log-estimates}(c), and $\|R(W(\gamma'))-1\|\le e^{8L\delta\eps}-1\le16L\delta\eps$ by \eqref{eq:Ad-bound}. Hence $|B^W(\Gamma)-B(\Gamma)|\le32L^2\delta\eps\max|B|$, and $|B^W(\Gamma)|\le4L\max|B|$. The family $\{W(\Gamma)\}$ has diameter at most $C L\delta\eps<r_M/2$, so by Lemma~\ref{lem:group-average}(a),(d), $|H_\Gamma|\le CL\delta\eps$ and $|\omega_\Gamma-|G(y,x)|^{-1}I|\le|G(y,x)|^{-1}CL\delta\eps$. Therefore
+\[
+\begin{aligned}
+|\lambda_W(y,x)[B]-\lambda_1(y,x)[B]|&\le\sum_\Gamma\big|\omega_\Gamma-|G(y,x)|^{-1}I\big|\,|B^W(\Gamma)|+\max_\Gamma|B^W(\Gamma)-B(\Gamma)|\\
+&\le CL^2\delta\eps\max|B| .
+\end{aligned}
+\]
+
+(f) Let $c_0>0$ be small, depending only on $G$, and take $c\le\frac14c_0$ in the hypothesis. Put $\beta_*=\max|\beta|$, $R=c_0/(2L\delta\beta_*)\ge2$, and $W_t=e^{\ii t\delta\beta}W$ for complex $t$ with $|t|\le R$. Then $|t\delta\beta|\le c_0/(2L)$ on every bond, so $W_t=e^{\ii Z_t}W$ with $64L|Z_t|\le32c_0\le r_M$ for $c_0$ small. By Lemma~\ref{lem:stokes-avg}(iv), with $\eps=b\delta^2$ and $8L^2\eps=8b\delta_j^2\le\frac14r_M$, the families $\{W_t(\Gamma)\}$ lie in $\cD_{r_M}$; by Lemma~\ref{lem:stokes-avg}(i),(iv) and Lemma~\ref{lem:group-average}(a),(e) their diameter is at most $\frac38r_M+Cc_0<\frac12r_M$ for $c_0$ small. So $\lambda_{W_t}(y,x)[B]$ is defined, and it is holomorphic in $t$ by (a). On $|t|\le R$, $\sum_\Gamma|\omega_\Gamma|\le1+4C_Mr_M$ by Lemma~\ref{lem:group-average}(a),(d), and every transport $R(W_t(\gamma'))$ along an initial piece of a contour has norm at most $e^{4L|Z_t|}\le2$, because $R(W(\gamma'))$ is unitary. Hence $|\lambda_{W_t}(y,x)[B]|\le4(1+4C_Mr_M)L\max|B|$ there. The Cauchy estimate on the disc $|t|\le R$ gives $|\frac d{dt}\lambda_{W_t}|\le8(1+4C_Mr_M)L\max|B|/R$ for $|t|\le1$, and integrating from $t=0$ to $t=1$ gives the claim, since $1/R=2L\delta\beta_*/c_0$.
+\end{proof}
+
+Define the \emph{transported tube average}
+\[
+(q_jB)(c)=L^{-d}\sum_{x\in B_j(c_-)}L^{-1}R\big(W(c_-,x)\big)B^W([x,x(c)])
+\]
+\cite[(125)]{BalAvg} and the \emph{contour average} $(\gamma_jB)(y)=L^{-d}\sum_{x\in B_j(y)}L^{-1}\lambda_W(y,x)[B]$. The transports $R(W(c_-,x))$ are unitary, since $W(c_-,x)$ is real.
+
+\begin{lemma}[One-step expansion]\label{lem:one-step-expansion}
+There are $c_2,C>0$, depending only on $d$ and $G$, such that the following holds for $a\le c_2$ and complex $B$ with $|B|\le c_2/\delta'$ on the bonds of $B_j(c_-)\cup B_j(c_+)$ (respectively $B_j(y)$). Put $X=e^{\ii\delta B}$. Then the conditions of Definition~\ref{def:avg-domain} hold on the relevant blocks, and
+\[
+\tilde{\mathfrak a}_j(X)(c)=e^{\ii\delta'(l_jB+c_j(B))(c)},\qquad \tau_X(y)=e^{\ii\delta'(\gamma_jB+c^\tau_j(B))(y)},
+\]
+where $l_j=q_j+r_j$ is linear and $c_j,c_j^\tau$ are analytic, with:
+\begin{enumerate}[label=(\alph*)]
+\item $(l_jB)(c)$ and $c_j(B)(c)$ depend only on $B$ on the bonds of $B_j(c_-)\cup B_j(c_+)$; $\gamma_jB(y)$ and $c^\tau_j(B)(y)$ only on $B$ on the bonds of $B_j(y)$;
+\item $|(q_jB)(c)|^2\le L^{-d}\sum_xL^{-1}\sum_{b\in[x,x(c)]}|B(b)|^2$, $\ |(r_jB)(c)|\le Ca\delta'^2\max|B|$, and $|\gamma_jB|\le d\max|B|$;
+\item $|c_j(B)|+|c^\tau_j(B)|\le C\delta'\max|B|^2$ and $|c_j(B)-c_j(\tilde B)|\le C\delta'(\max|B|+\max|\tilde B|)\max|B-\tilde B|$ for $\max|B|,\max|\tilde B|\le c_2/(2\delta')$, the maxima being over the relevant bonds;
+\item if $W=1$ on the relevant bonds, then $r_j=0$ and $q_j$ is the tube average of Part~I at scale $j$, $(q_jB)(c)=L^{-d-1}\sum_{x\in B_j(c_-)}B([x,x(c)])$;
+\item real $B$ gives $\mathfrak g$-valued $l_jB$, $c_j(B)$, $\gamma_jB$, $c_j^\tau(B)$;
+\item \emph{(The plain average.)} the relative average is
+\[
+\overline X(c)=e^{\ii\delta'(p_jB+c^p_j(B))(c)},\qquad p_j=l_j-\delta_jD_{W_j}\gamma_j ,
+\]
+where $c^p_j$ is analytic, real for real $B$, depends only on $B$ on the bonds of $B_j(c_-)\cup B_j(c_+)$, and satisfies the bounds of~(c). If $W=1$ on the relevant bonds, then $p_j=q_j-\delta_jD_1\gamma_j$, and the coefficient of $B(b_0(c))$ in $(p_jB)(c)$ is $L^{-d}$, where $b_0(c)$ is the middle bond of $[c]$. Equivalently, $\delta B(b_0(c))$ enters $\ell(\overline X(c))$ to first order with the coefficient $L^{1-d}$. For every $W$, the coefficient of $B(b_0(c))$ in $(q_jB)(c)$ is $L^{-d}R(W([c_-,b_0(c)_-]))$, $\gamma_jB(c_\pm)$ does not depend on $B(b_0(c))$, and $(p_jB)(c')$ does not depend on $B(b_0(c))$ unless $c'=\pm c$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\emph{Analyticity.} The contours of the families, the segments $[x,x(c)]$ and $[c]$ have at most $2L$ bonds, so $\delta\sum|B|\le2c_2$ along each of them. Since $W$ is real, $R(W(\cdot))$ is unitary on $\mathfrak g^c$, and every relative transport $X_W(\gamma)$ along such a contour is a product of at most $2L$ factors $e^{\ii\delta R(W(\cdot))B(b)}$, with $|\ell(X_W(\gamma))|\le3c_2$. The families $\{W(\Gamma)\}$ lie in $\cD_{6a\delta'^2}$. Hence the families $\{(XW)(\Gamma)\}=\{X_W(\Gamma)W(\Gamma)\}$ lie in $\cD_{C(c_2+a\delta'^2)}\subset\cD_{r_M/2}$, the averaged contour variables $(XW)(y,x)$ are defined and holomorphic in $B$, and $|\ell(X_W(y,x))|\le3C_Mc_2$ by Lemma~\ref{lem:group-average}(e). By Lemma~\ref{lem:one-step-basic}(a) the background loops $h_x=\Lambda_{c,x}(W)$ satisfy $|\ell(h_x)|\le16a\delta'^2$. Hence the arguments of all logarithms in $\tau_X$, $\overline X$ and $\tilde{\mathfrak a}_j(X)$, including the averaged loops of $XW$, are within $C(c_2+a\delta'^2)$ of $1$, and $\kappa(\tau_X(y))\le2$. So the conditions of Definition~\ref{def:avg-domain} hold on the relevant blocks, $g_X$ is defined there, and $\tilde{\mathfrak a}_j(X)(c)=\overline{X^{(g_X)}}(c)=\overline X^{(\tau_X^{-1})}(c)$ by Lemma~\ref{lem:one-step-basic}(b). For $c_2$ small, these are analytic functions of the finitely many variables $B(b)$, bounded by $C$ in the sense that $|\ell(\tilde{\mathfrak a}_j(X)(c))|\le C(c_2+a\delta'^2)$.
+
+\emph{Remainders.} Let $f(B)=\delta'^{-1}\ell(\tilde{\mathfrak a}_j(e^{\ii\delta B})(c))-(l_jB)(c)$, with $l_j$ the derivative at $B=0$. Then $f(0)=0$ and $df(0)=0$, and $t\mapsto f(tB)$ is analytic for $|t|\le c_2/(\delta'\max|B|)$ with $|f|\le C/\delta'$ there. Cauchy's estimate for the second Taylor coefficient gives $|f(B)|\le C\delta'\max|B|^2$ for $\max|B|\le c_2/(2\delta')$. The Lipschitz bound follows from the Cauchy estimate for $df$. The same argument applies to $\tau_X$, and to $\overline X$ in~(f).
+
+\emph{The linear part.} Let $X=e^{\ii s\delta B}$ and expand to first order in $s$. Write $H_x=\ell(h_x)$ and $\Eloop=L^{-d}\sum_xH_x$, so that $|H_x|,|\Eloop|\le16a\delta'^2$ and $W_j(c)=e^{\ii \Eloop}W([c])$. We have $(XW)(c_-,x)=X_W(c_-,x)W(c_-,x)$ and $(XW)(x(c),c_+)=W(x(c),c_+)X_W(c_+,x(c))^{-1}$, and $W(c_-,x)W([x,x(c)])W(x(c),c_+)=h_xW([c])$. Moving the background factors to the right,
+\[
+\begin{aligned}
+\Lambda_{c,x}(XW)={}&X_W(c_-,x)\;R(W(c_-,x))\big(X_W([x,x(c)])\big)\\
+&\times R(h_xW([c]))\big(X_W(c_+,x(c))^{-1}\big)\;R(h_x)\big(X_W([c])^{-1}\big)\;h_x .
+\end{aligned}
+\]
+By Lemma~\ref{lem:avg-transport}(a), $\ell(X_W(y,x))=s\delta\lambda_W(y,x)[B]+O(s^2)$. Hence $\ell(\Lambda_{c,x}(XW))=H_x+s\delta\,\mathfrak f(\operatorname{ad}H_x)\Xi_x+O(s^2)$, with $\mathfrak f$ as in Section~\ref{sec:averaging} and
+\[
+\begin{aligned}
+\Xi_x={}&\lambda_W(c_-,x)[B]+R(W(c_-,x))B^W([x,x(c)])\\
+&-R(h_xW([c]))\lambda_W(c_+,x(c))[B]-R(h_x)B^W([c]).
+\end{aligned}
+\]
+Let $\mathfrak e(\operatorname{ad}\Eloop)$ be the derivative of $Z\mapsto\ell(e^{\ii(\Eloop+Z)}e^{-\ii \Eloop})$ at $Z=0$; the function $\mathfrak e$ is entire with $\mathfrak e(0)=1$. Then $\ell(\overline X(c))=s\delta\big[\mathfrak e(\operatorname{ad}\Eloop)\Xi+R(e^{\ii \Eloop})B^W([c])\big]+O(s^2)$, with $\Xi=L^{-d}\sum_x\mathfrak f(\operatorname{ad}H_x)\Xi_x$. Moreover $\ell(\tau_X(y))=s\delta L^{-d}\sum_x\lambda_W(y,x)[B]+O(s^2)$. Since $\delta/\delta'=L^{-1}$,
+\[
+\begin{aligned}
+l_jB(c)=L^{-1}\Big\{&\mathfrak e(\operatorname{ad}\Eloop)\Xi+R(e^{\ii \Eloop})B^W([c])\\
+&-L^{-d}\sum_x\lambda_W(c_-,x)[B]+R(W_j(c))L^{-d}\sum_{x}\lambda_W(c_+,x(c))[B]\Big\}.
+\end{aligned}
+\]
+If all factors $\mathfrak e,\mathfrak f$ were $1$, $R(h_x)=R(e^{\ii \Eloop})$ and $R(h_xW([c]))=R(W_j(c))$, the averaged relative transports would cancel exactly, those at $c_-$ against $\tau_X(c_-)$ and those at $c_+$ against $\tau_X(c_+)$, and only $q_jB$ would remain. Precisely,
+\[
+\begin{aligned}
+L\,r_jB(c)={}&\big(\mathfrak e(\operatorname{ad}\Eloop)-1\big)\Xi+L^{-d}\sum_x\big(\mathfrak f(\operatorname{ad}H_x)-1\big)\Xi_x\\&+L^{-d}\sum_x\big(R(e^{\ii \Eloop})-R(h_x)\big)B^W([c])\\
+&+L^{-d}\sum_x\big(R(W_j(c))-R(h_xW([c]))\big)\lambda_W(c_+,x(c))[B].
+\end{aligned}
+\]
+The differences are controlled by $|\mathfrak f(\operatorname{ad}H_x)-1|\le C|H_x|$, $|\mathfrak e(\operatorname{ad}\Eloop)-1|\le C|\Eloop|$, and $|R(e^{\ii \Eloop})-R(h_x)|=|R(W_j(c))-R(h_xW([c]))|\le C(|\Eloop|+|H_x|)$, since $R(W([c]))$ is unitary. By Lemma~\ref{lem:avg-transport}(c), $|\lambda_W(y,x)[B]|\le2(L-1)(1+Ca\delta'^2)\max|B|$, so $|\Xi_x|\le\big(4(L-1)(1+Ca\delta'^2)+2L\big)\max|B|\le8L\max|B|$ for $c_2$ small. This gives the bound on $r_j$. The weights $\omega_\Gamma$ enter it only through $\sum_\Gamma|\omega_\Gamma|\le1+Ca\delta'^2$; their deviation from the mean does not enter $r_j$ at leading order. The bound on $q_j$ is the Cauchy--Schwarz inequality, since all transports in $q_j$ are unitary. The bound on $\gamma_j$ follows from Lemma~\ref{lem:avg-transport}(c): $|\gamma_jB|\le2L^{-1}(L-1)(1+Ca\delta'^2)\max|B|\le2(1+Ca\delta'^2)\max|B|\le d\max|B|$. If $W=1$ on the relevant bonds, then $h_x=\Lambda_{c,x}(1)=1$ and $\Eloop=0$, so $r_j=0$; this is (d). (e) follows from the formulas.
+
+\emph{The constants.} The constants $c_2$ and $C$ depend only on $d$ and $G$; they do not depend on $L$. Indeed, $L$ enters the proof only through the number of bonds of the contours and segments, at most $2L$, and through the averages $L^{-d}\sum_x$. With $|B|\le c_2/\delta'$ and $\delta=\delta'/L$, every contour carries $\delta\sum|B|\le2c_2$, so the bounds of \emph{Analyticity} and \emph{Remainders} are uniform in $L$. In \emph{The linear part}, the bounds $|H_x|,|\Eloop|\le16a\delta'^2$ do not contain $L$, and the factor $L$ in $|\lambda_W(y,x)[B]|\le2(L-1)(1+Ca\delta'^2)\max|B|$ and in $|\Xi_x|\le8L\max|B|$ is compensated by the factor $\delta/\delta'=L^{-1}$ in $l_j$, $r_j$ and $\gamma_j$. The remaining constants come from Lemmas~\ref{lem:log-estimates}, \ref{lem:group-average} and~\ref{lem:one-step-basic}(a), and depend only on $G$ (and $d$).
+
+(f) By Definition~\ref{def:adapted}, $\overline X(c)=\tau_X(c_-)\,\tilde{\mathfrak a}_j(X)(c)\,R(W_j(c))\big(\tau_X(c_+)^{-1}\big)$, a product of three factors $e^{\ii\delta'Z}$ with $|Z|\le C\max|B|$. Their linear parts add, and $(\gamma_jB)(c_-)-R(W_j(c))(\gamma_jB)(c_+)=-\delta'D_{W_j}\gamma_jB(c)$. So the derivative of $\delta'^{-1}\ell(\overline X(c))$ at $B=0$ is $p_jB(c)$, and the remainder $c^p_j$ is bounded as in \emph{Remainders}. Locality and reality are clear. The straight contour $[c]$ consists of $L$ bonds, and $b_0(c)$ is the only one that joins $B_j(c_-)$ to $B_j(c_+)$. The segment $[x,x(c)]$ contains $b_0(c)$ if and only if $x$ lies on the axis of $c$, which holds for $L$ points $x\in B_j(c_-)$. For such $x$, $G(c_-,x)$ consists of the straight contour $[c_-,x]$, so $W(c_-,x)=W([c_-,x])$, and the transport of $B(b_0(c))$ in $R(W(c_-,x))B^W([x,x(c)])$ is $R(W([c_-,b_0(c)_-]))$ for every $W$. Hence the coefficient of $B(b_0(c))$ in $(q_jB)(c)$ is $L^{-d-1}\cdot L\,R(W([c_-,b_0(c)_-]))$. The contour averages $\gamma_jB(c_\pm)$ involve only bonds of $B_j(c_\pm)$, so they do not contain $B(b_0(c))$. At $W=1$ we have $W_j=1$, $D_{W_j}=D_1$ and $r_j=0$, so the coefficient in $(p_jB)(c)$ is $L^{-d}$, and that of $\delta B(b_0(c))$ in $\ell(\overline X(c))=\delta'(p_jB)(c)+O(B^2)$ is $L\cdot L^{-d}$. Finally, $(p_jB)(c')$ depends only on the bonds of $B_j(c'_-)\cup B_j(c'_+)$. Since the blocks partition $\T^{(j-1)}$, $b_0(c)$ is such a bond only if $\{c'_-,c'_+\}=\{c_-,c_+\}$.
+\end{proof}
+
+\emph{Other references.} The proofs of Lemmas~\ref{lem:avg-transport} and~\ref{lem:one-step-expansion} use only that $W=W_{j-1}$ is real with $W\in\mathfrak U_{j-1}(2a)$, that $W_j=\mathfrak a_j(W)$, and, in Lemma~\ref{lem:one-step-expansion}, that $a\delta'^2\le c_2$, which keeps the background families in $\cD_{6a\delta'^2}$ and the background loops at $|\ell(h_x)|\le16a\delta'^2$ small. So both lemmas hold for every such $W$ with $a\delta'^2\le c_2$, on any pair of lattices of spacings $\delta$ and $\delta'=L\delta$ with centred blocks, with $W_j:=\mathfrak a_j(W)$. For $\delta'\le1$ the condition $a\delta'^2\le c_2$ follows from $a\le c_2$. Part~VII uses the lemmas in this form for one step of the renormalization group, with $\delta'=1$.
+
+At $W=1$, $\gamma_jB(y)=L^{-d-1}\sum_{x\in B_j(y)}\mathfrak G_1B(y,x)$. So the plain average linearizes to the tube average minus the coarse gradient of an average of $\mathfrak G_1B$, while the gauge-adapted average linearizes to the tube average itself.
+
+\subsection{Expansion of the gauge-adapted averaging}\label{ss:22.5}
+
+For a fine field $h$ and a set $S\subset\Tf$ let $\|h\|_S$ be the $\ell^2$ norm over the bonds starting in $S$, as in Part~III. For a bond $c$ of $\T$ put $S_c=B(c_-)\cup B(c_+)$.
+
+\begin{proposition}[Expansion of $\mathcal Q$]\label{prop:Q-expansion}
+There are $c_3,C>0$ such that for $a\le c_3$ and complex fine Lie fields $A$ with $|A|_\infty\le c_3$ the following holds. For $j\le k$, $\mathcal Q_j(e^{\ii\eta A})=e^{\ii\delta_jB_j}$ with
+\[
+B_j=\bQ_jA+\Cav_j(A),\qquad \bQ_j=l_j\cdots l_1,
+\]
+where $\Cav_j$ is analytic, real for real $A$, and:
+\begin{enumerate}[label=(\alph*)]
+\item $|B_j|_\infty\le2|A|_\infty$, and $B_j(c)$ depends only on $A$ on the bonds of $B^{(j)}(c_-)\cup B^{(j)}(c_+)$.
+\item $|\Cav_j(A)|_\infty\le C|A|_\infty^2$ and $|\Cav_j(A)-\Cav_j(\tilde A)|_\infty\le C(|A|_\infty+|\tilde A|_\infty)|A-\tilde A|_\infty$.
+\item \emph{(Kernels.)} For $j=k$ the linear maps $\bQ_k$ and $d\Cav_k(A)$ have kernels, $\bQ_kh(c)=\eta^d\sum_bK(c,b)h(b)$ and $d\Cav_k(A)h(c)=\eta^d\sum_bK_A(c,b)h(b)$, supported on bonds $b$ starting in $S_c$, with
+\[
+|K(c,b)|\le1+Ca,\qquad|K_A(c,b)|\le C|A|_\infty .
+\]
+Moreover $|d^2\Cav_k(A)[h,h](c)|\le C\|h\|^2_{S_c}$. Consequently $|\bQ_kh(c)|\le C\|h\|_{S_c}$ and $|d\Cav_k(A)h(c)|\le C|A|_\infty\|h\|_{S_c}$, and the transposes satisfy $|\bQ_k^T\omega|_\infty\le C|\omega|_\infty$ and $|d\Cav_k(A)^T\omega|_\infty\le C|A|_\infty|\omega|_\infty$.
+\item The values of the correspondence transformation at the points of $\T$ are $\mathsf w_k(e^{\ii\eta A})(y)=\exp\big(-\ii\,\boldsymbol\Gamma_kA(y)+\ii C^{\mathsf w}_k(A)(y)\big)$, with
+\[
+\boldsymbol\Gamma_kA=\sum_{i=0}^{k-1}\delta_{i+1}\,\gamma_{i+1}\bQ_iA,\qquad|\boldsymbol\Gamma_kA|\le C|A|_\infty,\qquad|C^{\mathsf w}_k(A)|\le C|A|_\infty^2,
+\]
+and the analogous Lipschitz bound. At every fine point, $|\ell(\mathsf w_k(e^{\ii\eta A}))|\le C|A|_\infty$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a), (b) By Lemma~\ref{lem:one-step-expansion}, $B_j=l_jB_{j-1}+c_j(B_{j-1})$ with $|l_jB|_\infty\le(1+Ca\delta_j^2)|B|_\infty$ and $|c_j(B)|_\infty\le C\delta_j|B|_\infty^2$. By induction, as long as $|B_{i}|_\infty\le2|A|_\infty$ for $i<j$,
+\[
+|B_j|_\infty\le|A|_\infty\prod_{i\le j}\big(1+Ca\delta_i^2+2C\delta_i|A|_\infty\big)\le|A|_\infty e^{C(a+|A|_\infty)}\le2|A|_\infty,
+\]
+using $\sum_i\delta_i\le2$. The hypothesis $|B_{j-1}|\le c_2/\delta_j$ of Lemma~\ref{lem:one-step-expansion} holds since $\delta_j\le1$. Moreover $\Cav_j(A)=\sum_{i\le j}l_j\cdots l_{i+1}c_i(B_{i-1})$, so $|\Cav_j(A)|\le2\sum_iC\delta_i(2|A|)^2\le C|A|^2$. The Lipschitz bound is proved in the same way from the Lipschitz bound in Lemma~\ref{lem:one-step-expansion}(c). Locality follows from Lemma~\ref{lem:one-step-expansion}(a) by induction: the bonds of $B_j(c_-)\cup B_j(c_+)$ have both endpoints in this set, and their scale-$(j-1)$ blocks lie in $B^{(j)}(c_-)\cup B^{(j)}(c_+)$, by the nesting of the blocks.
+
+(c) For $i\le j$, call a linear map $K$ from scale-$i$ fields to scale-$j$ fields \emph{of type $M$} if $Kv(c')=\delta_i^d\sum_{b'}K(c',b')v(b')$ with $|K(c',b')|\le M\delta_j^{-d}$, and $K(c',b')=0$ unless both endpoints of $b'$ lie in the union of the scale-$j$ blocks of $c'_-$ and $c'_+$. This support is preserved under composition, because the scale-$j$ blocks are unions of scale-$m$ blocks for $m\le j$. At $W=1$ the composition of tube averages from scale $i$ to scale $j$ is the tube average from scale $i$ to scale $j$ (proof of Proposition~\ref{prop:linearized-averages}(c)). By Lemma~\ref{lem:avg}(a), after rescaling, it is of type $1$: its segments $[x,x(c')]$ lie in the two blocks, so both endpoints of each of their bonds do.
+
+\emph{Transports.} For real $W$, $q_j\cdots q_{i+1}$ is a sum over chains of bonds of the $W=1$ weights times products of unitary transports; the averaged contour variables $W(c_-,x)$ are real. Hence its kernel is bounded in norm by the $W=1$ kernel, and it is of type $1$.
+
+\emph{Insertions.} Write $l_m=q_m+r_m$. By the formula for $r_m$ in the proof of Lemma~\ref{lem:one-step-expansion}, $r_mv(c')$ is a combination of at most $C_L$ values $v(b'')$, with $b''$ a bond of $B_m(c'_-)\cup B_m(c'_+)$ and coefficients bounded by $Ca\delta_m^2$. Indeed, a value $v(b'')$ enters $\lambda_W(y,x)[v]$ through at most $24$ contours of $G(y,x)$, with total weight at most $\sum_\Gamma|\omega_\Gamma|\le2$. Expand $l_j\cdots l_{i+1}$ as a sum over the sets $I$ of scales at which $r_m$ is chosen. For $I=\{m\}$ the term is $(q_j\cdots q_{m+1})\,r_m\,(q_{m-1}\cdots q_{i+1})$. In the normalization above, the left factor has kernel at most $\delta_m^d\delta_j^{-d}$ per scale-$m$ bond, and the right factor at most $\delta_i^d\delta_{m-1}^{-d}$ per scale-$i$ bond. For fixed $c',b'$ at most $C_L$ scale-$m$ bonds contribute, so this term is of type $C_La\delta_m^2L^d$. For several insertions, write the term as $A_0r_{m_1}A_1\cdots r_{m_p}A_p$, with $m_1>\dots>m_p$ and transported tube averages $A_q$ of type $1$, and compose from the right. If $T$ is of type $M'$, with the support property above, then $A\,r_m\,T$ is of type $C_La\delta_m^2L^dM'$, by the count for one insertion: for fixed output and input bonds at most $C_L$ (indeed $(2d)^2$) pairs of intermediate bonds of scales $m$ and $m-1$ contribute. Hence the term is of type $\prod_{m\in I}C_La\delta_m^2L^d$. Each counting factor is attached to one insertion; the composition of the factors $A_q$ alone needs none, by the exactness at $W=1$. Altogether $l_j\cdots l_{i+1}$ is of type $\prod_m(1+C_La\delta_m^2)\le1+Ca$. For $i=0$ and $j=k$ this is the bound on $K$.
+
+\emph{First derivatives.} Differentiating the recursion gives $dB_j=(l_j+dc_j(B_{j-1}))\,dB_{j-1}$. By the Cauchy estimate in Lemma~\ref{lem:one-step-expansion}(c), $dc_j(B)v(c')$ is a combination of at most $C_L$ values of $v$, with coefficients bounded by $C\delta_j|B|_\infty\le2C\delta_j|A|_\infty$. So $dc_j$ plays the role of $r_j$, with $a\delta_j^2$ replaced by $C\delta_j|A|_\infty$. The same expansion shows that every product $\prod_m(l_m+dc_m)$ is of type $1+C(a+|A|_\infty)$. The terms with at least one insertion of some $dc_m$ form a map of type $C|A|_\infty$; for $i=0$, $j=k$ they make up $d\Cav_k(A)$. This gives the bound on $K_A$.
+
+\emph{Second derivatives.} The recursion gives
+\[
+d^2B_j[h,h]=(l_j+dc_j)\,d^2B_{j-1}[h,h]+d^2c_j(B_{j-1})[dB_{j-1}h,dB_{j-1}h].
+\]
+Since $dB_{j-1}$ is of type $C$ from scale $0$, the Cauchy--Schwarz inequality gives $|dB_{j-1}h(b')|\le C\delta_{j-1}^{-d/2}\|h\|_{S^{(j-1)}_{b'}}$, where $S^{(j-1)}_{b'}=B^{(j-1)}(b'_-)\cup B^{(j-1)}(b'_+)$. By the Cauchy estimate, the source term at a scale-$j$ bond $c'$ is therefore bounded by $C_L\delta_j\delta_{j-1}^{-d}\|h\|^2_{S^{(j)}_{c'}}$. It is propagated to $\T$ by a map of type $C$ from scale $j$, so its contribution at $c$ is at most
+\[
+C\sum_{c'}\delta_j^d\,C_L\delta_j\delta_{j-1}^{-d}\|h\|^2_{S^{(j)}_{c'}}\le C_L\delta_j\|h\|^2_{S_c},
+\]
+because each fine bond lies in a bounded number of the sets $S^{(j)}_{c'}$, all of which lie in $S_c$. Summing over $j$ gives the bound on $d^2\Cav_k$.
+
+The remaining consequences follow from the kernel bounds. The bounds on $\bQ_kh(c)$ and $d\Cav_k(A)h(c)$ follow by the Cauchy--Schwarz inequality, since $S_c$ has volume $2$. The bounds on the transposes follow by summing the kernel bounds over $c$, since each fine bond lies in at most $2d$ sets $S_c$.
+
+(d) By Theorem~\ref{thm:correspondence}(c) and Lemma~\ref{lem:one-step-expansion}, $\ell(\tau_{X_i})=\delta_{i+1}(\gamma_{i+1}B_i+c^\tau_{i+1}(B_i))$, of size at most $C\delta_{i+1}|A|$. Lemma~\ref{lem:log-estimates}(c) applied to the product gives the formula and the bounds, since $\sum_i\delta_{i+1}\le2$. At a fine point $x$, $\mathsf w_k=\prod_i\mathcal E^{(i)}(g_{X_i})$. For $x\in B_{i+1}(y)$, $g_{X_i}(x)=R(W_i(y,x))^{-1}(\tau_{X_i}(y)^{-1}(X_i)_W(y,x))$, and $|\ell((X_i)_W(y,x))|\le C_M\max_\Gamma|\ell((X_i)_W(\Gamma))|\le C\delta_{i+1}|A|$ by Lemma~\ref{lem:group-average}(e). So $g_{X_i}(x)$ has logarithm at most $C\delta_{i+1}|A|$. Conjugation by $R(W)$ does not change the norm.
+\end{proof}
+
+\subsection{The linearized averages}\label{ss:22.6}
+
+Let $q'_j\lambda(y)=L^{-d}\sum_{x\in B_j(y)}R(W_{j-1}(y,x))\lambda(x)$ be the transported block average of scalar fields, and put
+\[
+Q'_k(U_0)=q'_k\cdots q'_1,\qquad\bQ_k(U_0)=l_k\cdots l_1 .
+\]
+Explicitly, $(Q'_k\lambda)(y)=\eta^d\sum_{x\in B(y)}T(y,x)\lambda(x)$, where
+\[
+T(y,x)=R(W_{k-1}(y,x_{k-1}))\,R(W_{k-2}(x_{k-1},x_{k-2}))\cdots R(W_0(x_1,x)),
+\]
+and $x=x_0\in B_1(x_1)$, $x_1\in B_2(x_2)$, \dots, $x_{k-1}\in B_k(y)$ is the chain of $x$ (Section~\ref{sec:averaging}). This is the transport along the chain of averaged contour variables, with the averaged backgrounds at each scale. In particular $Q'^{\,T}_k=\mathcal E^{(k)}$. These are Ba\l aban's linearized averages \cite[(3.15)--(3.19)]{BalBackground}, with averaged contour variables.
+
+\begin{proposition}[Linearized averages]\label{prop:linearized-averages}
+Let $U_0\in\mathfrak U_0(a)$ be real with $a\le c_3$.
+\begin{enumerate}[label=(\alph*)]
+\item $Q'_kQ'^{\,T}_k=I$.
+\item \emph{(Exact covariance.)} $\bQ_k(U_0)D_{U_0}=D_{W_k}Q'_k(U_0)$. In the notation of Part~II, the defect vanishes: $E=0$, with $V=W_k$.
+\item At $U_0=1$: $Q'_k=Q_0$ and $\bQ_k=\bQ$, the operators of Part~I.
+\item \emph{(Locality.)} $(\bQ_kA)(c)$ depends only on $A$ and $U_0$ on the bonds of $B(c_-)\cup B(c_+)$, and $(Q'_k\lambda)(y)$ only on $\lambda$ and $U_0$ on $B(y)$.
+\item \emph{(Closeness.)} Suppose that on a cube containing $B(c_-)\cup B(c_+)$ we have $U_0=e^{\ii\eta A_0}$ (in some real gauge) with $|A_0|\le\eps$, and $a\le\eps$, where $\eps\le c_3$. Then, computed in this gauge, the kernels satisfy $|K_{\bQ_k(U_0)}(c,b)-K_{\bQ}(c,b)|\le C\eps$ and $|K_{Q'_k(U_0)}(y,x)-K_{Q_0}(y,x)|\le C\eps$. Hence the differences are bounded by $C\eps$ from sup norms to sup norms and in the block norms of Lemma~\ref{lem:cov-avg}(b), and so are their transposes.
+\item \emph{(Covariance.)} For every real gauge transformation $u$ on $\Tf$: $W_k(U_0^u)=W_k(U_0)^{u|_\T}$, $Q'_k(U_0^u)R(u)=R(u|_\T)Q'_k(U_0)$ and $\bQ_k(U_0^u)R(u)=R(u|_\T)\bQ_k(U_0)$. Moreover, for $j\le k$ and relative configurations $U'$ where the maps are defined, $\mathcal Q_j(R(u)U';U_0^u)=R(u)\mathcal Q_j(U';U_0)$, $\mathsf w_j(R(u)U';U_0^u)=u\,\mathsf w_j(U';U_0)\,u^{-1}$, and $U'\in\mathrm{Ax}_j(U_0)$ if and only if $R(u)U'\in\mathrm{Ax}_j(U_0^u)$. Here the second argument is the reference, $R(u)$ acts on relative configurations by $(R(u)X)(b)=u(b_-)X(b)u(b_-)^{-1}$, on every lattice $\T^{(i)}$ through the restriction of $u$, and $u\,\mathsf w_ju^{-1}$ is the pointwise conjugate.
+\item \emph{(Lattice covariance.)} Let $r\in\mathfrak S_k$. Then $W_j(rU_0)=rW_j(U_0)$ for $j\le k$, and
+\[
+Q'_k(rU_0)\,r=r\,Q'_k(U_0),\qquad\bQ_k(rU_0)\,r_{U_0}=r_{W_k}\,\bQ_k(U_0).
+\]
+Here $r$ acts on scalar fields by $(r\lambda)(x)=\lambda(r^{-1}x)$, and $(r_{U_0}A)(b)=A(r^{-1}b)$ on relative Lie fields, with $A(-b)=-R(U_0(b))^{-1}A(b)$ on negatively oriented bonds; likewise $r_{W_k}$ on $\T$. Moreover $\mathcal Q_j(rU';rU_0)=r\,\mathcal Q_j(U';U_0)$, $\mathsf w_j(rU';rU_0)=r\,\mathsf w_j(U';U_0)$, and $U'\in\mathrm{Ax}_j(U_0)$ if and only if $rU'\in\mathrm{Ax}_j(rU_0)$. Here the second argument is the reference configuration, and $(rX)(b)=X(r^{-1}b)$ for relative configurations, with $X(-b)=R(W(b))^{-1}(X(b)^{-1})$, so that $(rX)(rW)=r(XW)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) $q'^{\,T}_jg(x)=R(W_{j-1}(y,x))^{-1}g(y)$, because the volume factors $L^{-d}\delta_j^d/\delta_{j-1}^d$ equal $1$. Hence $q'_jq'^{\,T}_j=I$, since $R(W_{j-1}(y,x))$ is unitary.
+
+(b) Let $\lambda$ be real and $g_t=e^{\ii t\lambda}$. Then $1^{(g_t)}=e^{-\ii t\eta D_{U_0}\lambda+O(t^2)}$ on $\Tf$. By Theorem~\ref{thm:correspondence}(e), $\mathcal Q_k(1^{(g_t)})=1^{(\mathfrak M^{(k)}(g_t))}$ on $\T$. Differentiating the definition of $\mathfrak m_j$ at $g=1$ gives $\mathfrak M^{(k)}(g_t)=e^{\ii tQ'_k\lambda+O(t^2)}$, hence $1^{(\mathfrak M^{(k)}(g_t))}=e^{-\ii tD_{W_k}Q'_k\lambda+O(t^2)}$. Comparing the terms of first order in $t$ gives $\bQ_kD_{U_0}\lambda=D_{W_k}Q'_k\lambda$.
+
+(c) At $U_0=1$ all $W_j$ and all averaged contour variables are $1$. So $q'_j$ is the centred block average at scale $j$, and $l_j=q_j$ is the centred tube average at scale $j$, by Lemma~\ref{lem:one-step-expansion}(d). By the nesting of the blocks (Section~\ref{sec:averaging}), $B^{(j)}(y)$ is the disjoint union of the $B^{(j-1)}(x)$, $x\in B_j(y)$; hence $q'_j\cdots q'_1$ is the average over $B^{(j)}(y)$, and $Q'_k=Q_0$. For the tube averages, let $A([x,x+w])$ denote the sum of $A$ over the fine bonds of the straight segment from $x$ to $x+w$. Assume by induction that $v=q_{j-1}\cdots q_1A$ is the tube average from scale $0$ to scale $j-1$: $v(b)=L^{-(j-1)(d+1)}\sum_{x\in B^{(j-1)}(b_-)}A([x,x+b_+-b_-])$. Let $c$ be a bond of $\T^{(j)}$, $w=(c_+-c_-)/L$, and for $z\in B_j(c_-)$ let $b_{z,m}=(z+mw,z+(m+1)w)$, $0\le m<L$, be the bonds of $[z,z(c)]$. Since $B^{(j-1)}(z+mw)=B^{(j-1)}(z)+mw$,
+\[
+\begin{aligned}
+(q_jv)(c)&=L^{-d-1}\sum_{z\in B_j(c_-)}\sum_{m=0}^{L-1}v(b_{z,m})\\
+&=L^{-j(d+1)}\sum_{z\in B_j(c_-)}\ \sum_{x\in B^{(j-1)}(z)}\ \sum_{m=0}^{L-1}A([x+mw,x+(m+1)w]).
+\end{aligned}
+\]
+By the nesting, $x$ runs through $B^{(j)}(c_-)$ exactly once, and for each $x$ the $L$ segments concatenate to $[x,x+Lw]$. So $q_jv$ is the tube average from scale $0$ to scale $j$, and $\bQ_k$ is the tube average $\bQ$ of Definition~\ref{def:averages}.
+
+(d) follows from Lemma~\ref{lem:one-step-expansion}(a) and Lemma~\ref{lem:one-step-basic}(c).
+
+(e) By (f) we may compute in the given gauge. By Lemma~\ref{lem:avg-local-gauge}, $W_{j}=e^{\ii\delta_jA_{0,j}}$ on the relevant bonds with $|A_{0,j}|\le C\eps$. Hence all transports $R(W_{j-1}(\gamma))$ along contours of at most $2L$ bonds of $\T^{(j-1)}$, and the transports $R(W_{j-1}(y,x))$, differ from $1$ by at most $C\eps\delta_j$, by Lemma~\ref{lem:group-average}(e). By Lemma~\ref{lem:avg-transport}(e), $|\lambda_{W_{j-1}}(y,x)[B]-\lambda_1(y,x)[B]|\le CL\eps\delta_j\max|B|$. Together with the bound on $r_j$ in Lemma~\ref{lem:one-step-expansion}(b), this shows that $l_j-q_j(1)$ is a combination of at most $C_L$ values with coefficients $C_L\eps\delta_j$. Telescope:
+\[
+\bQ_k(U_0)-\bQ=\sum_jl_k\cdots l_{j+1}\big(l_j-q_j(1)\big)q_{j-1}(1)\cdots q_1(1).
+\]
+By the bookkeeping of Proposition~\ref{prop:Q-expansion}(c), the kernel of the difference is bounded by $\sum_jC_L\eps\delta_j\le C\eps$. The same argument applies to $Q'_k$. Kernel bounds give the sup-norm bounds, the block norms (by the Schur test), and the transposes.
+
+(f) follows from Lemma~\ref{lem:one-step-basic}(b), the definitions, and \eqref{eq:Y2-law} for real $u$. The nonlinear identities follow as in (g), with $u$ in place of $r$: $(R(u)X)W_j^u=(XW_j)^u$ bondwise, so, by \eqref{eq:avg-contour-gauge}, Lemma~\ref{lem:one-step-basic}(b) and the uniqueness in Lemma~\ref{lem:axial}(a), the averaged relative contour variables, $\tau_X$, $g_X$ and the relative averages are conjugated by $u$ at the points of each lattice, and the induction over $j$ applies. It is written out in the proof of Lemma~\ref{lem:ol-chart-covariance}(a), paragraph ``The averaging''.
+
+(g) Since $\mathfrak S_k\subset\mathfrak S_j$, Lemma~\ref{lem:one-step-basic}(d) gives $W_j(rU_0)=rW_j(U_0)$. For a relative configuration $X$ at scale $j-1$, $(rX)(rW_{j-1})=r(XW_{j-1})$, so $(rX)_{rW}(y,x)=X_W(r^{-1}y,r^{-1}x)$ by the lattice covariance of the averaged contour variables, and $\overline{rX}=r\overline X$ by Lemma~\ref{lem:one-step-basic}(d). Since $r$ maps $B_j(y)$ onto $B_j(ry)$, $\tau_{rX}=r\tau_X$, $\mathcal E_j(rh)=r\mathcal E_j(h)$ and $\mathfrak m_j(rg)=r\mathfrak m_j(g)$, all computed with $rW$. Moreover $(rX)^{(rg)}=r(X^{(g)})$, so $g_{rX}=rg_X$ by the formula of Lemma~\ref{lem:axial}(a), and $\tilde{\mathfrak a}_j(rX)=r\tilde{\mathfrak a}_j(X)$. By induction $\mathcal Q_j(rU')=r\mathcal Q_j(U')$ and $\mathsf w_j(rU')=r\mathsf w_j(U')$, and axiality is preserved. Since $r(e^{\ii s\eta A})=e^{\ii s\eta\,r_{U_0}A}$ as relative configurations, differentiating $\mathcal Q_k$ at $s=0$ gives the identity for $\bQ_k$. Finally $(q'_j(rW)\,r\lambda)(y)=L^{-d}\sum_{x\in B_j(y)}R((rW)(y,x))\lambda(r^{-1}x)=(q'_j(W)\lambda)(r^{-1}y)$.
+\end{proof}
+
+\begin{corollary}[Parts~II and~III apply to Ba\l aban's averaging]\label{cor:parts-apply}
+Let $U_0$ be real and $(M,\eps)$-regular with $\eps$ small. Replace the averaging pair $(Q'(U),\bQ(U))$ by $(Q'_k(U_0),\bQ_k(U_0))$, the defect $E$ by $0$, and the unit-lattice background $V$ by $W_k$. Then the real results of Sections~\ref{sec:cov-scalar}--\ref{sec:reg-gauge} hold, and so does Theorem~\ref{thm:random-walk}. Proposition~\ref{prop:reg-complex} holds for $\delta\le\min(\delta_0,\delta_{AB}/C)$ with $\eps+C\delta\le\min(\eps_0,c'_3)$; at the perturbations $U_\delta$ the averages are those of Proposition~\ref{prop:AB}.
+\end{corollary}
+
+\begin{proof}
+An $(M,\eps)$-regular background has curvature at most $C\eps$, by Lemma~\ref{lem:curvature} in the local gauges. Proposition~\ref{prop:linearized-averages} gives the properties (a)--(d) of Lemma~\ref{lem:cov-avg}, in each local gauge, with $\eps$ replaced by $C\eps$. By Remark~\ref{rem:general-averaging}, these are the only properties of the averaging used in the real results of Parts~II and~III. Property (v) of that remark at the $U_\delta$ is shown there, from Proposition~\ref{prop:AB}(iv)--(vi) and the identity theorem. Proposition~\ref{prop:AB} uses Part~IV only at the real reference, so there is no circularity. It controls only the sup norm of the perturbation; the derivative and H\"older bounds on $\delta\!A$ are hypotheses of Proposition~\ref{prop:reg-complex}.
+\end{proof}
+
+From now on $Q'=Q'_k(U_0)$, $\bQ=\bQ_k(U_0)$, and all operators of Parts~II and~III ($G'$, $R$, $H'$, $\Gamma'$, $\bG$, $\bH$, $\bC$, \dots) are taken at the background $U_0$ with this averaging pair. Since $E=0$, the slice projection satisfies $\bQ\Pi=\bQ$ (Lemma~\ref{lem:slice}(c)), and the correction $\mathcal K_2$ of Section~\ref{sec:cov-gauge} vanishes.
+
+\begin{remark}[A numerical check]\label{rem:avg-numerical}
+The algebra of Sections~\ref{sec:averaging} and~\ref{sec:adapted} was checked numerically for $G=SU(2)$ and $L=3$, in $d=2$ on small tori and in $d=4$ on a single coarse bond. Among the statements checked, to rounding error, are Lemma~\ref{lem:group-average}(a), (c) and (b) for real arguments, \eqref{eq:Y2-law} for real gauge transformations, Theorem~\ref{thm:correspondence}(e),(f) and Proposition~\ref{prop:linearized-averages}(a),(b),(f). Two controls fail, as they should: with a single contour order per family the covariance under the permutations of the axes fails, and with the mean of the logarithms of the contour variables in place of $\Av$, \eqref{eq:Y2-law} and $E=0$ fail. No proof uses these checks.
+\end{remark}

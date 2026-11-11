@@ -1,0 +1,137 @@
+\section{Gauge fields: \texorpdfstring{Ba\l aban}{Balaban}'s gauge and coercivity}\label{sec:gauge-coercivity}
+
+\subsection{The quadratic action and its gauge invariance}\label{ss:9.1}
+
+The Wilson action of a lattice gauge field $U=e^{\ii\eta A}$ near $U=1$ is $\frac12\|dA\|^2$ plus terms of order three and higher in $A$ (\cite[(1.3)]{BalPropI}, \cite[(26)]{BalVar}). The quadratic part is invariant under gauge transformations
+\[
+A\mapsto A+d\lambda,
+\]
+with $\lambda$ an arbitrary scalar field. By Lemma~\ref{lem:avg}(d), $\bQ(A+d\lambda)=\bQ A+\dl Q_0\lambda$. Hence the constraint $\bQ A=B$ is preserved exactly when $\dl Q_0\lambda=0$, that is, when $Q_0\lambda$ is constant. Constant $\lambda$ act trivially, so the residual gauge group may be taken to be $\cN(Q_0)$. Consequently the variational problem
+\[
+\text{minimize }\|dA\|^2\quad\text{subject to}\quad\bQ A=B
+\]
+has, at best, a minimizer that is unique up to $A\mapsto A+d\lambda$ with $\lambda\in\cN(Q_0)$. A gauge condition is needed to select one representative.
+
+\subsection{\texorpdfstring{Ba\l aban}{Balaban}'s gauge}\label{ss:9.2}
+
+Ba\l aban uses the condition
+\begin{equation}\label{eq:landau}
+Rd^*A=0,
+\end{equation}
+with $R$ the orthogonal projection onto $\cW=-\Lap\cN(Q_0)$ (Proposition~\ref{prop:R}). He calls it the Landau gauge \cite[Sect.~D]{BalPropI}, \cite[(21)]{BalVar}.
+
+\begin{lemma}[Gauge fixing]\label{lem:gauge-fix}
+For every gauge field $A$ there is exactly one $\lambda\in\cN(Q_0)$ such that $A+d\lambda$ satisfies \eqref{eq:landau}. Moreover $\|d\lambda\|\le\sqrt{d/2}\,\|Rd^*A\|$, and $d(A+d\lambda)=dA$, $\bQ(A+d\lambda)=\bQ A$.
+\end{lemma}
+
+\begin{proof}
+For $\lambda\in\cN(Q_0)$ we have $d^*d\lambda=-\Lap\lambda\in\cW$, hence $Rd^*d\lambda=-\Lap\lambda$. The condition $Rd^*(A+d\lambda)=0$ becomes $-\Lap\lambda=-Rd^*A$. The right-hand side lies in $\cW$, and $-\Lap$ is a bijection from $\cN(Q_0)$ onto $\cW$. The bound is Lemma~\ref{lem:kerQ0}.
+\end{proof}
+
+By Proposition~\ref{prop:R}(c), condition \eqref{eq:landau} says that $d^*A$ is a constant plus $(-\Lap)^{-1}Q_0^*\omega$ for some unit-lattice $\omega$. So $d^*A$ is the potential of a block-constant charge density. It is a $C^{1,\alpha}$ function on the unit scale, not a rough one. By contrast, the gauge that minimizes $\|A\|$ on the orbit would require $d^*A\in\ran Q_0^*$, a field with jumps at block boundaries. This regularity is one reason for Ba\l aban's choice.
+
+\begin{remark}[Origin of the operator $\bL_a$]\label{x:9.2}
+Ba\l aban arrives at \eqref{eq:landau} by a Faddeev--Popov argument \cite[(1.21)--(1.39)]{BalPropI}. It replaces the axial gauge fixing by the density $\exp(-\frac12\|Rd^*A\|^2)$ and then takes the Landau limit. Adding the gauge-fixing term and the averaging term to the action gives the quadratic form
+\[
+\ip A{\bL_aA}=\|dA\|^2+\|Rd^*A\|^2+a\|\bQ A\|^2,\qquad
+\bL_a=d^*d+dRd^*+a\bQ^*\bQ=-\Lap-dP_\cV d^*+a\bQ^*\bQ ,
+\]
+where we used Lemma~\ref{lem:hodge} and $R=I-P_\cV$. Up to the term $dP_\cV d^*$, which has exponential decay, this is a Feynman-type gauge: the principal part is the componentwise Laplacian. On the constraint set $\{\bQ A=B,\ Rd^*A=0\}$ the form reduces to $\|dA\|^2+a\|B\|^2$.
+\end{remark}
+
+\subsection{The averaging nearly separates exact and co-closed fields}\label{ss:9.3}
+
+The heart of the coercivity proof is the following identity. On the unit lattice, gradients $\dl g$ and co-closed fields are orthogonal. We show that $\bQ$ maps fine co-closed fields to unit fields that are co-closed up to a divergence controlled by derivatives.
+
+\begin{lemma}\label{lem:Q-divergence}
+There is an absolute constant $C_W$ with the following property. For every gauge field $A$ on $\Tf$,
+\[
+\dl^*\bQ A=\iota\,b\,\bar c\,d^*A+\dl^*\mathsf WA,\qquad \bar c=c_1c_2\cdots c_d,
+\]
+where $\mathsf WA$ is a gauge field on $\T$ with $\|\mathsf WA\|\le C_W\|\partial A\|$.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:1d}(a), $D_\mu^*=a_\mu^*\partial_\mu^*$, and all operators involved commute. Hence
+\[
+\dl^*\bQ A=\sum_\mu D_\mu^*\iota\,a_\mu bA_\mu=\iota\sum_\mu b\,c_\mu\,\partial_\mu^*A_\mu .
+\]
+For fixed $\mu$, the telescoping identity $1-x_1\cdots x_m=\sum_ix_1\cdots x_{i-1}(1-x_i)$ for commuting $x_i$ gives
+\[
+c_\mu-\bar c=c_\mu\Big(1-\prod_{\nu\ne\mu}c_\nu\Big)=\sum_{\nu\ne\mu}c_\mu\Pi_{\mu\nu}(1-c_\nu),\qquad\Pi_{\mu\nu}=\prod_{\nu'<\nu,\ \nu'\ne\mu}c_{\nu'} .
+\]
+By Lemma~\ref{lem:1d}(d), $1-c_\nu=e_\nu\partial_\nu^*\partial_\nu$. By Lemma~\ref{lem:1d}(a),(b$'$), $a^c_\nu\partial_\nu^*=\tau^{1/2}_\nu a_\nu^*\partial_\nu^*=\tau^{1/2}_\nu D_\nu^*$, so that $b\,\partial^*_\nu=\big(\prod_{\nu'\ne\nu}a^c_{\nu'}\big)\tau^{1/2}_\nu D^*_\nu$. Since $D^*_\nu$ commutes with $\iota$,
+\[
+\iota\,b\,(c_\mu-\bar c)\,\partial^*_\mu A_\mu=\sum_{\nu\ne\mu}D_\nu^*\,\iota\Big(\prod_{\nu'\ne\nu}a^c_{\nu'}\Big)\tau^{1/2}_\nu\,c_\mu\Pi_{\mu\nu}\,(e_\nu\partial_\nu)\,\partial^*_\mu A_\mu .
+\]
+Summing over $\mu$ and collecting the coefficient of $D^*_\nu$ defines
+\[
+(\mathsf WA)_\nu=\sum_{\mu\ne\nu}\iota\Big(\prod_{\nu'\ne\nu}a^c_{\nu'}\Big)\tau^{1/2}_\nu\,c_\mu\Pi_{\mu\nu}\,(e_\nu\partial_\nu)\,\partial^*_\mu A_\mu,
+\]
+and the identity follows. Each operator acting on $\partial^*_\mu A_\mu$ is $\iota$ composed with a product convolution. In direction $\nu$ it is $\tau^{1/2}_\nu e_\nu\partial_\nu$, whose kernel is bounded by $1$ and supported in an interval of length at most $3$ (Lemma~\ref{lem:1d}(d)); the half shift only moves the support. In every other direction it is $a^c_{\nu'}$ times at most one triangle average $c_{\nu'}$, whose kernel is an average of $c$ and therefore bounded by $1$, with support of length at most $3$. By Lemma~\ref{lem:restriction} the norm is at most $4^d\|\partial^*_\mu A_\mu\|=4^d\|\partial_\mu A_\mu\|$. Hence, by Cauchy--Schwarz over $\mu\ne\nu$, $\|\mathsf WA\|\le4^d d\,\|\partial A\|$.
+\end{proof}
+
+\begin{lemma}[Separation]\label{lem:separation}
+There is an absolute constant $C_\star$ such that for every co-closed gauge field $B'$ on $\Tf$ and every scalar field $g$ on $\T$,
+\[
+\|B'\|^2+\|\dl g\|^2\le C_\star\big(\|dB'\|^2+\|\bQ B'+\dl g\|^2\big).
+\]
+\end{lemma}
+
+\begin{proof}
+Expand the square:
+\[
+\|\bQ B'+\dl g\|^2=\|\bQ B'\|^2+\|\dl g\|^2+2\ip{\dl^*\bQ B'}g .
+\]
+By Lemma~\ref{lem:Q-divergence} and $d^*B'=0$, $\ip{\dl^*\bQ B'}g=\ip{\mathsf WB'}{\dl g}$. This is bounded in absolute value by $C_W\|\partial B'\|\|\dl g\|\le\frac14\|\dl g\|^2+C_W^2\|\partial B'\|^2$. By Lemma~\ref{lem:hodge}, $\|\partial B'\|=\|dB'\|$. Hence
+\[
+\|\bQ B'+\dl g\|^2\ge\|\bQ B'\|^2+\tfrac12\|\dl g\|^2-2C_W^2\|dB'\|^2 .
+\]
+On the other hand, Corollary~\ref{cor:poincare-all} gives $\|B'\|^2\le C_P(\|dB'\|^2+\|\bQ B'\|^2)$. Therefore
+\begin{align*}
+\|B'\|^2+\|\dl g\|^2&\le C_P\|dB'\|^2+(C_P+2)\big(\|\bQ B'\|^2+\tfrac12\|\dl g\|^2\big)\\
+&\le\big(C_P+2C_W^2(C_P+2)\big)\|dB'\|^2+(C_P+2)\|\bQ B'+\dl g\|^2 . \qedhere
+\end{align*}
+\end{proof}
+
+\subsection{Coercivity}\label{ss:9.4}
+
+\begin{lemma}[Gradient part in Ba\l aban's gauge]\label{lem:gradient-part}
+Let $\lambda$ be a scalar field with mean zero and $R(-\Lap\lambda)=0$. Then $\|d\lambda\|\le C_B\|\dl Q_0\lambda\|$, with $C_B$ from Lemma~\ref{lem:biharmonic}.
+\end{lemma}
+
+\begin{proof}
+$-\Lap\lambda$ lies in $\cW^\perp=\cV$ and has mean zero. By Proposition~\ref{prop:R}(c), $-\Lap\lambda=(-\Lap)^{-1}Q_0^*\omega$ with $\omega$ of mean zero. Since $\lambda$ has mean zero, $\lambda=(-\Lap)^{-2}Q_0^*\omega$, and Lemma~\ref{lem:biharmonic} applies.
+\end{proof}
+
+\begin{theorem}[Coercivity of the gauge-field operator]\label{thm:gauge-coercive}
+There is $c_g>0$, depending only on $a$, such that for every gauge field $A$ on $\Tf$
+\[
+\ip A{\bL_aA}=\|dA\|^2+\|Rd^*A\|^2+a\|\bQ A\|^2\ \ge\ c_g\big(\|A\|^2+\|\partial A\|^2\big).
+\]
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1 (gauge fixing).} Let $\lambda_1\in\cN(Q_0)$ be given by Lemma~\ref{lem:gauge-fix} and $B=A+d\lambda_1$. Then $Rd^*B=0$, $dB=dA$, $\bQ B=\bQ A$, and $\|d\lambda_1\|\le\sqrt{d/2}\|Rd^*A\|$.
+
+\emph{Step 2 (Hodge decomposition).} By Lemma~\ref{lem:hodge}, $B=d\lambda+B'$ with $\lambda=(-\Lap)^{-1}d^*B$ of mean zero and $d^*B'=0$. Then $R(-\Lap\lambda)=Rd^*B=0$. By Lemma~\ref{lem:gradient-part}, $\|d\lambda\|\le C_B\|\dl g\|$ with $g=Q_0\lambda$.
+
+\emph{Step 3 (separation).} By gauge covariance, $\bQ B=\bQ B'+\dl g$, and $dB'=dB=dA$. Lemma~\ref{lem:separation} gives
+\[
+\|B'\|^2+\|\dl g\|^2\le C_\star\big(\|dA\|^2+\|\bQ A\|^2\big).
+\]
+
+\emph{Step 4.} Since $A=-d\lambda_1+d\lambda+B'$,
+\[
+\|A\|\le\sqrt{d/2}\,\|Rd^*A\|+(C_B+1)\sqrt{2C_\star}\,\big(\|dA\|^2+\|\bQ A\|^2\big)^{1/2}.
+\]
+Hence $\|A\|^2\le C'\big(\|dA\|^2+\|Rd^*A\|^2+\|\bQ A\|^2\big)$.
+
+\emph{Step 5 (derivatives).} By Lemma~\ref{lem:hodge}, $\|\partial A\|^2=\|dA\|^2+\|d^*A\|^2$. Moreover $\|d^*A\|\le\|Rd^*A\|+\|P_\cV d^*A\|\le\|Rd^*A\|+C\|A\|$ by Proposition~\ref{prop:R}(e). Combining with Step~4 proves the theorem, with $c_g$ depending on $\min(1,a)$ and the constants above.
+\end{proof}
+
+\begin{corollary}\label{cor:X-positive}
+On the space $\cX=\{A:\bQ A=0,\ Rd^*A=0\}$ one has $\|dA\|^2\ge c_g\|A\|^2$.
+\end{corollary}
+
+This completes the proof of Theorem~\ref{thm:A}.

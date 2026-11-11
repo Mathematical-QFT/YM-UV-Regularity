@@ -1,0 +1,47 @@
+% Figure of the guide (G10): Part XI, the chain of reductions to the coefficient. Owner: WP7.
+\begin{gfigure}[tp]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,
+  ch/.style={draw,rounded corners=1.5pt,fill=white,align=flush center,text width=5.55cm,font=\footnotesize,inner xsep=3pt,inner ysep=2.5pt},
+  rc/.style={draw,rounded corners=1.5pt,fill=white,align=flush left,text width=7.0cm,font=\scriptsize,inner xsep=3pt,inner ysep=2.5pt},
+  off/.style={rc,dashed,draw=black!55,text=black!65},
+  ar/.style={-{Stealth[length=1.6mm]},semithick},
+  al/.style={right,font=\scriptsize,inner sep=2pt,align=flush left},
+  ]
+% the chain of reductions
+\node[ch] (b0) at (2.9,0) {$\Gamma^{(1)}_k=\sum_{j<k}\Gamma^{\rm step}_j\circ U_k$,\\ up to constants};
+\node[ch,below=5.5mm of b0] (b1) {$\sum_{j<k}T^{(1)}_{j+1}$, each term a multiple\\ of $\delta_{\mu\nu}|p|^2-p_\mu p_\nu$};
+\node[ch,below=5.5mm of b1] (b2) {$=T_{\Gamma^{(1)}_k}$};
+\node[ch,below=5.5mm of b2] (b3) {$=T_{\rm fine}$, the $p^2$-tensor\\ of the fine kernel at $(p,p)$};
+\node[ch,below=5.5mm of b3] (b4) {$=T_{\rm F}+O(1)$,\\ where $T_{\rm F}=\beta_{\rm F}(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$};
+\node[ch,below=5.5mm of b4] (b5) {$\beta_{\rm F}=f(\eta)$, $\eta=L^{-k}$,\\ with $f$ computed on $\Z^4$};
+\node[ch,below=5.5mm of b5] (b6) {$f(\mathrm m)=\mathsf b\log(1/\mathrm m)+c+o(1)$,\\[1pt] $\mathsf b=\dfrac{11C_A}{24\pi^2T_\rho}=\dfrac{C_A}{8\pi^2T_\rho}\Big(4-\dfrac13\Big)$};
+\node[ch,below=5.5mm of b6] (b7) {$\beta_{\rm F}=k\beta_\infty+O(1)$, $\beta_\infty=\mathsf b\log L$};
+\node[ch,below=5.5mm of b7,line width=1.1pt] (b8) {$\sum_{j<k}T^{(1)}_{j+1}$\\ $=\big(k\beta_\infty+O(1)\big)\big(\delta_{\mu\nu}|p|^2-p_\mu p_\nu\big)$};
+\draw[ar] (b0) -- node[al] {Definition~\ref{def:marginal-tensor}, Lemma~\ref{lem:ol-symmetry}} (b1);
+\draw[ar] (b1) -- node[al] {Corollary~\ref{cor:ol-cumulative}} (b2);
+\draw[ar] (b2) -- node[al] {Section~\ref{sec:ol-chart}; Lemmas~\ref{lem:ol-torus-limit}(c), \ref{lem:ol-coarse-map}} (b3);
+\draw[ar] (b3) -- node[al] {Proposition~\ref{prop:ol-reduction}, Remark~\ref{rem:ol-symmetry}} (b4);
+\draw[ar] (b4) -- node[al] {Lemma~\ref{lem:ol-scaling} (scaling)} (b5);
+\draw[ar] (b5) -- node[al] {Lemmas~\ref{lem:ol-infrared}, \ref{lem:ol-classical}} (b6);
+\draw[ar] (b6) -- node[al] {Theorem~\ref{thm:ol-log}: $\log(1/\eta)=k\log L$} (b7);
+\draw[ar] (b7) -- node[al] {Theorem~\ref{thm:ol-cumulative} (Theorem~\ref{thm:M}(iii))} (b8);
+\node[font=\scriptsize,anchor=south,inner sep=1pt] at (b0.north) {Propositions~\ref{prop:ol-laplace} and~\ref{prop:ol-composition}};
+% power counting
+\node[rc,anchor=north east] (pc) at (15.3,0.4) {\textbf{Power counting} (Lemmas~\ref{lem:ol-integrability}, \ref{lem:ol-power-counting}): $\operatorname{Tr}_1\langle\partial\rangle^{-D}$ is bounded uniformly in $\eta$ if and only if $D>4$. In $T_{\rm fine}-T_{\rm F}$ every term is bounded uniformly in $k$: it has $D\ge6$, or an insertion of bounded rank per cell, or it acts on the coarse fields (proof of Proposition~\ref{prop:ol-reduction}).};
+% the ultraviolet limit
+\node[rc,below=6mm of pc] (f1) {(F1) the generation form, and $|\beta_{j+1}|\le C_\beta\mathsf K$;\\ $\beta_{j+1}$ is continuous in $(g_0,\dots,g_j)$\\ \mbox{}\hfill Theorem~\ref{thm:sf-flow}, Proposition~\ref{prop:flow-continuity}};
+\node[rc,below=2mm of f1] (f2) {(F2) $|\beta^{\rm ol}_{j+1}-\beta^{(1)}_{j+1}|\le C_2e^{-c_2n_{j+1}/M}$:\\ the torus independence of the one-loop pieces\\ \mbox{}\hfill Lemmas~\ref{lem:OL}--\ref{lem:ol-limits}, Proposition~\ref{prop:one-loop-local}};
+\node[rc,below=2mm of f2] (f3) {(F3) $|\beta_{j+1}-\beta^{\rm ol}_{j+1}|\le C_3g_j^2p_0(g_j)^6$:\\ parity in the coupling, as in Section~\ref{subsec:cl-order}};
+\node[rc,below=5mm of f3] (p6) {Proposition~\ref{prop:flow-F}: the flow has (F1)--(F3)};
+\node[rc,line width=1.1pt,anchor=east] (uv) at (15.3,0 |- b8) {Theorem~\ref{thm:ol-uv} (Theorem~\ref{thm:M}(iv)): for $0<g\le g_{\rm uv}$\\ and every $K$ there is a bare coupling for which\\ the flow has $g_K=g$ and, for $k\le K$,\\[1pt] \hspace*{1em}$|g_k^{-2}-g^{-2}-(K-k)\beta_\infty|\le C(\log(K-k+2))^{6q+1}$};
+\node[off,below=5mm of uv] (gl) {Theorem~\ref{thm:gen-locality} (generation locality, Section~\ref{sec:gen-locality}) gives Proposition~\ref{prop:beta-identification}: at fixed couplings, as the torus grows, $\beta_j$ converges to the coefficient that Ba\l aban's definition assigns to the generations; no rate is proved. Theorem~\ref{thm:ol-uv} does not use it.};
+\foreach \u in {f1,f2,f3} \draw[semithick] ([xshift=-2mm]\u.west) -- (\u.west);
+\draw[semithick] ([xshift=-2mm]f1.west) -- ([xshift=-2mm]f3.west);
+\draw[ar] ([xshift=-2mm]f3.west) |- (p6.west);
+\draw[ar] (p6) -- (uv);
+\draw[ar] (b8) -- (uv);
+\end{tikzpicture}
+\caption{Part~XI: the chain of reductions to the one-loop coefficient (left) and the ultraviolet limit (right). Left: each arrow carries the results that give the next line; together they are Theorem~\ref{thm:ol-cumulative}, which is Theorem~\ref{thm:M}(iii), with $O(1)$ bounded uniformly in $k$. The marginal tensors have no term linear in $p$ (Lemma~\ref{lem:ol-symmetry}). The coefficient is $\mathsf b=\frac{11C_A}{24\pi^2T_\rho}$; in Lemma~\ref{lem:ol-classical} the factor $4-\frac13=\frac{11}3$ is the sum of the spin part $4$ and the orbital part $-\frac13$, which is $+\frac13$ from the scalar determinant and $-\frac23$ from the vector determinant. Right: the properties (F1)--(F3) of the flow (Section~\ref{subsec:ol-flow-coeff}), proved in Proposition~\ref{prop:flow-F}, and Theorem~\ref{thm:M}(iii) give Theorem~\ref{thm:M}(iv), under the conditions on $\gamma$ stated there; for the last $m_1$ steps see the paragraph after Theorem~\ref{thm:ol-uv}. Dashed: off the line of Theorem~\ref{thm:M}(iv).}
+\label{fig:G-partXI}
+\end{gfigure}

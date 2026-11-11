@@ -1,0 +1,282 @@
+\section{Interior regularity for Dirichlet operators}\label{sec:interior}
+
+This section proves Theorem~\ref{thm:ID}. The pointwise bounds of Parts~II and~III come from a global bootstrap (Lemma~\ref{lem:bootstrap}), which does not work on a domain (Remark~\ref{rem:ID}). We replace it by an absorption argument inside a single cube, at all scales. Two observations make this possible.
+\begin{itemize}
+\item The nonlocal terms of $\fA^{X,\kappa}$ are of two kinds. Terms that factor through the unit lattice, such as $DP_{\cV,X}D^T_X$ and $a\bQ^T\bQ$, are bounded pointwise by local $L^2$ norms. The remaining nonlocal terms are small, but of Riesz type; they all come from the slice projection $\Pi_X$. They disappear if two scalar potentials, $\sigma=S_Xu$ and a dual potential $\tau$, are treated as additional unknowns. The triple $(u,\sigma,\tau)$ satisfies a \emph{local} elliptic system with $L^2$-controlled sources (Lemma~\ref{lem:local-system}).
+\item For local systems the loss of domain in Theorem~\ref{thm:local-regularity} is harmless. We apply that theorem at a radius proportional to the distance between two nested cubes and absorb with an iteration lemma (Lemma~\ref{lem:iteration}). This is the absorption technique of elliptic regularity theory, as in the hole-filling arguments of \cite[Ch.~V]{Giaquinta}. Lower-order terms carry positive powers of the radius, so only the principal perturbations need to be small.
+\end{itemize}
+No estimate near the boundary of $X$ is used.
+
+\paragraph{Conventions.} We keep the setting of Part~VIII. We may assume $\eta\le\frac1{16}$. Otherwise values, differences and H\"older quotients are bounded by block $L^2$ norms, as in Step~0 of the proof of Theorem~\ref{thm:local-regularity}, and Theorem~\ref{thm:ID} follows from the decay in Proposition~\ref{prop:dirichlet-averaged}(b). For $z\in\R^d$ we write $\Lam_r=\Lam_r(z)$. We fix a real gauge in which $U=e^{\ii\eta A}$ on $\Lam_4(z)$, with $A$ satisfying (B) there; it exists because $U$ is $(M,\eps)$-regular. All fields are written in this gauge, and the tilde is omitted. Then $D_\mu=\partial_\mu+T_\mu$, $\mathfrak F\lambda=c\lambda$ and the normal forms of Lemma~\ref{lem:cov-expansion} hold on $\Lam_3$. For a set $Q$ of lattice points, $|h|_Q$ is the supremum, $\Hol hQ$ the H\"older quotient and $\|h\|_Q$ the $L^2$ norm over $Q$. An equation holds \emph{on $\Lam_r$} if it holds at every point, respectively at every bond or plaquette starting at a point, of $\Lam_r$. Bounds ``on $\Lam_r$'' may involve values within distance $2\eta$ of $\Lam_r$; we do not indicate this enlargement. A \emph{source in local form} on $\Lam_r$ is a field $\mathcal S=F+\sum_\mu\partial^*_\mu g_\mu$, componentwise for gauge fields, and we put
+\[
+\mathfrak n_r(\mathcal S)=|F|_{\Lam_r}+|g|_{\Lam_r}+\Hol g{\Lam_r},\qquad\mathfrak n^0_r(\mathcal S)=|F|_{\Lam_r}+|g|_{\Lam_r}.
+\]
+
+\subsection{Absorption at all scales}
+
+\begin{lemma}[Iteration {\cite[Ch.~V, Lemma~3.1]{Giaquinta}}]\label{lem:iteration}
+Let $0<\rho_0<R_0$, and let $\Psi\ge0$ be bounded on $[\rho_0,R_0]$. Suppose there are $\theta\in[0,1)$ and $A,B,\beta\ge0$ such that
+\[
+\Psi(t)\le\theta\,\Psi(t')+A(t'-t)^{-\beta}+B\qquad\text{for all }\rho_0\le t<t'\le R_0 .
+\]
+Then $\Psi(\rho_0)\le C(\theta,\beta)\big(A(R_0-\rho_0)^{-\beta}+B\big)$.
+\end{lemma}
+
+\begin{proof}
+Choose $\lambda\in(0,1)$ with $\theta\lambda^{-\beta}<1$, and put $t_i=\rho_0+(1-\lambda^i)(R_0-\rho_0)$, so that $t_{i+1}-t_i=(1-\lambda)\lambda^i(R_0-\rho_0)$. By induction,
+\[
+\Psi(\rho_0)\le\theta^k\Psi(t_k)+\sum_{i<k}\theta^i\Big(A(1-\lambda)^{-\beta}\lambda^{-i\beta}(R_0-\rho_0)^{-\beta}+B\Big).
+\]
+Since $\Psi$ is bounded, the first term tends to $0$ as $k\to\infty$. Summing the geometric series gives the bound.
+\end{proof}
+
+\begin{lemma}[Local regularity at radius $s$]\label{lem:rescaled}
+Let $\eta\le s\le1$, $x\in\eta\Z^d$, and write $\Lam_r=\Lam_r(x)$ in this lemma. If $-\Lap u=F+\sum_\mu\partial^*_\mu g_\mu$ on $\Lam_{2s}$, then, with $C$ as in Theorem~\ref{thm:local-regularity},
+\begin{align*}
+|u|_{\Lam_s}+s|\partial u|_{\Lam_s}+s^{1+\alpha}\Hol{\partial u}{\Lam_s}&\le C\big(s^2|F|_{\Lam_{2s}}+s|g|_{\Lam_{3s}}+s^{1+\alpha}\Hol g{\Lam_{3s}}+s^{-d/2}\|u\|_{\Lam_{2s}}\big),\\
+|u|_{\Lam_s}+s^\alpha\Hol u{\Lam_s}&\le C\big(s^2|F|_{\Lam_{2s}}+s|g|_{\Lam_{3s}}+s^{-d/2}\|u\|_{\Lam_{2s}}\big).
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+The function $u_s(x')=u(x+sx')$ lives on the lattice $(\eta/s)\Z^d$, with spacing at most $1$. It satisfies $-\Lap u_s=s^2F_s+\sum_\mu\partial^*_\mu(sg_{\mu,s})$, with lattice derivatives at spacing $\eta/s$, where $F_s(x')=F(x+sx')$, and similarly for $g$. Moreover $\|u_s\|_{\Lam_2(0)}=s^{-d/2}\|u\|_{\Lam_{2s}}$, $\partial u_s=s(\partial u)_s$ and $\Hol{\partial u_s}{}=s^{1+\alpha}\Hol{\partial u}{}$. The proof of Theorem~\ref{thm:local-regularity} uses only that the spacing is at most $1$; for spacing larger than $\frac1{16}$ Step~0 applies. Apply (d) and (b) of that theorem to $u_s$.
+\end{proof}
+
+\begin{proposition}[Interior estimates for scalar equations]\label{prop:scalar-interior}
+There is $\eps_S>0$, depending only on $d$, $\alpha$ and $\dim\mathfrak g$, with the following property. For $0<\rho<r\le3$ there is $C$, depending in addition on $r-\rho$, such that for $\eps\le\eps_S$: if $v$ is a scalar field with $D^TDv=\mathcal S$ on $\Lam_r$, for a source $\mathcal S$ in local form, then
+\begin{align*}
+|v|_{\Lam_\rho}+|\partial v|_{\Lam_\rho}+\Hol{\partial v}{\Lam_\rho}&\le C\big(\mathfrak n_r(\mathcal S)+\|v\|_{\Lam_r}\big),\\
+|v|_{\Lam_\rho}+\Hol{v}{\Lam_\rho}&\le C\big(\mathfrak n^0_r(\mathcal S)+\|v\|_{\Lam_r}\big).
+\end{align*}
+\end{proposition}
+
+\begin{proof}
+If $r-\rho<40\eta$, both bounds follow from $|v(x)|\le\eta^{-d/2}\|v\|_{\Lam_r}$, $|\partial v|\le2\eta^{-1}\sup|v|$, $\Hol{w}{}\le2\eta^{-\alpha}\sup|w|$ and $\eta^{-1}\le40(r-\rho)^{-1}$, so assume $r-\rho\ge40\eta$. By Lemma~\ref{lem:cov-expansion}, $-\Lap v=(F-bv)+\sum_\mu\partial^*_\mu(g_\mu-a_\mu v)$ on $\Lam_r$.
+
+\emph{First bound.} Let $\Psi(t)=\sup_{x\in\Lam_t}\big(|v(x)|+|\partial v(x)|\big)$. Let $\rho\le t<t'\le r$ and $s=(t'-t)/6$. Suppose first $s\ge3\eta$, so that $\Lam_{3s}(x)$, enlarged by $2\eta$, lies in $\Lam_{t'}$ for $x\in\Lam_t$. Two points of a cube $Q$ of side $\ell\le6$ are joined by a monotone lattice path in $Q$, so $\Hol vQ\le C\ell^{1-\alpha}|\partial v|_Q$, and similarly $\Hol{a_\mu}Q\le C|\partial a_\mu|\le C\eps$. Hence on $\Lam_{3s}(x)$
+\[
+|bv|+|a_\mu v|+s^\alpha\Hol{a_\mu v}{\Lam_{3s}(x)}\le C\eps\,\Psi(t').
+\]
+The first inequality of Lemma~\ref{lem:rescaled} on $\Lam_{3s}(x)$, divided by $s$, gives
+\[
+|v(x)|+|\partial v(x)|\le C\,\mathfrak n_r(\mathcal S)+C_S\eps\,\Psi(t')+Cs^{-1-d/2}\|v\|_{\Lam_r}.
+\]
+If $s<3\eta$, then $|v(x)|+|\partial v(x)|\le3\eta^{-1-d/2}\|v\|_{\Lam_r}\le C(t'-t)^{-1-d/2}\|v\|_{\Lam_r}$, since $\eta^{-1}\le18(t'-t)^{-1}$. So $\Psi(t)\le C_S\eps\Psi(t')+C(t'-t)^{-1-d/2}\|v\|_{\Lam_r}+C\mathfrak n_r(\mathcal S)$ for all $\rho\le t<t'\le r$. For $C_S\eps\le\frac12$, Lemma~\ref{lem:iteration} on $[\rho',r]$, $\rho'=\frac12(\rho+r)$, bounds $\Psi(\rho')$. For the H\"older quotient let $s_1=(r-\rho)/8\ge\eta$ and $x,x'\in\Lam_\rho$. If $|x-x'|_\infty\le s_1$, both points lie in $\Lam_{s_1}(x)$, and Lemma~\ref{lem:rescaled} on $\Lam_{3s_1}(x)\subset\Lam_{\rho'}$ bounds the quotient, with the bound on $\Psi(\rho')$ inserted. Otherwise the quotient is at most $2s_1^{-\alpha}\Psi(\rho)$.
+
+\emph{Second bound.} The same argument with $\Psi_0(t)=|v|_{\Lam_t}$ and the second inequality of Lemma~\ref{lem:rescaled}. Now $s^2|bv|+s|a_\mu v|\le C\eps s\Psi_0(t')$, and for $s<3\eta$ we use $|v(x)|\le\eta^{-d/2}\|v\|_{\Lam_r}$.
+\end{proof}
+
+\subsection{The local system}
+
+\begin{lemma}[Local form of the Dirichlet equation]\label{lem:local-system}
+Let $X$ be a domain, $W\in\cW_{\rm loc}(\eps)$, and let $u\in\ell^2_1(X)$ satisfy $\fA^{X,\kappa}u=\mathcal S$. Put
+\[
+\begin{gathered}
+\sigma=S_Xu,\qquad\tau=G'_XD^T_X\mathfrak B_X\Pi_Xu,\\
+\omega_1=(M'_X)^{-1}Q'G'_XD^T_Xu,\qquad\omega_2=(M'_X)^{-1}Q'G'_X\tau,\qquad\pi_i=G'_XQ'^T\omega_i .
+\end{gathered}
+\]
+Then $Q'\sigma=0$, and at every point, bond and plaquette at $\infty$-distance at least $2\eta$ from $\Tf\setminus X$:
+\begin{align}
+&D^TDu+DD^Tu-D^T\mathfrak F\sigma+W(u-D\sigma)-D\tau+\kappa m_Xu=\mathcal S+D\pi_1-D\pi_2-a\bQ^T\bQ u,\label{eq:Eu}\\
+&D^TD\sigma=D^Tu-\pi_1,\label{eq:Esigma}\\
+&D^TD\tau=\mathfrak F^T(Du-\mathfrak F\sigma)+D^T\big(W(u-D\sigma)\big)-aQ'^TQ'\tau,\label{eq:Etau}\\
+&D^TD\pi_i=Q'^T\omega_i-aQ'^TQ'\pi_i .\label{eq:Epi}
+\end{align}
+Moreover there are $C,\gamma$, independent of $X$, $k$, $n$, $\eta$, such that for every $y$
+\[
+\|\sigma\|_{B(y)}+\|\tau\|_{B(y)}+\sum_i\big(|\omega_i(y)|+\|\pi_i\|_{B(y)}\big)\le C\sum_{y'}e^{-\gamma|y-y'|}\big(\|u\|_{B(y')}+\|Du\|_{B(y')}\big),
+\]
+where $\|Du\|_{B(y')}$ is taken over the plaquettes starting in $B(y')$.
+\end{lemma}
+
+\begin{proof}
+Since $E=0$, $\bQ\Pi_X=\bQ-D_VQ'S_X=\bQ$, because $Q'S_X=Q'G'_XR_XD^T_X=0$ by Theorem~\ref{thm:reg-scalar}(d). So the averaging term of $\fA^X$ is $a\bQ^T\bQ$. Next, $\Pi_X^T=1-S_X^TD^T_X$ with $S_X^T=DR_XG'_X$. Hence
+\[
+\Pi_X^T\mathfrak B_X\Pi_Xu=\mathfrak B_X\Pi_Xu-DR_X\tau,\qquad R_X\tau=\tau-P_{\cV,X}\tau=\tau-\pi_2 ,
+\]
+and $DR_XD^T_Xu=DD^T_Xu-D\pi_1$. Away from $\Tf\setminus X$ the projections $\one_X$ act trivially. There $\mathfrak B_X\Pi_Xu=D^TD(u-D\sigma)+W(u-D\sigma)$, and $D^TDD\sigma=D^T\mathfrak F\sigma$. This gives \eqref{eq:Eu}. By Lemma~\ref{lem:domain-identities}, $\sigma\in\ran S_X\subset\cN_X$, so $Q'\sigma=0$ and $\fA'_X\sigma=D^TD\sigma$ there. Since $\fA'_X\sigma=R_XD^T_Xu=D^T_Xu-\pi_1$, this gives \eqref{eq:Esigma}. At a point of $X$, $D^T$ involves only bonds with an endpoint at that point, so $\one_XD^T\one_XD^T=\one_XD^TD^T=\one_X\mathfrak F^T$ on $2$-forms. Hence
+\[
+D^T_X\mathfrak B_X\Pi_Xu=\one_X\mathfrak F^TD\Pi_Xu+D^T_X\one_XW\Pi_Xu ,
+\]
+with $D\Pi_Xu=Du-\mathfrak F\sigma$ away from $\Tf\setminus X$. Together with $\fA'_X\tau=D^T_X\mathfrak B_X\Pi_Xu$ this gives \eqref{eq:Etau}, and \eqref{eq:Epi} is $\fA'_X\pi_i=Q'^T\omega_i$. For the bounds, write $\tau=G'_X\one_X\mathfrak F^T(Du-\mathfrak F\sigma)+G'_XD^T_X\one_XW(u-D\sigma)$. The operators $S_X$, $DS_X$, $G'_X$, $G'_XD^T_X$, $(M'_X)^{-1}$ have decay (Theorem~\ref{thm:reg-scalar}(b)--(d)). The operators $\mathfrak F$, $W$, $Q'$ are local and bounded, and $|Q'\lambda(y)|\le C\|\lambda\|_{B(y)}$. Compositions of operators with decay have decay (Lemma~\ref{lem:decay-calculus}).
+\end{proof}
+
+\begin{proposition}[Interior estimates for the local system]\label{prop:system-interior}
+There is $\eps_L>0$, depending only on $d$, $\alpha$, $\dim\mathfrak g$ and $\kappa$, with the following property. For $0<\rho<r\le3$ there is $C$, depending in addition on $r-\rho$, such that for $\eps\le\eps_L$ the following holds. Let $W\in\cW_{\rm loc}(\eps)$, let $m$ be a real function with $|m|\le1$, and let $u$ be a gauge field and $\sigma,\tau$ scalar fields with
+\begin{equation}\label{eq:system}
+\begin{aligned}
+D^TDu+DD^Tu-D^T\mathfrak F\sigma+W(u-D\sigma)-D\tau+\kappa mu&=\mathcal S_u,\\
+D^TD\sigma-D^Tu&=\mathcal S_\sigma,\\
+D^TD\tau-\mathfrak F^T(Du-\mathfrak F\sigma)-D^T\big(W(u-D\sigma)\big)&=\mathcal S_\tau
+\end{aligned}
+\end{equation}
+on $\Lam_r$, for sources in local form. Put $\mathfrak s=\mathfrak n_r(\mathcal S_u)+\mathfrak n_r(\mathcal S_\sigma)+\mathfrak n_r(\mathcal S_\tau)$ and $\mathfrak m=\|u\|_{\Lam_r}+\|\sigma\|_{\Lam_r}+\|\tau\|_{\Lam_r}$. Then
+\[
+\sum_{v\in\{u,\sigma,\tau\}}\Big(|v|_{\Lam_\rho}+|\partial v|_{\Lam_\rho}+\Hol{\partial v}{\Lam_\rho}\Big)\le C(\mathfrak s+\mathfrak m).
+\]
+\end{proposition}
+
+\begin{proof}
+As in Proposition~\ref{prop:scalar-interior} we may assume $r-\rho\ge40\eta$.
+
+\emph{Step 1: normal form.} Let $a_\mu,b$ be the coefficients of the normal forms of Lemma~\ref{lem:cov-expansion}, for scalar fields and, componentwise, for $D^TD+DD^T$ on gauge fields. On $2$-forms, $(D^T\omega)_\nu=\sum_\mu(\partial^*_\mu+T^T_\mu)\omega_{\mu\nu}$. Then on $\Lam_r$, componentwise,
+\[
+-\Lap u=F_u+\textstyle\sum_\mu\partial^*_\mu g_{u,\mu},\qquad-\Lap\sigma=F_\sigma+\sum_\mu\partial^*_\mu g_{\sigma,\mu},\qquad-\Lap\tau=F_\tau+\sum_\mu\partial^*_\mu g_{\tau,\mu},
+\]
+where, with $\mathcal S_\bullet=F_{\mathcal S_\bullet}+\sum\partial^*g_{\mathcal S_\bullet}$,
+\[
+\begin{aligned}
+F_u&=F_{\mathcal S_u}-bu+T^T(\mathfrak F\sigma)-W(u-D\sigma)+D\tau-\kappa mu, \qquad g_{u,\mu}=g_{\mathcal S_u,\mu}-a_\mu u+(\mathfrak F\sigma)_{\mu\cdot},\\
+F_\sigma&=F_{\mathcal S_\sigma}+T^Tu-b\sigma,\qquad g_{\sigma,\mu}=g_{\mathcal S_\sigma,\mu}+u_\mu-a_\mu\sigma,\\
+F_\tau&=F_{\mathcal S_\tau}+\mathfrak F^T(Du-\mathfrak F\sigma)+T^T\big(W(u-D\sigma)\big)-b\tau,\qquad g_{\tau,\mu}=g_{\mathcal S_\tau,\mu}+\big(W(u-D\sigma)\big)_\mu-a_\mu\tau .
+\end{aligned}
+\]
+The coefficients $a_\mu,b,T,c$ and those of $W$ are bounded by $C\eps$, and so are their H\"older quotients; moreover $|\partial a_\mu|\le C\eps$ (Lemmas~\ref{lem:cov-expansion}, \ref{lem:curvature} and the definition of $\cW_{\rm loc}$). Hence on every cube $Q\subset\Lam_r$ of side at most $6$, with sup norms over $Q$ (enlarged by $2\eta$):
+\[
+\begin{aligned}
+|F_u|&\le|F_{\mathcal S_u}|+C\eps(|u|+|\sigma|+|\partial\sigma|+|\tau|)+|\partial\tau|+\kappa|u|,\\
+|g_u|+\Hol{g_u}Q&\le|g_{\mathcal S_u}|+\Hol{g_{\mathcal S_u}}Q+C\eps\big(|u|+|\sigma|+\Hol uQ+\Hol\sigma Q\big),\\
+|F_\sigma|&\le|F_{\mathcal S_\sigma}|+C\eps(|u|+|\sigma|),\\
+|g_\sigma|+\Hol{g_\sigma}Q&\le|g_{\mathcal S_\sigma}|+\Hol{g_{\mathcal S_\sigma}}Q+|u|+\Hol uQ+C\eps\big(|\sigma|+\Hol\sigma Q\big),\\
+|F_\tau|&\le|F_{\mathcal S_\tau}|+C\eps(|u|+|\partial u|+|\sigma|+|\partial\sigma|+|\tau|),\\
+|g_\tau|+\Hol{g_\tau}Q&\le|g_{\mathcal S_\tau}|+\Hol{g_{\mathcal S_\tau}}Q+C\eps\big(|u|+|\sigma|+|\partial\sigma|+|\tau|\big)\\
+&\quad+C\eps\big(\Hol uQ+\Hol\sigma Q+\Hol{\partial\sigma}Q+\Hol\tau Q\big).
+\end{aligned}
+\]
+On a cube $Q$ of side $\ell\le6$, $\Hol vQ\le C\ell^{1-\alpha}|\partial v|_Q$ for every $v$, by joining points with monotone lattice paths in $Q$.
+
+\emph{Step 2: one scale.} Suppose first $r\le r_*$, with $r_*\le3$ fixed in Step~3. For $v\in\{u,\sigma,\tau\}$ let $A_v(t)=\sup_{x\in\Lam_t}\big(|v(x)|+|\partial v(x)|\big)$. Let $\rho\le t<t'\le r$, $s=(t'-t)/12$, and suppose $s\ge3\eta$. For $x\in\Lam_t$ the cube $\Lam_{9s}(x)$, enlarged by $2\eta$, lies in $\Lam_{t'}$. Apply the first inequality of Lemma~\ref{lem:rescaled} on $\Lam_{3s}(x)$ to each equation, and for $\sigma$ also at scale $3s$ on $\Lam_{9s}(x)$; divide by $s$ and use Step~1. This gives, with all $A_v$ evaluated at $t'$:
+\begin{align*}
+&|\sigma(x)|+|\partial\sigma(x)|+s^\alpha\Hol{\partial\sigma}{\Lam_{3s}(x)}\le C_4(A_u+\eps A_\sigma)+C\big(\mathfrak s+s^{-1-d/2}\mathfrak m\big),\\
+&|\tau(x)|+|\partial\tau(x)|\le C_2\eps(A_u+A_\sigma+A_\tau)+C\big(\mathfrak s+s^{-1-d/2}\mathfrak m\big),\\
+&|u(x)|+|\partial u(x)|\le C_3(\eps+\kappa s)A_u+C_3\eps A_\sigma+C_3sA_\tau+C\big(\mathfrak s+s^{-1-d/2}\mathfrak m\big).
+\end{align*}
+In the bound for $\tau$, the H\"older quotient of $g_\tau$ contains $\eps\Hol{\partial\sigma}{\Lam_{3s}(x)}$, which is bounded by the first line. In the bound for $u$, the terms $D\tau$ and $\kappa mu$ belong to $F_u$, which enters with the factor $s$. The constants $C_2,C_3,C_4\ge1$ depend only on $d$, $\alpha$, $\dim\mathfrak g$. If $s<3\eta$, then $|v(x)|+|\partial v(x)|\le3\eta^{-1-d/2}\|v\|_{\Lam_r}\le C(t'-t)^{-1-d/2}\mathfrak m$ for each $v$.
+
+\emph{Step 3: weights and absorption.} Let $s_*=\big(16C_3(1+\kappa)\big)^{-1}$, $r_*=\min(3,12s_*)$, $w_\sigma=(8C_4)^{-1}$, $w_\tau=4C_3s_*$, and
+\[
+\Psi(t)=A_u(t)+w_\sigma A_\sigma(t)+w_\tau A_\tau(t).
+\]
+For $r\le r_*$ we have $s\le s_*$, so $C_3\kappa s\le\frac1{16}$ and $C_3s\le\frac14w_\tau$. Adding the bounds of Step~2 with the weights,
+\[
+\begin{aligned}
+\Psi(t)\le{}&\Big(C_3\eps+\tfrac3{16}+w_\tau C_2\eps\Big)A_u+\big(C_3+C_4w_\sigma+C_2w_\tau\big)\eps A_\sigma+\Big(\tfrac14+C_2\eps\Big)w_\tau A_\tau\\
+&+C\big(\mathfrak s+(t'-t)^{-1-d/2}\mathfrak m\big).
+\end{aligned}
+\]
+For $\eps\le\eps_L$ small this is at most $\frac12\Psi(t')+C(\mathfrak s+(t'-t)^{-1-d/2}\mathfrak m)$. The same holds if $s<3\eta$, by Step~2, since $w_\sigma,w_\tau\le1$. Lemma~\ref{lem:iteration} on $[\rho',r]$, $\rho'=\frac12(\rho+r)$, gives $\Psi(\rho')\le C(\mathfrak s+\mathfrak m)$. Since the weights are fixed positive numbers, $A_u+A_\sigma+A_\tau$ is bounded on $\Lam_{\rho'}$.
+
+\emph{Step 4: H\"older quotients.} With these sup bounds, Step~1 bounds $F_\bullet$, $g_\bullet$ and the H\"older quotients of $g_u$, $g_\sigma$ on $\Lam_{\rho'}$. Lemma~\ref{lem:rescaled} at the fixed scale $s_1=(r-\rho)/40\ge\eta$ then bounds $\Hol{\partial\sigma}{}$ on cubes $\Lam_{s_1}(x)$, $x\in\Lam_{(\rho+\rho')/2}$, then $\Hol{g_\tau}{}$, and then $\Hol{\partial\tau}{}$ and $\Hol{\partial u}{}$ on cubes $\Lam_{s_1}(x)$, $x\in\Lam_\rho$. Pairs of points of $\Lam_\rho$ at distance larger than $s_1$ are handled by the sup bounds, as in Proposition~\ref{prop:scalar-interior}.
+
+\emph{Step 5: general $r$.} If $r>r_*$, apply Steps~2--4 on the cubes $\Lam_{r_1}(x)$, $x\in\Lam_\rho$, $r_1=\min(r_*,r-\rho)$, which lie in $\Lam_r$. Combine the resulting bounds on $\Lam_{r_1/2}(x)$ as in Step~4.
+\end{proof}
+
+The small cubes in Step~3 are needed only because of the mass term, which is not small: its contribution $\kappa s|u|$ is made small by the radius. The coupling of $\sigma$ to $u$ is not small either, but it is one-directional: $\sigma$ feeds back into $u$ and $\tau$ only with a factor $\eps$, and this is what the weights express.
+
+\subsection{A consequence of gauge invariance}
+
+The bound on $D^TD\bH^X$ needs pointwise control of $D^T\mathfrak F\lambda$. Its coefficient $\partial^*c$ involves second derivatives of the background, which are not bounded uniformly in $\eta$. Gauge invariance of the action replaces it by the current.
+
+\begin{lemma}[Divergence of the curvature term]\label{lem:div-curvature}
+Let $U$ be real and $(1,\eps)$-regular with $\eps\le c_5$. Let $W_0=\nabla^2\mathcal N(0)$, where $\mathcal N$ is the remainder of Proposition~\ref{prop:action} with $U_0=U$. Then $(W_0h)(b)$ depends only on $h$ on bonds within distance $2\eta$ of $b$, and $|W_0h(b)|\le C\eps\max_{b'}|h(b')|$ over these bonds. For every scalar field $\lambda$,
+\[
+D^T\mathfrak F\lambda=-W_0D\lambda+\mathcal J_U(\lambda),\qquad\mathcal J_U(\lambda)(b)=\tfrac\ii2\big[J_U(b),\,\lambda(b_-)+R(U(b))\lambda(b_+)\big].
+\]
+In particular $|D^T\mathfrak F\lambda(b)|\le C\eps\max_{b'}|D\lambda(b')|+|J_U(b)|\big(|\lambda(b_-)|+|\lambda(b_+)|\big)$.
+\end{lemma}
+
+\begin{proof}
+\emph{The operator $W_0$.} By Proposition~\ref{prop:action}, $\Phi(A)=S(e^{\ii\eta A}U)$ satisfies $\nabla\Phi(0)=J_U$ and $\nabla^2\Phi(0)=D^TD+W_0$. Differentiate the formula for $\mathcal N$ in the proof of that proposition twice at $A=0$. There $\rho(0)=0$, $d\rho(0)=\rho^{(1)}$ and $d^2\rho(0)=d^2\rho^{(2)}(0)$. The cubic part of $\mathcal R$ does not contribute, and the quadratic part of $\mathcal R$ has coefficients $O(\eps^2\eta^4)$. Hence $W_0$ is the sum of:
+\begin{itemize}
+\item the operator of the form $h\mapsto\ip{d^2\rho^{(2)}(0)[h,\cdot]}{F^s}$, bounded by $C\eps$ since $|F^s|\le C\eps$;
+\item $D^T\rho^{(1)}+\rho^{(1)T}D$ and $\rho^{(1)T}\rho^{(1)}$, where $\rho^{(1)}$ is local with coefficients bounded by $C\eps\eta$ and $D$, $D^T$ cost at most $C\eta^{-1}$;
+\item the Hessian of the quadratic part of $\mathcal R$, bounded by $C\eps^2\eta^4\cdot\eta^{-2}$.
+\end{itemize}
+All are local, with the stated range.
+
+\emph{The identity.} Let $\lambda$ be real and $g_t=e^{\ii t\lambda}$. For small $t$ and $A$ define $A_t$ by $e^{\ii\eta A_t}U=(e^{\ii\eta A}U)^{g_t}$, i.e.\ bondwise
+\[
+e^{\ii\eta A_t(b)}=e^{tP}e^{\ii\eta A(b)}e^{-tQ},\qquad P=\ii\lambda(b_-),\quad Q=\ii R(U(b))\lambda(b_+).
+\]
+By gauge invariance of the Wilson action, $\Phi(A_t)=\Phi(A)$. Let $X_\lambda(A)=\frac{d}{dt}A_t|_{t=0}$. The Baker--Campbell--Hausdorff formula gives, to first order in $t$ and in $Y=\ii\eta A(b)$,
+\[
+\log\big(e^{tP}e^Ye^{-tQ}\big)=Y+t(P-Q)+\tfrac t2[P+Q,Y]+O(t^2)+O(t|Y|^2).
+\]
+Hence $X_\lambda(0)=-D\lambda$ and $dX_\lambda(0)h(b)=\frac\ii2[\lambda(b_-)+R(U(b))\lambda(b_+),h(b)]$. Differentiating $\ip{\nabla\Phi(A)}{X_\lambda(A)}=0$ at $A=0$ in the direction $h$ gives
+\[
+-\ip{(D^TD+W_0)h}{D\lambda}+\ip{J_U}{dX_\lambda(0)h}=0\qquad\text{for all real }h .
+\]
+Since $\operatorname{tr}(J[\mu,h])=\operatorname{tr}([J,\mu]h)$, this says $(D^TD+W_0)D\lambda=\mathcal J_U(\lambda)$. Finally $D^TDD\lambda=D^T\mathfrak F\lambda$. Both sides are complex linear in $\lambda$, so the identity holds for complex $\lambda$. The bound follows from $|[X,Y]|\le2|X||Y|$ and the bound on $W_0$.
+\end{proof}
+
+In the continuum this is the identity $D^*[F,\lambda]=[D^*F,\lambda]+\dots$: the divergence of the curvature is the current.
+
+\subsection{Proof of Theorem~\ref{thm:ID}}
+
+The constants come from Proposition~\ref{prop:dirichlet-averaged}, Lemma~\ref{lem:local-system}, Propositions~\ref{prop:scalar-interior}, \ref{prop:system-interior} and~\ref{prop:linearized-averages}(d),(e), and, for (d), Lemma~\ref{lem:div-curvature}; none of them depends on $M\ge M_0$. Fix a domain $X$ and $y\in X_{(4)}$, and let $z=c_y$. Since the $\infty$-distance from $y$ to $\Tf\setminus X$ exceeds $4$, the cube $\Lam_3(z)$ lies in $X$ at $\infty$-distance more than $\frac12\ge8\eta$ from $\Tf\setminus X$. So the equations of Lemma~\ref{lem:local-system} hold on $\Lam_3(z)$. We use concentric cubes $\Lam_3=\Lam_{r_0}\supset\Lam_{r_1}\supset\dots\supset\Lam_{r_{12}}=\Lam_1\supset B(y)$, with $r_j=3-j/6$. Each application of Proposition~\ref{prop:scalar-interior} or~\ref{prop:system-interior} passes from one cube to the next, and we do not record the indices. We write
+\[
+\mathfrak E(f)=\sum_{y'}e^{-\gamma|y-y'|}|f|_{B(y')},
+\]
+and similarly for $2$-forms and coarse fields. Here $\gamma$ may decrease from line to line, but remains independent of $X$, $k$, $n$, $\eta$. Two facts are used repeatedly:
+\begin{itemize}
+\item $|h|_{\Lam_3}\le C\sum_{|y'-y|_\infty\le4}|h|_{B(y')}$ and $\|h\|_{\Lam_3}\le C\sum_{|y'-y|_\infty\le4}\|h\|_{B(y')}$. Every point of $\Lam_3\subset X$ lies in a block $B(y')\subset X$, and these blocks have $|y'-y|_\infty\le4$;
+\item for Ba\l aban's averaging, $|\bQ A(c)|\le C\|A\|_{B(c_-)\cup B(c_+)}$, $|Q'\lambda(y')|\le C\|\lambda\|_{B(y')}$, and $\bQ^T$, $Q'^T$ are bounded from sup norms to sup norms (Proposition~\ref{prop:linearized-averages}(d),(e)).
+\end{itemize}
+
+\emph{The basic estimate.} Let $u\in\ell^2_1(X)$ satisfy $\fA^{X,\kappa}u=\mathcal S$, with $\mathcal S$ in local form on $\Lam_3$, and put $\mathfrak L(u)=\sum_{y'}e^{-\gamma|y-y'|}(\|u\|_{B(y')}+\|Du\|_{B(y')})$. By Lemma~\ref{lem:local-system}, the $L^2$ norms of $\sigma,\tau,\pi_i$ on $\Lam_3$ and the values $|\omega_i|$ at the unit points near $y$ are bounded by $C\mathfrak L(u)$. By \eqref{eq:Epi} and Proposition~\ref{prop:scalar-interior}, $|\pi_i|+|D\pi_i|\le C\mathfrak L(u)$ on the next cube, and $|a\bQ^T\bQ u|+|aQ'^TQ'\tau|\le C\mathfrak L(u)$ there. So $(u,\sigma,\tau)$ satisfies \eqref{eq:system} with $m=m_X$ and
+\[
+\mathcal S_u=\mathcal S+D\pi_1-D\pi_2-a\bQ^T\bQ u,\qquad\mathcal S_\sigma=-\pi_1,\qquad\mathcal S_\tau=-aQ'^TQ'\tau .
+\]
+Proposition~\ref{prop:system-interior} gives
+\begin{equation}\label{eq:basic}
+\sum_{v\in\{u,\sigma,\tau\}}\Big(|v|+|\partial v|+\Hol{\partial v}{}\Big)_{\Lam_{r_j}}\le C\big(\mathfrak n_{r_{j-2}}(\mathcal S)+\mathfrak L(u)\big).
+\end{equation}
+In the local gauge, $\nabla u=\partial u+Tu$ with $|T|$ and $\Hol T{}$ bounded by $C\eps$. So \eqref{eq:basic} bounds $|u|_{1,\alpha;y}$.
+
+\emph{(c)} Let $u=\bH^XB$. Then $\fA^{X,\kappa}u=\bQ_X^T\boldsymbol\Gamma^XB$, a source with $g=0$ and $|F|_{\Lam_3}\le C\mathfrak E(B)$ by Proposition~\ref{prop:dirichlet-averaged}(a). Also $\mathfrak L(u)\le C\mathfrak E(B)$ by the decay of $\bH^X$ and $D\bH^X$ (Proposition~\ref{prop:dirichlet-averaged}(b)). Apply \eqref{eq:basic}.
+
+\emph{(a)} Let $u=\bC^Xf$, and put $h_0=G'_XD^T_Xf$ and $\sigma_2=G'_XR_Xh_0$. Then $\sigma_2\in\cN_X$ and $D^T_XD\sigma_2=R_Xh_0$ (Theorem~\ref{thm:reg-scalar}(d)), so $\fA^XD\sigma_2=DR_Xh_0$ by the domain version of Lemma~\ref{lem:Api-identities}(a) (Lemma~\ref{lem:domain-identities}). With $\fA^{X,\kappa}\bG^X=1$ and $\fA^{X,\kappa}\bH^X=\bQ_X^T\boldsymbol\Gamma^X$ this gives
+\[
+\fA^{X,\kappa}\bC^Xf=f-DR_Xh_0-\kappa m_XD\sigma_2-\fA^{\rm ext}_XD\sigma_2-\bQ_X^T\boldsymbol\Gamma^X\bQ_X\bG^Xf .
+\]
+The term $\fA^{\rm ext}_XD\sigma_2$ lives on the bonds crossing $\partial X$, so it vanishes on $\Lam_3$ and does not enter the estimate. We put the remaining terms in local form.
+\begin{itemize}
+\item $D^TDh_0=D^Tf-aQ'^TQ'h_0$ in the interior, with $D^Tf=\partial^*f+T^Tf$. The second bound of Proposition~\ref{prop:scalar-interior} gives $|h_0|+\Hol{h_0}{}\le C\mathfrak E(f)$, using $\|h_0\|_{B(y')}\le C\sum e^{-\gamma|y'-y''|}|f|_{B(y'')}$ by the decay of $G'_XD^T_X$.
+\item $Dh_0=\partial h_0+Th_0$ and $\partial_\mu h_0=-\partial^*_\mu(S_\mu h_0)$. So $Dh_0$ is a source in local form, with $g$ bounded by $|h_0|$ and $\Hol{h_0}{}$.
+\item $R_Xh_0=h_0-\pi_3$ with $\pi_3=G'_XQ'^T(M'_X)^{-1}Q'G'_Xh_0$. As for $\pi_i$, $|\pi_3|+|D\pi_3|\le C\mathfrak E(f)$.
+\item $D^TD\sigma_2=h_0-\pi_3$, since $Q'\sigma_2=0$. The first bound of Proposition~\ref{prop:scalar-interior} gives $|D\sigma_2|\le C\mathfrak E(f)$, using $\|\sigma_2\|_{B(y')}\le C\sum e^{-\gamma|y'-y''|}|f|_{B(y'')}$ by the decay of $G'_XR_XG'_XD^T_X$.
+\item $|\bQ_X^T\boldsymbol\Gamma^X\bQ_X\bG^Xf|\le C\mathfrak E(f)$, by the decay of $\boldsymbol\Gamma^X$ and $\bG^X$.
+\end{itemize}
+Also $\mathfrak L(\bC^Xf)\le C\mathfrak E(f)$ by the decay of $\bC^X$ and $D\bC^X$. Apply \eqref{eq:basic}.
+
+\emph{(b)} Let $u=\bC^XD^T_Xg$. In the same way,
+\[
+\fA^{X,\kappa}u=D^T_Xg-DR_Xh_3-\kappa m_XD\sigma_3-\fA^{\rm ext}_XD\sigma_3-\bQ_X^T\boldsymbol\Gamma^X\bQ_X\bG^XD^T_Xg,
+\]
+where again $\fA^{\rm ext}_XD\sigma_3$ vanishes on $\Lam_3$,
+with $h_3=G'_XD^T_XD^T_Xg=G'_X\one_X\mathfrak F^Tg$ and $\sigma_3=G'_XR_Xh_3$. In the interior $D^T_Xg=\partial^*g+T^Tg$, a source in local form whose norm involves $\Hol g{\Lam_3}$. Two points of $\Lam_3$ at $\infty$-distance at most $\frac12$ lie in a common cube $\Lam_1(c_{y'})$, so $\Hol g{\Lam_3}\le C\sum_{|y'-y|_\infty\le4}(|g|_{B(y')}+\Hol{\tilde g_{y'}}{\Lam_1(c_{y'})})$. Here the gauge of $z$ and that of $y'$ differ on $\Lam_1(c_{y'})$ by a gauge transformation whose differences are bounded by $C\eps$, which changes H\"older quotients by at most $C\eps|g|$. Next, $D^TDh_3=\mathfrak F^Tg-aQ'^TQ'h_3$ is bounded, so $|h_3|+|Dh_3|\le C\mathfrak E(g)$ by Proposition~\ref{prop:scalar-interior}, with the $L^2$ input from the decay of $G'_X\one_X\mathfrak F^T$ (and of $G'_XR_X$ for $\sigma_3$), and $DR_Xh_3$ is a bounded source. The remaining terms are as in (a), with the decay of $\bG^XD^T_X$, $\bC^XD^T_X$ and $D\bC^XD^T_X$.
+
+\emph{(d)} Let $u=\bH^XY$, and let $\sigma,\tau,\pi_i,\omega_i$ be as in Lemma~\ref{lem:local-system}. By (c) and \eqref{eq:basic}, $u,\sigma,\tau$ and their first derivatives are bounded by $C\mathfrak E(Y)$ on $\Lam_{r_2}$. Put $\theta=D^T_Xu$, so that $DD^Tu=D\theta$ in the interior. Apply $D^T$ to \eqref{eq:Eu}. By $D^TD^T=\mathfrak F^T$, $D^T(D^T\mathfrak F\sigma)=\mathfrak F^T\mathfrak F\sigma$, and by \eqref{eq:Etau},
+\[
+\mathfrak F^TDu-\mathfrak F^T\mathfrak F\sigma+D^T\big(W(u-D\sigma)\big)-D^TD\tau=aQ'^TQ'\tau .
+\]
+The curvature terms and the potential terms cancel exactly. With $E=0$, $D^T\bQ^T=(\bQ D)^T=Q'^TD_V^T$. Together with \eqref{eq:Epi} this gives
+\[
+D^TD\theta=Q'^TD_V^T\big(\boldsymbol\Gamma^XY-a\bQ u\big)+Q'^T(\omega_1-\omega_2)-aQ'^TQ'(\pi_1-\pi_2+\tau)-\kappa D^T(m_Xu).
+\]
+Here $D^T(m_Xu)-m_X\theta$ consists of terms $(\partial^*m_X)\cdot(\text{shifted }u)$ and $(\text{differences of }m_X)\cdot T^T(\text{shifted }u)$, so it is bounded by $C(|u|+|\nabla u|)$, since $|\partial m_X|\le C$. So the right-hand side is bounded by $C\mathfrak E(Y)$ on $\Lam_{r_2}$. Proposition~\ref{prop:scalar-interior}, with $\|\theta\|_{\Lam_{r_2}}\le C|\nabla u|_{\Lam_{r_2}}$, gives $|D\theta|\le C\mathfrak E(Y)$ on $\Lam_{r_3}$. Now solve \eqref{eq:Eu} for $D^TDu$:
+\[
+D^TDu=\bQ^T\boldsymbol\Gamma^XY+D\pi_1-D\pi_2-a\bQ^T\bQ u-D\theta+D^T\mathfrak F\sigma-W(u-D\sigma)+D\tau-\kappa m_Xu .
+\]
+Every term is bounded by $C\mathfrak E(Y)$ on $\Lam_{r_3}$. For $D^T\mathfrak F\sigma$ this is Lemma~\ref{lem:div-curvature}, with $|J_U|\le\eps$. This proves (d).
+
+\emph{(e)} Let $X'\subset X$, $y\in X'_{(4)}$ and $z=c_y$. Then $\Lam_3(z)$ is interior to both domains. Consider one of the operators, say $u=\bC^Xf$ and $u'=\bC^{X'}f$ for $f$ supported in $X'$, and let $\delta$ denote differences of corresponding quantities on $X$ and $X'$: $\delta u=u-u'$, $\delta\sigma$, $\delta\tau$, $\delta\pi_i$, $\delta\omega_i$, $\delta h_0$, $\delta\sigma_2$, and so on. Write $K_\Sigma$-sums for bounds of the form $C\sum_{y'}K_\Sigma(y,y')|f|_{B(y')}$.
+
+\emph{$L^2$ differences.} Every operator in the construction satisfies the comparison of domains in block $L^2$ norms, with kernels of seam form, also when composed with $D$ on the left. This covers $G'$, $G'D^T$, $DG'D^T$, $S$, $R$, $P_\cV$, $(M')^{-1}$ (Theorem~\ref{thm:reg-scalar}(e)), $\bG$ (Theorem~\ref{thm:reg-locality}(a)), and $\boldsymbol\Gamma$, $\bH$, $\bC$ (Proposition~\ref{prop:dirichlet-averaged}(d)). The same holds with $D$ on the left and $D^T_X$ on the right. The local operators $\one_X$, $D^T_X$, $\mathfrak B_X$ differ from their versions on $X'$ only within distance $1$ of $X\setminus X'$. These extensions are recorded after Proposition~\ref{prop:dirichlet-averaged}. For blocks $B(y')\not\subset X'$ we have $\delta u=u$ there, and $y'$ lies in $\Sigma$, so the decay of the operators on $X$ alone gives seam form. By telescoping, $\mathfrak L(\delta u)$, the $L^2$ norms of all $\delta$-quantities near $y$, and $|\delta\omega_i|$ near $y$ are $K_\Sigma$-sums.
+
+\emph{The difference system.} On $\Lam_3(z)$ the equations of Lemma~\ref{lem:local-system} for $X$ and for $X'$ have the same local operators, except for the mass terms. Hence $(\delta u,\delta\sigma,\delta\tau)$ satisfies \eqref{eq:system} with $m=m_X$. Its sources are the differences of the sources, together with $-\kappa(m_X-m_{X'})u'$. The scalar differences satisfy local equations: for instance $D^TD\delta h_0=-aQ'^TQ'\delta h_0$, because $f$ is the same, and $D^TD\delta\pi_i=Q'^T\delta\omega_i-aQ'^TQ'\delta\pi_i$. So Proposition~\ref{prop:scalar-interior} bounds them pointwise, with derivatives, by $K_\Sigma$-sums. The only new terms are the mass differences $\kappa(m_X-m_{X'})u'$ and, in (a), $\kappa(m_X-m_{X'})D\sigma_2'$. We have $m_X-m_{X'}=-\sum_{j\in J(X)\setminus J(X')}\chi_j^2$. For such $j$, $\Lam_j\subset X$ but $\Lam_j\not\subset X'$, so $\Lam_j$ meets $X\setminus X'$. Its $\infty$-diameter is at most $6M+2$, so $m_X-m_{X'}$ vanishes outside the $8M$-neighbourhood of $X\setminus X'$. At a point $x\in\Lam_3(z)$ where it does not vanish, there is $w\in\Sigma$ with $|x-w|\le\sqrt d$, and $|u'(x)|+|D\sigma'_2(x)|\le C\mathfrak E(f)$ by the bounds already proved for $X'$, applied on $\Lam_{r_6}(z)$; the difference argument then runs on the cubes $\Lam_{r_6}\supset\dots\supset\Lam_{r_{12}}$. Since $|y-x|\le4\sqrt d$,
+\[
+e^{-\gamma|y-y'|}\le e^{2\gamma(|y-x|+|x-w|)}e^{-\gamma(|y-w|+|w-y'|)},
+\]
+so these terms are $K_\Sigma$-sums as well. Proposition~\ref{prop:system-interior}, applied to the differences on the inner cubes, proves (e) for (a). The other operators are treated in the same way; for (d), apply $D^T$ to the difference system as in the proof of (d), and use Lemma~\ref{lem:div-curvature} for $D^T\mathfrak F\delta\sigma$.\qed

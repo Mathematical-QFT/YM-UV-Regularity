@@ -1,0 +1,93 @@
+\section{The Wilson action near a regular configuration}\label{sec:action}
+
+\subsection{The action and the current}
+
+The Wilson action of a configuration $U$ on $\Tf$ is
+\[
+S(U)=\sum_p\eta^{d-4}\Big(\mathsf N-\tfrac12\operatorname{tr}\big(U(\partial p)+U(\partial p)^{-1}\big)\Big),
+\]
+the sum running over the positively oriented plaquettes. For real $U$ the summand is $\eta^{d-4}\operatorname{Re}\operatorname{tr}(1-U(\partial p))$. The formula defines an analytic function of $G^c$-valued configurations. Throughout this section we use the real bilinear pairing $\ip AB=\eta^d\sum_b\operatorname{tr}(A(b)B(b))$ on $\mathfrak g^c$-valued gauge fields, and $\|A\|^2=\ip AA$ for real fields; the gradient $\nabla\Phi$ of a function $\Phi$ of fields is taken with respect to this pairing. For a real configuration $U$ and a fine Lie field $A$ put $\Phi_U(A)=S(e^{\ii\eta A}U)$, where $e^{\ii\eta A}U$ is the bondwise product.
+
+\begin{definition}[Current and the class $\mathfrak U$]\label{def:current}
+For real $U$ the \emph{current} is $J_U=\nabla\Phi_U(0)$, a real $\mathfrak g$-valued gauge field. For $\theta>0$ let
+\[
+\mathfrak U(\theta)=\{U\in\mathfrak U_0(\theta):\ |J_U|_\infty\le\theta\}.
+\]
+\end{definition}
+
+\begin{lemma}[The current]\label{lem:current}
+Let $U$ be real. Put $F^s_U(p)=\eta^{-2}P_{\mathfrak g}\big((U(\partial p)-U(\partial p)^{-1})/2\ii\big)$, where $P_{\mathfrak g}$ is the orthogonal projection onto $\mathfrak g$ with respect to the trace form. Then:
+\begin{enumerate}[label=(\alph*)]
+\item $J_U=D_U^TF^s_U$;
+\item $D_U^TJ_U=0$, and $J_{U^u}=R(u)J_U$ for real gauge transformations $u$;
+\item if $U\in\mathfrak U_0(\theta)$, then $|F^s_U-F_U|\le C\theta^3\eta^4$, hence $|J_U-D^T_UF_U|\le C\theta^3\eta^3$.
+\end{enumerate}
+\end{lemma}
+
+So $\mathfrak U(\theta)$ is Ba\l aban's class $\mathfrak U_k(\{\Omega_j\},\theta)$ for $\Omega_j=\Tf$: small curvature and small covariant divergence of the curvature \cite[(1.7)--(1.9)]{BalReg}, \cite[(2)]{BalVar}.
+
+\begin{proof}
+(a) For a plaquette $p=p_{\mu\nu}(x)$ with bonds $b_1,\dots,b_4$ as in Definition~\ref{def:curvature}, $H_p=U(\partial p)$, and a fine field $A$,
+\begin{equation}\label{eq:plaquette-product}
+(e^{\ii\eta A}U)(\partial p)=e^{\ii\eta a_1}e^{\ii\eta a_2}e^{-\ii\eta a_3}e^{-\ii\eta a_4}\,H_p,
+\end{equation}
+with $a_1=A(b_1)$, $a_2=R(U(b_1))A(b_2)$, $a_3=R(H_pU(b_4))A(b_3)$, $a_4=R(H_p)A(b_4)$. To first order the summand of $S$ changes by $\eta^{d-4}\operatorname{Im}\operatorname{tr}\big(\eta(a_1+a_2-a_3-a_4)H_p\big)$. Since $\operatorname{tr}((R(H)X)H)=\operatorname{tr}(XH)$, the factors $R(H_p)$ drop out, and $\eta(a_1+a_2-a_3-a_4)$ may be replaced by $\eta^2(D_UA)(p)$, with $(D_UA)(p)=(D_\mu A_\nu-D_\nu A_\mu)(x)$ as in Part~II. Hence the first-order term is $\ip{D_UA}{F^s_U}$.
+
+(b) $S$ is gauge invariant, and $e^{\ii\eta A_t}U=U^{e^{\ii t\lambda}}$ with $A_t=-tD_U\lambda+O(t^2)$. Hence $\ip{D_U\lambda}{J_U}=0$ for all $\lambda$. Covariance is clear.
+
+(c) $F_U(p)=\eta^{-2}\ell(H_p)$ and $(H-H^{-1})/2\ii=\sin(\ell(H))$, and $\sin X-X=O(|X|^3)$. The second bound follows because $D^T_U$ applied to a field bounded by $s$ is bounded by $4ds/\eta$.
+\end{proof}
+
+\subsection{Expansion}
+
+For fine fields we use the covariant gradient $\nabla A=\nabla_{U_0}A$, whose components are $D_{U_0,\nu}A_\mu$ for all $\mu,\nu$, the sup norm $|A|_\infty$, and $|A|_{C^1}=|A|_\infty+|\nabla A|_\infty$. On the lattice, trivially,
+\begin{equation}\label{eq:lattice-trick}
+\eta|\nabla A|_\infty\le2|A|_\infty .
+\end{equation}
+
+\begin{proposition}[Expansion of the action]\label{prop:action}
+There are $c_5,C$ such that the following holds. Let $U_0$ be real and $(1,\eps)$-regular with $\eps\le c_5$, and put $J=J_{U_0}$. For complex fine Lie fields $A$ with $|A|_\infty\le c_5$,
+\[
+\Phi(A):=S(e^{\ii\eta A}U_0)=S(U_0)+\ip AJ+\tfrac12\|D_{U_0}A\|^2+\mathcal N(A),
+\]
+where $\mathcal N$ is analytic, real for real $A$, and:
+\begin{enumerate}[label=(\alph*)]
+\item $|\nabla\mathcal N(A)|_\infty\le C(\eps+|A|_\infty)|A|_{C^1}$;
+\item if $|A|_{C^1},|A'|_{C^1}\le r\le c_5$, then $|\nabla\mathcal N(A)-\nabla\mathcal N(A')|_\infty\le C(\eps+r)|A-A'|_{C^1}$;
+\item for real $A$ with $|A|_{C^1}\le c_5$ and all real $h$: $|d^2\mathcal N(A)[h,h]|\le C(\eps+|A|_{C^1})(\|h\|^2+\|\nabla h\|^2)$;
+\item for real $A$: $\nabla\Phi(A)=\Psi(A)^TJ_{e^{\ii\eta A}U_0}$, where $\Psi(A)$ acts bondwise and $|\Psi(A)-1|\le C\eta|A|_\infty$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{Plaquette variables.} Let $Z_p(A)=\ell(e^{\ii\eta a_1}e^{\ii\eta a_2}e^{-\ii\eta a_3}e^{-\ii\eta a_4})$, with the $a_i$ of \eqref{eq:plaquette-product} for $U=U_0$, and $\zeta_p=\eta^{-2}Z_p$. By Lemma~\ref{lem:log-estimates}(c), $Z_p$ is analytic for $|A|\le c_5$ and
+\[
+\zeta_p(A)=(D_{U_0}A)(p)+\rho_p(A),\qquad\rho_p=\rho_p^{(1)}+\rho_p^{(2)},
+\]
+where $\rho^{(1)}_p=\eta^{-1}(a_1+a_2-a_3-a_4)-(D_{U_0}A)(p)$ is linear and $\rho^{(2)}_p$ collects the commutator terms of order two and higher. Since $|R(H_p)-1|\le C\eps\eta^2$, $|\rho^{(1)}_p(A)|\le C\eps\eta|A|$. By the Cauchy estimates, $|\rho^{(2)}_p(A)|\le C|A|^2$, $|d\rho^{(2)}_p(A)h|\le C|A||h|$ and $|d^2\rho^{(2)}_p(A)[h,h]|\le C|h|^2$, with sup norms over the bonds of $p$.
+
+\emph{The summand.} With $\mathfrak s(Z,H)=\mathsf N-\frac12\operatorname{tr}(e^{\ii Z}H+H^{-1}e^{-\ii Z})$,
+\[
+\mathfrak s(Z,H)-\mathfrak s(0,H)=\operatorname{tr}\Big(Z\,\tfrac{H-H^{-1}}{2\ii}\Big)+\tfrac12\operatorname{tr}\Big(Z^2\,\tfrac{H+H^{-1}}2\Big)+\mathfrak s_3(Z,H),\qquad|\mathfrak s_3|\le C|Z|^3 .
+\]
+Summing $\eta^{d-4}$ times this over $p$, with $Z=\eta^2\zeta_p$ and $\frac12(H+H^{-1})=1+O(\eps^2\eta^4)$,
+\[
+\Phi(A)-S(U_0)=\ip{\zeta}{F^s}+\tfrac12\|\zeta\|^2+\mathcal R(A),\qquad\mathcal R(A)=\eta^d\sum_pO\big(\eps^2\eta^4|\zeta_p|^2+\eta^2|\zeta_p|^3\big),
+\]
+with $F^s=F^s_{U_0}$ and $\|\zeta\|^2=\eta^d\sum_p\operatorname{tr}\zeta_p^2$. By the proof of Lemma~\ref{lem:current}(a), $\ip{\rho^{(1)}(A)}{F^s}=0$, so the linear term is $\ip{D_{U_0}A}{F^s}=\ip AJ$. Hence
+\[
+\mathcal N(A)=\ip{\rho^{(2)}(A)}{F^s}+\ip{D_{U_0}A}{\rho(A)}+\tfrac12\|\rho(A)\|^2+\mathcal R(A).
+\]
+\emph{(a)} We bound the gradient of each term. All of them are local, so it suffices to bound them in a gauge in which $U_0=e^{\ii\eta A_0}$ near the bond, with $|A_0|,|\partial A_0|\le\eps$.
+\begin{itemize}
+\item $\nabla\ip{\rho^{(2)}(A)}{F^s}=d\rho^{(2)}(A)^TF^s$ is bounded by $C\eps|A|$, since $|F^s|\le C\eps$.
+\item $\nabla\ip{D_{U_0}A}{\rho(A)}=D_{U_0}^T\rho(A)+d\rho(A)^TD_{U_0}A$. The second term is bounded by $C(|A|+\eps\eta)|DA|$. For the first, $D^T_{U_0}$ takes differences of $\rho$ between neighbouring plaquettes, divided by $\eta$. The function $\rho^{(2)}_p$ vanishes to second order in the values of $A$ on the bonds of $p$, and its coefficients are analytic functions of the transports $R(U_0(b_1))$, $R(H_pU_0(b_4))$ and $R(H_p)$ of \eqref{eq:plaquette-product}. On neighbouring parallel plaquettes the bond variables of $U_0$ differ by at most $\eta^2\eps$, since $|\partial A_0|\le\eps$, and so do the holonomies, up to a constant, since each is $1+O(\eta^2\eps)$. The field values differ by $\eta|\partial A|\le\eta(|\nabla A|+C\eps|A|)$. So the change of the field values costs $C\eta|A|(|\nabla A|+\eps|A|)$, and the change of the coefficients costs $C\eta^2\eps|A|^2$. The transport in $D^T_{U_0}$ differs from $1$ by $O(\eta\eps)$. After division by $\eta$, these differences are bounded by $C|A|(|\nabla A|+\eps|A|)$. The differences of $\rho^{(1)}$ are bounded by $C\eps|A|+C\eps\eta|\nabla A|$; here we used $|F_p-F_{p'}|\le2\eps$ for the curvature factors.
+\item $\nabla\frac12\|\rho\|^2=d\rho^T\rho$ is bounded by $C(|A|+\eps\eta)(|A|^2+\eps\eta|A|)$.
+\item In $\mathcal R$, each derivative of $\zeta_p$ with respect to a bond variable costs at most $C\eta^{-1}$. Hence $|\nabla\mathcal R|\le C(\eps^2\eta^3|\zeta|+\eta|\zeta|^2)$. Finally $|\zeta|\le C(|\nabla A|+\eps\eta|A|+|A|^2)$ and, by \eqref{eq:lattice-trick}, $\eta|\zeta|\le C|A|$.
+\end{itemize}
+\emph{(b)} The bound (a) holds for complex $A$ in the ball $|A|_{C^1}\le2r$, since $2r\le2c_5$ and we may assume (a) on that larger ball, after decreasing $c_5$. Apply Cauchy's estimate to $t\mapsto\nabla\mathcal N(A'+t(A-A'))$, as in Lemma~\ref{lem:one-step-expansion}.
+
+\emph{(c)} Differentiate the formula for $\mathcal N$ twice. The terms $\ip{d^2\rho^{(2)}[h,h]}{F^s}$, $2\ip{D_{U_0}h}{d\rho[h]}+\ip{D_{U_0}A}{d^2\rho[h,h]}$, $\|d\rho[h]\|^2+\ip{\rho}{d^2\rho[h,h]}$ are bounded by $C(\eps+|A|_{C^1})(\|h\|^2+\|\nabla h\|^2)$, by the pointwise bounds on $\rho$ and Cauchy--Schwarz. For $d^2\mathcal R$ write $\mathcal R(A)=\eta^d\sum_pf_p(\zeta_p)$ with $f_p(\zeta)=\frac12\operatorname{tr}\big(\zeta^2(\frac12(H_p+H_p^{-1})-1)\big)+\eta^{-4}\mathfrak s_3(\eta^2\zeta,H_p)$. By the Cauchy estimates, $|f_p'(\zeta)|\le C(\eps^2\eta^4|\zeta|+\eta^2|\zeta|^2)$ and $|f_p''(\zeta)|\le C(\eps^2\eta^4+\eta^2|\zeta|)$. On the bonds of $p$, $|d\zeta_p[h]|\le C(|\nabla h|+(\eps\eta+|A|)|h|)$ and $|d^2\zeta_p[h,h]|\le C|h|^2$. The chain rule gives two kinds of terms. In $f_p''(\zeta_p)[d\zeta_p[h],d\zeta_p[h]]$ the main term is $\eta^2|\zeta_p||\nabla h|^2\le C|A||h||\nabla h|$, by \eqref{eq:lattice-trick} applied to $\zeta$ and to $h$; the other terms are bounded by $C(\eps+|A|)(|h|^2+|\nabla h|^2)$, since $\eta|\nabla h|\le2|h|$. In $f_p'(\zeta_p)\,d^2\zeta_p[h,h]$ we have $|f_p'(\zeta_p)|\le C(\eps^2+|A|)|A|$, since $\eta|\zeta_p|\le C|A|$. Summing over $p$ with the factor $\eta^d$, every bond lying in boundedly many plaquettes, gives the bound.
+
+\emph{(d)} Bondwise, $e^{\ii\eta(A+sh)}=e^{\ii\eta s\Psi(A)h+O(s^2)}e^{\ii\eta A}$, where $\Psi(A)h(b)=\mathfrak d(\eta\operatorname{ad}A(b))h(b)$ for an entire function $\mathfrak d$ with $\mathfrak d(0)=1$. Hence $\frac{d}{ds}\Phi(A+sh)|_{s=0}=\ip{\Psi(A)h}{J_{e^{\ii\eta A}U_0}}$.
+\end{proof}

@@ -1,0 +1,210 @@
+\section{The weakened step quantities}\label{sec:step-quantities}
+
+This section turns the ingredients of one step (Theorem~\ref{thm:step}) into the input of the cluster expansion. That input consists of functions of the weakening parameters $s\in\mathbb D_\kappa$, the white-noise field and the background, with three properties. They are analytic with uniform bounds; they factorize when $s_\Box=0$ outside a union of boxes; and they are invariant under real gauge transformations. They are defined by source-free formulas for every background in the domain, not only at critical backgrounds. The plan and its review are in the blueprint (Appendix~H).
+
+The determinant is treated in Proposition~\ref{prop:one-loop-polymer}, and the Gaussian measure through $C_k^{1/2}(s)$ (Corollary~\ref{cor:weak-covariance}). This section treats the interaction (Section~\ref{subsec:sq-interaction}), the Jacobians (Section~\ref{subsec:sq-jacobians}), the old activities composed with the background map (Section~\ref{subsec:sq-composed}) and the Hessian away from critical backgrounds (Section~\ref{subsec:sq-hessian}), which Section~\ref{sec:localization} already defines. Section~\ref{subsec:sq-loc} gives the localization lemma that turns these functions of $s$ into pieces of volume type.
+
+\paragraph{Setting.}
+\begin{itemize}
+\item \emph{The reference.} $U'$ is a reference in the sense of Section~\ref{sec:weak-background}: real and $(M,\eps)$-regular with $|J_{U'}|\le\eps$, or a complex reference $U'=e^{\ii\eta A'}U'_r$ of size $\delta_c<\delta_P$ in the sense of Section~\ref{sec:complex-references}, whose real part is $(M,\eps)$-regular with $\eps\le\eps_{\max}$ (Proposition~\ref{prop:complex-ext}) and satisfies $|J_{U'_r}|\le\eps$. Theorem~\ref{thm:weak-bg}(a), (b), (d) hold at it (Proposition~\ref{prop:complex-ext}(d)). The constant $K_H$ and the radii $R_P$, $r_P$ of Part~IX are those computed with the multiplicative constants doubled (Proposition~\ref{prop:complex-ext}, end of the proof); they serve at every complex reference with $\delta_c<\delta_P$ and do not depend on $\delta_P$. The thresholds $M_1$ and $M'_1$ are those of Theorem~\ref{thm:one-step}(4) and do not depend on $\delta_P$. At a complex reference, $|\cdot|_*$ is taken in the real gauges of $U'_r$, and covariant derivatives with respect to $U'_r$; the other reading, with respect to $U'$, differs by a local term of size $C\delta_c|A|$. Within this setting, where regularity is assumed separately, the current bound on $U'_r$ is used at complex references only for coercivity (Proposition~\ref{prop:hessian-general}(d)); at real references it is also used in Theorem~\ref{thm:weak-bg}(c). On D3$'''$ it is used in addition for the $(M,\eps)$-regularity of $U'_r$ (Corollary~\ref{cor:regularity}), for the background-activity domain (Proposition~\ref{prop:one-loop-polymer}(b)) and in Lemma~\ref{lem:quadratic-bound}. It holds on D3$'''$, where $|J_{U'_r}|<h^{1-\epsilon/2}$.
+\item \emph{Extension.} A point of the activity domain of step $k+1$ at a polymer $Y'$ of step $k+1$ fixes $U'$ only near $Y'$. It is extended to a reference by the cutoff of Remark~\ref{rem:bg-to-graded}, with the same real part $U'_r$. A piece indexed by a polymer $Z$ is used only when $Y'$ contains the $LM$-cubes meeting $Z^{(r')}$ (Remark~\ref{rem:extension}). By the factorization below, such a piece does not depend on the extension.
+\item \emph{The base.} For every reference put
+\[
+W:=U'^{(k)},\qquad V':=U'^{(k+1)} .
+\]
+At critical backgrounds these are $V^0$ and $V'$ of Lemma~\ref{lem:composition}. They are local in $U'$ and covariant, and analytic at complex references by Proposition~\ref{prop:AB}(i). The elimination of Lemma~\ref{lem:eliminate} is taken at the base $W$. In that lemma the parameter $\mathsf a$ is defined through the curvature $\eps'_1$ of $V'$; at a general reference it is replaced by a bound on the curvatures of the real parts $U'_r$ and $(U'_r)^{(k)}$, which is all the proof uses. At complex bases the elimination is analytic in the reference, by the argument in the proof of Corollary~\ref{cor:covariance} together with Proposition~\ref{prop:AB}(i),(vi). This needs $C_{\rm AB}\delta_c\le c'_L$, which is part of the smallness of $\delta_P$ (Proposition~\ref{prop:complex-ext}). It gives $\zeta_c$, $\hat Z$, $\hat Z^1$, $\hat Z^2$, with $|\hat Z(Z)|_\infty\le CL^d|Z|_\infty$.
+\item \emph{The fields.} We write $\xi$ for the white-noise field on $\mathfrak F$ (Dimock's $W$), since in Sections~\ref{sec:step-quantities}--\ref{sec:target-flow} $W$ is the base, and $Z(s)=gC_k^{1/2}(s)\xi$. $A_*(s;B)$ is the weakened background map of Theorem~\ref{thm:weak-bg} at the reference $U'$.
+\item \emph{Margins.} Let $r$ be the largest margin of the weakened families used: $\bC(s)$, $\bH(s)$, $D\bH(s)$ and their transposes, and $C_k^{1/2}(s)$ (Corollary~\ref{cor:weak-covariance}). The definition of weakenable families (Section~\ref{sec:weakenable}) requires $r\le M/16$. The margins are sums of a bounded number of ranges of local operators (Lemma~\ref{lem:weak-local-ops}(a), Theorem~\ref{thm:weak-inverse}(a), and the box split of the additive local terms, Section~\ref{sec:weakenable}), independent of $M$; so $r\le M/16$ is a condition on $M$, listed in Theorem~\ref{thm:one-step}(4). A family with margin $r$ is also a family with every larger margin up to $M/16$, since its kernel supports and its data dependence lie in every larger neighbourhood; so we may and do assume $r\ge3$. Put $r'=r+2L+2$. We assume $M>32(L+1)$, so that $2r'<M/4$. Two polymers that do not touch are then at distance at least $M/4>2r'$, so their $r'$-neighbourhoods are disjoint.
+\item \emph{Constants.} $C_P$ denotes constants that may depend on $\kappa,\delta,L,M,\rho,\alpha$, but not on $k$, $n$, $\eta$ or $s$.
+\end{itemize}
+
+\begin{remark}[Notation in Sections~\ref{sec:step-quantities}--\ref{sec:target-flow}]\label{rem:notation-flow}
+Some letters are used here with a meaning that differs from earlier parts of the note. We keep them, and list them once.
+\begin{itemize}
+\item $C_T$ is the bound on $C_k^{1/2}(s)$ of Section~\ref{subsec:sq-interaction}, not the tier constant of Section~\ref{sec:tiers}. $C_{\rm tor}$ is the torus constant of (T2).
+\item $C_d$, $A$, $\epsilon_*$ are the constants of Theorem~\ref{thm:mayer}; they are not the constants of Lemma~\ref{lem:weak-chain}, the contraction factor $A$ of Theorem~\ref{thm:one-step}, or the bootstrap threshold of the earlier parts.
+\item $\kappa$ and $\kappa'=\kappa-C\delta$ are the weakening rates of Part~IX; Section~\ref{sec:flow} writes $\kappa'_w$ for $\kappa'$, since there $\kappa'$ is also the reblocked rate of Lemma~\ref{lem:reblocking}. $\kappa_n$ is the rate of the activity norm. The rate $\kappa$ in Theorem~\ref{thm:mayer} is generic. Theorem~\ref{thm:weak-bg} is stated on $\mathbb D_\kappa$ with $\kappa$ the rate of its inputs $\bH(s)$, $\bC(s)$ at level~(L4); that rate is at least $\kappa'$, and the pieces below are formed on $\mathbb D_{\kappa'}$.
+\item $\ell_k(b;1)$ is the density at the reference $U'=1$, not at $s=1$.
+\item $U'$ is the reference; in Section~\ref{sec:complex-references} it was also the relative factor $e^{\ii\eta A'}$. $W$ is the base; earlier it also denotes potentials and configurations.
+\item $r$ is the margin; the resolvent parameter of Corollary~\ref{cor:weak-covariance} is unrelated. $r_E$ is the margin of dependence of the old activities (Section~\ref{sec:cluster}).
+\item $\delta$ is the loss parameter of Part~IX, $\delta_c$ the size of a complex reference, and $\delta_1,\delta_0$ (with primes) the budgets of a graded domain; $\delta_0$ of Proposition~\ref{prop:reg-complex} enters only through $\delta_P$.
+\item $B$ is the source constant of Proposition~\ref{prop:sources}, unrelated to $B_P$, $B_3$, $B_5$ and to the coarse field $B$; $C_{\rm P}$ (roman) is the Poincar\'e constant of Proposition~\ref{prop:first-step}, unrelated to $C_P$. In Part~IX, $\mathsf N_{\rm b}$ is the box count of Section~\ref{sec:weakenable}, and $\mathsf N$, in Proposition~\ref{prop:AB} and earlier, is the matrix size of $G$. $h_j$ is a partition of unity, unrelated to $h_k=p_kg_k$. $\mathsf a$ is the curvature parameter of Lemma~\ref{lem:eliminate}, not the averaging parameter $a$.
+\item $\hat Z$ is the elimination map acting on fields; applied to a polymer (Remarks~\ref{rem:localization-margins} and~\ref{rem:reblock-margins}) it denotes the union of the $LM$-cubes meeting $Z^{(r')}$. The polymer $Z$ and the field $Z(s)$ are distinguished by the argument.
+\item $p$ is a plaquette in $s_p$ and $v_p$, and $p$, $p_0=p_{0,k}$ bound the white noise; $p_k=p(g_k)$ is the small-field scale. $\zeta$ is the bound on $\hat Z$, unrelated to $\zeta_c$. $\tau$ is the composed-activity ratio of Proposition~\ref{prop:composed}. $\mathsf F$ (Section~\ref{sec:weak-background}) and $F^s$ denote the same symmetrized curvature.
+\item $\epsilon$ is the exponent of D3$'''$ and, in Section~\ref{sec:target-flow}, also the finest spacing; $\eps_k$ is the vacuum energy per volume, unrelated to the thresholds $\eps_0$, $\eps_1$ and to $\eps^0$ of $N_\chi$. $n=n_k$ is the side of $\T^{(k)}$ (see (T0)), and $h_0$, $n_0$ are thresholds, not values at step $0$.
+\end{itemize}
+\end{remark}
+
+\subsection{The localization lemma}\label{subsec:sq-loc}
+
+For a polymer $Y$, a polymer $Z\supset Y$ and $t\in[0,1]^{Z\setminus Y}$, let $s(Z,t)$ be the point of $\mathbb D_\kappa$ with $s_\Box=1$ for $\Box\subset Y$, $s_\Box=t_\Box$ for $\Box\subset Z\setminus Y$, and $s_\Box=0$ otherwise.
+
+\begin{lemma}[Localization]\label{lem:localization}
+Let $\kappa\ge1$, let $Y$ be a polymer, and let $f$ be a function on $\mathbb D_\kappa$, analytic in the interior and continuous, with $|f|\le F$. Suppose that, for every union of boxes $Z'\supset Y$ with $*$-component $Z'_0\supset Y$, and every $s$ with $s_\Box=0$ for $\Box\not\subset Z'$, $f(s)$ depends on $s$ only through $s_\Box$, $\Box\subset Z'_0$, and on the data only on $(Z'_0)^{(r')}$. Then
+\[
+f(1)=\sum_{Z\supset Y}f_{\rm loc}(Y,Z),\qquad f_{\rm loc}(Y,Z)=\int_{[0,1]^{Z\setminus Y}}\partial_{s_{Z\setminus Y}}f\big(s(Z,t)\big)\,dt ,
+\]
+the sum running over the polymers $Z\supset Y$, where:
+\begin{enumerate}[label=(\alph*)]
+\item $f_{\rm loc}(Y,Z)$ depends on the data only on $Z^{(r')}$;
+\item $|f_{\rm loc}(Y,Z)|\le F\,e^{-(\kappa-1)|Z\setminus Y|}$;
+\item if $f$ is invariant under real gauge transformations of the data, or analytic in further parameters with $|f|\le F$ uniformly, then so is $f_{\rm loc}(Y,Z)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Write $f(1)$ as a function of the variables $s_\Box$, $\Box\not\subset Y$, with $s_\Box=1$ on $Y$. Apply $g(1)=g(0)+\int_0^1g'(t)\,dt$ in each of these variables. This gives the sum over sets $S$ of boxes outside $Y$ of $\int_{[0,1]^S}\partial_{s_S}f\,dt$, evaluated at $s_\Box=1$ on $Y$, $s_\Box=t_\Box$ on $S$, and $s_\Box=0$ elsewhere. Let $Z'=Y\cup S$, with $*$-component $Z'_0\supset Y$. By hypothesis, at these points $f$ does not depend on $s_\Box$ for $\Box\subset S\setminus Z'_0$. So the term vanishes unless $S\subset Z'_0$, i.e.\ unless $Z=Y\cup S$ is a polymer. This gives the formula. Part~(a) follows from the hypothesis at $Z'=Z$.
+
+For (b), every point $s(Z,t)$ has $|s_\Box|\le1$. In each differentiated variable, Cauchy's formula on the circle of radius $e^\kappa-1$ around $t_\Box$ stays in $\mathbb D_\kappa$, by continuity up to the boundary. Each variable is differentiated once, so $|\partial_{s_S}f|\le F(e^\kappa-1)^{-|S|}\le Fe^{-(\kappa-1)|S|}$ for $\kappa\ge1$. Part~(c) holds because differentiation in $s$ and integration over $t$ preserve both properties.
+\end{proof}
+
+\begin{remark}[Margins]\label{rem:localization-margins}
+The pieces are indexed by polymers $Z$ and depend on the data on $Z^{(r')}$, not inside $Z$. In the cluster expansion, polymers that do not touch have disjoint $r'$-neighbourhoods, so ``touching'' is the hard-core condition. Margins should not be converted to $0$ for the composed activities. Replacing $Z$ by $Z^\sharp$ (Section~\ref{sec:weakenable}) turns the decay $e^{-(\kappa-1)|Z\setminus Y|}$ into $e^{-3^{-d}(\kappa-1)|Z^\sharp|+(\kappa-1)|Y|}$. For $Y$ a single box, the factor $e^{(\kappa-1)|Y|}$ is a constant. For the composed activities, $Y$ is the old polymer, and the factor would swamp the old decay. The next-step polymer of a piece is the union $\hat Z$ of the $LM$-cubes meeting $Z^{(r')}$. In the reblocking this costs at most $C|\hat Z|_{LM}$, counted in $LM$-cubes, with $C$ independent of $L$ and $M$, since $r'<M/8$.
+\end{remark}
+
+\subsection{The interaction pieces}\label{subsec:sq-interaction}
+
+Write $S(U)=\sum_ps_p(U)$, where $s_p$ is the term of the plaquette $p$ of $\Tf$ in the action (Section~\ref{sec:action}). Put $r_I=\min\big(r_L,c_IL^{-d}R_P\big)$, with $r_L$ from Lemma~\ref{lem:eliminate} and $R_P$ from Theorem~\ref{thm:weak-bg} (computed with the multiplicative constants doubled, see the Setting), and $c_I$ so small that $|\hat Z(Z)|_\infty<R_P$ for $|Z|_\infty<r_I$.
+
+\begin{definition}[Interaction pieces]\label{def:interaction-pieces}
+For a plaquette $p$, $s\in\mathbb D_\kappa$ and complex $Z$ on $\mathfrak F$ with $|Z|_\infty<r_I$, put
+\[
+v_p(s;Z)=s_p\big(e^{\ii\eta A_*(s;\hat Z(Z))}U'\big)-T_2\big[s_p\big(e^{\ii\eta A_*(s;\hat Z(\cdot))}U'\big)\big](Z),
+\]
+where $T_2$ is the Taylor polynomial of degree $2$ at $Z=0$, for fixed $s$ and $U'$.
+\end{definition}
+
+\begin{proposition}[Interaction pieces]\label{prop:interaction-pieces}
+\begin{enumerate}[label=(\alph*)]
+\item $v_p(s;Z)$ is analytic in $(s,Z)$ for $s$ in the interior of $\mathbb D_\kappa$ and $|Z|_\infty<r_I$, continuous up to the boundary in $s$, and analytic in the reference.
+\item $|v_p(s;Z)|\le C_P\,\eta^d\,(|Z|_\infty/r_I)^3$ for $|Z|_\infty\le\frac12r_I$, uniformly in $s\in\mathbb D_\kappa$.
+\item \emph{(Identification.)} If $U'$ is real and critical, then $\sum_pv_p(1;Z)=\mathcal V(Z)$ for $|Z|_\infty\le\min(\frac12r_I,r_2)$ with $|\hat Z(Z)|_\infty\le\beta_V$.
+\item \emph{(Factorization.)} Let $s_\Box=0$ for $\Box\not\subset Z'$, a union of boxes with $*$-components $Z'_i$. Then $v_p=0$ unless $p$ has a point in $Z'^{(r+1)}$. If $p$ has a point in $(Z'_i)^{(r+1)}$, then $v_p$ depends on $s$ only through $s_\Box$, $\Box\subset Z'_i$, on $Z$ only on $(Z'_i)^{(r+2L)}$, and on $U'$ only on $(Z'_i)^{(r')}$.
+\item \emph{(Invariance.)} $v_p$ is invariant under real gauge transformations $u$, acting by $U'\mapsto U'^u$ and $Z(b)\mapsto R(u(b_-))Z(b)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) follows from Theorem~\ref{thm:weak-bg}(b), the analyticity of $\hat Z$ and of $s_p$, and Proposition~\ref{prop:complex-ext}(d). The Taylor coefficients at $Z=0$ are analytic in $s$ and in the reference.
+
+(b) Fix $s$ and $Z$, and put $g(t)=v_p(s;tZ)$. It is analytic for $|t|<r_I/|Z|_\infty$ and vanishes to third order at $t=0$. Let $h(t)=s_p(e^{\ii\eta A_*(s;\hat Z(tZ))}U')-s_p(U')$. Write $s_p(U)=\eta^{d-4}\big(\mathsf N-\operatorname{tr}\cos X_p\big)$ with $X_p=\ell(U(\partial p))$, as in the proof of Theorem~\ref{thm:interaction-local}. Then $|s_p(U)|\le C\eta^{d-4}|X_p|^2$ for $|X_p|\le1$. By Theorem~\ref{thm:weak-bg}(a), $|A_*(s;B)|_*\le C_P|B|_\infty\le C_PR_P=C_P\varrho_P/K_H\le\frac18$, since $4C_P(\eps_P+2\varrho_P)\le1$ in its proof (with $K_H\ge1$). So, in the gauge of $U'_r$, the four bond fields of $p$ at $e^{\ii\eta A_*}U'$ have sup norm at most $\frac18+\eps+C\delta_c\le\frac15$, since $\eps+C\delta_c\le\frac1{20}$ (Proposition~\ref{prop:complex-ext}, smallness). For $k\ge1$, $\eta=L^{-k}\le\frac12$, so $|U(\partial p)-1|\le e^{4\eta/5}-1\le e^{2/5}-1\le\frac12$. At $k=0$, where $\eta=1$ and $A_*=B$ (Proposition~\ref{prop:first-step}), $|B|_\infty\le\rho_L$ (Lemma~\ref{lem:eliminate}(c)), so, with $\eps+C\delta_c\le\frac1{20}$ and $\rho_L\le\frac1{20}$ (Proposition~\ref{prop:first-step}), the bond fields have sup norm at most $\frac1{10}$ and $|U(\partial p)-1|\le e^{2/5}-1\le\frac12$. In both cases $|X_p|\le1$ (Lemma~\ref{lem:log-estimates}(a)). By the expansion of Lemma~\ref{lem:curvature}, $X_p=\eta^2\big(F_{U'}(p)+O(|A_*|_*)\big)$, and $|F_{U'}|\le C(\eps+\delta_c)$. So $|s_p|\le C\eta^{d-4}\eta^4=C\eta^d$ at $e^{\ii\eta A_*}U'$ and at $U'$, and $|h(t)|\le C_P\eta^d$ for $|t|<r_I/|Z|_\infty$. No expansion in $A_*$ is made, so the current, which is not bounded uniformly in $\eta$ at complex references, does not enter. By Cauchy's estimate each of the three Taylor terms of $h$ of degree at most $2$ is bounded by $C_P\eta^d$ there. So $g=h-T_2h$ is bounded by $4C_P\eta^d$ there, and vanishes to order three. The maximum principle for $g(t)/t^3$ on the discs $|t|\le\varrho$, $\varrho<r_I/|Z|_\infty$, and the limit $\varrho\to r_I/|Z|_\infty$ give $|g(1)|\le4C_P\eta^d(|Z|_\infty/r_I)^3$.
+
+(c) By Theorem~\ref{thm:weak-bg}(c), $A_*(1;B)=A_*(B)$ for $|B|_\infty\le\min(R_P,\beta_V)$. So, summing over the finitely many plaquettes,
+\[
+\sum_ps_p\big(e^{\ii\eta A_*(1;\hat Z(Z))}U'\big)=\mathcal S(\hat Z(Z)).
+\] By Lemma~\ref{lem:step-quadratic}, $\mathcal S(\hat Z(Z))=S(U')+\frac12\Delta_k(Z,Z)+\mathcal V(Z)$, where $\mathcal V$ vanishes to third order. Hence $\sum_pT_2[\cdots]=S(U')+\frac12\Delta_k(Z,Z)$, and $\sum_pv_p(1;Z)=\mathcal V(Z)$.
+
+(d) By Theorem~\ref{thm:weak-bg}(d), $A_*(s;B)$ vanishes outside $Z'^{(r)}$. On $(Z'_i)^{(r)}$ it depends on $B$ only on the coarse bonds of $(Z'_i)^{(r)}$, on $U'$ only on $(Z'_i)^{(r+1)}$, and on $s$ only in $Z'_i$. If $p$ has no point in $Z'^{(r+1)}$, then $A_*=0$ on the bonds of $p$. So $s_p(e^{\ii\eta A_*}U')=s_p(U')$ for all $Z$, and $v_p=0$. Otherwise, all bonds of $p$ lie in $(Z'_i)^{(r+2)}$ for exactly one $i$, since the components are at distance at least $M/4$. The map $\hat Z$ has range $2L$ in block units, and the base $W=U'^{(k)}$ is local. This gives the dependence stated.
+
+(e) $A_*(s)$ is covariant (Lemma~\ref{lem:weak-basic}(c) and the construction in Section~\ref{sec:weak-background}), $\hat Z$ is covariant, and $s_p$ is invariant. The Taylor coefficients of an invariant function are invariant.
+\end{proof}
+
+Grouping by boxes, put $V(\Box;s)=g^{-2}\sum_{p}v_p(s;Z(s))$, the sum running over the plaquettes whose base point lies in $\Box$. The weakened families of Part~IX live on $\mathbb D_{\kappa'}$, $\kappa'=\kappa-C\delta$, and $|Z(s)|_\infty\le gC_T|\xi|_\infty$ there, with $C_T=2^d\sqrt d\,\|C_k^{1/2}\|_{\kappa',\gamma'}$. Indeed, by Lemma~\ref{lem:weak-basic}(a) and Corollary~\ref{cor:weak-covariance}, $|C_k^{1/2}(s)|_{\gamma'}\le2^d\|C_k^{1/2}\|_{\kappa',\gamma'}$. The row sums of the block norms bound the operator on sup norms up to the factor $\sqrt d$ from $\|\xi\|_{B(y')}\le\sqrt d|\xi|_\infty$. By Corollary~\ref{cor:weak-covariance}, $C_T$ is uniform in the reference. Let $|\xi|_\infty\le p$ with $gC_Tp\le\frac12r_I$. Then $V(\Box;s)$ is defined and analytic on the interior of $\mathbb D_{\kappa'}$, continuous up to the boundary. By Corollary~\ref{cor:weak-covariance}, Lemma~\ref{lem:weak-basic}(b) and Proposition~\ref{prop:interaction-pieces}(d), Lemma~\ref{lem:localization} applies to $f(s)=V(\Box;s)$ on $\mathbb D_{\kappa'}$ with $Y=\Box$, and $F=\sup_{\mathbb D_{\kappa'}}|V(\Box;\cdot)|\le C_Pg^{-2}M^d(gC_Tp/r_I)^3$. With $Z(s)=gC_k^{1/2}(s)\xi$, this is of order $g\,|\xi|^3$. The control of $\xi$ belongs to the cluster expansion.
+
+\subsection{The Jacobians}\label{subsec:sq-jacobians}
+
+\begin{proposition}[Jacobians]\label{prop:jacobians}
+\begin{enumerate}[label=(\alph*)]
+\item $\mathfrak J(Z)=\sum_{b\in\mathfrak F}\log(\sigma(Z(b))/\sigma(0))+\sum_c\log(\mathsf J_c(Z)/\mathsf J_c(0))$ is a sum of terms, each analytic for $|Z|_\infty\le r_L$, depending on $Z$ and on the base only within range $2L$ of one bond, vanishing at $Z=0$ and bounded as in Theorem~\ref{thm:step}(e). The terms are invariant under real gauge transformations. Since Proposition~\ref{prop:exact-step} is written with $\det$, which is positive at real references, they are analytic in $Z$ and in the reference jointly, on the complex references with $\delta_c<\delta_P$, and real at real references and real $Z$.
+\item By Proposition~\ref{prop:exact-step}, $\mathfrak j_c=\det(1+\mathfrak r_c(0))^{-1}$, with $\mathfrak r_c$ from Lemma~\ref{lem:eliminate}(b). It is an analytic function of the base near $c$, invariant under real gauge transformations, and $\mathfrak j_c=1$ at the trivial base.
+\item Let $G$ be semisimple. As a function of $U'$ (in the units of step $k$) through $W=U'^{(k)}$, $\log\mathfrak j_c$ is a normalized graded activity at the blocks $B'(c_-)\cup B'(c_+)$ on $\mathcal U(\cdot;c_a,c_a,c_a)$ for $c_a\le c_JL^{-d-2}$, with sup at most $C$. Lemma~\ref{lem:quadratic-bound} applies to it. On D3$'''$ it gives $|\log\mathfrak j_c|\le C_Ph^{2-2\epsilon}$. (For abelian $G$, $\mathfrak r_c\equiv0$ and $\mathfrak j_c\equiv1$.)
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) is Proposition~\ref{prop:exact-step} and Theorem~\ref{thm:step}(e), with Lemma~\ref{lem:eliminate}(a),(c) for the locality. For invariance, a real gauge transformation $u$ acts on the relative variables by $Z(b)\mapsto R(u(b_-))Z(b)$ and on $\ell_c$ by $R(u(c_-))$. The function $\sigma$ is $\operatorname{Ad}$-invariant, and $\det\partial\ell_c/\partial Z(b_0(c))$ changes by $\det R(u(c_-))\det R(u(b_0(c)_-))^{-1}=1$. The terms are analytic functions of $Z$ and of the base, through $\ell_c$ and $\zeta_c$, and the base and the elimination are analytic in the reference (Setting). At real references with $L^d\mathsf a\le c$ and $|Z|_\infty\le r_L$, $\partial\ell_c/\partial Z(b_0(c))$ is real, and its determinant is positive (Proposition~\ref{prop:exact-step}). So the analytic terms are those of Theorem~\ref{thm:step}(e) there.
+
+(b) At $Z=0$ we have $\zeta_c(0)=0$, since $\ell_c$ vanishes at $Z=0$. By Lemma~\ref{lem:eliminate}(b) and $\det R=1$ on $\mathfrak g$, $\det\partial\ell_c/\partial Z(b_0(c))=L^{(1-d)\dim\mathfrak g}\det(1+\mathfrak r_c(0))$. This gives the formula. At the trivial base, $l'=q$, so $\partial\ell_c/\partial Z(b_0(c))=L^{1-d}$ exactly and $\mathfrak r_c(0)=0$. Invariance is (a) at $Z=0$. For complex bases, $\det R(g)=1$ for $g\in G^c$, since $G$ is connected (Section~\ref{sec:background}). So the formula is the analytic continuation.
+
+(c) On $\mathcal U(P;c_a,c_a,c_a)$, the base $W=U'^{(k)}$ is a complex perturbation of size $Cc_a$ of a real base of curvature at most $Cc_a$, in the units of step $k$ (Proposition~\ref{prop:avg-regular}, Proposition~\ref{prop:AB}(i)). In Lemma~\ref{lem:eliminate}, $\mathsf a$ is a curvature in the units of step $k+1$ (Setting), which is $L^2$ times the curvature in the units of step $k$. So $L^d\mathsf a\le CL^{d+2}c_a$ for the real part. The complex part of the base contributes to $\mathfrak r_c(0)$ through the remainder $r_j$ of Proposition~\ref{prop:AB}(ii) for the step from scale $k$ to scale $k+1$. Proposition~\ref{prop:AB} is stated for $j\le k$; we apply it with $k+1$ in place of $k$, in the units of step $k+1$, where the curvature becomes $L^2Cc_a$ and the size of the complex part $LCc_a$. Its hypotheses hold for $c_J$ small: $L^2Cc_a\le c'_3$ and $LCc_a<\delta_{AB}$. The remainder is relatively $CL^{d+1}c_a$. Hence $|\mathfrak r_c(0)|\le CL^{d+2}c_a\le\frac12$ for $c_J$ small. Then $\log\mathfrak j_c=-\log\det(1+\mathfrak r_c(0))$ is analytic and bounded by $C$. It is normalized by (b), invariant by (b), and depends on $U'$ only on the bonds of $B'(c_-)\cup B'(c_+)$. Lemma~\ref{lem:quadratic-bound} with $\delta_1=\delta_0=c_a$ gives the bound, as in the proof of Proposition~\ref{prop:one-loop-polymer}(d).
+\end{proof}
+
+The terms of $\mathfrak J(Z(s))$ are local in $Z$, but $Z(s)$ is not local in $\xi$. So $\mathfrak J(Z(s))$, grouped by boxes, goes through Lemma~\ref{lem:localization} like $V(\Box;s)$.
+
+\subsection{The composed activities}\label{subsec:sq-composed}
+
+The norm $|\cdot|_*$ of Theorem~\ref{thm:weak-bg} and the quantities of Definition~\ref{def:graded} are compared as follows.
+
+\begin{lemma}[Norm conversion]\label{lem:norm-conversion}
+There is $C_{\rm conv}$, depending only on $d$, $\alpha$ and $G$ (through Theorem~\ref{thm:ID}(b)), with the following property. Let $U'_r$ be real and $(M,\eps)$-regular with $\eps\le\eps_0$, and let $A$ be a $\mathfrak g^c$-valued field on the bonds of $\Tf$, with $|A|_*$ taken in the real gauges of $U'_r$ (Section~\ref{sec:weak-background}, with $\beta=\alpha$). Then for every set $Y$,
+\[
+|A|_Y+|\nabla A|_Y+[\nabla A]_{\alpha,Y}\le C_{\rm conv}|A|_*,
+\]
+with $|A|_Y$ the sup norm on the bonds of $Y$, and $\nabla$ and the H\"older quotient of Definition~\ref{def:graded} taken with respect to $U'_r$.
+\end{lemma}
+
+\begin{proof}
+Every bond lies in a block $B(y)$, and $\mathfrak n^3_y(A)$ bounds $|A|_{B(y)}$ and $|\nabla A|_{B(y)}$. If the gradient in $\mathfrak n^3_y$ is read in the gauge of $y$ as a flat derivative, \eqref{eq:cov-vs-flat} with $\sigma=C\eps$ converts it, with an error $C\eps|A|$. Consider a quotient in $[\nabla A]_{\alpha,Y}$, with $x\ne x'$ in a cube $\Lam_3(z')\subset Y$. If $|x-x'|\ge1$, it is at most $|\nabla A(x)|+|\nabla A(x')|\le2|\nabla A|_Y$, since $R(U'_r(\Gamma_{x,x'}))$ is orthogonal. If $|x-x'|<1$, then $x,x'$ lie in a common cube $\Lam_1(c_y)$ (Section~\ref{sec:weak-background}, setting). In the real gauge of $y$, $U'_r=e^{\ii\eta A_r}$ with $\|A_r\|_{1,\alpha}\le C\eps$ on $\Lam_4(c_y)$ (Theorem~\ref{thm:ID}(b)). There \eqref{eq:cov-vs-flat} and $\|R(U'_r(\Gamma_{x,x'}))-1\|\le C|x-x'|\eps$ bound the quotient by $[\partial\tilde A_y]_{\alpha,\Lam_1(c_y)}+C\eps(|A|+|\partial\tilde A_y|)\le C\mathfrak n^3_y(A)$. Taking the supremum over $y$ gives the bound.
+\end{proof}
+
+The constant is not $1+C\eps$: pairs at distance at least $1$ cost a factor $2$.
+
+\begin{proposition}[Composed activities]\label{prop:composed}
+Let $X$ be a connected domain of step $k$ (an old polymer), let $r_E\ge0$ with $r_E+3\le r$, and put $P=X^{(r_E)}$. Let $\mathcal E(X,\cdot)$ be a graded activity at $P$ on $\mathcal U(P;\theta_r,\delta_1,\delta_0)$ (Definition~\ref{def:graded}), with sup $\|\mathcal E(X)\|$; so it depends on the configuration on $P$, and its domain is controlled on $P^{(3)}=X^{(r_E+3)}$. Let $U'=e^{\ii\eta A'}U'_r$ be a reference as in the Setting, and suppose that on $P^{(3)}$ this is a representation as in Definition~\ref{def:graded}, with budgets $\theta_r,\delta'_1,\delta'_0$, where $\delta'_1<\delta_1$ and $\delta'_0<\delta_0$. Thus the real part of the representation is the $U'_r$ in whose gauges $|\cdot|_*$ is measured. Let $0<\zeta\le\frac12R_P$, and put
+\[
+\tau=C_1C_{\rm conv}C_P\,\zeta\,\Big(\min(\delta_1-\delta'_1,\ \delta_0-\delta'_0)\Big)^{-1}.
+\]
+Then, for $\tau<\frac12$, $s\in\mathbb D_\kappa$ and $|\hat Z(Z)|_\infty\le\zeta$:
+\begin{enumerate}[label=(\alph*)]
+\item $e^{\ii\eta A_*(s;\hat Z(Z))}U'\in\mathcal U(P;\theta_r,\delta_1,\delta_0)$, and
+\[
+f(X;s,Z)=\mathcal E\big(X,e^{\ii\eta A_*(s;\hat Z(Z))}U'\big)-\mathcal E(X,U')
+\]
+is analytic in $(s,Z)$ and in the reference jointly, continuous up to the boundary in $s$, with $|f(X;s,Z)|\le4\tau\|\mathcal E(X)\|$;
+\item if $s_\Box=0$ outside a union of boxes $Z'$ that contains the boxes meeting $X$, then $f(X;s,Z)$ depends on $s$ only through the boxes of the $*$-component $Z'_0$ of $Z'$ containing them, and on $Z$ and $U'$ only on $(Z'_0)^{(r')}$;
+\item $f(X;s,Z)$ is invariant under real gauge transformations.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) For $|t|<\frac1{2\tau}$ consider $e^{\ii\eta tA_*}U'=e^{\ii\eta(tA_*\oplus A')}U'_r$ on $P^{(3)}$, with $A_*=A_*(s;\hat Z(Z))$, combined bondwise by the Baker--Campbell--Hausdorff formula. The real part $U'_r$ is unchanged, so no current of $A_*$ is needed. By Theorem~\ref{thm:weak-bg}(a), $|A_*|_*\le C_P\zeta$. By Lemma~\ref{lem:norm-conversion}, the sup norm, the covariant gradient and the H\"older quotient of $A_*$ on $P^{(3)}$, with respect to $U'_r$, are at most $C_{\rm conv}C_P\zeta$. By the Baker--Campbell--Hausdorff formula and \eqref{eq:lattice-trick}, the corresponding quantities of $tA_*\oplus A'$ exceed those of $A'$ by at most $C_1C_{\rm conv}C_P|t|\zeta<\frac12\min(\delta_1-\delta'_1,\delta_0-\delta'_0)$, for a suitable $C_1$. So $tA_*\oplus A'$ satisfies the bounds of $\mathcal U(P;\theta_r,\delta_1,\delta_0)$ on $P^{(3)}$, strictly. Hence $t\mapsto\mathcal E(X,e^{\ii\eta tA_*}U')-\mathcal E(X,U')$ is analytic for $|t|<\frac1{2\tau}$, bounded by $2\|\mathcal E(X)\|$, and vanishes at $t=0$. Since $\tau<\frac12$, the point $t=1$ lies in the disc, and the Schwarz lemma gives $|f|\le2\|\mathcal E(X)\|\cdot2\tau$ there.
+
+Analyticity. $A_*(s;B)$ is analytic in $(s,B)$ and in $A'$ jointly (Theorem~\ref{thm:weak-bg}(b), Proposition~\ref{prop:complex-ext}(d)). $\hat Z$ is analytic in $Z$ and in the base, and the base is analytic in $A'$ (Proposition~\ref{prop:AB}(vi), Setting). $\mathcal E(X,\cdot)$ is holomorphic on an open set containing $\mathcal U(P)|_P$, and the bounds above hold strictly. So $f$ is analytic in $(s,Z,A')$ jointly, as a composition. By (b), it depends on $A'$ only on $(Z'_0)^{(r')}$, so it is analytic in the reference near that set. Continuity up to the boundary in $s$ follows from Theorem~\ref{thm:weak-bg}(b).
+
+(b) $\mathcal E(X,\cdot)$ depends on the configuration on $P=X^{(r_E)}\subset(Z'_0)^{(r)}$, and $A_*$ on $(Z'_0)^{(r)}$ is determined by the data on $(Z'_0)^{(r')}$ and by $s$ in $Z'_0$ (Theorem~\ref{thm:weak-bg}(d), and Lemma~\ref{lem:eliminate} for $\hat Z$). (c) follows from the covariance of $A_*$ and $\hat Z$ and the invariance of $\mathcal E$.
+\end{proof}
+
+In the step, $\mathcal E=\mathcal E_k$ on the domain D3$'''$ of step $k$, with $r_E=0$ and $P=X$, and $U'$ is the extension (Setting) of a point of the domain of step $k+1$, in the units of step $k$. On $X^{(3)}$ the extension is not felt, since the pieces used have $Z^{(r')}$ inside the polymer of step $k+1$ (Setting), and $X^{(3)}\subset Z^{(r')}$. By the inclusion of domains in the proof of Proposition~\ref{prop:linear}, \eqref{eq:domain-slack}, the representation on $X^{(3)}$ has the same real part and budgets $\delta'_1=L^{-3/2-\epsilon/2}h_k^{1-\epsilon}$, $\delta'_0=L^{-1/2-\epsilon}h_k^{1-2\epsilon}$. So $\min(\delta_1-\delta'_1,\delta_0-\delta'_0)\ge\frac12h_k^{1-\epsilon}$ for $L^{1/2+\epsilon}\ge2$. On the support of the small-field cutoff, $\zeta$ is of order $L^dg_kp_{0,k}$ ($\zeta=w$, Section~\ref{sec:cluster}). So $\tau\le C_PL^dg_kp_{0,k}h_k^{-(1-\epsilon)}=o(1)$ as $g_*\to0$. For $|\xi|_\infty\le p$ with $CL^dgC_Tp\le\zeta$, the function $s\mapsto f(X;s,Z(s))$ is analytic on the interior of $\mathbb D_{\kappa'}$ and bounded by $4\tau\|\mathcal E(X)\|$. Lemma~\ref{lem:localization} applies to it on $\mathbb D_{\kappa'}$, without conversion of margins (Remark~\ref{rem:localization-margins}). Here $Y$ is the set of boxes of $X$ when $X$ is a union of boxes, as for the polymer grid; in general it is the union of the boxes meeting $X$.
+
+\subsection{The Hessian away from critical backgrounds}\label{subsec:sq-hessian}
+
+Section~\ref{sec:localization} already defines $\Delta_k=\Delta_k^{(\Tf)}$ and $C_k=\Delta_k^{-1}$ at regular backgrounds that need not be critical, with the elimination at the base $U^{(k)}$ (Definition~\ref{def:dirichlet-hessian} and the definition following it). We use this definition at every reference. At complex references, $J_U$ is not bounded uniformly in $\eta$. So $\omega_0=\bH_0^TJ_U$ is continued in the form
+\[
+\omega_0=(D\bH_0)^TF^s_{U'},
+\]
+which agrees with $\bH_0^TJ_U$ at real references, since $J_U=D^TF^s_U$ (Lemma~\ref{lem:current}). Here $\bH_0$ is $\bH$ with potential $0$, and $F^s_{U'}$ is continued holomorphically. This is the form used at level~(L4) of Section~\ref{sec:nested-walks}.
+
+\begin{proposition}[Hessian at a general reference]\label{prop:hessian-general}
+\begin{enumerate}[label=(\alph*)]
+\item At real critical references, $\Delta_k$ agrees with Lemma~\ref{lem:step-quadratic} and Corollary~\ref{cor:covariance}.
+\item $|\omega_0|_\infty\le C(\eps+\delta_c)$. The operator $W_2$ is real symmetric at real references, with $\|W_2\|\le C(\eps+\delta_c)$ and $L^2$ decay. Only the $L^2$ theory of Part~II is used for it, not the pointwise class $\cW(\eps,\gamma)$.
+\item $\Delta_k$ has decay $(C_L,\gamma)$ for some $\gamma>0$.
+\item For $\eps+\delta_c$ small depending on $L$, $\Rea\Delta_k(Z,\bar Z)\ge\frac18c_L\|Z\|^2$.
+\item $\Delta_k$ is analytic in the reference and covariant under real gauge transformations. At $s=1$ it is represented by the weakened family $\Delta_k(s)$ of level~(L4).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) is Lemma~\ref{lem:hessian-gamma} and Proposition~\ref{prop:dirichlet-hessian}(a).
+
+(b) At real references this is Proposition~\ref{prop:dirichlet-hessian}(b) and Lemma~\ref{lem:hessian-gamma}. At complex references use the block $L^2$ decay of $D\bH_0$ and $|F^s_{U'}|\le C(\eps+\delta_c)$ (Proposition~\ref{prop:complex-ext}(c)). The bound $\|W_2\|\le C(\eps+\delta_c)$ and the $L^2$ decay at complex references come from Proposition~\ref{prop:dirichlet-hessian}(c). There $d^2\mathcal N(0)$ is bounded through its plaquette form, with the bounds $|R(H_p)-1|\le C\eta^2(\eps+\delta_c)$ and $|F^s|\le C(\eps+\delta_c)$ of step~(v) of the proof of Proposition~\ref{prop:complex-ext}, which use the derivative part of $\delta_c$. The $L^2$ operators at complex references come from Proposition~\ref{prop:reg-complex}, through step~(i) of the proof of Proposition~\ref{prop:complex-ext}.
+
+(c) is Proposition~\ref{prop:dirichlet-hessian}(b) for $X=\Tf$, together with the locality of $\hat Z^1$, $\hat Z^2$. At complex references the coefficient operators (the averages and the covariant derivatives) change by local operators of size $C_L\delta_c$ (Proposition~\ref{prop:reg-complex}, Proposition~\ref{prop:AB}(v)), and by Lemma~\ref{lem:perturbed-inverse} the inverses in $\Delta_k$ change by $C_L\delta_c$ in the decay norm, which preserves the decay.
+
+(d) This is Lemma~\ref{lem:coercive-general}, which does not use criticality, applied at the real part $U'_r$; it needs $|J_{U'_r}|\le\eps$ (Setting); its conditions $\eps\le\eps_{\rm cc}$ and those of the proof of Proposition~\ref{prop:dirichlet-hessian}(c) hold by the smallness of $\eps$ (Proposition~\ref{prop:complex-ext}, smallness). The lemma covers complex perturbations of size at most $c'_L/C_{\rm AB}$, and a complex reference with $\delta_c<\delta_P$ is one, since $C_{\rm AB}\delta_P\le c'_L$ (Proposition~\ref{prop:complex-ext}, smallness). As required by Proposition~\ref{prop:local-fluct}(b), $\omega_0$ is read there in the form $(D\bH_0)^TF^s_{U'}$.
+
+(e) Analyticity and covariance are Proposition~\ref{prop:dirichlet-hessian}(c). Away from criticality, covariance follows directly from the covariance of $\boldsymbol\Gamma_\pi[W_2]$, $\bH_0$, $F^s$ and $\hat Z$. The representation is the construction of level~(L4) with $W_2$.
+\end{proof}
+
+\begin{remark}[Source-free step]\label{rem:source-free}
+For a general reference, the step quantities are those defined in this section. The exponent is $-g^{-2}\sum_pv_p(s;Z(s))$, with no terms of order $0$, $1$ or $2$ in $Z$. The Gaussian integral is taken through the white-noise representation $Z=gC_k^{1/2}\xi$, with $C_k=\Delta_k^{-1}$ as in Section~\ref{subsec:sq-hessian}; at complex references this representation, not a Gaussian measure, defines it. The determinant densities are those of Proposition~\ref{prop:one-loop-polymer}, the Jacobians those of Proposition~\ref{prop:jacobians}, and the composed activities those of Proposition~\ref{prop:composed}. At real critical references they reproduce Theorem~\ref{thm:step}, by Propositions~\ref{prop:interaction-pieces}(c) and~\ref{prop:hessian-general}(a), and Theorem~\ref{thm:weak-bg}(c) for the composed activities. At a non-critical reference the polynomial $\sum_pT_2[\cdots]$ is not $S(U')+\frac12\Delta_k$. This is harmless, since the exponent is a remainder by definition.
+\end{remark}
+
+\begin{remark}[What the cluster expansion receives]\label{rem:step-quantities-output}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Pieces.} Lemma~\ref{lem:localization} applied to $V(\Box;s)$, to the boxes of $\mathfrak J(Z(s))$, and to $f(X;s,Z(s))$ gives pieces indexed by polymers $Z$ with volume-type decay $e^{-(\kappa'-1)|Z\setminus Y|}$. They depend on $\xi$ and $U'$ only on $Z^{(r')}$, are analytic and invariant, and are bounded in terms of $|\xi|$ on the region where $|Z(s)|_\infty\le\frac12r_I$ and $|\hat Z(Z(s))|_\infty\le\zeta$.
+\item \emph{Constants.} The vacuum terms $\mathcal N_k$ and $-\frac12\sum_b\ell_k(b;1)$, and the new main term $g^{-2}S(U')$, are passed on unchanged.
+\item \emph{Parameters.} The conditions on the rates are those of Proposition~\ref{prop:localized-pieces} and of Theorem~\ref{thm:one-step}(3), with $\kappa'=\kappa-C\delta$ and the rate $\kappa_n$ of the activity norm. They supersede the provisional conditions of the blueprint (Appendix~H). Further, $M>32(L+1)$, $c_a\le c_JL^{-d-2}$, and $|\xi|_\infty\le p$ with $gC_Tp\le\frac12r_I$ and $C_wL^dgC_Tp\le\zeta$; these give the two bounds in (a), since $|Z(s)|_\infty\le gC_T|\xi|_\infty$ (Section~\ref{subsec:sq-interaction}) and $|\hat Z(Z)|_\infty\le C_wL^d|Z|_\infty$ (Lemma~\ref{lem:eliminate}(c),(d)). In Section~\ref{sec:cluster}, $p=p_0$ and $\zeta=w=C_wL^dC_Tgp_0$; the first condition is part of (Q1), and the second holds with equality.
+\item \emph{Not done here.} The small-field cutoff and its removal, the Mayer expansion, the bounds in $|\xi|$, the large-field boundary and the reblocking to step $k+1$ belong to P5--P7.
+\end{enumerate}
+\end{remark}

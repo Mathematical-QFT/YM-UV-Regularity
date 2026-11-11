@@ -1,0 +1,47 @@
+\section{Scalar Green functions}\label{sec:scalar}
+
+We now combine the three tools for the simplest operators,
+\[
+G_\sigma=(-\Lap+aQ_\sigma^*Q_\sigma)^{-1},\qquad\sigma\in\{0,1,\dots,d\}.
+\]
+For $\sigma=0$ this is the scalar Green function of \cite{BalGreen} and \cite{DST1} at the $k$-th step on a single torus. In \cite{BalPropI} it is denoted $G'_k$. The tube versions $\sigma\ge1$ are the componentwise building blocks of the gauge-field average $\bQ$. They are needed in Section~\ref{sec:gauge-min}.
+
+\begin{theorem}[Scalar Green functions]\label{thm:scalar-green}
+Let $a>0$. There are $C,\gamma>0$, depending only on $a$, such that for every $\sigma$:
+\begin{enumerate}[label=(\alph*)]
+\item ($L^2$ decay) The operators $G_\sigma$, $\partial G_\sigma$, $G_\sigma\partial^*$ and $\partial G_\sigma\partial^*$ have decay $(C,\gamma)$.
+\item (Pointwise bounds) Let $\alpha\in(0,1)$. There is $C_\alpha$, depending only on $a$ and $\alpha$, such that for all $y,y'$ and every $f$ supported in $B(y')$,
+\begin{align*}
+|G_\sigma f|_{B(y)}+|\partial G_\sigma f|_{B(y)}+\Hol{\partial G_\sigma f}{B(y)}&\le C_\alpha e^{-\gamma|y-y'|}|f|_{B(y')},\\
+|G_\sigma\partial^*_\mu f|_{B(y)}+\Hol{G_\sigma\partial^*_\mu f}{B(y)}&\le C_\alpha e^{-\gamma|y-y'|}|f|_{B(y')}.
+\end{align*}
+\end{enumerate}
+\end{theorem}
+
+By linearity, (b) implies for arbitrary bounded $f$
+\begin{equation}\label{eq:scalar-sum}
+|G_\sigma f|_{B(y)}+|\partial G_\sigma f|_{B(y)}+\Hol{\partial G_\sigma f}{B(y)}\le C_\alpha\sum_{y'}e^{-\gamma|y-y'|}|f|_{B(y')}.
+\end{equation}
+The H\"older quotient is only taken inside a single block, so it is subadditive under such decompositions. Hence \eqref{eq:scalar-sum} follows from the triangle inequality.
+
+\begin{proof}
+\emph{(a)} We apply Lemma~\ref{lem:CT-form} to $\mathfrak A=-\Lap+aQ_\sigma^*Q_\sigma$. Hypothesis (i) is Corollary~\ref{cor:scalar-coercive}. For (ii), write $-\Lap=d^*d$ and apply Lemma~\ref{lem:conj-forms} with $X=d$, $Z=0$. This gives $|\ip u{((-\Lap)_\alpha+\Lap)u}|\le C|\alpha|(\|u\|^2+\|\partial u\|^2)$ for $|\alpha|\le1$. The operator $Q_\sigma^*Q_\sigma$ has norm at most $2$ and satisfies $\one_yQ_\sigma^*Q_\sigma\one_{y'}=0$ for $|y-y'|>2$. By Lemma~\ref{lem:decay-calculus}(d) it has decay $(2e^2,1)$, so by Lemma~\ref{lem:conjugation}, $\|(Q_\sigma^*Q_\sigma)_\alpha-Q_\sigma^*Q_\sigma\|\le C|\alpha|$ for $|\alpha|\le\frac12$. Lemma~\ref{lem:CT-form} gives (a).
+
+\emph{(b)} Let $u=G_\sigma f$ with $f$ supported in $B(y')$. Then
+\[
+-\Lap u=F,\qquad F=f-aQ_\sigma^*Q_\sigma u .
+\]
+Fix $y$, and let $\Lam_r=\Lam_r(y)$ be the cubes centred at the centre $y$ of $B(y)$, as in Section~\ref{sec:regularity}. Then $B(y)\subset\Lam_1$. Let $Y$ be the set of $y''$ with $B(y'')$ within distance $4$ of $\Lam_3$. It contains at most $C$ points, all with $|y''-y|\le C$. By Lemma~\ref{lem:avg}(c) and (a),
+\[
+|F|_{\Lam_2}+\|u\|_{\Lam_2}\le|f|_{\Lam_2}+C\max_{y''\in Y}\|u\|_{B(y'')}\le|f|_{\Lam_2}+C\max_{y''\in Y}e^{-\gamma|y''-y'|}\|f\|.
+\]
+Here $\|f\|\le|f|_{B(y')}$ because $B(y')$ has volume $1$. Moreover $|f|_{\Lam_2}=0$ unless $|y-y'|\le C$. Since $|y''-y'|\ge|y-y'|-C$, the right-hand side is at most $Ce^{-\gamma|y-y'|}|f|_{B(y')}$. Theorem~\ref{thm:local-regularity}(a) gives the first bound. For the second, $u=G_\sigma\partial^*_\mu f$ satisfies $-\Lap u=\partial^*_\mu f-aQ_\sigma^*Q_\sigma u$. Its $L^2$ norms on blocks are controlled by the decay of $G_\sigma\partial^*$ from part~(a), and Theorem~\ref{thm:local-regularity}(b) applies with $g=fe_\mu$.
+\end{proof}
+
+\begin{remark}[Cubes instead of blocks]\label{rem:cubes}
+Nothing in the proof of (b) uses the fact that $B(y)$ is a block. For every $z\in\R^d$ the same argument, applied to the cube $\Lam_1(z)$, gives the bounds of (b) on $\Lam_1(z)$, with $|y-y'|$ replaced by $\operatorname{dist}(z,B(y'))$. Consequently the H\"older bounds also hold on cubes $\Lam_2(z)$, with a larger constant. Indeed, two points $x,x'\in\Lam_2(z)$ with $|x-x'|_\infty\le\frac12$ lie in a common cube $\Lam_1(z_i)$ with $z_i\in z+\frac12\Z^d$, $|z_i-z|_\infty\le\frac94$, and for $|x-x'|_\infty>\frac12$ the H\"older quotient is bounded by $4$ times the supremum. The same remark applies to all pointwise bounds proved below.
+\end{remark}
+
+\begin{remark}[$L^2$ regularity]\label{x:7.3}
+On the torus, $\sum_{\mu,\nu}\|\partial_\mu\partial_\nu u\|^2=\|\Lap u\|^2$, because the differences commute. Hence $u=G_\sigma f$ satisfies $\sum_{\mu\nu}\|\partial_\mu\partial_\nu u\|^2\le(\|f\|+2a\|u\|)^2\le(1+2a/c_0)^2\|f\|^2$. This is the analogue of \cite[Prop.~1.1]{BalPropI}. Pointwise, second derivatives of $G_\sigma f$ are \emph{not} bounded uniformly in $\eta$ for merely bounded $f$. The H\"older bound on $\partial G_\sigma f$ is the substitute.
+\end{remark}

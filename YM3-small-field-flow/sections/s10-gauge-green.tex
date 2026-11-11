@@ -1,0 +1,47 @@
+\section{The gauge-field Green function}\label{sec:gauge-green}
+
+Let $\bG=\bL_a^{-1}$ with $\bL_a=d^*d+dRd^*+a\bQ^*\bQ$. By Theorem~\ref{thm:gauge-coercive} it is well defined and $0<\bG\le c_g^{-1}$. In \cite{BalPropI} this operator is denoted $G_k$ (with $a=1$). In \cite{BalBackground,BalVar} its covariant version $G_1$, $G(U)$ is the basic propagator.
+
+\begin{theorem}[Gauge-field Green function]\label{thm:gauge-green}
+There are $C,\gamma>0$, depending only on $d$ and $a$, such that:
+\begin{enumerate}[label=(\alph*)]
+\item $\bG$, $\partial\bG$, $\bG\partial^*$ and $\partial\bG\partial^*$ have decay $(C,\gamma)$;
+\item ($d\ge3$) for $\alpha\in(0,1)$ there is $C_\alpha$ such that for all $y,y'$ and every gauge field $J$ supported in $B(y')$,
+\[
+|\bG J|_{B(y)}+|\partial\bG J|_{B(y)}+\Hol{\partial\bG J}{B(y)}\le C_\alpha e^{-\gamma|y-y'|}\,|J|_{B(y')} .
+\]
+\end{enumerate}
+As in Remark~\ref{rem:cubes}, the bounds of (b) also hold on arbitrary cubes $\Lam_1(z)$ and, for the H\"older quotient, on cubes $\Lam_2(z)$.
+\end{theorem}
+
+\begin{proof}
+\emph{(a)} We verify the hypotheses of Lemma~\ref{lem:CT-form} for $\mathfrak A=\bL_a$ acting on gauge fields. Hypothesis (i) is Theorem~\ref{thm:gauge-coercive}. For (ii), write
+\[
+\bL_a=d^*d+(Rd^*)^*(Rd^*)+a\bQ^*\bQ,
+\]
+which holds because $R$ is an orthogonal projection. The first term is $X^*X$ with $X=d$ (from gauge fields to $2$-forms). Lemma~\ref{lem:conj-forms} applies with $Z=0$. The second term is $X^*X$ with $X=d^*-Z$ and $Z=P_\cV d^*$. By Proposition~\ref{prop:R}(e), $Z$ is bounded and has decay. By Lemma~\ref{lem:conjugation}, $\|Z_\alpha-Z\|\le C|\alpha|$ for $|\alpha|\le\gamma/2$. So Lemma~\ref{lem:conj-forms} applies again. The last term is bounded and local, as in the proof of Theorem~\ref{thm:scalar-green}.
+
+\emph{(b)} Let $u=\bG J$. Since $d^*d+dd^*=-\Lap$ componentwise (Lemma~\ref{lem:hodge}) and $dRd^*=dd^*-dP_\cV d^*$,
+\[
+-\Lap u=F,\qquad F=J-a\bQ^*\bQ u+dP_\cV d^*u .
+\]
+Each component of $u$ satisfies a scalar equation of the form treated in Theorem~\ref{thm:local-regularity}(a). Fix $y$ and let $\Lam_r$ be centred at the centre of $B(y)$. As in the proof of Theorem~\ref{thm:scalar-green}, part (a) gives
+\[
+\|u\|_{\Lam_2}+|J-a\bQ^*\bQ u|_{\Lam_2}\le Ce^{-\gamma|y-y'|}|J|_{B(y')} .
+\]
+For the last term, write $dP_\cV d^*u=(dG_0)\,Q_0^*\omega$ with $\omega=M^{-1}Q_0G_0d^*u$. The operator $M^{-1}Q_0G_0d^*\bG$ has decay by Proposition~\ref{prop:R} and part (a). Hence $|\omega(y'')|\le Ce^{-\gamma|y''-y'|}\|J\|$, with a smaller $\gamma$. By \eqref{eq:scalar-sum} for $G_0$ and Lemma~\ref{lem:decay-calculus}(b),
+\[
+|dP_\cV d^*u|_{B(y'')}=|\partial G_0Q_0^*\omega|_{B(y'')}\le C\sum_{y'''}e^{-\gamma|y''-y'''|}|\omega(y''')|\le Ce^{-\gamma|y''-y'|}|J|_{B(y')} .
+\]
+Thus $|F|_{\Lam_2}\le Ce^{-\gamma|y-y'|}|J|_{B(y')}$, and Theorem~\ref{thm:local-regularity}(a) applied to each component concludes the proof.
+\end{proof}
+
+By linearity, for an arbitrary bounded gauge field $J$,
+\begin{equation}\label{eq:gauge-sum}
+|\bG J|_{B(y)}+|\partial\bG J|_{B(y)}+\Hol{\partial\bG J}{B(y)}\le C_\alpha\sum_{y'}e^{-\gamma|y-y'|}|J|_{B(y')} .
+\end{equation}
+This completes the proof of Theorem~\ref{thm:D}.
+
+\begin{remark}
+The operator $\bL_a$ is not of the form ``Laplacian plus a local term'': $dP_\cV d^*$ is non-local. It is nevertheless exponentially decaying, and it is a bounded operator up to the two derivatives, which is all that Combes--Thomas and the regularity estimate need. In the covariant case this term becomes $D_UP_\cV(U)D_U^*$, and the same structure persists \cite{BalBackground}.
+\end{remark}

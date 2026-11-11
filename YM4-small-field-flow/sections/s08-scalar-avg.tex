@@ -1,0 +1,150 @@
+\section{Averaged scalar operators, minimizers and the projection \texorpdfstring{$R$}{R}}\label{sec:scalar-avg}
+
+Throughout this section $\sigma\in\{0,\dots,d\}$ is fixed, $G=G_\sigma$, $Q=Q_\sigma$, and $C,\gamma$ denote constants depending only on $a$ (and on $\alpha$ in H\"older bounds). Their values may change from line to line.
+
+\subsection{The averaged Green function and its inverse}\label{ss:8.1}
+
+\begin{proposition}\label{prop:QGQ}
+The operator $QGQ^*$ on fields on $\T$ satisfies
+\[
+c_F\le QGQ^*\le 2c_0^{-1},
+\]
+with $c_F$ from Corollary~\ref{cor:QKQ-lower}. Both $QGQ^*$ and $\Gamma=(QGQ^*)^{-1}$ have decay $(C,\gamma)$, i.e.\ $|\Gamma(y,y')|\le Ce^{-\gamma|y-y'|}$.
+\end{proposition}
+
+\begin{proof}
+The upper bound follows from $\|Q\|^2\le2$ and $G\le c_0^{-1}$. For the lower bound, $aQ^*Q\le2a$ gives $-\Lap+aQ^*Q\le-\Lap+2a$. Inversion reverses inequalities between positive definite operators: if $0<X\le Y$, then $\ip h{Y^{-1}h}=\|Y^{-1/2}X^{1/2}X^{-1/2}h\|^2\le\|X^{-1/2}h\|^2$, because $\|X^{1/2}Y^{-1/2}\|\le1$. Hence $G\ge(-\Lap+2a)^{-1}$ and $QGQ^*\ge Q(-\Lap+2a)^{-1}Q^*\ge c_F$ by Corollary~\ref{cor:QKQ-lower}.
+
+For $\sigma=0$, $\one_yQ_0\one_{y'}=0$ unless $y'=y$; for $\sigma\ge1$, $\one_yQ_\sigma\one_{y'}=0$ unless $y'\in\{y,y+e_\sigma\}$. Thus $Q$, viewed as a map from fine to unit fields, satisfies $\one_yQ\one_{y'}=0$ for $|y-y'|>1$. So it has decay $(\sqrt2e^{\gamma},\gamma)$ for every $\gamma$, and the same holds for $Q^*$. With Theorem~\ref{thm:scalar-green}(a) and Lemma~\ref{lem:decay-calculus}(b), $QGQ^*$ has decay. Lemma~\ref{lem:CT-bounded} then gives the decay of $\Gamma$.
+\end{proof}
+
+\subsection{The minimizer map}\label{ss:8.2}
+
+\begin{definition}\label{x:8.2}
+The \emph{minimizer map} is $H=GQ^*\Gamma=GQ^*(QGQ^*)^{-1}$. It maps fields on $\T$ to fields on $\Tf$.
+\end{definition}
+
+\begin{lemma}[Variational characterization]\label{lem:H-variational}
+For every field $g$ on $\T$, $Hg$ is the unique minimizer of $\|\partial f\|^2$ subject to $Qf=g$. In particular $QH=I$, $H$ does not depend on $a$, and $H1=1$.
+\end{lemma}
+
+\begin{proof}
+$QHg=QGQ^*\Gamma g=g$. Let $Qf=g$ and write $f=Hg+h$ with $Qh=0$. With $\mathfrak A=G^{-1}$,
+\[
+\ip f{\mathfrak Af}=\ip{Hg}{\mathfrak AHg}+2\ip h{Q^*\Gamma g}+\ip h{\mathfrak Ah}=\ip{Hg}{\mathfrak AHg}+\ip h{\mathfrak Ah},
+\]
+since $\ip h{Q^*\Gamma g}=\ip{Qh}{\Gamma g}=0$. Thus $Hg$ is the unique minimizer of $\ip f{\mathfrak Af}$ on $\{Qf=g\}$. On this set $\ip f{\mathfrak Af}=\|\partial f\|^2+a\|g\|^2$, so $Hg$ also minimizes $\|\partial f\|^2$, which does not involve $a$. The constant field $1$ satisfies $Q1=1$ and $\|\partial1\|=0$, so $H1=1$.
+\end{proof}
+
+For a field $g$ on $\T$ write $|\dl g(y)|=\max_\mu\max\big(|D_\mu g(y)|,|D_\mu g(y-e_\mu)|\big)$, the largest unit difference over the $2d$ bonds containing $y$.
+
+\begin{theorem}[Bounds on the minimizer map]\label{thm:H-scalar}
+\begin{enumerate}[label=(\alph*)]
+\item $H$ and $\partial H$ have decay $(C,\gamma)$.
+\item For every field $g$ on $\T$ and every $y$,
+\begin{align*}
+|Hg|_{B(y)}+|\partial Hg|_{B(y)}+\Hol{\partial Hg}{B(y)}&\le C\sum_{y'}e^{-\gamma|y-y'|}|g(y')|,\\
+|\partial Hg|_{B(y)}+\Hol{\partial Hg}{B(y)}&\le C\sum_{y'}e^{-\gamma|y-y'|}|\dl g(y')| .
+\end{align*}
+\item $\|\partial Hg\|\le C\|\dl g\|$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) follows from Proposition~\ref{prop:QGQ}, Theorem~\ref{thm:scalar-green}(a) and Lemma~\ref{lem:decay-calculus}.
+
+(b) $Hg=Gf$ with $f=Q^*\Gamma g$. By Lemma~\ref{lem:avg}(c), $|f|_{B(y'')}\le\max|\Gamma g|$ over at most two points near $y''$, which is bounded by $C\sum_{y'}e^{-\gamma|y''-y'|}|g(y')|$. Inserting this in \eqref{eq:scalar-sum} and using Lemma~\ref{lem:decay-calculus}(b) for the convolution of exponentials gives the first bound. For the second, $H1=1$ gives $\partial Hg=\partial H(g-g(y))$, so we may replace $|g(y')|$ by $|g(y')-g(y)|$. Join $y$ to $y'$ by a monotone path on $\T$ with at most $\sqrt d|y-y'|$ steps. Every step starts at a point $y_b$ with $|y_b-y|\le\sqrt d|y-y'|$. Then
+\[
+\sum_{y'}e^{-\gamma|y-y'|}|g(y')-g(y)|\le\sum_{y'}e^{-\gamma|y-y'|}\sum_{b\in\text{path}}|\dl g(y_b)|\le S_{\gamma/2}\sum_{y_b}e^{-\gamma|y_b-y|/(2\sqrt d)}\,|\dl g(y_b)|,
+\]
+after exchanging the sums and splitting $e^{-\gamma|y-y'|}\le e^{-\gamma|y-y'|/2}e^{-\gamma|y_b-y|/(2\sqrt d)}$. Each $y_b$ is counted at most $d$ times per $y'$; this factor is absorbed in $C$.
+
+(c) The second bound in (b), without the H\"older term and in $\ell^2$, follows by the same argument from the $L^2$ decay in (a). Indeed, $\|\partial Hg\|_{B(y)}\le\sum_{y'}\|\one_y\partial H\one_{y'}\|\,|g(y')-g(y)|$. Summing the squares over $y$ and using the Schur test as in Lemma~\ref{lem:decay-calculus}(a) gives the claim.
+\end{proof}
+
+\subsection{The effective action}\label{ss:8.3}
+
+\begin{proposition}[Effective action]\label{prop:eff-action-scalar}
+Let $\cD=\Gamma-a$. Then for every field $g$ on $\T$,
+\[
+\ip g{\cD g}=\|\partial Hg\|^2=\min\{\|\partial f\|^2:Qf=g\},
+\]
+and
+\[
+6^{-2d}\|\dl g\|^2\le\ip g{\cD g}\le C\|\dl g\|^2 .
+\]
+Moreover $\cD1=0$ and $\cD$ has decay $(C,\gamma)$.
+\end{proposition}
+
+\begin{proof}
+$\ip{Hg}{G^{-1}Hg}=\ip{\Gamma g}{QGQ^*\Gamma g}=\ip g{\Gamma g}$. On the other hand it equals $\|\partial Hg\|^2+a\|QHg\|^2=\|\partial Hg\|^2+a\|g\|^2$. The upper bound is Theorem~\ref{thm:H-scalar}(c). For the lower bound, $D_\mu g=D_\mu QHg$, so Lemma~\ref{lem:compare-avg} gives $\|D_\mu g\|\le6^d\|\partial_\mu Hg\|$. Since $H1=1$ and $\partial1=0$, $\ip1{\cD1}=0$ with $\cD\ge0$, hence $\cD1=0$. Decay follows from Proposition~\ref{prop:QGQ}.
+\end{proof}
+
+In Ba\l aban's language, $\frac12\ip g{\cD g}$ is the quadratic action after $k$ RG steps with $\delta$-function averaging (the scalar analogue of the gauge-field action of \cite[(1.65)--(1.67)]{BalPropI}). The two-sided bound says that it is comparable to the unit-lattice Dirichlet form, uniformly in $k$.
+
+\subsection{The constrained Green function}\label{ss:8.4}
+
+\begin{proposition}[Constrained Green function]\label{prop:C-scalar}
+Let $C_\sigma=G-HQG=G-GQ^*\Gamma QG$. Then:
+\begin{enumerate}[label=(\alph*)]
+\item $C_\sigma$ is symmetric, $0\le C_\sigma\le G$, $QC_\sigma=0$ and $C_\sigma Q^*=0$;
+\item for every $f$, $u=C_\sigma f$ is the unique field with $Qu=0$ and $\ip{\partial v}{\partial u}=\ip vf$ for all $v$ with $Qv=0$. In particular $C_\sigma$ does not depend on $a$, and $-\Lap C_\sigma f-f\in\ran Q^*$;
+\item $G=C_\sigma+H(QGQ^*)H^*$;
+\item $C_\sigma$, $\partial C_\sigma$, $C_\sigma\partial^*$ and $\partial C_\sigma\partial^*$ have decay $(C,\gamma)$. The pointwise bounds of Theorem~\ref{thm:scalar-green}(b) hold with $G_\sigma$ replaced by $C_\sigma$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) $C_\sigma=G^{1/2}(I-\Pi)G^{1/2}$ with $\Pi=G^{1/2}Q^*\Gamma QG^{1/2}$, an orthogonal projection. The identities $QC_\sigma=0=C_\sigma Q^*$ are direct.
+
+(b) We have $(-\Lap+aQ^*Q)u=f-Q^*\Gamma QGf$, and $Q^*Qu=0$. So $-\Lap u=f-Q^*\omega$ with $\omega=\Gamma QGf$, and $\ip{\partial v}{\partial u}=\ip vf-\ip{Qv}\omega=\ip vf$. Uniqueness holds because $\|\partial v\|>0$ for $v\ne0$ with $Qv=0$.
+
+(c) $H(QGQ^*)H^*=GQ^*\Gamma QG$.
+
+(d) $C_\sigma f=Gf-H(QGf)$, where $QGf$ is a unit-lattice field whose values decay away from the support of $f$. Combine Theorem~\ref{thm:scalar-green} and Theorem~\ref{thm:H-scalar}. For $C_\sigma\partial^*$, the field $QG\partial^*f$ is bounded by the $L^2$ decay of $G\partial^*$.
+\end{proof}
+
+\begin{remark}\label{x:8.7}
+Probabilistically, $C_\sigma$ is the covariance of the Gaussian field with covariance $G$ conditioned on $Q\phi=0$. Identity (c) is the decomposition of $\phi$ into the fluctuation field and $H$ applied to the block averages. Iterating it over the RG steps gives the renormalization group formula for Green functions of \cite[Sect.~2.5]{DST1}.
+\end{remark}
+
+\subsection{The projection \texorpdfstring{$R$}{R}}\label{ss:8.5}
+
+From now on $\sigma=0$. Ba\l aban's gauge condition involves the orthogonal projection onto the space
+\[
+\cW=-\Lap\,\cN(Q_0)=\{-\Lap\nu:\ Q_0\nu=0\}
+\]
+of scalar fields, cf.\ \cite[(1.38)--(1.44)]{BalPropI}. By Lemma~\ref{lem:kerQ0}, $-\Lap$ is injective on $\cN(Q_0)$. Since $Q_0$ is onto, $\dim\cW=\dim\cN(Q_0)=n^d(N^d-1)$. Let
+\[
+\cV=\ran(G_0Q_0^*),\qquad M=Q_0G_0^2Q_0^*,\qquad P_\cV=G_0Q_0^*M^{-1}Q_0G_0 .
+\]
+
+\begin{proposition}[The projection $R$]\label{prop:R}
+\begin{enumerate}[label=(\alph*)]
+\item $M\ge c_F^2$. Hence $P_\cV$ is well defined; it is the orthogonal projection onto $\cV$, and $\dim\cV=n^d$.
+\item $\cV=\cW^\perp$. Thus $R:=I-P_\cV$ is the orthogonal projection onto $\cW$, and $R$ does not depend on $a$.
+\item $\cV$ consists of the constants plus the fields $(-\Lap)^{-1}Q_0^*\omega$ with $\sum_y\omega(y)=0$. Here $(-\Lap)^{-1}$ is the inverse on mean-zero fields.
+\item For $h\in\cW$: $G_0h=C_0h$, $Q_0G_0h=0$ and $-\Lap G_0h=h$.
+\item $P_\cV$, $\partial P_\cV$ and $P_\cV\partial^*$ have decay $(C,\gamma)$. In particular $\|P_\cV d^*\|\le C$ on gauge fields.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) By Cauchy--Schwarz and Proposition~\ref{prop:QGQ}, $\|G_0Q_0^*\omega\|\,\|Q_0^*\omega\|\ge\ip{Q_0^*\omega}{G_0Q_0^*\omega}\ge c_F\|\omega\|^2$. Moreover $\|Q_0^*\omega\|=\|\omega\|$, so $\ip\omega{M\omega}=\|G_0Q_0^*\omega\|^2\ge c_F^2\|\omega\|^2$. Thus $G_0Q_0^*$ is injective, and $T(T^*T)^{-1}T^*$ with $T=G_0Q_0^*$ is the orthogonal projection onto $\ran T$.
+
+(b) For $\nu\in\cN(Q_0)$,
+\[
+\ip{G_0Q_0^*\omega}{-\Lap\nu}=\ip\omega{Q_0G_0(-\Lap+aQ_0^*Q_0)\nu}=\ip\omega{Q_0\nu}=0 .
+\]
+So $\cV\perp\cW$, and $\dim\cV+\dim\cW=n^dN^d$ is the dimension of the whole space.
+
+(c) If $\varphi=G_0Q_0^*\omega$, then $-\Lap\varphi=Q_0^*(\omega-aQ_0\varphi)$. The left side has mean zero, so $\omega'=\omega-aQ_0\varphi$ has mean zero and $\varphi-\bar\varphi=(-\Lap)^{-1}Q_0^*\omega'$. Hence $\cV$ is contained in the space described, which has dimension $(n^d-1)+1=n^d$.
+
+(d) Let $h=-\Lap\nu$ with $Q_0\nu=0$. Then $(-\Lap+aQ_0^*Q_0)\nu=h$, so $G_0h=\nu$. The other statements follow, and $C_0h=G_0h-H_0Q_0G_0h=\nu$.
+
+(e) Compositions of operators with decay (Lemma~\ref{lem:decay-calculus}), using Theorem~\ref{thm:scalar-green}(a), Proposition~\ref{prop:QGQ} and Lemma~\ref{lem:CT-bounded} for $M^{-1}$.
+\end{proof}
+
+\begin{remark}\label{x:8.9}
+Ba\l aban defines $R=I-\Lap^{-1}Q_0^*(Q_0\Lap^{-2}Q_0^*)^{-1}Q_0\Lap^{-1}$ on mean-zero fields \cite[(1.38)]{BalPropI}. It involves the non-local operator $\Lap^{-1}$. He then observes that the same projection is given by the formula with $G_0$ \cite[(1.44)]{BalPropI}. Part (c) is the equivalence of the two descriptions. The $G_0$-formula is the one that makes the exponential decay of $I-R$ evident.
+\end{remark}

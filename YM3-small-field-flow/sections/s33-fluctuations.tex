@@ -1,0 +1,140 @@
+\section{Gauge fixing and fluctuation coordinates}\label{sec:fluctuations}
+
+Throughout this section $V'$ is as in Lemma~\ref{lem:composition}, $W:=V^0$ is the base configuration and $W'=\mathfrak a'(W)=V'$. We use the notation of Section~\ref{sec:adapted}, with the reference $U'$, so that $W_k=W$ and $W_{k+1}=W'$. Configurations on $\T$ are written $V=XW$, with the relative configuration $X$, and $X=e^{\ii Z}$ with the \emph{fluctuation field} $Z$; in the units of step $k$ we have $\delta_k=1$. The integrand of \eqref{eq:rg-map} is a function of $X$ through $V=XW$. By invariance of the Haar measure, $dV(b)=dX(b)$.
+
+\subsection{The one-step axial gauge}
+
+\begin{definition}[Tree, crossing bonds, eliminated bonds, free bonds]\label{def:bonds}
+We use the following sets of bonds of $\T$.
+\begin{itemize}
+\item The \emph{tree} $\mathcal T$ is the set of bonds of $\T$ that belong to some contour $\Gamma^{k+1}_{y,x}$, $y\in\T'$, $x\in B'(y)$.
+\item A bond of $\T$ is \emph{crossing} if its endpoints lie in different blocks $B'(\cdot)$.
+\item For a bond $c=(y,y+Le_\mu)$ of $\T'$, let $b_0(c)$ be the last bond of the straight contour $[c]$, from $y+(L-1)e_\mu$ to $y+Le_\mu$. It is a crossing bond.
+\item The bonds of $\T$ that are neither in $\mathcal T$ nor of the form $b_0(c)$ are the \emph{free bonds}; their set is $\mathfrak F$.
+\end{itemize}
+\end{definition}
+
+The contour $\Gamma^{k+1}_{y,x}$ changes the coordinates in the order $d,\dots,1$, so the path to $x$ passes only through points whose own paths are initial segments of it. Hence $\mathcal T\cap B'(y)$ is a spanning tree of $B'(y)$ rooted at $y$, and every $x\in B'(y)\setminus\{y\}$ is the endpoint of exactly one tree bond $b_x$, the last bond of $\Gamma^{k+1}_{y,x}$. Since $X_W(\gamma b)=X_W(\gamma)\,R(W(\gamma))X(b)$, induction along the tree shows:
+\begin{equation}\label{eq:axial-tree}
+X\ \text{is axial at scale }k+1\iff X(b)=1\ \text{for all }b\in\mathcal T .
+\end{equation}
+See Figure~\ref{fig:tree}.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[scale=0.85]
+\foreach \bx in {0,4} {
+  \fill[fblue!7] (\bx-0.3,-0.3) rectangle (\bx+3.3,3.3);
+  \foreach \i in {1,...,3} \foreach \j in {0,...,2} \draw[gray!60] (\bx+\i,\j)--(\bx+\i,\j+1);
+  \draw[fblue,very thick] (\bx,0)--(\bx,3);
+  \foreach \j in {0,...,3} \draw[fblue,very thick] (\bx,\j)--(\bx+3,\j);
+  \foreach \i in {0,...,3} \foreach \j in {0,...,3} \fill[gray] (\bx+\i,\j) circle (1.6pt);
+  \fill[black] (\bx,0) circle (2.6pt);
+}
+\foreach \j in {1,...,3} \draw[forange,thick] (3,\j)--(4,\j);
+\draw[fred,ultra thick] (3,0)--(4,0);
+\node[below left,font=\small] at (0,-0.05) {$y$};
+\node[below right,font=\small] at (4,-0.05) {$y+Le_1$};
+\draw[fred,->] (3.5,-0.9)--(3.5,-0.1);
+\node[below,fred,font=\small] at (3.5,-0.85) {$b_0(c)$};
+\node[font=\small,align=left,anchor=west] at (8.0,2.8) {\textcolor{fblue}{bold}: tree $\mathcal T$ ($X=1$, axial gauge)};
+\node[font=\small,align=left,anchor=west] at (8.0,2.0) {\textcolor{forange}{orange}: crossing bonds};
+\node[font=\small,align=left,anchor=west] at (8.0,1.2) {\textcolor{fred}{red}: $b_0(c)$, eliminated by the constraint};
+\node[font=\small,align=left,anchor=west] at (8.0,0.4) {\textcolor{gray}{thin}: further free bonds};
+\end{tikzpicture}
+\caption{Two blocks $B'(y)$, $B'(y+Le_1)$ of $\T$ for $d=2$, $L=4$. The tree runs first in direction $2$, then in direction $1$.}
+\label{fig:tree}
+\end{figure}
+
+Let $\mathcal G'=\{u:\T\to G:\ u|_{\T'}=1\}$. By Lemma~\ref{lem:axial}(a), with $h=1$, every $\mathcal G'$-orbit of relative configurations at scale $k$ contains exactly one axial configuration $X^{\rm ax}$. No smallness is needed for this.
+
+\begin{lemma}[Faddeev--Popov identity for the axial gauge]\label{lem:FP}
+Let $f$ be an integrable function of configurations on $\T$ with $f(V^u)=f(V)$ for all $u\in\mathcal G'$. Then
+\[
+\int\prod_bdV(b)\,f(V)=\int\prod_{b\notin\mathcal T}dX(b)\ f(XW)\Big|_{X=1\text{ on }\mathcal T}.
+\]
+\end{lemma}
+
+\begin{proof}
+For a relative configuration $X$, let $g=g(X)\in\mathcal G'$ be the transformation with $X^{(g)}$ axial (Lemma~\ref{lem:axial}(a)). Its value $g(x)$ depends only on $X$ on the tree bonds of $\Gamma^{k+1}_{y,x}$. Hence, for fixed tree variables, the map $(X(b))_{b\notin\mathcal T}\mapsto(X^{(g)}(b))_{b\notin\mathcal T}$ is bondwise a left and right translation, and it preserves the product Haar measure. Since $f((XW)^g)=f(XW)$ and $X^{(g)}=1$ on $\mathcal T$,
+\[
+\int\prod_bdX(b)\,f(XW)=\int\prod_{b\in\mathcal T}dX(b)\int\prod_{b\notin\mathcal T}dX(b)\,f\big(X^{(g)}W\big)=\int\prod_{b\notin\mathcal T}dX(b)\,f(XW)\Big|_{X=1\text{ on }\mathcal T}.
+\]
+The tree integrals give $1$, by normalization of the Haar measure.
+\end{proof}
+
+\begin{definition}[Fluctuation cutoff]\label{def:chi-w}
+For $w\le\frac12c_G$ and a configuration $V$ on $\T$ let $X^{\rm ax}$ be the axial representative of the $\mathcal G'$-orbit of $VW^{-1}$. Put $\chi^{\rm w}(V)=1$ if $|\ell(X^{\rm ax}(b))|\le w$ for all bonds $b$, and $\chi^{\rm w}(V)=0$ otherwise.
+\end{definition}
+
+The function $\chi^{\rm w}$ depends on $V'$ through $W$. It is invariant under $\mathcal G'$ by construction. It does not depend on the choice of $U'$ in its orbit. Indeed, replacing $U'$ by $U'^v$ with $v|_{\T'}=1$ replaces $W$ by $W^{v}$ and the axial representative by its transform, whose relative field is $R(v(b_-))X^{\rm ax}(b)$; this has the same norm. Under global gauge transformations $\chi^{\rm w}$ is covariant in the same way.
+
+\subsection{Elimination of the constraint}
+
+For axial $X=e^{\ii Z}$, i.e.\ $Z=0$ on $\mathcal T$, and a bond $c$ of $\T'$ put
+\[
+\ell_c(Z)=\ell\big(\overline X(c)\big),\qquad\overline X=\mathfrak a'(XW)\,W'^{-1}.
+\]
+The constraint in \eqref{eq:rg-map} is $\ell_c(Z)=0$ for all $c$. Let $l'=l_{k+1}$ be the linear one-step operator of Lemma~\ref{lem:one-step-expansion} at the background $W$. Let $\mathsf a:=2(C_*+1)\eps'_1$. By Lemma~\ref{lem:composition} and Proposition~\ref{prop:sharp-curvature}, it bounds the curvature both of $W$ and of the fine reference $U'$, in the units of step $k+1$. The latter is what Lemma~\ref{lem:one-step-expansion} needs.
+
+\begin{lemma}[Local elimination]\label{lem:eliminate}
+There are $C,c>0$, depending only on $d$ and $G$, such that the following holds with $\rho_L=cL^{-d-1}$ and $r_L=c^2L^{-2d-1}$, provided $L^{d}\mathsf a\le c$. Moreover $d\mathsf a+4dL^2r_L\le\frac12c_G$.
+\begin{enumerate}[label=(\alph*)]
+\item $\ell_c$ is analytic for complex $Z$ with $|Z|\le cL^{-1}$ on the bonds with both endpoints in $B'(c_-)\cup B'(c_+)$, and depends only on these values. Among the bonds $b_0(c')$ it depends only on $Z(b_0(c))$. Moreover $\ell_c(Z)=L(l'Z)(c)+O(L^2|Z|^2)$.
+\item $\partial\ell_c/\partial Z(b_0(c))=L^{1-d}R\big(W([c_-,b_0(c)_-])\big)\big(1+\mathfrak r_c(Z)\big)$ with $|\mathfrak r_c(Z)|\le C(L^d\mathsf a+L^{d+1}|Z|)$.
+\item For complex $Z$ on the free bonds with $|Z|\le r_L$ there is exactly one $\zeta_c(Z)$ with $|\zeta_c(Z)|\le\rho_L$ such that $\ell_c=0$ when $Z(b_0(c))=\zeta_c(Z)$. It is analytic, real for real $Z$, depends only on $Z$ on the bonds of (a), and satisfies $|\zeta_c(Z)|\le CL^d\max|Z|$, the maximum running over those bonds.
+\item Let $\hat Z(Z)$ be the field equal to $Z$ on $\mathfrak F$, to $\zeta_c(Z)$ on $b_0(c)$ and to $0$ on $\mathcal T$, and write $\hat Z=\hat Z^1Z+\hat Z^2(Z)+\hat Z^{\ge3}(Z)$ (Taylor expansion). Then $\hat Z^1$ is a linear bijection from fields on $\mathfrak F$ onto
+\[
+\mathcal Z=\{B:\ B=0\text{ on }\mathcal T,\ l'B=0\},
+\]
+and $\|Z\|\le\|\hat Z^1Z\|\le CL^{d}\|Z\|$. The maps $\hat Z^2$, $\hat Z^{\ge3}$ are supported on the bonds $b_0(c)$ and satisfy $|\hat Z^2(Z)(b_0(c))|\le CL^{3d+1}\max|Z|^2$, the maximum over the bonds of (a).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a), (b) For axial $X$ we have $\tau_X=1$, so $\overline X=\tilde{\mathfrak a}_{k+1}(X)$ (Definition~\ref{def:adapted}). We apply Lemma~\ref{lem:one-step-expansion} in the units of step $k+1$. There $\delta_k=L^{-1}$ and $X=e^{\ii\delta_kB}$ with $B=LZ$, so
+\[
+\ell_c(Z)=(l'B)(c)+c_{k+1}(B)(c)=L(l'Z)(c)+c_{k+1}(LZ)(c),
+\]
+with the bounds of that lemma for $|B|\le c_2$. This gives (a) and the analyticity, with the bonds stated there.
+
+Next consider the coefficient of $Z(b_0(c))$ in $(q_{k+1}Z)(c)$. The straight contour $[x,x(c)]$ contains $b_0(c)$ if and only if $x$ is one of the points $c_-+me_\mu$, $0\le m<L$. For these $x$ the transport $R(W(\Gamma^{k+1}_{c_-,x}))R(W([x,b_0(c)_-]))$ equals $R(W([c_-,b_0(c)_-]))$, since both paths run along the same line. So the coefficient is $L\cdot L^{-d}L^{-1}R(W([c_-,b_0(c)_-]))$, and in $L(q_{k+1}Z)(c)$ it is $L^{1-d}R(W([c_-,b_0(c)_-]))$. The bound on $r_{k+1}$ in Lemma~\ref{lem:one-step-expansion}(b) and the Lipschitz bound for $c_{k+1}$ in (c), applied to $B=LZ$, change it by at most $CL\mathsf a+CL^2|Z|$, i.e.\ relatively by $C(L^d\mathsf a+L^{d+1}|Z|)$. The factor $L^{d+1}$ is genuine: the coefficient $L^{1-d}$ is what remains after the cancellation of terms of order one between $W([c])$ and the $L^d$ loops, and the non-abelian corrections act on those terms. Here $\mathsf a$ bounds the curvature of the fine reference $U'$ in the units of step $k+1$, as in Lemma~\ref{lem:one-step-expansion}. A bond $b_0(c')$ has both endpoints in $B'(c_-)\cup B'(c_+)$ only if $c'=c$.
+
+(c) Put $M_c=L^{1-d}R(W([c_-,b_0(c)_-]))$ and consider $\Phi(z)=z-M_c^{-1}\ell_c(Z,z)$, where $z$ is the value on $b_0(c)$. By (b), $|\Phi'(z)|\le\frac12$ on $|z|\le\rho_L$ if $c$ is small, since there $L^{d+1}|z|\le c$. By (a), $|\ell_c(Z,0)|\le CL\max|Z|$, so $|\Phi(0)|\le C_0L^d\max|Z|$, with $C_0$ depending only on $d$ and $G$. For $|Z|\le r_L=c^2L^{-2d-1}$ this is at most $C_0c\,\rho_L\le\frac12\rho_L$ for $c\le1/(2C_0)$. (With the same constant $c$ in $\rho_L$ and $r_L$ the contraction would not close.) So $\Phi$ is a contraction of $\{|z|\le\rho_L\}$ into itself, and its fixed point is the unique zero there. Analyticity follows as in Lemma~\ref{lem:linearizing}. Reality follows from uniqueness, since $\overline X\in G$ for real $Z$. Finally, $\mathsf a\le L^{-d}c\le c$ and $L^2r_L\le c^2$, so $d\mathsf a+4dL^2r_L\le dc+4dc^2\le\frac12c_G$ for $c\le c_G/(10d)$.
+
+(d) Differentiating $\ell_c(\hat Z(Z))=0$ at $Z=0$ gives $L(l'\hat Z^1Z)(c)=0$ for all $c$, so $\hat Z^1Z\in\mathcal Z$. Conversely, $B\in\mathcal Z$ is determined by its values on $\mathfrak F$: by (b) at $Z=0$, the equation $(l'B)(c)=0$ fixes $B(b_0(c))$. This gives the bijection. The bound on $\hat Z^1$ follows from $|\zeta^{1}_c(Z)|^2\le CL^{2d}\max|Z|^2\le CL^{2d}\sum|Z(b)|^2$, the sum over the bonds of (a), since each bond lies in a bounded number of these sets. The bound on $\hat Z^2$ follows from Cauchy's estimate, since $|\zeta_c|\le\rho_L$ on $|Z|\le r_L$.
+\end{proof}
+
+\subsection{The exact formula}
+
+Let $\sigma$ be the density of the normalized Haar measure in exponential coordinates: $d(e^{\ii Z})=\sigma(Z)\,dZ$ for $|Z|<c_G$, where $dZ$ is the Lebesgue measure on $\mathfrak g$ given by the trace form. It is analytic, positive and $\operatorname{Ad}$-invariant near $0$, and $\sigma(Z)/\sigma(0)=\det\big(\sinh(\tfrac{\ii}{2}\operatorname{ad}Z)/(\tfrac{\ii}{2}\operatorname{ad}Z)\big)=1+O(|Z|^2)$. The $\delta$-function of $G$ is then $\delta(e^{\ii w})=\delta(w)/\sigma(w)$ near $1$.
+
+\begin{proposition}[One step in fluctuation coordinates]\label{prop:exact-step}
+Let $V'$ be as in Lemma~\ref{lem:composition}, with $L^d\mathsf a\le c$, and let $w\le r_L$ (so $w\le\rho_L$). Let $\rho$ be gauge invariant, and measurable and bounded on the support of $\chi^{\rm w}$. Then $\chi^{\rm w}$ vanishes outside the interior of $\operatorname{dom}\mathfrak a'$, $\mathfrak a'$ is a submersion at every point where $\chi^{\rm w}=1$, and the density of $T(\chi^{\rm w}\rho)$ at $V'$, defined in Section~\ref{sec:rg-step}, is
+\[
+T(\chi^{\rm w}\rho)(V')=\int_{(\mathfrak g)^{\mathfrak F}}\prod_{b\in\mathfrak F}\sigma(Z(b))\,dZ(b)\ \ \chi^{\rm w}\big(\hat Z(Z)\big)\prod_c\mathsf J_c(Z)\ \rho\big(e^{\ii\hat Z(Z)}W\big),
+\]
+where $\chi^{\rm w}(\hat Z)=\prod_b\mathbf 1(|\hat Z(b)|\le w)$ and
+\[
+\mathsf J_c(Z)=\frac{\sigma(\zeta_c(Z))}{\sigma(0)\,\det\partial\ell_c/\partial Z(b_0(c))}\,,
+\]
+evaluated at $Z(b_0(c))=\zeta_c(Z)$. For real $Z$ this determinant is positive (see the proof), so it equals its absolute value, which is what the change of variables produces. The integrand is defined to be $0$ if $|Z(b)|>w$ for some $b\in\mathfrak F$. On the remaining set $|Z|_\infty\le w\le r_L$, so $\zeta_c(Z)$, $\hat Z(Z)$, $\mathsf J_c(Z)$ and $\sigma(Z(b))$ are defined, and the factor $\chi^{\rm w}(\hat Z(Z))$ imposes the cutoff also on the bonds $b_0(c)$. The same convention is used for all integrals over fields on $\mathfrak F$ below. Each $\mathsf J_c$ is an analytic function of $Z$ on the bonds of Lemma~\ref{lem:eliminate}(a), and $\mathsf J_c(Z)=L^{(d-1)\dim\mathfrak g}\big(1+O(L^d\mathsf a+L^{2d+1}|Z|_\infty)\big)$, with $|Z|_\infty$ the sup over the free bonds. The value on $b_0(c)$ is $\zeta_c$, with $|\zeta_c|\le CL^d|Z|_\infty$.
+\end{proposition}
+
+\begin{proof}
+\emph{Domain and submersion.} Let $\chi^{\rm w}(V)=1$, and let $X=e^{\ii Z}$ be the axial representative of Definition~\ref{def:chi-w}. Then $|Z(b)|\le w$ on all bonds, and $V=(XW)^u$ for some $u\in\mathcal G'$. The holonomy $(XW)(\partial p)$ of a plaquette is the product of four unitary conjugates of the $e^{\pm\ii Z(b)}$ and of $W(\partial p)$. By Lemma~\ref{lem:log-estimates}(b) and Lemma~\ref{lem:composition}(a), $XW$, and hence $V$, has curvature at most $L^{-2}\mathsf a+4w$ in the units of step $k$. Since $dL^2(L^{-2}\mathsf a+4w)\le d\mathsf a+4dL^2r_L\le\frac12c_G$ (Lemma~\ref{lem:eliminate}), $V$ lies in the interior of $\operatorname{dom}\mathfrak a'$ (Section~\ref{sec:rg-step}). By Lemma~\ref{lem:eliminate}(a),(b), the derivative of $Z\mapsto(\ell_c(Z))_c$ with respect to the variables $Z(b_0(c))$ is block diagonal, with the invertible blocks $L^{1-d}R(W([c_-,b_0(c)_-]))(1+\mathfrak r_c)$; here $|\mathfrak r_c|\le\frac12$, as in the proof of Lemma~\ref{lem:eliminate}(c), since $|Z|\le w\le\rho_L$. Since $\ell_c(Z)=\ell\big(\mathfrak a'(e^{\ii Z}W)(c)\,V'(c)^{-1}\big)$, and the exponential and the logarithm are local diffeomorphisms, $\mathfrak a'$ is a submersion at $XW$. It is one at $V$ as well, since $\mathfrak a'(Y^u)=\mathfrak a'(Y)$ for $u\in\mathcal G'$.
+
+\emph{The density.} The density at $V'$ is the integral of $\chi^{\rm w}\rho$ over the fibre $\{\mathfrak a'(V)=V'\}$, with respect to the measure induced by the two Haar measures (Section~\ref{sec:rg-step}). We write its computation with $\delta$-functions. The reduction to axial $X$ below is Lemma~\ref{lem:FP} for this fibre integral, with the same proof. For fixed tree variables, the substitution $X\mapsto X^{(g)}$ of that proof is a bondwise translation of the other variables. It preserves their Haar measure, and it does not change $\mathfrak a'$, since $g\in\mathcal G'$. So it maps the part of the fibre with these tree variables onto the axial part of the fibre, with the induced measures, and the integral over the tree variables gives $1$. The elimination of $Z(b_0(c))$ is then the change of variables $z\mapsto\ell_c(Z,z)$ at fixed free variables.
+
+The integrand $\prod_c\delta(\mathfrak a'(V)(c)V'(c)^{-1})\,\chi^{\rm w}(V)\rho(V)$ is invariant under $\mathcal G'$: for $\rho$ by assumption, for $\chi^{\rm w}$ by construction, and for the constraint by Lemma~\ref{lem:one-step-basic}(b). By Lemma~\ref{lem:FP} we may restrict to axial $X$. Then $\chi^{\rm w}$ requires $|\ell(X(b))|\le w$ on all bonds, and on this set $X=e^{\ii Z}$ with $dX(b)=\sigma(Z(b))dZ(b)$. By Lemma~\ref{lem:eliminate}(a), the $\delta$-function for $c$ involves, among the variables $Z(b_0(\cdot))$, only $Z(b_0(c))$. So the integrals over these variables factorize. For fixed free variables, $Z(b_0(c))\mapsto\ell_c$ has at most one zero in $|Z(b_0(c))|\le w$, by Lemma~\ref{lem:eliminate}(c). It is $\zeta_c(Z)$ if $|\zeta_c(Z)|\le w$; otherwise the integrand vanishes, which is accounted for by the factor $\chi^{\rm w}(\hat Z(Z))$. Hence
+\[
+\int\sigma(z)\,dz\ \delta\big(e^{\ii\ell_c(Z,z)}\big)\,(\cdots)=\int\sigma(z)\frac{\delta(\ell_c(Z,z))}{\sigma(\ell_c(Z,z))}(\cdots)\,dz=\frac{\sigma(\zeta_c)}{\sigma(0)\,|\det\partial_z\ell_c|}(\cdots)\Big|_{z=\zeta_c} .
+\]
+\emph{Positivity of the determinant.} By Lemma~\ref{lem:eliminate}(b),
+\[
+\det\partial_z\ell_c=L^{(1-d)\dim\mathfrak g}\det R\big(W([c_-,b_0(c)_-])\big)\det(1+\mathfrak r_c).
+\]
+Here $\det R(\cdot)=1$ on $\mathfrak g$, since $G$ is connected (Section~\ref{sec:background}). In the proof of Lemma~\ref{lem:eliminate}(c), $|\mathfrak r_c|\le\frac12$ wherever $\zeta_c$ is defined, so $t\mapsto\det(1+t\mathfrak r_c)$ does not vanish on $[0,1]$, and $\det(1+\mathfrak r_c)>0$ for real $Z$. Hence $|\det\partial_z\ell_c|=\det\partial_z\ell_c$ for real $Z$, and $\mathsf J_c$ is the analytic function of the statement. The bound on $\mathsf J_c$ follows from Lemma~\ref{lem:eliminate}(b),(c), since $L^{d+1}|\zeta_c|\le CL^{2d+1}|Z|_\infty$ and $\sigma(\zeta_c)/\sigma(0)=1+O(|\zeta_c|^2)$.
+\end{proof}
+
+This is Ba\l aban's representation \cite[(9)--(18)]{BalUV3}, with the elimination performed on one bond per coarse bond, so that the Jacobians are local \cite[(17), (20)]{BalUV3}. It is exact. No small-field approximation has been made beyond the insertion of $\chi^{\rm w}$.

@@ -1,0 +1,297 @@
+\section{Scales of the torus, the first step and the vacuum}\label{sec:target-flow}
+
+This section collects the parts of the iteration that do not depend on the organization of the four-dimensional flow (Remark~\ref{rem:flow-status}): the scales of the torus and the wrapping polymers, the first step and its exact formula, the split of the constants into normalizations and a vacuum energy, and the bookkeeping of the modified model. The model and the map $T$ are those of Section~\ref{sec:rg-step}. The finest spacing is $\epsilon=L^{-N}$. Here $N$ is the total number of scales, unrelated to $N=L^k$ of Parts~I--VII and to the matrix size $\mathsf N$. The initial density is $\rho_0(V)=\exp(-g_0^{-2}S(V)-E_0)$ on the $\epsilon$-lattice $\T^{(0)}$, with $g_0=g$. The couplings $g_k$ of the later steps are produced by the flow (Section~\ref{sec:rg-step}); here they are parameters in $(0,\gamma]$. The parameters are chosen as in Remark~\ref{rem:parameters}. Section~\ref{sec:flow4} uses this section for one step in generation form and for the flow over all scales (Theorem~\ref{thm:sf-flow}).
+
+\subsection{Scales and the torus}\label{subsec:tf-scales}
+
+Let the torus have physical side $\ell$. In the units of step $k$ the lattice $\T^{(k)}$ has side $n_k=\ell L^{N-k}$. The steps are $k=0,\dots,K-1$, with $K\le N$, and the density of step $K$ lives on $\T^{(K)}$, of side $n_K=\ell L^{N-K}$. For instance $K=N$, when the last lattice is the physical unit lattice. The configurations of step $k$ live on the unit lattice $\T^{(k)}$, and the background fields on the fine lattice $\Tf$, which has the same side in these units but spacing $\eta=L^{-k}$. For $k\ge1$, $\eta<1$ and the two lattices are different sets; at $k=0$, $\eta=1$ and $\Tf=\T^{(0)}$ (Section~\ref{subsec:tf-first}). The side $n_k$ is the $n$ of Parts~VI, VIII and~IX. In Part~VII, $n$ denotes the side of $\T'$, which is $n_{k+1}=n_k/L$.
+
+\paragraph{Torus hypotheses.} At step $k$:
+\begin{enumerate}[label=(T\arabic*)]
+\setcounter{enumi}{-1}
+\item $n_k\ge n_*(L,M,\rho)$, the largest of the torus conditions of the inputs. These are:
+  \begin{itemize}
+  \item $n_0$ of Lemma~\ref{lem:quadratic-bound} and Corollary~\ref{cor:regularity}, for $n_k$; Lemma~\ref{lem:quadratic-bound} needs only that its cube $\Lam$ does not wrap around $\T^{(k)}$, i.e.\ $2R<n_k$;
+  \item $n_\delta$ of Proposition~\ref{prop:sharp-curvature}, for $n_{k+1}$;
+  \item $80M'$ with $M'\ge M'_L$ as in Theorem~\ref{thm:step-coercive}, also large enough for Proposition~\ref{prop:first-step}(b), for $n_{k+1}$;
+  \item $8M_0$ of Lemma~\ref{lem:uniformity}, for $n_{k+1}$;
+  \item $C(\rho+C_v)M$ of Section~\ref{sec:weakenable} ($C\ge8$, used in Section~\ref{subsec:torus-independence}), for $n_k$.
+  \end{itemize}
+  The conditions for $n_{k+1}=n_k/L$ are included in $n_*$ with the factor $L$;
+\item $LM\mid n_k$;
+\item $n_k\ge C_{\rm tor}LM$, with $C_{\rm tor}=8$. By Lemma~\ref{lem:torus}(b), whose proof uses only (T2) at step $k$, every polymer with $d_M(X)\le L$ then has $X^{(3)}$ in a cube of side less than $\frac12n_k$, and diameter at most $\frac12n_k-8$. So such polymers are not wrapping in either sense: that of Lemma~\ref{lem:quadratic-bound}, and that of Proposition~\ref{prop:one-loop-polymer}.
+\end{enumerate}
+The \emph{diameter} of a set of points of $\Tf$ is the largest $\ell^\infty$-distance on the torus between two of its points, in the units of step~$k$. \emph{Wrapping} polymers are those with diameter larger than $\frac12n_k-8$. A set $P$ of diameter $D$ lies in the cube $\Lam_D(z)$ for every $z\in P$, so $P^{(3)}\subset\Lam_{D+3}(z)$. If $P$ is not wrapping, then $2(D+3)<n_k$, and this is a cube as in Lemma~\ref{lem:quadratic-bound}; this is how the proof of Proposition~\ref{prop:one-loop-polymer}(c) uses the diameter.
+
+We assume that $\ell L^N$ and $M$ are powers of $L$, and that the last torus is not too small:
+\[
+n_K\ge n_{\min}:=\max\big(C_{\rm tor}LM,\ n_*(L,M,\rho)\big).
+\]
+The factor $L$ in the first entry makes (T2) hold at the last scale $k=K$ as well. No step starts there, but the bounds of the flow at scale $K$ use the same geometry as at the earlier scales: the cubes of scale $K$, and the neighbourhoods $\Box^+$, that contain the small old polymers, and the lower bound on the size of wrapping polymers (Lemma~\ref{lem:torus}(a),(b)). All bounds below are uniform in $N$ and $K$; this mirrors \cite{DimockI}, whose final torus has side $L^{M+\Delta}$.
+
+\emph{Polymers of different scales.} Polymers of scale $j$ and their tree lengths $d_j(X)$ are those of Section~\ref{subsec:flow-norm}. The grids of all scales are aligned: for $j\le k\le K$ a grid cube of scale $k$ is the disjoint union of $L^{d(k-j)}$ grid cubes of scale $j$, and the grid cubes of each scale pave $\Tf$ (Lemma~\ref{lem:grid-nesting}). For a polymer $X$ of scale $j$ and $k\ge j$, the union $\operatorname{cl}_kX$ of the grid cubes of scale $k$ that meet $X$ is a polymer of scale $k$, with $d_j(X)\ge L^{k-j}d_k(\operatorname{cl}_kX)$ (Lemma~\ref{lem:grid-nesting}(c)); moreover $\operatorname{cl}_jX=X$ and $\operatorname{cl}_{j+1}X=\bar X$ (Section~\ref{subsec:flow-reblock}). Since $n_k=\ell L^{N-k}$, we have $n_j=L^{k-j}n_k$.
+
+\begin{lemma}[Torus hypotheses and wrapping polymers]\label{lem:torus}
+Let $n_K\ge n_{\min}$.
+\begin{enumerate}[label=(\alph*)]
+\item For every $k\le K$, (T0)--(T2) hold. In particular, in the units of a step $k\le K$, every cube $\Lam_R(z)$ with $R\le4M+8$ has $2R<n_k$. This applies to the union $\Box^+$ of a grid cube $\Box$ and its $*$-neighbours (Section~\ref{subsec:flow-norm}), to its $3$-neighbourhood, and to the cubes $\Lam_{4M+2}(z)$ of Definition~\ref{def:regular}.
+\item Let $k\le K$, and let $X$ be a polymer of scale $k$. Then $\operatorname{diam}(X)\le M(d_k(X)+2)$. If $X$ is wrapping, then $d_k(X)\ge n_k/(4M)$. If $d_k(X)\le n_k/(8M)$, then $X$ is not wrapping, and $X^{(3)}$ lies in a cube $\Lam_R(z)$ with $2R<\frac12n_k$.
+\item Let $j\le k\le K$, $m=k-j$, and let $X$ be a polymer of scale $j$. If $X$ is wrapping, or if $\operatorname{cl}_kX$ is wrapping at scale $k$, then $d_j(X)\ge n_j/(4M)=L^mn_k/(4M)$. If $d_j(X)\le L^{m+1}$, then $X$ is not wrapping, and $X^{(3)}$ lies in a cube $\Lam_R(z)$ of scale $j$ with $2R<\frac12n_j$.
+\item Let $j$, $k$, $m$ be as in (c), let $\lambda\ge\kappa_0+1$ and $A\ge0$, and let $a(X)\ge0$ be numbers indexed by the polymers $X$ of scale $j$ with $d_j(X)\ge n_j/(4M)$, such that $a(X)\le Ae^{-\lambda d_j(X)}$. Then, for every grid cube $\Box$ and every polymer $Y$ of scale $k$,
+\[
+\begin{aligned}
+\sum_{X\cap\Box\ne\emptyset}a(X)&\le K_0L^{dm}A\,e^{-(\lambda-\kappa_0)L^mn_k/(4M)},\\
+\sum_{\operatorname{cl}_kX=Y}a(X)&\le3^dK_0L^{dm}A\,e^{-(\lambda-\kappa_0)L^mn_k/(8M)}\,e^{-(\frac12(\lambda-\kappa_0)L^m-1)d_k(Y)},
+\end{aligned}
+\]
+with $\kappa_0$, $K_0$ of \eqref{eq:dM-facts}.
+\item If, for every $j\le k$, numbers $a_j(X)$ are given as in (d), with the same $A$ and $\lambda$, then for every grid cube $\Box$ of scale $k$
+\[
+\sum_{j\le k}\ \sum_{X\text{ of scale }j:\ X\cap\Box\ne\emptyset}a_j(X)\le2K_0A\,e^{-(\lambda-\kappa_0)n_k/(4M)} .
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:torus}
+(a) For $k\le K$, $n_k=L^{K-k}n_K\ge n_K\ge n_{\min}$. This gives (T0) and (T2). Since $n_K$ and $M$ are powers of $L$ with $n_K\ge LM$, $LM\mid n_K\mid n_k$, which is (T1). By (T2), $n_k\ge8LM>8M+16$, since $L\ge3$ and $M\ge64$. The set $\Box^+$ is a cube of side $3M$, and its $3$-neighbourhood lies in a cube $\Lam_R(z)$ with $R\le\frac32M+4$.
+
+(b) Let $\mathsf T$ be a tree in the continuum torus that meets every cube of $X$, of length $\ell_{\mathsf T}$ in lattice units. Let $x,x'\in X$, let $Q,Q'$ be cubes of $X$ that contain them, and let $q\in\mathsf T\cap Q$ and $q'\in\mathsf T\cap Q'$. The path in $\mathsf T$ from $q$ to $q'$ has length at most $\ell_{\mathsf T}$, so the $\ell^\infty$-distance of $q$ and $q'$ on the torus is at most $\ell_{\mathsf T}$; and $|x-q|_\infty,|x'-q'|_\infty\le M$. Hence $|x-x'|_\infty\le\ell_{\mathsf T}+2M$, and the infimum over $\mathsf T$ gives $\operatorname{diam}(X)\le M(d_k(X)+2)$. By (T2) at step $k$, which holds by (a), $n_k\ge8LM$; the rest of the proof of (b) uses only this, $L\ge3$ and $M\ge64$. If $X$ is wrapping, then $\frac12n_k-8<M(d_k(X)+2)$, so
+\[
+d_k(X)>\frac{n_k}{2M}-2-\frac8M\ge\frac{n_k}{4M},
+\]
+since $n_k/(4M)\ge2L\ge2+8/M$. If $d_k(X)\le n_k/(8M)$, then $D=\operatorname{diam}(X)\le\frac18n_k+2M\le\frac12n_k-8$, since $\frac38n_k\ge3LM\ge2M+8$; so $X$ is not wrapping. For $z\in X$, $X^{(3)}\subset\Lam_{D+3}(z)$, and $2(D+3)\le\frac14n_k+4M+6<\frac12n_k$, since $\frac14n_k\ge2LM>4M+6$.
+
+(c) If $X$ is wrapping, (b) at scale $j$ gives $d_j(X)\ge n_j/(4M)$. If $\operatorname{cl}_kX$ is wrapping at scale $k$, (b) at scale $k$ gives $d_k(\operatorname{cl}_kX)\ge n_k/(4M)$, hence $d_j(X)\ge L^mn_k/(4M)=n_j/(4M)$, by Lemma~\ref{lem:grid-nesting}(c). Finally, by (T2) at scale $k$, $n_j/(8M)=L^mn_k/(8M)\ge L^{m+1}$, and (b) at scale $j$ gives the last claim. Since $L^{m+1}\ge L(1+m\log L)$, it covers every polymer of scale $j$ with $d_j(X)\le c\,m$ and $c\le L\log L$.
+
+(d) Every $X$ that meets $\Box$ contains one of the $L^{dm}$ grid cubes $Q$ of scale $j$ in $\Box$. For the $X$ in the sum, $d_j(X)\ge n_j/(4M)$, so $a(X)\le Ae^{-(\lambda-\kappa_0)n_j/(4M)}e^{-\kappa_0d_j(X)}$. By \eqref{eq:dM-facts} at scale $j$, $\sum_{X\supset Q}e^{-\kappa_0d_j(X)}\le K_0$. Summing over $Q$, with $n_j=L^mn_k$, gives the first bound. For the second, every $X$ with $\operatorname{cl}_kX=Y$ contains one of the $L^{dm}|Y|_M$ grid cubes of scale $j$ in $Y$, where $|Y|_M$ is the number of grid cubes of scale $k$ in $Y$. By Lemma~\ref{lem:grid-nesting}(c), $d_j(X)\ge L^md_k(Y)$, so
+\[
+(\lambda-\kappa_0)d_j(X)\ge\tfrac12(\lambda-\kappa_0)\frac{n_j}{4M}+\tfrac12(\lambda-\kappa_0)L^md_k(Y).
+\]
+With \eqref{eq:dM-facts} as before and $|Y|_M\le3^d(1+d_k(Y))\le3^de^{d_k(Y)}$ this gives the second bound.
+
+(e) The pairs $(j,X)$ with $X$ of scale $j$ and $a_j(X)$ defined have $d_j(X)\ge n_j/(4M)$. By the first bound of (d), the left side is at most $K_0A\sum_{m\ge0}L^{dm}e^{-xL^m}$, with $x=(\lambda-\kappa_0)n_k/(4M)$; the term $m$ comes from $j=k-m$. By (T2) and $\lambda-\kappa_0\ge1$, $x\ge2L$. Since $L^m\ge1+m(L-1)$,
+\[
+\sum_{m\ge0}L^{dm}e^{-xL^m}\le e^{-x}\sum_{m\ge0}\big(L^de^{-x(L-1)}\big)^m\le2e^{-x},
+\]
+because $L^de^{-2L(L-1)}\le\frac12$ for $L\ge3$ and $d=4$.
+\end{proof}
+
+\paragraph{Wrapping polymers.} The one-loop pieces of wrapping polymers are bounded by $Ce^{-(\kappa_2-1)|X|}e^{-cn_k/M}$, those of the other polymers by $Ce^{-(\kappa_2-1)|X|}$ (Proposition~\ref{prop:one-loop-polymer}(d)). On the fixed domains of Remark~\ref{rem:domain-constants} both are of order one, so the wrap-around pieces need not be compared with the other activities: Lemma~\ref{lem:torus} bounds them uniformly at all later scales under (T0)--(T2), with $n_K\ge n_{\min}$. Lemma~\ref{lem:quadratic-bound} needs a cube $\Lam\supset X^{(3)}$ with $2R<n_k$, which a polymer winding around the torus does not have. Such polymers are wrapping, since a polymer that is not wrapping lies in such a cube. The activities of wrapping polymers are not expanded, at their own scale or later; they are bounded by their supremum.
+
+Let $\{E(X,\cdot)\}$ be activities indexed by the polymers of scale $j$, with $\sup|E(X,\cdot)|\le Ae^{-\lambda d_j(X)}$ on the domains $\mathcal U(X;\theta_r,\delta'_1,\delta_0)$ of scale $j$, where $\delta'_1=\delta_1$ or $\delta'_1=\delta_1^\flat$, and $\lambda\ge2\kappa_0+2$. The generations of Section~\ref{sec:generations} are of this kind, with $\delta'_1=\delta_1^\flat$ and $\lambda=\kappa_n$ (Remark~\ref{rem:parameters}(1)). At a scale $k\ge j$, the domain of scale $k$ at $\operatorname{cl}_kX$, with the same constants, lies in that of scale $j$ at $X$ (Remark~\ref{rem:domain-constants}(i)), so the bound holds there. By Lemma~\ref{lem:torus}(c), the wrapping polymers of scale $j$, and those whose closure $\operatorname{cl}_kX$ wraps at scale $k$, have $d_j(X)\ge n_j/(4M)$. By (d) and (e), their activities, summed over all scales $j\le k$, contribute at most $2K_0Ae^{-(\lambda-\kappa_0)n_k/(4M)}$ per grid cube of scale $k$. Grouped by $\operatorname{cl}_kX=Y$, with $k>j$, they decay in $d_k(Y)$ at the rate $\frac12(\lambda-\kappa_0)L^{k-j}-1\ge\lambda$, since $\lambda-\kappa_0\ge\frac12\lambda+1$ and $L\ge4$; the latter follows from $L^2\ge8(C_*+1)$ (Remark~\ref{rem:parameters}(2)) and $C_*\ge1$ (Proposition~\ref{prop:sharp-curvature}), as in the proof of Lemma~\ref{lem:large-later}. These bounds are uniform in $k$, $K$, $N$ and the coupling. So the activities of wrapping polymers are bounded crudely at every later scale, as those of large polymers. Their quadratic parts, which would be marginal (Remark~\ref{rem:one-loop-polymer}(b)), are neither expanded nor extracted. Conversely, by Lemma~\ref{lem:torus}(c), polymers of scale $j$ with $d_j(X)\le L^{k-j+1}$ are not wrapping, and by (a) the cubes of side at most $8M+16$ in the units of a scale $k\le K$ do not wrap. The grouped bounds are Lemma~\ref{lem:large-later}(c).
+
+\subsection{The first step}\label{subsec:tf-first}
+
+At $k=0$ the configurations $V$ live on the $\epsilon$-lattice, $U_0(V)=V$, and the background of the step is $U'=U_1(V')$, which is the case $k=1$ of Theorem~\ref{thm:balaban}. The base is $W=U'^{(0)}=U'$. The general analysis of Sections~\ref{sec:step-quantities}--\ref{sec:cluster} uses the $k$-step operators at $U'$ with the pair $(Q'_k,\bQ_k)$. At $k=0$ these are the degenerate case of a single fine point per block: Lemma~\ref{lem:uniformity} excludes it, and Theorem~\ref{thm:variational} reduces to $\mathfrak B(V)=\{V\}$. The first step is simpler, and is treated directly.
+
+\paragraph{Recall of the step in fluctuation coordinates.} The proposition and Lemma~\ref{lem:first-step-formula} use the coordinates of Part~VII. The configurations of the step are $e^{\ii\hat Z(Z)}W$, with the base $W$ and the fluctuation field $Z$ on the bonds $\mathfrak F$ (Definition~\ref{def:bonds}); $\hat Z$ is the local elimination of the constrained variables (Lemma~\ref{lem:eliminate}). The gauge fixing relative to the base uses the averaged relative transports $\mathfrak G_W$ (Definitions~\ref{def:avg-transport} and~\ref{def:gauge-fixing}), and its exponent $\Phi_W$ is that of Lemma~\ref{lem:exp-gauge}(c). The exact step in these coordinates is Proposition~\ref{prop:exact-step}; its quadratic part, the Hessian $\Delta_k$, and the covariance $C_k=\Delta_k^{-1}$ are those of Lemma~\ref{lem:step-quadratic} and Corollary~\ref{cor:covariance}; the cutoffs are $\chi^{\rm w}$ (Definition~\ref{def:chi-w}) and $\chi_\xi$ (Definition~\ref{def:small-field-step}). For $k\ge1$ the resulting formula, Theorem~\ref{thm:step}, is displayed at the start of Section~\ref{sec:step-quantities} (\hyperref[par:step-formula]{the formula of one step}). At $k=0$ the operator $\Delta_0$ is explicit, and the formula is Lemma~\ref{lem:first-step-formula}.
+
+\begin{proposition}[The first step]\label{prop:first-step}
+Let $k=0$, so that $\rho_0=e^{-E_0}\exp(-g_0^{-2}S)$ and $\mathfrak E_0=0$, and let $V'$ be small field at step~$1$. Let the parameters be chosen as in Remark~\ref{rem:parameters}, with the constants of the first step listed at the end of the proof, and assume (Q1), (Q2) and $2g_0\le r_t$ at $k=0$. Then the construction of Sections~\ref{sec:fluctuations}--\ref{sec:cluster} applies at $k=0$, with the simplifications (a)--(c) below and the replacements listed in the proof, and $e^{E_0}T_{\rm sf}(\rho_0)(V')$ is given by Theorem~\ref{thm:sf-step} with $\mathfrak E=0$ and $E^\#_{\rm m}=0$: there are no old activities, no composed activities and no mixed class, and (Q3) is void. The step quantities simplify as follows.
+\begin{enumerate}[label=(\alph*)]
+\item \emph{No background map.} $\mathcal S(B)=S(e^{\ii B}U')$, and $A_*$ is not used. The interaction pieces are $v_p(Z)=s_p(e^{\ii\hat Z(Z)}U')-T_2[\cdots](Z)$, local in $Z$ within range $2L+2$.
+\item \emph{The Hessian.} With $\Delta^0$ the Hessian of $B\mapsto S(e^{\ii B}U')$ at $0$ and $\omega_0$ the gradient there,
+\[
+\Delta_0(Z,Z)=\Delta^0(\hat Z^1Z,\hat Z^1Z)+2\ip{\omega_0}{\hat Z^2(Z)}+\|\mathfrak G_{U'}Z\|^2 .
+\]
+$\Delta_0$ is local of range at most $2L+2$, and $\Rea\Delta_0(Z,\bar Z)\ge\frac12C_{\rm P}^{-1}\|Z\|^2$ on $\ell^2(\mathfrak F)$, uniformly on the complex references of size $\delta_c\le\delta_{P,0}$, with $C_{\rm P}$ of Lemma~\ref{lem:poincare-step}.
+\item \emph{The walks.} $C_0^{1/2}(s)$ and the determinant densities are given by Theorem~\ref{thm:weak-inverse} and Corollary~\ref{cor:weak-covariance}, with $\fA=\Delta_0+r$, $\mathfrak N=0$ and no mass term.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}\hasdetail{prop:first-step}
+The density $\rho_0$ is $e^{-E_0}$ times a density of the form \eqref{eq:rho-form} with $\mathfrak E_0=0$, defined on all configurations, so with any threshold $\tilde h\le a_1$. The step is linear in the density, so the factor $e^{-E_0}$ passes through it.
+
+(a) For $k=0$ the $k$-step variational problem is trivial: $U_0(e^{\ii B}W)=e^{\ii B}W$, so $\mathcal S(B)=S(e^{\ii B}U')$. Lemma~\ref{lem:exp-gauge}, Lemma~\ref{lem:gf-step-invariance}, Lemma~\ref{lem:eliminate} and Proposition~\ref{prop:exact-step} are one-step statements for the averaging $\mathfrak a'$ from $\T$ to $\T'$ at the base $W=U'$, and they hold at $k=0$. The interaction pieces are those of Definition~\ref{def:interaction-pieces} with $A_*(s;B)$ replaced by $B$. They are local, since $s_p$ and $\hat Z$ are. The gauge-fixing pieces of Proposition~\ref{prop:gf-pieces} depend only on the base and on $Z$, and are unchanged.
+
+(b) At $k=0$, $\Delta^0$ is the second variation of the Wilson action on $\T$ at $U'$. Its kernel vanishes unless the two bonds lie in a common plaquette, and it is bounded. Lemma~\ref{lem:first-step-formula}(a),(b) below, whose proof uses only the definitions in (a) and (b) of the present proposition, is Lemma~\ref{lem:step-quadratic} at $k=0$, with $\mathcal S$ explicit and with the minimality of Lemma~\ref{lem:composition}(c) at $k=0$; there it is the minimality of $U'=U_1(V')$ among the configurations $V$ near $U'$ with $\mathfrak a'(V)=V'$ (Theorem~\ref{thm:balaban}). It gives $\Delta_0$ as stated, with no linear term, and $\|\mathfrak G_{U'}Z\|=\|\mathfrak G_{U'}\hat Z^1Z\|$.
+
+\emph{Lower bound at real references.} Let $B=\hat Z^1Z$. Then $B\in\mathcal Z=\ker l^{\rm pl}$ and $\|B\|\ge\|Z\|$ (Lemma~\ref{lem:eliminate}(d)). We follow the proof of Theorem~\ref{thm:step-coercive}, with $\Delta^0$ in place of $\boldsymbol\Gamma_\pi-a$ and the base $W=U'$. Let $\{\chi_j\}$ be the partition of Lemma~\ref{lem:partition} at scale $M'$, acting on bond fields through $b_-$.
+\begin{itemize}
+\item \emph{IMS.} Since $\Delta^0$ has range $1$, Lemma~\ref{lem:IMS} gives $\Delta^0(B,B)\ge\sum_j\Delta^0(\chi_jB,\chi_jB)-CM'^{-2}\|B\|^2$. As in the proof of Theorem~\ref{thm:step-coercive}, $\|\mathfrak G_{U'}B\|^2\ge\sum_j\|\mathfrak G_{U'}\chi_jB\|^2-C_L(L/M')^2\|B\|^2$.
+\item \emph{Local gauges.} Each $\chi_jB$ is supported on bonds starting in a cube $\Lam_{M'}(z_j)$. On $\Lam_{40M'}(z_j)$ there is a real gauge $u_j$ in which $U'=e^{\ii A_j}$ with $|A_j|+|\partial A_j|\le C_{M'}\eps$ (Definition~\ref{def:regular}, and Lemma~\ref{lem:large-cubes}, which needs $\eps\le\eps_{\rm cmp}(M')$; at $k=0$, $\eta=1$). By Proposition~\ref{prop:action} at $\eta=1$, which applies since $U'$ is $(1,\eps)$-regular with $\eps\le c_5$, $\Delta^0(B,B)=\|D_{U'}B\|^2+d^2\mathcal N(0)[B,B]$ with $|d^2\mathcal N(0)[B,B]|\le C\eps(\|B\|^2+\|\nabla B\|^2)\le C\eps\|B\|^2$, since $\|\nabla B\|^2\le4d\|B\|^2$ at $\eta=1$. The covariant curl is gauge covariant, and the plaquettes that meet the bonds of $\chi_jB$ lie in $\Lam_{40M'}(z_j)$; so Lemma~\ref{lem:cov-expansion} in the gauge $u_j$ gives $\|D_{U'}\chi_jB\|^2\ge\|\dl(\chi_jB)^{u_j}\|^2-C_{M'}\eps\|\chi_jB\|^2$. Hence
+\[
+\Delta^0(\chi_jB,\chi_jB)\ge\|\dl(\chi_jB)^{u_j}\|^2-C_{M'}\eps\|\chi_jB\|^2 .
+\]
+This replaces the first bound of Lemma~\ref{lem:local-comparison}. Its second and third bounds hold at $k=0$ with the same proofs; since $W=U'$, the gauge $u_j$ gives $W^{u_j}=e^{\ii A_j}$ directly, in place of Lemma~\ref{lem:avg-local-gauge}. With $\|\mathfrak G_1\|\le C_L$ and $M'\ge L$ they give
+\[
+\begin{aligned}
+\|\mathfrak G_{U'}\chi_jB\|^2&\ge\|\mathfrak G_1(\chi_jB)^{u_j}\|^2-C_{M'}\eps\|\chi_jB\|^2,\\
+\|q^{\rm pl}(\chi_jB)^{u_j}\|^2&\le2\|l^{\rm pl}\chi_jB\|^2+C_{M'}\eps^2\|\chi_jB\|^2 .
+\end{aligned}
+\]
+\item \emph{Poincar\'e.} By Lemma~\ref{lem:poincare-step} applied to $(\chi_jB)^{u_j}$, with $\|(\chi_jB)^{u_j}\|=\|\chi_jB\|$,
+\[
+\|\dl(\chi_jB)^{u_j}\|^2+\|\mathfrak G_1(\chi_jB)^{u_j}\|^2\ge C_{\rm P}^{-1}\|\chi_jB\|^2-\|q^{\rm pl}(\chi_jB)^{u_j}\|^2 .
+\]
+As in the proof of Theorem~\ref{thm:step-coercive}, $\sum_j\|l^{\rm pl}\chi_jB\|^2\le2\|l^{\rm pl}B\|^2+C_L(L/M')^2\|B\|^2$, and $l^{\rm pl}B=0$.
+\end{itemize}
+Summing over $j$ with $\sum_j\|\chi_jB\|^2=\|B\|^2$, and using $\eps\le1$,
+\[
+\Delta^0(B,B)+\|\mathfrak G_{U'}B\|^2\ge\big(C_{\rm P}^{-1}-CM'^{-2}-C_L(L/M')^2-C_{M'}\eps\big)\|B\|^2 .
+\]
+Choose $M'$ so large that $CM'^{-2}+C_L(L/M')^2\le\frac18C_{\rm P}^{-1}$, and then $\eps$ so small that $C_{M'}\eps\le\frac18C_{\rm P}^{-1}$. Then $\Delta^0(\hat Z^1Z,\hat Z^1Z)+\|\mathfrak G_{U'}Z\|^2\ge\frac34C_{\rm P}^{-1}\|Z\|^2$, since $\|\hat Z^1Z\|\ge\|Z\|$.
+
+\emph{The gradient term.} At $k=0$, $\eta=1$ and $\omega_0=\nabla_BS(e^{\ii B}U')|_{B=0}=J_{U'}$ exactly. It is the multiplier of the trivial $0$-step problem, not of the one-step constrained minimum. That $\ip{\omega_0}{\hat Z^1Z}=0$, i.e.\ the absence of a linear term, follows from Lemma~\ref{lem:composition}(c) at $k=0$, which is Lemma~\ref{lem:first-step-formula}(a). The term $2\ip{\omega_0}{\hat Z^2(Z)}$ is at most $CL^{3d+1}|J_{U'}|\|Z\|^2$, by Lemma~\ref{lem:eliminate}(d), and $|J_{U'}|\le\eps$ is small by Theorem~\ref{thm:balaban}; so it is at most $\frac18C_{\rm P}^{-1}\|Z\|^2$ for $\eps'_1$ small; in the flow this holds since $\eps'_1\le\gamma p(\gamma)\le a^{(0)}_{\rm step}$ (($\Gamma$2) of Remark~\ref{rem:flow-constants}). (The smallness conditions on $\eps$, namely $\eps\le\min(\eps_{\rm cmp}(M'),c_5)$, $C_{M'}\eps\le\frac18C_{\rm P}^{-1}$ and the condition on the gradient term, are part of the choice of $a^{(0)}_{\rm step}$ in Lemma~\ref{lem:first-step-formula}.) Away from criticality put $\omega_0:=J_{U'}$; the bound holds with $|J_{U'}|\le\eps$. The proof of the lower bound does not use criticality: it holds at every real reference on $\T$ that is $(M,\eps)$-regular with $|J_{U'}|\le\eps$ and whose base satisfies $L^d\mathsf a\le c$, for $\eps$ below the conditions just listed. Besides $U_1(V')$, the first step is used at the real parts of the extended points of the graded domains of scale~$1$, and of the domains $\mathcal U(X;c_a,c_a,c_a)$ of scale~$0$: in Proposition~\ref{prop:one-loop-polymer} and Section~\ref{sec:cluster} at $k=0$, hence in Lemma~\ref{lem:raw-new} and Proposition~\ref{prop:flow-continuity} at $k=0$. These real parts lie in $\mathfrak U(c_a)$ in the units of step~$0$, so they are $(M,\max(1,B_5)c_a)$-regular (Corollary~\ref{cor:regularity}). For them $L^d\mathsf a\le c$ holds by (DC3), respectively by $c_a\le c_JL^{-d-2}$ with $c_J$ small (Proposition~\ref{prop:jacobians}(c)). The conditions on $\eps$ hold there by the choice of $\eps_a$ in (c) below.
+
+\emph{Complex references and range.} $\Delta_0$ is an explicit local analytic function of the reference: the Hessian of the Wilson action, composed with the elimination of Lemma~\ref{lem:eliminate} at a complex base, plus the bilinear form $\ip{\mathfrak G_{\hat W}Z}{\mathfrak G_{\hat W}Z}$ at the complex base $\hat W=U'$, which is holomorphic in the base (Definition~\ref{def:avg-transport}, Lemma~\ref{lem:avg-transport}(a)), as in the proof of Corollary~\ref{cor:covariance}(c). Complex references of size $\delta_c$ change $\Delta_0$ by $O(\delta_c)$ in norm. The range follows from that of $\hat Z^1$ and $\hat Z^2$, and from the block-locality of $\mathfrak G_{U'}$. The IMS scale $M'$ is chosen after $L$ and before $\gamma$ (Remark~\ref{rem:parameters}(4)), and $n_1\ge80M'$ is included in $n_*$.
+
+(c) The hypotheses of Section~\ref{sec:nested-walks} hold with $\fA^X=\one_X(\Delta_0+r)\one_X$ on $\ell^2(\mathfrak F(X))$:
+\begin{itemize}
+\item (W1): $\fA^X$ is local, and $\mathfrak N=0$;
+\item (W2): the compressions to $\Lam^v_j\cap X$ have $\Rea\ge\frac12C_{\rm P}^{-1}+r$, since the lower bound of (b) holds for all fields on $\mathfrak F$, hence decay by Lemma~\ref{lem:CT-bounded}; the comparison of domains is in seam form, by the resolvent identity and the locality of $\Delta_0$, as in Proposition~\ref{prop:local-fluct}(c);
+\item (W3) is empty.
+\end{itemize}
+The operator $\fA^X$ contains the gauge-fixing term $\one_{\mathfrak F(X)}\mathfrak G_{U'}^T\mathfrak G_{U'}\one_{\mathfrak F(X)}$. The commutator hypothesis of Lemma~\ref{lem:step-small} holds, since $\Delta_0$ has range $2L+2$ and $|\nabla h_j|\le C/M$. So does the comparison of the local commutators in Theorem~\ref{thm:weak-inverse}(b): the difference is $\one_X[\Delta_0,h_j](G^X_j-G^{X'}_j)+(\one_X-\one_{X'})[\Delta_0,h_j]G^{X'}_j$, of seam form by (W2) and supported next to $X\setminus X'$, respectively. Then Theorem~\ref{thm:weak-inverse} and Corollary~\ref{cor:weak-covariance} apply. In the latter, the local densities $\ell_{\Lam^v_j}$ are now the diagonal traces of $\log(\one_\Lam\Delta_0\one_\Lam)$, $\Lam=\Lam^v_j$, by the formula of Proposition~\ref{prop:det-densities}. Proposition~\ref{prop:one-loop-polymer} applies with one change. Its constants $\eps_a,\delta_a$ at $k=0$ are chosen so that (b) holds at the references; in particular $\eps_a\le\min(\eps_{\rm cmp}(M'),c_5)$, $C_{M'}\eps_a\le\frac18C_{\rm P}^{-1}$, $\eps_a$ satisfies the condition on the gradient term, $\eps_a\le\eps_{\max}$, and $C_{\rm cmp}\delta_a\le\delta_{P,0}$; the last two make every configuration of Definition~\ref{def:bg-activity} a complex reference of size at most $C_{\rm cmp}\delta_a\le\delta_{P,0}$ (first item of Section~\ref{sec:complex-references}). With them, $c_a$ satisfies $\max(1,B_5)c_a\le\eps_a$ and $2C_{\rm ext}c_a<\delta_a$, and, by the rule at the end of this proof, the flow uses the smaller of the values of $c_a$ at $k=0$ and at $k\ge1$. Parts (a), (b) obtained analyticity at complex references through Propositions~\ref{prop:reg-complex}, \ref{prop:AB} and~\ref{prop:complex-ext}, which concern $k$-step operators. At $k=0$ this is replaced by the direct statement in (b): $\Delta_0$ is an explicit local analytic function of the reference, coercive under complex perturbations.
+
+The rest of Sections~\ref{sec:step-quantities}--\ref{sec:cluster} applies with these replacements:
+\begin{itemize}
+\item Proposition~\ref{prop:interaction-pieces}(a)--(c) and~(e) with $A_*=B$, so that $|A_*|_*\le C_P|B|$ holds trivially, and Proposition~\ref{prop:jacobians}; in place of Proposition~\ref{prop:interaction-pieces}(d), the factorization of the composed pieces proved below;
+\item $r_I=r_L$, since Theorem~\ref{thm:weak-bg} and its radius $R_P$ are not used;
+\item in (Q1), the conditions $w\le\beta_V$ and $w\le\frac12R_P$ are dropped: $\beta_V$ enters only the identification through $A_*(1;B)=A_*(B)$, which is trivial for $A_*=B$, and $R_P$ only through $A_*$;
+\item complex references at $k=0$ are those of size $\delta_c\le\delta_{P,0}$. Here $\delta_{P,0}$ is such that the $O(\delta_c)$ change of $\Delta_0$ in (b) is at most $\frac18C_{\rm P}^{-1}$ in norm, and $\delta_{P,0}\le\min(c'_L,cL^{-d-1})$, with $c'_L$ of Corollary~\ref{cor:covariance}(c), for the elimination and the averaged contour variables at the complex base $W=U'$ (with $|\mathfrak r_c|\le\frac12$); moreover $\eps+C\delta_{P,0}\le\frac1{20}$ and $\rho_L\le\frac1{20}$, for Proposition~\ref{prop:interaction-pieces}(b) at $k=0$. With the bound on the gradient term this gives $\Rea\Delta_0(Z,\bar Z)\ge(\frac34-\frac18-\frac18)C_{\rm P}^{-1}\|Z\|^2=\frac12C_{\rm P}^{-1}\|Z\|^2$;
+\item Section~\ref{sec:cluster} without composed activities, and with Lemma~\ref{lem:first-step-formula} in place of Theorem~\ref{thm:step} and Corollary~\ref{cor:covariance}: in Proposition~\ref{prop:small-field-step}, whose proof is that of Theorem~\ref{thm:step} with $\chi_\xi$ carried along, and in the covariance (C1), (C2) of the white-noise cutoff $\chi_\xi$, which rests on Lemma~\ref{lem:first-step-formula}(c).
+\end{itemize}
+\emph{Factorization at $k=0$.} The first sentence of Proposition~\ref{prop:interaction-pieces}(d), a statement for a fixed field $Z$, does not hold at $k=0$: there $v_p(Z)$ does not depend on $s$, and it need not vanish when all $s_\Box$ do. For instance, at $U'=1$, let $Z$ be supported on one bond $b\in\mathfrak F$ of a plaquette $p$ that contains no bond $b_0(c)$. Then $v_p(Z)=f(Z(b))-T_2[f](Z(b))$ with $f(X)=\mathsf N-\operatorname{tr}\cos X$, which is of order $|Z(b)|^4$ and not $0$ for small real $Z(b)\ne0$. What Lemma~\ref{lem:localization} needs is the factorization of the composed pieces $v_p(Z(s))$, $Z(s)=gC_0^{1/2}(s)\xi$, which we now prove, as for the gauge-fixing pieces. For a plaquette $p$ let $B'(p)$ be the union of the blocks $B'(y)$, $y\in\T'$, that meet $p$. Its $\infty$-diameter is less than $2L$, since in each coordinate direction the points of $p$ lie in at most two consecutive blocks, and it contains $B'(c_-)\cup B'(c_+)$ for every bond $b_0(c)$ of $p$. By Lemma~\ref{lem:eliminate}(a),(c),(d) and Lemma~\ref{lem:one-step-basic}(c), $\hat Z(Z)$ on the bonds of $p$ depends on $Z$ and on the base $W=U'$ only on the bonds of $B'(p)$, and so does $v_p(Z)$. If $Z=0$ on the bonds of $\mathfrak F$ in $B'(p)$, then $\hat Z(Z)=0$ on the bonds of $p$, since $\zeta_c(0)=0$ by the uniqueness in Lemma~\ref{lem:eliminate}(c); so $t\mapsto s_p(e^{\ii\hat Z(tZ)}U')$ is constant, and $v_p(Z)=0$.
+
+Now let $s_\Box=0$ for $\Box\not\subset Z'$, a union of boxes with $*$-components $Z'_i$. By (c), Corollary~\ref{cor:weak-covariance} and Lemma~\ref{lem:weak-basic}(b), $Z(s)$ vanishes off $Z'^{(r)}$; on $(Z'_i)^{(r)}$ it depends on $\xi$ and on $U'$ only on $(Z'_i)^{(r)}$, and on $s$ only through $s_\Box$, $\Box\subset Z'_i$. Every term of $C_0^{1/2}(s)$ carries a monomial of positive degree (Definition~\ref{def:weak-family}), so $Z(0)=0$. Hence $v_p(Z(s))=0$ unless $B'(p)$ meets $Z'^{(r)}$; in particular $v_p(Z(0))=0$. If $B'(p)$ meets $Z'^{(r)}$, then it meets $(Z'_i)^{(r)}$ for exactly one $i$ and lies in $(Z'_i)^{(r+2L)}$, since its diameter is less than $2L$ and $2r'<M/4$. Then $v_p(Z(s))$ depends on $s$ only through $s_\Box$, $\Box\subset Z'_i$, on $\xi$ only on $(Z'_i)^{(r)}$, and on $U'$ only on $(Z'_i)^{(r+2L)}\subset(Z'_i)^{(r')}$. For a box $\Box\subset Z'_0$, every plaquette based in $\Box$ has a point of $B'(p)$ in $Z'_0$, so this holds with $i=0$. So $V(\Box;s)=g^{-2}\sum_pv_p(Z(s))$, the sum over the plaquettes based in $\Box$, vanishes at $s=0$, depends on $s$ only through the boxes of $Z'_0$, and depends on $\xi$ and $U'$ only on $(Z'_0)^{(r')}$. This is the hypothesis of Lemma~\ref{lem:localization}.
+
+Since $\mathfrak E_0=0$, there is no old activity, hence no composed activity and no mixed class, and (Q3) concerns only the old activities. The torus hypotheses at $k=0$ hold by Lemma~\ref{lem:torus}. The constants of the first step have their own values: $c^{(0)}_L=2C_{\rm P}^{-1}$ in place of $c_L$ (Lemma~\ref{lem:first-step-formula}(c)), and its own $C_T$, $r_I$, $r_t$, $\kappa'$ and $M_1^{(0)}$ (Remark~\ref{rem:parameters}(4)). At complex references, (b) gives the lower bound $\frac12C_{\rm P}^{-1}$, which is better than the bound $\frac18c^{(0)}_L=\frac14C_{\rm P}^{-1}$ of Corollary~\ref{cor:covariance}(c) with $c^{(0)}_L$ in place of $c_L$. Where the flow uses a constant of the step, it uses the worse of its values at $k=0$ and at $k\ge1$: the larger constant in an upper bound, the smaller constant in a lower bound, and the smaller smallness threshold. The rate conditions of Remark~\ref{rem:parameters}(3) hold at $k=0$ with the same choice of the weakening rate: at $k=0$ there is a single walk, Theorem~\ref{thm:weak-inverse} for $\fA=\Delta_0+r$ with $\mathfrak N=0$, and $C^{1/2}_0(s)$ is an $r$-integral of it with no products, so the rate of the first step is at least $\kappa-2\delta\ge\kappa'_w$; the norms increase with the rate, and the conditions are lower bounds on it.
+\end{proof}
+
+The next lemma is the exact representation of the first step, Theorem~\ref{thm:step} at $k=0$. It is the \emph{formula for the first step} of Section~\ref{sec:ol-composite}. Its parts (a) and (b) use only the definitions in Proposition~\ref{prop:first-step}(a),(b); part (c) uses the lower bound proved in Proposition~\ref{prop:first-step}(b), whose proof uses (a) and (b).
+
+\begin{lemma}[The formula for the first step]\label{lem:first-step-formula}
+Let $k=0$, so that $\eta=1$ and $\T=\T^{(0)}=\Tf$, let the parameters up to~(4) of Remark~\ref{rem:parameters} be fixed, and let the torus satisfy (T0)--(T2) at $k=0$ (Lemma~\ref{lem:torus}(a)). There are $a^{(0)}_{\rm step}>0$, $r^{(0)}_2>0$ and $C_L$, depending only on $d$, $L$, $G$, $a$, $\alpha$, $M$ and $M'$, with the following property. Let $V'$ be a real configuration on $\T'=\T^{(1)}$ with curvature at most $\eps'_1\le a^{(0)}_{\rm step}$ in the units of step~$1$, let $U'=U_1(V')$ be an element of its minimal orbit, and put $\eps=B_3\eps'_1$.
+\begin{enumerate}[label=(\alph*)]
+\item \emph{(Composition.)} Lemma~\ref{lem:composition} holds at $k=0$, with the base configuration $V^0=U'$. Thus the base $W=U'$ lies in $\mathfrak U_0\big(L^{-2}(C_*+1)\eps'_1\big)$, $\mathfrak a'(W)=V'$, and every real $V\in\mathfrak U_0(a'_1)$ with $\mathfrak a'(V)=V'$ satisfies $S(V)\ge S(U')$, with equality if and only if $V=U'^u$ for some $u\in\mathcal G'$.
+\item \emph{(The exponent.)} For complex fields $Z$ on $\mathfrak F$ with $|Z|_\infty\le2r^{(0)}_2$ put $F(Z)=S(e^{\ii\hat Z(Z)}U')+\Phi_W(Z)$, with $\hat Z$ of Lemma~\ref{lem:eliminate} and $\Phi_W$ of Lemma~\ref{lem:exp-gauge}(c). Then $F$ is analytic, real for real $Z$, and, for $|Z|_\infty\le r^{(0)}_2$,
+\[
+F(Z)=S(U')+\tfrac12\Delta_0(Z,Z)+\mathcal V(Z)+G_3(Z),\qquad\mathcal V(Z)=\sum_pv_p(Z).
+\]
+Here $\Delta_0$ is the form of Proposition~\ref{prop:first-step}(b); $v_p(Z)=s_p(e^{\ii\hat Z(Z)}U')-T_2[s_p(e^{\ii\hat Z(\cdot)}U')](Z)$ are the interaction pieces of Proposition~\ref{prop:first-step}(a), with $T_2$ the Taylor polynomial of degree $2$ at $Z=0$; and $G_3$ is the remainder of Lemma~\ref{lem:exp-gauge}(c). In particular $F$ has no linear term, and $|\mathcal V(Z)|+|G_3(Z)|\le C_L|Z|_\infty\|Z\|^2$.
+\item \emph{(The covariance.)} $\Delta_0$ is real symmetric on real fields on $\mathfrak F$, has range at most $2L+2$, and
+\[
+\tfrac12C_{\rm P}^{-1}\|Z\|^2\le\Delta_0(Z,Z)\le C_L\|Z\|^2 .
+\]
+So $\Delta_0$ and $C_0=\Delta_0^{-1}$ satisfy the bounds of Corollary~\ref{cor:covariance}, with $c_L$ replaced by $c^{(0)}_L=2C_{\rm P}^{-1}$ and a decay rate $\gamma^{(0)}_C>0$ of $C_0$ depending on $L$, and the covariance (a), (b) of that corollary, with $\mathfrak S_1$ in place of $\mathfrak S_{k+1}$. The densities $\ell_0(b)=\operatorname{tr}_{\mathfrak g}[(\log\Delta_0)(b,b)]$, $b\in\mathfrak F$, with $\log\Delta_0$ defined by the integral of Proposition~\ref{prop:det-densities}, satisfy $\log\det\Delta_0=\sum_{b\in\mathfrak F}\ell_0(b)$ and (a), (b), (d) of that proposition.
+\item \emph{(The formula.)} Let $w\le r^{(0)}_2$, and let $\rho$ be a density of the form \eqref{eq:rho-form} at $k=0$, i.e.\ $\rho(V)=\exp\big(-g^{-2}S(V)+\mathfrak E(V)\big)$ for $V\in\mathfrak U_0(\tilde h)$, with a gauge-invariant $\mathfrak E$ and $a_1\ge\tilde h\ge2(C_*+1)L^{-2}\eps'_1+4w$, measurable and bounded on the support of $\chi^{\rm w}$. Then
+\[
+\begin{aligned}
+T^{\rm gf}(\chi^{\rm w}\rho)(V')={}&\mathcal N_0\exp\Big(-\frac1{g^2}S(U')-\frac12\sum_{b\in\mathfrak F}\ell_0(b)+\sum_c\log\mathfrak j_c\Big)\\
+&\times\int d\mu_{C_0}(Y)\,\chi^{\rm w}\big(\hat Z(gY)\big)\,e^{-g^{-2}(\mathcal V+G_3)(gY)+\mathfrak J(gY)+\mathfrak E(e^{\ii\hat Z(gY)}U')},
+\end{aligned}
+\]
+where $\mathcal N_0$, $\mathfrak j_c$ and $\mathfrak J$ are given by Theorem~\ref{thm:step}(a), (b) and~(e) at $k=0$, with their bounds there, $d\mu_{C_0}$ is the Gaussian measure with covariance $C_0$, and $g^{-2}|(\mathcal V+G_3)(gY)|\le C_Lg|Y|_\infty\|Y\|^2$ for $g|Y|_\infty\le r^{(0)}_2$.
+\end{enumerate}
+In particular, the prefactor of the gauge-fixed first step is $\mathcal N_0\exp\big(-g^{-2}S(U')+\Gamma^{\rm step}_0(U')\big)$, with
+\[
+\Gamma^{\rm step}_0(U')=-\tfrac12\log\det\Delta_0+\sum_c\log\mathfrak j_c ,
+\]
+the one-loop term of the step from scale $0$ in Section~\ref{sec:ol-composite}.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:first-step-formula}
+\emph{Constants.} Choose $a^{(0)}_{\rm step}$ so small that $\eps'_1\le a^{(0)}_{\rm step}$ implies: the hypotheses of Lemma~\ref{lem:composition}, i.e.\ $\eps'_1\le\min(a_{\delta=1},a_1/(2C_*+2))$ and $(C_*+1)\eps'_1\le c_1$; the condition $L^d\mathsf a\le c$ of Lemma~\ref{lem:eliminate}, with $\mathsf a=2(C_*+1)\eps'_1$; $4(C_*+1)L^{-2}\eps'_1\le a'_1$; and the smallness conditions on $\eps=B_3\eps'_1$ in the proof of Proposition~\ref{prop:first-step}(b), $\eps\le\min(\eps_{\rm cmp}(M'),c_5)$, $C_{M'}\eps\le\frac18C_{\rm P}^{-1}$ and $CL^{3d+1}\eps\le\frac18C_{\rm P}^{-1}$. Let $C_w$ be such that $|\hat Z(Z)|_\infty\le C_wL^d|Z|_\infty$ for $|Z|_\infty\le r_L$ (Lemma~\ref{lem:eliminate}(c),(d)). Choose $r^{(0)}_2$ with $2r^{(0)}_2\le\min(r_L,\frac12c_0L^{-1})$, $2C_wL^dr^{(0)}_2\le1$ and $8C_wL^dr^{(0)}_2\le a'_1$. Recall $r_L\le\frac18\eps_M$ and $r_L\le c_0L^{-1}$ (Lemma~\ref{lem:eliminate}, proof of Proposition~\ref{prop:exact-step}).
+
+(a) By Theorem~\ref{thm:balaban} for the one-step problem, in the units of step~$1$, $U'$ is a minimizer of $S$ on $\mathfrak B_1(V')\cap\mathfrak U(\theta_0)$, so $\mathfrak a'(U')=U'^{(1)}=V'$. The $0$-fold average is the identity, so $V^0=U'^{(0)}=U'$, and $U_0(V^0)=V^0=U'$ by the case $k=0$ of Theorem~\ref{thm:balaban}, where $\mathfrak B(V)=\{V\}$; this is Lemma~\ref{lem:composition}(b). By Proposition~\ref{prop:sharp-curvature} with $\delta=1$, $U'$ has curvature at most $(C_*+1)\eps'_1$ in the units of step~$1$, hence at most $L^{-2}(C_*+1)\eps'_1\le\eps_1=2(C_*+1)L^{-2}\eps'_1$ in the units of step~$0$; this is Lemma~\ref{lem:composition}(a), with Proposition~\ref{prop:avg-regular} replaced by the identity. For Lemma~\ref{lem:composition}(c), let $V$ be real with $\mathfrak a'(V)=V'$ and $V\in\mathfrak U_0(a'_1)$. By Theorem~\ref{thm:balaban}(b) at $k=0$, $U_0(V)=V$ lies in $\mathfrak U(B_3a'_1)$ in the units of step~$0$. In the units of step~$1$ its curvature and current are at most $L^3B_3a'_1\le\theta_0$. So $V\in\mathfrak B_1(V')\cap\mathfrak U(\theta_0)$, and $S(V)\ge S(U')$ by Theorem~\ref{thm:balaban}(a) at step~$1$. Equality holds if and only if $V$ lies in the minimal orbit, i.e.\ $V=U'^u$ with $u$ real and $u|_{\T'}=1$, which is $u\in\mathcal G'$, since $\Tf=\T$.
+
+(b) \emph{Analyticity.} For $|Z|_\infty\le2r^{(0)}_2\le r_L$, $\hat Z(Z)$ is analytic, with $|\hat Z(Z)|_\infty\le2C_wL^dr^{(0)}_2\le1$, and real for real $Z$ (Lemma~\ref{lem:eliminate}(c),(d)). The action is a finite sum of the plaquette terms $s_p$, which are analytic on $G^c$-valued configurations (Section~\ref{sec:action}). So $Z\mapsto S(e^{\ii\hat Z(Z)}U')$ is analytic, and real for real $Z$. Since $2r^{(0)}_2\le\frac12c_0L^{-1}$, $\Phi_W$ is analytic and real there (Lemma~\ref{lem:exp-gauge}(c)).
+
+\emph{No linear term.} Let $Z$ be real with $|Z|_\infty\le r^{(0)}_2$. By Lemma~\ref{lem:eliminate}(c), $V=e^{\ii\hat Z(Z)}U'$ is real and satisfies $\mathfrak a'(V)=\mathfrak a'(W)=V'$. As in the paragraph before \eqref{eq:chi-w-support}, its curvature is at most $L^{-2}(C_*+1)\eps'_1+4C_wL^dr^{(0)}_2\le a'_1$. By (a), $S(e^{\ii\hat Z(Z)}U')\ge S(U')$. So the real-analytic function $Z\mapsto S(e^{\ii\hat Z(Z)}U')$ of real $Z$ has a minimum at $Z=0$, and its differential vanishes there. With $\omega_0=\nabla_BS(e^{\ii B}U')|_{B=0}=J_{U'}$, this is $\ip{\omega_0}{\hat Z^1Z}=0$. Moreover $\Phi_W(0)=0$ and $d\Phi_W(0)=0$ (Lemma~\ref{lem:exp-gauge}(c)).
+
+\emph{The quadratic part.} Put $f_p(Z)=s_p(e^{\ii\hat Z(Z)}U')$ and $\mathcal S(B)=S(e^{\ii B}U')$, with $\Delta^0=d^2\mathcal S(0)$. Since $\hat Z(tZ)=t\hat Z^1Z+t^2\hat Z^2(Z)+O(t^3)$, the coefficient of $t^2$ in $\sum_pf_p(tZ)=\mathcal S(\hat Z(tZ))$ is $\frac12\Delta^0(\hat Z^1Z,\hat Z^1Z)+\ip{\omega_0}{\hat Z^2(Z)}$. That of $\Phi_W(tZ)$ is $\frac12\ip{\mathfrak G_WZ}{\mathfrak G_WZ}$, and $\Phi_W-\frac12\ip{\mathfrak G_W\cdot}{\mathfrak G_W\cdot}=G_3$. Together with the absence of a linear term this gives $\sum_pT_2[f_p](Z)+\Phi_W(Z)=S(U')+\frac12\Delta_0(Z,Z)+G_3(Z)$, which is the decomposition of $F$, with $v_p=f_p-T_2[f_p]$. The contours of the families $G(y,x)$ consist of inner bonds, on which $\hat Z(Z)=Z$, so $\|\mathfrak G_WZ\|=\|\mathfrak G_W\hat Z^1Z\|$.
+
+\emph{The remainder.} The term $s_p(e^{\ii B}U')$ depends on $B$ on the four bonds of $p$. By Lemma~\ref{lem:eliminate}(a),(c), $\hat Z(Z)(b_0(c))=\zeta_c(Z)$ depends on $Z$ only on the bonds in $B'(c_-)\cup B'(c_+)$. So $f_p$ depends on $Z$ only on a set $N_p$ of at most $C_L$ bonds of $\mathfrak F$, within distance $2L+2$ of $p$, and every bond lies in $N_p$ for at most $C_L$ plaquettes $p$. For $|B|_\infty\le1$ we have $\|e^{\ii B(b)}\|\le e$, so $|s_p(e^{\ii B}U')|\le C$. Let $|Z|_\infty\le r^{(0)}_2$, put $m_p=\max_{b\in N_p}|Z(b)|$, and let $m_p>0$ (otherwise $v_p(Z)=0$). Let $Z_p$ equal $Z$ on $N_p$ and $0$ elsewhere, so that $f_p(tZ)=f_p(tZ_p)$. Then $t\mapsto f_p(tZ_p)$ is analytic and bounded by $C$ for $|t|\le R_p=2r^{(0)}_2/m_p\ge2$, since $|tZ_p|_\infty\le2r^{(0)}_2$ there. By Cauchy's estimate its Taylor coefficients of order $n$ are at most $CR_p^{-n}$, so
+\[
+|v_p(Z)|\le\sum_{n\ge3}CR_p^{-n}\le2CR_p^{-3}\le C_Lm_p^3 .
+\]
+Hence $|\mathcal V(Z)|\le C_L\sum_pm_p^3\le C_L|Z|_\infty\sum_p\sum_{b\in N_p}|Z(b)|^2\le C_L|Z|_\infty\|Z\|^2$. The bound on $G_3$ is Lemma~\ref{lem:exp-gauge}(c), since $|Z|_\infty\le\frac12c_0L^{-1}$, and $\Phi_W$ depends only on the inner bonds, which lie in $\mathfrak F$.
+
+(c) $\Delta^0$ is the Hessian at $B=0$ of the real function $B\mapsto S(e^{\ii B}U')$ of real $B$, so it is real symmetric. The form $Z\mapsto2\ip{\omega_0}{\hat Z^2(Z)}$ is a real quadratic form, since $\hat Z$ is real for real $Z$, and $\|\mathfrak G_WZ\|^2$ is real symmetric. So $\Delta_0$ is real symmetric. Its range is that of Proposition~\ref{prop:first-step}(b). For the lower bound, the proof of Proposition~\ref{prop:first-step}(b) at the real reference $U'$, whose smallness conditions on $\eps$ hold by the choice of $a^{(0)}_{\rm step}$, gives $\Delta^0(\hat Z^1Z,\hat Z^1Z)+\|\mathfrak G_WZ\|^2\ge\frac34C_{\rm P}^{-1}\|Z\|^2$ and $|2\ip{\omega_0}{\hat Z^2(Z)}|\le\frac18C_{\rm P}^{-1}\|Z\|^2$ for real $Z$. Hence $\Delta_0(Z,Z)\ge\frac58C_{\rm P}^{-1}\|Z\|^2$. For the upper bound: $|\Delta^0(B,B)|\le C\|B\|^2$, by Cauchy's estimate for the plaquette terms as in (b); $\|\hat Z^1Z\|\le CL^d\|Z\|$ (Lemma~\ref{lem:eliminate}(d)); and $\|\mathfrak G_WZ\|^2\le C_L\|Z\|^2$, since $|\mathfrak G_WZ(y,x)|\le CL\max|Z|$, the maximum over the bonds of $B'(y)$ (Lemma~\ref{lem:avg-transport}(c)). These are the bounds of Corollary~\ref{cor:covariance} with $\frac14c^{(0)}_L=\frac12C_{\rm P}^{-1}$. Since $\Delta_0$ is bounded and of finite range, it has decay $(C_Le^{(2L+2)\gamma'},\gamma')$ for every $\gamma'>0$ (Lemma~\ref{lem:decay-calculus}(d)), and Lemma~\ref{lem:CT-bounded} gives the decay of $C_0$. The proof of Proposition~\ref{prop:det-densities}(a) applies verbatim to $\Delta_0+t$, with the lower bound $\frac12C_{\rm P}^{-1}+t$, and gives the decay of $\log\Delta_0$, the identity $\log\det\Delta_0=\sum_b\ell_0(b)$ and $|\ell_0(b)|\le C_L$.
+
+\emph{Covariance.} At $k=0$, $W=U'$, and a real gauge transformation $u$ of $\Tf=\T$ replaces $(W,U')$ by $(U'^u,U'^u)$, the reference of $V'^{u|_{\T'}}$ (proof of Lemma~\ref{lem:gf-step-invariance}(ii)). Since $(e^{\ii B}U')^u=e^{\ii R(u)B}U'^u$ and $S$ is gauge invariant, $\Delta^0$ and $\omega_0$ are replaced by $R(u)\Delta^0R(u)^{-1}$ and $R(u)\omega_0$. For $r\in\mathfrak S_1$, $rU'$ lies in the minimal orbit of $rV'$, by Theorem~\ref{thm:balaban}(c) for the one-step problem, as in the proof of Proposition~\ref{prop:symmetry}(b); and $r(e^{\ii B}U')=e^{\ii r_{U'}B}\,rU'$ by the convention on reversed bonds, as in the proof of Lemma~\ref{lem:current}(b); since $S\circ r=S$, $\Delta^0$ and $\omega_0$ are replaced by $r_{U'}\Delta^0r_{U'}^{-1}$ and $r_{U'}\omega_0$. These are the conclusions of Proposition~\ref{prop:hessian}(d),(e) at $k=0$. The rest of the proofs of Corollary~\ref{cor:covariance}(a),(b) and Proposition~\ref{prop:det-densities}(b),(d), namely the covariance of the elimination and of $\mathfrak G_W$, uses only Lemma~\ref{lem:one-step-basic}(b),(d), Lemma~\ref{lem:reversal}, the uniqueness in Lemma~\ref{lem:eliminate}(c) and Lemma~\ref{lem:avg-transport}(d), which are one-step statements and hold at $k=0$.
+
+(d) Proposition~\ref{prop:exact-step} holds at $k=0$. Indeed, its proof uses Lemma~\ref{lem:composition} only through \eqref{eq:base-regular}, which holds by (a), since $L^{-2}(C_*+1)\eps'_1\le2(C_*+1)L^{-2}\eps'_1\le\frac18\eps_M$; and it uses Lemmas~\ref{lem:exp-gauge} and~\ref{lem:eliminate}, which are one-step statements for the averaging $\mathfrak a'$ at the base $W$ and hold at $k=0$ (proof of Proposition~\ref{prop:first-step}(a)); and $w\le r^{(0)}_2\le r_L$. By \eqref{eq:chi-w-support}, which holds at $k=0$ by (a), the configuration $e^{\ii\hat Z(Z)}W$ has curvature at most $2(C_*+1)L^{-2}\eps'_1+4w\le\tilde h$ on the support of $\chi^{\rm w}$, on all bonds, including the $b_0(c)$. There $|Z|_\infty\le w\le r^{(0)}_2$. Since $U_0(V)=V$ and $W=U'$,
+\[
+e^{-g^{-2}\Phi_W(Z)}\rho\big(e^{\ii\hat Z(Z)}W\big)=\exp\Big(-\frac1{g^2}F(Z)+\mathfrak E\big(e^{\ii\hat Z(Z)}U'\big)\Big),
+\]
+with $F$ as in (b). Since $\mathfrak j_c=L^{-(d-1)\dim\mathfrak g}\mathsf J_c(0)$ (Theorem~\ref{thm:step}(b) at $k=0$, as in the statement of~(d)), write $\mathsf J_c(Z)=L^{(d-1)\dim\mathfrak g}\mathfrak j_c\cdot\mathsf J_c(Z)/\mathsf J_c(0)$ and $\sigma(Z(b))=\sigma(0)\,\sigma(Z(b))/\sigma(0)$; this gives $\mathfrak J$ and its bounds, as in Theorem~\ref{thm:step}(e). By (c), $\Delta_0$ is positive, and
+\[
+\int\prod_{b\in\mathfrak F}dZ(b)\,e^{-\frac1{2g^2}\Delta_0(Z,Z)}f(Z)=(2\pi g^2)^{|\mathfrak F|\dim\mathfrak g/2}(\det\Delta_0)^{-1/2}\int d\mu_{C_0}(Y)f(gY).
+\]
+With (b) for $F$, $\log\det\Delta_0=\sum_b\ell_0(b)$ from (c), and the constants collected into $\mathcal N_0$, Proposition~\ref{prop:exact-step} gives the formula. The bound on $\mathcal V+G_3$ is (b) at $Z=gY$.
+\end{proof}
+
+\begin{remark}[Generation~1]\label{rem:generation-one}
+The first step creates the generation of scale~$1$; there is no generation of scale~$0$, since $\mathfrak E_0=0$. By Proposition~\ref{prop:first-step} and Lemma~\ref{lem:first-step-formula}, $e^{E_0}T_{\rm sf}(\rho_0)(V')$ has the form of Theorem~\ref{thm:sf-step} with $\mathfrak E=0$. Its new terms are the one-loop pieces $\mathfrak e(X)$, built from $\Delta_0$ (Proposition~\ref{prop:first-step}(c)), the Jacobian terms $\log\mathfrak j_c$, and the pure class $E^\#_{\rm p}$. There are no old activities, hence no composed activities and no mixed class: $E^\#_{\rm m}=0$, and $\delta^{\rm m}_0=0$ in Proposition~\ref{prop:vacuum}(a). Its one-loop part $\sum_X\mathfrak e(X,U')+\sum_c\log\mathfrak j_c$ is $\Gamma^{\rm step}_0(U')$ of Lemma~\ref{lem:first-step-formula} minus the constant $-\frac12\sum_b\ell_0(b;1)$, which goes into $\mathcal Z_1$ (Proposition~\ref{prop:one-loop-polymer}(a) at $k=0$). These terms, normalized and reblocked, form the raw new generation of the first step (Definition~\ref{def:raw-new} with $k=0$). The generation $E^{(1)}$, its coefficient $\beta_1=\beta_{E^{(1)}}$ and the coupling $g_1$, with $g_1^{-2}=g_0^{-2}-\beta_1$, are constructed in Proposition~\ref{prop:gen-one}, which also gives $\|E^{(1)}\|_1\le\mathsf K$ and, if $g_1\le\gamma$, the generation form of $\rho_1$.
+\end{remark}
+
+\subsection{The vacuum energy}\label{subsec:tf-vacuum}
+
+Write the density of step $k$ as
+\begin{equation}\label{eq:rho-k}
+\rho_k(V)=\mathcal Z_k\exp\Big(-\frac1{g_k^2}S(U_k(V))-\eps_k|\T^{(k)}|+\mathfrak E_k(V)\Big),\qquad V\in\mathfrak U_k(h_k),
+\end{equation}
+with $\mathcal Z_0=1$, $\eps_0=E_0/|\T^{(0)}|$ and $\mathfrak E_0=0$. Here $\mathfrak E_k$ is a gauge-invariant function, normalized by $\mathfrak E_k(1)=0$; in the four-dimensional flow it is the sum of the generations (Definition~\ref{def:gen-form}). Up to the constant $\mathcal Z_ke^{-\eps_k|\T^{(k)}|}$ this is the form \eqref{eq:rho-form}, and since $T_{\rm sf}$ is linear, the constant passes through the step. Let the step $k\to k+1$ be given by Theorem~\ref{thm:sf-step} (by Proposition~\ref{prop:first-step} at $k=0$). Its terms at $U'=1$ are split as follows.
+\begin{itemize}
+\item \emph{Explicit normalizations}: $\mathcal Z_{k+1}=\mathcal Z_k\,\mathcal N_kN_\chi\exp\big(-\frac12\sum_{b\in\mathfrak F}\ell_k(b;1)\big)$. These do not depend on the activities.
+\item \emph{Vacuum energy}: $\eps_{k+1}|\T^{(k+1)}|=\eps_k|\T^{(k)}|-\sum_Y\big(E^\#_{\rm p}(Y,1)+E^\#_{\rm m}(Y,1)\big)$.
+\end{itemize}
+The other terms vanish at $U'=1$: $S(1)=0$, $\mathfrak e(X,1)=0$, $\log\mathfrak j_c=0$ at $U'=1$, and $\mathfrak E_k(1)=0$. The remaining terms at $U'=U_{k+1}(V')$, with the values of the $E^\#(Y)$ at $U'=1$ subtracted, together with $(g_{k+1}^{-2}-g_k^{-2})S(U')$, form $\mathfrak E_{k+1}(V')$, which is normalized. Then $\rho_{k+1}=\one_{\mathfrak U_{k+1}(h_{k+1})}T_{\rm sf}(\rho_k)$ has the form \eqref{eq:rho-k} at step $k+1$, whatever $g_{k+1}$ is. The choice of $g_{k+1}$ by the extraction of $\beta_{k+1}$, and the organization of $\mathfrak E_{k+1}$ into generations, are Theorem~\ref{thm:gen-step} (Proposition~\ref{prop:gen-one} for $k=0$). Since $|\T^{(k)}|=L^d|\T^{(k+1)}|$,
+\begin{equation}\label{eq:vacuum-flow}
+\eps_{k+1}=L^d\eps_k+\delta_k,\qquad\delta_k=\delta^{\rm m}_k+\delta^{\rm p}_k,\qquad\delta^{\rm m}_k=-\frac{\sum_YE^\#_{\rm m}(Y,1)}{|\T^{(k+1)}|},\quad\delta^{\rm p}_k=-\frac{\sum_YE^\#_{\rm p}(Y,1)}{|\T^{(k+1)}|}.
+\end{equation}
+In the notation of \cite{DimockI}, $\delta^{\rm p}_k$ is $\eps^*_k$ and $\delta^{\rm m}_k$ is $\mathcal L_1\mathcal E_k$; the latter is the mixed class at $U'=1$, which is not linear in the old activities.
+
+\begin{proposition}[Vacuum energy]\label{prop:vacuum}
+Let $K\ge1$, and assume that for every $k<K$ the step $k\to k+1$ is given by Theorem~\ref{thm:sf-step} (by Proposition~\ref{prop:first-step} at $k=0$), with its hypotheses, and with the constants split as above. Then:
+\begin{enumerate}[label=(\alph*)]
+\item the $\delta_k$ do not depend on $E_0$, and
+\[
+|\delta^{\rm p}_k|\le L^dM^{-d}C_Pg_k^2p_{0,k}^6,\qquad|\delta^{\rm m}_k|\le4AL^dM^{-d}\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)},
+\]
+with $C_P$ of Proposition~\ref{prop:pure-sources}, $A$ of Theorem~\ref{thm:mayer} and $\epsilon_{\rm m}$ of Proposition~\ref{prop:localized-pieces} at step $k$; $\delta^{\rm m}_0=0$;
+\item there is exactly one $E_0$ with $\eps_K=0$. For it, $\eps_k=-\sum_{j=k}^{K-1}L^{-d(j-k+1)}\delta_j$ for $k\le K$, and $E_0=\eps_0|\T^{(0)}|$;
+\item if $|\delta_{k+m}|\le D_kL^{dm/2}$ for $0\le m<K-k$, then $|\eps_k|\le2L^{-d}D_k$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}\hasdetail{prop:vacuum}
+(a) The step is linear in the density, so the constant $\mathcal Z_ke^{-\eps_k|\T^{(k)}|}$, and with it $E_0$, enters neither the activities nor the $E^\#(Y)$ of later steps. The grid cubes of step $k$ are the boxes of Part~IX (Section~\ref{sec:cluster}), and there are $M^{-d}|\T^{(k)}|=L^dM^{-d}|\T^{(k+1)}|$ of them. Every polymer $Y$ contains one, so $\sum_Y|E^\#(Y,1)|\le\sum_\Box\sum_{Y\supset\Box}|E^\#(Y,1)|$. For the pure class the inner sum is at most $C_Pg_k^2p_{0,k}^6$, by Proposition~\ref{prop:pure-sources}; its exponential weight is at least $1$, since $(\kappa'_w-2)/c'_\sharp\ge C_d$ by Remark~\ref{rem:parameters}(3). For the mixed class it is at most $4A\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)}$, by Corollary~\ref{cor:two-classes}; its weight is at least $1$, since $\kappa_n-1\ge C_d$ by Remark~\ref{rem:parameters}(1). At $k=0$ there is no mixed class.
+
+(b) By \eqref{eq:vacuum-flow}, $\eps_k=L^{dk}\eps_0+\sum_{j<k}L^{d(k-1-j)}\delta_j$. So $\eps_K=0$ if and only if $\eps_0=-\sum_{j<K}L^{-d(j+1)}\delta_j$. By (a) the right side does not depend on $E_0$, so this fixes $E_0=\eps_0|\T^{(0)}|$ uniquely. Substituting gives the formula for $\eps_k$.
+
+(c) By (b), $|\eps_k|\le\sum_{m\ge0}L^{-d(m+1)}D_kL^{dm/2}=L^{-d}D_k(1-L^{-d/2})^{-1}\le2L^{-d}D_k$, since $L^{d/2}\ge2$. This is \cite[Theorem~24, (284)--(288)]{DimockI}.
+\end{proof}
+
+For the input of (c), part (a) gives $|\delta_k|\le C(g_k^2p_{0,k}^6+g_kp_{0,k})$, the mixed part through $\epsilon_{\rm m}\le C_P\tau C_{\rm old}\mathsf K$ and $\tau\le C_PL^dg_kp_{0,k}/\delta_1$ (Proposition~\ref{prop:old-activities}(d)); the growth bound needed in (c) is supplied by the flow (Theorem~\ref{thm:sf-flow}(f)).
+
+\begin{remark}[The modified model and a Gaussian reference]\label{rem:sf-reference}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{The last step.} A comparison of the action $S(U_K(V))$ with a quadratic form on the small-field set is not available, and it is not used. Small-field configurations on a torus include non-trivial holonomy sectors, and nearly commuting constant modes make the difference of order $|\T^{(K)}|p_K^2$. Bounds on the integral of $\rho_K$ are therefore crude bounds per volume, as in \cite{DimockI} (Corollary~\ref{cor:sf-stability}); they suffice because the final torus is fixed.
+\item \emph{A Gaussian reference.} A Gaussian reference in Lie-algebra variables has non-compact zero modes on the last lattice: the directions of the gauge transformations of $\T^{(K)}$, and the harmonic modes. The gauge directions inside the blocks of each step are not zero modes, since the Gaussian weight of the gauge fixing fixes them (Lemma~\ref{lem:exp-gauge}(c)). And $\mathcal N_k$ contains the Haar density $\sigma(0)^{|\mathfrak F|}$ and the factor $z(g)^{-|\T\setminus\T'|}$. A reference can be defined as the renormalization group of the quadratic density with the same conventions:
+  \begin{itemize}
+  \item the measure $\sigma(0)\,dZ$ on $\mathfrak F$;
+  \item the quadratic gauge-fixing weight $z(g)^{-|\T\setminus\T'|}e^{-\|\mathfrak G_1Z\|^2/2g^2}$;
+  \item the linearized constraint $q^{\rm pl}$;
+  \item $\chi_\xi$ with $C_k(1)$;
+  \item a compact final domain.
+  \end{itemize}
+  Its normalizations are expected to agree with $\mathcal Z_k$ term by term; the note does not use this reference. Relating it to the free Gaussian would need $\sum_k|\mathfrak F_k|e^{-p_{0,k}^2/2}\le C|\T^{(K)}|$, a condition on the growth of $p_{0,k}$. The explicit form of $\mathcal Z_K$ avoids this.
+\item \emph{The modified model.} The densities of the small-field model are $\rho_{k+1}=\one_{\mathfrak U_{k+1}(h_{k+1})}T_{\rm sf}(\rho_k)$, with $T_{\rm sf}(\rho_k)=T^{\rm gf}(\chi^{\rm w}_k\chi_{\xi,k}\rho_k)$ and the cutoffs $\chi^{\rm w}_k$, $\chi_{\xi,k}$ of step $k$. These depend on the configuration $V_{k+1}$ of step $k+1$ through the base $W_k$ and the reference $U_{k+1}(V_{k+1})$ of the step. Write $V_0=V$ and $V_{k+1}=\mathfrak a_{k+1}(V_k)$, the one-step averaging. Since $\int dV'\,\delta(\mathfrak a'(V)V'^{-1})F(V')=F(\mathfrak a'(V))$, unrolling the definitions gives
+\[
+\int\rho_K\,dV_K=\int\prod_bdV(b)\ \rho_0(V)\prod_{k<K}\Big[\mathrm{gf}_{W_k}(V_k)\,\chi^{\rm w}_k(V_k)\,\chi_{\xi,k}(V_k)\,\one_{\mathfrak U_{k+1}(h_{k+1})}(V_{k+1})\Big],
+\]
+with $W_k$ the base of $V_{k+1}$. Like $\mathrm{gf}_{W_k}$, the cutoffs $\chi^{\rm w}_k$ and $\chi_{\xi,k}$ depend on $V_{k+1}$ as well as on $V_k$. This defines the modified model: the integral of $\rho_0$ against $\prod_k[\mathrm{gf}_{W_k}\chi^{\rm w}_k\chi_{\xi,k}]$ and the small-field conditions, pulled back to the configurations of step $0$. The cutoffs are not invariant under the gauge transformations $\mathcal G'$ of the blocks, so $T^{\rm gf}$ applied to them does not preserve integrals. So what is discarded at a step is not $T((1-\chi^{\rm w}\chi_\xi)\rho_k)$. Let first $k\ge1$. Then $\rho_k$ vanishes outside $\mathfrak U_k(h_k)$, and $\mathfrak U_k(h_k)\subset\mathfrak M$ for $\gamma$ small, so $\rho_k=\one_{\mathfrak M\cap\mathfrak U_k(h_k)}\rho_k$. By Lemma~\ref{lem:gf-step-invariance}(iv), with the threshold $\tilde h=h_k$, the discarded part is
+\[
+T(\rho_k)-T_{\rm sf}(\rho_k)=T^{\rm gf}\big((1-\chi^{\rm w}_k\chi_{\xi,k})\one_{\mathfrak M\cap\mathfrak U_k(h_k)}\rho_k\big)\ge0,
+\]
+on the set of the $V'$ as in Lemma~\ref{lem:composition}, together with all of $T(\rho_k)$ outside that set, where $T_{\rm sf}(\rho_k)=0$, and with $(1-\one_{\mathfrak U_{k+1}(h_{k+1})})T_{\rm sf}(\rho_k)$, the region of $V'$ outside the small-field set. The hypotheses of Lemma~\ref{lem:gf-step-invariance}(iv) are $w\le\frac18\eps_M$ and $2(C_*+1)L^{-2}h_{k+1}+4w\le h_k$, which is part of (Q2); $\rho_k$ is gauge invariant and nonnegative, and $\chi_{\xi,k}$ is a covariant cutoff (Section~\ref{sec:fluctuations}). Since $T$ preserves integrals and all terms are nonnegative, $\int\rho_{k+1}\le\int T(\rho_k)=\int\rho_k$. At $k=0$ the density $\rho_0$ is positive on all configurations, also outside $\mathfrak M$, where the averaging $\mathfrak a'$ need not be defined (Lemma~\ref{lem:one-step-basic}(a)); so $T$ is applied only to $\one_{\mathfrak M\cap\mathfrak U_0(h_0)}\rho_0$. By Lemma~\ref{lem:gf-step-invariance}(iv), which holds at $k=0$ (proof of Proposition~\ref{prop:first-step}(a)),
+\[
+\int\rho_1\le\int T_{\rm sf}(\rho_0)\le\int T\big(\one_{\mathfrak M\cap\mathfrak U_0(h_0)}\rho_0\big)=\int\one_{\mathfrak M\cap\mathfrak U_0(h_0)}\rho_0\le\int\rho_0 ;
+\]
+what is discarded at the first step includes the configurations of step $0$ outside $\mathfrak M\cap\mathfrak U_0(h_0)$. Hence $\int\rho_K\,dV_K\le\int\rho_0\,dV$: the partition function of the small-field model is at most that of the lattice theory with the same counterterm.
+\item \emph{Not treated.} The large-field stage, which starts from the discarded parts of every step, and the removal of the small-field modification.
+\end{enumerate}
+\end{remark}

@@ -1,0 +1,48 @@
+N=4, flux n = [[0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 0, 2], [0, 0, -2, 0]], Pf(n) = 2, U(1) direction 0.664 0.747 0.034
+  plaquettes = exp(i 4 pi n_{mu nu}/N^2 n.sigma/2) at all 256 sites, all planes: 7.7e-16
+  current (gradient of S, all bonds and colours): 8.8e-16;  control with one bond perturbed by 0.1: 2.9e-01
+  naive Pfaffian sum sum_x eps tr(F F) = 1263.3093633394;  8 * (1/2) * N^4 * Pf(theta) = 1263.3093633394;  /(32 pi^2) = 4.0000000000 = 2 Pf(n)
+  gauge check: invariants of U^g vs U 4.4e-15, Pf sum 0.0e+00
+  r = perm (0, 1, 2, 3) signs (-1, 1, 1, 1) (det -1): |inv(r U_F) - inv(U_{R n R^T})| = 1.3e-15  (vs inv(U_F): 1.08);  Pf sum(r U_F) / Pf sum(U_F) = -1.000000000000
+  r = perm (0, 1, 2, 3) signs (1, 1, 1, -1) (det -1): |inv(r U_F) - inv(U_{R n R^T})| = 8.9e-16  (vs inv(U_F): 1.08);  Pf sum(r U_F) / Pf sum(U_F) = -1.000000000000
+  r = perm (1, 0, 2, 3) signs (1, 1, 1, 1) (det -1): |inv(r U_F) - inv(U_{R n R^T})| = 8.9e-16  (vs inv(U_F): 1.08);  Pf sum(r U_F) / Pf sum(U_F) = -1.000000000000
+  r = perm (2, 3, 0, 1) signs (1, 1, 1, 1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 0.0e+00  (vs inv(U_F): 4.00);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  r = perm (0, 1, 2, 3) signs (-1, -1, -1, -1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 1.6e-15  (vs inv(U_F): 0.00);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  r = perm (1, 2, 3, 0) signs (1, -1, 1, 1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 1.1e-15  (vs inv(U_F): 4.00);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  r = perm (3, 1, 0, 2) signs (-1, 1, -1, 1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 1.6e-15  (vs inv(U_F): 4.00);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  r = perm (1, 3, 0, 2) signs (1, 1, 1, -1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 8.9e-16  (vs inv(U_F): 4.00);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  r = perm (3, 0, 2, 1) signs (-1, -1, -1, 1) (det -1): |inv(r U_F) - inv(U_{R n R^T})| = 1.6e-15  (vs inv(U_F): 4.00);  Pf sum(r U_F) / Pf sum(U_F) = -1.000000000000
+  r = perm (2, 1, 3, 0) signs (-1, -1, 1, 1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 1.2e-15  (vs inv(U_F): 4.00);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  [2 s]
+N=6, flux n = [[0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 0, -1], [0, 0, 1, 0]], Pf(n) = -1, U(1) direction -0.968 -0.247 0.031
+  plaquettes = exp(i 4 pi n_{mu nu}/N^2 n.sigma/2) at all 1296 sites, all planes: 2.1e-15
+  current (gradient of S, all bonds and colours): 1.7e-15;  control with one bond perturbed by 0.1: 3.0e-01
+  naive Pfaffian sum sum_x eps tr(F F) = -631.6546816699;  8 * (1/2) * N^4 * Pf(theta) = -631.6546816697;  /(32 pi^2) = -2.0000000000 = 2 Pf(n)
+  gauge check: invariants of U^g vs U 5.3e-15, Pf sum 0.0e+00
+  r = perm (0, 1, 2, 3) signs (-1, 1, 1, 1) (det -1): |inv(r U_F) - inv(U_{R n R^T})| = 2.0e-15  (vs inv(U_F): 0.12);  Pf sum(r U_F) / Pf sum(U_F) = -1.000000000000
+  r = perm (0, 1, 2, 3) signs (1, 1, 1, -1) (det -1): |inv(r U_F) - inv(U_{R n R^T})| = 4.1e-15  (vs inv(U_F): 0.12);  Pf sum(r U_F) / Pf sum(U_F) = -1.000000000000
+  r = perm (1, 0, 2, 3) signs (1, 1, 1, 1) (det -1): |inv(r U_F) - inv(U_{R n R^T})| = 2.8e-15  (vs inv(U_F): 0.12);  Pf sum(r U_F) / Pf sum(U_F) = -1.000000000000
+  r = perm (2, 3, 0, 1) signs (1, 1, 1, 1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 0.0e+00  (vs inv(U_F): 0.00);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  r = perm (0, 1, 2, 3) signs (-1, -1, -1, -1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 4.1e-15  (vs inv(U_F): 0.00);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  r = perm (1, 2, 3, 0) signs (1, -1, 1, 1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 4.1e-15  (vs inv(U_F): 4.00);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  r = perm (3, 1, 0, 2) signs (-1, 1, -1, 1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 3.9e-15  (vs inv(U_F): 4.00);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  r = perm (2, 0, 1, 3) signs (-1, -1, -1, -1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 4.1e-15  (vs inv(U_F): 4.00);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  r = perm (0, 1, 3, 2) signs (-1, -1, -1, -1) (det -1): |inv(r U_F) - inv(U_{R n R^T})| = 4.1e-15  (vs inv(U_F): 0.12);  Pf sum(r U_F) / Pf sum(U_F) = -1.000000000000
+  r = perm (3, 0, 1, 2) signs (1, -1, 1, -1) (det -1): |inv(r U_F) - inv(U_{R n R^T})| = 4.1e-15  (vs inv(U_F): 4.00);  Pf sum(r U_F) / Pf sum(U_F) = -1.000000000000
+  [11 s]
+N=5, flux n = [[0, 1, -1, 2], [-1, 0, 1, 1], [1, -1, 0, 1], [-2, -1, -1, 0]], Pf(n) = 4, U(1) direction -0.032 -0.276 0.961
+  plaquettes = exp(i 4 pi n_{mu nu}/N^2 n.sigma/2) at all 625 sites, all planes: 7.4e-15
+  current (gradient of S, all bonds and colours): 1.5e-14;  control with one bond perturbed by 0.1: 2.9e-01
+  naive Pfaffian sum sum_x eps tr(F F) = 2526.6187266789;  8 * (1/2) * N^4 * Pf(theta) = 2526.6187266789;  /(32 pi^2) = 8.0000000000 = 2 Pf(n)
+  gauge check: invariants of U^g vs U 5.1e-15, Pf sum 0.0e+00
+  r = perm (0, 1, 2, 3) signs (-1, 1, 1, 1) (det -1): |inv(r U_F) - inv(U_{R n R^T})| = 1.2e-14  (vs inv(U_F): 3.80);  Pf sum(r U_F) / Pf sum(U_F) = -1.000000000000
+  r = perm (0, 1, 2, 3) signs (1, 1, 1, -1) (det -1): |inv(r U_F) - inv(U_{R n R^T})| = 1.2e-14  (vs inv(U_F): 3.80);  Pf sum(r U_F) / Pf sum(U_F) = -1.000000000000
+  r = perm (1, 0, 2, 3) signs (1, 1, 1, 1) (det -1): |inv(r U_F) - inv(U_{R n R^T})| = 2.1e-14  (vs inv(U_F): 3.92);  Pf sum(r U_F) / Pf sum(U_F) = -1.000000000000
+  r = perm (2, 3, 0, 1) signs (1, 1, 1, 1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 2.3e-14  (vs inv(U_F): 3.92);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  r = perm (0, 1, 2, 3) signs (-1, -1, -1, -1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 1.6e-14  (vs inv(U_F): 0.00);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  r = perm (1, 2, 3, 0) signs (1, -1, 1, 1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 1.4e-14  (vs inv(U_F): 3.92);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  r = perm (3, 1, 0, 2) signs (-1, 1, -1, 1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 1.7e-14  (vs inv(U_F): 3.92);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  r = perm (0, 2, 1, 3) signs (-1, -1, -1, 1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 1.6e-14  (vs inv(U_F): 0.00);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  r = perm (0, 1, 2, 3) signs (-1, 1, -1, -1) (det -1): |inv(r U_F) - inv(U_{R n R^T})| = 1.1e-14  (vs inv(U_F): 3.80);  Pf sum(r U_F) / Pf sum(U_F) = -1.000000000000
+  r = perm (1, 3, 2, 0) signs (1, -1, 1, -1) (det +1): |inv(r U_F) - inv(U_{R n R^T})| = 1.7e-14  (vs inv(U_F): 3.92);  Pf sum(r U_F) / Pf sum(U_F) = +1.000000000000
+  [5 s]

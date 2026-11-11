@@ -1,0 +1,200 @@
+\section{Interior estimates with \texorpdfstring{$L^p$}{Lp} data}\label{sec:interior-lp}
+
+Route~2 of Section~\ref{sec:pointwise-weak} needs interior estimates for the local propagators whose sources are controlled only in $L^p$ norms. Sections~\ref{sec:regularity} and~\ref{sec:interior} assume bounded sources. This section supplies the missing estimates:
+\begin{itemize}
+\item[(I1)] sources in $L^p$, $p>d$, give $C^{1,\beta}$ solutions, $\beta\le1-d/p$ (Theorem~\ref{thm:lp-local}(a), Propositions~\ref{prop:scalar-lp}(a) and~\ref{prop:system-lp}(a));
+\item[(I2)] sources $F+\partial^*g$ with $F\in L^p$, $\frac d2<p<d$, and $g\in L^{p^*}$ give bounded $C^\beta$ solutions with gradients in $L^{p^*}$, $\beta\le2-d/p$ (Theorem~\ref{thm:lp-local}(b),(c), Propositions~\ref{prop:scalar-lp}(b) and~\ref{prop:system-lp}(b)). In $d=3$ with $p=2$ this is $C^{1/2}$ with gradients in $L^6$;
+\item[(I3)] the Calder\'on--Zygmund bound behind the gradient part of (I2) (Lemma~\ref{lem:lp-kernels}(d));
+\item[(I4)] the $C^{2,\beta}$ Schauder estimate for scalar equations without averaging term (Proposition~\ref{prop:schauder}).
+\end{itemize}
+The proofs follow Sections~\ref{sec:regularity} and~\ref{sec:interior}. The only new analytic inputs are the Hardy--Littlewood--Sobolev and the Calder\'on--Zygmund inequalities on $\eta\Z^d$, both uniform in $\eta$ by scaling. The input (I4) of the blueprint was formulated for the scalar local propagators. In that form it is false, because of the averaging term (Remark~\ref{rem:schauder-averaging}). The consequences for the weakened operator $\bC(s)$ are discussed at the end of the section.
+
+\paragraph{Notation.} For a set $Q$ of lattice points and $1\le p<\infty$ let $\|h\|_{p,Q}=(\eta^d\sum_{x\in Q}|h(x)|^p)^{1/p}$, so that $\|h\|_{2,Q}=\|h\|_Q$; for gauge fields and $2$-forms the sum also runs over the components. We write $p'$ for the dual exponent and, for $1<p<d$, $p^*=dp/(d-p)$, so that $1/p-1/p^*=1/d$. For $0<\beta<1$, $[h]_{\beta,Q}$ is the H\"older quotient with exponent $\beta$; thus $\Hol hQ=[h]_{\alpha,Q}$. Where H\"older quotients of the coefficients enter, namely in part~(a) of Propositions~\ref{prop:scalar-lp} and~\ref{prop:system-lp}, in Proposition~\ref{prop:schauder} and in Corollary~\ref{cor:lp-dirichlet}(a), we assume $\beta\le\alpha$, the exponent of hypothesis (B). On a cube $Q$ of side at most $6$, $[h]_{\beta,Q}\le C[h]_{\alpha,Q}$. Hence the coefficients of Lemmas~\ref{lem:cov-expansion} and~\ref{lem:curvature}, and those of $W\in\cW_{\rm loc}(\eps)$, have $\beta$-H\"older quotients bounded by $C\eps$ on such cubes. Constants depend on $d$, $\dim\mathfrak g$, $\alpha$, $\beta$ and the exponents $p,q$, but not on $\eta$, $k$, $n$.
+
+\subsection{Two inequalities on the fine lattice}
+
+\begin{lemma}[Kernel bounds]\label{lem:lp-kernels}
+Let $d\ge3$, $1<p<\infty$, $x\in\eta\Z^d$, and let $h$ be a field on $\eta\Z^d$.
+\begin{enumerate}[label=(\alph*)]
+\item If $0\le s<d/p'$ and $R\ge\eta$: $\sum_{|x'-x|\le R}\eta^d(|x-x'|+\eta)^{-s}|h(x')|\le CR^{d/p'-s}\|h\|_p$.
+\item If $s>d/p'$ and $r\ge\sqrt d\,\eta$: $\sum_{|x'-x|>r}\eta^d|x-x'|^{-s}|h(x')|\le Cr^{d/p'-s}\|h\|_p$.
+\item \emph{(Hardy--Littlewood--Sobolev.)} Let $0<s<d$ and $1<p<q<\infty$ with $1/q=1/p-(d-s)/d$, and $k_s(x)=(|x|+\eta)^{-s}$. Then $\|k_s\star h\|_q\le C\|h\|_p$.
+\item \emph{(Calder\'on--Zygmund.)} Let $K=\partial_\nu\partial^*_\mu g_\eta$. Then $\|K\star h\|_p\le C\|h\|_p$ for finitely supported $h$.
+\end{enumerate}
+Here $\|\cdot\|_p$ is the norm on all of $\eta\Z^d$, and $C$ depends only on $d$, $s$, $p$, $q$.
+\end{lemma}
+
+\begin{proof}
+(a) and (b) follow from H\"older's inequality and Lemma~\ref{lem:lattice-sums}(a), respectively~(c), with the exponent $sp'$, which is smaller, respectively larger, than $d$.
+
+(c) For $x'\in\eta\Z^d$ let $W(x')=x'+[-\eta/2,\eta/2)^d$ and $H=\sum_{x'}h(x')\one_{W(x')}$, so that $\|H\|_{L^p(\R^d)}=\|h\|_p$. For $w\in W(x)$ and $z\in W(x')$ we have $|w-z|\le|x-x'|+\sqrt d\eta\le(1+\sqrt d)(|x-x'|+\eta)$, so $k_s(x-x')\le C|w-z|^{-s}$. With the Riesz potential $I_sF(w)=\int_{\R^d}|w-z|^{-s}F(z)\,dz$ we get, for every $w\in W(x)$,
+\[
+(k_s\star|h|)(x)=\sum_{x'}\int_{W(x')}k_s(x-x')|H(z)|\,dz\le C\,(I_s|H|)(w).
+\]
+Averaging the $q$-th power over $w\in W(x)$ and summing over $x$ gives $\|k_s\star h\|_q\le C\|I_s|H|\|_{L^q(\R^d)}$. The Hardy--Littlewood--Sobolev theorem \cite[Ch.~V, \S1.2, Theorem~1]{Stein70} bounds the right-hand side by $C\|H\|_{L^p}$.
+
+(d) By the proof of Proposition~\ref{prop:green-eta}, $\eta^dK(x-x')=K_1(x/\eta-x'/\eta)$ with $K_1=\partial_\nu\partial^*_\mu g_1$ on $\Z^d$, and both sides of the inequality scale by $\eta^{d/p}$. So we may take $\eta=1$. On $\ell^2(\Z^d)$, convolution with $K_1$ is the Fourier multiplier
+\[
+\frac{(e^{\ii\xi_\nu}-1)(e^{-\ii\xi_\mu}-1)}{\sum_\lambda4\sin^2(\xi_\lambda/2)},\qquad\xi\in[-\pi,\pi]^d,
+\]
+of modulus at most $1$, since $|e^{\ii t}-1|=2|\sin(t/2)|$ and $4|\sin(\xi_\nu/2)\sin(\xi_\mu/2)|\le2\sin^2(\xi_\nu/2)+2\sin^2(\xi_\mu/2)$. So it is bounded on $\ell^2$ with norm at most $1$. By Proposition~\ref{prop:green-eta}, $|K_1(z)|\le C(1+|z|)^{-d}$, and the first differences of $K_1$ are bounded by $C(1+|z|)^{-d-1}$. Let $y\ne y'$ and $|x-y|\ge2|y-y'|$. A monotone lattice path from $y$ to $y'$ has at most $\sqrt d|y-y'|$ steps, and its points $w$ satisfy $|x-w|\ge\frac12|x-y|$. Hence $|K_1(x-y)-K_1(x-y')|\le C|y-y'||x-y|^{-d-1}$. Lemma~\ref{lem:lattice-sums}(c), together with a bounded number of points with $|x-y|<\sqrt d$, gives H\"ormander's condition
+\[
+\sup_{y\ne y'}\sum_{|x-y|\ge2|y-y'|}|K_1(x-y)-K_1(x-y')|\le C .
+\]
+The same holds for $K_1(-\,\cdot)$. With counting measure and Euclidean distance, $\Z^d$ is a space of homogeneous type. The Calder\'on--Zygmund theorem on spaces of homogeneous type \cite[Ch.~I]{Stein93} gives weak type $(1,1)$. Marcinkiewicz interpolation gives the bound for $1<p\le2$, and duality, applied to the kernel $K_1(-\,\cdot)$, for $2\le p<\infty$.
+\end{proof}
+
+\subsection{The flat estimates}
+
+\begin{theorem}[Interior regularity with $L^p$ data]\label{thm:lp-local}
+Let $d\ge3$, let $\eta\le1$ be any lattice spacing, with $\Lam_r$ as in Theorem~\ref{thm:local-regularity}, and let $u,F:\Lam_3\to\R$ and $g:\Lam_3\to\R^d$ satisfy $-\Lap u=F+\sum_\mu\partial^*_\mu g_\mu$ at every point of $\Lam_2$.
+\begin{enumerate}[label=(\alph*)]
+\item \emph{(I1)} If $p>d$ and $0<\beta\le1-d/p$, then $|u|_{\Lam_1}+|\partial u|_{\Lam_1}+[\partial u]_{\beta,\Lam_1}\le C\big(\|F\|_{p,\Lam_2}+|g|_{\Lam_3}+[g]_{\beta,\Lam_3}+\|u\|_{\Lam_2}\big)$.
+\item \emph{(I2), values.} If $\frac d2<p<d$, $q>d$ and $0<\beta\le\min(2-d/p,1-d/q)$, then $|u|_{\Lam_1}+[u]_{\beta,\Lam_1}\le C\big(\|F\|_{p,\Lam_2}+\|g\|_{q,\Lam_3}+\|u\|_{\Lam_2}\big)$.
+\item \emph{(I2), gradients.} If $1<p<d$, then $\|\partial u\|_{p^*,\Lam_1}\le C\big(\|F\|_{p,\Lam_2}+\|g\|_{p^*,\Lam_3}+\|u\|_{\Lam_2}\big)$.
+\end{enumerate}
+For $d=3$, (b) and (c) with $p=2$ and $q=p^*=6$ give, for sources $F+\partial^*g$ with $F\in L^2$ and $g\in L^6$, solutions in $C^{1/2}$ with gradients in $L^6$.
+\end{theorem}
+
+\begin{proof}
+We use the proof of Theorem~\ref{thm:local-regularity}. Step~0 is unchanged, since $\|h\|_{p,\Lam_1}\le C|h|_{\Lam_1}$. So assume $\eta\le\frac1{16}$. The representation \eqref{eq:rep} holds:
+\[
+u=\cG\Phi_1+\cG\Phi_2+\sum_\mu(\partial^*_\mu g_\eta)\star(\chi g_\mu)+\sum_\mu(\partial^*_\mu g_\eta)\star m_\mu\qquad\text{on }\Lam_{1+2\eta},
+\]
+with $\Phi_1=\chi F-\sum_\mu(\partial^*_\mu\chi)S_\mu^{-1}g_\mu$. Step~2 does not involve the sources. The terms with $\Phi_2$ and $m_\mu$ have two derivatives bounded by $C\|u\|_{\Lam_2}$ on $\Lam_1$, and they are Lipschitz together with their first derivatives. So they satisfy all three bounds. Moreover $\|\Phi_1\|_{p,\Lam_2}\le\|F\|_{p,\Lam_2}+C\|g\|_{p,\Lam_3}$. Since $\Lam_3$ has bounded volume, $\|g\|_{p,\Lam_3}$ is bounded by $C|g|_{\Lam_3}$ in (a), by $C\|g\|_{q,\Lam_3}$ in (b), where $q>p$, and by $C\|g\|_{p^*,\Lam_3}$ in (c). Recall $|g_\eta(y)|\le C(|y|+\eta)^{2-d}$, and that $k$-th differences of $g_\eta$ are bounded by $C(|y|+\eta)^{2-d-k}$, $k\le3$ (Proposition~\ref{prop:green-eta}). All points below lie in $\Lam_{1+2\eta}$, and sums run over the support of $\Phi_1$, respectively of $\chi g$, which lies in $\Lam_2$.
+
+\emph{(a)} The term $\sum_\mu(\partial^*_\mu g_\eta)\star(\chi g_\mu)$ is treated as in Step~5 of the proof of Theorem~\ref{thm:local-regularity}, with $\beta$ in place of $\alpha$. For $\cG\Phi_1$, Lemma~\ref{lem:lp-kernels}(a) with $s=d-2$ and $s=d-1$ gives $|\cG\Phi_1|+|\partial\cG\Phi_1|\le C\|\Phi_1\|_p$; here $s<d/p'$ because $p>d$. For the H\"older quotient of $k\star\Phi_1$, $k=\partial_\mu g_\eta$, let $x,x'\in\Lam_1$ and $\eta\le\delta=|x-x'|\le1$, and split the sum at $|x-x''|=4\sqrt d\delta$, as in Step~3 of that proof. On the near part, Lemma~\ref{lem:lp-kernels}(a) with $s=d-1$ and $R=(4\sqrt d+1)\delta$ gives the bound $C\delta^{d/p'-d+1}\|\Phi_1\|_p=C\delta^{1-d/p}\|\Phi_1\|_p$. On the far part, $|k(x-x'')-k(x'-x'')|\le C\delta|x-x''|^{-d}$, by the path argument of Step~3. Lemma~\ref{lem:lp-kernels}(b) with $s=d>d/p'$ and $r=4\sqrt d\delta$ gives $C\delta\cdot\delta^{d/p'-d}\|\Phi_1\|_p=C\delta^{1-d/p}\|\Phi_1\|_p$. Since $\delta\le1$ and $\beta\le1-d/p$, this is at most $C\delta^\beta\|\Phi_1\|_p$. Pairs with $\delta>1$ are covered by the sup bound.
+
+\emph{(b)} By Lemma~\ref{lem:lp-kernels}(a), $|\cG\Phi_1(x)|\le C\|\Phi_1\|_p$, since $d-2<d/p'$ for $p>\frac d2$, and $|(\partial^*_\mu g_\eta)\star(\chi g_\mu)(x)|\le C\|g\|_q$, since $d-1<d/q'$ for $q>d$. For the H\"older quotient of $\cG\Phi_1$ split as in (a). The near part is bounded by $C\delta^{d/p'-d+2}\|\Phi_1\|_p=C\delta^{2-d/p}\|\Phi_1\|_p$. On the far part the differences of $g_\eta$ are bounded by $C\delta|x-x''|^{1-d}$, and Lemma~\ref{lem:lp-kernels}(b) with $s=d-1>d/p'$ (since $p<d$) gives $C\delta\cdot\delta^{d/p'-d+1}\|\Phi_1\|_p=C\delta^{2-d/p}\|\Phi_1\|_p$. The H\"older quotient of $(\partial^*_\mu g_\eta)\star(\chi g_\mu)$ is bounded as in (a), with $(q,\chi g_\mu)$ in place of $(p,\Phi_1)$. This gives $C\delta^{1-d/q}\|g\|_q$.
+
+\emph{(c)} We have $\partial\cG\Phi_1=(\partial g_\eta)\star\Phi_1$ with $|\partial g_\eta|\le Ck_{d-1}$. Lemma~\ref{lem:lp-kernels}(c) with $s=d-1$, for which $1/q=1/p-1/d=1/p^*$, gives $\|\partial\cG\Phi_1\|_{p^*}\le C\|\Phi_1\|_p$. Next, $\partial_\nu\big((\partial^*_\mu g_\eta)\star(\chi g_\mu)\big)=(\partial_\nu\partial^*_\mu g_\eta)\star(\chi g_\mu)$, and Lemma~\ref{lem:lp-kernels}(d) bounds its $L^{p^*}$ norm by $C\|g\|_{p^*,\Lam_2}$.
+\end{proof}
+
+\begin{lemma}[Rescaled estimates]\label{lem:rescaled-lp}
+Let $\eta\le s\le1$, $x\in\eta\Z^d$, $\Lam_r=\Lam_r(x)$, and $-\Lap u=F+\sum_\mu\partial^*_\mu g_\mu$ on $\Lam_{2s}$. Under the conditions of Theorem~\ref{thm:lp-local}(a), (b), (c), respectively,
+\begin{align*}
+|u|_{\Lam_s}+s|\partial u|_{\Lam_s}+s^{1+\beta}[\partial u]_{\beta,\Lam_s}&\le C\big(s^{2-d/p}\|F\|_{p,\Lam_{2s}}+s|g|_{\Lam_{3s}}+s^{1+\beta}[g]_{\beta,\Lam_{3s}}+s^{-d/2}\|u\|_{\Lam_{2s}}\big),\\
+|u|_{\Lam_s}+s^\beta[u]_{\beta,\Lam_s}&\le C\big(s^{2-d/p}\|F\|_{p,\Lam_{2s}}+s^{1-d/q}\|g\|_{q,\Lam_{3s}}+s^{-d/2}\|u\|_{\Lam_{2s}}\big),\\
+\|\partial u\|_{p^*,\Lam_s}&\le C\big(\|F\|_{p,\Lam_{2s}}+\|g\|_{p^*,\Lam_{3s}}+s^{-1-d/2+d/p^*}\|u\|_{\Lam_{2s}}\big).
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+As for Lemma~\ref{lem:rescaled}. On the lattice $(\eta/s)\Z^d$ we have $\|h_s\|_{p,\Lam_r(0)}=s^{-d/p}\|h\|_{p,\Lam_{rs}}$ for $h_s(x')=h(x+sx')$, and $\partial u_s=s(\partial u)_s$. For the third bound, $\|\partial u_s\|_{p^*,\Lam_1(0)}=s^{1-d/p^*}\|\partial u\|_{p^*,\Lam_s}$, while $\|s^2F_s\|_{p,\Lam_2(0)}=s^{2-d/p}\|F\|_{p,\Lam_{2s}}$ and $\|sg_s\|_{p^*,\Lam_3(0)}=s^{1-d/p^*}\|g\|_{p^*,\Lam_{3s}}$. Since $d/p-d/p^*=1$, the two data terms carry the same power $s^{1-d/p^*}$ as the left-hand side.
+\end{proof}
+
+\subsection{Scalar equations}
+
+We keep the conventions of Section~\ref{sec:interior}: the local gauge on $\Lam_4(z)$, sources in local form $\mathcal S=F+\sum_\mu\partial^*_\mu g_\mu$, and bounds on $\Lam_r$ that may involve values within $2\eta$ of $\Lam_r$. For a given representation of $\mathcal S$ put
+\[
+\mathfrak n^{p,\beta}_r(\mathcal S)=\|F\|_{p,\Lam_r}+|g|_{\Lam_r}+[g]_{\beta,\Lam_r},\qquad\mathfrak m^{p,q}_r(\mathcal S)=\|F\|_{p,\Lam_r}+\|g\|_{q,\Lam_r}.
+\]
+
+\begin{proposition}[Scalar interior estimates with $L^p$ data]\label{prop:scalar-lp}
+There is $\eps_S'>0$ with the following property. For $0<\rho<r\le3$ there is $C$, depending in addition on $r-\rho$, such that for $\eps\le\eps_S'$: if $v$ is a scalar field with $D^TDv=\mathcal S$ on $\Lam_r$, then:
+\begin{enumerate}[label=(\alph*)]
+\item if $p>d$ and $\beta\le1-d/p$: $\ |v|_{\Lam_\rho}+|\partial v|_{\Lam_\rho}+[\partial v]_{\beta,\Lam_\rho}\le C\big(\mathfrak n^{p,\beta}_r(\mathcal S)+\|v\|_{\Lam_r}\big)$;
+\item if $\frac d2<p<d$ and $\beta\le2-d/p$: $\ |v|_{\Lam_\rho}+[v]_{\beta,\Lam_\rho}+\|\partial v\|_{p^*,\Lam_\rho}\le C\big(\mathfrak m^{p,p^*}_r(\mathcal S)+\|v\|_{\Lam_r}\big)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+As in Proposition~\ref{prop:scalar-interior}, we may assume $r-\rho\ge40\eta$, and we write $-\Lap v=(F-bv)+\sum_\mu\partial^*_\mu(g_\mu-a_\mu v)$ on $\Lam_r$.
+
+\emph{(a)} Repeat the proof of the first bound of Proposition~\ref{prop:scalar-interior}, with exponent $\beta$ and with the first inequality of Lemma~\ref{lem:rescaled-lp} in place of that of Lemma~\ref{lem:rescaled}. The perturbation $bv$ is part of $F$, and $\|bv\|_{p,\Lam_{2s}(x)}\le C\eps s^{d/p}|v|_{\Lam_{t'}}$. So it enters, as before, with the factor $s^2$. After division by $s$ the source enters as $s^{1-d/p}\|F\|_{p,\Lam_r}\le\|F\|_{p,\Lam_r}$. The rest is unchanged.
+
+\emph{(b)} Let $A(t)=|v|_{\Lam_t}+\|\partial v\|_{p^*,\Lam_t}$ and $\beta_0=2-d/p$; note $1-d/p^*=\beta_0$. Let $\rho\le t<t'\le r$, $s=(t'-t)/6$, and suppose $s\ge3\eta$. For $x\in\Lam_t$, the second inequality of Lemma~\ref{lem:rescaled-lp} with $q=p^*$ gives
+\[
+|v(x)|\le C\big(s^{\beta_0}\|F-bv\|_{p,\Lam_{2s}(x)}+s^{\beta_0}\|g-av\|_{p^*,\Lam_{3s}(x)}+s^{-d/2}\|v\|_{\Lam_r}\big).
+\]
+Since $s\le1$, $\|bv\|_{p,\Lam_{2s}(x)}+\|av\|_{p^*,\Lam_{3s}(x)}\le C\eps|v|_{\Lam_{t'}}$, and this is at most $C\mathfrak m^{p,p^*}_r(\mathcal S)+C\eps A(t')+Cs^{-d/2}\|v\|_{\Lam_r}$. For the gradient, cover $\Lam_t$ by the cubes $\Lam_s(x_i)$, with $x_i$ the points of $\Lam_{t+s}$ on a grid of lattice points of spacing $h=\eta\lfloor s/\eta\rfloor$. Since $s\ge3\eta$, $\frac12s\le h\le s$. Every point of $\Lam_t$ is within $\frac12h$ of a grid point, in each coordinate, so these cubes cover $\Lam_t$, and Lemma~\ref{lem:rescaled-lp} applies at each $x_i\in\eta\Z^d$. The cubes $\Lam_{3s}(x_i)$ lie in $\Lam_{t+4s}\subset\Lam_{t'}$ and overlap at most $13^d$ times. Apply the third inequality of Lemma~\ref{lem:rescaled-lp} on each cube, raise it to the power $p^*$ and sum over $i$. For the data use $\sum_ia_i^{p^*}\le(\sum_ia_i^p)^{p^*/p}$ and $\sum_ia_i^{p^*}\le(\sum_ia_i^2)^{p^*/2}$, valid since $p^*>p$ and $p^*>d>2$. This gives
+\[
+\|\partial v\|_{p^*,\Lam_t}\le C\big(\mathfrak m^{p,p^*}_r(\mathcal S)+\|bv\|_{p,\Lam_{t'}}+\|av\|_{p^*,\Lam_{t'}}+s^{-\theta}\|v\|_{\Lam_r}\big),\qquad\theta=1+\tfrac d2-\tfrac d{p^*},
+\]
+and the perturbations are bounded by $C\eps|v|_{\Lam_{t'}}$. If $s<3\eta$, then $A(t)\le C\eta^{-1-d/2}\|v\|_{\Lam_r}\le C(t'-t)^{-1-d/2}\|v\|_{\Lam_r}$. So $A(t)\le C_S'\eps A(t')+C(t'-t)^{-1-d/2}\|v\|_{\Lam_r}+C\mathfrak m^{p,p^*}_r(\mathcal S)$, and for $C_S'\eps\le\frac12$ Lemma~\ref{lem:iteration} on $[\rho',r]$, $\rho'=\frac12(\rho+r)$, bounds $A(\rho')$. The H\"older quotient on $\Lam_\rho$ follows from the second inequality of Lemma~\ref{lem:rescaled-lp} at the scale $s_1=(r-\rho)/8$, with the sup bound inserted, as in Proposition~\ref{prop:scalar-interior}.
+\end{proof}
+
+\begin{proposition}[Schauder estimate, (I4)]\label{prop:schauder}
+There is $\eps_S''>0$ with the following property. For $0<\rho<r\le3$ there is $C$, depending in addition on $r-\rho$, such that for $\eps\le\eps_S''$: if $v$ is a scalar field with $D^TDv=F$ on $\Lam_r$, then
+\[
+\max_{\mu,\nu}\big(|\partial_\mu\partial_\nu v|_{\Lam_\rho}+[\partial_\mu\partial_\nu v]_{\beta,\Lam_\rho}\big)\le C\big(|F|_{\Lam_r}+[F]_{\beta,\Lam_r}+\|v\|_{\Lam_r}\big).
+\]
+The same holds for the covariant second derivatives $D_\mu D_\nu v$.
+\end{proposition}
+
+\begin{proof}
+We may assume $r-\rho\ge40\eta$. Otherwise $\eta^{-1}<40(r-\rho)^{-1}$, and $|v(x)|\le\eta^{-d/2}\|v\|_{\Lam_r}$ gives the bounds: second differences, flat or covariant (the transports are unitary), are at most $4\eta^{-2-d/2}\|v\|_{\Lam_r}$, and their $\beta$-H\"older quotients at most $8\eta^{-2-\beta-d/2}\|v\|_{\Lam_r}$, since distinct lattice points are at distance at least $\eta$. So the proposition holds with $C=12\big(40/(r-\rho)\big)^{2+\beta+d/2}$ in this case. Let $\rho_1=\frac12(\rho+r)$ and $\mathfrak N=|F|_{\Lam_r}+[F]_{\beta,\Lam_r}+\|v\|_{\Lam_r}$. The first bound of Proposition~\ref{prop:scalar-interior}, with exponent $\beta$ and $g=0$, gives $|v|+|\partial v|+[\partial v]_\beta\le C\mathfrak N$ on $\Lam_{\rho_1}$. Write $-\Lap v=F-bv-\sum_\mu\partial^*_\mu(a_\mu v)$, fix $\nu$ and put $w=\partial_\nu v$. Since $\partial_\nu h=-\partial^*_\nu(S_\nu h)$ and $\partial_\nu$ commutes with $\partial^*_\mu$,
+\[
+-\Lap w=\sum_\mu\partial^*_\mu G_\mu,\qquad G_\mu=-\delta_{\mu\nu}S_\nu(F-bv)-\partial_\nu(a_\mu v)\qquad\text{on }\Lam_{\rho_1}.
+\]
+Here $a_\mu$ is a multiplication operator composed with a shift by at most $\eta$, so $\partial_\nu(a_\mu v)$ is a sum of terms (differences of the coefficients)$\,\cdot\,$(shifted $v$) and (coefficients)$\,\cdot\,$(shifted $\partial v$). By Lemma~\ref{lem:cov-expansion}, $|a_\mu|+|\partial a_\mu|+|b|\le C\eps$, and the $\beta$-H\"older quotients of $\partial a_\mu$ and $b$ are bounded by $C\eps$. Hence $|G|+[G]_\beta\le|F|+[F]_\beta+C\eps\big(|v|+|\partial v|+[\partial v]_\beta\big)\le C\mathfrak N$ on $\Lam_{\rho_1}$. Let $s_1=(\rho_1-\rho)/4\ge\eta$. For $x\in\Lam_\rho$, the first inequality of Lemma~\ref{lem:rescaled} on $\Lam_{3s_1}(x)\subset\Lam_{\rho_1}$, with exponent $\beta$, $F=0$ and $\|w\|_{\Lam_{2s_1}(x)}\le C|\partial v|_{\Lam_{\rho_1}}$, bounds $|\partial w|+[\partial w]_\beta$ on $\Lam_{s_1}(x)$ by $C\mathfrak N$. Pairs of points at distance larger than $s_1$ are handled by the sup bound. Finally, $D_\mu D_\nu v-\partial_\mu\partial_\nu v$ is a sum of terms (coefficient)$\,\cdot\,$(shifted $v$ or $\partial v$), with coefficients bounded by $C\eps$ whose $\beta$-H\"older quotients are bounded by $C\eps$. They include $\partial_\mu\tau_\nu$, which is only $C^\alpha$ by Lemma~\ref{lem:cov-expansion}, and $\beta\le\alpha$ suffices.
+\end{proof}
+
+\begin{remark}[The averaging term and (I4)]\label{rem:schauder-averaging}
+Proposition~\ref{prop:schauder} needs a H\"older source. For the scalar Dirichlet propagator, $v=G'_Xf$ satisfies $D^TDv=f-aQ'^TQ'v$ in the interior. The function $Q'^TQ'v$ jumps across the faces of the blocks, by $a$ times the difference of the averages of $v$ on adjacent blocks, up to parallel transport. This jump is not small. A jump across a single face already destroys the H\"older bound on second derivatives: for $-\Lap v=\one_{\{x_1>0\}}$ in the continuum, $\partial_1^2v$ is discontinuous, and on the lattice $[\partial_1\partial_1v]_\beta$ is of order $\eta^{-\beta}$. Jumps across the faces meeting at an edge destroy even the sup bound. If $-\Lap v=\sum_{i=1}^4c_i\one_{Q_i}$ for the four quadrants $Q_i$ around an edge, then $\partial_1\partial_2v$ grows like $(c_1-c_2+c_3-c_4)\log(1/|x|)$ at the edge. On the lattice this becomes $\log(1/\eta)$. Here the coefficient is a mixed second difference of the block averages, which is generically non-zero. So (I4) does not hold for the scalar local propagators $G'_Y$ themselves. Proposition~\ref{prop:schauder} applies when the averaging term vanishes, i.e.\ to fields $\sigma$ with $Q'\sigma=0$. For instance, $\sigma=G'_XR_Xh$ satisfies $D^TD\sigma=R_Xh=h-P_{\cV,X}h$ in the interior (Theorem~\ref{thm:reg-scalar}(d)). Here $P_{\cV,X}h=G'_XQ'^T(M'_X)^{-1}Q'G'_Xh$ is $C^{1,\beta}$ there, by Proposition~\ref{prop:scalar-interior}. Hence $|\partial\partial\sigma|+[\partial\partial\sigma]_\beta$ is bounded at $y\in X_{(4)}$ by $|h|+[h]_\beta$ nearby plus weighted $L^2$ norms.
+\end{remark}
+
+\subsection{The local system}
+
+\begin{proposition}[System interior estimates with $L^p$ data]\label{prop:system-lp}
+There is $\eps_L'>0$, depending in addition on the mass parameter $\kappa_m$ of Section~\ref{sec:reg-gauge}, with the following property. For $0<\rho<r\le3$ there is $C$, depending in addition on $r-\rho$, such that for $\eps\le\eps_L'$ the following holds. Let $W$, $m$, $(u,\sigma,\tau)$ and the sources $\mathcal S_u,\mathcal S_\sigma,\mathcal S_\tau$ be as in Proposition~\ref{prop:system-interior}, with \eqref{eq:system} on $\Lam_r$, and let $\mathfrak m=\|u\|_{\Lam_r}+\|\sigma\|_{\Lam_r}+\|\tau\|_{\Lam_r}$.
+\begin{enumerate}[label=(\alph*)]
+\item If $p>d$ and $\beta\le1-d/p$:
+\[
+\sum_{v\in\{u,\sigma,\tau\}}\big(|v|+|\partial v|+[\partial v]_\beta\big)_{\Lam_\rho}\le C\Big(\sum_\bullet\mathfrak n^{p,\beta}_r(\mathcal S_\bullet)+\mathfrak m\Big).
+\]
+\item If $\frac d2<p<d$ and $\beta\le2-d/p$:
+\[
+\sum_{v\in\{u,\sigma,\tau\}}\big(|v|_{\Lam_\rho}+[v]_{\beta,\Lam_\rho}+\|\partial v\|_{p^*,\Lam_\rho}\big)\le C\Big(\sum_\bullet\mathfrak m^{p,p^*}_r(\mathcal S_\bullet)+\mathfrak m\Big).
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{(a)} Repeat the proof of Proposition~\ref{prop:system-interior} with exponent $\beta$ and with Lemma~\ref{lem:rescaled-lp} in place of Lemma~\ref{lem:rescaled}. The perturbations in $F_u,F_\sigma,F_\tau$ are bounded pointwise, as in Step~1 there. On $\Lam_{2s}(x)$ their $L^p$ norms are at most $Cs^{d/p}$ times their sup norms, so they enter with the same powers of $s$ as before. The sources enter as $s^{1-d/p}\|F_{\mathcal S_\bullet}\|_p\le\|F_{\mathcal S_\bullet}\|_p$. In Step~2 the H\"older quotient of $\partial\sigma$ at scale $3s$ is bounded by the first inequality of Lemma~\ref{lem:rescaled-lp}, which gives $s^\beta[\partial\sigma]_\beta\le\dots+s^{1-d/p}\|F_\sigma\|_p$. The coefficients of $W$ have $\beta$-H\"older quotients bounded by $C\eps$, so Step~1 holds with $\beta$ in place of $\alpha$. Steps~3--5 are unchanged.
+
+\emph{(b)} Replace $A_v(t)$ in Steps~2 and~3 of the proof of Proposition~\ref{prop:system-interior} by $A_v(t)=|v|_{\Lam_t}+\|\partial v\|_{p^*,\Lam_t}$. Values are bounded at each $x\in\Lam_t$ by the second inequality of Lemma~\ref{lem:rescaled-lp}, with $q=p^*$. The $L^{p^*}$ norms of gradients are bounded by the third inequality on the cubes $\Lam_s(x_i)$ of the proof of Proposition~\ref{prop:scalar-lp}(b), summed in $\ell^{p^*}$. The perturbations of Step~1 there are estimated cube by cube:
+\begin{itemize}
+\item terms bounded pointwise by $|v|$, in $F_\bullet$: their $L^p$ norm on a cube of side $4s$ is at most $Cs^{d/p}$ times the sup, and the $\ell^{p^*}$ sum over the $Cs^{-d}$ cubes gives the factor $s^{d/p-d/p^*}=s$; for values the factor is $s^{\beta_0+d/p}=s^2$;
+\item gradient terms in $F_\bullet$ ($D\tau$ in $F_u$; $\eps\partial u$ and $\eps\partial\sigma$ in $F_\tau$ and $F_u$): by H\"older on a cube of side $4s$, $\|\partial v\|_{p,\Lam_{2s}(x_i)}\le Cs\|\partial v\|_{p^*,\Lam_{2s}(x_i)}$, which gives the factor $s$ (and $s^{1+\beta_0}$ for values);
+\item terms in $g_\bullet$: their $L^{p^*}$ norms are bounded by $C\eps$ times $|v|$ or $\|\partial v\|_{p^*}$, except for $u_\mu$ in $g_\sigma$, which has coefficient $1$. The potential $W$ is local with bounded coefficients, so $\|W h\|_{p^*,Q}\le C\eps\|h\|_{p^*,Q'}$ for a slightly larger cube $Q'$.
+\end{itemize}
+H\"older quotients of the coefficients are not needed. So Step~2 gives inequalities of the same form as there:
+\[
+\begin{aligned}
+A_\sigma(t)&\le C_4\big(A_u+\eps A_\sigma\big)+R,\qquad A_\tau(t)\le C_2\eps\big(A_u+A_\sigma+A_\tau\big)+R,\\
+A_u(t)&\le C_3(\eps+\kappa_ms)A_u+C_3\eps A_\sigma+C_3sA_\tau+R,
+\end{aligned}
+\]
+with the $A_v$ on the right evaluated at $t'$ and $R=C\big(\sum_\bullet\mathfrak m^{p,p^*}_r(\mathcal S_\bullet)+(t'-t)^{-\theta'}\mathfrak m\big)$ for some $\theta'>0$. Step~3, with the same weights and small cubes, and Lemma~\ref{lem:iteration} bound $A_u+A_\sigma+A_\tau$ on $\Lam_{\rho'}$. The H\"older quotients of the values follow at a fixed scale from the second inequality of Lemma~\ref{lem:rescaled-lp}. In Step~5, for $r>r_*$, cover $\Lam_\rho$ by the cubes $\Lam_{r_1/2}(x_i)$, with $x_i$ on a grid of spacing $r_1/2$. There are at most $C(r_1)$ of them. Sum the $p^*$-th powers of the bounds on these cubes.
+\end{proof}
+
+In Proposition~\ref{prop:system-interior} the bound for $\tau$ needed the H\"older quotient of $\partial\sigma$, through the term $W D\sigma$ in $g_\tau$. In (b) only $\|\partial\sigma\|_{p^*}$ enters, so this step disappears.
+
+\subsection{Consequences for the Dirichlet operators}
+
+For a block $y$ and fields on $\eta\Z^d$ write $\mathfrak E^p_y(F)=\sum_{y'}e^{-\gamma|y-y'|}\|F\|_{p,B(y')}$. For a $2$-form or a gauge field $g$ write $\mathfrak E^{\beta}_y(g)=\sum_{y'}e^{-\gamma|y-y'|}(|g|_{B(y')}+[\tilde g_{y'}]_{\beta,\Lam_1(c_{y'})})$, as in Theorem~\ref{thm:ID}(b).
+
+\begin{corollary}[Dirichlet propagators with $L^p$ data]\label{cor:lp-dirichlet}
+In the setting of Theorem~\ref{thm:ID} there are $\eps',C,\gamma>0$, independent of $X$, $k$, $n$, $\eta$, such that the following holds for $\eps\le\eps'$, every domain $X$ and every $y\in X_{(4)}$. Let $O$ be one of the operators $G'_X$, $\bG^X$, and let $f=F+D^T_Xg$, with $F$ a scalar, respectively gauge, field and $g$ a gauge field, respectively $2$-form, supported in $X$.
+\begin{enumerate}[label=(\alph*)]
+\item If $p>d$ and $\beta\le1-d/p$: $\ |Of|_{1,\beta;y}\le C\big(\mathfrak E^p_y(F)+\mathfrak E^\beta_y(g)\big)$.
+\item If $d=3$: $\ |Of|_{B(y)}+[\widetilde{Of}_y]_{1/2,\Lam_1(c_y)}+\|\nabla Of\|_{6,B(y)}\le C\big(\mathfrak E^2_y(F)+\mathfrak E^6_y(g)\big)$.
+\end{enumerate}
+Here $|\cdot|_{1,\beta;y}$ is $|\cdot|_{1,\alpha;y}$ of Section~\ref{sec:dirichlet-averaged} with exponent $\beta$. In particular $\nabla G'_XD^T_X$ and $\nabla\bG^XD^T_X$ map $L^6$ to $L^6$ locally, with exponential decay. This is the Calder\'on--Zygmund input (S5) of the blueprint for $p=6$, which is the case used there. The section gives gradient bounds in $L^q$ only for $q=p^*\in(d,\infty)$.
+\end{corollary}
+
+\begin{proof}
+For $O=\bG^X$ let $u=\bG^Xf$, so that $\fA^{X,\kappa_m}u=f$. Proceed as in the basic estimate of the proof of Theorem~\ref{thm:ID}. By Lemma~\ref{lem:local-system}, $(u,\sigma,\tau)$ satisfies \eqref{eq:system} on $\Lam_3(c_y)$, with
+\[
+\mathcal S_u=f+D\pi_1-D\pi_2-a\bQ^T\bQ u,\qquad\mathcal S_\sigma=-\pi_1,\qquad\mathcal S_\tau=-aQ'^TQ'\tau .
+\]
+In the local gauge, $D^T_Xg=\partial^*g+T^Tg$ is in local form, with $T^Tg$ part of $F$. The terms $D\pi_i$, $a\bQ^T\bQ u$ and $aQ'^TQ'\tau$ are bounded pointwise by $C\mathfrak L(u)$, as in the proof of Theorem~\ref{thm:ID}. By the $L^2$ decay of $\bG^X$, $D\bG^X$, $\bG^XD^T_X$ and $D\bG^XD^T_X$ (Theorem~\ref{thm:reg-gauge}(a)), together with $\|h\|_{B(y')}\le\|h\|_{p,B(y')}$ for $p\ge2$, we have $\mathfrak L(u)\le C(\mathfrak E^p_y(F)+\mathfrak E^q_y(g))$ for $p,q\ge2$. Here $\mathfrak E^q_y(g)$ is defined like $\mathfrak E^p_y(F)$, and $\mathfrak E^q_y(g)\le\mathfrak E^\beta_y(g)$. The H\"older quotient of $g$ is converted to the local gauge as in the proof of Theorem~\ref{thm:ID}(b). Proposition~\ref{prop:system-lp}(a), respectively (b) with $p=2$, gives the claim. For $O=G'_X$, $v=G'_Xf$ satisfies $D^TDv=f-aQ'^TQ'v$ in the interior. Here $|Q'v(y')|\le C\|v\|_{B(y')}$, and $G'_X$, $DG'_X$, $G'_XD^T_X$, $DG'_XD^T_X$ have $L^2$ decay (Theorem~\ref{thm:reg-scalar}(b)). Apply Proposition~\ref{prop:scalar-lp}.
+\end{proof}
+
+\paragraph{Consequences for route~2.} This paragraph records the state before Section~\ref{sec:tiers}, which carries out route~2 and supersedes this paragraph in part. With Corollary~\ref{cor:lp-dirichlet}, the interior smoothing mechanisms (S2), (S3) and (S5) of the blueprint hold for the Dirichlet propagators $G'_Y$ and $\bG^Y$ with potentials $W\in\cW_{\rm loc}(\eps)$. The levels (L1)--(L3) are compositions of these with bounded block-local operators, and (S1), (S4) were already available. The levels with the potential $W_2^X$ (range up to $3$, non-local through $\omega_0$) are not covered: the cube bound $\|Wh\|_{p^*,Q}\le C\eps\|h\|_{p^*,Q'}$ of Proposition~\ref{prop:system-lp}(b) fails at scales $s\ll3$. This is harmless as long as pointwise bounds are needed only for the operators of the background map, which are built with $W\in\cW_{\rm loc}$. For $C^{1,\beta}$ outputs from $\mathscr V$ the exponent restriction is $\beta\le\min(\alpha,\frac12)$ in $d=3$; with $\alpha=\frac12$, $\beta=\frac12$ is allowed. Two remarks on the blueprint follow.
+\begin{itemize}
+\item \emph{(I4) for $\bC(s)$.} By Remark~\ref{rem:schauder-averaging}, second derivatives are available only for fields annihilated by $Q'$. In a weakened product $DG'(s)R(s)G'(s)D^T$ the identity $Q'G'R=0$ does not hold term by term. So the term-by-term argument proposed for $\bC(s)$ does not work. Applying the unweakened operator to $\bC(s)f$ and treating the weakening errors as sources does not help either, for the same reason (Remark~\ref{rem:C-formula}). The fix is the torus identity $\bC=\bG\Pi^T-\bH\bQ\bG$ of Section~\ref{sec:tiers}, which needs no second derivatives of scalar fields.
+\item \emph{Mixed norms.} The step bounds of route~2 are carried out in Section~\ref{sec:tiers}, in block $L^6$ and H\"older norms. Two interior factors at the output suffice there.
+\end{itemize}
+

@@ -1,0 +1,204 @@
+\section{The one-loop term in the Landau chart}\label{sec:ol-chart}
+
+The one-loop term $\Gamma^{(1)}_k$ of Proposition~\ref{prop:ol-laplace} depends only on the second-order jet of the action and on the density of the measure at the minimal orbit, not on coordinates. This section computes it in Ba\l aban's Landau chart (Theorem~\ref{thm:chart}), where it becomes a combination of determinants of operators that Parts~II--V control.
+
+One point needs care. The composite integral has the residual group $\mathfrak G_0=\{u:u|_\T=1\}$. The chart, however, is built on the gauge-adapted averaging $\mathcal Q$ (Definition~\ref{def:adapted}), whose residual directions are $D_U\lambda$ with $Q'_k(U)\lambda=0$. It reaches the configurations through the correspondence $\mathsf w_k$, which is not in $\mathfrak G_0$. The bridge is a smearing over the coarse gauge orbit, which makes the integrand invariant under all gauge transformations. It is carried out in a neighbourhood of the minimal orbit that shrinks as $g\to0$, at a fixed coarse configuration with a finite stabilizer. The result extends to all small-field $V$ by continuity, since the configurations with a finite stabilizer are dense.
+
+\paragraph{Setting.} Let $V$ be small field (Section~\ref{sec:ol-composite}) and $U_0=U_k(V)$ its minimizer. Up to the paragraph ``All $V$'' of the proof of Theorem~\ref{thm:ol-chart}, only $V\in\mathfrak U_k(a_1)$ and the admissibility of $(V,\theta_0)$ are used. As in Section~\ref{sec:ol-composite}, $U_0$ is the reference of Part~IV, averages are relative to $U_0$, and the minimizer is $A_*=0$ in the chart. Let $\mathcal G$ be the group of real gauge transformations of $\Tf$ and $\mathcal G_\T$ that of $\T$. For $g>0$ put $\varrho_g=g^{1/2}$, and, for $g$ so small that $\varrho_g\le\varrho_0:=\min(\frac12r_u,\frac12r_0)$, let
+\[
+\mathcal D_{\varrho_g}=\big\{e^{\ii\eta A}U_0:\ |A|_\infty<2\varrho_g,\ \text{curvature and current at most }\theta\big\},
+\]
+the domain of the chart coordinate $A$, with $\theta=\theta_0$ (so that $(V,\theta)$ is admissible and Theorem~\ref{thm:chart} applies). Let
+\[
+\Sigma_{\varrho_g}=\big\{e^{\ii\eta A}U_0\in\mathcal D_{\varrho_g}:\ |A|_\infty<\varrho_g,\ R(U_0)D^T_{U_0}A=0,\ \mathcal Q(e^{\ii\eta A})=1\big\},
+\]
+and let $\mathscr N_{\varrho_g}$ be the union of the $\mathcal G$-orbits of the points of $\Sigma_{\varrho_g}$. Then, for $g$ small, $\mathscr N_{\varrho_g}(V)\subset\mathscr N_{\varrho_g}\cap\mathfrak B(V)\subset\mathfrak B(V)\cap\mathfrak U(\theta_0)$, with $\mathscr N_{\varrho_g}(V)$ as in Section~\ref{sec:ol-composite}: a configuration $\mathsf U(A)$, $A\in\mathcal S_V$, $|A|_\infty<\varrho_g$, is a gauge transform of $e^{\ii\eta A}U_0\in\Sigma_{\varrho_g}$, and $\mathfrak U(\theta)$ is gauge invariant. The set $\mathscr N_{\varrho_g}$ is a Borel set, the image of the $\sigma$-compact set $\mathcal G\times\Sigma_{\varrho_g}$ under a continuous map. By the proof of Proposition~\ref{prop:ol-laplace}, $\Phi\ge\Phi(0)+c|A|_\infty^2$ on $\mathcal S_V$, with $c=c(V)>0$. So the integral over $\mathscr N_{r_0}(V)\setminus\mathscr N_{\varrho_g}(V)$ is at most $Ce^{-(S(U_0)+c\varrho_g^2)/g^2}$, with $C$ the mass of $\mathfrak B(V)\cap\mathfrak U(\theta_0)$ (Lemma~\ref{lem:ol-fibre-mass}), while $I_k(V;g,r_0)\ge c'g^Ne^{-S(U_0)/g^2}$, with $N=\dim\cX$ (Proposition~\ref{prop:ol-laplace} and its proof). With Lemma~\ref{lem:ol-neighbourhood}, applied to $\mathscr N=(\mathscr N_{\varrho_g}\cap\mathfrak B(V))\cup\mathscr N_{r_0}(V)$, the integral over $\mathscr N_{\varrho_g}\cap\mathfrak B(V)$ is $I_k(V;g,r_0)\big(1+O(g^{-N}e^{-c/g})\big)$, since $\varrho_g^2=g$. This does not change $\Gamma^{(1)}_k$.
+
+\begin{lemma}[Smearing over the coarse orbit]\label{lem:ol-smearing}
+Put $\delta^{\rm orb}_V(V')=\int_{\mathcal G_\T}dh\,\delta(V',V^h)$, with the Haar measure and $\delta(V',V'')=\prod_c\delta(V'(c)V''(c)^{-1})$. For every $\mathcal G$-invariant integrable function $f$ that vanishes where $U^{(k)}$ is not defined,
+\[
+\int dU\,\delta\big(U^{(k)},V\big)f(U)=\frac1{\operatorname{vol}\mathcal G_\T}\int dU\,\delta^{\rm orb}_V\big(U^{(k)}\big)f(U).
+\]
+On $\mathcal D_{\varrho_g}$, $\delta^{\rm orb}_V(U^{(k)})=\delta^{\rm orb}_V(\mathcal Q(UU_0^{-1})V)$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:ol-smearing}
+Write the right side as $\int dh\int dU\,\delta(U^{(k)},V^h)f(U)$. For each $h$ choose $\hat h\in\mathcal G$ with $\hat h|_\T=h$ and substitute $U=W^{\hat h}$. Then $U^{(k)}=(W^{(k)})^h$ by Lemma~\ref{lem:one-step-basic}(b). Moreover $\delta((W^{(k)})^h,V^h)=\delta(W^{(k)},V)$, since $\delta$ is a class function, and $f(W^{\hat h})=f(W)$, $dU=dW$. So every $h$ gives the left side. On $\mathcal D_{\varrho_g}$, $\mathcal Q(UU_0^{-1})V$ is coarse-gauge-equivalent to $U^{(k)}$ (Lemma~\ref{lem:Q-covariance}(a)), and $\delta^{\rm orb}_V$ is invariant under coarse gauge transformations of its argument.
+\end{proof}
+
+So the integrand $F(U)=\delta^{\rm orb}_V(U^{(k)})f(U)$, set to $0$ where $f$ vanishes, is defined everywhere and invariant under $\mathcal G$, since $(U^u)^{(k)}=(U^{(k)})^{u|_\T}$. The gauge-adapted average is used only inside $\mathcal D_{\varrho_g}$.
+
+\begin{lemma}[Stabilizers and the slice]\label{lem:ol-slice}
+\begin{enumerate}[label=(\alph*)]
+\item Restriction to $\T$ is an isomorphism
+\[
+\operatorname{Stab}_{\mathcal G}(U_0)\to\operatorname{Stab}_{\mathcal G_\T}(V).
+\]
+Its elements act on relative configurations by $X(b)\mapsto\operatorname{Ad}_{s(b_-)}X(b)$, and $\mathsf w_k$, $\mathcal Q$ and the Landau condition are equivariant under them.
+\item Let $U_1,U_2\in\mathcal D_{\varrho_g}$ lie in one $\mathcal G$-orbit, with $\mathcal Q(U_iU_0^{-1})=1$ and $R(U_0)D^T_{U_0}A_i=0$. Then $U_2=U_1^{s}$ for some $s\in\operatorname{Stab}_{\mathcal G}(U_0)$. In particular $|A_2|_\infty=|A_1|_\infty$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:ol-slice}
+(a) Restriction is injective, since $\mathfrak G_0$ acts freely. For surjectivity, let $h\in\operatorname{Stab}_{\mathcal G_\T}(V)$ and $s=\mathcal E^{(k)}(h)$, the extension of $h$ by parallel transport along the chains of averaged contour variables of the background (Section~\ref{sec:adapted}); it is real. The relative configuration $1^{(s)}$ is averaged axial (Lemma~\ref{lem:axial}(b)) and has average $1$, since $h$ stabilizes $V$. It is critical, since $s$ maps the critical orbit to a critical orbit. By Theorem~\ref{thm:balaban}(a) it lies in the minimal $\mathfrak G_0$-orbit, whose only axial representative is $1$ (Lemma~\ref{lem:axial}(c)). Hence $1^{(s)}=1$, i.e.\ $s\in\operatorname{Stab}_{\mathcal G}(U_0)$, with $s|_\T=h$. For $s$ in the stabilizer, the relative action is pointwise conjugation; by \eqref{eq:Y2-law}, so is its action on the averaged relative contour variables, $X^{(s)}_W(y,x)=s(y)X_W(y,x)s(y)^{-1}$. Since $s$ is real, the averaged contour variables of $X^{(s)}W_{j-1}$ are defined whenever those of $XW_{j-1}$ are: the averaging domain is invariant under real gauge transformations (Section~\ref{sec:adapted}). So the averaged contour variables, $\tau_X$ and $g_X$ of Section~\ref{sec:adapted} are equivariant, and hence so are $\mathsf w_k(\tilde U^{(s)})=s\,\mathsf w_k(\tilde U)\,s^{-1}$ and $\mathcal Q(\tilde U^{(s)})=\mathcal Q(\tilde U)^{(s|_\T)}$. This is read off from the definitions; Lemma~\ref{lem:Q-covariance} covers only transformations close to $1$.
+
+(b) The averaged axial representatives $U'_i$ of $U_iU_0^{-1}$ lie in one orbit and are averaged axial, so $U'_2=U_1'^{(\mathcal E^{(k)}(h))}$ for some $h$ on $\T$ (Lemma~\ref{lem:axial}(b)). Their plain averages are $\mathcal Q(U_iU_0^{-1})=1$ (Theorem~\ref{thm:correspondence}(a)), so $h$ stabilizes $V$, and $s=\mathcal E^{(k)}(h)\in\operatorname{Stab}_{\mathcal G}(U_0)$ by~(a). By equivariance, $U_1^{(s)}$ is a preimage of $U'_2$ under the chart. The uniqueness in Theorem~\ref{thm:chart}, which uses the a priori bound of Proposition~\ref{prop:a-priori} and hence the bound on the current built into $\mathcal D_{\varrho_g}$, gives $U_2=U_1^{(s)}$. Conjugation preserves $|A|_\infty$.
+\end{proof}
+
+\paragraph{Recall.} The next two results use the linear maps of Section~\ref{ss:27.1}. For a real fine field $A$ with $|A|_{C^1}$ small, and scalar fields $\lambda$ on $\Tf$ and $\mu$ on $\T$,
+\[
+\begin{aligned}
+\Xi_A\lambda&=\tfrac{d}{dt}\Big|_{0}\mathcal A_t,\qquad e^{\ii\eta\mathcal A_t}=(e^{\ii\eta A})^{(e^{\ii t\lambda})},\\
+\Theta_A\lambda&=-\ii\tfrac{d}{dt}\Big|_{0}h_{e^{\ii\eta A}}(e^{\ii t\lambda}),\qquad
+\Lambda_A\mu=\tfrac{d}{dt}\Big|_0\ell\big(\mathcal Q(e^{\ii\eta A})^{(e^{\ii t\mu})}\big),
+\end{aligned}
+\]
+with $h_{\tilde U}(g)$ of Lemma~\ref{lem:Q-covariance}(b). They satisfy \eqref{eq:dQ-gauge}, $d\mathcal Q(A)\,\Xi_A\lambda=\Lambda_A\Theta_A\lambda$, they make sense for small complex $A$, and $\Theta_0=Q'$. The subspace $\cW=\cW(U_0)=D^TD\,\cN(Q'(U_0))$ is that of Section~\ref{sec:cov-scalar}, with $\cN(Q')$ the null space of $Q'$; the form $q_2$ is that of Proposition~\ref{prop:hessian}.
+
+\begin{proposition}[Faddeev--Popov on the slice]\label{prop:ol-FP}
+Let $V$ be such that $\operatorname{Stab}_{\mathcal G}(U_0)$ is finite, and $g$ small depending on $V$. Then, for every $\mathcal G$-invariant $f$ supported in $\mathscr N_{\varrho_g}$,
+\[
+\int dU\,\delta\big(U^{(k)},V\big)f(U)=c_0\int_{|A|<\varrho_g}dA\ \delta\big(\mathcal Q(e^{\ii\eta A}),1\big)\ \delta\big(R(U_0)D^T_{U_0}A\big)\ \big|\det\mathcal O_A\big|\ \sigma(A)\,f\big(e^{\ii\eta A}U_0\big),
+\]
+where:
+\begin{itemize}
+\item $c_0$ does not depend on $V$;
+\item $\sigma(A)=\prod_b\sigma(\eta A(b))$ is the density of the Haar measure in the exponential coordinates;
+\item $\mathcal O_A\lambda=(\Theta_A\lambda,\,RD^T\Xi_A\lambda)$ is the operator of the proof of Proposition~\ref{prop:euler-lagrange}, and $|\det\mathcal O_0|=|\det(RD^T_{U_0}D_{U_0}:\cN(Q'_k)\to\cW)|$ is Ba\l aban's ghost.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}\hasdetail{prop:ol-FP}
+In this proof, identities between measures are written up to positive factors that do not depend on $V$: the densities $\sigma(0)^{|\T|}$ and $\sigma(0)^{|\Tf|}$ of the Haar measures $dh$ and $du$ at the zeros of the conditions, and the Jacobian of the coordinates $A$. These factors make up $c_0$. \emph{The coarse condition.} The orbit of $V$ under $\mathcal G_\T$ is an embedded submanifold. Choose a function $\varphi$ near $V$, vanishing at $V$, whose differential restricted to the tangent space $\{D_V\mu\}$ of the orbit is invertible. Below the injectivity radius of the orbit at $V$, which is positive since the stabilizer is finite, the zeros of $\varphi$ on the orbit are the points $V^h$ with $h$ in the stabilizer, i.e.\ $V$ itself. On $\mathcal D_{\varrho_g}$, $|\ell\mathcal Q(e^{\ii\eta A})|\le2|A|<4\varrho_g$ (Proposition~\ref{prop:Q-expansion}(a)). On the support of $\delta^{\rm orb}_V$ the average lies on the orbit, hence within $4\varrho_g$ of $V$ along the orbit. This lies below the injectivity radius for $g$ small. So, on the support,
+\[
+\delta^{\rm orb}_V(V')\,\delta(\varphi(V'))=|\operatorname{Stab}_{\mathcal G_\T}(V)|\ \frac{\delta(V',V)}{|\det(\varphi'D_V)|} .
+\]
+Without the shrinking domain this fails near $V=1$: there the constant gauge transformations move $V$ only a little, and $\varphi$ has further zeros on the orbit, e.g.\ at Weyl-type elements.
+
+\emph{Faddeev--Popov for $\mathcal G$.} Apply the Faddeev--Popov identity for the compact group $\mathcal G$ to $F=\delta^{\rm orb}_V(U^{(k)})f$, with the condition $\chi(U)=\big(\varphi(\mathcal Q(UU_0^{-1})V),\,R(U_0)D^T_{U_0}A\big)$ on $\mathcal D_{\varrho_g}$. Let $U\in\mathscr N_{\varrho_g}$. By the previous paragraph and Lemma~\ref{lem:ol-slice}(b), the zeros of $\chi$ on the orbit of $U$ within $\mathcal D_{\varrho_g}$ form a single $\operatorname{Stab}_{\mathcal G}(U_0)$-orbit of points of $\Sigma_{\varrho_g}$, and all have $|A|<\varrho_g$. So $\chi$ has no zeros near the boundary of $\mathcal D_{\varrho_g}$. The identity has the weight $1/n(U)$, where $n(U)$ is the number of $u\in\mathcal G$ with $U^u\in\mathcal D_{\varrho_g}$ and $\chi(U^u)=0$; it is $\mathcal G$-invariant. We show that, for $g$ small depending on $V$, the zeros of $u\mapsto\chi(U_1^u)$ are exactly the elements of $\operatorname{Stab}_{\mathcal G}(U_0)$, for every $U_1\in\Sigma_{\varrho_g}$.
+\begin{itemize}
+\item Every $s\in\operatorname{Stab}_{\mathcal G}(U_0)$ is a zero: $U_1^s\in\Sigma_{\varrho_g}$, by the equivariance of Lemma~\ref{lem:ol-slice}(a), and $\varphi(V)=0$.
+\item At $U_1=U_0$, the map $u\mapsto\chi(U_0^u)$ has at $u=s$ the derivative $\operatorname{diag}(-\varphi'D_V,1)\circ\mathcal O_0$, composed with the right translation $\lambda\mapsto e^{\ii\lambda}s$, since $U_0^{e^{\ii\lambda}s}=(U_0^s)^{e^{\ii\lambda}}=U_0^{e^{\ii\lambda}}$ (paragraph ``The Faddeev--Popov operator'' below). It is invertible: $\mathcal O_0$ by the proof of Proposition~\ref{prop:euler-lagrange}, and $\varphi'D_V$ by the choice of $\varphi$. The map $(U_1,u)\mapsto\chi(U_1^u)$ is smooth near $(U_0,s)$. By the implicit function theorem there are neighbourhoods $N_s$ of $s$ and $W$ of $U_0$ such that for $U_1\in W$ the map $u\mapsto\chi(U_1^u)$ has exactly one zero in $N_s$. For $U_1\in\Sigma_{\varrho_g}\cap W$ this zero is $s$.
+\item For $g$ small, every zero lies in $\bigcup_sN_s$, and $\Sigma_{\varrho_g}\subset W$. Otherwise there are $g_n\to0$, $U_n\in\Sigma_{\varrho_{g_n}}$ and zeros $u_n\notin\bigcup_sN_s$. Then $U_n\to U_0$ and $U_n^{u_n}\in\mathcal D_{\varrho_{g_n}}$, so $U_n^{u_n}\to U_0$. By the compactness of $\mathcal G$, a subsequence of $u_n$ converges to some $u_\infty$, with $U_0^{u_\infty}=U_0$, i.e.\ $u_\infty\in\operatorname{Stab}_{\mathcal G}(U_0)\subset\bigcup_sN_s$, a contradiction.
+\end{itemize}
+In particular $\operatorname{Stab}_{\mathcal G}(U_1)\subset\operatorname{Stab}_{\mathcal G}(U_0)$, and $n(U)=|\operatorname{Stab}_{\mathcal G}(U_0)|$ for every $U\in\mathscr N_{\varrho_g}$, since every such $U$ is a gauge transform of a point of $\Sigma_{\varrho_g}$. So the identity gives the factor $1/|\operatorname{Stab}_{\mathcal G}(U_0)|$. This cancels $|\operatorname{Stab}_{\mathcal G_\T}(V)|$, by Lemma~\ref{lem:ol-slice}(a).
+
+\emph{The Faddeev--Popov operator.} By \eqref{eq:dQ-gauge}, the linearization of $\chi$ along the gauge orbit at a point of $\Sigma_{\varrho_g}$ is $\lambda\mapsto\big(\varphi'\Lambda_A\Theta_A\lambda,\ RD^T\Xi_A\lambda\big)$. On $\Sigma_{\varrho_g}$ the relative average is $1$, so $\Lambda_A=-D_V$ in the coordinates of $\T$. So the operator is $\operatorname{diag}(-\varphi'D_V,1)\circ\mathcal O_A$, with determinant $\pm\det(\varphi'D_V)\det\mathcal O_A$, and the coarse factors cancel. At $A=0$, $\mathcal O_0\lambda=(Q'_k\lambda,-RD^TD\lambda)$ (Proposition~\ref{prop:euler-lagrange}). With the orthogonal splitting $\lambda=Q'^T_k\mu+\lambda_0$, $\lambda_0\in\cN(Q'_k)$, which holds since $Q'_kQ'^T_k=I$, the operator is block-triangular, and $|\det\mathcal O_0|=|\det(RD^TD|_{\cN(Q'_k)})|$.
+\end{proof}
+
+\begin{theorem}[The one-loop term in the Landau chart]\label{thm:ol-chart}
+For every small-field $V$, with $U_0=U_k(V)$ and up to a constant independent of $V$,
+\[
+\begin{aligned}
+\Gamma^{(1)}_k(V)={}&-\frac12\log\det\bL_*(U_0)-\frac12\log\det\big(\bQ_k\bG_*(U_0)\bQ_k^T\big)\\
+&+\log\big|\det\big(RD^T_{U_0}D_{U_0}:\cN(Q'_k)\to\cW\big)\big| .
+\end{aligned}
+\]
+Here $\bL_*=q_2+D_{U_0}RD^T_{U_0}+a\bQ_k^T\bQ_k$ and $\bG_*=\bL_*^{-1}$. The form $q_2$ is that of Proposition~\ref{prop:hessian}, $\bQ_k=d\mathcal Q(0)$, and all operators are taken at $U_0$.
+\end{theorem}
+
+\begin{proof}\hasdetail{thm:ol-chart}
+\emph{$V$ with a finite stabilizer.} Apply Laplace's method to the right side of Proposition~\ref{prop:ol-FP}, with $f=\one_{\mathscr N_{\varrho_g}}e^{-S/g^2}$. In the coordinates $A$ the constraints are $\mathcal CA=0$ to first order, with $\mathcal C=(\bQ_k,RD^T)$. The action restricted to $\{\mathcal Q=1,\ RD^TA=0\}$ is critical at $A=0$ (Proposition~\ref{prop:euler-lagrange}). Its Hessian there is the Hessian of the Lagrangian, $q_2$; the curvature of the constraint gives the multiplier term. The factors $|\det\mathcal O_A|$ and $\sigma(A)$ enter at $A=0$. So, up to constants independent of $V$, the term of order $g^0$ is the logarithm of
+\[
+|\det\mathcal O_0|\int dA\,\delta(\mathcal CA)\,e^{-\frac12q_2(A,A)}\ \propto\ |\det\mathcal O_0|\,\big(\det\bL_*\big)^{-1/2}\big(\det\mathcal C\bG_*\mathcal C^T\big)^{-1/2}.
+\]
+This is the Gaussian formula for a linear constraint, with $\bL_*=q_2+\mathcal C^T\operatorname{diag}(a,1)\mathcal C$, which equals $q_2$ on $\ker\mathcal C$. The operator $\bL_*$ is coercive. The reference $U_0$ is critical, with $\beta=0$, and $(M,\eps)$-regular with $|J_{U_0}|\le\eps$ for $\eps=B_3a_1\le\frac12c_7$ (Theorem~\ref{thm:balaban}(b), as in the paragraph ``The minimum'' of the proof of Proposition~\ref{prop:ol-laplace}). So Lemma~\ref{lem:Lstar-coercive} applies: by its statement, $\bL_*$ differs from the operator $\fA_\pi$ of Part~III by a form bounded by $C'\eps(\|h\|^2+\|Dh\|^2+\|D^Th\|^2)$, and $\ip h{\bL_*h}\ge\frac12c_*(\|h\|^2+\|Dh\|^2+\|D^Th\|^2)$ for all real $h$. It remains to show that $\mathcal C\bG_*\mathcal C^T=\bQ_k\bG_*\bQ_k^T\oplus1$, on the coarse fields and on $\cW$.
+
+\emph{Gauge directions are zero modes of $q_2$.} Let $L(A)=\Phi(A)-\ip{\omega_*}{\ell(\mathcal Q(e^{\ii\eta A}))}$ be the Lagrangian with the multiplier $\omega_*$ of Proposition~\ref{prop:euler-lagrange}, so that $\nabla L(0)=0$ and $\nabla^2L(0)=q_2$. Gauge invariance of $\Phi$ and \eqref{eq:dQ-gauge} give, for every $A$ and $\lambda$,
+\[
+\ip{\nabla L(A)}{\Xi_A\lambda}=-\ip{\Lambda_A^T\omega_*}{\Theta_A\lambda}.
+\]
+Differentiate in $A$ at $A=0$ in a direction $a$. Since $\nabla L(0)=0$ and $\Lambda_0^T\omega_*=0$ (Proposition~\ref{prop:euler-lagrange}), what remains is $q_2(a,\Xi_0\lambda)=-\ip{(\partial_a\Lambda^T)\omega_*}{\Theta_0\lambda}$. For $\lambda\in\cN(Q'_k)$ the right side vanishes, since $\Theta_0=Q'_k$. With $\Xi_0\lambda=-D\lambda$, this gives $q_2D\lambda=0$.
+
+\emph{The block structure.} For $\lambda\in\cN(Q'_k)$, $a\bQ_k^T\bQ_kD\lambda=a\bQ_k^TD_VQ'_k\lambda=0$ by exact covariance (Proposition~\ref{prop:linearized-averages}(b)). Hence $\bL_*D\lambda=D(RD^TD\lambda)$, i.e.\ $\bG_*D\mu=D\lambda$ for $\mu=RD^TD\lambda\in\cW$. So $RD^T\bG_*DR\mu=\mu$ and $\bQ_k\bG_*DR\mu=D_VQ'_k\lambda=0$ for $\mu\in\cW$. Combining the determinants gives the formula; $\sigma(0)$ is a constant.
+
+\emph{All $V$.} The proofs of Proposition~\ref{prop:ol-FP} and of the paragraphs above use of $V$ only that $V\in\mathfrak U_k(a_1)$ and that $(V,\theta_0)$ is admissible: through Lemma~\ref{lem:ol-neighbourhood}, Theorem~\ref{thm:chart}, Lemma~\ref{lem:ol-slice}, Theorem~\ref{thm:balaban}(a),(b), Proposition~\ref{prop:ol-laplace} and Lemma~\ref{lem:ol-fibre-mass} (Setting), Proposition~\ref{prop:euler-lagrange} and Lemma~\ref{lem:Lstar-coercive}, all of which hold for such $V$. So the formula holds for every such $V$ whose stabilizer is finite. Let $V^\circ$ be small field. Then $V^\circ\in\mathfrak U_k(\frac12a_1)$ (Setting of Section~\ref{sec:ol-composite}), so there is a neighbourhood $\mathcal B$ of $V^\circ$ in the configurations on $\T$ with $\mathcal B\subset\mathfrak U_k(\frac34a_1)$. For $V\in\mathcal B$ the minimal orbit lies in $\mathfrak U(\frac34B_3a_1)\subset\mathfrak U(\frac34\theta_0)$ (Theorem~\ref{thm:balaban}(b), and $B_3a_1\le\theta_0$), so $(V,\theta_0)$ is admissible on $\mathcal B$.
+\begin{itemize}
+\item \emph{Density.} By Lemma~\ref{lem:ol-slice}(a), the stabilizer of $U_k(V)$ is finite if and only if $\operatorname{Stab}_{\mathcal G_\T}(V)$ is. This is a closed subgroup of the compact group $\mathcal G_\T$, with Lie algebra $\ker D_V$ on the coarse scalar fields; so it is finite if and only if $\det(D_V^TD_V)\ne0$. This determinant is a real polynomial in the real and imaginary parts of the matrix entries of the $V(c)$, since $R(V(c))=V(c)\otimes\overline{V(c)}$. Its restriction to the connected real-analytic manifold $G^{\{\text{bonds}\}}$ is real analytic and, by the example below, not identically zero; so its zero set has empty interior. Fix a spanning tree of $\T$, put $V=1$ on its bonds, and choose two bonds $c_1,c_2$ off the tree. If $V(c_1)=h_1$, $V(c_2)=h_2$ and $V=1$ on the other bonds, then $\ker D_V$ consists of the constants $\lambda\equiv X$ with $\operatorname{Ad}_{h_1}X=\operatorname{Ad}_{h_2}X=X$. Take $h_1=e^{\ii X_1}$ with $X_1\in\mathfrak g$ regular and small, so that the Lie algebra of the centralizer of $h_1$ is the Cartan subalgebra $\mathfrak t$ containing $X_1$, and $h_2=e^{\ii X_2}$ with $X_2\in\mathfrak g$ such that no nonzero element of $\mathfrak t$ commutes with $X_2$ (for instance a small multiple of $\sum_\alpha(E_\alpha+E_\alpha^*)$, summed over the simple roots $\alpha$ of $\mathfrak t$, with root vectors $E_\alpha\in\mathfrak g^c$; an element $Y\in\mathfrak t$ commuting with it has $\alpha(Y)=0$ for all simple roots, so $Y=0$), and $X_2$ small, so that the centralizer of $h_2$ in $\mathfrak g$ is that of $X_2$. Then $\ker D_V=0$. So the $V\in\mathcal B$ with finite stabilizer are dense in $\mathcal B$.
+\item \emph{The left side} is continuous on $\mathcal B$, by Proposition~\ref{prop:ol-laplace}.
+\item \emph{The right side.} Fix $U_0^\circ\in\mathscr M(V^\circ)$. By Corollary~\ref{cor:analytic}, the minimal orbit of $e^{\ii B}V^\circ$ contains $\mathsf U_{U_0^\circ}(A_*(B))$, analytic in $B$. The operators of the formula are analytic in the reference near $U_0^\circ$: by Proposition~\ref{prop:AB}(vi) with $U_r=U_0^\circ$, which applies since $U_0^\circ\in\mathfrak U(B_3a_1)\subset\mathfrak U_0(B_3a_1)$ (Theorem~\ref{thm:balaban}(b)) and $B_3a_1\le c'_3$ (choice of $a_1$ in the proof of Theorem~\ref{thm:balaban}), and composition, as in the proof of Proposition~\ref{prop:complex-ext}, for the references $e^{\ii\eta A_*(B)}U_0^\circ$, this covers $\bQ_k$, $Q'_k$, $D$ and $d^2\Cav_k(0)$; the gauge transformation $\mathsf w_k$ relating $e^{\ii\eta A_*(B)}U_0^\circ$ to $\mathsf U_{U_0^\circ}(A_*(B))$ conjugates them by orthogonal maps; and $d^2\mathcal N(0)$ is polynomial in the background (proof of Lemma~\ref{lem:ol-offshell}(a)). The multiplier is $\omega_0=(\bQ_k\bQ_k^T)^{-1}\bQ_kJ_{U_0}$, which is continuous as well, since $\bQ_k^T$ is injective ($\bQ_k\bH=I$). The right side does not depend on the element of the minimal orbit, since $u\in\mathfrak G_0$ conjugates $\bL_*$, $\bQ_k\bG_*\bQ_k^T$, $\fA'$ and $M'$ by orthogonal maps, as in the proof of Lemma~\ref{lem:ol-offshell}(a). At every $U_k(V)$, $V\in\mathcal B$, the operators are invertible: $\bL_*\ge\frac12c_*$, by Lemma~\ref{lem:Lstar-coercive} as in the paragraph ``$V$ with a finite stabilizer''; $\bQ_k\bG_*\bQ_k^T>0$, since $\bG_*>0$ and $\bQ_k^T$ is injective; and the ghost is $\log\det\fA'+\frac12\log\det M'$ (Corollary~\ref{cor:ol-ghost}, whose proof does not use this theorem), with $\fA'>0$ and $M'>0$ (Theorem~\ref{thm:reg-scalar}(a),(c), via Corollary~\ref{cor:parts-apply}).
+\end{itemize}
+So the identity holds at $V^\circ$, for every small-field $V^\circ$, including $V^\circ=1$, where the vacuum polarization is taken.
+\end{proof}
+
+The ghost enters to the first power, and the determinant of $\bQ_k\bQ_k^T$ does not appear. At $U_0=1$ every operator is that of Part~I. There $\bL_*=-\Lap-dP_\cV d^*+a\bQ^*\bQ$, a Feynman-type operator up to the bounded term $dP_\cV d^*$ (Section~\ref{sec:gauge-coercivity}), and the ghost operator is $-\Lap:\cN(Q_0)\to\cW$. Both are regulated at the block scale. A Feynman gauge for $\mathfrak G_0$ itself would not be: its constraint is imposed at the points of $\T$, which have no capacity in the continuum limit in four dimensions.
+
+\begin{corollary}[The ghost on fixed spaces]\label{cor:ol-ghost}
+With the operators of Section~\ref{sec:cov-scalar}, $\fA'(U)=D_U^TD_U+aQ'^TQ'$, $G'=\fA'^{-1}$ and $M'=Q'G'^2Q'^T$,
+\[
+\log\big|\det\big(RD^T_UD_U:\cN(Q')\to\cW\big)\big|=\log\det\fA'(U)+\tfrac12\log\det M'(U),
+\]
+the determinant on the left being taken in orthonormal frames. So, up to a constant,
+\[
+\Gamma^{(1)}_k(V)=-\tfrac12\log\det\bL_*-\tfrac12\log\det\big(\bQ_k\bG_*\bQ_k^T\big)+\log\det\fA'+\tfrac12\log\det M',
+\]
+all operators acting on fixed spaces, at $U_0=U_k(V)$.
+\end{corollary}
+
+\begin{proof}\hasdetail{cor:ol-ghost}
+Let $X=D^TD$ and $P=1-Q'^TQ'$, the orthogonal projection onto $\cN(Q')$, since $Q'Q'^T=I$. Put $K=RX|_{\cN(Q')}$. Since $\cW=X\cN(Q')$ (Section~\ref{sec:cov-scalar}), $RXP=XP$, so $K^*K=PX^2P$ on $\cN(Q')$. Moreover $\fA'P=XP$, since $Q'P=0$, hence $PX^2P=P\fA'^2P$. By Jacobi's identity for complementary minors, applied to the positive operator $\fA'^2$ and the orthogonal decomposition into $\cN(Q')$ and $\ran Q'^T$, on which $Q'^T$ is an isometry,
+\[
+\det\big(P\fA'^2P|_{\cN(Q')}\big)=\det\big(\fA'^2\big)\cdot\det\big(Q'\fA'^{-2}Q'^T\big)=(\det\fA')^2\det M'.
+\]
+Taking $\frac12\log$ gives the claim. The left side does not depend on $a$, and neither does the right.
+\end{proof}
+
+For the vacuum polarization the formula is needed at backgrounds near $1$ that are not minimizers. There the multiplier is not defined, and we treat it as an independent variable.
+
+\begin{lemma}[The multiplier at the trivial background]\label{lem:ol-offshell}
+Fix the torus. For a real configuration $U=e^{\ii\eta A}$ near $1$, with all averages relative to $U$, and a real coarse field $\omega$, let
+\[
+\bL_*(U,\omega)=q_2^0(U)-\mathcal C_U[\omega]+D_URD_U^T+a\bQ_k^T\bQ_k,\qquad\bG_*(U,\omega)=\bL_*(U,\omega)^{-1}.
+\]
+Here $q_2^0(U)=D_U^TD_U+d^2\mathcal N_U(0)$ is the Hessian of the Wilson action at $U$ in the chart $e^{\ii\eta h}U$ (Proposition~\ref{prop:action}), i.e.\ $q_2$ of Proposition~\ref{prop:hessian} with the multiplier set to $0$, and $\mathcal C_U[\omega]$ is the operator of the bilinear form $(h,h')\mapsto\ip\omega{d^2\Cav_k(0)[h,h']}$, with the nonlinear part $\Cav_k$ of $\ell(\mathcal Q(e^{\ii\eta h}))$ relative to $U$ (Proposition~\ref{prop:Q-expansion}). With the operators of Corollary~\ref{cor:ol-ghost} put
+\[
+\widehat\Gamma(U,\omega)=-\tfrac12\log\det\bL_*(U,\omega)-\tfrac12\log\det\big(\bQ_k\bG_*(U,\omega)\bQ_k^T\big)+\log\det\fA'(U)+\tfrac12\log\det M'(U),
+\]
+and $\widehat\Gamma(U)=\widehat\Gamma(U,0)$. Subscripts $A$ and $\omega$ denote derivatives with respect to $A$ and $\omega$ at $(A,\omega)=(0,0)$.
+\begin{enumerate}[label=(\alph*)]
+\item $\widehat\Gamma$ is defined and real analytic on a neighbourhood $\mathcal U$ of $(0,0)$ in the variables $(A,\omega)$. Let $u$ be a real gauge transformation of $\Tf$, and let $R(u|_\T)$ act on coarse fields by $R(u(c_-))$. If $(U,\omega)$ and $(U^u,R(u|_\T)\omega)$ both correspond to points of $\mathcal U$, then $\widehat\Gamma(U^u,R(u|_\T)\omega)=\widehat\Gamma(U,\omega)$.
+\item $\widehat\Gamma_A=0$ and $\widehat\Gamma_\omega=0$. Moreover $\widehat\Gamma_{A\omega}[d\lambda,\omega]=0$ for every scalar field $\lambda$ on $\Tf$ and every coarse field $\omega$.
+\item For small real coarse fields $B$ let $A_*(B)$ be the Landau representative of Theorem~\ref{thm:variational}(c) at the reference $1$, put $U_B=e^{\ii\eta A_*(B)}$, and let
+\[
+\omega_B=\big((\bQ_k(U_B)\bH)^T\big)^{-1}\bH^TJ_{U_B},
+\]
+with the minimizer map $\bH$ of Part~I. Then $\omega_B$ is the multiplier of Proposition~\ref{prop:euler-lagrange} at the reference $U_B$, and, up to a constant independent of $B$,
+\[
+\Gamma^{(1)}_k(e^{\ii B})=\widehat\Gamma(U_B,\omega_B).
+\]
+Moreover $A_*(B)=\bH B+O(|B|^2)$ and $\omega_B=\bD B+O(|B|^2)$, with $\bD=\boldsymbol\Gamma-a$ of Proposition~\ref{prop:eff-action-gauge}.
+\item For all coarse fields $B$ and $B'$,
+\[
+\begin{aligned}
+\frac{\partial^2}{\partial s\,\partial t}\Gamma^{(1)}_k\big(e^{\ii(sB+tB')}\big)\Big|_{s=t=0}={}&\widehat\Gamma_{AA}[\bH B,\bH B']+\widehat\Gamma_{A\omega}[\bH B,\bD B']\\
+&+\widehat\Gamma_{A\omega}[\bH B',\bD B]+\widehat\Gamma_{\omega\omega}[\bD B,\bD B'] .
+\end{aligned}
+\]
+The first term is the second variation at $B=0$ of $B\mapsto\widehat\Gamma(U_B)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:ol-offshell}
+(a) On the fixed torus all operators are finite matrices. The entries of $D_U$, of its transpose and of $d^2\mathcal N_U(0)$ are polynomials in those of the $U(b)^{\pm1}$, by \eqref{eq:plaquette-product} and the proof of Proposition~\ref{prop:action} (explicitly, \eqref{eq:ol-wilson-hessian}), so they are entire in $A$. By Proposition~\ref{prop:AB}(vi) with $U_r=1$, $\bQ_k(U)$, $Q'_k(U)$ and the bilinear map $d^2\Cav_k(0)$ relative to $U$ are holomorphic in $A$ for $|A|_\infty<\delta_{AB}$, and $\mathcal C_U[\omega]$ is linear in $\omega$. At $(A,\omega)=(0,0)$, $D_1=d$, $d^2\mathcal N_1(0)=0$ (Proposition~\ref{prop:action}), $R(1)=R$, $\bQ_k(1)=\bQ$ and $Q'_k(1)=Q_0$ (Proposition~\ref{prop:linearized-averages}(c)). So $\bL_*(1,0)=\bL_a$, $\bQ_k\bG_*\bQ_k^T=\bQ\bG\bQ^*$, $\fA'(1)=-\Lap+aQ_0^*Q_0$ and $M'(1)=M$, which are positive definite (Theorem~\ref{thm:gauge-coercive}, Proposition~\ref{prop:QGQ-gauge}, Corollary~\ref{cor:scalar-coercive}, Proposition~\ref{prop:R}(a)). Hence the four operators are positive definite, with analytic inverses, for real $(A,\omega)$ near $(0,0)$, and $\widehat\Gamma$ is real analytic there.
+
+For the covariance, let $u$ be real, and let $R(u)$ act on fine fields by $R(u(b_-))$, respectively $R(u(x))$. Since $(e^{\ii\eta h}U)^u=e^{\ii\eta R(u)h}U^u$ bondwise and $S$ is gauge invariant, $S(e^{\ii\eta h}U^u)=S(e^{\ii\eta R(u)^{-1}h}U)$; as $R(u)$ is orthogonal, $q_2^0(U^u)=R(u)q_2^0(U)R(u)^{-1}$. The covariant derivatives satisfy $D_{U^u}R(u)=R(u)D_U$, on scalar and on gauge fields. By Proposition~\ref{prop:linearized-averages}(f), $Q'_k(U^u)R(u)=R(u|_\T)Q'_k(U)$ and $\bQ_k(U^u)R(u)=R(u|_\T)\bQ_k(U)$, so $\fA'$, $G'$, $M'$, $P_\cV$ and $R$ are covariant. By Proposition~\ref{prop:linearized-averages}(f), whose nonlinear part is proved in the paragraph ``The averaging'' of the proof of Lemma~\ref{lem:ol-chart-covariance}(a) and uses only that the reference is real and regular, $\mathcal Q(e^{\ii\eta R(u)h};U^u)=R(u|_\T)\mathcal Q(e^{\ii\eta h};U)$, where the second argument is the reference. Indeed, the relative configuration $R(u)X$ at the reference $U^u$ represents $(XU)^u$, and $W_j(U^u)=W_j(U)^{u|_{\T^{(j)}}}$. By \eqref{eq:avg-contour-gauge} and Lemma~\ref{lem:one-step-basic}(b), the averaged relative contour variables, the $\tau_X$, the $g_X$ and the relative averages at scale $j$ are conjugated by $u$ at the points of the lattice of scale $j$, and by induction so is $\mathcal Q_j$. Hence $\Cav_k(R(u)h;U^u)=R(u|_\T)\Cav_k(h;U)$, and $\mathcal C_{U^u}[R(u|_\T)\omega]=R(u)\mathcal C_U[\omega]R(u)^{-1}$, since $R(u|_\T)$ is orthogonal. So $\bL_*(U^u,R(u|_\T)\omega)=R(u)\bL_*(U,\omega)R(u)^{-1}$, $\bQ_k\bG_*\bQ_k^T$ and $M'$ are conjugated by $R(u|_\T)$, and $\fA'$ by $R(u)$. The four determinants do not change. The neighbourhood $\mathcal U$ may depend on the torus. Only the derivatives at $(0,0)$ are used below, and their kernels are given by formulas that do not depend on the side (Section~\ref{sec:ol-vacpol}, paragraph ``Background derivatives'').
+
+(b) Let $u\equiv g$ be constant. Then $1^u=1$, $(e^{\ii\eta A})^u=e^{\ii\eta\operatorname{Ad}_gA}$ and $R(u|_\T)\omega=\operatorname{Ad}_g\omega$. By (a), the linear form $(A,\omega)\mapsto\widehat\Gamma_A[A]+\widehat\Gamma_\omega[\omega]$ is invariant under $\operatorname{Ad}_g$ for all $g\in G$. Write $\widehat\Gamma_A[A]=\sum_b\operatorname{tr}(J(b)A(b))$ with $J(b)\in\mathfrak g$, which is possible since $\operatorname{tr}$ is a nondegenerate pairing on $\mathfrak g$. Then $\operatorname{Ad}_gJ(b)=J(b)$ for all $g$, so $J(b)$ lies in the centre of $\mathfrak g$, which is $0$ since $G$ is simple. Likewise $\widehat\Gamma_\omega=0$. For the mixed derivative let $\lambda$ be real and $u_s=e^{-\ii s\lambda}$. Then $1^{u_s}(b)=e^{-\ii s\lambda(b_-)}e^{\ii s\lambda(b_+)}=e^{\ii\eta A_s(b)}$, with $A_s$ analytic in $s$ and $A_s=s\,d\lambda+O(s^2)$. By (a), $\widehat\Gamma(1^{u_s},R(u_s|_\T)\omega')=\widehat\Gamma(1,\omega')$ for $s$ and $\omega'$ near $0$. Differentiating in $\omega'$ at $\omega'=0$ in the direction $\omega$ gives $\partial_\omega\widehat\Gamma(A_s,0)[R(u_s|_\T)\omega]=\widehat\Gamma_\omega[\omega]=0$. Differentiating in $s$ at $s=0$ gives $\widehat\Gamma_{A\omega}[d\lambda,\omega]+\widehat\Gamma_\omega\big[\partial_s(R(u_s|_\T)\omega)|_{s=0}\big]=0$, and the second term vanishes. By linearity the identity extends to complex $\lambda$ and $\omega$.
+
+(c) By Theorem~\ref{thm:variational}(a)--(c), $\mathsf U(A_*(B))=U_B^{w}$, with the real gauge transformation $w=\mathsf w_k(U_B)$, lies in the minimal orbit of $e^{\ii B}$. By Theorem~\ref{thm:variational}(g), $U_B$ lies in the minimal orbit of $V_B=(e^{\ii B})^{h}$, $h=w^{-1}|_\T$. For $B$ small, $V_B$ is small field, since the conditions of the Setting of Section~\ref{sec:ol-composite} are invariant under gauge transformations, and $\Gamma^{(1)}_k(V_B)=\Gamma^{(1)}_k(e^{\ii B})$ (Proposition~\ref{prop:ol-laplace}). Apply Theorem~\ref{thm:ol-chart} and Corollary~\ref{cor:ol-ghost} at $V_B$, with $U_0=U_B$. There $q_2=q_2^0(U_B)-\mathcal C_{U_B}[\omega_*]$ (Proposition~\ref{prop:hessian}(a)), with the multiplier $\omega_*$ of Proposition~\ref{prop:euler-lagrange} at the reference $U_B$, where $A_*=0$; so $J_{U_B}=\nabla\Phi(0)=\bQ_k(U_B)^T\omega_*$. Applying $\bH^T$ gives $(\bQ_k(U_B)\bH)^T\omega_*=\bH^TJ_{U_B}$. At $B=0$, $\bQ_k(1)\bH=\bQ\bH=I$ (Theorem~\ref{thm:H-gauge}(a)), so for $B$ small this operator is invertible and $\omega_*=\omega_B$. This proves the formula. By Theorem~\ref{thm:variational}(c),(f) at the reference $1$, $A_*(B)=\bH B+O(|B|^2)$, as in the proof of Lemma~\ref{lem:ol-pullback}; here the minimizer map of Theorem~\ref{thm:variational}(c) is that of the form $\|DA\|^2$, i.e.\ $W=0$ (Section~\ref{sec:var-solution}); at the reference $1$, with the pair $(Q_0,\bQ)$ (Proposition~\ref{prop:linearized-averages}(c)), it is the unique minimizer of $\|dA\|^2$ on $\{\bQ A=B,\ Rd^*A=0\}$ (Theorem~\ref{thm:cov-min}(b)), i.e.\ the map $\bH$ of Theorem~\ref{thm:H-gauge}(b). By Proposition~\ref{prop:action}(a),(d) at the reference $1$, where $J=0$ and $\eps=0$, $J_{e^{\ii\eta A}}=d^*dA+O(|A|^2)$. Hence $J_{U_B}=d^*d\bH B+O(|B|^2)$ and $\omega_B=\bH^Td^*d\bH B+O(|B|^2)=\bD B+O(|B|^2)$, since $\ip{B}{\bD B'}=\ip{d\bH B}{d\bH B'}$ (Proposition~\ref{prop:eff-action-gauge}).
+
+(d) Put $A(s,t)=A_*(sB+tB')$ and $\omega(s,t)=\omega_{sB+tB'}$. By (c) and the chain rule, at $s=t=0$,
+\[
+\begin{aligned}
+\partial_s\partial_t\Gamma^{(1)}_k={}&\widehat\Gamma_{AA}[\partial_sA,\partial_tA]+\widehat\Gamma_A[\partial_s\partial_tA]+\widehat\Gamma_{A\omega}[\partial_sA,\partial_t\omega]\\
+&+\widehat\Gamma_{A\omega}[\partial_tA,\partial_s\omega]+\widehat\Gamma_{\omega\omega}[\partial_s\omega,\partial_t\omega]+\widehat\Gamma_\omega[\partial_s\partial_t\omega].
+\end{aligned}
+\]
+By (b) the second and the last term vanish, and by (c) $\partial_sA=\bH B$, $\partial_tA=\bH B'$, $\partial_s\omega=\bD B$ and $\partial_t\omega=\bD B'$. The last claim is the same computation for $B\mapsto\widehat\Gamma(U_B)=\widehat\Gamma(U_B,0)$: the chain rule gives $\widehat\Gamma_{AA}[\partial_sA,\partial_tA]+\widehat\Gamma_A[\partial_s\partial_tA]$, and the second term vanishes by (b).
+\end{proof}
+
+So the multiplier enters the second variation of $\Gamma^{(1)}_k$ at $V=1$ only through $\bD$, and the continuation of the multiplier off the minimizers (Section~\ref{subsec:sq-hessian}) is not needed. In infinite volume the last three terms of (d) do not contribute to the marginal tensor: $\bD$ is of order $|p|^2$ (Proposition~\ref{prop:eff-action-gauge}), and the kernel of $\widehat\Gamma_{A\omega}$ annihilates the fine constant fields. These are the gradients of linear functions; the identity of (b), proved on every torus for periodic $\lambda$, passes to the infinite-volume kernel as $\Pi^{A\omega}d=0$, and hence to the gradients of the fields of polynomial growth (Lemma~\ref{lem:ol-folding}(a); proof of Lemma~\ref{lem:ol-torus-limit}(c)). The fine constant fields are the images under $\bH_\infty$ of the coarse ones (Proposition~\ref{prop:ol-IM}(e)). So these terms are $O(|p|^3)$ (Lemma~\ref{lem:ol-torus-limit}(c)). For the marginal tensor one may therefore set $\omega=0$. The function $\widehat\Gamma(\cdot,0)$ is gauge invariant on all backgrounds near $1$, critical or not.
+
+\begin{remark}[A numerical check]\label{rem:ol-numerical}
+We tested Theorem~\ref{thm:ol-chart} numerically for $d=2$, $G=SU(2)$ and $k=1$. This is outside the hypothesis $d=4$ of the note, but the identity is algebraic. For Ba\l aban's symmetric averaging of Part~IV, transcribed to $d=2$, with $L=3$ on a coarse torus of $2\times2$ points, the difference of the two sides is the same for the four coarse fields tested, and equals the exact constant $-\frac d2\dim\mathfrak g\,|\T|\log L=-12\log3$ to within $5\cdot10^{-11}$. The tests are described in Appendix~\ref{app:numerics}.
+\end{remark}

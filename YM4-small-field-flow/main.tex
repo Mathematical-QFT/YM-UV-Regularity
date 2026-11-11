@@ -1,0 +1,204 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,patterns}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\setlist{itemsep=3pt,topsep=5pt}
+\setlength{\emergencystretch}{2em}
+\numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{maintheorem}{Theorem}
+\renewcommand{\themaintheorem}{\Alph{maintheorem}}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\input{rl-preamble}
+
+\definecolor{fblue}{RGB}{42,95,155}
+\definecolor{forange}{RGB}{180,98,35}
+\definecolor{fgreen}{RGB}{35,130,120}
+\definecolor{fpurple}{RGB}{125,47,145}
+\definecolor{fred}{RGB}{170,40,40}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\T}{\mathbb T}
+\newcommand{\Tf}{\mathbb T_\eta}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\dd}{\mathrm d}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\cK}{\mathcal K}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cG}{\mathcal G}
+\newcommand{\cV}{\mathcal V}
+\newcommand{\cW}{\mathcal W}
+\newcommand{\cX}{\mathcal X}
+\newcommand{\cD}{\mathcal D}
+\newcommand{\cN}{\mathcal N}
+% gauge-field objects in bold
+\newcommand{\bQ}{\mathbf Q}
+\newcommand{\bG}{\mathbf G}
+\newcommand{\bH}{\mathbf H}
+\newcommand{\bC}{\mathbf C}
+\newcommand{\bD}{\mathbf D}
+\newcommand{\bL}{\boldsymbol{\Delta}}
+\newcommand{\Lap}{\Delta}
+\newcommand{\dl}{d_1}
+\newcommand{\Hol}[2]{[#1]_{\alpha,#2}}
+\newcommand{\Lam}{\Lambda}
+\newcommand{\tn}[1]{|\!|\!|#1|\!|\!|}
+\newcommand{\fA}{\mathfrak A}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\Rea}{Re}
+
+\title{\textbf{Ba\l aban's small-field renormalization group for four-dimensional lattice Yang--Mills theory}\\[6pt]
+\large Green functions, the background field, the small-field flow and the one-loop coefficient}
+\author{}
+\date{Version of November 2026\\[6pt]
+\small Written with the assistance of Claude (Anthropic). Not checked by a human expert.}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study Ba\l aban's renormalization group for pure Yang--Mills theory on a four-dimensional lattice torus, with his symmetric block averaging, in the small-field region. We first prove coercivity, exponential decay and pointwise regularity for the linear operators of the method (Green functions with an averaging term, minimizer maps, constrained Green functions) at the trivial background and at locally regular backgrounds, uniformly in the number of averaging steps and in the size of the torus. We then prove Ba\l aban's variational theorem on the torus: for real coarse configurations of small curvature, the background field is unique up to the residual gauge group among configurations of small curvature and current, and it is locally regular, uniformly in the number of steps. Next we construct one small-field renormalization group step, with Ba\l aban's exponential gauge fixing, in polymer form. For a simple gauge group, iterating the step in Ba\l aban's generation form gives the flow of the small-field model, a modified model in which every step keeps only small fields. On a fixed torus, as long as the couplings stay below a fixed bound, the density of every scale is controlled uniformly in the scale, the couplings and the torus, and the couplings run by $g_{k+1}^{-2}=g_k^{-2}-\beta_{k+1}$. The one-loop coefficient summed over $k$ steps is $k\beta_\infty+O(1)$, with $\beta_\infty=\frac{11C_A}{24\pi^2T_\rho}\log L$. Every small final coupling $g_K$ is reached from a bare coupling, and then $g_k^{-2}=g_K^{-2}+(K-k)\beta_\infty$ with an error bounded by a power of $\log(K-k+2)$. Large fields and the continuum limit are not treated.
+\end{abstract}
+
+\tableofcontents
+
+\input{sections/s01-intro}
+\input{sections/g01-guide}
+\input{sections/g02-guide}
+\input{sections/g03-guide}
+
+\part*{Part I: The trivial background}
+\addcontentsline{toc}{part}{Part I: The trivial background}
+\input{sections/p01-partI}
+\input{sections/s02-setup}
+\input{sections/s03-poincare}
+\input{sections/s04-fourier}
+\input{sections/s05-decay}
+\input{sections/s06-regularity}
+\input{sections/s07-scalar}
+\input{sections/s08-scalar-avg}
+\input{sections/s09-gauge-coercivity}
+\input{sections/s10-gauge-green}
+\input{sections/s11-gauge-min}
+
+\part*{Part II: Backgrounds}
+\addcontentsline{toc}{part}{Part II: Backgrounds}
+\input{sections/p02-partII}
+\input{sections/s13-background}
+\input{sections/s14-perturbation}
+\input{sections/s15-cov-scalar}
+\input{sections/s16-cov-gauge}
+\input{sections/s17-cov-min}
+
+\part*{Part III: Domains, local regularity and random walks}
+\addcontentsline{toc}{part}{Part III: Domains, local regularity and random walks}
+\input{sections/p03-partIII}
+\input{sections/s18-domains}
+\input{sections/s19-reg-scalar}
+\input{sections/s20-reg-gauge}
+\input{sections/s21-random-walk}
+
+\part*{Part IV: Symmetric averaging, averaged axial gauge and the Landau chart}
+\addcontentsline{toc}{part}{Part IV: Symmetric averaging, averaged axial gauge and the Landau chart}
+\input{sections/p04-partIV}
+\input{sections/s22-averaging}
+\input{sections/s23-adapted}
+\input{sections/s24-action}
+\input{sections/s25-chart}
+
+\part*{Part V: The variational problem}
+\addcontentsline{toc}{part}{Part V: The variational problem}
+\input{sections/p05-partV}
+\input{sections/s26-var-theorem}
+\input{sections/s27-var-solution}
+\input{sections/s28-var-regularity}
+
+\part*{Part VI: The induction over the number of steps}
+\addcontentsline{toc}{part}{Part VI: The induction over the number of steps}
+\input{sections/p06-partVI}
+\input{sections/s29-local-gauges}
+\input{sections/s30-improvement}
+\input{sections/s31-induction}
+
+\part*{Part VII: One step of the renormalization group}
+\addcontentsline{toc}{part}{Part VII: One step of the renormalization group}
+\input{sections/p07-partVII}
+\input{sections/s32-rg-step}
+\input{sections/s33-fluctuations}
+\input{sections/s34-coarse-action}
+\input{sections/s35-covariance}
+
+\part*{Part VIII: Localization of the background dependence}
+\addcontentsline{toc}{part}{Part VIII: Localization of the background dependence}
+\input{sections/p08-partVIII}
+\input{sections/s36-dirichlet-averaged}
+\input{sections/s36b-interior-regularity}
+\input{sections/s37-localization}
+\input{sections/s38-det-local}
+\input{sections/s39-interaction-local}
+
+\part*{Part IX: Weakened random walks}
+\addcontentsline{toc}{part}{Part IX: Weakened random walks}
+\input{sections/p09-partIX}
+
+\input{sections/s40-weakenable}
+\input{sections/s41-nested-walks}
+\input{sections/s42-pointwise-weak}
+\input{sections/s43-interior-lp}
+\input{sections/s44-tier-norms}
+\input{sections/s45-weak-background}
+
+\part*{Part X: The small-field step and the small-field flow}
+\addcontentsline{toc}{part}{Part X: The small-field step and the small-field flow}
+\input{sections/p10-partX}
+\input{sections/s46-complex-references}
+\input{sections/s47-step-quantities}
+\input{sections/s48-cluster}
+\input{sections/s49-flow}
+\input{sections/s49b-generations}
+\input{sections/s49c-extraction}
+\input{sections/s50-target}
+\input{sections/s50b-flow}
+
+\part*{Part XI: The one-loop coefficient in four dimensions}
+\addcontentsline{toc}{part}{Part XI: The one-loop coefficient in four dimensions}
+\input{sections/p11-partXI}
+\input{sections/s51-one-loop-composition}
+\input{sections/s52-one-loop-chart}
+\input{sections/s53-one-loop-vacpol}
+\input{sections/s54-one-loop-feynman}
+\input{sections/s55-one-loop-uv}
+\input{sections/s56-generation-locality}
+
+\part*{Conclusion}
+\addcontentsline{toc}{part}{Conclusion}
+\input{sections/s12-outlook}
+\appendix
+\input{sections/appA-green}
+\input{sections/appB-notation}
+\input{sections/appC-numerics}
+\input{sections/bib}
+
+\end{document}

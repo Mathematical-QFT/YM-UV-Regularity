@@ -1,0 +1,202 @@
+\section{Solution in the Landau chart}\label{sec:var-solution}
+
+We keep the setting of Theorem~\ref{thm:variational}. Write $\bH=\bH(U_0)$ and $\bC=\bC(U_0)$ for the minimizer map and the constrained Green function of the quadratic form $q(A,A')=\ip{D A}{D A'}$ (Theorem~\ref{thm:reg-min}, with $W=0$), and
+\[
+\cX=\{A:\ RD^TA=0,\ \bQ A=0\}
+\]
+for the tangent space of the constraint in Ba\l aban's gauge. By Theorem~\ref{thm:cov-min}, $\bQ\bH=I$, $RD^T\bH=0$, $\bC$ maps into $\cX$, and for every $f$, $\bC f$ is the unique $A\in\cX$ with $q(k,A)=\ip kf$ for all $k\in\cX$. Moreover $q(k,\bH B)=0$ for $k\in\cX$.
+
+\subsection{Linearizing the constraint}
+
+\begin{lemma}[Linearizing transformation {\cite[Sect.~C]{BalVar}}]\label{lem:linearizing}
+There are $r_2,C>0$ such that for complex $A'$ with $|A'|_{C^1}\le r_2$ the equation $X=C_k(A'-\bH X)$ has exactly one solution $X=\mathcal D(A')$ with $|X|_\infty\le r_2$. The map $\mathcal D$ is analytic, real for real $A'$, and
+\[
+|\mathcal D(A')|_\infty\le C|A'|_\infty^2,\qquad|d\mathcal D(A')h(c)|\le C|A'|_\infty\|h\|_{S_c'},\qquad|d^2\mathcal D(A')[h,h](c)|\le C\|h\|^2_{S'_c},
+\]
+where $S'_c$ is a weighted neighbourhood of $c$: $\|h\|^2_{S'_c}=\sum_{y}e^{-\gamma|y-c_-|}\|h\|^2_{B(y)}$. Moreover $d\mathcal D(A')$ has a kernel, $d\mathcal D(A')h(c)=\eta^d\sum_bK_{\mathcal D}(c,b)h(b)$, with $|K_{\mathcal D}(c,b)|\le C|A'|_\infty e^{-\gamma|c_--b_-|}$; in particular $|d\mathcal D(A')^T\omega|_\infty\le C|A'|_\infty|\omega|_\infty$. For every unit-lattice field $\omega$ and every fine field $h$,
+\begin{equation}\label{eq:d2D-mixed}
+\big|(d^2\mathcal D(A')[h,\cdot])^T\omega\big|_{B(y)}\le C|\omega|_\infty\sum_{y'}e^{-\gamma|y-y'|}|h|_{B(y')}\qquad\text{for all }y\in\T,
+\end{equation}
+where $|f|_{B(y)}$ is the maximum of $|f(b)|$ over the bonds $b$ starting in $B(y)$, and transposes refer to the bilinear pairings of Section~\ref{sec:setup}: with the factor $\eta^d$ on $\Tf$ and without it on $\T$. The map $A'\mapsto A=A'-\bH\mathcal D(A')$ satisfies
+\[
+\ell\big(\mathcal Q(e^{\ii\eta A})\big)=\bQ A',\qquad RD^TA=RD^TA'.
+\]
+It is a bijection from $\{A':|A'|_{C^1}<r_2\}$ onto a set containing $\{A:|A|_{C^1}<r_2/2\}$, with analytic inverse.
+\end{lemma}
+
+\begin{proof}
+By Proposition~\ref{prop:Q-expansion}(b) and $|\bH X|_{C^1}\le C_H|X|_\infty$ (Lemma~\ref{lem:sup-bounds}(d)),
+\[
+|C_k(A'-\bH X)-C_k(A'-\bH X')|\le C(|A'|+C_H|X|+C_H|X'|)C_H|X-X'|.
+\]
+So $X\mapsto C_k(A'-\bH X)$ is a contraction on $|X|\le r_2$ for $r_2$ small, mapping this ball into itself. Its fixed point is analytic in $A'$, being a uniform limit of analytic iterates. The bound $|\mathcal D|\le C|A'|^2$ follows from $|C_k(A)|\le C|A|^2$.
+
+\emph{Derivatives.} Put $A=A'-\bH\mathcal D(A')$, $P=dC_k(A)$, $T=(I+P\bH)^{-1}$ and $L=I-\bH TP$. Differentiating the fixed-point equation once and twice gives
+\[
+d\mathcal D=TP,\qquad dA=L,\qquad d^2\mathcal D(A')[h,k]=T\,d^2C_k(A)[Lh,Lk].
+\]
+Here $T$ is a unit-lattice operator that is a small perturbation of $I$ with decaying kernel, since $P\bH$ has decay $(C|A|_\infty,\gamma)$. Proposition~\ref{prop:Q-expansion}(c), together with the decay of $\bH$ and $T$, gives the bounds in terms of $\|h\|_{S'_c}$ and the kernel bound.
+
+\emph{The mixed bound \eqref{eq:d2D-mixed}.} For $r_2$ small, $|A|_\infty\le(1+C_H)r_2\le c_3/2$. By Proposition~\ref{prop:Q-expansion}(a),(c), the kernel $K_A(c,b)$ of $dC_k(A)$ is an analytic function of $A$ on $\{|A|_\infty\le c_3\}$, bounded there by $Cc_3$, and $K_A(c,b)=0$ unless $b$ starts in $S_c$. Moreover $C_k(A)(c)$ depends only on the values of $A$ on the bonds starting in $S_c$. Let $v$ be a fine field. By the Cauchy estimate in $t\mapsto K_{A+tv}(c,b)$, the kernel of $d^2C_k(A)[v,\cdot]$, defined by $d^2C_k(A)[v,k](c)=\eta^d\sum_b\partial_vK_A(c,b)k(b)$, satisfies $|\partial_vK_A(c,b)|\le C\max_{S_c}|v|$, with the same support; here $\max_{S_c}$ is over the bonds starting in $S_c$. The transpose has no factor $\eta^d$, so $(d^2C_k(A)[v,\cdot])^T\omega(b)=\sum_c\partial_vK_A(c,b)^T\omega(c)$. Every fine bond starts in $S_c$ for at most $2d$ bonds $c$ of $\T$. Hence
+\[
+\big|(d^2C_k(A)[v,\cdot])^T\omega\big|_{B(y)}\le C|\omega|_\infty\max_{|y'-y|_\infty\le1}|v|_{B(y')} .
+\]
+Now $(d^2\mathcal D(A')[h,\cdot])^T\omega=L^T\big(d^2C_k(A)[Lh,\cdot]\big)^TT^T\omega$. The operators $T$ and $T^T$ have decaying kernels, so $|T^T\omega|_\infty\le C|\omega|_\infty$. The operators $P$ and $P^T$ are local and bounded by $C|A|_\infty$. The operators $\bH$ and $\bH^T$ satisfy block bounds of the form $|\bH X|_{B(y)}\le C\sum_{c}e^{-\gamma|y-c_-|}|X(c)|$ and $|\bH^Tf(c)|\le C\sum_{y'}e^{-\gamma|c_--y'|}|f|_{B(y')}$, by the block form of the pointwise bounds in the proof of Lemma~\ref{lem:sup-bounds}; the second follows from the first, since $\bH^Tf(c)=\ip{\bH\delta_c}f$ componentwise and a block has volume $1$. Hence $|Lh|_{B(y)}\le C\sum_{y'}e^{-\gamma|y-y'|}|h|_{B(y')}$, and $L^T=I-P^TT^T\bH^T$ preserves bounds of this form, with a smaller rate. This gives \eqref{eq:d2D-mixed}, after decreasing $\gamma$.
+
+The identities follow from $\ell(\mathcal Q(e^{\ii\eta A}))=\bQ A+C_k(A)$, $\bQ\bH=I$ and $RD^T\bH=0$. The inverse is explicit: at the fixed point $\mathcal D(A')=C_k(A)$ with $A=A'-\bH\mathcal D(A')$, so $A'=A+\bH C_k(A)$. Conversely, for $|A|_{C^1}<r_2/2$ the field $A'=A+\bH C_k(A)$ satisfies $|A'|_{C^1}<r_2$, and $X=C_k(A)$ is a fixed point for this $A'$; by uniqueness $\mathcal D(A')=C_k(A)$.
+\end{proof}
+
+By Lemma~\ref{lem:linearizing}, the manifold $\mathcal M_V$ is mapped analytically onto (a subset of) the affine space
+\[
+\mathcal K_B=\{A':\ RD^TA'=0,\ \bQ A'=B\}=\bH B+\cX .
+\]
+Critical points of $\Phi|_{\mathcal M_V}$ correspond to critical points of
+\[
+\mathfrak F(A')=\Phi\big(A'-\bH\mathcal D(A')\big)\quad\text{on }\mathcal K_B\cap\{|A'|_{C^1}<r_2\},
+\]
+provided $\rho_1\le r_2/2$, which we assume.
+
+\subsection{The functional}
+
+By Proposition~\ref{prop:action}, with $J=J_{U_0}$,
+\begin{equation}\label{eq:F-expansion}
+\mathfrak F(A')=S(U_0)+\ip{A'}J+\tfrac12\|DA'\|^2+\mathcal V(A'),
+\end{equation}
+\[
+\mathcal V(A')=-\ip{\bH\mathcal D(A')}J-\ip{DA'}{D\bH\mathcal D(A')}+\tfrac12\|D\bH\mathcal D(A')\|^2+\mathcal N\big(A'-\bH\mathcal D(A')\big).
+\]
+
+\begin{lemma}[Bounds on $\mathcal V$ {\cite[Prop.~4]{BalVar}}]\label{lem:V-bounds}
+There are $r_3\le r_2$ and $C$ such that for complex $A'$ with $|A'|_{C^1}\le r\le r_3$ (in the proof below, $A'$ on the slice $RD^TA'=0$; off the slice use $\bH^TD^TDA'=(D\bH)^TDA'$, bounded by $C|DA'|_\infty$ by the kernel decay of $D\bH$):
+\begin{enumerate}[label=(\alph*)]
+\item $|\nabla\mathcal V(A')|_\infty\le C(\eps+r)|A'|_{C^1}$, and $|\nabla\mathcal V(A')-\nabla\mathcal V(A'')|_\infty\le C(\eps+r)|A'-A''|_{C^1}$ if also $|A''|_{C^1}\le r$;
+\item for real $A'$ and real $h$: $|d^2\mathcal V(A')[h,h]|\le C(\eps+r)(\|h\|^2+\|\nabla h\|^2)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+We use two identities. First, $\fA_\pi\bH=\bQ^T\boldsymbol\Gamma_\pi$, $\Pi\bH=\bH$ and $\bQ\Pi=\bQ$ give $\Pi^TD^TD\bH=\bQ^T(\boldsymbol\Gamma_\pi-a)$. Hence
+\[
+D^TD\bH=\bQ^T(\boldsymbol\Gamma_\pi-a)+S^T\mathfrak F^TD\bH ,
+\]
+since $\Pi=I-DS$ and $D^TD^T=\mathfrak F^T$. By Lemma~\ref{lem:sup-bounds} and $|\mathfrak F|\le C\eps$, $|D^TD\bH X|_\infty\le C|X|_\infty$. Second, transposing the first identity, $\bH^TD^TD=(\boldsymbol\Gamma_\pi-a)\bQ+\bH^TD^T\mathfrak FS$. On the slice $SA'=G'RD^TA'=0$, so $\bH^TD^TDA'=(\boldsymbol\Gamma_\pi-a)\bQ A'$ for $A'\in\mathcal K_B$, which is bounded by $C|A'|_\infty$. Moreover $|\bH^Tf|_\infty\le C|f|_\infty$, since $\bH^T=\boldsymbol\Gamma_\pi\bQ\bG$ has a decaying kernel.
+
+(a) The gradient is
+\[
+\nabla\mathcal V=-d\mathcal D^T\bH^TJ-D^TD\bH\mathcal D-d\mathcal D^T\bH^TD^TDA'+d\mathcal D^T\bH^TD^TD\bH\mathcal D+(I-\bH d\mathcal D)^T\nabla\mathcal N(A'-\bH\mathcal D).
+\]
+Each term is bounded using the identities above, $|J|\le\eps$, Lemma~\ref{lem:linearizing}, Proposition~\ref{prop:action}(a), and the kernel bound $|d\mathcal D(A')^T\omega|_\infty\le C|A'|_\infty|\omega|_\infty$ of Lemma~\ref{lem:linearizing}. The Lipschitz bound follows from the Cauchy estimate on the complex ball of radius $2r$, as in Proposition~\ref{prop:action}(b).
+
+(b) $d^2\mathcal V(A')[h,h]$ consists of three kinds of terms:
+\begin{itemize}
+\item terms containing $d\mathcal D[h]$ once or twice, bounded by $C|A'|\|h\|^2$ or $C|A'|\|h\|\|\nabla h\|$ by Lemma~\ref{lem:linearizing} and the $L^2$ boundedness of $\bH$, $D\bH$;
+\item terms $\ip{d^2\mathcal D[h,h]}{\omega'}$ with $\omega'=-\bH^T\big(J+D^TDA+\nabla\mathcal N(A)\big)$, $A=A'-\bH\mathcal D$. By the identities above $|\omega'|_\infty\le C(\eps+r)$, and $\sum_c|d^2\mathcal D[h,h](c)|\le C\|h\|^2$ because the weights $e^{-\gamma|y-c_-|}$ are summable;
+\item $d^2\mathcal N(A)[(I-\bH d\mathcal D)h,(I-\bH d\mathcal D)h]$, bounded by Proposition~\ref{prop:action}(c).
+\end{itemize}
+Altogether this gives (b).
+\end{proof}
+
+\subsection{The equation and its solution}
+
+\begin{proposition}[{\cite[Props.~5, 6]{BalVar}}]\label{prop:contraction}
+Let $C_H$, $C_C$ be constants with $|\bH B|_{C^1}\le C_H|B|_\infty$ and $|\bC f|_{C^1}\le C_C|f|_\infty$ (Lemma~\ref{lem:sup-bounds}(d)), and $K=4C_C(1+C_H)$. There is $c_7>0$ such that, if $\eps+\beta\le c_7$, $\theta_0\le c_7$ and $\rho_2=2\rho_1+C_H\beta+K(\eps+\beta)$ (with $\rho_1$ from Section~\ref{subsec:reduction}), the following holds. A point $A'=A_1+\bH B$ with $A_1\in\cX$ and $|A'|_{C^1}<r_3$ is a critical point of $\mathfrak F|_{\mathcal K_B}$ iff
+\begin{equation}\label{eq:fixed-point}
+A_1=\mathcal T(A_1):=-\bC\big(J+\nabla\mathcal V(A_1+\bH B)\big).
+\end{equation}
+The map $\mathcal T$ is a contraction on $\{A_1\in\cX:\ |A_1|_{C^1}\le\rho_2\}$. Its unique fixed point $A_{1,*}$ satisfies $|A_{1,*}|_{C^1}\le K(\eps+\beta)$, and $A_{1,*}=-\bC J+O((\eps+\beta)^2)$. In particular $\mathfrak F|_{\mathcal K_B}$ has exactly one critical point $A'_*=A_{1,*}+\bH B$ with $|A'_*-\bH B|_{C^1}\le\rho_2$.
+\end{proposition}
+
+\begin{proof}
+The tangent space of $\mathcal K_B$ is $\cX$. By \eqref{eq:F-expansion}, $A'$ is critical iff $\ip k{J+D^TDA'+\nabla\mathcal V(A')}=0$ for all $k\in\cX$. Since $\ip k{D^TD\bH B}=q(k,\bH B)=0$ for $k\in\cX$, this is equivalent to $q(k,A_1)=-\ip k{J+\nabla\mathcal V(A')}$ for all $k\in\cX$, i.e.\ to \eqref{eq:fixed-point}, by the characterization of $\bC$.
+
+By Lemma~\ref{lem:sup-bounds}(d), $|\bC f|_{C^1}\le C_C|f|_\infty$. For $|A_1|_{C^1}\le\rho$ we have $|A'|_{C^1}\le\rho+C_H\beta$. By Lemma~\ref{lem:V-bounds}(a),
+\[
+\begin{aligned}
+|\mathcal T(A_1)|_{C^1}&\le C_C\eps+C_CC(\eps+\rho+C_H\beta)(\rho+C_H\beta),\\
+|\mathcal T(A_1)-\mathcal T(A_1')|_{C^1}&\le C_CC(\eps+\rho+C_H\beta)|A_1-A_1'|_{C^1}.
+\end{aligned}
+\]
+For $\rho\le\rho_2$, where $\rho_2\le C(\eps+\theta_0+\beta)$, the Lipschitz constant is at most $\frac12$ if $c_7$ is small. At $A_1=0$ the first bound gives $|\mathcal T(0)|_{C^1}\le C_C\eps+C_CC(\eps+C_H\beta)C_H\beta\le\frac12K(\eps+\beta)$ if $c_7$ is small. Hence, for $K(\eps+\beta)\le\rho\le\rho_2$ and $|A_1|_{C^1}\le\rho$,
+\[
+|\mathcal T(A_1)|_{C^1}\le|\mathcal T(0)|_{C^1}+\tfrac12|A_1|_{C^1}\le\rho .
+\]
+With $\rho=\rho_2$, which is at least $K(\eps+\beta)$ by its definition, $\mathcal T$ maps the ball of radius $\rho_2$ into itself, and it is a contraction there. With $\rho=K(\eps+\beta)$, its fixed point lies in the ball of radius $K(\eps+\beta)$. The first-order formula follows from $|\nabla\mathcal V(A')|\le C(\eps+\beta)^2$ at the fixed point.
+\end{proof}
+
+Put $A_*=A'_*-\bH\mathcal D(A'_*)$. By Lemma~\ref{lem:linearizing}, $A_*$ is the unique critical point of $\Phi|_{\mathcal M_V}$; if $|A|_{C^1}<\rho_1$, then $|A'|_{C^1}\le\rho_1+C\rho_1^2\le2\rho_1$, so $A_1=A'-\bH B$ satisfies $|A_1|_{C^1}\le\rho_2$. Moreover $|A_*|_{C^1}\le K'(\eps+\beta)$ with $K'=K+C_H+1$, and we assume $c_6\le B_1\theta_0/K'$, so that $|A_*|_{C^1}<\rho_1$ and $A_*\in\mathcal M_V$. Also $A_*=\bH B-\bC J+O((\eps+\beta)^2)$. This proves the first-order formula in Theorem~\ref{thm:variational}(c), and, by Lemma~\ref{lem:reduction}(b), the uniqueness in (a).
+
+\subsection{Convexity and minimality}
+
+\begin{lemma}[Covariant Hodge inequality]\label{lem:weitzenbock}
+Let $U_0$ be real with curvature at most $\eps$. For every real gauge field $h$, $\big|\|Dh\|^2+\|D^Th\|^2-\|\nabla h\|^2\big|\le C\eps\|h\|^2$.
+\end{lemma}
+
+\begin{proof}
+Let $D_\nu$ act on the components $h_\mu$ as on scalar fields. Then $\|Dh\|^2=\|\nabla h\|^2-\sum_\mu\|D_\mu h_\mu\|^2-\sum_{\mu\ne\nu}\ip{D_\mu h_\nu}{D_\nu h_\mu}$ and $\|D^Th\|^2=\sum_\mu\|D^T_\mu h_\mu\|^2+\sum_{\mu\ne\nu}\ip{D^T_\mu h_\mu}{D^T_\nu h_\nu}$. Since $R(U_0)$ is an isometry, $|D^T_\mu f(x)|=|D_\mu f(x-\eta e_\mu)|$, so the diagonal terms cancel. Summation by parts turns the remaining terms into $\sum_{\mu\ne\nu}\ip{h_\mu}{[D_\mu,D^T_\nu]h_\nu}$. Expanding both products, all terms cancel except those at $x+\eta e_\mu-\eta e_\nu$:
+\[
+\begin{aligned}
+[D_\mu,D^T_\nu]f(x)=\eta^{-2}\Big(&R\big(U_\mu(x)U_\nu(x+\eta e_\mu-\eta e_\nu)^{-1}\big)\\
+&-R\big(U_\nu(x-\eta e_\nu)^{-1}U_\mu(x-\eta e_\nu)\big)\Big)f(x+\eta e_\mu-\eta e_\nu).
+\end{aligned}
+\]
+The two transports go around the two halves of a plaquette, so their quotient is conjugate to its holonomy. Hence the operator norm is at most $C\eps$, by Lemma~\ref{lem:log-estimates}.
+\end{proof}
+
+\begin{lemma}[Coercivity on the tangent space]\label{lem:X-coercive}
+There is $c_X>0$ such that $\|Dh\|^2\ge c_X(\|h\|^2+\|\nabla h\|^2)$ for all real $h\in\cX$.
+\end{lemma}
+
+\begin{proof}
+For $h\in\cX$, $\Pi h=h$, $RD^Th=0$ and $\bQ h=0$, so $\ip h{\fA_\pi h}=\|Dh\|^2$. By Theorem~\ref{thm:reg-coercive}, $\ip h{\fA_\pi h}\ge c_*(\|h\|^2+\|Dh\|^2+\|D^Th\|^2)$. Finally $\|Dh\|^2+\|D^Th\|^2\ge\|\nabla h\|^2-C\eps\|h\|^2$ by Lemma~\ref{lem:weitzenbock}.
+\end{proof}
+
+\begin{proposition}[Minimality]\label{prop:minimality}
+If $\eps+\beta\le c_7$ and $\theta_0\le c_7$ (after decreasing $c_7$; Lemma~\ref{lem:Lstar-coercive} below decreases it once more), then $S(U)\ge S(U_*)$ for all $U\in\mathfrak B(V)\cap\mathfrak U(\theta_0)$, where $U_*=\mathsf U(A_*)$. Equality holds iff $U$ lies in the $\mathfrak G_0$-orbit of $U_*$.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:reduction}(c) and Lemma~\ref{lem:linearizing}, $S(U)=\mathfrak F(A')$ for some $A'=A_1+\bH B\in\mathcal K_B$ with $|A_1|_{C^1}\le\rho_2$. The set $\{A_1+\bH B:\ A_1\in\cX,\ |A_1|_{C^1}\le\rho_2\}$ is convex and contains $A'_*$; on it $|A'|_{C^1}\le\rho_2+C_H\beta\le r_3$. For $h=A'-A'_*\in\cX$ and $A'_t=A'_*+th$,
+\[
+\frac{d^2}{dt^2}\mathfrak F(A'_t)=\|Dh\|^2+d^2\mathcal V(A'_t)[h,h]\ge\big(c_X-C(\eps+\rho_2)\big)(\|h\|^2+\|\nabla h\|^2),
+\]
+by Lemmas~\ref{lem:X-coercive} and~\ref{lem:V-bounds}(b). This is positive for $c_7$ small and $h\ne0$. Since $A'_*$ is critical, $\mathfrak F(A')>\mathfrak F(A'_*)$ unless $A'=A'_*$. Finally $\mathfrak F(A'_*)=\Phi(A_*)=S(U_*)$. If $\mathfrak F(A')=\mathfrak F(A'_*)$, then $A'=A'_*$, and by Corollary~\ref{cor:parametrization} the axial representative of $U$ is $U_*$.
+\end{proof}
+
+The convexity argument requires $L^2$ bounds on the second derivatives of the nonlinear averaging, Proposition~\ref{prop:Q-expansion}(c). These hold because the averaging is built one scale at a time. At each scale the contours have only $O(L)$ bonds, and the field entering them is already an average over the finer scales. For a one-shot nonlinear averaging over blocks of side $1$, the quadratic terms would contain integrals over single lattice lines, and the corresponding bounds would fail as $\eta\to0$.
+
+Proposition~\ref{prop:minimality} proves (b) of Theorem~\ref{thm:variational}, once we know that $U_*$ lies in $\mathfrak B(V)\cap\mathfrak U(\theta_0)$ and is critical there. Membership in $\mathfrak B(V)$ holds by construction; the remaining two facts are proved in the next section.
+
+At a critical reference the Hessian of the Lagrangian is coercive on all fine fields, not only on $\cX$, once the gauge directions are fixed by the Landau and averaging terms. In the four-dimensional note this is used in the one-loop analysis; it is not used below.
+
+\begin{lemma}[The Lagrangian Hessian on all fields]\label{lem:Lstar-coercive}
+In the setting of Theorem~\ref{thm:variational}, suppose that $\beta=0$ and $A_*=0$, i.e.\ $V=W_k$ and $U_0$ is critical on $\mathfrak B(V)$. Let $\omega_0$ be the multiplier of Proposition~\ref{prop:euler-lagrange} at $A_*=0$, so that $J_{U_0}=\nabla\Phi(0)=\bQ_k^T\omega_0$. For real fine fields $h$ put
+\[
+\begin{gathered}
+q_2(h,h)=\|Dh\|^2+d^2\mathcal N(0)[h,h]-\ip{\omega_0}{d^2C_k(0)[h,h]},\\
+\ip h{\bL_*h}=q_2(h,h)+\|RD^Th\|^2+a\|\bQ_kh\|^2,
+\end{gathered}
+\]
+with $D=D_{U_0}$, $R=R(U_0)$, $\mathcal N$ of Proposition~\ref{prop:action} and $C_k$ of Proposition~\ref{prop:Q-expansion}. There is $C'$, depending only on the constants of Propositions~\ref{prop:action}, \ref{prop:Q-expansion} and~\ref{prop:euler-lagrange}, Theorem~\ref{thm:reg-scalar} and Lemmas~\ref{lem:curvature} and~\ref{lem:weitzenbock}, such that
+\begin{equation}\label{eq:Lstar-coercive}
+\ip h{\bL_*h}\ge(c_*-C'\eps)\big(\|h\|^2+\|Dh\|^2+\|D^Th\|^2\big)\qquad\text{for all real }h,
+\end{equation}
+with $c_*$ of Theorem~\ref{thm:reg-coercive}; more precisely, $|\ip h{(\bL_*-\fA_\pi)h}|\le C'\eps(\|h\|^2+\|Dh\|^2+\|D^Th\|^2)$, with $\fA_\pi$ of Section~\ref{sec:cov-gauge} at $U_0$. We decrease $c_7$ so that $c_7$ is at most the thresholds of Theorems~\ref{thm:reg-scalar} and~\ref{thm:reg-coercive} and of Proposition~\ref{prop:action}, and $C'c_7\le\frac12c_*$. Then, for $\eps\le c_7$, $\ip h{\bL_*h}\ge\frac12c_*(\|h\|^2+\|Dh\|^2+\|D^Th\|^2)$ for all real $h$, and $q_2(h,h)\ge\frac12c_*(\|h\|^2+\|Dh\|^2)$ for $h\in\cX$.
+\end{lemma}
+
+\begin{proof}
+Since $E=0$ (Proposition~\ref{prop:linearized-averages}(b)), and since the potential of Part~II is $W=0$ here, as in the proof of Lemma~\ref{lem:X-coercive}, Lemma~\ref{lem:slice}(c) gives $\bQ_k\Pi=\bQ_k$ and $D\Pi=D-\mathfrak FS$, with $S=G'RD^T$. So
+\[
+\ip h{\fA_\pi h}=\|Dh-\mathfrak FSh\|^2+\|RD^Th\|^2+a\|\bQ_kh\|^2,
+\]
+and
+\[
+\ip h{\bL_*h}=\ip h{\fA_\pi h}+2\ip{Dh}{\mathfrak FSh}-\|\mathfrak FSh\|^2+d^2\mathcal N(0)[h,h]-\ip{\omega_0}{d^2C_k(0)[h,h]} .
+\]
+Theorems~\ref{thm:reg-scalar} and~\ref{thm:reg-coercive} apply to the averaging of Part~IV, by Corollary~\ref{cor:parts-apply}. We bound the last four terms.
+\begin{itemize}
+\item The coefficients $c_{\mu\nu}$ of $\mathfrak F$ (Lemma~\ref{lem:curvature}) change under a real gauge transformation by multiplication with orthogonal matrices on both sides. In a local gauge in which (B) holds, which exists by regularity, $|c_{\mu\nu}|\le C\eps$. So $|(\mathfrak F\lambda)_{\mu\nu}(x)|\le C\eps|\lambda(x+\eta e_\mu+\eta e_\nu)|$, by the exact formula of Lemma~\ref{lem:curvature}. Summing over the periodic lattice gives $\|\mathfrak F\lambda\|\le C\eps\|\lambda\|$. Moreover $\|Sh\|\le C\|h\|$ (Theorem~\ref{thm:reg-scalar}(d) with $X=\Tf$). Hence $|2\ip{Dh}{\mathfrak FSh}-\|\mathfrak FSh\|^2|\le C\eps(\|h\|^2+\|Dh\|^2)$ for $\eps\le1$.
+\item By Proposition~\ref{prop:action}(c) at $A=0$, $|d^2\mathcal N(0)[h,h]|\le C\eps(\|h\|^2+\|\nabla h\|^2)$, and by Lemma~\ref{lem:weitzenbock}, $\|\nabla h\|^2\le\|Dh\|^2+\|D^Th\|^2+C\eps\|h\|^2$.
+\item By Proposition~\ref{prop:euler-lagrange} with $\beta=0$, $|\omega_0|_\infty\le C\eps$. By Proposition~\ref{prop:Q-expansion}(c), $|d^2C_k(0)[h,h](c)|\le C\|h\|^2_{S_c}$. Every fine bond starts in exactly one block, and every block lies in $S_c$ for $2d$ bonds $c$, so $\sum_c\|h\|^2_{S_c}=2d\|h\|^2$. Hence $|\ip{\omega_0}{d^2C_k(0)[h,h]}|\le C\eps\|h\|^2$.
+\end{itemize}
+By Theorem~\ref{thm:reg-coercive} with $X=\Tf$, where $m_{\Tf}=0$, $\fA^{\Tf}=\fA_\pi$ and $\tn h_{\Tf,+}^2=\|h\|^2+\|Dh\|^2+\|D^Th\|^2$, we have $\ip h{\fA_\pi h}\ge c_*(\|h\|^2+\|Dh\|^2+\|D^Th\|^2)$. This gives the bound on $\bL_*-\fA_\pi$ and \eqref{eq:Lstar-coercive}. The constants of the cited results do not depend on $c_7$, $\theta_0$ or $c_6$, so the additional condition on $c_7$ is compatible with the order of the constants at the end of the proof of Theorem~\ref{thm:variational}. For $h\in\cX$, $\bQ_kh=0$ and $RD^Th=0$, so $\ip h{\bL_*h}=q_2(h,h)$.
+\end{proof}

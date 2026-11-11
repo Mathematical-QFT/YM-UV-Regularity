@@ -1,0 +1,19 @@
+N1 (d=4, SU(2), L=3), seed 1
+
+(a) linearization at U=1 of (0.12), complex steps through the solver; 13 coarse bonds (both orientations), 3 colours, F random (N(0,1) entries)
+    plain (0.12)(A_F) - B_F                = 1.8e-15   (scale |B_F| up to 16.3)
+    centred tube average(A_F) - B_F        = 7.1e-15
+    gamma_sym(A_F) at c-, c+ (should be 0) = 8.1e-16
+    with a gauge term, A_F + D phi (phi random): plain - (B_F + phi(c+) - phi(c-)) = 2.7e-15;  plain - (tube - D'gamma) = 5.3e-15;  tube - (B_F + D'phi) = 3.70 (nonzero: the tube average alone is not covariant)
+    [3 s]
+
+(b) nonlinear: U(b) = exp(i theta(b) n.sigma/2), theta = A_F (fine plaquette angle F_{mu nu}), coarse plaquette predicted exp(i L^2 F_{mu nu} n.sigma/2)
+  |F| scale 0.03 (max coarse plaquette angle 0.53), symmetric       : coarse plaquettes (12, 6 planes x 2 base points) 1.9e-16, traces 6.7e-16; coarse 2x1 rectangles (trace vs exp(2i L^2 F)) 6.7e-16; coarse bond variables = exp(i L A_F(c-) n.sigma/2): 8.3e-17  [2 s]
+  |F| scale 0.03 (max coarse plaquette angle 0.53), axial           : coarse plaquettes (12, 6 planes x 2 base points) 2.5e-16, traces 1.1e-15; coarse 2x1 rectangles (trace vs exp(2i L^2 F)) 1.6e-15  [1 s]
+  |F| scale 0.03 (max coarse plaquette angle 0.53), symmetric+Haar g: coarse plaquettes (12, 6 planes x 2 base points) 5.2e-16, traces 2.7e-15; coarse 2x1 rectangles (trace vs exp(2i L^2 F)) 2.4e-15  [4 s]
+  |F| scale 0.08 (max coarse plaquette angle 1.07), symmetric       : coarse plaquettes (12, 6 planes x 2 base points) 4.4e-16, traces 1.1e-15; coarse 2x1 rectangles (trace vs exp(2i L^2 F)) 1.6e-15; coarse bond variables = exp(i L A_F(c-) n.sigma/2): 1.1e-16  [2 s]
+  |F| scale 0.08 (max coarse plaquette angle 1.07), axial           : coarse plaquettes (12, 6 planes x 2 base points) 2.2e-16, traces 4.4e-16; coarse 2x1 rectangles (trace vs exp(2i L^2 F)) 8.9e-16  [1 s]
+  |F| scale 0.08 (max coarse plaquette angle 1.07), symmetric+Haar g: coarse plaquettes (12, 6 planes x 2 base points) 4.6e-16, traces 2.0e-15; coarse 2x1 rectangles (trace vs exp(2i L^2 F)) 1.6e-15  [4 s]
+  |F| scale 0.15 (max coarse plaquette angle 1.47), symmetric       : coarse plaquettes (12, 6 planes x 2 base points) 3.9e-16, traces 8.9e-16; coarse 2x1 rectangles (trace vs exp(2i L^2 F)) 6.7e-16; coarse bond variables = exp(i L A_F(c-) n.sigma/2): 2.2e-16  [2 s]
+  |F| scale 0.15 (max coarse plaquette angle 1.47), axial           : coarse plaquettes (12, 6 planes x 2 base points) 2.8e-16, traces 6.7e-16; coarse 2x1 rectangles (trace vs exp(2i L^2 F)) 8.9e-16  [1 s]
+  |F| scale 0.15 (max coarse plaquette angle 1.47), symmetric+Haar g: coarse plaquettes (12, 6 planes x 2 base points) 5.4e-16, traces 2.7e-15; coarse 2x1 rectangles (trace vs exp(2i L^2 F)) 1.8e-15  [4 s]

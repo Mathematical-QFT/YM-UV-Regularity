@@ -1,0 +1,197 @@
+\section{The axial-to-Landau chart}\label{sec:chart}
+
+In this section $U_0$ is a real reference configuration that is $(M,\eps)$-regular and satisfies $|J_{U_0}|_\infty\le\eps$. In particular $U_0\in\mathfrak U(C\eps)$. All operators of Parts~II and~III are taken at $U_0$ with the averaging pair $(Q'_k(U_0),\bQ_k(U_0))$ (Corollary~\ref{cor:parts-apply}). Theorem~\ref{thm:chart} below is Ba\l aban's \cite[Theorem~2]{BalReg} on a single torus: every real configuration with small curvature and current and with averages close to those of $U_0$ has a unique representative in the Landau gauge relative to $U_0$, and this representative is small and regular. As in Section~\ref{sec:adapted}, ``axial'' means averaged axial (Definition~\ref{def:axial}); the chart passes from the averaged axial representative of a $\mathfrak G_0$-orbit to its Landau representative.
+
+\subsection{Linear input}\label{ss:24.1}
+
+\begin{lemma}[Sup-norm bounds at the reference]\label{lem:sup-bounds}
+There are $\eps_*,C$ such that for $\eps\le\eps_*$:
+\begin{enumerate}[label=(\alph*)]
+\item $|G'f|_{C^1}\le C|f|_\infty$, $|H'g|_{C^1}\le C|g|_\infty$, and $D^TDH'g=Q'^T(\Gamma'-a)g$, so $|D^TDH'g|_\infty\le C|g|_\infty$.
+\item $|P_\cV f|_{C^1}\le C|f|_\infty$ and $|P_\cV D^TA|_{C^1}\le C|A|_\infty$. In particular $|Rf|_\infty\le C|f|_\infty$.
+\item The Feynman-gauge operator $\fA_F=D^TD+DRD^T+a\bQ^T\bQ$ is invertible, and $|\fA_F^{-1}f|_{C^1}\le C|f|_\infty$, $|\fA_F^{-1}\bQ^T\omega|_{C^1}\le C|\omega|_\infty$.
+\item $|\bH B|_{C^1}\le C|B|_\infty$ and $|\bC f|_{C^1}\le C|f|_\infty$.
+\end{enumerate}
+Here $|\cdot|_{C^1}$ uses the covariant gradient $\nabla=\nabla_{U_0}$; for scalar fields $\nabla=D_{U_0}$. The same bounds hold with exponential weights, provided $\gamma'\le\gamma/2$: if $|f(x)|\le e^{-\gamma'|x-z|}$ for some $z$, then $|Kf(x)|+|\nabla Kf(x)|\le Ce^{-\gamma'|x-z|}$ for each operator $K$ above with a $C^1$ bound, and $|Kf(x)|\le Ce^{-\gamma'|x-z|}$ for $K=R$ and $K=D^TDH'$. For these two only sup bounds hold uniformly in $\eta$: at $U_0=1$, if $f$ is a unit vector of $\mathfrak g$ at one fine point and $0$ elsewhere, $|\nabla Rf|$ is of order $\eta^{-1}$. The constants $\eps_*$ and $C$ may depend on $L$, $G$, $a$, $\alpha$ and $M_0$, but not on $M\ge M_0$, on $k$, on $\eta$ or on the side $n$ of $\T$. Indeed, the proof uses the theorems of Parts~II and~III at $U_0$, whose constants are uniform in this sense by Lemma~\ref{lem:uniformity}, applied at $M=M_0$ as in Theorem~\ref{thm:variational}; an $(M,\eps)$-regular reference is $(M_0,\eps)$-regular (Lemma~\ref{lem:regular-monotone}).
+\end{lemma}
+
+\begin{proof}
+By Corollary~\ref{cor:parts-apply}, the pointwise bounds of Theorems~\ref{thm:reg-scalar}(g), \ref{thm:reg-gauge}(b) and~\ref{thm:reg-min} hold. Each has the form $|Kf|_{B(y)}+|\nabla Kf|_{B(y)}\le C\sum_{y'}e^{-\gamma|y-y'|}|f|_{B(y')}$. Summing over $y'$ gives the sup-norm bounds, and the weighted bounds follow because $\sum_{y'}e^{-\gamma|y-y'|}e^{-\gamma'|y'-z|}\le Ce^{-\gamma'|y-z|}$. The identity in (a) follows from $\fA'H'=Q'^T\Gamma'$ and $Q'H'=I$. With it, the plain and weighted sup bounds on $D^TDH'g$ follow from the decay of $\Gamma'$ and the sup bound on $Q'^T$, and those on $Rf=f-P_\cV f$ from the bounds on $P_\cV$. For (c), $\fA_F=\fA_\pi-\mathcal K_1$ with $W=0$ and $\mathcal K_2=0$, because $E=0$. By the proof of Theorem~\ref{thm:cov-gauge}(a), $\mathcal K_1$ is admissible of size $C\eps$ and pointwise admissible of type~1. Lemmas~\ref{lem:CT-stable}, \ref{lem:perturbed-inverse} and~\ref{lem:bootstrap-local} give the bounds, as for $\bG$; in Lemma~\ref{lem:bootstrap-local} the small inputs of $\mathcal K_1$ are bounded by the invariant norms $|v|+|\nabla v|$ on the cubes $\Lam_1(c_{y'})$, with weights $e^{-\gamma|y-y'|}$. Finally $|\bQ^T\omega|\le C|\omega|$ by Proposition~\ref{prop:linearized-averages}(e).
+\end{proof}
+
+\subsection{The theorem}\label{ss:24.2}
+
+\begin{theorem}[Axial-to-Landau chart]\label{thm:chart}
+There are $c_4,r_u,B_1>0$, with $B_1c_4\le r_u/2$, with the following property. Let $U_0$ be as above, and let $U$ be real with $U\in\mathfrak U(\theta)$. Suppose that $U'=UU_0^{-1}\in\mathrm{Ax}_k$ and $|\ell(U'^{[k]}(c))|\le\beta$ for all bonds $c$ of $\T$. If $\eps+\theta+\beta\le c_4$, there is exactly one fine relative configuration $\tilde U=e^{\ii\eta A}$ with $A$ real and $|A|_\infty\le r_u$ such that
+\begin{enumerate}[label=(\roman*)]
+\item $R(U_0)D^T_{U_0}A=0$ (Ba\l aban's Landau gauge relative to $U_0$), and
+\item $\tilde U^{(\mathsf w_k(\tilde U))}=U'$.
+\end{enumerate}
+Moreover $\mathcal Q(\tilde U)=U'^{[k]}$, and
+\[
+|A|_\infty+|\nabla A|_\infty+|\Lap_{U_0}A|_\infty+\sup_y\Hol{\nabla\tilde A_y}{B(y)}\le B_1(\eps+\theta+\beta),
+\]
+where $\Lap_{U_0}=D^TD+DD^T$ is the covariant Hodge Laplacian and $\tilde A_y$ is $A$ in a local gauge of $U_0$ near $B(y)$.
+\end{theorem}
+
+All maps in the statement are defined. Since $U\in\mathfrak U_0(c_4)$ with $c_4\le c_1$, the relative configuration $U'$ lies in the averaging domain up to scale $k$ (Section~\ref{sec:adapted}), so $\mathrm{Ax}_k$ and $U'^{[k]}$ make sense. For $\tilde U=e^{\ii\eta A}$ with $|A|_\infty\le r_u\le c_3$ the maps of Definition~\ref{def:adapted} are defined, by Lemma~\ref{lem:one-step-expansion} and Proposition~\ref{prop:Q-expansion}. Condition (ii) says that $\tilde U$ and $U'$ lie in the same gauge orbit, and that the transformation relating them is the correspondence transformation of Theorem~\ref{thm:correspondence}. By Theorem~\ref{thm:correspondence}(f), this transformation satisfies Ba\l aban's normalization. The bounds are Ba\l aban's \cite[(1.36)--(1.39)]{BalReg} on a single torus. Note the sign: $\Lap_{U_0}$ is non-negative, and at $U_0=1$ it is $d^*d+dd^*=-\Lap$ (Lemma~\ref{lem:hodge}), with the non-positive Laplacian $\Lap$ of Section~\ref{ss:2.2}.
+
+\begin{corollary}[Parametrization of the constraint set]\label{cor:parametrization}
+Let $V$ be a real configuration on $\T$ with $|\ell(V(c)W_k(c)^{-1})|\le\beta$ for all $c$, and let $\eps+\theta+\beta\le c_4$. Let $\mathcal S_V$ be the set of real $A$ with $|A|_\infty\le r_u$, $R D^TA=0$, $e^{\ii\eta A}U_0\in\mathfrak U(\theta)$ and $\mathcal Q(e^{\ii\eta A})=VW_k^{-1}$. Then
+\[
+A\longmapsto\mathsf U(A)=\big((e^{\ii\eta A})^{(\mathsf w_k(e^{\ii\eta A}))}\big)U_0
+\]
+is a bijection from $\mathcal S_V$ onto the set of averaged axial representatives ($UU_0^{-1}\in\mathrm{Ax}_k$) of the $\mathfrak G_0$-orbits in $\mathfrak B(V)\cap\mathfrak U(\theta)$, where $\mathfrak B(V)=\{U:U^{(k)}=V\}$. Moreover $S(\mathsf U(A))=\Phi(A)$.
+\end{corollary}
+
+\begin{proof}
+$\mathsf U(A)=(e^{\ii\eta A}U_0)^{\mathsf w_k}$ is gauge equivalent to $e^{\ii\eta A}U_0$, so it lies in $\mathfrak U(\theta)$ and has the same action. By Theorem~\ref{thm:correspondence}(a), $\mathsf U(A)U_0^{-1}\in\mathrm{Ax}_k$ and $\mathsf U(A)^{(k)}=\mathcal Q(e^{\ii\eta A})W_k=V$. Conversely, for an averaged axial representative $U$ of an orbit in $\mathfrak B(V)\cap\mathfrak U(\theta)$ we have $U'^{[k]}=VW_k^{-1}$, and Theorem~\ref{thm:chart} gives exactly one preimage. The orbits have unique averaged axial representatives by Lemma~\ref{lem:axial}(c), since $\mathfrak U(\theta)\subset\mathfrak U_0(c_1)$.
+\end{proof}
+
+\subsection{Axial configurations are small}\label{ss:24.3}
+
+\begin{lemma}[{\cite[Lemma~1, (1.65)]{BalReg}}]\label{lem:axial-small}
+Let $C_A=45L$. Let $U_0,U\in\mathfrak U_0(\theta)$ be real, with $\theta\le c_1$, and let $U'=UU_0^{-1}\in\mathrm{Ax}_k$. Suppose that $|\ell(U'^{[k]}(c))|\le\beta$ for all bonds $c$ of $\T$, where $\beta+C_A\theta\le\frac12c_G$. Then $|\ell(U'^{[j]}(b))|\le\beta+C_A\theta$ for all $j\le k$ and all bonds $b$ of $\T^{(j)}$.
+\end{lemma}
+
+\begin{proof}
+\emph{One step.} Fix $j\in\{1,\dots,k\}$, and write $W=W_{j-1}$, $\delta=\delta_{j-1}$, $\delta'=\delta_j$. Let $X$ be a real relative configuration at scale $j-1$, axial at scale $j$, such that $Y=XW$ and $W$ lie in $\mathfrak U_{j-1}(2\theta)$, and such that $|\ell(\overline X(c))|\le b'$ for all bonds $c$ of $\T^{(j)}$, where $b'+40L\theta\delta'^2\le\frac12c_G$. We claim that
+\[
+|\ell(X(b))|\le b'+40L\theta\delta'^2\qquad\text{for every bond $b$ of $\T^{(j-1)}$.}
+\]
+Since $X(-b)=R(W(b))^{-1}(X(b)^{-1})$ and $R(W(b))$ is unitary, it suffices to consider positively oriented bonds. We apply Lemma~\ref{lem:stokes-avg} to $Y$ and to $W$ with $\eps=2\theta\delta^2$. Then $8L^2\eps=16\theta\delta'^2\le r_M$, because $\theta\le c_1\le r_M/128$. All configurations below are real. So, by Lemma~\ref{lem:log-estimates}(b), the logarithm is subadditive under products and invariant under conjugation by elements of $G$, as long as the sums involved are at most $c_G$. All sums below are at most $b'+40L\theta\delta'^2$.
+
+\emph{Bonds inside a block.} Let $b=(x,x')$ with $x,x'\in B_j(y)$. For a configuration $Z$ on $\T^{(j-1)}$ put $T_b(Z)=Z(y,x)Z(b)Z(y,x')^{-1}$. Axiality gives $Y(y,x)=W(y,x)$ and $Y(y,x')=W(y,x')$. Hence
+\[
+T_b(Y)\,T_b(W)^{-1}=W(y,x)\,Y(b)W(b)^{-1}\,W(y,x)^{-1}=R\big(W(y,x)\big)X(b).
+\]
+Since $W(y,x)\in G$, Lemma~\ref{lem:stokes-avg}(ii) gives
+\[
+|\ell(X(b))|\le|\ell(T_b(Y))|+|\ell(T_b(W))|\le12(L-1)^2\eps\le24\theta\delta'^2 .
+\]
+
+\emph{Bonds between blocks.} Every other positively oriented bond $b$ joins two blocks: $b$ has direction $\mu$, $x=b_-$ lies in $B_j(c_-)$ on the face $\{x_\mu-c_{-,\mu}=\frac{L-1}2\delta\}$, and $b_+\in B_j(c_+)$, where $c=(c_-,c_+)$ and $c_+=c_-+\delta'e_\mu$. The straight segment $[x,x(c)]$ consists of $b$ followed by a contour $\gamma'$ of $L-1$ bonds inside $B_j(c_+)$. (Every segment $[x,x(c)]$ with $x\in B_j(c_-)$ contains exactly one bond between the two blocks; here it is the first one.) By the definition of relative transports, $X_W([x,x(c)])=X(b)\,R(W(b))\big(X_W(\gamma')\big)$, and $X_W(\gamma')$ is a product of $L-1$ factors $R(W(\gamma'_{<i}))X(b_i)$ with bonds $b_i$ inside $B_j(c_+)$. By the previous step,
+\[
+|\ell(X(b))|\le|\ell(X_W([x,x(c)]))|+24(L-1)\theta\delta'^2 .
+\]
+Now we use the averaged loop of $Y$ through $x$. By axiality, $Y(c_-,x)=W(c_-,x)$ and $Y(x(c),c_+)=W(x(c),c_+)$. Inserting $Y([x,x(c)])=X_W([x,x(c)])W([x,x(c)])$ and $Y([c])=X_W([c])W([c])$ into Definition~\ref{def:avg-contour} gives
+\[
+\Lambda_{c,x}(Y)=R\big(W(c_-,x)\big)\big(X_W([x,x(c)])\big)\;h_x\;X_W([c])^{-1},\qquad h_x=\Lambda_{c,x}(W).
+\]
+By Lemma~\ref{lem:stokes-avg}(iii), $|\ell(\Lambda_{c,x}(Y))|\le16\theta\delta'^2$ and $|\ell(h_x)|\le16\theta\delta'^2$. Next, by \eqref{eq:one-step} for $Y$ and for $W$, and since $W_j=\mathfrak a_j(W)$,
+\[
+\overline X(c)=\mathfrak a_j(Y)(c)\,W_j(c)^{-1}=e^{\ii E_Y}\,X_W([c])\,e^{-\ii E},
+\]
+where $E_Y=L^{-d}\sum_{x'}\ell(\Lambda_{c,x'}(Y))$ and $E=L^{-d}\sum_{x'}\ell(h_{x'})$, the sums running over $x'\in B_j(c_-)$. Here $|E_Y|,|E|\le16\theta\delta'^2$, so $|\ell(X_W([c]))|\le b'+32\theta\delta'^2$. Since $W(c_-,x)\in G$, the formula for $\Lambda_{c,x}(Y)$ gives
+\[
+|\ell(X_W([x,x(c)]))|\le|\ell(\Lambda_{c,x}(Y))|+|\ell(h_x)|+|\ell(X_W([c]))|\le b'+64\theta\delta'^2 .
+\]
+Altogether $|\ell(X(b))|\le b'+(24L+40)\theta\delta'^2\le b'+40L\theta\delta'^2$, since $L\ge3$. This proves the claim.
+
+\emph{Iteration.} Let $b_j=\max_c|\ell(U'^{[j]}(c))|$, the maximum over the bonds of $\T^{(j)}$. By Proposition~\ref{prop:avg-regular}, $U^{(j-1)},W_{j-1}\in\mathfrak U_{j-1}(2\theta)$. The relative configuration $X=U'^{[j-1]}$ is real and axial at scale $j$, with $XW_{j-1}=U^{(j-1)}$ and $\overline X=U'^{[j]}$. By the claim, $b_{j-1}\le b_j+40L\theta\delta_j^2$, as long as $b_j+40L\theta\delta_j^2\le\frac12c_G$. Since $b_k\le\beta$ and $\delta_i=L^{i-k}$, downward induction gives
+\[
+b_j\le\beta+40L\theta\sum_{i=j+1}^k\delta_i^2\le\beta+40L\theta\,\frac{L^2}{L^2-1}\le\beta+45L\theta ,
+\]
+and the condition of the claim holds at every step, because $\beta+C_A\theta\le\frac12c_G$.
+\end{proof}
+
+The proof uses only the straight segments $[x,x(c)]$ and the averaged loops of \eqref{eq:one-step}: a bond between two blocks is compared with the averaged loop through its segment, and the other $L-1$ bonds of the segment lie inside a block. This costs the factor $L$ in $C_A$. The constant $C_A$ enters only the proof of Theorem~\ref{thm:chart}, through $c_4$ and $B_1$, which depend on $L$ anyway.
+
+\subsection{The a priori bound}\label{ss:24.4}
+
+\begin{proposition}[A priori bound {\cite[Prop.~3]{BalReg}}]\label{prop:a-priori}
+There are $r_*,B_0>0$ such that the following holds for $\eps\le r_*$. Let $\tilde U=e^{\ii\eta A}$ with $A$ real, $|A|_\infty\le r_*$ and $R D^TA=0$. Suppose $|J_{\tilde UU_0}|_\infty\le\theta$ and $\mathcal Q(\tilde U)=e^{\ii B}$ with $|B|_\infty\le\beta$. Then
+\[
+|A|_{C^1}+|\Lap_{U_0}A|_\infty+\sup_y\Hol{\nabla\tilde A_y}{B(y)}\le B_0(\eps+\theta+\beta).
+\]
+\end{proposition}
+
+\begin{proof}
+By Proposition~\ref{prop:action}(d), $|\nabla\Phi(A)|_\infty\le2\theta$. By Proposition~\ref{prop:action} and $|J_{U_0}|\le\eps$,
+\[
+D^TDA=\nabla\Phi(A)-J_{U_0}-\nabla\mathcal N(A),\qquad|D^TDA|_\infty\le2\theta+\eps+C(\eps+r_*)|A|_{C^1}.
+\]
+By Proposition~\ref{prop:Q-expansion}, $\mathcal Q(\tilde U)=e^{\ii(\bQ A+\Cav_k(A))}$ with $|\Cav_k(A)|\le C|A|_\infty^2\le Cr_*|A|_\infty$, and $\bQ A+\Cav_k(A)$ is real and small. On each bond, $e^{\ii B}=e^{\ii(\bQ A+\Cav_k(A))}$, so the eigenvalues of $B$, counted with algebraic multiplicity, differ by multiples of $2\pi$ from those of the Hermitian matrix $\bQ A+\Cav_k(A)$, which lie in $(-\pi,\pi)$; by Schur triangularization the squared moduli of the eigenvalues of $B$ sum to at most $|B|^2$. So $|\bQ A+\Cav_k(A)|\le|B|$ bondwise, and we may replace $B$ by $\bQ A+\Cav_k(A)$, still with $|B|_\infty\le\beta$. Then $\bQ A=B-\Cav_k(A)$. Since $RD^TA=0$,
+\[
+\fA_FA=D^TDA+a\bQ^T\big(B-\Cav_k(A)\big),
+\]
+and Lemma~\ref{lem:sup-bounds}(c) gives $|A|_{C^1}\le C_F(2\theta+\eps+\beta)+C_FC(\eps+r_*)|A|_{C^1}$. For $C_FC(\eps+r_*)\le\frac12$ this gives the bound on $|A|_{C^1}$. Next, $RD^TA=0$ means $D^TA=P_\cV D^TA$, so
+\[
+\Lap_{U_0}A=D^TDA+DP_\cV D^TA,
+\]
+which is bounded by Lemma~\ref{lem:sup-bounds}(b). Finally, in a gauge in which $U_0$ is close to $1$ on $\Lam_3(c_y)$, $\Lap_{U_0}$ has the normal form $-\Lap+\sum_\mu\partial^*_\mu(a_\mu\,\cdot)+b$ of Lemma~\ref{lem:cov-expansion}, componentwise. Theorem~\ref{thm:local-regularity}(d) gives the H\"older bound.
+\end{proof}
+
+The proposition needs only a bound on $|A|_\infty$, not on derivatives. The derivatives are controlled by the gauge condition and the action, because the derivative terms in $\nabla\mathcal N$ come with the small factor $\eps+|A|_\infty$. This is why the construction below only has to control the sup norm of the new representative.
+
+\subsection{One scale of gauge transformation}\label{ss:24.5}
+
+For a fine relative configuration $\tilde U_1=e^{\ii\eta A_1}$ and a scalar field $\lambda$ write $\tilde U_\lambda=\tilde U_1^{(e^{-\ii\lambda})}=e^{\ii\eta\mathcal A(\lambda)}$. A direct computation from the definition of the relative action gives
+\begin{equation}\label{eq:gauge-formula}
+\mathcal A(\lambda)(b)=e^{-\ii\operatorname{ad}\lambda(b_-)}A_1(b)+\mathfrak d\big(\operatorname{ad}\lambda(b_-)\big)D_{U_0}\lambda(b)+\eta\,\mathfrak b\big(\lambda(b_-),A_1(b),D_{U_0}\lambda(b)\big),
+\end{equation}
+where $\mathfrak d$ is entire with $\mathfrak d(0)=1$, and $\mathfrak b$ is analytic with $|\mathfrak b|\le C(|A_1|+|D\lambda|)|D\lambda|$ \cite[(1.81)--(1.84)]{BalReg}. For $|\lambda|_{C^1}=|\lambda|_\infty+|D\lambda|_\infty$ small, $|\mathcal A(\lambda)|_\infty\le C(|A_1|_\infty+|\lambda|_{C^1})$.
+
+\begin{lemma}[One scale]\label{lem:one-scale}
+There are $r_0,\rho_0,C_2>0$ such that for $\eps\le r_0$ the following holds. Let $A_1$ be real with $|A_1|_{C^1}\le r\le r_0$. Then there is exactly one real $\lambda$ with $|\lambda|_{C^1}\le\rho_0$ such that
+\[
+\text{(E1)}\quad R D^T\mathcal A(\lambda)=0,\qquad\text{(E2)}\quad\mathsf w_k(\tilde U_\lambda)=\mathsf w_k(\tilde U_1)\,e^{\ii\lambda}.
+\]
+It satisfies $|\lambda|_{C^1}\le C_2r$ and $|\mathcal A(\lambda)|_\infty\le C_2r$.
+\end{lemma}
+
+\begin{proof}
+\emph{Reformulation of (E2).} Both $\mathsf w_k(\tilde U_\lambda)$ and $\mathsf w_k(\tilde U_1)e^{\ii\lambda}$ move $\tilde U_\lambda$ into the axial gauge: $\tilde U_\lambda^{(\mathsf w_k(\tilde U_1)e^{\ii\lambda})}=\tilde U_1^{(\mathsf w_k(\tilde U_1))}$. Here $A_1$ and $\lambda$ are real, so all configurations and transformations are real, as Theorem~\ref{thm:correspondence}(b) requires. By that theorem the two transformations coincide iff they agree at the points of $\T$. With
+\[
+\Upsilon(\lambda)=\ell\big(\mathsf w_k(\tilde U_1)^{-1}\mathsf w_k(\tilde U_\lambda)\big)\quad\text{on }\T,
+\]
+(E2) is therefore equivalent to $\Upsilon(\lambda)=\lambda|_\T$.
+
+\emph{Expansion of $\Upsilon$.} $\Upsilon$ is an analytic function of $(A_1,\lambda)$ on $\{|A_1|_\infty\le2r_0,\ |\lambda|_{C^1}\le4(1+C_H)\rho_0\}$, where $C_H$ is the constant in $|H'X|_{C^1}\le C_H|X|$,, with $|\Upsilon|\le C(r_0+\rho_0)$ by Proposition~\ref{prop:Q-expansion}(d), and $\Upsilon(A_1,0)=0$. At $A_1=0$, Theorem~\ref{thm:correspondence}(e) gives $\mathsf w_k(1^{(g)})|_\T=\mathfrak M^{(k)}(g)\,g^{-1}|_\T$. With $g=e^{-\ii\lambda}$, the linear part of $\Upsilon(0,\cdot)$ is $\lambda|_\T-Q'_k\lambda$. This uses Theorem~\ref{thm:correspondence}(e) for real $\lambda$ only: $\Upsilon(0,\cdot)$ is analytic, so its linear part is determined by its values at real $\lambda$. Write
+\[
+\Upsilon(A_1,\lambda)=\lambda|_\T-Q'\lambda-\mathcal C'(\lambda).
+\]
+By the Cauchy estimates, applied separately to $\Upsilon(0,\lambda)$ (quadratic remainder) and to $\Upsilon(A_1,\lambda)-\Upsilon(0,\lambda)$ (which vanishes at $A_1=0$ and at $\lambda=0$),
+\[
+|\mathcal C'(\lambda)|\le C(|A_1|_\infty+|\lambda|_{C^1})|\lambda|_{C^1},\qquad|\mathcal C'(\lambda)-\mathcal C'(\lambda')|\le C(r+\rho)|\lambda-\lambda'|_{C^1}
+\]
+for $|\lambda|_{C^1},|\lambda'|_{C^1}\le\rho\le2(1+C_H)\rho_0$. So (E2) is equivalent to $Q'\lambda+\mathcal C'(\lambda)=0$.
+
+\emph{Linearizing (E2).} Decompose $\lambda=\lambda'+H'X$ with $\lambda'\in\cN(Q')$ and $X=Q'\lambda$. Then (E2) becomes $X=-\mathcal C'(\lambda'+H'X)$. Since $|H'X|_{C^1}\le C_H|X|$ (Lemma~\ref{lem:sup-bounds}(a)), the right-hand side is a contraction in $X$ on $|X|_\infty\le\rho_0$, for $|\lambda'|_{C^1}\le(1+C_H)\rho_0$. Its unique fixed point $X=\mathcal X(\lambda')$ satisfies $|\mathcal X(\lambda')|\le C(r+|\lambda'|_{C^1})|\lambda'|_{C^1}$ and has Lipschitz constant $C(r+\rho)$ in $\lambda'$. This is the analogue of \cite[Sect.~E]{BalReg}.
+
+\emph{Solving (E1).} Apply $D^T$ to \eqref{eq:gauge-formula}. By the discrete Leibniz rule,
+\[
+D^T\mathcal A(\lambda)=e^{-\ii\operatorname{ad}\lambda}D^TA_1+\big(1+V(\lambda)\big)D^TD\lambda+\mathfrak g_3,
+\]
+where $V(\lambda)$ is multiplication by $\mathfrak d(\operatorname{ad}\lambda)-1$, so $|V|\le C|\lambda|_\infty$, and $|\mathfrak g_3|\le C|D\lambda|(|A_1|+|D\lambda|)$. Now $D^TD\lambda=D^TD\lambda'+Q'^T(\Gamma'-a)X$ by Lemma~\ref{lem:sup-bounds}(a). Moreover $D^TD\lambda'\in\ran R$, so $R(1+V)D^TD\lambda'=(1+RVR)D^TD\lambda'$. Hence (E1) is equivalent to
+\[
+(1+RVR)D^TD\lambda'=-R\mathfrak h(\lambda'),\qquad\mathfrak h=e^{-\ii\operatorname{ad}\lambda}D^TA_1+(1+V)Q'^T(\Gamma'-a)\mathcal X(\lambda')+\mathfrak g_3 .
+\]
+For $|V|$ small, $1+RVR$ is invertible on bounded fields (Lemma~\ref{lem:sup-bounds}(b)), and its inverse maps $\ran R$ into $\ran R$. For $h\in\ran R=\cW$ the unique $\lambda'\in\cN(Q')$ with $D^TD\lambda'=h$ is $G'h$ (Proposition~\ref{prop:cov-R}(c)). Therefore (E1) and $\lambda'\in\cN(Q')$ are equivalent to the fixed point equation
+\[
+\lambda'=\mathcal T(\lambda'):=-G'(1+RVR)^{-1}R\,\mathfrak h(\lambda').
+\]
+We have $|D^TA_1|\le Cr$, so $|\mathfrak h|_\infty\le C(r+\rho^2)$ on $|\lambda'|_{C^1}\le\rho$, and $\mathcal T$ maps this ball into itself for $\rho=C'r$ and $r$ small. The $\lambda'$-dependence of $\mathcal T$ enters through $V$, $\mathcal X$, $e^{-\ii\operatorname{ad}\lambda}$ and $\mathfrak g_3$. Each of these is multiplied by a quantity of size $C(r+\rho)$, or has Lipschitz constant $C(r+\rho)$. Hence $\mathcal T$ is a contraction on $|\lambda'|_{C^1}\le(1+C_H)\rho_0$, for $r_0$ and $\rho_0$ small. Its unique fixed point, together with $\lambda=\lambda'+H'\mathcal X(\lambda')$, is the solution. It is real because all maps preserve reality, and $|\lambda|_{C^1}\le C_2r$. The bound on $\mathcal A(\lambda)$ follows from \eqref{eq:gauge-formula}.
+
+\emph{Uniqueness.} If $\lambda$ solves (E1), (E2) with $|\lambda|_{C^1}\le\rho_0$, then $X=Q'\lambda$ and $\lambda'=\lambda-H'X$ satisfy $|X|\le\rho_0$, $|\lambda'|_{C^1}\le(1+C_H)\rho_0$, $X=\mathcal X(\lambda')$ and $\lambda'=\mathcal T(\lambda')$. Since $\mathcal T$ is a strict contraction on this ball, $\lambda'$, and hence $\lambda$, is unique.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:chart}}\label{ss:24.6}
+
+By Lemma~\ref{lem:axial-small}, applied with $\theta$ replaced by $\theta+C\eps$ (we have $U\in\mathfrak U(\theta)\subset\mathfrak U_0(\theta)$, and the curvature of $U_0$ is at most $C\eps$), the hypothesis implies $|\ell(U'^{[j]})|\le\beta_*:=\beta+C_A(\theta+C\eps)$ for all $j$. We prove the following statement $\mathcal P(k)$ by induction on $k$: \emph{under the hypotheses of the theorem, with $|\ell(U'^{[j]})|\le\beta_*$ for all $j\le k$ and $\eps+\theta+\beta_*\le c_4^\sharp$, there is a solution $\tilde U$ of (i), (ii) obeying the bounds with $B_0'$ and $\beta_*$ in place of $B_1$ and $\beta$.} Here $B_0'$ and $c_4^\sharp$ are fixed in the induction step below. Then $c_4$ is chosen with $(1+C_A(1+C))c_4\le\min(c_4^\sharp,\frac12c_G)$ and $(1+C)c_4\le c_1$, so that Lemma~\ref{lem:axial-small} applies; this gives existence with $B_1=B_0'(1+C_A(1+C))$. Finally the uniqueness radius is $r_u=\min(r_*,r_0,\rho_0/(4C_w))$, with $\rho_0$ from Lemma~\ref{lem:one-scale} and $C_w$ the constant of the uniqueness step below; here $r_*\le c_3$, since Proposition~\ref{prop:a-priori} uses Proposition~\ref{prop:Q-expansion}. We decrease $c_4$ further until $B_1c_4\le r_u/2$ and $C_wB_0c_4\le\rho_0/2$, so that the solution lies in the uniqueness ball. Since $C_A=45L$, the constants $c_4$ and $B_1$ depend on $L$; so does $c_4^\sharp$, by the conventions of Part~IV.
+
+For the induction we use scale covariance. Rescaling all lengths by $\delta_j^{-1}$ maps the structure on $(\Tf,\T^{(j)})$ to the $j$-step structure on a torus of side $n/\delta_j$ with fine spacing $\eta/\delta_j$. It multiplies Lie fields by $\delta_j$, gradients by $\delta_j^2$, curvatures by $\delta_j^2$ and currents by $\delta_j^3$. The action does not change, since $d=4$ (Section~\ref{sec:action}). Hence the hypotheses of $\mathcal P(k)$ imply those of $\mathcal P(k-1)$ for the averaging up to scale $k-1$, in units of $\delta_{k-1}$, with the same $\beta_*$ and smaller $\eps,\theta$. Indeed, the cubes of Definition~\ref{def:regular} in the units of $\delta_{k-1}$ lie in cubes of the same kind in the units of $\delta_k$, so the gauge transformations restrict as in the proof of Lemma~\ref{lem:regular-monotone}; the quantities $|A|$, $|\partial A|$ and $\Hol{\partial A}{\Lam_3(z')}$ of that definition are multiplied by $L^{-1}$, $L^{-2}$ and $L^{-2-\alpha}$, and $|J_{U_0}|$ by $L^{-3}$. So $U_0$ is $(M,L^{-1}\eps)$-regular in the new units, $U\in\mathfrak U(L^{-2}\theta)$, and $\mathrm{Ax}_k\subset\mathrm{Ax}_{k-1}$ by Definition~\ref{def:axial}. All constants are uniform in $k$ and $n$.
+
+\emph{$k=0$.} There is no averaging: $R=0$, $\mathsf w_0=1$, and $\tilde U=U'$. Since $\delta_0=1$ in these units, $|A|=|\ell(U')|\le\beta_*$, and the gradient and the Laplacian are bounded by $C|A|$.
+
+\emph{From $k-1$ to $k$.} By $\mathcal P(k-1)$, in units of $\delta_{k-1}$, there is $\tilde U_1=e^{\ii\eta A_1}$ with $R_{k-1}D^TA_1=0$ (condition (i) at scale $k-1$: $R_{k-1}$ is the projection $R(U_0)$ built with the pair $(Q'_{k-1}(U_0),\bQ_{k-1}(U_0))$ in place of $(Q'_k(U_0),\bQ_k(U_0))$), $\tilde U_1^{(\mathsf w_{k-1}(\tilde U_1))}=U'$, and, back in units of $\delta_k=1$,
+\[
+|A_1|_\infty\le LB_0'(\eps+\theta+\beta_*),\qquad|\nabla A_1|_\infty\le L^2B_0'(\eps+\theta+\beta_*).
+\]
+Since $U'\in\mathrm{Ax}_k$, the configuration $\mathcal Q_{k-1}(\tilde U_1)=U'^{[k-1]}$ is axial at scale $k$. By Theorem~\ref{thm:correspondence}(d), $\mathsf w_k(\tilde U_1)=\mathsf w_{k-1}(\tilde U_1)$, so $\tilde U_1^{(\mathsf w_k(\tilde U_1))}=U'$. Apply Lemma~\ref{lem:one-scale} with $r=2L^2B_0'(\eps+\theta+\beta_*)\ge|A_1|_{C^1}$; we need $r\le r_0$ and $C_2r\le r_*$, which holds if $c_4^\sharp\le\min(r_0,r_*/C_2)/(2L^2B_0')$. We obtain $\lambda$ such that $\tilde U=\tilde U_\lambda$ is in the Landau gauge at scale $k$, and
+\[
+\tilde U^{(\mathsf w_k(\tilde U))}=\tilde U_1^{(\mathsf w_k(\tilde U_1)e^{\ii\lambda}e^{-\ii\lambda})}=U' .
+\]
+Its Lie field satisfies $|\mathcal A(\lambda)|_\infty\le C_2r$. By Theorem~\ref{thm:correspondence}(a), $\mathcal Q(\tilde U)=U'^{[k]}$, so $|B|\le\beta_*$ with $B=\ell(U'^{[k]})$. Moreover $J_{\tilde UU_0}$ is the current of a configuration gauge equivalent to $U$, so $|J_{\tilde UU_0}|\le\theta$. If $C_2r\le r_*$, Proposition~\ref{prop:a-priori} gives the bounds with $B_0':=\max(B_0,C)$, where $C$ is the constant of the case $k=0$. The constant does not depend on $k$, which closes the induction.
+
+\emph{Uniqueness.} Let $\tilde U=e^{\ii\eta A}$ and $\tilde U^\sharp=e^{\ii\eta A^\sharp}$ both satisfy (i), (ii) and $|A|,|A^\sharp|\le r_u\le r_*$. By Proposition~\ref{prop:a-priori}, both have $|\cdot|_{C^1}\le B_0(\eps+\theta+\beta)$. Let $g=\mathsf w_k(\tilde U^\sharp)^{-1}\mathsf w_k(\tilde U)$. Then $\tilde U^\sharp=\tilde U^{(g)}$. By Proposition~\ref{prop:Q-expansion}(d), $|\ell(g)|\le C(|A|+|A^\sharp|)$ pointwise, so $g=e^{-\ii\lambda}$ with $\lambda$ real. We take $C_w\ge4C$ for this constant $C$, and $\rho_0\le\frac12$, as we may in Lemma~\ref{lem:one-scale}. Since $r_u\le\rho_0/(4C_w)$, this gives $|\lambda|_\infty\le2Cr_u\le\frac12C_wr_u\le\frac18\rho_0\le\frac1{16}$. The derivative is bounded by the bond equation. For a bond $b$ put $\xi=\lambda(b_-)$ and $\xi'=R(U_0(b))\lambda(b_+)$, so that $\eta D_{U_0}\lambda(b)=\xi'-\xi$ and $|\xi|,|\xi'|\le\frac14$. The relation $\tilde U^\sharp=\tilde U^{(g)}$ reads $e^{\ii\xi'}=e^{-\ii\eta A(b)}e^{\ii\xi}e^{\ii\eta A^\sharp(b)}$. The factors are unitary, so Lemma~\ref{lem:log-estimates}(a) gives $|e^{\ii\xi'}-e^{\ii\xi}|\le|e^{-\ii\eta A(b)}-1|+|e^{\ii\eta A^\sharp(b)}-1|\le2\eta(|A(b)|+|A^\sharp(b)|)$. Both $e^{\ii\xi}$ and $e^{\ii\xi'}$ lie in $\{|h-1|\le\frac12\}$, where $\ell$ is analytic with bounded derivative, and $\ell(e^{\ii\xi})=\xi$, $\ell(e^{\ii\xi'})=\xi'$ by Lemma~\ref{lem:log-estimates}(d). Hence $|D\lambda|_\infty\le C'(|A|_\infty+|A^\sharp|_\infty)\le2C'r_u$, and we take $C_w\ge4C'$ too. Thus $|\lambda|_{C^1}\le C_w(r_u+B_0(\eps+\theta+\beta))\le\rho_0$, by the choice of $r_u$ and $c_4$, and $\lambda$ solves (E1), (E2) of Lemma~\ref{lem:one-scale} with base $\tilde U_1=\tilde U$. The same holds for $\lambda=0$. By the uniqueness part of the lemma, $\lambda=0$ and $\tilde U^\sharp=\tilde U$.\qed

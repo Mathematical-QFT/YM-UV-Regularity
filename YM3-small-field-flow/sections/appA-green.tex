@@ -1,0 +1,51 @@
+\section{Decay of the lattice Green function and its derivatives}\label{app:green}
+
+In this appendix $d\ge3$ and $g_1$ is the Green function of $-\Lap$ on $\Z^d$, as in Section~\ref{sec:regularity}. For $\mu=1,\dots,d$ let $D_\mu f(x)=f(x+e_\mu)-f(x)$ and $D^*_\mu f(x)=f(x-e_\mu)-f(x)$. A \emph{word} $\nabla^\beta$ of length $m$ is a composition of $m$ operators from $\{D_\mu,D_\mu^*\}$.
+
+\begin{theorem}\label{thm:green-unit}
+For every word $\nabla^\beta$ of length $m\le3$ there is $C$, depending only on $d$ and $\beta$, such that
+\[
+|\nabla^\beta g_1(x)|\le C(1+|x|)^{2-d-m},\qquad x\in\Z^d .
+\]
+\end{theorem}
+
+Write $\T^d=\R^d/2\pi\Z^d$, identified with $[-\pi,\pi]^d$. We have
+\[
+\nabla^\beta g_1(x)=\frac1{(2\pi)^d}\int_{\T^d}e^{\ii p\cdot x}\,\psi(p)\,dp,\qquad \psi(p)=\frac{\sigma_\beta(p)}{\hat\Lap_1(p)},\qquad\hat\Lap_1(p)=\sum_\mu4\sin^2\frac{p_\mu}2,
+\]
+where $\sigma_\beta$ is the product of the symbols $e^{\ii p_\mu}-1$ (for $D_\mu$) and $e^{-\ii p_\mu}-1$ (for $D_\mu^*$) of the letters of $\beta$. The theorem follows from the next two lemmas, applied with $s=m-2$ and $K=d+m$.
+
+\begin{lemma}[Symbol estimates]\label{lem:symbol-m}
+For every multi-index $\gamma$ there is $C_\gamma$ such that $|\partial_p^\gamma \psi(p)|\le C_\gamma|p|^{m-2-|\gamma|}$ for $p\in[-\pi,\pi]^d\setminus\{0\}$.
+\end{lemma}
+
+\begin{proof}
+Let $f=\hat\Lap_1$. By Lemma~\ref{lem:symbols}(a) with $\eta=1$, $f(p)\ge\frac4{\pi^2}|p|^2$. Moreover $|\partial_\mu f|=2|\sin p_\mu|\le2|p|$, and all higher derivatives of $f$ are bounded. Since $|p|\le\pi\sqrt d$, this gives $|\partial^\gamma f|\le C|p|^{2-|\gamma|}$ for all $\gamma$. By the Fa\`a di Bruno formula, $\partial^\gamma(1/f)$ is a linear combination of terms $f^{-1-j}\prod_{i=1}^j\partial^{\gamma_i}f$ with $\gamma_1+\dots+\gamma_j=\gamma$. Each such term is bounded by $C|p|^{-2-2j}\prod_i|p|^{2-|\gamma_i|}=C|p|^{-2-|\gamma|}$. Each letter of $\sigma_\beta$ is bounded by $|p_\mu|\le|p|$, and its derivatives are bounded. So by the Leibniz rule $|\partial^\gamma\sigma_\beta|\le C|p|^{\max(m-|\gamma|,0)}\le C'|p|^{m-|\gamma|}$. One more application of the Leibniz rule concludes the proof.
+\end{proof}
+
+\begin{lemma}[Decay of Fourier coefficients]\label{lem:fourier-decay}
+Let $\psi$ be smooth on $\T^d\setminus\{0\}$ and satisfy $|\partial^\gamma \psi(p)|\le C|p|^{s-|\gamma|}$ on $[-\pi,\pi]^d\setminus\{0\}$ for all $|\gamma|\le K$, where $s>-d$ and $K>d+s$. Then
+\[
+\Big|\int_{\T^d}e^{\ii p\cdot x}\psi(p)\,dp\Big|\le C'(1+|x|)^{-d-s},\qquad x\in\Z^d .
+\]
+\end{lemma}
+
+\begin{proof}
+For $|x|\le1$ the integral is bounded by $\int|\psi|<\infty$, because $s>-d$. Let $R=|x|>1$, and choose $j$ with $|x_j|\ge R/\sqrt d$. Fix $\zeta\in C_c^\infty(\R^d)$ with $\zeta=1$ on $\{|p|\le1\}$ and $\zeta=0$ on $\{|p|\ge2\}$. Since $R>1$, $\zeta(R\,\cdot)$ is supported in $\{|p|\le2/R\}\subset(-\pi,\pi)^d$, so it defines a smooth function on the torus. Split $\psi=\psi_1+\psi_2$ with $\psi_1(p)=\zeta(Rp)\psi(p)$. Then
+\[
+\Big|\int e^{\ii p\cdot x}\psi_1\Big|\le C\int_{|p|\le2/R}|p|^s\,dp=C''R^{-d-s}.
+\]
+The function $\psi_2$ vanishes near $0$, so it is smooth on the torus. Integrating by parts $K$ times in $p_j$, without boundary terms by periodicity, gives
+\[
+\int e^{\ii p\cdot x}\psi_2=\Big(\frac{\ii}{x_j}\Big)^K\int e^{\ii p\cdot x}\,\partial_j^K\psi_2 .
+\]
+By the Leibniz rule, $\partial_j^K\psi_2$ is a sum of terms $\partial_j^{K-i}\psi\cdot\partial_j^i[1-\zeta(R\,\cdot)]$. For $i=0$ the term is bounded by $C|p|^{s-K}$ and vanishes for $|p|<1/R$. For $i\ge1$ it vanishes unless $1/R\le|p|\le2/R$, where $R^i\le2^i|p|^{-i}$; so it is again bounded by $C|p|^{s-K}$. Hence
+\[
+\Big|\int e^{\ii p\cdot x}\psi_2\Big|\le C|x_j|^{-K}\int_{1/R\le|p|\le\pi\sqrt d}|p|^{s-K}dp\le C|x_j|^{-K}R^{K-s-d}\le C'R^{-d-s},
+\]
+since $K-s>d$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:green-unit}]
+By Lemma~\ref{lem:symbol-m} the hypotheses of Lemma~\ref{lem:fourier-decay} hold with $s=m-2>-d$ and every $K$. Take $K=d+m$.
+\end{proof}

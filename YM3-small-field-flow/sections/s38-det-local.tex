@@ -1,0 +1,221 @@
+\section{Localization and normalization of the determinant}\label{sec:det-local}
+
+\paragraph{Status.} The main line uses from this section the local densities $\ell_Y(b)$ defined below (through Corollary~\ref{cor:weak-covariance}), the background activities (Definition~\ref{def:bg-activity}), the graded domains (Definition~\ref{def:graded}) with \eqref{eq:cov-vs-flat}, Lemmas~\ref{lem:complex-gauge} and~\ref{lem:quadratic-bound}, and Remark~\ref{rem:bg-to-graded}. Proposition~\ref{prop:det-local}, the telescoping of the densities, and Corollary~\ref{cor:one-loop} are of radius type and are not used later; they are superseded by Proposition~\ref{prop:one-loop-polymer}, which gives the one-loop source in polymer form at the complex points of the activity domain.
+
+\subsection{Local densities}
+
+For a domain $Y$ and $b\in\mathfrak F(Y)$ let
+\[
+\ell_Y(b)=\operatorname{tr}_{\mathfrak g}\big[(\log\Delta_Y)(b,b)\big],\qquad\log\Delta_Y=\int_0^\infty\Big(\frac1{1+t}-(\Delta_Y+t)^{-1}\Big)dt,
+\]
+with $\Delta_Y$ the local fluctuation operator of Proposition~\ref{prop:local-fluct}. For $Y=\Tf$ this is the density $\ell_k(b)$ of Proposition~\ref{prop:det-densities}.
+
+\begin{proposition}[Localization of the determinant]\label{prop:det-local}
+For $b\in\mathfrak F$ let $\Lam_m=\Lam_m(\{b_-\})$. Then
+\[
+\ell_k(b)=\sum_{m\ge0}\ell_{k,m}(b),\qquad\ell_{k,0}(b)=\ell_{\Lam_0}(b),\quad\ell_{k,m}(b)=\ell_{\Lam_m}(b)-\ell_{\Lam_{m-1}}(b),
+\]
+where $\ell_{k,m}(b)$ depends only on $U$ on $\widehat{\Lam_m^+}$. It is invariant under real gauge transformations and analytic under complex perturbations of $U$, and $|\ell_{k,m}(b)|\le C_Le^{-\gamma_3m}$.
+\end{proposition}
+
+\begin{proof}
+For $Y\subset Y'$ and $t\ge0$, Lemma~\ref{lem:compare-inverse} applied to $\Delta_{Y'}+t$ and $\Delta_Y+t$ gives, as in Proposition~\ref{prop:local-fluct}(c),
+\[
+|((\Delta_{Y'}+t)^{-1}-(\Delta_Y+t)^{-1})(b,b)|\le C_L(c_L/16+t)^{-2}\sum_{w\in\Sigma_Y}e^{-\gamma''|b-w|} .
+\]
+The lower bound and the decay constants of $\Delta_Y+t$ are uniform in $t$, as in Proposition~\ref{prop:det-densities}(a). Integrating in $t$ bounds $|\ell_{Y'}(b)-\ell_Y(b)|$ by the same sum without the factor $(c_L/16+t)^{-2}$. Lemma~\ref{lem:telescoping} gives the expansion and the bound. The trace of the diagonal kernel of an operator that is covariant under $R(u)$ is invariant. Analyticity follows from Proposition~\ref{prop:local-fluct}(b).
+\end{proof}
+
+At the trivial background $U=1$ the same construction gives numbers $\ell_{k,m}(b;1)$. They satisfy $\sum_{b,m}\ell_{k,m}(b;1)=\log\det\Delta_k(1)$, which is all that is used. (The individual pieces need not depend only on the position of $b$ relative to the blocks $B'(\cdot)$. The mass profiles of the Dirichlet operators are built on the grid $M'\Z^d$, which is not invariant under $L\Z^d$.)
+
+\subsection{Normalized background activities}
+
+\begin{definition}[Background activities]\label{def:bg-activity}
+Let $P$ be a domain and $\eps_a,\delta_a>0$. A \emph{background activity at $P$} is a function $F(U)$ with the following properties:
+\begin{itemize}
+\item it is defined for the complex configurations $U=e^{\ii\eta\,\delta\!A}U_r$ such that $U_r$ is real, $(M,\eps_a)$-regular and satisfies $|J_{U_r}|\le\eps_a$, and $|\delta\!A|,|\partial\delta\!A|,[\partial\delta\!A]_\alpha\le\delta_a$ in the local gauges of $U_r$;
+\item it depends only on $U$ on the bonds of $P$;
+\item it is analytic and invariant under real gauge transformations.
+\end{itemize}
+It is \emph{normalized} if $F(1)=0$. We write $\|F\|=\sup|F|$ over the domain of definition.
+\end{definition}
+
+The activities of the renormalization group are evaluated on a smaller, graded domain (blueprint, Appendix~F, domain D3$'''$). It allows a real part with small curvature and current, and a complex part that is small in sup norm and smaller still in its derivatives. Only a neighbourhood of the domain $P$ matters.
+
+For a domain $P$ let $P^{(3)}$ be the set of points at unit-lattice $\ell^\infty$-distance at most $3$ from $P$, with the bonds joining them; so $\Lam_3(x)\subset P^{(3)}$ for $x\in P$. For a real configuration $U_r$ and a $\mathfrak g^c$-valued field $A$ on the bonds of a set $Y$, let $|\nabla A|_Y$ be the maximum of $|D_{U_r,\nu}A_\mu(x)|$ over the differences that involve only points of $Y$. Below, $\nabla A(x)$ denotes the components at $x$ with this property. Let
+\[
+[\nabla A]_{\alpha,Y}=\sup\Big\{\frac{|\nabla A(x)-R(U_r(\Gamma_{x,x'}))\nabla A(x')|}{|x-x'|^\alpha}:\ x\neq x'\in\Lam_3(z')\subset Y\Big\},
+\]
+where $\Gamma_{x,x'}$ is the lattice path from $x$ to $x'$ that changes the coordinates in the order $1,\dots,d$. Both quantities are invariant under real gauge transformations ($U_r\mapsto U_r^u$, $A(b)\mapsto R(u(b_-))A(b)$). In a real gauge on a box $\Lam'$ in which $U_r=e^{\ii\eta A_r}$ with $\|A_r\|_{1,\alpha;\Lam'}\le\sigma\le3$, the field $\tilde A$ that represents $A$ satisfies, on $\Lam'$,
+\begin{equation}\label{eq:cov-vs-flat}
+|\nabla A-\partial\tilde A|\le C\sigma|A|,\qquad\big|[\nabla A]_\alpha-[\partial\tilde A]_\alpha\big|\le C\sigma\big(|A|+|\partial\tilde A|\big).
+\end{equation}
+Indeed $D_{U_r,\nu}\tilde A_\mu-\partial_\nu\tilde A_\mu=\eta^{-1}\big(R(e^{\ii\eta A_{r,\nu}})-1\big)\tilde A_\mu(\cdot+\eta e_\nu)$, whose H\"older quotients are bounded by $C\sigma(|A|+|\partial\tilde A|)$, since $|A_r|+|\partial A_r|\le\sigma$ and $|x-x'|^{1-\alpha}\le C$ on the cubes. Moreover $\|R(U_r(\Gamma_{x,x'}))-1\|\le C|x-x'|\sigma$ for $x,x'$ in a cube $\Lam_3(z')$.
+
+\begin{definition}[Graded domains and activities]\label{def:graded}
+Let $P$ be a domain and $\theta_r,\delta_1,\delta_0>0$. The set $\mathcal U(P)=\mathcal U(P;\theta_r,\delta_1,\delta_0)$ consists of the complex configurations $U$ on $\Tf$ for which there are
+\begin{itemize}
+\item a real configuration $U_r$ on $\Tf$ with $|F_{U_r}|<\theta_r$ and $|J_{U_r}|<\theta_r$ everywhere, and
+\item a $\mathfrak g^c$-valued field $A$ on the bonds of $P^{(3)}$ with $U=e^{\ii\eta A}U_r$ there, $|A|<\delta_0$, and $|\nabla A|_{P^{(3)}}+[\nabla A]_{\alpha,P^{(3)}}<\delta_1$, with $\nabla$ taken with respect to $U_r$.
+\end{itemize}
+The set is invariant under real gauge transformations, and it contains $1$. A \emph{graded activity at $P$} is a function $F$ of $U|_P$ that is defined and holomorphic on an open set containing $\{U|_P:U\in\mathcal U(P)\}$ and invariant under real gauge transformations on $\mathcal U(P)$. It is \emph{normalized} if $F(1)=0$. We write $\|F\|=\sup_{\mathcal U(P)}|F|$.
+\end{definition}
+
+The domain D3$'''$ of the blueprint is $\mathcal U(X;h^{1-\epsilon/2},h^{1-\epsilon},h^{1-2\epsilon})$, with $0<\epsilon<\frac14$.
+
+\begin{lemma}[Complex gauge invariance]\label{lem:complex-gauge}
+Let $F$ be a graded activity at $P$, let $U\in\mathcal U(P)$, and let $\lambda_1$ be a $\mathfrak g^c$-valued scalar field on $\Tf$ such that $U^{e^{\ii t\lambda_1}}\in\mathcal U(P)$ for all $t\in[0,1]$. Then $F(U^{e^{\ii\lambda_1}})=F(U)$.
+\end{lemma}
+
+\begin{proof}
+Let $\mathcal O$ be the open set on which $F$ is holomorphic, and $W$ the set of $\mathfrak g^c$-valued scalar fields $\lambda$ with $U^{e^{\ii\lambda}}|_P\in\mathcal O$. Since $\lambda\mapsto U^{e^{\ii\lambda}}|_P$ is holomorphic, $W$ is open and $\Phi(\lambda)=F(U^{e^{\ii\lambda}})$ is holomorphic on $W$. Let $W_0$ be the connected component of $W$ that contains the segment $\{t\lambda_1:t\in[0,1]\}$. Since $\mathcal U(P)$ is invariant under real gauge transformations, $W_0$ contains a ball of real fields around $0$, and $\Phi$ is constant on it. This ball is a nonempty open subset of the real points, which form a totally real subspace of maximal dimension. By the identity theorem $\Phi$ is constant on $W_0$, so $\Phi(\lambda_1)=\Phi(0)$.
+\end{proof}
+
+\begin{lemma}[Quadratic bound for normalized activities]\label{lem:quadratic-bound}
+There are $C_0\ge1$ and $c_0>0$, depending only on $d$, $\alpha$ and $G$ ($C_0$ is fixed first, then $c_0\le c(C_0)$), with the following property. Let $G$ be semisimple, $n\ge n_0$, $0<\theta_r\le a_2$ ($a_2$ from Corollary~\ref{cor:regularity}) and $0<\delta_1\le\delta_0$. Let $P$ be a connected domain, and let $F$ be a normalized graded activity at $P$. Let $U=e^{\ii\eta A'}U_r$ on $P^{(3)}$ be a representation as in Definition~\ref{def:graded}, with $|F_{U_r}|,|J_{U_r}|\le\theta<\theta_r$. Let $\Lam=\Lam_R(z)\supset P^{(3)}$ with $2R<n$, and put
+\[
+B_P=3C_EB_5\max\Big(1,\frac R{4M+2}\Big)^p,\qquad\mathfrak m=|\nabla A'|_{P^{(3)}}+[\nabla A']_{\alpha,P^{(3)}},
+\]
+with $C_E,p$ from Lemma~\ref{lem:large-cubes} and $B_5$ from Corollary~\ref{cor:regularity}. Let $D_N$ be the diameter of the set of bonds of $P^{(3)}$ for the following distance between parallel bonds: the least unit-lattice length of a chain of parallel bonds of $P^{(3)}$ in which each bond is the translate of the previous one by one fine lattice step, in any direction. Put
+\[
+c_*=\delta_0+(1+D_N)\big(|A'|+B_P\theta\big),
+\]
+and assume $RB_P\theta\le1$, $c_*\le c_0$ and $|A'|<\frac12\delta_0$. Put
+\[
+\mathfrak m_1=(1+C_0c_*)\,\mathfrak m+C_0|A'|\big(|A'|+(1+D_N)B_P\theta\big),\qquad\mathfrak s=(1+C_0c_*)\Big(1+\frac{D_N\delta_1}{\delta_0}\Big)\frac{\mathfrak m_1+B_P\theta}{\delta_1}.
+\]
+If $\mathfrak s\le\frac12$, then
+\[
+|F(U)|\le2\,\mathfrak s^2\,\|F\| .
+\]
+\end{lemma}
+
+\begin{proof}
+The proof uses two cancellations. At the base point $x_0\in P$, an affine complex gauge removes the value of the complex field (Step~2). What remains are differences of the field. They are summed along chains of parallel bonds and bounded by the covariant quantity $\mathfrak m$, through the derivative estimate \eqref{eq:qb-flat}. At the configuration $1$, normalization and real gauge invariance remove the terms of order $0$ and $1$ of an interpolation (Step~3).
+
+\emph{Constants.} Let $c_{\rm an}\in(0,1]$, depending only on $d$ and $G$, be so small that the following expansions hold whenever $c_*\le c_{\rm an}$, with constants depending only on $d$ and $G$: \eqref{eq:gauge-formula} for complex $\lambda$, with its bound on $\mathfrak b$, and the power series of $e^{-\ii\operatorname{ad}X}$ and $\mathfrak d(X)$, for the fields of Step~2; the Baker--Campbell--Hausdorff formula, for the fields of Step~3. Such a $c_{\rm an}$ exists, since these fields are bounded by $Cc_*$ under the hypotheses of the lemma, with $C$ depending only on $d$ and $G$ (Steps~2 and~3). We assume $c_0\le c_{\rm an}$; in particular $c_*\le1$. Below, $C$ denotes a constant that depends only on $d$, $\alpha$ and $G$, through \eqref{eq:cov-vs-flat}, \eqref{eq:lattice-trick} and these expansions. Each such $C$ is valid for every $c_*\le c_{\rm an}$, and none depends on $C_0$ or on $c_0$. By the definition of $c_*$,
+\[
+B_P\theta\le c_*,\qquad D_NB_P\theta\le c_*,\qquad(1+D_N)|A'|\le c_*,\qquad\delta_0\le c_* .
+\]
+Moreover $D_N\ge1$. Indeed, $P^{(3)}$ contains every bond at a point of $P$ together with its translates by one unit, and a chain from a bond to such a translate has length at least $1$.
+
+\emph{Step 1: a real gauge on $\Lam$.} By Corollary~\ref{cor:regularity}, $U_r$ is $(M,B_5\theta)$-regular, hence $3B_5\theta$-regular on every cube $\Lam_{4M+2}(z')$. If $R\ge4M+2$, Lemma~\ref{lem:large-cubes} with $r=4M+2$ applies, since $RB_P\theta\le1$. If $R<4M+2$, $\Lam$ lies in a cube $\Lam_{4M+2}(z)$. In both cases there is a real gauge $u$ on $\Lam$, extended arbitrarily to $\Tf$, with $U_r^u=e^{\ii\eta A_r}$ on the bonds of $\Lam$ and $\|A_r\|_{1,\alpha;\Lam}\le B_P\theta$. Let $\tilde A'(b)=R(u(b_-))A'(b)$ represent $A'$ in this gauge. Then $U^u=e^{\ii\eta\tilde A'}U_r^u$ on $P^{(3)}$, and $|\tilde A'|=|A'|$. For a field $B$ on the bonds of $P^{(3)}$, let $|\partial B|$ and $[\partial B]_\alpha$ be the quantities $|\nabla B|_{P^{(3)}}$ and $[\nabla B]_{\alpha,P^{(3)}}$ for the real configuration $1$. They are built from the flat differences $\partial_\mu B_\nu(y)=\eta^{-1}\big(B_\nu(y+\eta e_\mu)-B_\nu(y)\big)$ that involve only points of $P^{(3)}$. By \eqref{eq:cov-vs-flat}, with $\sigma=B_P\theta\le1$, we have the derivative estimate
+\begin{equation}\label{eq:qb-flat}
+|\partial\tilde A'|+[\partial\tilde A']_\alpha\le(1+CB_P\theta)\,\mathfrak m+CB_P\theta|A'| .
+\end{equation}
+Real gauge invariance gives $F(U)=F(U^u)$.
+
+\emph{Step 2: an affine complex gauge.} Fix $x_0\in P$, use the coordinates of $\Lam$, and put
+\[
+\lambda_1(x)=-\sum_\mu(x-x_0)_\mu\,\tilde A'_\mu(x_0)\quad(x\in\Lam),\qquad\lambda_1=0\ \text{off }\Lam .
+\]
+Here $\tilde A'_\mu(x_0)$ is the value of $\tilde A'$ on the bond $(x_0,x_0+\eta e_\mu)$, which lies in $P^{(3)}$ since $x_0\in P$. Then $\partial_\nu\lambda_1=-\tilde A'_\nu(x_0)$ and $\partial\partial\lambda_1=0$ on $\Lam$. On $P^{(3)}$, $|\lambda_1|\le(1+D_N)|A'|\le c_*$, since $|x-x_0|_1$ is at most the length of a chain as in the definition of $D_N$, plus $1$. Moreover $D_{U_r^u}\lambda_1-\partial\lambda_1=O(|A_r||\lambda_1|)$, and its derivatives are $O\big((|\partial A_r|+[\partial A_r]_\alpha)|\lambda_1|+|A_r||\partial\lambda_1|\big)$. In particular $|D_{U_r^u}\lambda_1|\le|A'|+CB_P\theta(1+D_N)|A'|\le C|A'|$ on $P^{(3)}$. By \eqref{eq:gauge-formula}, which holds for complex $\lambda$ by analytic continuation, $(U^u)^{e^{-\ii t\lambda_1}}=e^{\ii\eta B_t}U_r^u$ on $P^{(3)}$ for $t\in[0,1]$, with
+\[
+B_t(b)=e^{-\ii t\operatorname{ad}\lambda_1(b_-)}\tilde A'(b)+t\,\mathfrak d\big(t\operatorname{ad}\lambda_1(b_-)\big)D_{U_r^u}\lambda_1(b)+\eta\,\mathfrak b\big(t\lambda_1(b_-),\tilde A'(b),tD_{U_r^u}\lambda_1(b)\big).
+\]
+
+\emph{The cancellation at the base point.} Let $b$ be a bond of $P^{(3)}$ in direction $\nu$ at $x$. Split $B_t(b)=M_t(b)+E_t(b)$. The main part is
+\[
+M_t(b)=\tilde A'(b)+t\,\partial_\nu\lambda_1(x)=\tilde A'_\nu(x)-t\tilde A'_\nu(x_0)=(1-t)\,\tilde A'_\nu(x)+t\big(\tilde A'_\nu(x)-\tilde A'_\nu(x_0)\big),
+\]
+and the rest is
+\begin{align*}
+E_t(b)={}&\big(e^{-\ii t\operatorname{ad}\lambda_1(x)}-1\big)\tilde A'(b)+t\big(\mathfrak d(t\operatorname{ad}\lambda_1(x))-1\big)D_{U_r^u}\lambda_1(b)\\
+&+t\big(D_{U_r^u}\lambda_1-\partial\lambda_1\big)(b)+\eta\,\mathfrak b\big(t\lambda_1(x),\tilde A'(b),tD_{U_r^u}\lambda_1(b)\big).
+\end{align*}
+The gauge is chosen so that $t\,\partial_\nu\lambda_1(x_0)=-t\tilde A'_\nu(x_0)$ cancels the value of the field at the base point. At $t=1$ the main part is the difference $\tilde A'_\nu(x)-\tilde A'_\nu(x_0)$, which vanishes at $x=x_0$. So the sup norm $|A'|$ enters $B_1$ only through $E_1$. By the bounds on $\lambda_1$ and $D_{U_r^u}\lambda_1$ above and the bound on $\mathfrak b$ in \eqref{eq:gauge-formula}, the four terms of $E_t$ are at most $C(1+D_N)|A'|^2$, $C(1+D_N)|A'|^2$, $C(1+D_N)B_P\theta|A'|$ and $C|A'|^2$. Hence
+\[
+|E_t(b)|\le C(1+D_N)|A'|\big(|A'|+B_P\theta\big).
+\]
+
+\emph{The summation along a chain.} Let $b^0$ be the bond in direction $\nu$ at $x_0$. It lies in $P^{(3)}$. By the definition of $D_N$ there is a chain $b^0,b^1,\dots,b^m=b$ of bonds of $P^{(3)}$ in direction $\nu$, with $b^{i+1}=b^i\pm\eta e_{\mu_i}$ and $m\eta\le D_N$. Then
+\[
+\tilde A'_\nu(x)-\tilde A'_\nu(x_0)=\sum_{i=0}^{m-1}\big(\tilde A'(b^{i+1})-\tilde A'(b^i)\big),
+\]
+and each term is $\pm\eta\,\partial_{\mu_i}\tilde A'_\nu(y_i)$. Here $y_i$ is the initial point of that one of $b^i$, $b^{i+1}$ whose translate by $\eta e_{\mu_i}$ is the other. This difference involves only the endpoints of $b^i$ and $b^{i+1}$, which lie in $P^{(3)}$. It is a covariant difference up to a transport. Indeed, in the gauge $u$,
+\[
+\eta\,\partial_\mu\tilde A'_\nu(y)=\eta\,R(u(y))\big(D_{U_r,\mu}A'_\nu\big)(y)-\big(R(e^{\ii\eta A_{r,\mu}(y)})-1\big)\tilde A'_\nu(y+\eta e_\mu),
+\]
+and the last term is at most $C\eta B_P\theta|A'|$. This is the first inequality of \eqref{eq:cov-vs-flat}, which enters \eqref{eq:qb-flat}. Summing over the chain,
+\[
+|\tilde A'_\nu(x)-\tilde A'_\nu(x_0)|\le m\eta\,|\partial\tilde A'|\le D_N|\partial\tilde A'|,
+\]
+and \eqref{eq:qb-flat} bounds $|\partial\tilde A'|$ by $\mathfrak m$ and $B_P\theta|A'|$. Since $|\tilde A'_\nu(x)|\le|A'|$, we get $|M_t(b)|\le(1-t)|A'|+tD_N|\partial\tilde A'|$. With the bound on $E_t$, for $t\in[0,1]$,
+\begin{equation}\label{eq:qb-Bt}
+\begin{aligned}
+|B_t|&\le|A'|+D_N|\partial\tilde A'|+C(1+D_N)|A'|\big(|A'|+B_P\theta\big),\\
+|B_1|&\le D_N|\partial\tilde A'|+C(1+D_N)|A'|\big(|A'|+B_P\theta\big).
+\end{aligned}
+\end{equation}
+
+\emph{Derivatives.} Since $\partial\partial\lambda_1=0$, the differences of the main part are those of $\tilde A'$: the gauge does not change them. Differentiating $E_t$ with the chain rule in all four terms (for the term with $\eta$, $\eta|\partial f|\le|\partial f|$ and $\eta[\partial f]_\alpha\le2\eta^{1-\alpha}|\partial f|\le2|\partial f|$, with $|\partial\mathfrak b|$ given by the chain rule),
+\begin{equation}\label{eq:qb-dBt}
+|\partial B_t|+[\partial B_t]_\alpha\le|\partial\tilde A'|+[\partial\tilde A']_\alpha+C\big(|A'|^2+D_N|A'|(|\partial\tilde A'|+[\partial\tilde A']_\alpha)+(1+D_N)B_P\theta|A'|\big).
+\end{equation}
+
+\emph{The constant $C_0$.} The field $B_t$ is given in the gauge $u$. By \eqref{eq:cov-vs-flat} with $\sigma=B_P\theta$,
+\[
+|\nabla B_t|_{P^{(3)}}+[\nabla B_t]_{\alpha,P^{(3)}}\le(1+CB_P\theta)\big(|\partial B_t|+[\partial B_t]_\alpha\big)+CB_P\theta|B_t| ,
+\]
+with $\nabla$ taken with respect to $U_r^u$. Insert \eqref{eq:qb-dBt} and \eqref{eq:qb-Bt}, and then \eqref{eq:qb-flat}. Use $1+D_N\le2D_N$, the bounds of $B_P\theta$, $D_NB_P\theta$ and $D_N|A'|$ by $c_*$, and $(1+Cc_*)(1+C'c_*)\le1+(C+C'+CC')c_*$, which holds for $c_*\le1$. For instance, the coefficient of $|\partial\tilde A'|+[\partial\tilde A']_\alpha$ is at most $(1+CB_P\theta)(1+CD_N|A'|)+CD_NB_P\theta\le1+C'c_*$. This gives a constant $C_2$, depending only on $d$, $\alpha$ and $G$, such that for all $t\in[0,1]$
+\begin{equation}\label{eq:qb-C2}
+|\nabla B_t|_{P^{(3)}}+[\nabla B_t]_{\alpha,P^{(3)}}\le\mathfrak m_2,\qquad|B_t|\le|A'|+D_N\mathfrak m_2,\qquad|B_1|\le D_N\mathfrak m_2,
+\end{equation}
+where $\mathfrak m_2=(1+C_2c_*)\,\mathfrak m+C_2|A'|\big(|A'|+(1+D_N)B_P\theta\big)$. We take $C_0\ge C_2$. Then $\mathfrak m_2\le\mathfrak m_1$, and \eqref{eq:qb-C2} gives, for all $t\in[0,1]$,
+\[
+|\nabla B_t|_{P^{(3)}}+[\nabla B_t]_{\alpha,P^{(3)}}\le\mathfrak m_1,\qquad|B_t|\le|A'|+D_N\mathfrak m_1,\qquad|B_1|\le D_N\mathfrak m_1 .
+\]
+Since $1+C_0c_*\ge1$ and $1+D_N\delta_1/\delta_0\ge\max(1,D_N\delta_1/\delta_0)$, we have $\mathfrak s\ge\mathfrak m_1/\delta_1$ and $\mathfrak s\ge D_N\mathfrak m_1/\delta_0$. So $\mathfrak s\le\frac12$ gives $\mathfrak m_1\le\frac12\delta_1$ and $D_N\mathfrak m_1\le\frac12\delta_0$. Together with $|A'|<\frac12\delta_0$, this gives $|B_t|<\delta_0$, and $\mathfrak m_1\le\frac12\delta_1$ gives $|\nabla B_t|_{P^{(3)}}+[\nabla B_t]_{\alpha,P^{(3)}}<\delta_1$. Hence $(U^u)^{e^{-\ii t\lambda_1}}\in\mathcal U(P)$ for $t\in[0,1]$. Its real part is $U_r^u$, whose curvature and current have the same size as those of $U_r$, hence are below $\theta_r$. By Lemma~\ref{lem:complex-gauge}, $F(U^u)=F\big((U^u)^{e^{-\ii\lambda_1}}\big)$.
+
+\emph{Step 3: a perturbation of $1$.} On the bonds of $P^{(3)}$ write $e^{\ii\eta B_1}e^{\ii\eta A_r}=e^{\ii\eta A_{\rm tot}}$. By the Baker--Campbell--Hausdorff formula, $A_{\rm tot}=B_1+A_r+\eta\,\mathfrak c$ with $|\mathfrak c|\le C|B_1||A_r|$. With \eqref{eq:lattice-trick} and \eqref{eq:cov-vs-flat}, there is a constant $C_3$, depending only on $d$, $\alpha$ and $G$, such that
+\[
+|A_{\rm tot}|\le(1+C_3c_*)\big(D_N\mathfrak m_1+B_P\theta\big),\qquad|\partial A_{\rm tot}|+[\partial A_{\rm tot}]_\alpha\le(1+C_3c_*)\big(\mathfrak m_1+B_P\theta\big).
+\]
+Here the corrections are bounded by $|B_1||A_r|+B_P\theta|B_1|\le c_*\mathfrak m_1$ and by $|B_1|B_P\theta\le\delta_0B_P\theta$. From Step~2 these bounds use only $|\nabla B_1|_{P^{(3)}}+[\nabla B_1]_{\alpha,P^{(3)}}\le\mathfrak m_1$ and $|B_1|\le D_N\mathfrak m_1\le\frac12\delta_0$, and they are linear in $\mathfrak m_1$. So $C_3$ does not depend on $C_0$. We take $C_0\ge C_3$.
+For complex $s$ let $V_s=e^{\ii\eta sA_{\rm tot}}$ on the bonds of $P^{(3)}$ and $V_s=1$ elsewhere. With real part $1$ and the field $sA_{\rm tot}$, for which $\nabla=\partial$, the configuration $V_s$ lies in $\mathcal U(P)$ for $|s|<s_0$, where
+\[
+s_0^{-1}=\max\Big(\frac{|A_{\rm tot}|}{\delta_0},\ \frac{|\partial A_{\rm tot}|+[\partial A_{\rm tot}]_\alpha}{\delta_1}\Big)\le\mathfrak s .
+\]
+Indeed, $C_3\le C_0$ and $\delta_1\le\delta_0$ give $|A_{\rm tot}|/\delta_0\le(1+C_0c_*)\big((D_N\delta_1/\delta_0)\,\mathfrak m_1/\delta_1+B_P\theta/\delta_1\big)\le\mathfrak s$, and the second quotient is at most $(1+C_0c_*)(\mathfrak m_1+B_P\theta)/\delta_1\le\mathfrak s$. So $f(s)=F(V_s)$ is holomorphic for $|s|<s_0$, with $s_0\ge2$, and bounded there by $\|F\|$. Moreover:
+\begin{itemize}
+\item $f(1)=F\big((U^u)^{e^{-\ii\lambda_1}}\big)=F(U)$, since the two configurations agree on $P$;
+\item $f(0)=F(1)=0$;
+\item $f'(0)=0$. Indeed, for a constant real gauge transformation $v$ and small complex fields $B$ on $P$, real gauge invariance gives $F(e^{\ii\eta R(v)B})=F(e^{\ii\eta B})$. Differentiating at $B=0$, the gradient $\operatorname{grad}F(1)(b)\in\mathfrak g^c$ is $\operatorname{Ad}(G)$-invariant for every bond $b$. For semisimple $G$ the only such vector is $0$ \cite[(31)--(32)]{BalUV3}.
+\end{itemize}
+Cauchy's estimate gives $|f(1)|\le\|F\|\sum_{j\ge2}s_0^{-j}\le2s_0^{-2}\|F\|\le2\mathfrak s^2\|F\|$.
+
+\emph{The order of the constants, and the slack.} The proof needs $C_0\ge\max(1,C_2,C_3)$. The constants $C_2$ and $C_3$ come from \eqref{eq:cov-vs-flat}, \eqref{eq:lattice-trick} and the expansions fixed with $c_{\rm an}$. They depend only on $d$, $\alpha$ and $G$, and they hold for every $c_*\le c_{\rm an}$. Neither depends on $C_0$ or on $c_0$. So $C_0=\max(1,C_2,C_3)$ is fixed first. Then $c_0$ is any number in $(0,c_{\rm an}]$. No condition links $c_0$ to $C_0$, so $c(C_0)=c_{\rm an}$ in the statement, and decreasing $c_0$ does not change $C_0$. The hypothesis $c_*\le c_0$ is used only to apply the expansions and, through $c_*\le1$, to turn products of small factors into terms linear in $c_*$. The slack lies in the hypotheses. The factors $1+C_0c_*$ in $\mathfrak m_1$ and $\mathfrak s$ absorb the factors $1+C_2c_*$ and $1+C_3c_*$. The condition $\mathfrak s\le\frac12$ gives $D_N\mathfrak m_1\le\frac12\delta_0$, and $|A'|<\frac12\delta_0$ takes the other half of $\delta_0$; this keeps the path of Step~2 in $\mathcal U(P)$. The same condition gives $s_0\ge2$, so the Cauchy sum is at most twice its first term.
+\end{proof}
+
+\begin{remark}[The bound on D3$'''$]\label{rem:quadratic-D3}
+\begin{enumerate}[label=(\alph*)]
+\item With $\theta_r=h^{1-\epsilon/2}$, $\delta_1=h^{1-\epsilon}$, $\delta_0=h^{1-2\epsilon}$, the factor $1+D_N\delta_1/\delta_0$ is $1+D_Nh^\epsilon$, and $B_P\theta/\delta_1\le B_Ph^{\epsilon/2}$. The constant $B_5$, which depends on $L$ and $M$, and the ratio $R/(4M+2)$ enter only through $B_P\theta$. For polymers with $D_N\le h^{-\epsilon/2}$ and $B_P\le h^{-\epsilon/4}$ we have $c_*=o(1)$ as $h\to0$, uniformly. So the bound is $2(1+o(1))(\mathfrak m/\delta_1)^2\|F\|$ plus terms that vanish as $h\to0$. The leading coefficient is $1+o(1)$, with no universal factor. This is the form used in the blueprint, Appendix~F. There is no splitting into real and imaginary parts and no current of a complex configuration: the interpolation runs through perturbations of $1$.
+\item The term $C_0|A'|^2$ in $\mathfrak m_1$ cannot be dropped. Take $U_r=1$ and $A'$ constant with $[A'_\mu,A'_\nu]\ne0$. Then $\mathfrak m=0$, but $U$ has curvature of order $|A'|^2$ and is not complex-gauge equivalent to $1$.
+\item The lemma needs a cube $\Lam\supset P^{(3)}$ with $2R<n$, so it does not apply to polymers that wrap around the torus. These need a separate treatment. On the main line they are handled by Proposition~\ref{prop:linear} (large polymers), Proposition~\ref{prop:one-loop-polymer}(d) and Lemma~\ref{lem:torus}.
+\end{enumerate}
+\end{remark}
+
+\begin{remark}[Background activities restrict to graded activities]\label{rem:bg-to-graded}
+Let $F$ be a background activity at $P$ in the sense of Definition~\ref{def:bg-activity}. Suppose $\theta_r\le a_2$, $\max(1,B_5)\theta_r\le\eps_a$ and $C(\delta_0+\delta_1)<\delta_a$. Then $F$ defines a graded activity at $P$ with $\|F\|$ not larger. Indeed, for $U\in\mathcal U(P)$ let $\chi$ be a cutoff at unit scale, equal to $1$ at unit distance at most $1$ from $P$ and to $0$ at distance at least $2$, and put $\tilde U=e^{\ii\eta\chi A}U_r$, with $\tilde U=U_r$ off $P^{(3)}$. By Corollary~\ref{cor:regularity}, $U_r$ is $(M,B_5\theta_r)$-regular, and $|J_{U_r}|\le\theta_r$. By \eqref{eq:cov-vs-flat}, $\chi A$ obeys the bounds of Definition~\ref{def:bg-activity} with $C(\delta_0+\delta_1)$. Here \eqref{eq:cov-vs-flat} is applied with $\sigma\le3\eps_a$. Since $F$ depends only on the bonds of $P$, and $\tilde U=U$ there, $F(\tilde U)$ is a function of $U|_P$. It is holomorphic near every point $U_0|_P$, $U_0\in\mathcal U(P)$. Indeed, fix $(U_r,A)$ for $U_0$. For $W$ near $U_0|_P$, let $\tilde U_W$ equal $W$ on $P$ and $\tilde U_0$ elsewhere. Since $C(\delta_0+\delta_1)<\delta_a$ is strict, $\tilde U_W$ stays in the domain of $F$ for $W$ near $U_0|_P$. So $G(W)=F(\tilde U_W)$ is holomorphic, and it equals the restricted activity.
+\end{remark}
+
+The lemma converts the size of the activity into a bound that is quadratic in the gauge-invariant curvature and current, and in the derivatives of the complex part. The polynomial factors in the diameter are absorbed by the exponential decay of the activities.
+
+\begin{corollary}[The one-loop vacuum polarization]\label{cor:one-loop}
+Define $\mathfrak e_m(b;U)=-\frac12\big(\ell_{k,m}(b;U)-\ell_{k,m}(b;1)\big)$. Then
+\[
+-\tfrac12\log\det\Delta_k(U)=-\tfrac12\log\det\Delta_k(1)+\sum_{b\in\mathfrak F}\sum_{m\ge0}\mathfrak e_m(b;U),
+\]
+and each $\mathfrak e_m(b;\cdot)$ is a normalized background activity at $\widehat{\Lam_m^+}$, with $\|\mathfrak e_m(b)\|\le C_Le^{-\gamma_3m}$, for constants $\eps_a,\delta_a$ depending on $L$. For real $U\in\mathfrak U(\theta)$ with $\theta$ small,
+\[
+\sum_{m\ge0}|\mathfrak e_m(b;U)|\le C_L\big(\theta^2+e^{-cn}\big) .
+\]
+\end{corollary}
+
+\begin{proof}
+The identity follows from Proposition~\ref{prop:det-local}, at $U$ and at $1$, and Proposition~\ref{prop:det-densities}. Normalization holds by construction. The properties of a background activity follow from Proposition~\ref{prop:det-local}. The domain of definition consists of the regular, not necessarily critical, backgrounds and their complex perturbations. On it, $\Delta_Y$ is coercive with uniform constants by Lemma~\ref{lem:coercive-general} and Proposition~\ref{prop:local-fluct}; here $\eps_a\le\eps_{\rm cc}$, $\eps_a$ is below the thresholds of the proof of Proposition~\ref{prop:dirichlet-hessian}(c), and $C_{\rm cmp}\delta_a\le c'_L/C_{\rm AB}$, so that every configuration of Definition~\ref{def:bg-activity} is a complex perturbation as in Lemma~\ref{lem:coercive-general}. Hence the sup bound $\|\mathfrak e_m(b)\|\le C_Le^{-\gamma_3m}$ holds on the whole domain. For the bound, take $\theta_r=\delta_1=\delta_0=c_{\rm ol}$ in Remark~\ref{rem:bg-to-graded}, with $c_{\rm ol}>0$ so small that $c_{\rm ol}\le\min(\frac12c_0,a_2)$, $\max(1,B_5)c_{\rm ol}\le\eps_a$ and $2Cc_{\rm ol}<\delta_a$, with $C$ of that remark, so that $\mathfrak e_m(b;\cdot)$ is a normalized graded activity at $\widehat{\Lam_m^+}$ with sup at most $C_Le^{-\gamma_3m}$. Apply Lemma~\ref{lem:quadratic-bound} with $U_r=U$, $A'=0$ and a cube $\Lam\supset(\widehat{\Lam_m^+})^{(3)}$ of side at most $C(1+m+R_0)$. Then $\mathfrak m=0$, $D_N\le C(1+m+R_0)$ and $B_P\le C_L(1+m+R_0)^p$, so $\mathfrak s\le C_L(1+m+R_0)^{p+1}\theta$. When this is at most a small constant, all hypotheses hold, and the lemma gives $C_L(1+m+R_0)^{2p+2}\theta^2e^{-\gamma_3m}$. This requires $C(1+m+R_0)\le n$ as well. For larger $m$ use $|\mathfrak e_m|\le C_Le^{-\gamma_3m}$, together with $e^{-\gamma_3m/2}\le C\theta^2$ when $m\ge c'\theta^{-1/(p+1)}$, and $e^{-\gamma_3m}\le e^{-cn}$ when $C(1+m+R_0)>n$. Summing over $m$ gives the bound.
+
+The term $e^{-cn}$ cannot be dropped. A flat background with non-trivial holonomy around the torus has $\theta=0$ but is not gauge equivalent to $1$, and $\ell_k(b;U)-\ell_k(b;1)$ is then generically nonzero, of order $e^{-cn}$. It reflects polymers that wrap around the torus. In the renormalization group these sources are controlled by the size of the final torus (Lemma~\ref{lem:torus}). At the last steps the torus side is fixed, so $e^{-cn}$ is not small compared with $h^2$ unless the final torus side is at least of order $\log g_*^{-1}$, as in the first alternative of (T3).
+\end{proof}
+
+This proves the input of Proposition~A.5 of the blueprint at real backgrounds, under a global small-field bound. It does not supersede that proposition: the pieces here are of radius type ($e^{-\gamma_3m}$) rather than polymer type, and neither the scaling $L^{-1}$ nor bounds at complex points of the activity domain are derived here (blueprint, Appendix~F). Since Lemma~\ref{lem:quadratic-bound} allows complex points, and Remark~\ref{rem:bg-to-graded} makes $\mathfrak e_m(b;\cdot)$ a graded activity, the argument above also bounds $\mathfrak e_m(b;U)$ at complex $U$, provided $U$ has the form of Definition~\ref{def:graded} on $(\widehat{\Lam_m^+})^{(3)}$. Turning this into the polymer bounds of D3$'''$, including the factor $L^{-1}$ per coarse block, is not done here. The vacuum part $-\frac12\log\det\Delta_k(1)$ is independent of the background and enters the vacuum energy. The normalized activities are of second order in the curvature and current. The coefficient $C_L$ does not contain $g_k$: this is a one-loop effect.

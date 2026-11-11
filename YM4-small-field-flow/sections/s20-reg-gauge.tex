@@ -1,0 +1,300 @@
+\section{Gauge-field operators at regular backgrounds}\label{sec:reg-gauge}
+
+\subsection{Local potential terms and operators on domains}\label{ss:19.1}
+
+In this part we restrict the potential term to local operators, so that the Dirichlet versions on a domain $X$ depend only on the background on the bonds of $\hat X$ (Definition~\ref{def:domain}).
+
+\begin{definition}\label{x:19.1}
+$\cW_{\rm loc}(\eps)$ is the set of maps $U\mapsto W(U)$ with the following properties: $W(U)^T=W(U)$; $W(U)$ is real for real $U$, i.e.\ it maps real fields to real fields; $W(U^u)=R(u)W(U)R(u)^{-1}$; $(W(U)A)(b)$ depends only on the values of $A$, and of $U$, on bonds of plaquettes that contain $b$; and in every gauge in which (B) holds on a cube, the coefficients of $W$ are bounded by $\eps$ and have H\"older quotients bounded by $\eps$ on that cube.
+
+$\cW^{\rm an}_{\rm loc}(\eps)$ is the set of $W\in\cW_{\rm loc}(\eps)$ that extend holomorphically to the complex perturbations $U_\delta$ of Section~\ref{subsec:reg-complex}, for $\delta\le\delta_W$ with some $\delta_W>0$, with $W(U_\delta)-W(U)$ a local operator of size $C\delta$ of the same form.
+\end{definition}
+
+The conditions defining $\cW_{\rm loc}(\eps)$ are spatial; they do not imply analytic dependence on the background. They suffice for the real results of this section. The results on complex perturbations (Proposition~\ref{prop:reg-complex}) are stated for $W\in\cW^{\rm an}_{\rm loc}(\eps)$. The only local potential used in the later parts is $W=0$. The curvature term $\Delta'(U)$ of the Wilson action motivates these classes; we do not verify that it belongs to them (Section~\ref{sec:background}), and nothing below uses it. The potential $W_2$ and its Dirichlet versions $W_2^X$ (Sections~\ref{sec:localization} and~\ref{sec:nested-walks}) are not local in this sense: $(W_2^XA)(b)$ depends on $A$ only within distance $3$ of $b$, but on $U$ on all of $\hat X$, through $\omega_0^X$. For them only existence, $\Rea$-coercivity and decay are taken from Proposition~\ref{prop:reg-complex}. Their comparison of domains is Proposition~\ref{prop:dirichlet-averaged}(d), which allows different potentials on the two domains, together with Proposition~\ref{prop:dirichlet-hessian}(d).
+
+In a global gauge in which (B) holds, every $W\in\cW_{\rm loc}(\eps)$ belongs to $\cW(C_\gamma\eps,\gamma)$ for each fixed $\gamma>0$. At a regular background the corresponding H\"older estimates hold in each local gauge in which (B) holds; the $L^2$ block-decay estimates hold in every gauge.
+
+For a domain $X$ let $\mathfrak B_X=\one_X(D^TD+W)\one_X$ and $\Pi_X=\one_X-DS_X$ on $\ell^2_1(X)$. Define
+\[
+\fA^X=\Pi_X^T\mathfrak B_X\Pi_X+DR_XD^T_X+a\,\Pi_X^T\bQ^T\bQ\,\Pi_X\qquad\text{on }\ell^2_1(X).
+\]
+Here $\bQ=\bQ(U)$, and all operators are restricted to $\ell^2_1(X)$. Let $J(X)=\{j:\Lam_j\subset X\}$ and $m_X=\sum_{j\notin J(X)}\chi_j^2$ (as a multiplication operator on $\ell^2_1(X)$). For $\kappa\ge0$ put
+\[
+\fA^{X,\kappa}=\fA^X+\fA^{\rm ext}_X+\kappa\,m_X,\qquad\fA^{\rm ext}_X=D\one_{\Tf\setminus X}D^T\quad\text{on }\ell^2_1(X).
+\]
+In Part~IX, where $\kappa$ denotes the weakening rate, this mass parameter is written $\kappa_m$.
+For $X=\Tf$ every $j$ belongs to $J(\Tf)$, so $m_{\Tf}=0$, and $\fA^{\Tf}$ is the operator $\fA_\pi(U)$ of Section~\ref{sec:cov-gauge}. Its scalar ingredients are now those of Section~\ref{sec:reg-scalar}. If $n<8M$, the partition is the trivial one of Section~\ref{ss:17.2}; then $J(X)$ is empty and $m_X=1$ for every proper domain $X$. For a proper domain the mass term is supported within distance about $8M$ of $\Tf\setminus X$. It plays the role of a boundary condition that is harmless for the gauge structure: it makes the local operators coercive near the boundary, where nothing else does.
+
+\paragraph{Dirichlet conditions for all components.} In $\fA^{\rm ext}_X$, $D^T$ is the torus divergence of the zero extension, so $\ip A{\fA^{\rm ext}_XA}=\|\one_{\Tf\setminus X}D^TA\|^2$. At a point $x\notin X$, $(D^TA)(x)$ involves only the bonds from $x$ into $X$. So $\fA^{\rm ext}_X$ acts only on the bonds crossing $\partial X$, and $\fA^{\rm ext}_{\Tf}=0$. With this term the divergence part of the form is the full $\|D^TA\|^2$. The local part of $\fA^{X,\kappa}$ is then the Dirichlet restriction $\one_X(D^TD+DD^T+W+a\bQ^T\bQ)\one_X$ of the torus operator: all components of the gauge field satisfy Dirichlet conditions. Without $\fA^{\rm ext}_X$ the normal components on the bonds crossing $\partial X$ would be free; these are relative boundary conditions, as for $1$-forms in the continuum. The local commutators of the walks of Section~\ref{sec:nested-walks} would then not be bounded uniformly in $\eta$ (Remark~\ref{rem:L3-domains}). On $\ell^2_1(X)$ we use, besides $\tn\cdot_X$, the norm
+\[
+\tn A_{X,+}^2=\tn A_X^2+\|\one_{\Tf\setminus X}D^TA\|^2=\|A\|^2+\|DA\|^2+\|D^TA\|^2 ,
+\]
+with the torus operators applied to the zero extension.
+
+The operators $\fA^{X,\kappa}$ are transpose-symmetric, real for real $U$, depend only on $U$ on $\hat X$ (the crossing bonds lie in $\hat X$), and are gauge covariant.
+
+\begin{lemma}[Identities on domains]\label{lem:domain-identities}
+For a regular background and a domain $X$, the statements of Lemmas~\ref{lem:slice} and~\ref{lem:Api-identities} hold with $\Pi$, $S$, $R$, $G'$, $\cN(Q')$, $\fA_\pi$ replaced by $\Pi_X$, $S_X$, $R_X$, $G'_X$, $\cN_X$, $\fA^X$, and with $D^T$ replaced by $D^T_X$.
+\end{lemma}
+
+\begin{proof}
+The proofs of Lemmas~\ref{lem:slice} and~\ref{lem:Api-identities} use only the identities $Q'G'R=0$, $D^TDG'R=R$, $\bQ D=D_VQ'+E$ and the definitions. The first two hold on $X$ by Theorem~\ref{thm:reg-scalar}(d). The third holds for all fields.
+\end{proof}
+
+The identities hold for $\fA^X$. For $\fA^{X,\kappa}$ on a proper domain, the analogue of Lemma~\ref{lem:Api-identities}(a) holds only up to the terms $\kappa m_XD\nu$ and $\fA^{\rm ext}_XD\nu$. These are supported within distance about $8M$ of $\Tf\setminus X$, respectively on the bonds crossing $\partial X$.
+
+\begin{lemma}[The full gradient on domains]\label{lem:full-gradient}
+Let $U$ be real with curvature at most $\eps$; $(M,\eps)$-regular backgrounds have curvature at most $C\eps$ (Lemma~\ref{lem:curvature}). Let $\nabla$ be the covariant gradient, with components $D_\nu A_\mu$. Then for every domain $X$ and every real $A\in\ell^2_1(X)$, extended by zero,
+\[
+\|\nabla A\|^2\le\tn A_{X,+}^2+C\eps\|A\|^2 .
+\]
+For complex $A$ the same holds, by splitting into real and imaginary parts. At the complex perturbations $U_\delta$ of Proposition~\ref{prop:reg-complex}, $\|\nabla_{U_\delta}A\|^2\le(1+C\delta)\tn A_{X,+}^2+C(\eps+\delta)\|A\|^2$, with the norm taken at $U_\delta$.
+\end{lemma}
+
+\begin{proof}
+The covariant Hodge inequality $\big|\|Dh\|^2+\|D^Th\|^2-\|\nabla h\|^2\big|\le C\eps\|h\|^2$ holds for every gauge field $h$ on the torus (Lemma~\ref{lem:weitzenbock}). Its proof is a summation by parts and uses only the curvature bound. Apply it to the zero extension of $A$: its torus norms $\|DA\|$ and $\|D^TA\|$ are those in $\tn A_{X,+}$. At $U_\delta$ the operators $D$, $D^T$ and $\nabla$ change by local operators of size $C\delta$.
+\end{proof}
+
+This is the gain from the Dirichlet conditions. With $\tn\cdot_X$ alone, the full gradient is not controlled up to $\partial X$, because the exterior divergence is missing.
+
+\subsection{Coercivity from local information}\label{ss:19.2}
+
+\begin{lemma}[G\aa rding inequality]\label{lem:garding}
+There are $\eps_0,C_1$ such that for $(1,\eps)$-regular $U$ with $\eps\le\eps_0$, every domain $X$ and every real $B\in\ell^2_1(X)$,
+\[
+\ip B{\fA^XB}\ge\tfrac12\tn B_X^2-C_1\|B\|^2 .
+\]
+\end{lemma}
+
+\begin{proof}
+For real $B$,
+\[
+\ip B{\fA^XB}=\|D\Pi_XB\|^2+\ip{\Pi_XB}{W\Pi_XB}+\|R_XD^T_XB\|^2+a\|\bQ\Pi_XB\|^2 .
+\]
+By Lemma~\ref{lem:domain-identities}, $D\Pi_XB=DB-\mathfrak FS_XB$, where $\|\mathfrak FS_XB\|$ is at most $C\eps\|B\|$. Moreover $|\ip{\Pi_XB}{W\Pi_XB}|\le C\eps\|B\|^2$, because $\Pi_X$ is bounded by Theorem~\ref{thm:reg-scalar}(d). Finally, $\|R_XD^T_XB\|\ge\|D^T_XB\|-\|P_{\cV,X}D^T_XB\|$, and the last term is at most $C\|B\|$. Use $(s-t)^2\ge\frac12s^2-t^2$.
+\end{proof}
+
+The G\aa rding inequality controls everything except $\|B\|$ itself. That control comes from the averaging and the gauge fixing, and this is where Part~I enters.
+
+\begin{lemma}[Local coercivity]\label{lem:local-coercive}
+There is $M_0$ with the following property. Let $M\ge M_0$, and let $U$ be $(M,\eps)$-regular with $\eps\le\eps_0$, where $\eps_0$ does not depend on $M$. Let $X$ be a domain and $j\in J(X)$. Then every real $B\in\ell^2_1(X)$ vanishing on bonds that do not start in $K_j$ satisfies
+\[
+\ip B{\fA^XB}\ge\tfrac{c_g}2\tn B_X^2 ,
+\]
+with $c_g$ the constant of Theorem~\ref{thm:gauge-coercive}.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:local-coercive}
+\emph{Step 1: from $X$ to $\Lam_j$.} Compare $\fA^X$ with $\fA^{\Lam_j}$ on such $B$. The local parts agree, since $B$ and its derivatives are supported inside $\Lam_j$. The quadratic forms differ through $\Pi_X-\Pi_{\Lam_j}=-D(S_X-S_{\Lam_j})$ and $R_X-R_{\Lam_j}=P_{\cV,\Lam_j}-P_{\cV,X}$. By Theorem~\ref{thm:reg-scalar}(e), applied to $DS$ and to $DP_\cV D^T$, and since $K_j$ has distance at least $2M-3$ from the seam $\Sigma(X,\Lam_j)$, these differences, acting on fields supported in $K_j$, are bounded by $Ce^{-\gamma M}$. On blocks meeting $X\setminus\Lam_j$, differentiated operators on $\Lam_j$ can have values on crossing bonds. Applied to fields supported in $K_j$, both these operators and the operators on $X$ are of size $Ce^{-\gamma M}$ on such blocks, by their individual decay bounds. So
+\[
+|\ip B{(\fA^X-\fA^{\Lam_j})B}|\le Ce^{-\gamma M}\tn B_X^2 .
+\]
+
+\emph{Step 2: the local gauge.} Let $u$ be a gauge in which (B) holds on $\hat\Lam_j$, and $\tilde B=R(u)B$. By covariance, $\ip B{\fA^{\Lam_j}(U)B}=\ip{\tilde B}{\fA^{\Lam_j}(U^u)\tilde B}$, where $\fA^{\Lam_j}(U^u)$ carries the potential $W(U^u)=R(u)W(U)R(u)^{-1}$. Here and in Step~3, $\fA^{\Lam_j}(1)$ is the operator at $U=1$ with the potential $W=0$. Since $U^u$ satisfies (B) on $\hat\Lam_j$, the proof of Theorem~\ref{thm:cov-gauge}(a) applies on the domain $\Lam_j$ without change: all operators are Dirichlet operators on $\Lam_j$, and their scalar ingredients are controlled by Theorem~\ref{thm:reg-scalar}. That proof puts the potential into the perturbation: $\delta_\pi$ contains $W$, and $\mathcal K_1$ contains the terms with $W$. The potential enters only through $\ip{\Pi_{\Lam_j}\tilde B}{W(U^u)\Pi_{\Lam_j}\tilde B}$; since $\|W(U^u)\|=\|W(U)\|\le C\eps$ and $\Pi_{\Lam_j}$ is bounded (Theorem~\ref{thm:reg-scalar}(d)), this is at most $C\eps\|\tilde B\|^2$. So the proof shows that $\fA^{\Lam_j}(U^u)-\fA^{\Lam_j}(1)$ is an admissible perturbation of size $C\eps$, with $C$ independent of $M$. Hence $|\ip{\tilde B}{(\fA^{\Lam_j}(U^u)-\fA^{\Lam_j}(1))\tilde B}|\le C\eps\tn{\tilde B}^2_{\Lam_j,1}$. Here the subscript $1$ indicates the norm at $U=1$. The admissible perturbation contains componentwise differences, so this bound needs $\|\partial\tilde B\|$. Since $\tilde B$ vanishes on the bonds that do not start in $K_j$, which has distance at least $2M-1$ from $\Tf\setminus\Lam_j$, the exterior divergence of $\tilde B$ vanishes. So $\tn{\tilde B}_{\Lam_j,1}$ is the torus norm of $\tilde B$ at $U=1$, which controls $\|\partial\tilde B\|$ by Lemma~\ref{lem:hodge}.
+
+\emph{Step 3: $U=1$ and $W=0$.} At $U=1$ we have $d\Pi_{\Lam_j}(1)=d$ and $\bQ\Pi_{\Lam_j}(1)=\bQ$, as in Lemma~\ref{lem:slice}(d), and $d^*_{\Lam_j}\tilde B=d^*\tilde B$. The operator $\fA^{\Lam_j}(1)$ has no potential term; the potential is part of the perturbation of Step~2. Therefore
+\[
+\ip{\tilde B}{\fA^{\Lam_j}(1)\tilde B}-\ip{\tilde B}{\bL_a\tilde B}=\ip{\tilde B}{d\big(P_\cV(1)-P_{\cV,\Lam_j}(1)\big)d^*\tilde B},
+\]
+where $\bL_a$ is the torus operator of Part~I. By Theorem~\ref{thm:reg-scalar}(e) with $X=\Tf$, $X'=\Lam_j$, this is bounded by $Ce^{-\gamma M}\|\tilde B\|^2$. By Theorem~\ref{thm:gauge-coercive} and Lemma~\ref{lem:hodge}, $\ip{\tilde B}{\bL_a\tilde B}\ge c_g\tn{\tilde B}^2_{\Lam_j,1}$.
+
+\emph{Conclusion.} The norms $\tn{\tilde B}_{\Lam_j,1}$ and $\tn B_X$ differ by a factor $1+C\eps$, because $D_{U^u}=\partial+T$ with $\|T\|\le C\eps$. Collecting the three steps,
+\[
+\ip B{\fA^XB}\ge\big(c_g-Ce^{-\gamma M}-C\eps\big)(1+C\eps)^{-1}\tn B_X^2 .
+\]
+The constants $C$ and $\gamma$ do not depend on $M$. Choose $M_0$ with $Ce^{-\gamma M_0}\le\frac{c_g}8$, and $\eps_0$, not larger than the thresholds of Theorems~\ref{thm:reg-scalar} and~\ref{thm:cov-gauge}, with $C\eps_0\le\min(\frac{c_g}8,\frac12)$. Then the right side is at least $\frac{c_g}2\tn B_X^2$ for $M\ge M_0$ and $\eps\le\eps_0$, and $\eps_0$ does not depend on $M$.
+\end{proof}
+
+\begin{theorem}[Coercivity at regular backgrounds]\label{thm:reg-coercive}
+There are $M_0$, $\kappa$, $c_*>0$ and $\eps_0>0$, depending only on $a$, $\alpha$, $\dim\mathfrak g$, such that the following holds for every $M\ge M_0$, every $(M,\eps)$-regular background with $\eps\le\eps_0$ and every domain $X$. In particular $\eps_0$ does not depend on $M$:
+\[
+\ip A{\fA^{X,\kappa}A}\ge c_*\tn A_{X,+}^2\qquad\text{for all real }A\in\ell^2_1(X).
+\]
+In particular, for $X=\Tf$ the operator $\fA_\pi(U)$ of Part~II is coercive under the local hypothesis of regularity, without hypothesis (B).
+\end{theorem}
+
+\begin{proof}
+Since $\ip A{\fA^{\rm ext}_XA}=\|\one_{\Tf\setminus X}D^TA\|^2$, it suffices to show $\ip A{(\fA^X+\kappa m_X)A}\ge c'_*\tn A_X^2$, and to take $c_*=\min(c'_*,1)$. Let $\kappa=C_1+\frac12$, with $C_1$ from Lemma~\ref{lem:garding}. By Lemma~\ref{lem:IMS} applied to $\fA^X$, and since $\ip A{m_XA}=\sum_{j\notin J(X)}\|\chi_jA\|^2$,
+\[
+\begin{aligned}
+\ip A{(\fA^X+\kappa m_X)A}={}&\sum_{j\in J(X)}\ip{\chi_jA}{\fA^X\chi_jA}+\sum_{j\notin J(X)}\Big(\ip{\chi_jA}{\fA^X\chi_jA}+\kappa\|\chi_jA\|^2\Big)\\
+&+\frac12\sum_j\big\langle A,[\chi_j,[\chi_j,\fA^X]]A\big\rangle .
+\end{aligned}
+\]
+For $j\in J(X)$, Lemma~\ref{lem:local-coercive} bounds the term below by $\frac{c_g}2\tn{\chi_jA}_X^2$. For $j\notin J(X)$, Lemma~\ref{lem:garding} gives at least $\frac12\tn{\chi_jA}_X^2$. The operator $\fA^X$ is a finite sum of terms $X^TMY$ as in Lemma~\ref{lem:double-comm}. Indeed, $\Pi_X=\one_X-DS_X$ and $D\Pi_X=D-\mathfrak FS_X$ (Lemma~\ref{lem:domain-identities}) give
+\[
+\Pi_X^T\mathfrak B_X\Pi_X=D^TD-D^T\mathfrak FS_X-(D^T\mathfrak FS_X)^T+(\mathfrak FS_X)^T\mathfrak FS_X+\Pi_X^TW\Pi_X ,
+\]
+and $DR_XD^T_X=DD^T_X-DP_{\cV,X}D^T_X$. The local terms $D^TD$ and $DD^T_X$ have $M=1$. The terms $(\mathfrak FS_X)^T\mathfrak FS_X$, $\Pi_X^TW\Pi_X$, $DP_{\cV,X}D^T_X$ and $a\Pi_X^T\bQ^T\bQ\Pi_X$ have $X=Y=1$ and an $M$ with decay, by Theorem~\ref{thm:reg-scalar}(d). The term $D^T\mathfrak FS_X$ has $X=D$, $M=\mathfrak FS_X$ and $Y=1$, and its transpose has $X=1$ and $Y=D$. No derivative of the coefficients of $\mathfrak F$ or $W$ enters. Hence the double commutators are bounded by $CM^{-2}\tn A_X^2$. With Lemma~\ref{lem:local-norms},
+\[
+\ip A{(\fA^X+\kappa m_X)A}\ge\tfrac12\min(c_g,1)\Big(\tfrac12\tn A_X^2-CM^{-2}\|A\|^2\Big)-CM^{-2}\tn A_X^2\ge c'_*\tn A_X^2
+\]
+for $M\ge M_0$.
+
+If $n<8M$, the partition is trivial (Section~\ref{ss:17.2}), and the double commutators vanish. For $X=\Tf$, the proof of Lemma~\ref{lem:local-coercive} applies with $j=0$ and $\Lam_0=\Tf$, in the global gauge: Step~1 and the error of Step~3 are absent. So $\ip A{\fA^{\Tf}A}\ge\frac{c_g}2\tn A_{\Tf}^2$. For a proper domain, $m_X=1$, and Lemma~\ref{lem:garding} with $\kappa=C_1+\frac12$ gives $\ip A{(\fA^X+\kappa m_X)A}\ge\frac12\tn A_X^2$. By the last display $c'_*\le\frac14\min(c_g,1)$, so both bounds are at least $c'_*\tn A_X^2$, and the theorem holds with the same $\kappa$ and $c_*$.
+\end{proof}
+
+\subsection{Green functions at regular backgrounds}\label{ss:19.3}
+
+\begin{theorem}[Gauge-field Green functions at regular backgrounds]\label{thm:reg-gauge}
+Let $M\ge M_0$ and let $U$ be $(M,\eps)$-regular with $\eps\le\eps_0$.
+\begin{enumerate}[label=(\alph*)]
+\item For every domain $X$, $\bG^X=(\fA^{X,\kappa})^{-1}$ exists, and the following operators have decay $(C,\gamma)$, uniformly in $X$:
+  \begin{itemize}
+  \item $\bG^X$, $D\bG^X$, $\bG^XD^T$, $D\bG^XD^T$, with $D$ the derivative from gauge fields to $2$-forms;
+  \item $D^T\bG^X$, $D^T\bG^XD^T$, $\bG^XD$, $D\bG^XD$ and $D^T\bG^XD$, with $D^T$ on the left the torus divergence of the zero extension (which contains $D^T_X=\one_XD^T$), and $D$ on the right the gradient of torus scalar fields followed by the projection onto $\ell^2_1(X)$; in $D^T\bG^XD^T$ the right factor is the codifferential of $2$-forms, and in $D\bG^XD$ the left factor is the derivative into $2$-forms;
+  \item $\nabla\bG^X$, $\nabla\bG^XD^T$ and $\nabla\bG^XD$, with $\nabla$ the covariant gradient.
+  \end{itemize}
+\item For $X=\Tf$, the operator $\bG(U)=\fA_\pi(U)^{-1}$ has the decay of (a) and satisfies Theorem~\ref{thm:cov-gauge}(c),~(d): the pointwise bounds and the identities. In the pointwise bounds $|\partial\cdot|$ is replaced by $|\nabla\cdot|$, with $\nabla$ the covariant gradient of (a), and H\"older quotients are taken in local gauges. The comparison of Theorem~\ref{thm:cov-gauge}(b) with the operator at $U=1$ is not claimed: it needs a global gauge in which (B) holds. For a pure gauge $U=1^u$ one has $\bG(U)=R(u)\bG(1)R(u)^{-1}$, which is not close to $\bG(1)$ unless $R(u)$ is nearly constant.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) Theorem~\ref{thm:reg-coercive} gives hypothesis (i) of Lemma~\ref{lem:CT-form}, with the norm $\tn\cdot_{X,+}$; the proof of that lemma goes through for this norm. For hypothesis (ii) note that conjugating $\one_{\Tf\setminus X}D^T$ by $e^{\alpha\rho}$ changes it by an operator of norm at most $C|\alpha|$. Since $\tn A_{X,+}^2=\|A\|^2+\|DA\|^2+\|D^TA\|^2$, Combes--Thomas in this norm controls all blocks of $\mathcal D\bG^X\mathcal D^T$ with $\mathcal D=(D,D^T)$. This gives the operators of the first two items; $\bG^XD$ and $D\bG^XD$ are transposes of $D^T\bG^X$ and $D^T\bG^XD^T$. For the last item apply Lemma~\ref{lem:full-gradient} to $\varphi v$, where $v=\bG^Xg$, $\bG^XD^Tg$ or $\bG^XDg$ and $\varphi$ is a cutoff at unit scale around a block. The commutators of $D$, $D^T$ with $\varphi$ are bounded, so $\|\nabla v\|_{B(y)}$ is bounded by $\|v\|+\|Dv\|+\|D^Tv\|$ near $B(y)$, and these decay. Hypothesis (ii) follows from the structure of $\fA^X$ as a sum of terms $X^TMY$ with decaying $M$, by Lemmas~\ref{lem:conjugation} and~\ref{lem:conj-forms}. The mass term commutes with $e^{\alpha\rho}$.
+
+(b) Decay is (a) with $X=\Tf$. The identities follow from Lemma~\ref{lem:domain-identities}. For the pointwise bounds, write the equation $\fA_\pi u=J$ on $\Lam_3(c_y)$ in a gauge in which (B) holds on $\Lam_4(c_y)$. The local parts of $\fA_\pi$ have the normal form of Lemma~\ref{lem:cov-expansion}. The non-local parts ($DP_\cV D^T$ and the terms involving $S$) were shown in the proof of Theorem~\ref{thm:cov-gauge}(a) to be pointwise admissible. That proof used only the pointwise bounds of the scalar operators, which hold at regular backgrounds by Theorem~\ref{thm:reg-scalar}(g). These scalar bounds hold on the cubes $\Lam_1(z)$, in their local gauges (Remark~\ref{rem:cubes}). By the change of local gauge after Definition~\ref{def:regular}, they hold, with a larger constant, in the gauge of $\Lam_4(c_y)$ on $\Lam_3(c_y)$. The small terms of the non-local parts involve only values, $Du$ and H\"older quotients in local gauges, so they are bounded by the invariant norms $|u|+|\nabla u|$ on the cubes $\Lam_1(c_{y'})$, with weights $e^{-\gamma|y-y'|}$. Lemma~\ref{lem:bootstrap-local} concludes.
+\end{proof}
+
+\subsection{The averaged Green function, the minimizer and the fluctuation operator}\label{ss:19.4}
+
+At $U=1$ the lower bound on $\bQ\bG\bQ^*$ came from Fourier analysis. At regular backgrounds we use explicit trial fields instead.
+
+\begin{lemma}[Trial fields for the gauge average]\label{lem:trial-gauge}
+Let $U$ be $(1,\eps)$-regular with $\eps\le\eps_0$. There is a linear map $b\mapsto\Phi_b$ from unit-lattice gauge fields to fine gauge fields such that $\bQ(U)\Phi_b=b$, $\tn{\Phi_b}_{\Tf}\le C\|b\|$, and $\Phi_b$ has exponential decay away from the support of $b$. Moreover there is $\Phi^\pi_b\in\mathcal S(U)$ with $\bQ_\pi\Phi^\pi_b=b$ and $\tn{\Phi^\pi_b}_{\Tf}\le C\|b\|$.
+\end{lemma}
+
+\begin{proof}
+Fix a unit bond $(y,\mu)$. Let $\phi(t)=\cos^2(\pi(t-\frac12))$ for $t\in[0,1]$ and $\phi(t)=0$ otherwise. Let $\psi_\perp(z)=\prod_{\nu\ne\mu}\cos^2(\pi z_\nu)$ if $|z_\nu|\le\frac{1-\eta}2$ for all $\nu\ne\mu$, and $\psi_\perp(z)=0$ otherwise. As in the proof of Theorem~\ref{thm:reg-scalar}(c), $\psi_\perp\le\frac{\pi^2}4\eta^2$ at the points next to the transverse faces, i.e.\ where $|z_\nu|=\frac{1-\eta}2$ for some $\nu\ne\mu$, and
+\[
+m_\perp:=\eta^{d-1}\sum_{z:\,z_\mu=0}\psi_\perp(z)=2^{1-d}.
+\]
+For a fine point $x$ with $|x_\nu-y_\nu|\le\frac{1-\eta}2$ for $\nu\ne\mu$ and $0\le x_\mu-y_\mu\le1$, let $x_0$ be its projection onto the hyperplane $\{x_\mu=y_\mu\}$ through the centre of $B(y)$. Then $x_0\in B(y)$, and $x=x_0+j\eta e_\mu$ with $0\le j\le N$. Let $\Gamma^{(\mu)}_{y,x}=\Gamma_{y,x_0}\cup[x_0,x]$. This canonical contour is single-valued in $x$. Define the $\mu$-component
+\[
+\Phi_{(y,\mu)}(x)=\psi_\perp(x_0-y)\,\phi(x_\mu-y_\mu)\,R\big(U(\Gamma^{(\mu)}_{y,x})\big)^{-1},
+\]
+acting on a vector $\beta\in\mathfrak g^c$, and $\Phi_{(y,\mu)}(x)=0$ for all other $x$; all other components are $0$. In $\bQ(U)$ the value at $x$ is transported along $\Gamma_{y,x'}\cup[x',x]$, for each base point $x'\in B(y)$ on the line of $x$ with $0\le x_\mu-x'_\mu<1$. This contour and the canonical one have the same endpoints, lie in $B(y)\cup B(y+e_\mu)$, and have at most $CN$ bonds. Since $U$ is $(1,\eps)$-regular, (B) holds in some gauge on a cube containing $B(y)\cup B(y+e_\mu)$. There every bond variable is $e^{\ii\eta A}$ with $|A|\le\eps$, so both transports are within $C\eps$ of $1$, and so is the product of the one with the inverse of the other. This statement is gauge covariant. Hence
+\[
+\big(\bQ(U)\Phi_{(y,\mu)}\beta\big)(y,\mu)=m_\perp\sigma_0\beta+r_{(y,\mu)}\beta,\qquad\|r_{(y,\mu)}\|\le C\eps,
+\]
+with $\sigma_0=\sum_t\eta\,w(t)\phi(t)$. Here $t$ runs over $\eta\Z$, and $w(t)$ is the weight of the tube average of $(y,\mu)$ at the bonds $(z,z+\eta e_\mu)$ with $z_\mu-y_\mu=t$ (Lemma~\ref{lem:avg}(a)). Explicitly, $w(t)=1-|t-\frac{1-\eta}2|$ for $|t-\frac{1-\eta}2|\le1-\eta$, and $w(t)=0$ otherwise: a triangle with its peak at the bond that crosses the face between $B(y)$ and $B(y+e_\mu)$. With exact cancellation of the transports the error term would vanish; it does not, since the transports depend on the base point $x'$ when the background is curved. The only other unit bonds where $\bQ(U)\Phi_{(y,\mu)}\beta$ does not vanish are $(y\pm e_\mu,\mu)$. There the value has norm at most $m_\perp\sigma_\pm(1+C\eps)|\beta|$, with $\sigma_\pm=\sum_t\eta\,w(t\mp1)\phi(t)$.
+
+\emph{The margins.} The tube weights of the bonds $(y+me_\mu,\mu)$, $m\in\Z$, add up to $1$ at every bond in direction $\mu$ (Lemma~\ref{lem:avg}(a)), and for $t\in[0,1]$ only $m\in\{-1,0,1\}$ contribute. Hence, with $\phi(i\eta)=\sin^2(\pi i/N)$,
+\[
+\sigma_0+\sigma_++\sigma_-=\sum_t\eta\,\phi(t)=\eta\sum_{i=0}^{N-1}\sin^2(\pi i/N)=\frac12 .
+\]
+Next, put $h=\frac{N-1}2$, so that $w(i\eta)=1-|i-h|\eta$ for $0\le i\le N$. Then
+\[
+\sigma_0=\frac12-\eta^2\sum_{i=0}^{N-1}|i-h|\sin^2\frac{\pi i}N .
+\]
+Write $i=h+m$, so that $\sin^2\frac{\pi i}N=\cos^2\frac{\pi(2m-1)}{2N}$, and pair $m$ with $-m$. The sum becomes $\sum_{m=1}^hm\big(1+\cos\frac\pi N\cos\frac{2\pi m}N\big)$. Summing the arithmetico-geometric series gives $\sum_{m=1}^hm\cos\frac{2\pi m}N=-\big(8\sin^2\frac\pi{2N}\big)^{-1}$, and $\sum_{m=1}^hm=(N^2-1)/8$. Therefore
+\[
+\sigma_0=\frac38+\frac{\eta^2}8+\frac{\eta^2\cos(\pi\eta)}{8\sin^2(\pi\eta/2)}\ \ge\ \frac38+\frac1{4\pi^2}>\frac25 ,
+\]
+using $\sin s\le s$ and $\cos(\pi\eta)\ge\frac12$. So, for every odd $N\ge3$,
+\[
+\sigma_0>\tfrac25,\qquad\sigma_++\sigma_-<\tfrac1{10},\qquad\sigma_0-\sigma_+-\sigma_-=2\sigma_0-\tfrac12>\tfrac3{10}.
+\]
+The continuum values are $\sigma_0=\frac38+\frac1{2\pi^2}$ and $\sigma_++\sigma_-=\frac18-\frac1{2\pi^2}$, and the errors are $O(\eta^2)$.
+
+Thus $\bQ(U)\sum_{(y,\mu)}\Phi_{(y,\mu)}\beta_{(y,\mu)}=T_U\beta$. The diagonal of $T_U$ is $m_\perp\sigma_0+O(\eps)$, and the sum of the off-diagonal entries of a row is at most $m_\perp(\sigma_++\sigma_-)(1+C\eps)$. Since $\sigma_0-\sigma_+-\sigma_->\frac3{10}$, $T_U$ is diagonally dominant uniformly in $\eps\le\eps_0$, for $\eps_0$ small. So $T_U^{-1}$ is bounded with exponentially decaying kernel, by the Neumann series around the diagonal. Put $\Phi_b=\sum\Phi_{(y,\mu)}(T_U^{-1}b)_{(y,\mu)}$.
+
+The derivative bound follows as in the proof of Theorem~\ref{thm:reg-scalar}(c). In a local gauge the canonical transports vary by $O(\eta\eps)$ between neighbouring points. For a step in direction $\mu$ the contour grows by one bond. For a step $\eta e_\nu$, $\nu\ne\mu$, the two canonical contours agree up to the segment in direction $\nu$, where their lengths differ by one bond, and then run parallel at distance $\eta$. So, together with that bond, they bound a ladder of at most $CN$ plaquettes, each with holonomy $O(\eta^2\eps)$ in the gauge where (B) holds. The holonomy of the loop is a product of conjugates of these plaquette holonomies. Since $U$ is real, $|g_1\cdots g_m-1|\le\sum_i|g_i-1|$ and $|hgh^{-1}-1|=|g-1|$ for $G$-valued $g_i,g,h$. So the holonomy of the loop is $O(N\eta^2\eps)=O(\eta\eps)$. Moreover $\phi$ and $\psi_\perp$ are smooth on their supports, $\phi$ vanishes at $t=0$ and $t=1$, and $\psi_\perp$ is $O(\eta^2)$ next to the transverse faces. So $\Phi_{(y,\mu)}$ jumps by $O(\eta^2)$ across the boundary of its support. For the slice version, let $L:b\mapsto\Phi_b$. Then $\bQ_\pi L=\bQ\Pi L=I-ESL$, by Lemma~\ref{lem:slice}(c), and $\|ESL\|\le C\eps\le\frac12$. Put $\Phi^\pi_b=\Pi L(I-ESL)^{-1}b$; then $\bQ_\pi\Phi^\pi_b=b$, since $\bQ_\pi\Pi=\bQ_\pi$. Finally $\Pi=I-DS$ is bounded in $\tn\cdot$, because $DS$ is bounded, $D(DS)=\mathfrak FS$, and $D^TDS=RD^T$ by Theorem~\ref{thm:reg-scalar}(d).
+\end{proof}
+
+\begin{theorem}[Minimizer and fluctuation operator at regular backgrounds]\label{thm:reg-min}
+Let $M\ge M_0$ and let $U$ be $(M,\eps)$-regular with $\eps\le\eps_0$. Then $\bQ_\pi\bG\bQ_\pi^T\ge c$. Its inverse $\boldsymbol\Gamma_\pi$ has decay $(C,\gamma)$. Theorem~\ref{thm:cov-min}(b)--(d) hold for $\bH(U)$ and $\bC(U)$, with $|\partial\cdot|$ replaced by $|\nabla\cdot|$ (the covariant gradient of Theorem~\ref{thm:reg-gauge}(a)) in the pointwise bounds and H\"older quotients taken in local gauges. The comparison of Theorem~\ref{thm:cov-min}(a) with the operator $\bQ\bG\bQ^*$ at $U=1$ is not claimed; the lower bound above takes its place.
+\end{theorem}
+
+\begin{proof}
+Since $\fA_\pi$ is positive (Theorem~\ref{thm:reg-coercive}), the minimum of $\ip A{\fA_\pi A}$ over $\{A:\bQ_\pi A=b\}$ equals $\ip b{(\bQ_\pi\bG\bQ_\pi^T)^{-1}b}$. With the trial field of Lemma~\ref{lem:trial-gauge} this is at most $\ip{\Phi^\pi_b}{\fA_\pi\Phi^\pi_b}\le C\tn{\Phi^\pi_b}^2\le C\|b\|^2$. Hence $(\bQ_\pi\bG\bQ_\pi^T)^{-1}\le C$. Decay of the inverse follows from Lemma~\ref{lem:CT-bounded}. The rest of the proof of Theorem~\ref{thm:cov-min} is algebraic, or uses only the bounds now available: Theorems~\ref{thm:reg-gauge} and~\ref{thm:reg-scalar}, and Lemma~\ref{lem:bootstrap-local} in place of Lemma~\ref{lem:bootstrap}.
+\end{proof}
+
+\subsection{Comparison of domains and locality in the background}\label{ss:19.5}
+
+\begin{theorem}[Locality]\label{thm:reg-locality}
+Let $M\ge M_0$ and $\eps\le\eps_0$.
+\begin{enumerate}[label=(\alph*)]
+\item Let $X'\subset X$ be domains, $U$ an $(M,\eps)$-regular background, and $\Sigma_M$ the set of unit points of $X$ within distance $10M$ of $X\setminus X'$. For all unit points $y,y'$, with the operators extended by zero,
+\[
+\|\one_y(\bG^X-\bG^{X'})\one_{y'}\|\le C\sum_{w\in\Sigma_M}e^{-\gamma(|y-w|+|w-y'|)}.
+\]
+The same holds for $P\bG^XQ-P\bG^{X'}Q$ with $P\in\{1,D,D^T,\nabla\}$ and $Q\in\{1,D^T,D\}$, as in Theorem~\ref{thm:reg-gauge}(a). The bound covers the blocks of the initial points of the bonds of $\ell^2_1(X')$ that cross $\partial X'$, which may lie outside $X'_1$, and, for $P=D^T$, the torus divergence, the output points within distance $\eta$ of $X'$.
+\item Let $U$ and $U'$ be $(M,\eps)$-regular backgrounds that coincide on the bonds of $\hat X'$. Then each of the torus operators $\bG$, $D\bG$, $\bG D^T$, $\boldsymbol\Gamma_\pi$, $\bH$, $\bC$ satisfies
+\[
+\begin{aligned}
+\|\one_y(F(U)-F(U'))\one_{y'}\|&\le C\sum_{w\in\Sigma_M}e^{-\gamma(|y-w|+|w-y'|)}\\
+&\le C'e^{CM}e^{-\frac\gamma2(\operatorname{dist}(y,\Tf\setminus X')+\operatorname{dist}(y',\Tf\setminus X'))},
+\end{aligned}
+\]
+where $\Sigma_M$ is defined with $X=\Tf$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) We use a smooth cutoff. A sharp cut would produce one-sided derivatives at the cut, which are not bounded uniformly in $\eta$. Let $\chi$ be a smooth function, at unit scale, of a mollified torus distance to $X\setminus X'$, with $|\partial^k\chi|\le C$ for $k\le2$. It vanishes at distance at most $1$ and equals $1$ at distance at least $3$. Gauge fields are multiplied by $(\chi A)(b)=\chi(b_-)A(b)$. Then $\chi(b_-)=0$ for every bond $b$ of $\ell^2_1(X)$ that is not in $\ell^2_1(X')$. So $\chi$ maps $\ell^2_1(X)$ into $\ell^2_1(X')$, and $P'\chi=\chi P$, with $P$, $P'$ the projections onto $\ell^2_1(X)$, $\ell^2_1(X')$.
+
+Write $\fA^{X,\kappa}=PLP+\mathfrak N^X+\kappa m_X$. Here $L=D^TD+DD^T+W+a\bQ^T\bQ$ is the torus operator: its local part includes $\fA^{\rm ext}_X$. And $\mathfrak N^X$ is the non-local part, built from $P_{\cV,X}$, $S_X$ and $R_X$. The same holds on $X'$ with the same $L$. Let $u=\bG^Xg$. Then $P'LP'(\chi u)=\chi PLu+P'[L,\chi]u$, so
+\[
+\fA^{X',\kappa}(\chi u)=\chi g+P'[L,\chi]u+\big(\mathfrak N^{X'}-P'\mathfrak N^XP'\big)\chi u+P'[\mathfrak N^X,\chi]u+\kappa(m_{X'}-m_X)\chi u .
+\]
+Since $\chi u\in\ell^2_1(X')$, this gives, as torus fields,
+\[
+\begin{aligned}
+\bG^Xg-\bG^{X'}g={}&(1-\chi)u-\bG^{X'}(1-\chi)g\\
+&+\bG^{X'}\Big(P'[L,\chi]+\big(\mathfrak N^{X'}-P'\mathfrak N^XP'\big)\chi+P'[\mathfrak N^X,\chi]+\kappa(m_{X'}-m_X)\chi\Big)u .
+\end{aligned}
+\]
+Each term has the seam form:
+\begin{itemize}
+\item $1-\chi$ is supported within distance $3$ of $X\setminus X'$.
+\item $[L,\chi]$ is a first-order operator with bounded coefficients, supported where $\partial\chi\ne0$. There are no boundary terms on $\partial X\cap\partial X'$: both local parts are restrictions of the same torus operator, and the projections agree there. $\bG^{X'}P'[L,\chi]u$ is bounded by $\bG^{X'}D^T$, $\bG^{X'}D$ and $\tn u_{X,+}$ (Theorem~\ref{thm:reg-gauge}(a)).
+\item $\mathfrak N^{X'}-P'\mathfrak N^XP'$ is a sum of products in which one scalar factor is replaced by its difference between $X$ and $X'$. It is of seam form by Theorem~\ref{thm:reg-scalar}(e), with the derivatives standing outside, where they are absorbed by $\bG^{X'}$ and by $u$.
+\item $\mathfrak N^X$ is a finite sum of terms $X_i^TM_iY_i$ as in Lemma~\ref{lem:double-comm}, with $X_i,Y_i\in\{1,D,D^T_X\}$ and $M_i$ with decay (proof of Theorem~\ref{thm:reg-coercive}). Some terms carry a derivative at an end, for instance $-D^T\mathfrak FS_X$ and its transpose, so we do not bound the kernel of $[\mathfrak N^X,\chi]$ alone. We use
+\[
+[X_i^TM_iY_i,\chi]=[X_i^T,\chi]M_iY_i+X_i^T[M_i,\chi]Y_i+X_i^TM_i[Y_i,\chi].
+\]
+The commutators of $D$ and $D^T$ with $\chi$ are bounded and supported where $\partial\chi\ne0$. If $M_i$ has decay $(C,\gamma)$, then $\|\one_y[M_i,\chi]\one_{y'}\|\le2Ce^{-\gamma|y-y'|}$, and it vanishes unless $y$ or $y'$ lies within distance $3+\sqrt d$ of $X\setminus X'$; so $[M_i,\chi]$ has the seam form. The derivative $X_i^T$ on the left is absorbed by $\bG^{X'}$, since $\bG^{X'}D^T$ and $\bG^{X'}D$ decay (Theorem~\ref{thm:reg-gauge}(a)). The derivative $Y_i$ on the right falls on $u$, and $D\bG^X$, $D^T\bG^X$ decay. With $P$ on the left and $Q$ on the right, as below, the products $P\bG^{X'}X_i^T$ and $Y_i\bG^XQ$ also decay.
+\item $m_{X'}-m_X$ is supported within distance about $8M$ of $X\setminus X'$, inside $\Sigma_M$.
+\end{itemize}
+Composing with the decay of $\bG^X$ and $\bG^{X'}$ (Theorem~\ref{thm:reg-gauge}(a)) gives the bound. The identity holds as an identity of torus fields, and these decay bounds hold at all blocks, so the bound holds for all unit points $y,y'$, including the blocks of the initial points of the bonds crossing $\partial X'$. For the derivatives, apply $P\in\{D,D^T,\nabla\}$ to the identity, using Lemma~\ref{lem:full-gradient} for $\nabla$. For $Q\in\{D^T,D\}$ on the right, move the cutoff onto the input as in the proof of Theorem~\ref{thm:reg-scalar}(e); this produces the commutators $[Q,\chi]$, which are bounded.
+
+The cutoff is smooth, as in the proof of Theorem~\ref{thm:reg-scalar}(e), because the cut terms of the sharp-cut identity of Lemma~\ref{lem:compare-inverse} contain one-sided derivatives at the cut. The term $\fA^{\rm ext}_X$ is what removes the boundary terms on $\partial X\cap\partial X'$: with the interior divergence alone, that is, with relative boundary conditions, the cutoff argument would leave boundary terms there.
+
+(b) Apply (a) with $X=\Tf$ to $U$ and to $U'$, and note that $\bG^{X',\kappa}(U)=\bG^{X',\kappa}(U')$. For $\boldsymbol\Gamma_\pi$, $\bH$, $\bC$ use the telescoping argument of Theorem~\ref{thm:reg-scalar}(e), together with Lemma~\ref{lem:compare-inverse} on the unit lattice for $\boldsymbol\Gamma_\pi$. The factor $e^{CM}$ comes from the width $10M$ of $\Sigma_M$.
+\end{proof}
+
+This is the property needed to localize the effective actions in the renormalization group. If the background is changed far away, the propagators deep inside change by an exponentially small amount. The proof does not compare covariant derivatives of different backgrounds, so the $\eta^{-1}$ problem discussed in Section~\ref{sec:outlook} does not arise. It compares each background with a Dirichlet operator that does not see the change.
+
+\subsection{Complex perturbations}\label{subsec:reg-complex}
+
+In the variational problem and in the renormalization group, the fields are expanded around a real regular background $U$, and the deviation is small in a global gauge relative to $U$. We therefore consider $U_\delta(b)=U(b)\,e^{\ii\eta\,\delta\!A(b)}$, where $\delta\!A$ is $\mathfrak g^c$-valued with $|\delta\!A|,|\partial\delta\!A|,[\partial\delta\!A]_\alpha\le\delta$, the derivatives being taken in the local gauges of $U$.
+
+\begin{proposition}\label{prop:reg-complex}
+Let $M\ge M_0$, $\eps\le\eps_0$, let $U$ be $(M,\eps)$-regular, and let $W\in\cW^{\rm an}_{\rm loc}(\eps)$. There is $\delta_0\in(0,\delta_W]$ such that for $\delta\le\delta_0$ all operators of Sections~\ref{sec:reg-scalar} and~\ref{sec:reg-gauge} exist at $U_\delta$, depend analytically on $\delta\!A$, and satisfy the same bounds, with coercivity replaced by $\Rea$-coercivity. The $\Rea$-coercivity constants and the decay rates do not depend on $\delta\le\delta_0$: by Lemma~\ref{lem:CT-stable} the operators at $U_\delta$ satisfy the hypotheses of Lemma~\ref{lem:CT-form} with the constants $c/2$, $C_1+1$ and $\min(\alpha_1,\gamma/2,1)$, where $c$, $C_1$, $\alpha_1$ are those at $U$ and $\gamma$ is the rate of the perturbation. Theorem~\ref{thm:reg-locality} holds for pairs $U_\delta$, $U'_{\delta'}$ that coincide on $\hat X'$.
+ The $L^2$ statements (existence, $\Rea$-coercivity, decay, comparison of domains and locality) also hold, with $\hat X$ replaced by $X^{(r_W+1)}$, for potentials of range $r_W\le3$ as in Section~\ref{sec:dirichlet-averaged} that are real for real $U$, covariant, of norm at most $\eps$, and extend holomorphically to the $U_\delta$ with $W(U_\delta)-W(U)$ of norm at most $C\delta$ and the same range. Here the range bounds the dependence on $A$ and on $U$. The pointwise statements are not claimed for such potentials.
+\end{proposition}
+
+Here $\delta_0$ is a radius for the perturbations $\delta\!A$. It is not the spacing $\delta_j=L^j\eta$ of Section~\ref{ss:21.1} at $j=0$, nor the domain constant $\delta_0$ of Definition~\ref{def:graded}.
+
+\begin{proof}
+$D_{U_\delta}=D_U+T_\delta$ with $T_\delta$ local and of size $C\delta$ in the sense of Lemma~\ref{lem:cov-expansion}. Similarly, the averages change by local operators of size $C\delta$, and so do $W$, by the definition of $\cW^{\rm an}_{\rm loc}$, and $\fA^{\rm ext}_X$, in the form $\tn\cdot_{X,+}$. Hence every operator at $U_\delta$ is the corresponding operator at $U$ plus an admissible perturbation of size $C\delta$. Lemmas~\ref{lem:CT-stable} and~\ref{lem:perturbed-inverse}, with $\fA_0$ the operator at $U$, give existence and the bounds. For the gauge-field operators on domains, Lemma~\ref{lem:CT-form} is used in the norm $\tn\cdot_{X,+}$, as in Theorem~\ref{thm:reg-gauge}(a). The constants of the statement, and the rate $\gamma_0/4$ of the differences in Lemma~\ref{lem:perturbed-inverse}, do not depend on $\delta\le\delta_0$. The lower bounds of Theorem~\ref{thm:reg-scalar}(c) and Theorem~\ref{thm:reg-min} persist by perturbation. Analyticity follows as in Proposition~\ref{prop:covariance}. The bootstrap of Lemma~\ref{lem:bootstrap-local} applies with $\eps$ replaced by $\eps+C\delta$; we take $\eps_0\le\frac12\eps_*$ and $C\delta_0\le\frac12\eps_*$, so that $\eps+C\delta\le\eps_*$. Locality follows as in Theorem~\ref{thm:reg-locality}, since the Dirichlet operators on $X'$ at $U_\delta$ depend only on $U_\delta$ on $\hat X'$. For the potentials of range $r_W\le3$, existence, $\Rea$-coercivity and decay use $W$ only through its reality, its norm, its range in $A$, its covariance and the size of $W(U_\delta)-W(U)$; comparison of domains uses the same properties, and locality uses in addition its range in $U$, as in Section~\ref{sec:dirichlet-averaged}.
+\end{proof}
+
+
+\begin{remark}[General averaging operators]\label{rem:general-averaging}
+The proofs of Parts~II and~III use the averaging pair $(Q'(U),\bQ(U))$ only through the following properties, required in every local gauge. Property (v) is used only for the analytic statements.
+\begin{enumerate}[label=(\roman*)]
+\item $Q'Q'^T=I$ for real $U$, and at real $U$ the maps $Q'$ and $\bQ$ take real fields to real fields;
+\item the closeness and locality bounds of Lemma~\ref{lem:cov-avg}(b);
+\item a covariance identity $\bQ D_U=D_VQ'+E$, with a real unit-lattice configuration $V$ and a defect $E$ satisfying the bounds of Lemma~\ref{lem:cov-avg}(c), including the bound on $E^T$;
+\item gauge covariance as in Lemma~\ref{lem:cov-avg}(d), and dependence on $U$ only on the bonds of $B(y)$, respectively $B(y)\cup B(y+e_\mu)$;
+\item the pair extends holomorphically to the complex backgrounds of the analytic statements (in Part~II the complex $A$ with (B), in Section~\ref{subsec:reg-complex} the $U_\delta$), and (i)--(iii) hold there, uniformly, with the bilinear transpose in (i) and with $V$ replaced by its holomorphic continuation in (iii).
+\end{enumerate}
+The explicit transports along the contours $\Gamma_{y,x}$ enter only in two places: the trial fields of Theorem~\ref{thm:reg-scalar}(c) and of Lemma~\ref{lem:trial-gauge}. For a general pair use the scalar block profiles and the raw gauge tube profiles from those proofs, constructed in the local gauges. For the scalar profiles the trial-average map is $I+O(\eps)$. For the gauge profiles, let $L_0$ be the raw tube map and let $T_{\rm model}=\bQ_{\rm model}L_0$. By (ii), $T_{\rm general}-T_{\rm model}$ is a local operator of size $O(\eps)$ in the block norm. The diagonal row and column margin of Lemma~\ref{lem:trial-gauge} persists, so its Neumann series gives the exact right inverse $L_0T_{\rm general}^{-1}$; then apply the slice correction from that lemma. The resulting exact gauge trial fields have exponential localization, rather than support in a single tube. Hence the real results of Parts~II and~III hold for every averaging pair with properties (i)--(iv), with constants depending only on upper bounds for the parameters in (i)--(iv), once these are below a fixed threshold. The analytic results (Proposition~\ref{prop:covariance}(a) and Proposition~\ref{prop:reg-complex}) hold if in addition (v) holds.
+
+Properties (i)--(iv) alone do not give analyticity. Let $G$ be non-abelian, and let $h_y(U)\in G$ be close to $1$, covariant, depending only on $U$ on the bonds of $B(y)$, and not analytic in $U$; for instance $h_y(U)=e^{\ii\theta|F_y|F_y}$, with $F_y$ the curvature of a fixed plaquette of $B(y)$ transported to $y$ and $\theta>0$ small. Put $L_y=R(h_y(U))$, let $L_1$ act by $L_y$ at the initial point $y$ of a unit bond, and replace $V(y,z)$ by $h_yV(y,z)h_z^{-1}$. The pair $(LQ',L_1\bQ)$ then has properties (i)--(iv), with the defect $L_1E$, and the same operator $\fA'$, since $L$ is orthogonal. Its minimizer map is $H'L^{-1}$, which is not analytic.
+
+By Proposition~\ref{prop:linearized-averages}, Ba\l aban's linearized averages $(Q'_k(U_0),\bQ_k(U_0))$ have properties (i)--(iv) with $E=0$ and $V=U_0^{(k)}$. Property (v) holds for them at the perturbations $U_\delta$ of Section~\ref{subsec:reg-complex}, for $\delta$ small. Holomorphy, $Q'Q'^T=I$ and the closeness bounds are Proposition~\ref{prop:AB}(iv)--(vi). The identity (iii) with $E=0$ holds there by the identity theorem, as in step~(iii) of the proof of Proposition~\ref{prop:complex-ext}, since for real $\delta\!A$ the $U_\delta$ are $(M,\eps+C\delta)$-regular. This needs $\eps+C\delta\le\min(\eps_0,c'_3)$. Proposition~\ref{prop:AB} alone does not give $E=0$ on $\{|A'|_\infty<\delta_{AB}\}$ (Remark~\ref{rem:AB-remains}).
+\end{remark}
+
+The transfer argued in Remark~\ref{rem:general-averaging} is checked use by use in Step~2 of the proof of Lemma~\ref{lem:uniformity}, which lists every use of the averaging pair in the proofs of the results in its part~(a), with the parameter of Definition~\ref{def:avg-parameter} in place of the model bound $C\eps$. That lemma is stated in Part~VII, but it uses only Parts~I--IV. The companion, chapter on Part~VII, expands its proof.

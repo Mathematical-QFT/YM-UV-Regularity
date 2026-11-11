@@ -1,0 +1,461 @@
+\section{Extraction of the marginal part}\label{sec:extraction}
+
+In four dimensions an old generation does not become small at later scales. Its orders $\ge3$ in the curvature are irrelevant, but its quadratic order is marginal (Remark~\ref{rem:one-loop-polymer}(b)), so it has to be extracted. This section does this for one generation $E$ of scale $j$ (Section~\ref{sec:generations}) at one later scale $k$, with $m=k-j$. For a grid cube $\Box$ of scale $k$, the small polymers of $\Box$ (Definition~\ref{def:polymer-classes}) are expanded. The sum of their activities is cancelled by the counterterm $-\beta_ES_\Box$ of the cube, up to $O(L^{-\alpha m})$; this is Proposition~\ref{prop:extraction}. The other polymers, the recent, the large and the wrapping ones, are not expanded. They are bounded through the decay of the generation, with a gain $L^{-m}$ (Lemma~\ref{lem:large-later}). The extraction has four steps.
+\begin{itemize}
+\item \emph{Normal form} (Lemma~\ref{lem:later-normal-form}). Let $U$ be a point of the domain of scale $k$, read in the units of scale $j$, and let $X$ be a polymer of scale $j$ whose size is at most a multiple of $m$. Then, up to a gauge transformation, $U$ is on $X^{(3)}$ a linear field of constant curvature plus a remainder that is smaller by a factor $L^{-\alpha m}$. The curvature is that of $U$ at one point of $X$; we take the centre of the base cube of $X$. Part~(d) of the lemma reduces $E(X,U)$ to a quadratic form in this curvature, up to an error $O(L^{-(4+\alpha)m})$.
+\item \emph{Cell sums} (Lemma~\ref{lem:cell-sums}). By the grid covariance (G2), the quadratic forms of the polymers with a common base cube $Q$ add up to $M^4$ times the period density of $E$ (Definition~\ref{def:period-density}), evaluated at the curvature of $U$ at the centre of $Q$. Summed over the $L^{4m}$ grid cubes of scale $j$ in $\Box$, the errors are $O(L^{-\alpha m})$.
+\item \emph{The action} (Lemma~\ref{lem:plaquette-family}). The action $S_\Box$ of the cube is the sum of a family of the same kind, whose period density is the period density $\bar T_S$ of $S$. So the cell sums apply to it as well.
+\item \emph{Cancellation.} By Proposition~\ref{prop:period-iso}, $\bar T_E=\beta_E\bar T_S$ exactly. So the two cell sums cancel.
+\end{itemize}
+Remark~\ref{rem:old-later} puts the pieces together. At a scale $k$, the old generation $E-\beta_ES$ is a sum of activities indexed by the grid cubes and by the polymers of scale $k$, bounded uniformly in $k$ and with the gains $L^{-\alpha m}$ and $L^{-m}$. How these activities enter the step of scale $k$ is not part of this section.
+
+Ba\l aban expands in a gauge common to a cube of scale $k$ \cite[after (0.27)]{BalYM4I}. There the field is of order $L^{-(k-j)}$ in the units of scale $j$, and the expansion runs to the fifth order, with Ward identities for the lower orders. He then compares the vacuum polarization tensor, the second-order kernel summed over the localization domains of the infinite lattice, with $\beta_j$ times the kernel of the action \cite[(4.36)--(4.45)]{BalYM4I}. Here the gauge is chosen per polymer and is complex, as in Lemma~\ref{lem:quadratic-bound}. The field is then of order $L^{-2(k-j)}$, and the second order suffices. Polymers too large for this gauge, $d_j(X)>c'm$, are not expanded. Since this cutoff is logarithmic in $L^m$, they carry only the power gain $L^{-m}$ (Lemma~\ref{lem:large-later}), instead of the gain exponential in $L^{k-j}$ of \cite[(0.27)]{BalYM4I}; this suffices for the sums over the generations (Remark~\ref{rem:old-later}). The comparison is between period densities on the given torus. The period density of $E$ has no anisotropic and no topological part because of the covariance (G4) of the generation under the symmetries of the grid (Proposition~\ref{prop:period-iso}).
+
+\subsection{The normal form}\label{subsec:extraction-nf}
+
+\paragraph{Notation for the lemma.} Let $X$ be a polymer of scale $j$, in the units of scale $j$, with fine spacing $\eta=\eta_j\le1$, and let $x_X$ be a point of $X$ on the fine lattice. Put
+\[
+R_X=M\big(2+d_j(X)\big)+3,\qquad\Lam_X=\Lam_{R_X}(x_X),
+\]
+with $d_j(X)$ of Section~\ref{subsec:flow-norm}. Any two points of $X$ are at $\ell^\infty$-distance at most $M(2+d_j(X))$, by Lemma~\ref{lem:torus}(b), whose first claim uses no condition on the torus. Hence $X^{(3)}\subset\Lam_X$. Moreover $1+R_X\le6M(1+d_j(X))$.
+\begin{itemize}
+\item \emph{Differences.} For a $\mathfrak g^c$-valued field $B$ on the positively oriented bonds of a set $Z\subset\Lam_X$, let $|\partial B|_Z$ be the maximum of the flat differences $|\partial_\mu B_\nu(x)|$ that involve only points of $Z$. Let $[\partial B]_{\alpha,Z}$ be the supremum of $|\partial_\mu B_\nu(x)-\partial_\mu B_\nu(x')|/|x-x'|^\alpha$ over $\mu$, $\nu$ and the pairs $x\ne x'$ of such differences. These are the quantities of Definition~\ref{def:graded} for the real part $1$, except that the H\"older quotient is not restricted to cubes $\Lam_3(z')$.
+\item \emph{The domain norm.} For a field $B$ on the bonds of $X^{(3)}$ put
+\[
+\|B\|_X=\max\Big(\frac{|B|_{X^{(3)}}}{\delta_0},\ \frac{|\partial B|_{X^{(3)}}+[\partial B]_{\alpha,X^{(3)}}}{\delta_1}\Big),
+\]
+as in Step~3 of the proof of Lemma~\ref{lem:quadratic-bound}. If $\|B\|_X<1$, the configuration equal to $e^{\ii\eta B}$ on the bonds of $X^{(3)}$ and to $1$ elsewhere lies in $\mathcal U(X)=\mathcal U(X;\theta_r,\delta_1,\delta_0)$, with real part $1$.
+\item \emph{Curvature at a point.} For a configuration $V$ on $\Tf$ and a point $x$, let $F_V(x)=(F_V(p_{\mu\nu}(x)))_{\mu<\nu}$, with $F_V(p)=\eta^{-2}\ell(V(\partial p))$ as in Definition~\ref{def:curvature}, on the fine lattice. It is defined for complex $V$ when $|V(\partial p)-1|\le c_G$.
+\item \emph{Linear fields.} For a curvature datum $F=(F_{\mu\nu})_{\mu<\nu}$ in $\mathfrak g^c$ (Section~\ref{subsec:gen-period}) put $F_{\nu\mu}=-F_{\mu\nu}$, $F_{\nu\nu}=0$ and $|F|=\max_{\mu,\nu}|F_{\mu\nu}|$. The \emph{linear field} of $F$ is
+\[
+A_{\rm lin}[F](b)=\frac12\sum_\mu F_{\mu\nu}\,(b_--x_X)_\mu\qquad\text{for the bonds }b=(b_-,b_-+\eta e_\nu)\text{ of }\Lam_X,
+\]
+in the coordinates of $\Lam_X$. Since $F_{\nu\nu}=0$, $b_-$ may be replaced by the midpoint of $b$. The differences of $A_{\rm lin}[F]$ are constant, $\partial_\mu A_{\rm lin}[F]_\nu=\frac12F_{\mu\nu}$, and $A_{\rm lin}[F]$ vanishes on the bonds $(x_X,x_X+\eta e_\nu)$. On $\Lam_X$, $|A_{\rm lin}[F]|\le\frac12(d-1)R_X|F|$.
+\end{itemize}
+
+\begin{lemma}[Later-scale normal form]\label{lem:later-normal-form}
+There is $C_{\rm nf}\ge1$, depending only on $d$, $\alpha$, $G$, $M$ and $B_5$ (so only on $d$, $L$, $G$, $a$, $\alpha$ and $M$), with the following property. Let $\alpha\le\frac12$, $0<\theta_r\le a_2$ with $B_5\theta_r\le1$, and $0<\delta_1\le\delta_0\le1$, with $a_2,B_5$ of Corollary~\ref{cor:regularity}. These hold for the domain constants of Remark~\ref{rem:domain-constants}: there $\theta_r\le c_a\le a_2$ and $\delta_0\le c_a\le1$ by (DC1), and $B_5\theta_r\le\eps_{\max}\le1$ by (DC2). Put
+\[
+\Theta=1+\frac{B_5\theta_r+\delta_0^2}{\delta_1}.
+\]
+Let $c'>0$ and put $R_m=M(2+c'm)+4$. The lemma concerns the integers $m\ge1$ with
+\begin{equation}\label{eq:nf-m0}
+R_m\le L^{m/2}\qquad\text{and}\qquad C_{\rm nf}R_m^2\,\Theta\,L^{-m}\le1 .
+\end{equation}
+For the constant $c'$ of Definition~\ref{def:polymer-classes} they hold for all $m\ge m_0$, with $m_0$ of Remark~\ref{rem:parameters}(5). Let $j<k$ with $m=k-j$ satisfying \eqref{eq:nf-m0}, and let the torus have side $n_k\ge n_0$ in the units of scale $k$, with $n_0$ of Corollary~\ref{cor:regularity}. Let $X$ be a polymer of scale $j$ with
+\[
+d_j(X)\le c'm ,
+\]
+let $x_X$ be a point of $X$ on the fine lattice, and let $Y\supset X$ be a polymer of scale $k$. Let $U\in\mathcal U(Y;\theta_r,\delta_1,\delta_0)$ in the units of scale $k$. In the units of scale $j$, with the notation above, there are a real gauge transformation $u_r$ and $\mathfrak g^c$-valued scalar fields $\lambda_1,\lambda_2$ on $\Tf$, with $\lambda_1(x_X)=\lambda_2(x_X)=0$, such that the following holds for $u=e^{-\ii\lambda_2}e^{-\ii\lambda_1}u_r$ and $W=U^u$.
+\begin{enumerate}[label=(\alph*)]
+\item \emph{(Normal form.)} $W=e^{\ii\eta A}$ on the bonds of $\Lam_X$, with
+\[
+A=A_{\rm lin}[F_X]+R,\qquad F_X=F_W(x_X)=u_r(x_X)\,F_U(x_X)\,u_r(x_X)^{-1}.
+\]
+So $F_X$ is the curvature of $U$ at $x_X$, rotated by an element of $G$. Moreover $A$ and $R$ vanish on the bonds $(x_X,x_X+\eta e_\nu)$.
+\item \emph{(Bounds.)} $|F_X|\le C_{\rm nf}\delta_1\Theta L^{-2m}$. On $\Lam_X$,
+\[
+|R|\le C_{\rm nf}(1+d_j(X))^{1+\alpha}\delta_1\Theta L^{-(2+\alpha)m},\qquad|\partial R|_{\Lam_X}\le C_{\rm nf}(1+d_j(X))^\alpha\delta_1\Theta L^{-(2+\alpha)m},
+\]
+and $[\partial R]_{\alpha,\Lam_X}\le C_{\rm nf}\delta_1\Theta L^{-(2+\alpha)m}$. Consequently $\|A\|_X\le\frac14$, and
+\[
+\|A_{\rm lin}[F_X]\|_X\le C_{\rm nf}(1+d_j(X))\,\Theta\,L^{-2m},\qquad\|R\|_X\le C_{\rm nf}(1+d_j(X))^{1+\alpha}\,\Theta\,L^{-(2+\alpha)m}.
+\]
+\item \emph{(Segments.)} $U\in\mathcal U(X)$, and for $t\in[0,1]$ the configurations $U^{e^{-\ii t\lambda_1}u_r}$ and $U^{e^{-\ii t\lambda_2}e^{-\ii\lambda_1}u_r}$ lie in $\mathcal U(X)$. For complex $s$ with $|s|\,\|A\|_X<1$ let $V_s$ equal $e^{\ii\eta sA}$ on the bonds of $X^{(3)}$ and $1$ elsewhere. Then $V_s\in\mathcal U(X)$, and $V_1=W$ on the bonds of $X^{(3)}$. Hence $F(U)=F(V_1)$ for every graded activity $F$ at $X$, and $s\mapsto F(V_s)$ is holomorphic for $|s|<\|A\|_X^{-1}$, where $\|A\|_X^{-1}\ge4$.
+\item \emph{(Second order.)} Let $G$ be semisimple, and let $F$ be a normalized graded activity at $X$. For fields $B,B'$ on the bonds of $X^{(3)}$ let $d^2F(1)[B,B']=\partial_s\partial_{s'}F(V_{s,s'})|_{s=s'=0}$, where $V_{s,s'}$ equals $e^{\ii\eta(sB+s'B')}$ on the bonds of $X^{(3)}$ and $1$ elsewhere. Then $|d^2F(1)[B,B']|\le4\|F\|\,\|B\|_X\|B'\|_X$. The quadratic form $\mathfrak q_F(F')=\frac12d^2F(1)[A_{\rm lin}[F'],A_{\rm lin}[F']]$ satisfies $\mathfrak q_F(vF'v^{-1})=\mathfrak q_F(F')$ for $v\in G$, so $\mathfrak q_F(F_X)=\mathfrak q_F(F_U(x_X))$. Moreover
+\[
+\big|F(U)-\mathfrak q_F(F_X)\big|\le C_{\rm nf}\,\|F\|\,\Theta^3(1+d_j(X))^{2+\alpha}L^{-(4+\alpha)m} .
+\]
+\end{enumerate}
+\end{lemma}
+
+So, for semisimple $G$ and up to $O(L^{-(4+\alpha)m})$, a normalized activity of a small polymer depends on a point of the later domain only through the curvature of that point at $x_X$. It is a quadratic form in this curvature, and the form does not depend on the point. In the lemma the letter $R$ denotes the remainder field, and $R_X$, $R_m$ are radii; $R(\cdot)$ in the proof is the adjoint representation.
+
+\begin{proof}\hasdetail{lem:later-normal-form}
+\emph{Conventions.} In this proof $C$ denotes constants that depend only on $d$, $\alpha$, $G$, $M$ and $B_5$. The constant $C_{\rm nf}$ is the largest of those needed below, and it is also the constant in \eqref{eq:nf-m0}. We write $\Lam=\Lam_X$ and use $\eta\le1$ and $\alpha\le\frac12$. Put
+\[
+\vartheta_0=\delta_0+B_5\theta_r\le2,\qquad\vartheta_1=\delta_1+B_5\theta_r+\vartheta_0^2 .
+\]
+Since $\vartheta_0^2\le2\delta_0^2+2B_5\theta_r$, we have $\vartheta_1\le3\delta_1\Theta$; also $\vartheta_0\le\delta_0\Theta$. Since $1+R_X\le R_m$, \eqref{eq:nf-m0} gives
+\begin{equation}\label{eq:nf-small}
+(1+R_X)L^{-m/2}\le1,\qquad C_{\rm nf}(1+R_X)^2\,\Theta\,L^{-m}\le1 .
+\end{equation}
+The first inequality and $\alpha\le\frac12$ give $(1+R_X)L^{-3m}\le L^{-(2+\alpha)m}$ and $(1+R_X)^3L^{-4m}\le L^{-(2+\alpha)m}$. The second makes all fields below small enough for the logarithm, the Baker--Campbell--Hausdorff formula and \eqref{eq:gauge-formula}, if $C_{\rm nf}$ is large.
+
+Two facts on the cube $\Lam$ are used throughout.
+\begin{itemize}
+\item[(H1)] Let $g$ be a function on the points of $\Lam$, or a component $B_\nu$ of a field on the bonds of $\Lam$. Two points of $\Lam$, or two bonds of $\Lam$ in direction $\nu$, are joined by the coordinate-ordered path in the box they span, which lies in $\Lam$. Summing differences along it, $|g(x)-g(x')|\le|x-x'|_1|\partial g|_\Lam$. Since $|x-x'|\le2\sqrt dR_X$, the H\"older quotients of $g$ on $\Lam$ are at most $C(1+R_X)|\partial g|_\Lam$. Together with $[gh]_\alpha\le[g]_\alpha|h|+|g|[h]_\alpha$, this bounds the H\"older quotients of products of such functions and of differences $\partial B$.
+\item[(H2)] For a function $h$ on $\Lam$, the H\"older quotients of $\eta\,\partial h$ are at most $2|\partial h|_\Lam$, since distinct points are at distance at least $\eta$ and $\eta\le1$. This is how terms with a factor $\eta$ are handled, as with \eqref{eq:lattice-trick} in the proof of Lemma~\ref{lem:quadratic-bound}.
+\end{itemize}
+
+\emph{Step 1: a gauge of scale $k$.} In the units of scale $k$, Definition~\ref{def:graded} gives a real configuration $U_r$ on $\Tf$ with $|F_{U_r}|,|J_{U_r}|<\theta_r$, and a field $A'$ on the bonds of $Y^{(3)}$ with $U=e^{\ii\eta_kA'}U_r$ there, $|A'|<\delta_0$ and $|\nabla A'|_{Y^{(3)}}+[\nabla A']_{\alpha,Y^{(3)}}<\delta_1$. Since $U_r\in\mathfrak U(\theta_r)$, $\theta_r\le a_2$ and $n_k\ge n_0$, Corollary~\ref{cor:regularity} at scale $k$ makes $U_r$ $(M,B_5\theta_r)$-regular. Definition~\ref{def:regular} with $z=x_X$ gives a real gauge transformation $u_r$ on the cube of radius $4M+2$ about $x_X$, extended to $\Tf$ arbitrarily, with $U_r^{u_r}=e^{\ii\eta_kA^{(k)}_r}$ on its bonds, $|A^{(k)}_r|,|\partial A^{(k)}_r|\le B_5\theta_r$, and H\"older quotients of $\partial A^{(k)}_r$ at most $B_5\theta_r$ on the cube $\Lam^{(k)}_3(x_X)$ of radius $3$ about $x_X$. In the units of scale $k$, $\Lam$ has radius $R_XL^{-m}\le1$, by \eqref{eq:nf-small}. Since $x_X\in X\subset Y$,
+\[
+\Lam\subset\Lam^{(k)}_3(x_X)\subset Y^{(3)} .
+\]
+So both representations hold on the bonds of $\Lam$, and every pair of differences that involve only points of $\Lam$ enters the H\"older quotients of Definitions~\ref{def:graded} and~\ref{def:regular}. In particular $\Lam$ does not wrap around the torus.
+
+Now pass to the units of scale $j$. As in the reasons for Remark~\ref{rem:domain-constants}(i), fields are multiplied by $L^{-m}$, differences by $L^{-2m}$, and H\"older quotients of differences by $L^{-(2+\alpha)m}$. We keep the names $A_r$ and $A'$ for the rescaled fields, and let $\tilde A'(b)=R(u_r(b_-))A'(b)$ be $A'$ in the gauge $u_r$; here $R$ is the adjoint representation, as in Definition~\ref{def:graded}. Then $U^{u_r}=e^{\ii\eta\tilde A'}e^{\ii\eta A_r}$ on the bonds of $\Lam$. By the inclusions above, with H\"older quotients over all pairs in $\Lam$,
+\[
+|A_r|\le B_5\theta_rL^{-m},\qquad|\partial A_r|_\Lam\le B_5\theta_rL^{-2m},\qquad[\partial A_r]_{\alpha,\Lam}\le B_5\theta_rL^{-(2+\alpha)m},
+\]
+\[
+|\tilde A'|<\delta_0L^{-m},\qquad|\nabla A'|_\Lam<\delta_1L^{-2m},\qquad[\nabla A']_{\alpha,\Lam}<\delta_1L^{-(2+\alpha)m}.
+\]
+The last two are taken with respect to $U_r$, with the transports of Definition~\ref{def:graded}. We compare them with flat differences as in the derivation of \eqref{eq:cov-vs-flat}. In the gauge $u_r$,
+\[
+D_{U_r^{u_r},\nu}\tilde A'_\mu-\partial_\nu\tilde A'_\mu=\eta^{-1}\big(R(e^{\ii\eta A_{r,\nu}})-1\big)\tilde A'_\mu(\cdot+\eta e_\nu).
+\]
+This is bounded by $C|A_r||\tilde A'|$, and its differences by $C(|\partial A_r||\tilde A'|+|A_r||\partial\tilde A'|)$. Moreover $\|R(U_r^{u_r}(\Gamma_{x,x'}))-1\|\le C|x-x'||A_r|$. By (H1), the H\"older quotients of this term and the transport correction are at most $C(1+R_X)B_5\theta_r\vartheta_0L^{-3m}$. With \eqref{eq:nf-small},
+\[
+|\partial\tilde A'|_\Lam\le(\delta_1+CB_5\theta_r)L^{-2m},\qquad[\partial\tilde A']_{\alpha,\Lam}\le(\delta_1+CB_5\theta_r)L^{-(2+\alpha)m}.
+\]
+
+\emph{Step 2: one field.} On the bonds of $\Lam$ write $e^{\ii\eta\tilde A'}e^{\ii\eta A_r}=e^{\ii\eta A^\circ}$. By the Baker--Campbell--Hausdorff formula, as in Step~3 of the proof of Lemma~\ref{lem:quadratic-bound}, $A^\circ=\tilde A'+A_r+\eta\mathfrak c$ with $|\mathfrak c|\le C|\tilde A'||A_r|$. Here $\mathfrak c$ is an analytic function of $(\eta\tilde A',\eta A_r)$ that vanishes when one of them vanishes (Lemma~\ref{lem:log-estimates}(d)). By the Schwarz lemma in each variable and the chain rule, its differences are at most $C(|\partial\tilde A'||A_r|+|\tilde A'||\partial A_r|)\le CB_5\theta_r\vartheta_0L^{-3m}$. By (H2), the H\"older quotients of $\partial(\eta\mathfrak c)$ obey the same bound. Hence, with \eqref{eq:nf-small},
+\begin{equation}\label{eq:nf-step2}
+|A^\circ|\le2\vartheta_0L^{-m},\qquad|\partial A^\circ|_\Lam\le C\vartheta_1L^{-2m},\qquad[\partial A^\circ]_{\alpha,\Lam}\le C\vartheta_1L^{-(2+\alpha)m}.
+\end{equation}
+
+\emph{Step 3: the affine gauge.} Let $a_\nu=A^\circ(x_X,x_X+\eta e_\nu)$, so that $|a|\le2\vartheta_0L^{-m}$, and put
+\[
+\lambda_1(x)=-\sum_\mu(x-x_X)_\mu\,a_\mu\quad(x\in\Lam),\qquad\lambda_1=0\ \text{ off }\Lam .
+\]
+On $\Lam$, $\partial_\nu\lambda_1=-a_\nu$ and $\partial\partial\lambda_1=0$, and $|\lambda_1|\le dR_X|a|$, which is small by \eqref{eq:nf-small}. By \eqref{eq:gauge-formula} with $U_0=1$, which holds for complex $\lambda$ by analytic continuation (Step~2 of the proof of Lemma~\ref{lem:quadratic-bound}), $U^{e^{-\ii t\lambda_1}u_r}=e^{\ii\eta A^\circ_t}$ on the bonds of $\Lam$ for $t\in[0,1]$, with
+\[
+A^\circ_t(b)=e^{-\ii t\operatorname{ad}\lambda_1(b_-)}A^\circ(b)+t\,\mathfrak d\big(t\operatorname{ad}\lambda_1(b_-)\big)\partial\lambda_1(b)+\eta\,\mathfrak b\big(t\lambda_1(b_-),A^\circ(b),t\,\partial\lambda_1(b)\big).
+\]
+Put $B=A^\circ_1$. For $b=(x_X,x_X+\eta e_\nu)$ we have $\lambda_1(b_-)=0$ and $\lambda_1(b_+)=-\eta a_\nu$, so $U^{e^{-\ii\lambda_1}u_r}(b)=e^{\ii\eta a_\nu}e^{-\ii\eta a_\nu}=1$ and $B(b)=0$.
+
+For a bond $b$ in direction $\nu$ at $x$, the main part of $A^\circ_t(b)$ is $A^\circ_\nu(x)-ta_\nu=(A^\circ_\nu(x)-a_\nu)+(1-t)a_\nu$. By (H1), $|A^\circ_\nu(x)-a_\nu|\le dR_X|\partial A^\circ|_\Lam$. Each other term contains $\lambda_1(b_-)$ or $\partial\lambda_1$, together with $A^\circ$ or $\partial\lambda_1$. They are bounded by $C(1+R_X)\vartheta_0^2L^{-2m}$. Hence
+\[
+|A^\circ_t|\le2\vartheta_0L^{-m}+C(1+R_X)\vartheta_1L^{-2m},\qquad|B|\le C(1+R_X)\vartheta_1L^{-2m}.
+\]
+Differentiating with $\partial\partial\lambda_1=0$ gives $\partial A^\circ_t=e^{-\ii t\operatorname{ad}\lambda_1}\partial A^\circ+E_t$. Each term of $E_t$ contains the constant $\partial\lambda_1=-a$, together with $A^\circ$, $a$ or $\partial A^\circ$. So $|E_t|\le C\vartheta_1L^{-2m}$, and by (H1) and (H2) the H\"older quotients of $E_t$ on $\Lam$ are at most $C(1+R_X)\vartheta_0\vartheta_1L^{-3m}$. The H\"older quotients of $e^{-\ii t\operatorname{ad}\lambda_1}\partial A^\circ$ are at most $(1+C|\lambda_1|)[\partial A^\circ]_{\alpha,\Lam}+C(1+R_X)|a||\partial A^\circ|_\Lam$. With \eqref{eq:nf-step2} and \eqref{eq:nf-small}, for $t\in[0,1]$,
+\begin{equation}\label{eq:nf-step3}
+|\partial A^\circ_t|_\Lam\le C\vartheta_1L^{-2m},\qquad[\partial A^\circ_t]_{\alpha,\Lam}\le C\vartheta_1L^{-(2+\alpha)m}.
+\end{equation}
+The term $\vartheta_0^2$ of $\vartheta_1$ comes from the commutators with $a$; it is the non-abelian part of the curvature.
+
+\emph{Step 4: the quadratic gauge.} Let $S_{\mu\nu}=\frac12(\partial_\mu B_\nu+\partial_\nu B_\mu)(x_X)$, so that $|S|\le C\vartheta_1L^{-2m}$ by \eqref{eq:nf-step3}. With $y=x-x_X$ put
+\[
+\lambda_2(x)=-\frac12\sum_{\mu,\rho}S_{\mu\rho}\,y_\mu y_\rho+\frac\eta2\sum_\mu S_{\mu\mu}\,y_\mu\quad(x\in\Lam),\qquad\lambda_2=0\ \text{ off }\Lam .
+\]
+For differences in $\Lam$,
+\[
+\partial_\nu\lambda_2(x)=-\sum_\rho S_{\nu\rho}\,y_\rho,\qquad\partial_\mu\partial_\nu\lambda_2=-S_{\mu\nu} ;
+\]
+the term with $\eta$ removes the shift $\frac\eta2S_{\nu\nu}$ in the lattice difference of $y_\nu^2$. Moreover $\lambda_2(x_X)=\lambda_2(x_X+\eta e_\mu)=0$ and $\lambda_2(x_X+\eta e_\mu+\eta e_\nu)=-\eta^2S_{\mu\nu}$ for all $\mu,\nu$, and
+\[
+|\lambda_2|\le C(1+R_X)^2\vartheta_1L^{-2m},\qquad|\partial\lambda_2|_\Lam\le C(1+R_X)\vartheta_1L^{-2m},\qquad|\partial\partial\lambda_2|\le C\vartheta_1L^{-2m}.
+\]
+As in Step~3, $U^{e^{-\ii t\lambda_2}e^{-\ii\lambda_1}u_r}=e^{\ii\eta B_t}$ on the bonds of $\Lam$ for $t\in[0,1]$, with
+\[
+B_t(b)=e^{-\ii t\operatorname{ad}\lambda_2(b_-)}B(b)+t\,\mathfrak d\big(t\operatorname{ad}\lambda_2(b_-)\big)\partial\lambda_2(b)+\eta\,\mathfrak b\big(t\lambda_2(b_-),B(b),t\,\partial\lambda_2(b)\big).
+\]
+Hence $|B_t|\le|B|+|\partial\lambda_2|_\Lam+C(1+R_X)^3\vartheta_1^2L^{-4m}\le C(1+R_X)\vartheta_1L^{-2m}$. Differentiating gives $\partial B_t=e^{-\ii t\operatorname{ad}\lambda_2}\partial B+t\,\partial\partial\lambda_2+E'_t$. Each term of $E'_t$ contains $\partial\lambda_2$ or $\partial\partial\lambda_2$, together with one of $\lambda_2$, $\partial\lambda_2$, $B$ and $\partial B$. Since $\partial\partial\lambda_2$ is constant, (H1) and (H2) give $|E'_t|\le C(1+R_X)^2\vartheta_1^2L^{-4m}$, and H\"older quotients of $E'_t$ at most $C(1+R_X)^3\vartheta_1^2L^{-4m}$. With \eqref{eq:nf-step3} and \eqref{eq:nf-small}, for $t\in[0,1]$,
+\begin{equation}\label{eq:nf-step4}
+|\partial B_t|_\Lam\le C\vartheta_1L^{-2m},\qquad[\partial B_t]_{\alpha,\Lam}\le C\vartheta_1L^{-(2+\alpha)m}.
+\end{equation}
+Put $A=B_1$. Then $W=U^u=e^{\ii\eta A}$ on the bonds of $\Lam$.
+
+\emph{Step 5: the curvature at $x_X$; proof of (a) and (b).} The field $\lambda_2$ vanishes at $x_X$ and at $x_X+\eta e_\nu$, and $B$ vanishes on $(x_X,x_X+\eta e_\nu)$. So $W(x_X,x_X+\eta e_\nu)=1$, that is, $A$ vanishes on these bonds. Let $b=(x_X+\eta e_\mu,x_X+\eta e_\mu+\eta e_\nu)$. Then $\lambda_2(b_-)=0$, $\lambda_2(b_+)=-\eta^2S_{\mu\nu}$, and $\eta B(b)=\eta^2\partial_\mu B_\nu(x_X)$. So
+\[
+W(b)=e^{\ii\eta^2\partial_\mu B_\nu(x_X)}\,e^{-\ii\eta^2S_{\mu\nu}} .
+\]
+As in Step~2, $\eta A(b)=\ell(W(b))=\eta^2(\partial_\mu B_\nu(x_X)-S_{\mu\nu})+\eta^4\mathfrak c_{\mu\nu}$ with $|\mathfrak c_{\mu\nu}|\le C|\partial B|^2$. Since $A$ vanishes on $(x_X,x_X+\eta e_\nu)$,
+\[
+\partial_\mu A_\nu(x_X)=\tfrac12\big(\partial_\mu B_\nu-\partial_\nu B_\mu\big)(x_X)+\eta^2\mathfrak c_{\mu\nu}\qquad\text{for all }\mu,\nu .
+\]
+For $p=p_{\mu\nu}(x_X)$, $\mu<\nu$, the bonds $b_1$ and $b_4$ of Definition~\ref{def:curvature} leave $x_X$. So $W(\partial p)=e^{\ii\eta A_\nu(x_X+\eta e_\mu)}e^{-\ii\eta A_\mu(x_X+\eta e_\nu)}$, and in the same way
+\[
+F_W(p)=\eta^{-2}\ell(W(\partial p))=\partial_\mu A_\nu(x_X)-\partial_\nu A_\mu(x_X)+\eta^2\mathfrak c'_{\mu\nu},\qquad|\mathfrak c'_{\mu\nu}|\le C|\partial A(x_X)|^2 .
+\]
+Put $F_X=F_W(x_X)$, extended antisymmetrically. The last two displays give
+\[
+\partial_\mu A_\nu(x_X)=\tfrac12F_{X,\mu\nu}+\rho_{\mu\nu}\quad\text{for all }\mu,\nu,\qquad|\rho|\le C|\partial B|_\Lam^2\le C\vartheta_1^2L^{-4m},
+\]
+and $|F_X|\le C\vartheta_1L^{-2m}$. The transformation $u$ equals $u_r$ at $x_X$, which lies in $G$. The holonomy of a closed contour based at $x_X$ is conjugated by $u(x_X)$. Hence $W(\partial p)=u_r(x_X)U(\partial p)u_r(x_X)^{-1}$, so $|U(\partial p)-1|=|W(\partial p)-1|$ is small, and $F_X=u_r(x_X)F_U(x_X)u_r(x_X)^{-1}$ by Lemma~\ref{lem:log-estimates}(d). This proves (a).
+
+Put $R=A-A_{\rm lin}[F_X]$ on the bonds of $\Lam$. Then $R$ vanishes on the bonds $(x_X,x_X+\eta e_\nu)$, and $\partial R(x_X)=\rho$. Since the differences of $A_{\rm lin}[F_X]$ are constant, $[\partial R]_{\alpha,\Lam}=[\partial A]_{\alpha,\Lam}\le C\vartheta_1L^{-(2+\alpha)m}$, by \eqref{eq:nf-step4}. Comparing every difference with the one at $x_X$, at distance at most $\sqrt dR_X$,
+\[
+|\partial R|_\Lam\le|\rho|+(\sqrt dR_X)^\alpha[\partial R]_{\alpha,\Lam}\le C(1+R_X)^\alpha\vartheta_1L^{-(2+\alpha)m}.
+\]
+By (H1), $|R|\le dR_X|\partial R|_\Lam$. With $\vartheta_1\le3\delta_1\Theta$ and $1+R_X\le6M(1+d_j(X))$, this gives the bounds of (b) on $F_X$ and $R$. For the domain norms, $|A_{\rm lin}[F_X]|\le\frac12(d-1)R_X|F_X|$, $\partial A_{\rm lin}[F_X]=\frac12F_X$ and $\delta_1\le\delta_0$ give $\|A_{\rm lin}[F_X]\|_X\le d(1+R_X)|F_X|/\delta_1\le C(1+R_X)\Theta L^{-2m}$. Likewise $\|R\|_X\le C(1+R_X)^{1+\alpha}\Theta L^{-(2+\alpha)m}$, using $\delta_1\le\delta_0$ for the sup norm. Finally $\|A\|_X\le\|A_{\rm lin}[F_X]\|_X+\|R\|_X\le C(1+R_X)^2\Theta L^{-2m}\le\frac14$, by \eqref{eq:nf-small} with $C_{\rm nf}\ge4C$.
+
+\emph{Step 6: proof of (c).} By Remark~\ref{rem:domain-constants}(i), $U\in\mathcal U(X;L^{-2m}\theta_r,L^{-2m}\delta_1,L^{-m}\delta_0)\subset\mathcal U(X)$, and $\mathcal U(X)$ is invariant under real gauge transformations. On the bonds of $X^{(3)}\subset\Lam$, the two families of configurations in (c) are $e^{\ii\eta A^\circ_t}$ and $e^{\ii\eta B_t}$. In Definition~\ref{def:graded} take the real part $1$, whose curvature and current vanish. Then $\nabla=\partial$, and the H\"older quotients of Definition~\ref{def:graded} on $X^{(3)}$ are among those on $\Lam$. By Steps~3 and~4, $\vartheta_0\le\delta_0\Theta$, $\vartheta_1\le3\delta_1\Theta$ and \eqref{eq:nf-small},
+\[
+|A^\circ_t|,|B_t|<\delta_0,\qquad|\partial A^\circ_t|_\Lam+[\partial A^\circ_t]_{\alpha,\Lam}<\delta_1,\qquad|\partial B_t|_\Lam+[\partial B_t]_{\alpha,\Lam}<\delta_1 .
+\]
+So both families lie in $\mathcal U(X)$. For $|s|\,\|A\|_X<1$, the configuration $V_s$ has real part $1$ and the field $sA$ on $X^{(3)}$, which satisfies the bounds of Definition~\ref{def:graded} by the definition of $\|\cdot\|_X$. So $V_s\in\mathcal U(X)$. By (a), $V_1=W$ on the bonds of $X^{(3)}$.
+
+Let $F$ be a graded activity at $X$. Real gauge invariance gives $F(U)=F(U^{u_r})$. Lemma~\ref{lem:complex-gauge}, applied at $U^{u_r}$ with $-\lambda_1$ and then at $U^{e^{-\ii\lambda_1}u_r}$ with $-\lambda_2$, gives $F(U^{u_r})=F(W)$. Finally $F(W)=F(V_1)$, since $F$ depends only on the configuration on the bonds of $X$. The map $s\mapsto V_s|_X$ is holomorphic, and $F$ is holomorphic on an open set containing $\{V|_X:V\in\mathcal U(X)\}$. So $s\mapsto F(V_s)$ is holomorphic for $|s|<\|A\|_X^{-1}$.
+
+\emph{Step 7: proof of (d).} Let $B,B'$ be fields on the bonds of $X^{(3)}$; the bound is trivial if one of them vanishes. For $|s|<1/(2\|B\|_X)$ and $|s'|<1/(2\|B'\|_X)$ we have $\|sB+s'B'\|_X<1$. So $V_{s,s'}\in\mathcal U(X)$, and $(s,s')\mapsto F(V_{s,s'})$ is holomorphic on this polydisc and bounded by $\|F\|$. Cauchy's estimate gives $|d^2F(1)[B,B']|\le4\|F\|\,\|B\|_X\|B'\|_X$. The form $d^2F(1)$ is the second derivative at $0$ of the holomorphic function $B\mapsto F(e^{\ii\eta B})$, so it is symmetric and bilinear. For a constant $v\in G$, $(e^{\ii\eta B})^v=e^{\ii\eta vBv^{-1}}$, and real gauge invariance gives $d^2F(1)[vBv^{-1},vBv^{-1}]=d^2F(1)[B,B]$. Since $A_{\rm lin}[vF'v^{-1}]=vA_{\rm lin}[F']v^{-1}$, the form $\mathfrak q_F$ is invariant under conjugation by $G$, and $\mathfrak q_F(F_X)=\mathfrak q_F(F_U(x_X))$ by (a).
+
+Let $f(s)=F(V_s)$. By (c), $f$ is holomorphic for $|s|<s_0=\|A\|_X^{-1}$, with $s_0\ge4$, and bounded by $\|F\|$. Moreover $f(1)=F(U)$, $f(0)=F(1)=0$, $f''(0)=d^2F(1)[A,A]$, and $f'(0)=0$ by the argument in Step~3 of the proof of Lemma~\ref{lem:quadratic-bound} ($G$ semisimple): by real gauge invariance under constant gauge transformations, $\operatorname{grad}F(1)(b)$ is $\operatorname{Ad}(G)$-invariant for every bond $b$, hence $0$. Cauchy's estimate gives
+\[
+\big|F(U)-\tfrac12d^2F(1)[A,A]\big|\le\|F\|\sum_{n\ge3}s_0^{-n}\le2\|F\|\,\|A\|_X^3 .
+\]
+By bilinearity, $\frac12d^2F(1)[A,A]-\mathfrak q_F(F_X)=d^2F(1)[A_{\rm lin}[F_X],R]+\frac12d^2F(1)[R,R]$, which is at most $4\|F\|\,\|R\|_X\big(\|A_{\rm lin}[F_X]\|_X+\|R\|_X\big)$. By Step~5 and \eqref{eq:nf-small}, $\|A\|_X\le C(1+R_X)\Theta L^{-2m}$ and $\|R\|_X(\|A_{\rm lin}[F_X]\|_X+\|R\|_X)\le C(1+R_X)^{2+\alpha}\Theta^2L^{-(4+\alpha)m}$. Moreover $(1+R_X)^3L^{-6m}\le(1+R_X)^{2+\alpha}L^{-(4+\alpha)m}$, by the first inequality of \eqref{eq:nf-small}. With $\Theta\ge1$ and $1+R_X\le6M(1+d_j(X))$ this gives (d).
+\end{proof}
+
+\begin{remark}[On Lemma~\ref{lem:later-normal-form}]\label{rem:later-normal-form}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Where the gain comes from.} The real part must be put into a gauge with the regularity of scale $k$, rescaled, as in Step~1. A gauge from Corollary~\ref{cor:regularity} at scale $j$, enlarged to $\Lam_X$ by Lemma~\ref{lem:large-cubes} as in Step~1 of the proof of Lemma~\ref{lem:quadratic-bound}, has H\"older quotients of order $L^{-2m}$ only. Then $R$ would be of order $L^{-2m}$, and the error in~(d) of order $L^{-4m}$ per polymer. Summed over the $L^{4m}$ polymers of scale $j$ in a box of scale $k$, this is of order one, for every older generation. The affine gauge removes the sup norm of order $L^{-m}$, as in Remark~\ref{rem:one-loop-polymer}(a). The quadratic gauge removes the symmetric part of the gradient, which is a gauge direction to first order.
+\item \emph{Covariance instead of commutators.} The proof computes no commutator: the non-abelian part of the curvature enters $F_X$ through covariance (Step~5). In a direct computation, to leading order in $\eta$ and in the fields, the term $e^{-\ii\operatorname{ad}\lambda_1}A^\circ$ of $A^\circ_1$ in Step~3 contributes $\ii[a_\mu,a_\nu]$ to $\partial_\mu B_\nu(x_X)$. The Maurer--Cartan term $\mathfrak d(\operatorname{ad}\lambda_1)\partial\lambda_1$, with $\mathfrak d(z)=1-\frac\ii2z+O(z^2)$ (the derivative of the exponential map), contributes $-\frac\ii2[a_\mu,a_\nu]$. The sum is half the commutator term $\ii[a_\mu,a_\nu]$ of the curvature, as $\partial_\mu A_{\rm lin}[F]_\nu=\frac12F_{\mu\nu}$ requires. Without the Maurer--Cartan term it would be the whole.
+\item \emph{Where the lemma applies.} The lemma holds at every point of the domain of scale $k$ at $Y$; the polymer $Y$ need only contain $X$, not $X^{(3)}$. In particular it applies at the composed configurations $e^{\ii\eta A_*}U'$ of Proposition~\ref{prop:composed}(a), which lie in the domains $\mathcal U^\flat$ of scale $k$ when Proposition~\ref{prop:composed} is applied with $\delta_1^\flat$ (Remark~\ref{rem:symmetrization-flow}(c)). So it covers the old generations inside the fluctuation integrals of the later steps. For sums over translates, $x_X$ can be taken to be the centre of the base cube $Q(X)$ (Section~\ref{subsec:flow-norm}); for polymers that are not wrapping, $x_{X+a}=x_X+a$ for $a\in M\Z^4$. This choice is made in Lemma~\ref{lem:cell-sums}.
+\item \emph{The constants $c'$ and $m_0$.} The lemma holds for every $c'>0$; only the range \eqref{eq:nf-m0} of $m$ depends on $c'$. It is applied with the $c'$ of Definition~\ref{def:polymer-classes}, whose choice is explained in Remark~\ref{rem:polymer-classes}(a). Since $R_m$ grows linearly in $m$, \eqref{eq:nf-m0} holds for all large $m$, and the integer $m_0$ of Remark~\ref{rem:parameters}(5) is finite. It depends only on $c'$, $d$, $\alpha$, $G$, $L$, $M$, $a$ and the ratios $\theta_r/\delta_1$, $\delta_0^2/\delta_1$, not on $j$, $k$, the torus or the coupling. It is fixed after the domain constants and before the couplings; $C_{\rm nf}$ and $\Theta$ do not depend on it.
+\end{enumerate}
+\end{remark}
+
+\subsection{Cell sums}\label{subsec:extraction-cells}
+
+\paragraph{Families and period densities.} Let $1\le j\le K$ and use the units of scale $j$. The centre $z_Q\in M\Z^4$ of a grid cube $Q$ of scale $j$ is a point of $Q$ on the fine lattice. For a grid cube $\Box$ of scale $k\ge j$ let $\cX^{\rm sm}_j(\Box)$ be the set of the small polymers of $\Box$, the small polymers of scale $j$ based in $\Box$ (Definition~\ref{def:polymer-classes}); it is empty if $k-j<m_0$. A \emph{family of scale $j$} is a family $\mathsf H=\{\mathsf H(X,\cdot)\}$, indexed by the polymers $X$ of scale $j$, with the following properties: each $\mathsf H(X,\cdot)$ is a normalized graded activity at $X$ on $\mathcal U^\flat(X)=\mathcal U(X;\theta_r,\delta_1^\flat,\delta_0)$ (Section~\ref{sec:generations}), real at real configurations; the family has the grid covariance (G2) of Definition~\ref{def:generation}; and, as in Definition~\ref{def:generation},
+\[
+\|\mathsf H\|_j=\sup_Xe^{\kappa_nd_j(X)}\|\mathsf H(X)\|<\infty ,
+\]
+with $\|\mathsf H(X)\|=\sup_{\mathcal U^\flat(X)}|\mathsf H(X,\cdot)|$. A generation $E$ of scale $j$ with $\|E\|_j<\infty$ is a family of scale $j$. For a family and a polymer $X$ that is not wrapping, the quadratic form $c^X_{\mathsf H}$ and the period density $\bar T_{\mathsf H}$ are those of Definition~\ref{def:period-density}:
+\[
+c^X_{\mathsf H}(F)=\frac12\,\frac{d^2}{dt^2}\,\mathsf H\big(X,e^{\ii\eta tA_F}\big)\Big|_{t=0},\qquad\bar T_{\mathsf H}(F)=M^{-4}\sum_{X\supset Q}\frac{c^X_{\mathsf H}(F)}{|X|} .
+\]
+Here $Q$ is a grid cube of scale $j$, the sum runs over the polymers $X\supset Q$ that are not wrapping, and $|X|$ is the number of grid cubes of $X$. The argument $F=(F_{\mu\nu})_{\mu<\nu}$ is a curvature datum in $\mathfrak g^c$, extended antisymmetrically, with $|F|=\max_{\mu,\nu}|F_{\mu\nu}|$. The field $A_F(b)=\frac12\sum_\mu F_{\mu\nu}(b_--x_0)_\mu$, for the bonds $b$ in direction $\nu$, is the linear field of $F$ with an origin $x_0$, in the coordinates of the lift of $X^{(3)}$ to $\R^4$ (Section~\ref{subsec:gen-period}, paragraph on lifts and linear fields). The configuration $e^{\ii\eta tA_F}$ is taken on the bonds of $X^{(3)}$ and equal to $1$ elsewhere; $\mathsf H(X,\cdot)$ sees only the bonds of $X$. The form $c^X_{\mathsf H}$ does not depend on the origin $x_0$ (Lemma~\ref{lem:period-density}(a)), and we take $x_0=z_{Q(X)}$. If $X$ is small at a scale $k$ and $x_X=z_{Q(X)}$ in Lemma~\ref{lem:later-normal-form}, the coordinates of $\Lam_X$ lift $X^{(3)}$, and $A_F$ is the linear field $A_{\rm lin}[F]$ of the lemma on the bonds of $X^{(3)}$. So $c^X_{\mathsf H}$ is then the form $\mathfrak q_{\mathsf H(X)}$ of Lemma~\ref{lem:later-normal-form}(d): both are half the second derivative at $t=0$ of $\mathsf H(X,\cdot)$ along the configurations equal to $e^{\ii\eta tA_{\rm lin}[F]}$ on the bonds of $X^{(3)}$ and to $1$ elsewhere.
+
+\paragraph{The normal form on the domains $\mathcal U^\flat$.} Lemma~\ref{lem:later-normal-form} holds for all constants that satisfy its hypotheses. Below it is applied with $(\theta_r,\delta_1^\flat,\delta_0)$ in place of $(\theta_r,\delta_1,\delta_0)$, at both scales; its hypotheses hold, since $\delta_1^\flat\le\delta_0$. Its domains are then the domains $\mathcal U^\flat$ of scale $j$ and of scale $k$, the norm $\|\cdot\|_X$ of Section~\ref{subsec:extraction-nf} is taken with $\delta_1^\flat$ in place of $\delta_1$, and $\Theta$ is replaced by
+\[
+\Theta^\flat=1+\frac{B_5\theta_r+\delta_0^2}{\delta_1^\flat}=4\Theta-3 .
+\]
+The integer $m_0$ is defined with $\Theta^\flat$ (Remark~\ref{rem:parameters}(5)), so \eqref{eq:nf-m0} holds with $\Theta^\flat$ for $m\ge m_0$. Since $\delta_1^\flat\Theta^\flat\le\delta_1\Theta$, part~(b) gives $|F_X|\le C_{\rm nf}\delta_1^\flat\Theta^\flat L^{-2m}\le C_{\rm nf}\delta_1\Theta L^{-2m}$.
+
+\begin{lemma}[Cell sums]\label{lem:cell-sums}
+Let $G$ be semisimple, let $1\le j\le K$, and let $\mathsf H$ be a family of scale $j$.
+\begin{enumerate}[label=(\alph*)]
+\item By Lemma~\ref{lem:period-density}(a) and~(b), for every polymer $X$ of scale $j$ that is not wrapping, $c^X_{\mathsf H}$ is a quadratic form on the curvature data $F$ in $\mathfrak g^c$, invariant under the conjugation $F\mapsto vFv^{-1}$ by every $v\in G$, with $c^{X+a}_{\mathsf H}=c^X_{\mathsf H}$ for $a\in M\Z^4$, and
+\begin{equation}\label{eq:cX-bound}
+|c^X_{\mathsf H}(F)|\le9d^2M^2\big(1+d_j(X)\big)^2(\delta_1^\flat)^{-2}\,\|\mathsf H(X)\|\,|F|^2 .
+\end{equation}
+For every grid cube $Q$ of scale $j$ and every $F$,
+\begin{equation}\label{eq:cell-identity}
+\sum_{X:\,Q(X)=Q}c^X_{\mathsf H}(F)=\sum_{X\supset Q}\frac{c^X_{\mathsf H}(F)}{|X|}=M^4\,\bar T_{\mathsf H}(F),
+\end{equation}
+both sums running over the polymers that are not wrapping. In particular $\bar T_{\mathsf H}$ does not depend on $Q$.
+\item Let $j<k\le K$ with $m=k-j\ge m_0$, let $\Box$ be a grid cube of scale $k$, and let $U\in\mathcal U^\flat(\Box^+)=\mathcal U(\Box^+;\theta_r,\delta_1^\flat,\delta_0)$ in the units of scale $k$. In the units of scale $j$, for every grid cube $Q$ of scale $j$ in $\Box$ the curvature $F_Q=F_U(z_Q)$ is defined, $|F_Q|\le C_{\rm nf}\delta_1^\flat\Theta^\flat L^{-2m}\le C_{\rm nf}\delta_1\Theta L^{-2m}$, and
+\begin{equation}\label{eq:cell-sums}
+\Big|\sum_{X\in\cX^{\rm sm}_j(\Box)}\mathsf H(X,U)-M^4\sum_{Q\subset\Box}\bar T_{\mathsf H}(F_Q)\Big|\le C_{\rm cs}\,(\Theta^\flat)^3\,\|\mathsf H\|_j\,L^{-\alpha m}.
+\end{equation}
+Here $Q$ runs over the $L^{4m}$ grid cubes of scale $j$ in $\Box$, $C_{\rm nf}$ is that of Lemma~\ref{lem:later-normal-form} and $\Theta^\flat$ is as above, and $C_{\rm cs}=(C_{\rm nf}+18d^2M^2C_{\rm nf}^2)K_0$, with $K_0$ of \eqref{eq:dM-facts}.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:cell-sums}
+(a) The properties of $c^X_{\mathsf H}$ and \eqref{eq:cX-bound} are Lemma~\ref{lem:period-density}(a) and~(b), since $\mathsf H$ has (G2). Let $Q$ be a grid cube of scale $j$, and let $\mathfrak T$ be the group of the translations of the torus by the vectors of $M\Z^4$. It acts simply transitively on the grid cubes of scale $j$, it maps polymers that are not wrapping to polymers that are not wrapping, and $Q(X+a)=Q(X)+a$ for these (Section~\ref{subsec:flow-norm}). In particular $X+a\ne X$ for $a\ne0$. For a polymer $X\supset Q$ that is not wrapping, let $a_X\in\mathfrak T$ be the translation with $Q(X)+a_X=Q$, and put $\pi(X)=X+a_X$. Then $Q(\pi(X))=Q$, $|\pi(X)|=|X|$ and $c^{\pi(X)}_{\mathsf H}=c^X_{\mathsf H}$. Conversely, let $X'$ be a polymer with $Q(X')=Q$ that is not wrapping. The polymers $X\supset Q$ with $\pi(X)=X'$ are the polymers $X'-a$ with $a\in\mathfrak T$ and $Q+a\subset X'$. Indeed, $X'-a\supset Q$ means $Q+a\subset X'$, and then $Q(X'-a)=Q-a$, so $a_{X'-a}=a$. There is one such $a$ for each of the $|X'|$ cubes of $X'$, and the polymers $X'-a$ are distinct. Hence
+\[
+\sum_{X\supset Q}\frac{c^X_{\mathsf H}(F)}{|X|}=\sum_{X':\,Q(X')=Q}|X'|\,\frac{c^{X'}_{\mathsf H}(F)}{|X'|},
+\]
+which is \eqref{eq:cell-identity}. The left side of \eqref{eq:cell-identity} for $Q+a$ is that for $Q$, by the covariance of $c^X_{\mathsf H}$; so $\bar T_{\mathsf H}$ does not depend on $Q$.
+
+(b) The torus satisfies (T0)--(T2) at every scale $k\le K$ (Lemma~\ref{lem:torus}(a)), so $n_k\ge n_0$. Since $m\ge m_0$, $m$ satisfies \eqref{eq:nf-m0} with $\Theta^\flat$ (Remark~\ref{rem:parameters}(5)). Let $Q$ be a grid cube of scale $j$ in $\Box$, and let $X$ be a small polymer of $\Box$ with $Q(X)=Q$; for instance $X=Q$, since $d_j(Q)=0$. By Lemma~\ref{lem:small-polymers}, $X$ is not wrapping and $X\subset X^{(3)}\subset\Box^+$. So Lemma~\ref{lem:later-normal-form}, with the constants $(\theta_r,\delta_1^\flat,\delta_0)$ as above, applies to $X$, with $x_X=z_Q$ and $Y=\Box^+$. By its part~(a), $F_Q=F_U(z_Q)$ is defined and conjugate to $F_X$ by an element of $G$; by part~(b), $|F_Q|=|F_X|\le C_{\rm nf}\delta_1^\flat\Theta^\flat L^{-2m}$. By part~(d), applied to $\mathsf H(X,\cdot)$, with $\mathfrak q_{\mathsf H(X)}=c^X_{\mathsf H}$ and $\mathfrak q_{\mathsf H(X)}(F_X)=\mathfrak q_{\mathsf H(X)}(F_Q)$,
+\begin{equation}\label{eq:cell-taylor}
+\big|\mathsf H(X,U)-c^X_{\mathsf H}(F_Q)\big|\le C_{\rm nf}\,\|\mathsf H(X)\|\,(\Theta^\flat)^3\big(1+d_j(X)\big)^{2+\alpha}L^{-(4+\alpha)m}.
+\end{equation}
+Every polymer of scale $j$ based in $\Box$ has its base cube among the $L^{4m}$ grid cubes $Q$ of scale $j$ in $\Box$ (Lemma~\ref{lem:grid-nesting}(b)). A polymer that is not wrapping is small or large at scale $k$, since $m\ge m_0$. So \eqref{eq:cell-identity} gives
+\[
+\begin{aligned}
+\sum_{X\in\cX^{\rm sm}_j(\Box)}\mathsf H(X,U)-M^4\sum_{Q\subset\Box}\bar T_{\mathsf H}(F_Q)
+&=\sum_{Q\subset\Box}\ \sum_{X\text{ small}:\,Q(X)=Q}\big(\mathsf H(X,U)-c^X_{\mathsf H}(F_Q)\big)\\
+&\quad-\sum_{Q\subset\Box}\ \sum_{X\text{ large}:\,Q(X)=Q}c^X_{\mathsf H}(F_Q),
+\end{aligned}
+\]
+where the last sum runs over the large polymers that are not wrapping. We use $\|\mathsf H(X)\|\le\|\mathsf H\|_je^{-\kappa_nd_j(X)}$, $\kappa_n-\kappa_0\ge\kappa_0+2\ge3$ (Remark~\ref{rem:parameters}(1)), and, by \eqref{eq:dM-facts}, $\sum_{X\supset Q}e^{-\kappa_0d_j(X)}\le K_0$ for every $Q$.
+
+\emph{The Taylor remainders.} Since $\alpha\le\frac12$, $(1+d)^{2+\alpha}e^{-(\kappa_n-\kappa_0)d}\le(1+d)^3e^{-3d}\le1$ for $d\ge0$. By \eqref{eq:cell-taylor}, the first sums contribute at most
+\[
+C_{\rm nf}(\Theta^\flat)^3\|\mathsf H\|_jL^{-(4+\alpha)m}\sum_{Q\subset\Box}\ \sum_{X\supset Q}e^{-\kappa_0d_j(X)}\le C_{\rm nf}K_0\,(\Theta^\flat)^3\|\mathsf H\|_jL^{-\alpha m}.
+\]
+
+\emph{The large polymers.} For a large polymer, $d_j(X)>c'm$, so $e^{-\frac12(\kappa_n-\kappa_0)d_j(X)}\le e^{-\frac12(\kappa_n-\kappa_0)c'm}=L^{-5m}$, by the choice of $c'$ (Definition~\ref{def:polymer-classes}). Moreover $(1+d)^2e^{-\frac12(\kappa_n-\kappa_0)d}\le(1+d)^2e^{-d}\le2$. With \eqref{eq:cX-bound} and $|F_Q|\le C_{\rm nf}\delta_1^\flat\Theta^\flat L^{-2m}$, the second sums contribute at most
+\[
+9d^2M^2C_{\rm nf}^2(\Theta^\flat)^2L^{-4m}\cdot2L^{-5m}\|\mathsf H\|_j\sum_{Q\subset\Box}\ \sum_{X\supset Q}e^{-\kappa_0d_j(X)}\le18d^2M^2C_{\rm nf}^2K_0\,(\Theta^\flat)^2\|\mathsf H\|_jL^{-5m}.
+\]
+Since $\Theta^\flat\ge1$ and $L^{-5m}\le L^{-\alpha m}$, the two bounds give \eqref{eq:cell-sums}.
+\end{proof}
+
+\paragraph{The action as a family.} The action of a grid cube $\Box$ of scale $k$ is $S_\Box=\sum_{p:\,p_-\in\Box}s_p$ (Section~\ref{subsec:flow-norm}), with the plaquette terms $s_p(U)=\mathsf N-\frac12\operatorname{tr}\big(U(\partial p)+U(\partial p)^{-1}\big)$ of Section~\ref{sec:action}. To apply Lemma~\ref{lem:cell-sums} to it, we group the plaquette terms into a family of scale $j\le k$. For a plaquette $p$ of $\Tf$ let $X_p$ be the union of the grid cubes of scale $j$ that contain a corner of $p$, and put
+\[
+S^{(j)}(X,U)=\sum_{p:\,X_p=X}s_p(U)
+\]
+for the polymers $X$ of scale $j$. The sum is empty unless $X=X_p$ for some plaquette $p$.
+
+\begin{lemma}[The action as a family]\label{lem:plaquette-family}
+Let $1\le j\le K$, and use the units of scale $j$.
+\begin{enumerate}[label=(\alph*)]
+\item For every plaquette $p$, $X_p$ is a polymer of scale $j$ of at most four grid cubes, with $d_j(X_p)=0$. It is not wrapping, and $Q(X_p)$ is the grid cube that contains $p_-$. Hence $\sum_XS^{(j)}(X,U)=S(U)$, and for every grid cube $\Box$ of scale $k\ge j$
+\[
+\sum_{X\text{ based in }\Box}S^{(j)}(X,U)=S_\Box(U).
+\]
+If $k-j\ge m_0$, every polymer based in $\Box$ that carries a plaquette term is in $\cX^{\rm sm}_j(\Box)$, so the sum on the left is the sum over $\cX^{\rm sm}_j(\Box)$.
+\item Each $S^{(j)}(X,\cdot)$ is a normalized graded activity at $X$, real at real configurations. It is defined and holomorphic for all $G^c$-valued configurations, and invariant under all gauge transformations. The family $S^{(j)}$ has the grid covariance (G2), and $S^{(j)}(rX,rU)=S^{(j)}(X,U)$ for every element $r$ of the hyperoctahedral group $B_4$ acting about the centre of a grid cube of scale $j$.
+\item Let $i\le K$, let $P$ be a domain, and let $U\in\mathcal U(P;\theta_r,\delta_1,\delta_0)$ in the units of scale $i$. For every plaquette $p$ whose corners lie in $P^{(3)}$,
+\[
+|s_p(U)|\le C_s\,\eta_i^4\,(\theta_r+\delta_1+\delta_0^2)^2,
+\]
+with $C_s$ depending only on $d$ and $G$. Consequently $\|S^{(j)}\|_j\le6C_sM^4$, so $S^{(j)}$ is a family of scale $j$. Moreover $|S_\Box(U)|\le6C_sM^4$ for every grid cube $\Box$ of scale $k\le K$ and every $U\in\mathcal U(\Box^+;\theta_r,\delta_1,\delta_0)$ in the units of scale $k$.
+\item For every polymer $X$ of scale $j$, $c^X_{S^{(j)}}(F)=\frac12\eta^4\sum_{p:\,X_p=X}\operatorname{tr}\big(F_{\mu(p)\nu(p)}^2\big)$, where $\mu(p)<\nu(p)$ are the directions of the plane of $p$. Hence
+\[
+\bar T_{S^{(j)}}(F)=\frac12\sum_{\mu<\nu}\operatorname{tr}\big(F_{\mu\nu}^2\big).
+\]
+This is the period density $\bar T_S$ of the action (Definition~\ref{def:period-density}); this is also the last claim of Lemma~\ref{lem:period-density}(d).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:plaquette-family}
+(a) Let $p=p_{\mu\nu}(x)$, $\mu<\nu$, and let $c_0\in M\Z^4$ be the centre of the grid cube of scale $j$ that contains $x=p_-$, so $|x-c_0|_\infty\le\frac12(M-\eta)$ (Lemma~\ref{lem:grid-nesting}(a)). The corners of $p$ are $x+\eta(\epsilon_\mu e_\mu+\epsilon_\nu e_\nu)$, $\epsilon\in\{0,1\}^2$. If $(x-c_0)_\mu<\frac12(M-\eta)$, then $x+\eta e_\mu$ lies in the cube centred at $c_0$; otherwise $(x-c_0)_\mu=\frac12(M-\eta)$, and $x+\eta e_\mu$ lies in the cube centred at $c_0+Me_\mu$. The same holds for $\nu$. So the cubes of $X_p$ are among the four cubes centred at $c_0+M(\epsilon_\mu e_\mu+\epsilon_\nu e_\nu)$, and $X_p$ contains the cube centred at $c_0$. The closed cubes of the continuum that they fill all contain the point $c_0+\frac12M(e_\mu+e_\nu)$. So they are pairwise $*$-adjacent, $X_p$ is a polymer, and the tree that consists of this point meets all of them; hence $d_j(X_p)=0$. The diameter of $X_p$ is less than $2M\le\frac12n_j-8$, since $n_j\ge8LM$ (Lemma~\ref{lem:torus}(a)), so $X_p$ is not wrapping. In a box that lifts $X_p$, the centres of its cubes are among the points $c_0+M(\epsilon_\mu e_\mu+\epsilon_\nu e_\nu)$, and the lexicographically least of them is $c_0$. So $Q(X_p)$ is the cube that contains $p_-$.
+
+Each plaquette $p$ belongs to exactly one polymer $X_p$, so $\sum_XS^{(j)}(X,U)=\sum_ps_p(U)=S(U)$. Since $p_-\in Q(X_p)$ and $Q(X_p)$ lies in exactly one grid cube of scale $k$ (Lemma~\ref{lem:grid-nesting}(b)), $X_p$ is based in $\Box$ if and only if $p_-\in\Box$. This gives the identity for $S_\Box$. If $k-j\ge m_0$, a polymer that carries a plaquette term has $d_j(X)=0\le c'(k-j)$, so it is small.
+
+(b) The terms $s_p$ with $X_p=X$ depend only on $U$ on the bonds of $p$, which join corners of $p$ and so are bonds of $X$. Each $s_p$ is holomorphic in the $G^c$-valued configurations, since $U(\partial p)^{-1}=U(b_4)U(b_3)U(b_2)^{-1}U(b_1)^{-1}$ with the bonds of Definition~\ref{def:curvature}. It is invariant under all gauge transformations, since $U^g(\partial p)=g(p_-)U(\partial p)g(p_-)^{-1}$; it vanishes at $U=1$; and it is real for real $U$ (Section~\ref{sec:action}). For $a\in M\Z^4$, $X_{p+a}=X_p+a$ and $s_{p+a}(\tau_aU)=s_p(U)$, which gives (G2). Let $r\in B_4$ act about the centre of a grid cube of scale $j$, a point of $M\Z^4$ on the fine lattice. Then $r$ maps the fine lattice and the grid cubes of scale $j$ onto themselves, and the plaquettes onto plaquettes; so $X_{rp}=rX_p$. Moreover $(rU)(\partial(rp))$ is conjugate to $U(\partial p)^{\pm1}$, as in Section~\ref{sec:action}, and $\operatorname{tr}(H+H^{-1})$ is invariant under conjugation and inversion. So $s_{rp}(rU)=s_p(U)$, and summing over the plaquettes $p$ with $X_p=X$ gives $S^{(j)}(rX,rU)=S^{(j)}(X,U)$.
+
+(c) Write $\eta=\eta_i$. Let $p=p_{\mu\nu}(x)$ have its corners in $P^{(3)}$, and let $U=e^{\ii\eta A}U_r$ on the bonds of $P^{(3)}$ as in Definition~\ref{def:graded}. Let $b_1,\dots,b_4$ be the bonds of $p$ as in Definition~\ref{def:curvature}, $A_l=A(b_l)$, and $H_p=U_r(\partial p)=e^{\ii\eta^2F_{U_r}(p)}$. The identity \eqref{eq:plaquette-product} is an identity of products and holds for complex $A$:
+\[
+U(\partial p)=e^{\ii\eta a_1}e^{\ii\eta a_2}e^{-\ii\eta a_3}e^{-\ii\eta a_4}H_p,
+\]
+with $a_1=A_1$, $a_2=R(U_r(b_1))A_2$, $a_3=R(H_pU_r(b_4))A_3$ and $a_4=R(H_p)A_4$. Here $|a_l|<\delta_0$, since $R$ of a real element preserves the norm, and $|\eta^2F_{U_r}(p)|<\eta^2\theta_r$. By (DC1) and (DC5), $\theta_r,\delta_0\le c_a\le c_{\rm DC}r_ML^{-2}\le\frac1{20}$, since $c_{\rm DC}\le\frac1{128}$ and $r_M\le\frac14c_G\le\frac1{16}$ (Remark~\ref{rem:domain-constants}). So the norms of the five exponents add up to at most $s=\eta(4\delta_0+\theta_r)\le\frac14$, and Lemma~\ref{lem:log-estimates}(c) gives
+\[
+Y:=\ell(U(\partial p))=\eta(a_1+a_2-a_3-a_4)+\eta^2F_{U_r}(p)+\beta,\qquad|\beta|\le Cs^2\le C\eta^2(4\delta_0+\theta_r)^2 .
+\]
+The covariant differences of Definition~\ref{def:graded} at $x$ are $\eta D_{U_r,\mu}A_\nu(x)=R(U_r(b_1))A_2-A_4$ and $\eta D_{U_r,\nu}A_\mu(x)=R(U_r(b_4))A_3-A_1$. So
+\[
+a_1+a_2-a_3-a_4=\eta\big(D_{U_r,\mu}A_\nu-D_{U_r,\nu}A_\mu\big)(x)+\big(1-R(H_p)\big)\big(R(U_r(b_4))A_3+A_4\big).
+\]
+The first term is at most $2\eta\delta_1$. For the second, $|(R(H)-1)Z|\le2|H-1||Z|$ for unitary $H$, and $|H_p-1|\le2\eta^2\theta_r$ by Lemma~\ref{lem:log-estimates}(a); so it is at most $8\eta^2\theta_r\delta_0$. With $\eta\le1$, $\delta_0\le1$ and $\theta_r^2\le\theta_r$, this gives $|Y|\le C'\eta^2(\theta_r+\delta_1+\delta_0^2)$, with $C'$ depending only on $d$ and $G$. Moreover $|Y|\le s+Cs^2\le\frac14+C$. Finally $U(\partial p)=e^{\ii Y}$, so $s_p(U)=\operatorname{tr}(1-\cos Y)$. The power series gives $|1-\cos Y|\le\frac12\cosh(\frac14+C)\,|Y|^2$, and $|\operatorname{tr}Z|\le\sqrt{\mathsf N}|Z|$. This proves the bound.
+
+The plaquettes with $X_p=X$ have $p_-\in Q(X)$, by (a). There are at most $6(M/\eta)^4$ of them, since $Q(X)$ contains $(M/\eta)^4$ points of the fine lattice. Their corners lie in $X\subset X^{(3)}$, and $\theta_r+\delta_1+\delta_0^2\le1$. So $\|S^{(j)}(X)\|\le6C_sM^4$. Since $d_j(X)=0$ whenever $S^{(j)}(X,\cdot)\ne0$, $\|S^{(j)}\|_j\le6C_sM^4$. With (b), $S^{(j)}$ is a family of scale $j$. In the units of scale $k$, the plaquettes with $p_-\in\Box$ are at most $6(M/\eta_k)^4$, and their corners lie at distance at most $\eta_k\le1$ from $\Box$, so in $\Box^+$. This gives the bound on $S_\Box$.
+
+(d) Let $p=p_{\mu\nu}(x)$, $\mu<\nu$, with $X_p=X$, and let $V_t$ equal $e^{\ii\eta tA_F}$ on the bonds of $X^{(3)}$ and $1$ elsewhere. Its real part is $1$, so $V_t(\partial p)=e^{\ii\eta ta_1}e^{\ii\eta ta_2}e^{-\ii\eta ta_3}e^{-\ii\eta ta_4}$ with $a_l=A_F(b_l)$. Since $A_F$ is linear, $a_1+a_2-a_3-a_4=\eta(\partial_\mu A_{F,\nu}-\partial_\nu A_{F,\mu})(x)=\eta F_{\mu\nu}$. By Lemma~\ref{lem:log-estimates}(c), $Y(t)=\ell(V_t(\partial p))=t\eta^2F_{\mu\nu}+O(t^2)$ for small $|t|$, and
+\[
+s_p(V_t)=\operatorname{tr}\big(1-\cos Y(t)\big)=\tfrac12\operatorname{tr}\big(Y(t)^2\big)+O(|t|^4)=\tfrac12t^2\eta^4\operatorname{tr}\big(F_{\mu\nu}^2\big)+O(|t|^3).
+\]
+So half the second derivative of $s_p(V_t)$ at $t=0$ is $\frac12\eta^4\operatorname{tr}(F_{\mu\nu}^2)$. Summing over the $p$ with $X_p=X$ gives $c^X_{S^{(j)}}$. By \eqref{eq:cell-identity} for the family $S^{(j)}$ and by (a),
+\[
+M^4\bar T_{S^{(j)}}(F)=\sum_{X:\,Q(X)=Q}c^X_{S^{(j)}}(F)=\sum_{p:\,p_-\in Q}\frac12\eta^4\operatorname{tr}\big(F_{\mu(p)\nu(p)}^2\big)=M^4\cdot\frac12\sum_{\mu<\nu}\operatorname{tr}\big(F_{\mu\nu}^2\big),
+\]
+since each of the $(M/\eta)^4$ points of the fine lattice in $Q$ is the base point of one plaquette in each plane. The period density $\bar T_S$ of Definition~\ref{def:period-density} is computed in the same way from the plaquette terms of $S$, and it is the same quadratic form.
+\end{proof}
+
+\subsection{The extraction}\label{subsec:extraction-prop}
+
+\begin{proposition}[Extraction]\label{prop:extraction}
+Let $G$ be simple, let $1\le j\le k\le K$ and $m=k-j$, and let $E$ be a generation of scale $j$ with the properties (G1)--(G4) of Definition~\ref{def:generation}. Let $\beta_E$ be its coefficient, defined by $\bar T_E=\beta_E\bar T_S$ (Proposition~\ref{prop:period-iso}). For a grid cube $\Box$ of scale $k$ put
+\[
+\Psi_\Box(U)=\sum_{X\in\cX^{\rm sm}_j(\Box)}E(X,U)-\beta_E\,S_\Box(U).
+\]
+Then $\Psi_\Box$ is a normalized graded activity at $\Box^+$ on $\mathcal U^\flat(\Box^+)$ in the units of scale $k$, real at real configurations, and for every $U\in\mathcal U^\flat(\Box^+)=\mathcal U(\Box^+;\theta_r,\delta_1^\flat,\delta_0)$ in the units of scale $k$
+\[
+|\Psi_\Box(U)|\le C_{\rm ex}\|E\|_j\,L^{-\alpha m}\quad\text{if }m\ge m_0,\qquad|\Psi_\Box(U)|\le C_{\rm ex}\|E\|_j\quad\text{if }m<m_0 .
+\]
+If $m<m_0$, then $\cX^{\rm sm}_j(\Box)$ is empty and $\Psi_\Box=-\beta_ES_\Box$. Here $C_{\rm ex}=C_{\rm cs}(\Theta^\flat)^3(1+6C_\beta C_sM^4)$, where $C_\beta$ is the constant of Proposition~\ref{prop:period-iso} in $|\beta_E|\le C_\beta\|E\|_j$. It depends only on the parameters fixed in Remark~\ref{rem:parameters}(1)--(5), not on $j$, $k$, $\Box$, the torus, the couplings or $E$.
+\end{proposition}
+
+\begin{proof}\hasdetail{prop:extraction}
+By Lemma~\ref{lem:small-polymers}(b), every $X\in\cX^{\rm sm}_j(\Box)$ lies in $\Box^+$. The action $S_\Box$ depends only on $U$ on the bonds of $\Box^{(1)}\subset\Box^+$. By Remark~\ref{rem:domain-constants}(i), with $\delta_1^\flat$ in place of $\delta_1$, a point of $\mathcal U^\flat(\Box^+)$ of scale $k$ lies in $\mathcal U^\flat(X)$ of scale $j$ for each such $X$. So each $E(X,\cdot)$ is holomorphic on an open set that contains the restrictions to $\Box^+$ of the points of $\mathcal U^\flat(\Box^+)$, and $S_\Box$ is holomorphic everywhere. The coefficient $\beta_E$ is real. Indeed, for real $F$ and real $t$ the configurations $e^{\ii\eta tA_F}$ are real, so $c^X_E(F)$ is real by (G1); hence $\bar T_E$ is real on real $F$, while $\bar T_S$ is positive there (Lemma~\ref{lem:plaquette-family}(d)). Gauge invariance, normalization and reality now follow from (G1) and Lemma~\ref{lem:plaquette-family}(b). So $\Psi_\Box$ is a normalized graded activity at $\Box^+$ on $\mathcal U^\flat(\Box^+)$, real at real configurations.
+
+Let $U\in\mathcal U^\flat(\Box^+)$ in the units of scale $k$. If $m<m_0$, no polymer is small at scale $k$, so $\Psi_\Box=-\beta_ES_\Box$. Then Lemma~\ref{lem:plaquette-family}(c) and $|\beta_E|\le C_\beta\|E\|_j$ give $|\Psi_\Box(U)|\le6C_\beta C_sM^4\|E\|_j$.
+
+Let $m\ge m_0$. We may assume $\|E\|_j<\infty$. Then the generation $E$ is a family of scale $j$, and so is $S^{(j)}$ (Lemma~\ref{lem:plaquette-family}(c)). By Lemma~\ref{lem:plaquette-family}(a) and (d),
+\[
+S_\Box(U)=\sum_{X\in\cX^{\rm sm}_j(\Box)}S^{(j)}(X,U),\qquad\bar T_{S^{(j)}}=\bar T_S .
+\]
+With the curvatures $F_Q=F_U(z_Q)$ of Lemma~\ref{lem:cell-sums}(b), in the units of scale $j$,
+\[
+\begin{aligned}
+\Psi_\Box(U)&=\Big(\sum_{X\in\cX^{\rm sm}_j(\Box)}E(X,U)-M^4\sum_{Q\subset\Box}\bar T_E(F_Q)\Big)-\beta_E\Big(S_\Box(U)-M^4\sum_{Q\subset\Box}\bar T_S(F_Q)\Big)\\
+&\quad+M^4\sum_{Q\subset\Box}\big(\bar T_E-\beta_E\bar T_S\big)(F_Q).
+\end{aligned}
+\]
+The last sum vanishes by Proposition~\ref{prop:period-iso}: the two quadratic forms are equal on the curvature data in $\mathfrak g^c$, and the $F_Q$ are such curvature data. Lemma~\ref{lem:cell-sums}(b), applied to $E$ and to $S^{(j)}$, bounds the first two terms by $C_{\rm cs}(\Theta^\flat)^3L^{-\alpha m}\big(\|E\|_j+|\beta_E|\,\|S^{(j)}\|_j\big)$. With $\|S^{(j)}\|_j\le6C_sM^4$ and $|\beta_E|\le C_\beta\|E\|_j$, this is at most $C_{\rm ex}\|E\|_jL^{-\alpha m}$.
+\end{proof}
+
+\begin{remark}[On Proposition~\ref{prop:extraction}]\label{rem:extraction}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{The errors.} For $m\ge m_0$ there are two errors, both explicit in the proof of Lemma~\ref{lem:cell-sums}(b). The first is the Taylor remainder of Lemma~\ref{lem:later-normal-form}(d), at most $C_{\rm nf}(\Theta^\flat)^3\|E(X)\|(1+d_j(X))^{2+\alpha}L^{-(4+\alpha)m}$ for each small polymer. Its polynomial factor is absorbed by the decay of the generation, and the $L^{4m}$ cells of $\Box$ turn it into $L^{-\alpha m}$. This is the only error of order $L^{-\alpha m}$. The second is the quadratic part of the large polymers, which belongs to the period density but not to the small polymers. By the cutoff $c'$ it is $O(L^{-5m})$ per cube $\Box$. For $S_\Box$ only the first error occurs, since all plaquette terms are carried by small polymers. The property (G4) enters only through Proposition~\ref{prop:period-iso}; (G3) is not used in this section.
+\item \emph{No boundary layer and no H\"older replacement.} The small polymers of $\Box$ are grouped by their base cubes, which pave $\Box$, and the terms of $S_\Box$ by the base points of the plaquettes, which lie in the same cubes (Lemma~\ref{lem:plaquette-family}(a)). So the cell sums tile $\Box$ exactly, and no layer of polymers near the boundary of $\Box$ has to be estimated. The normal form of a polymer is taken at the centre of its base cube $Q$, which is the point at which the curvature $F_Q$ of the cell is evaluated; so no curvature has to be moved from one point of a polymer to another. The symmetric weights $1/|X|$ of Definition~\ref{def:period-density} enter only through the identity \eqref{eq:cell-identity}, which is exact by (G2). If these weights were used in the cell sums themselves, two further errors would occur. One comes from the polymers that meet $\Box$ but are not based in it, or are based in it but are not contained in it. The other comes from the comparison of $F_U(z_{Q(X)})$ with $F_U(z_{Q'})$ for the other cubes $Q'$ of $X$, through the H\"older bound on $\partial R$ in Lemma~\ref{lem:later-normal-form}(b). The identity \eqref{eq:cell-identity} makes both unnecessary.
+\item \emph{Why the counterterm is grouped with the small polymers.} On the complex domain of scale $k$ the action $S_\Box$ is of order $M^4(\theta_r+\delta_1+\delta_0^2)^2$ (Lemma~\ref{lem:plaquette-family}(c)), which is not small in the coupling. In the flow, $\sum_{j\le k}\beta_j=g_0^{-2}-g_k^{-2}$ by the recursion of Remark~\ref{rem:flow-status}, which is not bounded uniformly in $k$ and in the bare coupling. So the counterterms cannot be bounded one by one in the sum over the generations. The differences $\Psi_\Box$ can, by the gain $L^{-\alpha m}$.
+\item \emph{Sums over generations.} Let $E^{(j)}$, $1\le j\le k$, be generations of scale $j$ with (G1)--(G4) and $\|E^{(j)}\|_j\le\mathsf K$, and let $\Psi^{(j)}_\Box$ be the corresponding functions. Then, for every grid cube $\Box$ of scale $k$ and every $U\in\mathcal U^\flat(\Box^+)$ of scale $k$,
+\[
+\sum_{j=1}^k|\Psi^{(j)}_\Box(U)|\le C_{\rm ex}\mathsf K\Big(m_0+\sum_{m\ge m_0}L^{-\alpha m}\Big)\le C_{\rm ex}\mathsf K\Big(m_0+\frac1{1-L^{-\alpha}}\Big),
+\]
+uniformly in $k$, $K$, the torus and the couplings.
+\item \emph{The domain.} The proposition holds on the domain $\mathcal U^\flat$ of scale $k$ at $\Box^+$, the domain of the activities carried by the flow (Remark~\ref{rem:symmetrization-flow}(c)). By Remark~\ref{rem:later-normal-form}(c), this includes the composed configurations $e^{\ii\eta A_*}U'$ of Proposition~\ref{prop:composed}(a), at which the old generations are evaluated inside the fluctuation integrals of the later steps.
+\end{enumerate}
+\end{remark}
+
+\subsection{The other polymers}\label{subsec:extraction-other}
+
+The polymers of scale $j$ that are not small at scale $k$ are the recent ones ($m<m_0$) and the large ones ($m\ge m_0$ and $d_j(X)>c'm$). Every wrapping polymer is among them (Lemma~\ref{lem:small-polymers}(a)). They are not expanded. Grouped by their closures $\operatorname{cl}_kX$ (Lemma~\ref{lem:grid-nesting}(c)), they give activities of scale $k$ with the rate $\kappa_n$ at scale $k$ and a gain $L^{-m}$. For a family $E$ indexed by the polymers of scale $j$, a scale $k\ge j$ and a polymer $Y$ of scale $k$ put
+\[
+E^{\rm ne}_Y(U)=\sum_{X\text{ not small at scale }k:\ \operatorname{cl}_kX=Y}E(X,U).
+\]
+
+\begin{lemma}[The other polymers at later scales]\label{lem:large-later}
+Let $1\le j\le k\le K$ and $m=k-j$. Let $E$ be a family indexed by the polymers of scale $j$, such that each $E(X,\cdot)$ is a normalized graded activity at $X$ on $\mathcal U^\flat(X)$ of scale $j$ and $\|E\|_j<\infty$, with $\|E(X)\|=\sup_{\mathcal U^\flat(X)}|E(X,\cdot)|$; for instance a generation of scale $j$ with $\|E\|_j<\infty$. Put $C_{\rm ne}=3^dK_0L^{5m_0}$.
+\begin{enumerate}[label=(\alph*)]
+\item For every polymer $Y$ of scale $k$, $E^{\rm ne}_Y$ is a normalized graded activity at $Y$ on $\mathcal U^\flat(Y)$ in the units of scale $k$, and
+\[
+\sum_{X\text{ not small}:\ \operatorname{cl}_kX=Y}\ \sup_{U\in\mathcal U^\flat(Y)}|E(X,U)|\le C_{\rm ne}\|E\|_j\,L^{-m}e^{-\kappa_nd_k(Y)},
+\]
+where $\mathcal U^\flat(Y)=\mathcal U(Y;\theta_r,\delta_1^\flat,\delta_0)$ is taken in the units of scale $k$. In particular $\sup_{\mathcal U^\flat(Y)}|E^{\rm ne}_Y|\le C_{\rm ne}\|E\|_jL^{-m}e^{-\kappa_nd_k(Y)}$.
+\item For every grid cube $\Box$ of scale $k$,
+\[
+\sum_{X\text{ not small}:\ X\cap\Box\ne\emptyset}\|E(X)\|\le K_0L^{5m_0}\|E\|_j\,L^{-m}.
+\]
+\item Call $X$ \emph{wrapping at scale $k$} if $X$ is wrapping, or if its closure $\operatorname{cl}_kX$ is wrapping at scale $k$. These polymers are not small. If $m\ge1$, then for every polymer $Y$ of scale $k$
+\[
+\sum_{X\text{ wrapping at scale }k:\ \operatorname{cl}_kX=Y}\|E(X)\|\le3^dK_0\|E\|_j\,L^{-m}e^{-(\kappa_n-\kappa_0)n_j/(16M)}e^{-\kappa_nd_k(Y)} .
+\]
+If families $E^{(j)}$ as above are given for all $j\le k$, with $\|E^{(j)}\|_j\le\mathsf K$, then for every grid cube $\Box$ of scale $k$
+\[
+\sum_{j\le k}\ \sum_{X\text{ of scale }j,\text{ wrapping at scale }k:\ X\cap\Box\ne\emptyset}\|E^{(j)}(X)\|\le2K_0\mathsf K\,e^{-(\kappa_n-\kappa_0)n_k/(4M)} .
+\]
+\item Let $E^{(j)}$, $1\le j\le k$, be families as above with $\|E^{(j)}\|_j\le\mathsf K$, and write $E^{(j),\rm ne}_Y$ for the activities of (a). Then for every polymer $Y$ and every grid cube $\Box$ of scale $k$
+\[
+\sum_{j=1}^k\sup_{\mathcal U^\flat(Y)}|E^{(j),\rm ne}_Y|\le2C_{\rm ne}\mathsf K\,e^{-\kappa_nd_k(Y)},\quad\sum_{j=1}^k\ \sum_{X\text{ not small}:\ X\cap\Box\ne\emptyset}\|E^{(j)}(X)\|\le2K_0L^{5m_0}\mathsf K,
+\]
+where in the second sum $X$ runs over the polymers of scale $j$. The bounds are uniform in $k$, $K$, the torus and the couplings.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:large-later}
+We use $L\ge4$, which follows from $L^2\ge8(C_*+1)$ and $C_*\ge1$ (Remark~\ref{rem:parameters}(2), Proposition~\ref{prop:sharp-curvature}), and $\kappa_n-\kappa_0\ge\frac12\kappa_n+1$, which follows from $\kappa_n\ge2\kappa_0+2$ (Remark~\ref{rem:parameters}(1)).
+
+(a) If $m=0$, then $\operatorname{cl}_jX=X$, and the sum consists of the single term $X=Y$, which is recent. So it is at most $\|E(Y)\|\le\|E\|_je^{-\kappa_nd_j(Y)}$, and $E^{\rm ne}_Y=E(Y,\cdot)$. Let $m\ge1$. Every polymer $X$ with $\operatorname{cl}_kX=Y$ lies in $Y$. By Remark~\ref{rem:domain-constants}(i), with $\delta_1^\flat$ in place of $\delta_1$, a point of $\mathcal U^\flat(Y)$ of scale $k$ lies in $\mathcal U^\flat(X)$ of scale $j$. So $E^{\rm ne}_Y$, a finite sum, is a normalized graded activity at $Y$ on $\mathcal U^\flat(Y)$ in the units of scale $k$, and $\sup_{\mathcal U^\flat(Y)}|E(X,\cdot)|\le\|E(X)\|\le\|E\|_je^{-\kappa_nd_j(X)}$. Every such $X$ contains one of the $L^{4m}|Y|_M$ grid cubes of scale $j$ in $Y$, where $|Y|_M$ is the number of grid cubes of scale $k$ in $Y$, and $d_j(X)\ge L^md_k(Y)$ (Lemma~\ref{lem:grid-nesting}(c)). By \eqref{eq:dM-facts}, at the scales $j$ and $k$,
+\[
+\sum_{X:\,\operatorname{cl}_kX=Y}e^{-\kappa_0d_j(X)}\le K_0L^{4m}|Y|_M\le3^dK_0L^{4m}e^{d_k(Y)} .
+\]
+\emph{Recent polymers}, $1\le m<m_0$. Here $(\kappa_n-\kappa_0)d_j(X)\ge(\kappa_n-\kappa_0)L^md_k(Y)$, so the sum is at most $3^dK_0L^{4m}\|E\|_je^{-((\kappa_n-\kappa_0)L^m-1)d_k(Y)}$. The rate is at least $4(\kappa_n-\kappa_0)-1\ge\kappa_n$, and $L^{4m}\le L^{5m_0}L^{-m}$.
+
+\emph{Large polymers}, $m\ge m_0$. Here $d_j(X)>c'm$, and by the choice of $c'$
+\[
+(\kappa_n-\kappa_0)d_j(X)\ge\tfrac12(\kappa_n-\kappa_0)c'm+\tfrac12(\kappa_n-\kappa_0)L^md_k(Y)=5m\log L+\tfrac12(\kappa_n-\kappa_0)L^md_k(Y).
+\]
+So the sum is at most $3^dK_0L^{-m}\|E\|_je^{-(\frac12(\kappa_n-\kappa_0)L^m-1)d_k(Y)}$, and the rate is at least $2(\kappa_n-\kappa_0)-1\ge\kappa_n$.
+
+(b) A polymer of scale $j$ that meets $\Box$ contains one of the $L^{4m}$ grid cubes of scale $j$ in $\Box$ (Lemma~\ref{lem:grid-nesting}(b)). If $m<m_0$, \eqref{eq:dM-facts} gives the bound $K_0L^{4m}\|E\|_j\le K_0L^{5m_0}L^{-m}\|E\|_j$. If $m\ge m_0$, a large polymer has $\|E(X)\|\le\|E\|_je^{-\kappa_0d_j(X)}e^{-(\kappa_n-\kappa_0)c'm}=\|E\|_je^{-\kappa_0d_j(X)}L^{-10m}$, and the sum is at most $K_0L^{-6m}\|E\|_j$.
+
+(c) By Lemma~\ref{lem:torus}(c), the polymers wrapping at scale $k$ have $d_j(X)\ge n_j/(4M)$. They are not small. For $m<m_0$ no polymer is small. For $m\ge m_0$, a small polymer is not wrapping, and its closure lies in $\Box^+$ for the cube $\Box$ in which it is based (Lemma~\ref{lem:small-polymers}); $\Box^+$ has diameter less than $3M\le\frac12n_k-8$, so the closure is not wrapping. Let $m\ge1$. The second bound of Lemma~\ref{lem:torus}(d), with $A=\|E\|_j$, $\lambda=\kappa_n$ and $n_j=L^mn_k$, gives
+\[
+\sum_{X\text{ wrapping at scale }k:\ \operatorname{cl}_kX=Y}\|E(X)\|\le3^dK_0L^{4m}\|E\|_je^{-(\kappa_n-\kappa_0)n_j/(8M)}e^{-(\frac12(\kappa_n-\kappa_0)L^m-1)d_k(Y)} .
+\]
+The rate is at least $\kappa_n$, as in (a). By (T2) at scale $k$ (Lemma~\ref{lem:torus}(a)), $n_k\ge8LM$. With $\kappa_n-\kappa_0\ge3$ and $L^m\ge e\,m\log L$ this gives $(\kappa_n-\kappa_0)n_j/(16M)\ge\frac32L^{m+1}\ge5m\log L$. Hence $L^{4m}e^{-(\kappa_n-\kappa_0)n_j/(8M)}\le L^{-m}e^{-(\kappa_n-\kappa_0)n_j/(16M)}$. The sum over $j\le k$ is Lemma~\ref{lem:torus}(e), with $a_j(X)=\|E^{(j)}(X)\|$, $A=\mathsf K$ and $\lambda=\kappa_n$.
+
+(d) Sum the bounds of (a) and (b) over $m=k-j\ge0$, with $\sum_{m\ge0}L^{-m}\le2$.
+\end{proof}
+
+\begin{remark}[An old generation at a later scale]\label{rem:old-later}
+Let $G$ be simple, let $E$ be a generation of scale $j$ with (G1)--(G4), and let $k\ge j$, $m=k-j$. Let $U$ be a configuration that lies, in the units of scale $k$, in $\mathcal U^\flat(\Box^+)$ for every grid cube $\Box$ and in $\mathcal U^\flat(Y)$ for every polymer $Y$ of scale $k$. For instance $U$ may be a background field $U_k(V)$ at an admissible threshold (Section~\ref{sec:generations}, the paragraph before Definition~\ref{def:generation}, at scale $k$). A polymer $X$ of scale $j$ is either small at scale $k$, and then based in exactly one grid cube $\Box$ of scale $k$, or not small, and then $\operatorname{cl}_kX$ is one polymer $Y$ of scale $k$. The $S_\Box$ add up to $S$. So
+\[
+\sum_XE(X,U)-\beta_ES(U)=\sum_\Box\Psi_\Box(U)+\sum_YE^{\rm ne}_Y(U),
+\]
+the sums running over the grid cubes $\Box$ and the polymers $Y$ of scale $k$. The first sum is indexed by the neighbourhoods $\Box^+$, with the bounds of Proposition~\ref{prop:extraction}. The second is indexed by the polymers of scale $k$, with the decay $e^{-\kappa_nd_k(Y)}$ and the gain $L^{-m}$ of Lemma~\ref{lem:large-later}(a). Each polymer $X$ in the second sum meets a grid cube of scale $k$, so Lemma~\ref{lem:large-later}(b) bounds the second sum by $K_0L^{5m_0}\|E\|_jL^{-m}$ per grid cube. For generations $E^{(j)}$, $1\le j\le k$, with (G1)--(G4) and $\|E^{(j)}\|_j\le\mathsf K$, Remark~\ref{rem:extraction}(d) and Lemma~\ref{lem:large-later}(d) give
+\[
+\Big|\sum_{j=1}^k\Big(\sum_XE^{(j)}(X,U)-\beta_{E^{(j)}}S(U)\Big)\Big|\le C\mathsf K\,\frac{|\T^{(k)}|}{M^4},\qquad C=C_{\rm ex}\Big(m_0+\frac1{1-L^{-\alpha}}\Big)+2K_0L^{5m_0},
+\]
+where $|\T^{(k)}|/M^4$ is the number of grid cubes of scale $k$. The constant $C$ does not depend on $k$.
+\end{remark}

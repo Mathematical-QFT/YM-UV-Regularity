@@ -1,0 +1,138 @@
+\section{Operators with exponential decay and the Combes--Thomas method}\label{sec:decay}
+
+Exponential decay will first be established in $L^2$, between unit blocks. This section develops the bookkeeping for this notion and the basic mechanism that produces it: if $K$ is coercive and conjugation by $e^{\alpha\rho}$ changes $K$ only by $O(\alpha)$, then $K^{-1}$ decays exponentially.
+
+\subsection{Block decay}\label{ss:5.1}
+
+We work with four kinds of field spaces: scalar fields and gauge fields on $\Tf$, and scalar fields and gauge fields on $\T$. On each of them we have the \emph{localization projections} $\one_y$, $y\in\T$. On the fine lattice, $\one_y$ is multiplication by the indicator of $B(y)$ (for gauge fields: of the bonds $(x,x+\eta e_\mu)$ with $x\in B(y)$). On the unit lattice, $\one_y$ keeps the value(s) at $y$. In all cases $\sum_y\one_y=I$.
+
+\begin{definition}\label{def:decay}
+A linear operator $K$ between two such spaces has \emph{decay $(C,\gamma)$} if
+\[
+\|\one_yK\one_{y'}\|\le Ce^{-\gamma|y-y'|}\qquad\text{for all }y,y'\in\T .
+\]
+\end{definition}
+
+For operators between unit-lattice spaces, $\|\one_yK\one_{y'}\|$ is the absolute value (or matrix norm) of the kernel $K(y,y')$, so decay is a pointwise kernel bound. We put
+\[
+S_\gamma=\sum_{z\in\Z^d}e^{-\gamma|z|}.
+\]
+Then $\sum_{y'\in\T}e^{-\gamma|y-y'|}\le S_\gamma$ for every $y$, uniformly in $n$, because distinct $y'$ have distinct nearest representatives of $y'-y$ in $\Z^d$.
+
+\begin{lemma}[Calculus of decay]\label{lem:decay-calculus}
+\begin{enumerate}[label=(\alph*)]
+\item If $K$ has decay $(C,\gamma)$, then $\|K\|\le CS_\gamma$.
+\item If $K_1$ and $K_2$ have decay $(C_1,\gamma)$ and $(C_2,\gamma)$, then $K_1K_2$ has decay $(C_1C_2S_{\gamma/2},\gamma/2)$.
+\item If $K$ has decay $(C,\gamma)$ then $K^*$ has decay $(C,\gamma)$. Sums behave in the obvious way, and decay $(C,\gamma)$ implies decay $(C,\gamma')$ for $\gamma'\le\gamma$.
+\item If $\one_yK\one_{y'}=0$ for $|y-y'|>r$ and $\|K\|\le M$, then $K$ has decay $(Me^{\gamma r},\gamma)$ for every $\gamma>0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) $\|\one_yKf\|\le\sum_{y'}Ce^{-\gamma|y-y'|}\|\one_{y'}f\|$. The matrix $(e^{-\gamma|y-y'|})$ has row and column sums at most $S_\gamma$, so by the Schur test it defines an operator on $\ell^2(\T)$ of norm at most $S_\gamma$. Hence $\|Kf\|^2=\sum_y\|\one_yKf\|^2\le C^2S_\gamma^2\sum_{y'}\|\one_{y'}f\|^2$.
+
+(b) $\one_yK_1K_2\one_{y'}=\sum_{y''}\one_yK_1\one_{y''}K_2\one_{y'}$. By the triangle inequality $|y-y''|+|y''-y'|\ge\frac12|y-y'|+\frac12|y-y''|$, so the norm is at most $C_1C_2e^{-\gamma|y-y'|/2}\sum_{y''}e^{-\gamma|y-y''|/2}$.
+
+(c) and (d) are immediate.
+\end{proof}
+
+\subsection{Conjugation by exponential weights}\label{ss:5.2}
+
+A function $\rho:\Tf\to\R$ is \emph{$1$-Lipschitz} if $|\rho(x)-\rho(x')|\le|x-x'|$ for all $x,x'$. A typical example is $\rho(x)=\operatorname{dist}(x,B(y'))$, the torus distance to a block. For $\alpha\in\R$, multiplication by $e^{\alpha\rho}$ acts on all four field spaces. On unit-lattice fields it multiplies the value at $y$ by $e^{\alpha\rho(y)}$, which is consistent because $\T\subset\Tf$. For an operator $K$ we write
+\[
+K_\alpha=e^{\alpha\rho}Ke^{-\alpha\rho}.
+\]
+Then $(K_1K_2)_\alpha=(K_1)_\alpha(K_2)_\alpha$, $(K^*)_\alpha=(K_{-\alpha})^*$, and $(K^{-1})_\alpha=(K_\alpha)^{-1}$. Since $\iota$ commutes with multiplication operators, $(\iota)_\alpha=\iota$.
+
+\begin{lemma}[Conjugation of decaying operators]\label{lem:conjugation}
+Let $K$ have decay $(C,\gamma)$ and let $\rho$ be $1$-Lipschitz. For $|\alpha|\le\gamma/2$,
+\[
+\|K_\alpha-K\|\le C\,c_1(\gamma)\,|\alpha|,\qquad c_1(\gamma)=e^{\gamma\sqrt d}\big(2\sqrt d+4/\gamma\big)S_{\gamma/4}.
+\]
+\end{lemma}
+
+\begin{proof}
+Fix $y,y'$, put $X=\one_yK\one_{y'}$, and write $e^{\alpha\rho}=e^{\alpha\rho(y)}E$ on the support of $\one_y$. Here $E$ is multiplication by $e^{\alpha(\rho-\rho(y))}$. Since points of $B(y)$ are within distance $\sqrt d$ of $y$, $\|E-1\|\le|\alpha|\sqrt d\,e^{|\alpha|\sqrt d}$ and $\|E\|\le e^{|\alpha|\sqrt d}$. Define $E'$ similarly at $y'$. Then $\one_y(K_\alpha-K)\one_{y'}=sEXE'^{-1}-X$ with $s=e^{\alpha(\rho(y)-\rho(y'))}$. Since $|s-1|\le|\alpha||y-y'|e^{|\alpha||y-y'|}$, the decomposition
+\[
+sEXE'^{-1}-X=(s-1)EXE'^{-1}+(E-1)XE'^{-1}+X(E'^{-1}-1)
+\]
+gives
+\[
+\|\one_y(K_\alpha-K)\one_{y'}\|\le C|\alpha|\,e^{2|\alpha|\sqrt d}\big(|y-y'|+2\sqrt d\big)e^{-(\gamma-|\alpha|)|y-y'|}.
+\]
+For $|\alpha|\le\gamma/2$ we have $e^{2|\alpha|\sqrt d}\le e^{\gamma\sqrt d}$ and $(t+2\sqrt d)e^{-\gamma t/2}\le(2\sqrt d+4/\gamma)e^{-\gamma t/4}$. Hence $K_\alpha-K$ has decay $(C|\alpha|e^{\gamma\sqrt d}(2\sqrt d+4/\gamma),\gamma/4)$, and Lemma~\ref{lem:decay-calculus}(a) concludes.
+\end{proof}
+
+\begin{lemma}[Conjugated derivatives]\label{lem:conj-derivative}
+Let $\rho$ be $1$-Lipschitz and $|\alpha|\le1$. Then $(\partial_\mu)_\alpha=\partial_\mu+Y$ and $(\partial_\mu^*)_\alpha=\partial_\mu^*+Y'$, where $Y,Y'$ are operators of norm at most $e|\alpha|$. On gauge fields the same holds componentwise.
+\end{lemma}
+
+\begin{proof}
+$(e^{\alpha\rho}\partial_\mu e^{-\alpha\rho}u)(x)=\partial_\mu u(x)+\eta^{-1}\big(e^{\alpha(\rho(x)-\rho(x+\eta e_\mu))}-1\big)u(x+\eta e_\mu)$. Moreover $|e^t-1|\le|t|e^{|t|}$ with $|t|\le|\alpha|\eta$. The computation for $\partial_\mu^*$ is the same.
+\end{proof}
+
+\subsection{The Combes--Thomas method}\label{ss:5.3}
+
+We give two versions. The first is for bounded operators, typically on the unit lattice. The second is for fine-lattice operators containing $-\Lap$, whose norm is of order $\eta^{-2}$.
+
+\begin{lemma}[Combes--Thomas, bounded version]\label{lem:CT-bounded}
+Let $K$ act on one of the four field spaces, have decay $(C,\gamma)$, and satisfy $\ip f{Kf}\ge c\|f\|^2$ for all (real) fields $f$. Put $\gamma'=\min\{\gamma/2,\ c/(2Cc_1(\gamma))\}$. Then $K$ is invertible and $K^{-1}$ has decay $(2c^{-1}e^{2\gamma'\sqrt d},\gamma')$.
+\end{lemma}
+
+\begin{proof}
+Fix $y'$, let $\rho(x)=\operatorname{dist}(x,B(y'))$ and $\alpha=\gamma'$. By Lemma~\ref{lem:conjugation}, $\ip f{K_\alpha f}\ge c\|f\|^2-\frac c2\|f\|^2$. Hence $K_\alpha$ is invertible with $\|K_\alpha^{-1}\|\le2/c$. Here we use that in finite dimensions $\ip f{Xf}\ge\delta\|f\|^2$ implies $\|Xf\|\ge\delta\|f\|$. Now $K^{-1}=e^{-\alpha\rho}K_\alpha^{-1}e^{\alpha\rho}$. On the support of $\one_{y'}$ we have $\rho=0$. On the support of $\one_y$ we have $\rho\ge|y-y'|-2\sqrt d$. Therefore $\|\one_yK^{-1}\one_{y'}\|\le e^{-\alpha(|y-y'|-2\sqrt d)}\,2/c$.
+\end{proof}
+
+\begin{lemma}[Neumann series]\label{lem:neumann}
+Let $\mathfrak N$ have decay $(C,\gamma)$ and $\|\mathfrak N\|\le\theta<1$. Then $(I+\mathfrak N)^{-1}$ has decay $(2(1-\theta)^{-1}e^{2\gamma'\sqrt d},\gamma')$ with $\gamma'=\min\{\gamma/2,(1-\theta)/(2Cc_1(\gamma))\}$.
+\end{lemma}
+
+\begin{proof}
+As above, with $\|\mathfrak N_\alpha\|\le\theta+(1-\theta)/2$, so that $\|(I+\mathfrak N_\alpha)^{-1}\|\le2/(1-\theta)$.
+\end{proof}
+
+This lemma is the form in which exponential decay is used in the variational problem, cf.\ \cite[(68)--(71)]{BalVar}.
+
+For the fine-lattice operators we write $\partial$ for the collection $(\partial_\mu)_\mu$ acting on scalar fields, or componentwise on gauge fields, and $\partial^*$ for its adjoint.
+
+\begin{lemma}[Combes--Thomas, form version]\label{lem:CT-form}
+Let $\mathfrak A$ act on scalar or gauge fields on $\Tf$. Suppose that:
+\begin{enumerate}[label=(\roman*)]
+\item $\ip u{\mathfrak Au}\ge c\,(\|u\|^2+\|\partial u\|^2)$ for all $u$;
+\item there are $C_1,\alpha_1>0$ such that for every $1$-Lipschitz $\rho$, every $|\alpha|\le\alpha_1$ and every $u$,
+\[
+|\ip u{(\mathfrak A_\alpha-\mathfrak A)u}|\le C_1|\alpha|\,(\|u\|^2+\|\partial u\|^2).
+\]
+\end{enumerate}
+Let $\gamma_0=\min\{\alpha_1,1/3,c/(2C_1)\}$. Then the four operators $\mathfrak A^{-1}$, $\partial\mathfrak A^{-1}$, $\mathfrak A^{-1}\partial^*$ and $\partial\mathfrak A^{-1}\partial^*$ have decay $(C_0,\gamma_0)$, with $C_0=2(1+\sqrt d)^2c^{-1}e^{2\gamma_0\sqrt d}$.
+\end{lemma}
+
+\begin{proof}
+Let $|\alpha|\le\gamma_0$. By (i) and (ii), $\ip u{\mathfrak A_\alpha u}\ge\frac c2(\|u\|^2+\|\partial u\|^2)$, so $\mathfrak A_\alpha$ is invertible. Let $u=\mathfrak A_\alpha^{-1}h$. Then $\frac c2(\|u\|^2+\|\partial u\|^2)\le\|u\|\|h\|$. This gives $\|u\|\le\frac2c\|h\|$ and then $\|\partial u\|^2\le\frac2c\|u\|\|h\|\le\frac4{c^2}\|h\|^2$. If instead $h=\partial^*g$, then $\frac c2(\|u\|^2+\|\partial u\|^2)\le\ip{\partial u}g\le\|\partial u\|\|g\|$, which gives $\|\partial u\|\le\frac2c\|g\|$ and $\|u\|\le\frac2c\|g\|$. Thus
+\[
+\|\mathfrak A_\alpha^{-1}\|,\ \|\partial\mathfrak A_\alpha^{-1}\|,\ \|\mathfrak A_\alpha^{-1}\partial^*\|,\ \|\partial\mathfrak A_\alpha^{-1}\partial^*\|\le\frac2c .
+\]
+Now fix $y'$, let $\rho=\operatorname{dist}(\cdot,B(y'))$ and $\alpha=\gamma_0$. By Lemma~\ref{lem:conj-derivative}, $\partial e^{-\alpha\rho}=e^{-\alpha\rho}(\partial+Y)$ and $e^{\alpha\rho}\partial^*=(\partial^*+Y'^{*})e^{\alpha\rho}$, where $Y'$ comes from $(\partial)_{-\alpha}$. Here $Y=(Y_\mu)_\mu$ and $Y'$ consist of $d$ operators, each of norm at most $e\alpha$ by Lemma~\ref{lem:conj-derivative}, so $\|Y\|,\|Y'\|\le\sqrt d\,e\alpha$. Hence, for instance,
+\[
+\one_y\partial\mathfrak A^{-1}\partial^*\one_{y'}=\one_ye^{-\alpha\rho}(\partial+Y)\mathfrak A_\alpha^{-1}(\partial^*+Y'^*)\one_{y'},
+\]
+where we used $e^{\alpha\rho}\one_{y'}=\one_{y'}$. The middle operator has norm at most $\frac2c(1+\sqrt d\,e\alpha)^2\le\frac2c(1+\sqrt d)^2$, because $e\alpha\le1$, and $\|\one_ye^{-\alpha\rho}\|\le e^{-\alpha(|y-y'|-2\sqrt d)}$. The other three operators are treated in the same way.
+\end{proof}
+
+The hypothesis (ii) is verified with the help of the following observation.
+
+\begin{lemma}[Conjugation of quadratic forms]\label{lem:conj-forms}
+Let $X=X_0-Z$, where $X_0=\sum_jc_j\,\partial^{(*)}_{\mu_j}$ is a finite linear combination of the operators $\partial_\mu$, $\partial^*_\mu$ (acting componentwise on scalar or gauge fields, with values in the appropriate form degree) with scalar coefficients $\sum_j|c_j|\le M$, and $Z$ is bounded with $\|Z\|\le M$ and $\|Z_\alpha-Z\|\le M|\alpha|$ for $|\alpha|\le\alpha_1\le1$. Then for $|\alpha|\le\alpha_1$,
+\[
+|\ip u{((X^*X)_\alpha-X^*X)u}|\le C_M|\alpha|\,(\|u\|^2+\|\partial u\|^2),
+\]
+with $C_M$ depending only on $M$ and $d$.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:conj-derivative}, applied to each term of $X_0$, $X_\alpha=X+W_\alpha$ with $\|W_\alpha\|\le(eM+M)|\alpha|$. Also $\|X_0u\|\le M\|\partial u\|$. Since $(X^*X)_\alpha=(X_{-\alpha})^*X_\alpha$,
+\[
+\ip u{((X^*X)_\alpha-X^*X)u}=\ip{W_{-\alpha}u}{Xu}+\ip{Xu}{W_\alpha u}+\ip{W_{-\alpha}u}{W_\alpha u}.
+\]
+Finally, $\|Xu\|\le M(\|\partial u\|+\|u\|)$.
+\end{proof}

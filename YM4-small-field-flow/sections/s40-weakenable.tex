@@ -1,0 +1,139 @@
+\section{Weakenable families}\label{sec:weakenable}
+
+The localization of Part~VIII is of radius type: a piece that depends on the data in a ball of radius $m$ is bounded by $e^{-\gamma m}$. The polymer expansion of the next stage needs volume type, a fixed small factor for every cube of the dependence region, as in \cite[(116)--(122)]{DimockI}. Ba\l aban and Dimock obtain this from random walks with weakening parameters $s_\Box$, with analyticity for $|s_\Box|\le e^{\kappa}$. This part constructs such weakened walks for all the operators of the step, in $L^2$ norms. Section~\ref{sec:pointwise-weak} explains what is missing for pointwise norms.
+
+\paragraph{Setting.} We keep the conventions of Part~VIII. The background $U$ is real and $(M,\eps)$-regular, or a complex perturbation of such a background as in Proposition~\ref{prop:reg-complex}. Here $\rho$ is a fixed number, chosen in Section~\ref{sec:nested-walks}, independent of $M$. The torus side satisfies $n\ge C(\rho+C_v)M$, with $C\ge8$ (used in Section~\ref{subsec:torus-independence}), so that the sets below do not wrap around. We use the grid points $z_j$, the functions $\chi_j$, $h_j=\chi_j^2$ and the sets $K_j$, $\Lam_j$ of Section~\ref{sec:domains}, and the enlarged domains
+\[
+\Lam^v_j=\text{the union of the blocks meeting }\{x:|x-z_j|_\infty\le\rho M\}.
+\]
+For $\rho=9$ these are the domains $\Lam^w_j$ of Section~\ref{sec:random-walk}. We have $|h_j(x)-h_j(x')|\le CM^{-1}|x-x'|$, and every point lies in at most $3^d$ supports $K_j$.
+
+\paragraph{Boxes and polymers.} Fix a \emph{product paving} $\mathcal P=\{I^1_{a_1}\times\dots\times I^d_{a_d}\}$ of $\Tf$. Here each $\{I^\mu_a\}_a$ is a partition of the circle $\R/n\Z$ into intervals of integer length between $M/4$ and $M$. Its elements are called \emph{boxes}; they are rectangular unions of unit blocks. A \emph{polymer} is a $*$-connected union $X$ of boxes: any two boxes of $X$ are joined by a chain of boxes of $X$, consecutive ones sharing at least a corner. Because the paving is a product, two boxes that do not touch are separated in some direction by a whole interval, so they are at distance at least $M/4$. At most $2^d$ boxes lie within distance $r<M/8$ of a point, and each box touches at most $3^d$ boxes. Write $|X|$ for the number of boxes of $X$, and $X^{(r)}$ for the $r$-neighbourhood in lattice units. For each $j$ let $X(j)$ be the union of the boxes that meet $(\Lam^v_j)^{(R_v)}$. Here $R_v\le C_vM$ is a fixed margin, chosen at each level to contain the dependence region of the local propagators. The local operators on a domain $Y$ depend on the background only on $\hat Y$, and those of the fluctuation operator only on $\widehat{Y^+}$, with $Y^+=Y^{(R_0)}$ and the margin $R_0\ge R_0(L,M)$ of Proposition~\ref{prop:local-fluct}(b). We take $R_v\ge R_0+4+2r_{\rm loc}$, where $r_{\rm loc}$ is the largest range of the local operators of the step; then $(\Lam^v_j)^{(R_v)}$ contains these sets for $Y=\Lam^v_j$, together with their $2r_{\rm loc}$-neighbourhoods. Then $X(j)$ is a polymer, and $|X(j)|\le\mathsf N_{\rm b}$, with $\mathsf N_{\rm b}$ depending only on $d$, $\rho$ and $C_v$. (The subscript distinguishes this number of boxes from the matrix size $\mathsf N$ of $G\subset U(\mathsf N)$.) Table~\ref{tab:margins} collects the margins of Parts~VIII and~IX.
+
+\begin{table}[tbp]
+\centering\small
+\begin{tabular}{|p{0.2\textwidth}|p{0.36\textwidth}|p{0.34\textwidth}|}
+\hline
+Margin & Value, and where it is fixed & Role\tabularnewline
+\hline
+$\hat X$ & \raggedright $X^{(4)}$ (Conventions of Part~VIII, Section~\ref{sec:dirichlet-averaged}) & \raggedright the operators on a domain $X$ depend on $U$ only on $\hat X$ (Proposition~\ref{prop:dirichlet-averaged}(c))\tabularnewline
+\hline
+interior points & \raggedright $y\in X_{(4)}$ (Theorem~\ref{thm:ID}) & \raggedright where the interior pointwise bounds hold\tabularnewline
+\hline
+\raggedright seam of the Dirichlet operators & \raggedright unit points within distance $10M$ of $X\setminus X'$ (Proposition~\ref{prop:dirichlet-averaged}(d)) & \raggedright contains the region within distance $8M$ of $X\setminus X'$ where the mass terms of $X$ and $X'$ differ (proof of Theorem~\ref{thm:ID}(e))\tabularnewline
+\hline
+$R_0$, $Y^+=Y^{(R_0)}$ & \raggedright $R_0\ge2L+2$ (Section~\ref{ss:37.4}), $R_0\ge R_0(L,M)=2L+10M+\frac2{\gamma'}\log^+\frac{16C_{\rm seam}}{c_L}\le C_LM$ (Proposition~\ref{prop:local-fluct}) & \raggedright the elimination maps have range $2L$; the local fluctuation operator $\Delta_Y$ is built on $Y^+$, and differs from the compression of $\Delta_k$ by at most $\frac1{16}c_L$ in norm (proof of Proposition~\ref{prop:local-fluct}(a))\tabularnewline
+\hline
+\raggedright seam of the fluctuation operator & \raggedright $R_0+10M+2L$ (Proposition~\ref{prop:local-fluct}(c); level (L5) of Section~\ref{sec:nested-walks}) & \raggedright comparison of $\Delta_Y$, $C_Y$ on two domains\tabularnewline
+\hline
+\raggedright boxes of the paving & \raggedright integer sides between $M/4$ and $M$ (this section) & \raggedright boxes that do not touch are at distance at least $M/4$\tabularnewline
+\hline
+\raggedright margin $r$ of a family & \raggedright $r\le M/16$ (Definition~\ref{def:weak-family}) & \raggedright $2r<M/4$, so products of families are indexed by polymers (Lemma~\ref{lem:weak-chain})\tabularnewline
+\hline
+$\Lam^v_j$, $\rho$ & \raggedright blocks meeting $\{|x-z_j|_\infty\le\rho M\}$ (this section); $(\rho-1)M-w\ge\frac14(\rho-1)M$ at every level, with $w$ the seam width, e.g.\ $\rho\ge2R_0/M+30$ \eqref{eq:rho-choice} & \raggedright the local domains of the walk; the seam stays at distance at least $\frac14(\rho-1)M$ from $K_j$\tabularnewline
+\hline
+$R_v$ & \raggedright $R_0+4+2r_{\rm loc}\le R_v\le C_vM$ (this section) & \raggedright $X(j)$ contains the dependence regions of the local operators on $\Lam^v_j$\tabularnewline
+\hline
+\end{tabular}
+\caption{The margins of Parts~VIII and~IX.}\label{tab:margins}
+\end{table}
+
+\paragraph{Monomials.} For $s=(s_\Box)_{\Box\in\mathcal P}\in\mathbb C^{\mathcal P}$ and a function $n:\mathcal P\to\{0,1,2,\dots\}$ with finite support, put $s^n=\prod_\Box s_\Box^{n(\Box)}$, with $\deg s^n=\sum_\Box n(\Box)$ and $\supp s^n=\{\Box:n(\Box)\ge1\}$. For a union of boxes $X$, $s^X$ denotes the monomial with $n=\one_X$. For $\kappa>0$ let $\mathbb D_\kappa=\{s:|s_\Box|\le e^\kappa\text{ for all }\Box\}$. Repeated factors in a monomial are harmless; only the support and the degree enter.
+
+\subsection{Decay norms}\label{ss:40.1}
+
+The field spaces are those of Parts~II--VII: scalar fields, gauge fields and $2$-forms on $\Tf$, and unit-lattice fields on $\T$, including fields on the set $\mathfrak F$ of Definition~\ref{def:bonds} (the positively oriented bonds of $\T$ other than the bonds $b_0(c)$). In this part $\mathfrak F$ also denotes the curvature operator $DD$ of Lemma~\ref{lem:curvature}, called the curvature factor; the word or the argument tells the two apart. All of them decompose over unit blocks, with projections $\one_y$, $y\in\T$. For an operator $F$ between two such spaces and $\gamma\ge0$ put
+\[
+|F|_\gamma=\max\Big\{\sup_y\sum_{y'}e^{\gamma|y-y'|}\|\one_yF\one_{y'}\|,\ \sup_{y'}\sum_ye^{\gamma|y-y'|}\|\one_yF\one_{y'}\|\Big\}.
+\]
+
+\begin{lemma}[Decay norms]\label{lem:decay-norm}
+\begin{enumerate}[label=(\alph*)]
+\item $\|F\|\le|F|_0\le|F|_\gamma$, and $|FG|_\gamma\le|F|_\gamma|G|_\gamma$.
+\item If $F$ has decay $(C,\gamma')$ with $\gamma'>\gamma$, then $|F|_\gamma\le CS_{\gamma'-\gamma}$, with $S_\beta=\sum_ye^{-\beta|y|}$.
+\item $|[F,h_j]|_{\gamma/2}\le C(\gamma M)^{-1}|F|_\gamma$ for $0<\gamma\le1$, with $C$ depending only on $d$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:decay-norm}
+(a) The first inequality is the Schur test. For the second, use
+\[
+\|\one_yFG\one_{y''}\|\le\sum_{y'}\|\one_yF\one_{y'}\|\,\|\one_{y'}G\one_{y''}\|,\qquad e^{\gamma|y-y''|}\le e^{\gamma|y-y'|}e^{\gamma|y'-y''|}.
+\] (b) is immediate. (c) Write
+\[
+\one_y[F,h_j]\one_{y'}=\one_yF\one_{y'}\big(h_j-h_j(c_y)\big)-\big(h_j-h_j(c_y)\big)\one_yF\one_{y'} .
+\]
+On $B(y)$ we have $|h_j-h_j(c_y)|\le CM^{-1}$, and on $B(y')$ we have $|h_j-h_j(c_y)|\le CM^{-1}(1+|y-y'|)$. Hence $\|\one_y[F,h_j]\one_{y'}\|\le CM^{-1}(1+|y-y'|)\|\one_yF\one_{y'}\|$. Finally $(1+t)e^{-\gamma t/2}\le C\gamma^{-1}$.
+\end{proof}
+
+On the fine lattice $D$ is not bounded uniformly in $\eta$. As in Parts~II and~III, operators are therefore estimated together with the versions carrying derivatives. For an operator $F$ on fine fields put
+\[
+|F|^D_\gamma=|F|_\gamma+|DF|_\gamma+|FD^T|_\gamma+|DFD^T|_\gamma ,
+\]
+where $D$ stands for the covariant derivative appropriate to the spaces involved. For scalar operators followed by $D$ on gauge fields, and so on, the obvious variants are meant.
+
+\subsection{Weakenable families}\label{ss:40.2}
+
+\begin{definition}[Weakenable family]\label{def:weak-family}
+Let $r\le M/16$. A \emph{weakenable family with margin $r$} is a collection $(X_\omega,n_\omega,O_\omega)_{\omega\in\Omega}$ with the following properties:
+\begin{itemize}
+\item each $X_\omega$ is a polymer;
+\item $n_\omega$ is a function on $\mathcal P$ with $\supp s^{n_\omega}$ equal to the set of boxes of $X_\omega$;
+\item each $O_\omega$ is an operator whose kernel is supported in $X_\omega^{(r)}\times X_\omega^{(r)}$, and which depends on the background, and on any other data, only on $X_\omega^{(r)}$.
+\end{itemize}
+We write $O(s)=\sum_\omega s^{n_\omega}O_\omega$, $\deg\omega=\deg s^{n_\omega}$, and
+\[
+\|O\|_{\kappa,\gamma}=\sup_{\Box\in\mathcal P}\sum_{\omega:\,\Box\subset X_\omega}e^{\kappa\deg\omega}|O_\omega|_\gamma ,\qquad\|O\|^D_{\kappa,\gamma}=\text{the same with }|O_\omega|^D_\gamma .
+\]
+We say that $O(s)$ \emph{represents} an operator $O$ if $O(1)=O$, the series converging absolutely.
+\end{definition}
+
+The data dependence is part of the definition. It is what makes the weakening also localize the dependence on the background. A family with margin $r$ can always be converted to one with margin $0$, on the level of boxes. Replace $X_\omega$ by $X^\sharp_\omega$, the union of the boxes meeting $X_\omega^{(r)}$, and multiply the monomial by $s^{X^\sharp_\omega\setminus X_\omega}$. Degrees grow by at most a factor $3^d$, and every term then depends on the data, and acts on fields, only inside $X^\sharp_\omega$. We use this conversion whenever dependence inside a union of boxes, not a neighbourhood of it, is needed. This is the case for the factorization over disjoint polymers in the cluster expansion.
+
+\emph{Additive local terms} are the terms of a family that come neither from a walk (Theorem~\ref{thm:weak-inverse}), nor from a product of families (Lemma~\ref{lem:weak-chain}), nor from a local operator applied to a family (Lemma~\ref{lem:weak-local-ops}). In Section~\ref{sec:nested-walks} they are the identities in $R_X=\one_X-P_{\cV,X}$ and $\Pi_X=I-DS_X$ (level~(L2)), the local part $d^2\mathcal N(0)|_X$ of $W_2^X$ (level~(L4)), and the constant $-a$ in $\Delta^{0,X}=\boldsymbol\Gamma^X[W_2^X]-a$ (the repetition of level~(L4)). The constant $r$ of level~(L5) belongs to the local part of the operator there and is not a term of a family. Such a term $T$, a multiple of the identity or a local operator of range at most $r$, is split canonically, box by box. A bond, a plaquette or a unit bond is based at its initial point, and a point at itself. For a box $\Box$ let $\one_\Box$ be the projection onto the field components at the sites based in $\Box$. Then
+\[
+T=\sum_{\Box\in\mathcal P}T\one_\Box ,
+\]
+and $T\one_\Box$ is a term with polymer $\Box$ and monomial $s_\Box$; it has margin at most $r$. Since the boxes partition $\Tf$, this is a decomposition of $T$. It uses only the paving and the base points, so it involves no choice; in particular it commutes with the translations that preserve the paving, and with the transfers between tori of Section~\ref{subsec:torus-independence}. The split is used in the $L^2$ norms of this part. A split by indicators does not preserve H\"older tiers, so no tier bound is claimed for an additive term standing alone (Section~\ref{sec:tiers}). The constant $\frac1{1+t}$ in the determinant densities is split by the partition of unity $h_j$ (proof of Corollary~\ref{cor:weak-covariance}), which is canonical as well.
+
+\begin{lemma}[Basic properties]\label{lem:weak-basic}
+Let $O$ be a weakenable family with $\|O\|_{\kappa,\gamma}<\infty$.
+\begin{enumerate}[label=(\alph*)]
+\item For $s\in\mathbb D_\kappa$ the series $O(s)$ converges absolutely, $|O(s)|_\gamma\le2^d\|O\|_{\kappa,\gamma}$, and $s\mapsto O(s)$ is analytic in the interior of $\mathbb D_\kappa$. The same holds with $|\cdot|^D$.
+\item \emph{(Localization.)} Let $Z$ be a union of boxes, and let $s_\Box=0$ for all $\Box\not\subset Z$. Then only the terms with $X_\omega\subset Z$ contribute. $O(s)$ is block diagonal with respect to the $*$-components $Z_i$ of $Z$, i.e.\ $\one_{Z_i^{(r)}}O(s)\one_{Z_{i'}^{(r)}}=0$ for $i\ne i'$, and $O(s)$ vanishes off $Z^{(r)}\times Z^{(r)}$. The block on $Z_i$ depends on the data only on $Z_i^{(r)}$, and on the weakening parameters only through $s_\Box$, $\Box\subset Z_i$.
+\item \emph{(Covariance.)} If every $O_\omega$ is covariant under real gauge transformations, so is $O(s)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:weak-basic}
+(a) A term contributes to $\one_yO(s)\one_{y'}$ only if $y\in X_\omega^{(r)}$. Then $X_\omega$ contains one of the at most $2^d$ boxes within distance $r$ of $y$. Hence
+\[
+\sum_{y'}e^{\gamma|y-y'|}\|\one_yO(s)\one_{y'}\|\le\sum_{\Box\text{ near }y}\ \sum_{\omega:\Box\subset X_\omega}|s^{n_\omega}|\,|O_\omega|_\gamma\le2^d\|O\|_{\kappa,\gamma},
+\]
+and similarly for the column sums. The convergence is uniform on $\mathbb D_\kappa$, so the sum is analytic. (b) If $X_\omega\not\subset Z$, then $s^{n_\omega}=0$. A polymer $X_\omega\subset Z$ lies in one component $Z_i$, and its monomial involves only the boxes of $X_\omega$. Distinct components are at distance at least $M/4>2r$, so $X_\omega^{(r)}$ meets no other $Z_{i'}^{(r)}$. (c) is clear.
+\end{proof}
+
+\begin{lemma}[Products]\label{lem:weak-chain}
+Let $F_1,\dots,F_n$ be weakenable families with margins at most $r$, and let $0<\delta\le1$. Index the product $F_1\cdots F_n$ by the tuples $(\omega_1,\dots,\omega_n)$ for which $X^{(r)}_{\omega_i}$ and $X^{(r)}_{\omega_{i+1}}$ meet for every $i$. All other products vanish, and this index set is determined by the geometry alone, not by the background. Give each tuple the domain $\bigcup_iX_{\omega_i}$ and the monomial $\prod_is^{n_{\omega_i}}$. This is a weakenable family with margin $r$, and
+\[
+\|F_1\cdots F_n\|_{\kappa,\gamma}\le n\prod_{i=1}^n\big(C_d\delta^{-2}\|F_i\|_{\kappa+\delta,\gamma}\big).
+\]
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:weak-chain}
+If the product of the terms does not vanish, consecutive kernel supports meet. So $X_{\omega_i}^{(r)}\cap X_{\omega_{i+1}}^{(r)}\ne\emptyset$, and the boxes involved are within distance $2r<M/4$. Hence they touch, and the union is a polymer. The monomial has the right support, and the product of the terms has kernel in the union of the supports and depends only on the data there. By Lemma~\ref{lem:decay-norm}(a), $|\prod_iF_{i,\omega_i}|_\gamma\le\prod_i|F_{i,\omega_i}|_\gamma$.
+
+Fix a box $\Box$ and let $i$ be the first index with $\Box\subset X_{\omega_i}$. Given $\omega_i$, sum over $\omega_{i+1}$: it must meet $X_{\omega_i}^{(2r)}$, which is covered by at most $3^d|X_{\omega_i}|$ boxes. So the sum is at most $3^d|X_{\omega_i}|\,\|F_{i+1}\|_{\kappa,\gamma}$. Continue to the right, and in the same way to the left of $i$. Each factor receives at most two factors $|X_{\omega_l}|\le\deg\omega_l$, from its neighbours. Since $\sum_\omega e^{\kappa\deg\omega}(\deg\omega)^2|F_\omega|\le C\delta^{-2}\sum_\omega e^{(\kappa+\delta)\deg\omega}|F_\omega|$, each factor contributes at most $C_d\delta^{-2}\|F_l\|_{\kappa+\delta,\gamma}$. Summing over $i$ gives the factor $n$.
+\end{proof}
+
+\begin{lemma}[Local factors and commutators]\label{lem:weak-local-ops}
+Let $O$ be a weakenable family with margin $r$.
+\begin{enumerate}[label=(\alph*)]
+\item Let $\mathcal L$ be a bounded operator of range $r_0$ that depends on the data only within distance $r_0$ of its support. Examples are $\bQ$, $\bQ^T$, $Q'$, $Q'^T$, $D_V$, the curvature factor $\mathfrak F$, $W\in\cW_{\rm loc}$, multiplication by $h_j$ or $m_X$, the elimination maps $\hat Z^1$, $\hat Z^2$, and the linearized averaged contour variables $\mathfrak G_W$ and their transposes. Then $\mathcal LO$ and $O\mathcal L$, with the same domains and monomials, are weakenable with margin $r+2r_0$, and $\|\mathcal LO\|_{\kappa,\gamma}\le|\mathcal L|_\gamma\,\|O\|_{\kappa,\gamma}$, with $|\mathcal L|_\gamma\le e^{\gamma r_0'}|\mathcal L|_0$, where $r_0'$ is the range in block units. The block Schur norm $|\mathcal L|_0$ is at most $C(d,r_0')\max_{y,y'}\|\one_y\mathcal L\one_{y'}\|$. It can exceed the operator norm $\|\mathcal L\|$, so the latter cannot be used here.
+\item $[O,h_j]$, with the same domains and monomials, is weakenable with $\|[O,h_j]\|_{\kappa,\gamma/2}\le C(\gamma M)^{-1}\|O\|_{\kappa,\gamma}$. The same holds with $|\cdot|^D$, up to an additional term $CM^{-1}\|O\|^D_{\kappa,\gamma}$ coming from $[D,h_j]$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:weak-local-ops}
+(a) Apply Lemma~\ref{lem:decay-norm}(a) term by term. The supports grow by the range of $\mathcal L$. (b) Apply Lemma~\ref{lem:decay-norm}(c) term by term. For the derivative versions use $D[O_\omega,h_j]=[DO_\omega,h_j]-[D,h_j]O_\omega$, where $[D,h_j]$ is a multiplication by differences of $h_j$, of size $CM^{-1}$.
+\end{proof}

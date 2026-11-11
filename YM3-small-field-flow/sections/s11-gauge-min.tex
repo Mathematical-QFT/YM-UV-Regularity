@@ -1,0 +1,164 @@
+\section{The gauge-field minimizer and the fluctuation operators}\label{sec:gauge-min}
+
+\subsection{Identities}
+
+The following identities express how $\bG$ interacts with gauge directions. They reduce the gauge part of every operator below to scalar operators. Recall from Proposition~\ref{prop:R}(d) that for $h$ in $\cW=\ran R$, $\nu=G_0h$ is the unique field with $Q_0\nu=0$ and $-\Lap\nu=h$.
+
+\begin{proposition}\label{prop:gauge-identities}
+For all scalar fields $h$:
+\[
+\bG dRh=dG_0Rh,\qquad \bQ\bG dR=0,\qquad Rd^*\bG dR=R .
+\]
+Taking adjoints, $Rd^*\bG=RG_0d^*$ and $Rd^*\bG\bQ^*=0$.
+\end{proposition}
+
+\begin{proof}
+Let $\nu=G_0Rh$, so $Q_0\nu=0$ and $-\Lap\nu=Rh$. Then
+\[
+\bL_a d\nu=d^*dd\nu+dRd^*d\nu+a\bQ^*\bQ d\nu=0+dR(-\Lap\nu)+a\bQ^*\dl Q_0\nu=dRh .
+\]
+Hence $\bG dRh=d\nu$. Further, $\bQ d\nu=\dl Q_0\nu=0$ and $Rd^*d\nu=R(-\Lap\nu)=Rh$.
+\end{proof}
+
+These are Ba\l aban's identities \cite[(1.95), (1.97)]{BalPropI} and \cite[(3.152)]{BalBackground}.
+
+\subsection{The averaged gauge Green function}
+
+\begin{proposition}\label{prop:QGQ-gauge}
+$c_F\le\bQ\bG\bQ^*\le2c_g^{-1}$. Both $\bQ\bG\bQ^*$ and $\boldsymbol\Gamma=(\bQ\bG\bQ^*)^{-1}$ have decay $(C,\gamma)$.
+\end{proposition}
+
+\begin{proof}
+For every gauge field, $\|Rd^*A\|\le\|d^*A\|$ and $\|\bQ A\|^2\le2\|A\|^2$. With Lemma~\ref{lem:hodge}, $\bL_a\le-\Lap+2a$, hence $\bG\ge(-\Lap+2a)^{-1}$ as in Proposition~\ref{prop:QGQ}. The operator $-\Lap$ acts componentwise and $(\bQ A)_\mu=Q_\mu A_\mu$, so $\bQ(-\Lap+2a)^{-1}\bQ^*$ is the direct sum of the operators $Q_\mu(-\Lap+2a)^{-1}Q_\mu^*$. Each of these is at least $c_F$ by Corollary~\ref{cor:QKQ-lower}. The decay statements follow as in Proposition~\ref{prop:QGQ}, using Theorem~\ref{thm:gauge-green}(a) and Lemma~\ref{lem:CT-bounded}.
+\end{proof}
+
+\subsection{The minimizer map}
+
+\begin{theorem}[Gauge-field minimizer]\label{thm:H-gauge}
+Let $\bH=\bG\bQ^*\boldsymbol\Gamma$.
+\begin{enumerate}[label=(\alph*)]
+\item $\bQ\bH=I$ and $Rd^*\bH=0$.
+\item For every gauge field $B$ on $\T$, $\bH B$ is the unique minimizer of $\|dA\|^2$ on $\{A:\bQ A=B,\ Rd^*A=0\}$. Moreover $\|d\bH B\|^2=\min\{\|dA\|^2:\bQ A=B\}$, and $\bH$ does not depend on $a$. If $B$ is constant, then $\bH B=B$ (the constant fine field).
+\item $\bH$ and $\partial\bH$ have decay $(C,\gamma)$.
+\item ($d\ge3$) For every $B$ and $y$,
+\[
+|\bH B|_{B(y)}+|\partial\bH B|_{B(y)}+\Hol{\partial\bH B}{B(y)}\le C_\alpha\sum_{y'}e^{-\gamma|y-y'|}|B(y')| .
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) $\bQ\bH=\bQ\bG\bQ^*\boldsymbol\Gamma=I$, and $Rd^*\bH=0$ by Proposition~\ref{prop:gauge-identities}.
+
+(b) Let $\bQ A=B$ and $Rd^*A=0$. Then $h=A-\bH B$ lies in $\cX$. As in Lemma~\ref{lem:H-variational},
+\[
+\ip A{\bL_aA}=\ip{\bH B}{\bL_a\bH B}+\ip h{\bL_ah},
+\]
+because $\ip h{\bL_a\bH B}=\ip h{\bQ^*\boldsymbol\Gamma B}=0$. On the constraint set $\ip A{\bL_aA}=\|dA\|^2+a\|B\|^2$. Moreover $\ip h{\bL_ah}=\|dh\|^2>0$ for $h\ne0$ by Corollary~\ref{cor:X-positive}. This proves the first claim and the independence of $a$. If only $\bQ A=B$ is assumed, Lemma~\ref{lem:gauge-fix} provides a gauge transform of $A$ that satisfies $Rd^*A=0$ and has the same $dA$ and $\bQ A$, which gives the second claim. A constant fine field $B$ satisfies $\bQ B=B$, $dB=0$ and $d^*B=0$, so it is the minimizer.
+
+(c) Composition of operators with decay.
+
+(d) $\bH B=\bG J$ with $J=\bQ^*\boldsymbol\Gamma B$. By Lemma~\ref{lem:avg}(c) and Proposition~\ref{prop:QGQ-gauge}, $|J|_{B(y'')}\le C\sum_{y'}e^{-\gamma|y''-y'|}|B(y')|$. Apply \eqref{eq:gauge-sum}.
+\end{proof}
+
+\begin{remark}[Comparison with \cite{BalVar}]
+In \cite[(45)--(46)]{BalVar} the operator $H$ is defined exactly by (b), in the covariant setting, and the bounds $|HB|\le B_0|B|$ and $|\nabla HB|\le B_0|B|$ are quoted from \cite[Theorem~3.12]{BalBackground}. Part (d) is their $U=1$ version on a single torus, with the additional H\"older bound.
+\end{remark}
+
+\subsection{The gauge-field effective action}
+
+\begin{proposition}\label{prop:eff-action-gauge}
+Let $\bD=\boldsymbol\Gamma-a$. Then $\ip B{\bD B}=\|d\bH B\|^2$, $\bD$ has decay $(C,\gamma)$, and
+\[
+c_D\|\dl B\|^2\le\ip B{\bD B}\le C_D\|\dl B\|^2,
+\]
+where $\dl B$ is the unit-lattice curl and $c_D,C_D>0$ depend only on $d$. (The operators $\bH$ and $H_\mu$ do not depend on $a$, so we may take $a=1$ when estimating them.)
+\end{proposition}
+
+\begin{proof}
+The identity is proved as in Proposition~\ref{prop:eff-action-scalar}, using $Rd^*\bH B=0$.
+
+\emph{Lower bound.} By Lemma~\ref{lem:avg}(e), $\dl B=\dl\bQ\bH B=\bQ^{(2)}d\bH B$. Each component of $\bQ^{(2)}$ is $\iota a_\mu a_\nu b$, which by Lemma~\ref{lem:restriction} has norm at most $9\cdot2^{d-2}$. Hence $\|\dl B\|\le9\cdot2^{d-2}\|d\bH B\|$.
+
+\emph{Upper bound.} Decompose $B$ on the unit torus as $B=\dl h+B''$ with $\dl^*B''=0$ (Lemma~\ref{lem:hodge} on $\T$). Then $\dl B''=\dl B$, and by the unit-lattice Hodge identity $\sum_{\mu,\nu}\|D_\nu B''_\mu\|^2=\|\dl B''\|^2=\|\dl B\|^2$. Define a fine gauge field $A$ by
+\[
+A_\mu=\partial_\mu Q_0^*h+H_\mu B''_\mu,
+\]
+where $H_\mu$ is the scalar minimizer map for the tube average $Q_\mu$ (Section~\ref{sec:scalar-avg} with $\sigma=\mu$). Then $\bQ A=\dl Q_0Q_0^*h+(Q_\mu H_\mu B''_\mu)_\mu=\dl h+B''=B$. By Theorem~\ref{thm:H-gauge}(b), Lemma~\ref{lem:hodge} and Theorem~\ref{thm:H-scalar}(c),
+\[
+\|d\bH B\|^2\le\|dA\|^2=\big\|d(H_\mu B''_\mu)_\mu\big\|^2\le\sum_\mu\|\partial H_\mu B''_\mu\|^2\le C\sum_\mu\|\dl B''_\mu\|^2=C\|\dl B\|^2 .
+\]
+Here $\dl B''_\mu$ is the unit gradient of the scalar field $B''_\mu$. The decay of $\bD$ follows from Proposition~\ref{prop:QGQ-gauge}.
+\end{proof}
+
+This is the $U=1$ form of \cite[(1.66)--(1.67)]{BalPropI}: after $k$ steps the gauge-field action is comparable to the unit-lattice Wilson action $\|\dl B\|^2$, uniformly in $k$. Note how the upper bound uses the tube averages $Q_\mu$. This is why the scalar theory was developed for all $\sigma$.
+
+\subsection{The constrained Green function}
+
+The Euler--Lagrange equation of the variational problem is posed on the tangent space
+\[
+\cX=\{A:\ \bQ A=0,\ Rd^*A=0\}
+\]
+of the constraint set, cf.\ \cite[(100)--(111)]{BalVar}. The relevant Green function is defined as follows.
+
+\begin{definition}
+$\bC=\bG-\bG dRd^*\bG-\bH\bQ\bG=\bG-dG_0RG_0d^*-\bG\bQ^*\boldsymbol\Gamma\bQ\bG$.
+\end{definition}
+
+The two expressions agree by Proposition~\ref{prop:gauge-identities}: $\bG dRd^*\bG=(\bG dR)(Rd^*\bG)=dG_0R\,RG_0d^*$. In \cite{BalBackground,BalVar}, $\bC$ is the operator $\mathfrak G=G_1\mathfrak P^*$ of \cite[(3.148)--(3.153)]{BalBackground}. Here $\mathfrak P$ is the orthogonal projection onto $\cX$ in the inner product $\ip\cdot{\bL_a\cdot}$.
+
+\begin{theorem}[Constrained Green function]\label{thm:C-gauge}
+\begin{enumerate}[label=(\alph*)]
+\item $\bC$ is symmetric, $\bQ\bC=0$ and $Rd^*\bC=0$.
+\item For every gauge field $J$, $A=\bC J$ is the unique element of $\cX$ such that
+\[
+\ip{d\,\delta A}{dA}=\ip{\delta A}J\qquad\text{for all }\delta A\in\cX .
+\]
+In particular $\bC$ does not depend on $a$, and $\ip J{\bC J}\le c_g^{-1}\|J\|^2$.
+\item $\bC$ and $\partial\bC$ have decay $(C,\gamma)$.
+\item ($d\ge3$) For all $y,y'$ and every $J$ supported in $B(y')$,
+\[
+|\bC J|_{B(y)}+|\partial\bC J|_{B(y)}+\Hol{\bC J}{B(y)}\le C_\alpha e^{-\gamma|y-y'|}\,|J|_{B(y')} .
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) Each of the three terms is symmetric. By Proposition~\ref{prop:R}(d), $Q_0G_0R=0$, so $\bQ dG_0RG_0d^*=\dl Q_0G_0RG_0d^*=0$. Together with $\bQ\bH=I$ this gives $\bQ\bC=\bQ\bG-0-\bQ\bG=0$. Next,
+\[
+Rd^*\bC=RG_0d^*-R(-\Lap)G_0RG_0d^*-0=RG_0d^*-RRG_0d^*=0,
+\]
+using Proposition~\ref{prop:gauge-identities} and $-\Lap G_0R=R$ (Proposition~\ref{prop:R}(d)).
+
+(b) Let $\delta A\in\cX$. By (a), $\bC J\in\cX$, so $\ip{\delta A}{\bL_a\bC J}=\ip{d\,\delta A}{d\bC J}$. On the other hand, the computation in the proof of Proposition~\ref{prop:gauge-identities} shows $\bL_adG_0Rh=dRh$. Hence
+\[
+\bL_a\bC J=J-dRG_0d^*J-\bQ^*\boldsymbol\Gamma\bQ\bG J,
+\]
+and the last two terms are orthogonal to $\cX$. Uniqueness and the bound follow from Corollary~\ref{cor:X-positive}.
+
+(c) The first and third terms are compositions of operators with decay, also after applying $\partial$: $\bG$, $\partial\bG$, $\bH$, $\partial\bH$, $\bQ$. For the middle term, Proposition~\ref{prop:gauge-identities} and $R^2=R$ give $dG_0RG_0d^*=\bG\,dR\,G_0d^*$. On scalar fields $\partial_\mu=-S_\mu\partial^*_\mu$, with $S_\mu$ the shift by $\eta$. So $d=\partial^*T$ with $(Th)_{\mu\nu}=-\delta_{\mu\nu}S_\mu h$, a local operator of norm $\sqrt d$, and $\partial\bG d=(\partial\bG\partial^*)T$ has decay by Theorem~\ref{thm:gauge-green}(a) and Lemma~\ref{lem:decay-calculus}(b),(d). Together with the decay of $R=I-P_\cV$ and $G_0\partial^*$, this gives the decay of $\partial(dG_0RG_0d^*)$ without second derivatives of $G_0$.
+
+(d) Write $\bC J=\bG J-d\sigma-\bH(\bQ\bG J)$ with $\sigma=G_0RG_0d^*J$. The first and third terms are controlled by Theorems~\ref{thm:gauge-green} and~\ref{thm:H-gauge}: the unit field $\bQ\bG J$ decays away from $y'$ by Theorem~\ref{thm:gauge-green}(a). For $\sigma$ we use the scalar regularity theory. By Proposition~\ref{prop:R}(d), $\sigma\in\cN(Q_0)$ and
+\[
+-\Lap\sigma=h,\qquad h=RG_0d^*J=G_0d^*J-P_\cV G_0d^*J .
+\]
+There is no averaging term in this equation, and $h$ is H\"older continuous. Indeed, $G_0d^*J$ is bounded and H\"older on cubes $\Lam_2(z)$ by Theorem~\ref{thm:scalar-green}(b) and Remark~\ref{rem:cubes}. Moreover $P_\cV G_0d^*J=G_0Q_0^*\omega$ with $\omega=M^{-1}Q_0G_0G_0d^*J$, which is bounded with bounded first derivatives. All these bounds carry the factor $e^{-\gamma\operatorname{dist}(z,B(y'))}|J|_{B(y')}$, and so does $\|\sigma\|_{\Lam_2(z)}$, because $G_0$, $R$ and $G_0\partial^*$ have decay and $\Lam_2(z)$ meets a bounded number of blocks. Theorem~\ref{thm:local-regularity}(a) and (c) now bound $|\partial\sigma|$, its H\"older quotient, and $|\partial\partial\sigma|$ on $\Lam_1(z)$. This controls $|d\sigma|$ and $|\partial d\sigma|$. The H\"older bound on $\bC J$ follows from the bound on $|\partial\bC J|$.
+\end{proof}
+
+\begin{remark}[Use in the variational problem]
+In \cite[(110)--(111)]{BalVar}, the critical points of the action on the constraint set, after the linearizing change of variables, are the solutions of
+\[
+A_1+\bC J+\bC\,\tfrac{\delta V}{\delta A}(A_1+\bH B)=0
+\]
+(in the covariant version). The solution is found by the contraction mapping principle. This requires exactly the bounds $|\bC J|,|\partial\bC J|\le C\,\sup|J|$ in the weighted norms, i.e.\ part (d), together with the bounds on $\bH$ in Theorem~\ref{thm:H-gauge}. Ba\l aban notes \cite[Sect.~E]{BalVar} that the regularity theorem for $\mathfrak G$ \cite[Theorem~3.13]{BalBackground} gives no bounds on second-order derivatives, and he supplies the needed second-order bounds by a separate argument. Part (d) likewise controls only $\bC J$ and its first derivatives.
+\end{remark}
+
+\begin{remark}[A renormalization-group decomposition]
+Combining the definitions,
+\[
+\bG=\bC+dG_0RG_0d^*+\bH(\bQ\bG\bQ^*)\bH^* .
+\]
+The three terms are, respectively, the fluctuation covariance on $\cX$, a pure-gauge part, and the part generated by the averages. This is the gauge-field analogue of Proposition~\ref{prop:C-scalar}(c).
+\end{remark}
+
+This completes the proof of Theorem~\ref{thm:E}.

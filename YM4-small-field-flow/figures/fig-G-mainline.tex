@@ -1,0 +1,79 @@
+% Figure of the guide (G0): the main line of the proof. Owner: WP7.
+\begin{gfigure}[p]
+\centering
+\def\GMr#1#2{{\footnotesize #1}\\[-1pt]\scriptsize #2}%
+\begin{tikzpicture}[x=1cm,y=1cm,
+  res/.style={draw,rounded corners=1.2pt,fill=white,align=flush center,inner xsep=2.2pt,inner ysep=1.5pt,minimum height=7.6mm},
+  head/.style={res,double,double distance=0.8pt},
+  off/.style={res,dashed,draw=black!55,text=black!60},
+  plab/.style={anchor=west,align=flush left,inner sep=0pt,font=\footnotesize},
+  spine/.style={-{Stealth[length=1.7mm]},thick},
+  use/.style={-{Stealth[length=1.5mm]},semithick},
+  ]
+\def\h{1.06}\def\xo{1.9}
+% bands
+\foreach \i/\p/\s in {0/I/{trivial\\background},1/II/backgrounds,2/III/{domains,\\regularity},
+  3/IV/{averaging,\\chart},4/V/{variational\\problem},5/VI/{induction\\over $k$},6/VII/{one RG step},
+  7/VIII/localization,8/{VIII, IX}/{off the\\main line},9/IX/{weakened\\walks},10/X/{small-field\\step},
+  11/X/{small-field\\flow},12/XI/{one-loop\\coefficient},13/XI/{ultraviolet\\limit},14/XI/{off the\\main line}}{
+  \pgfmathsetmacro\yy{-\i*\h}
+  \pgfmathparse{int(mod(\i,2))}
+  \ifnum\pgfmathresult=0 \fill[black!5] (0,\yy-0.5*\h) rectangle (15.35,\yy+0.5*\h);\fi
+  \node[plab] at (0.05,\yy) {\textbf{\p}\\[-1pt]\scriptsize\s};
+}
+% Parts I--VII
+\node[res,anchor=west] (a0) at (\xo,0) {\GMr{Thms~\ref{thm:A}--\ref{thm:E}}{operators at $U=1$}};
+\node[res,anchor=west] (a1) at (\xo,-\h) {\GMr{Thm~\ref{thm:F}}{backgrounds near $1$}};
+\node[res,anchor=west] (a2) at (\xo,-2*\h) {\GMr{Thms~\ref{thm:reg-gauge}, \ref{thm:reg-locality} (\ref{thm:G})}{regular backgrounds, locality}};
+\node[res,anchor=west] (a3) at (\xo,-3*\h) {\GMr{Prop.~\ref{prop:linearized-averages}, Cor.~\ref{cor:parts-apply}}{linearized averages}};
+\node[res,right=2mm of a3] (b3) {\GMr{Thm~\ref{thm:chart} (\ref{thm:H})}{axial-to-Landau chart}};
+\node[res,anchor=west] (a4) at (\xo,-4*\h) {\GMr{Thm~\ref{thm:variational} (\ref{thm:I})}{relative to a regular reference}};
+\node[res,anchor=west] (a5) at (\xo,-5*\h) {\GMr{Thm~\ref{thm:balaban}, Cor.~\ref{cor:regularity} (\ref{thm:J})}{Ba\l aban's variational theorem}};
+\node[res,anchor=west] (a6) at (\xo,-6*\h) {\GMr{Prop.~\ref{prop:sharp-curvature}}{curvature of backgrounds}};
+\node[res,right=2mm of a6] (b6) {\GMr{Thm~\ref{thm:step-coercive}}{coercivity}};
+\node[res,right=2mm of b6] (c6) {\GMr{Thm~\ref{thm:step} (\ref{thm:K})}{one small-field step}};
+% Part VIII, and what Parts VIII and IX leave off the main line
+\node[res,anchor=west] (a7) at (\xo,-7*\h) {\GMr{Prop.~\ref{prop:dirichlet-averaged}, Thm~\ref{thm:ID}(a)--(c)}{Dirichlet operators}};
+\node[res,right=2mm of a7] (b7) {\GMr{Props~\ref{prop:dirichlet-hessian}, \ref{prop:local-fluct}}{local fluctuation operators}};
+\node[res,right=2mm of b7] (c7) {\GMr{Def.~\ref{def:graded}, Lem.~\ref{lem:quadratic-bound}}{graded domains}};
+\node[off,anchor=west] (b8) at (\xo+1.3,-8*\h) {\footnotesize Thm~\ref{thm:local-covariance}, Cor.~\ref{cor:large-changes},\\[-1pt]\footnotesize Prop.~\ref{prop:det-local}, Cor.~\ref{cor:one-loop}};
+\node[off,right=2mm of b8] (c8) {\footnotesize Thm~\ref{thm:ID}(d),(e),\\[-1pt]\footnotesize Section~\ref{sec:interaction-local}};
+\node[off,right=2mm of c8] (d8) {\GMr{Prop.~\ref{prop:schauder}}{(I4)}};
+% Part IX
+\node[res,anchor=west] (a9) at (\xo,-9*\h) {\GMr{Thm~\ref{thm:weak-inverse}, Cor.~\ref{cor:weak-covariance}}{weakened inverses}};
+\node[res,right=2mm of a9] (b9) {\GMr{Prop.~\ref{prop:one-loop-polymer}}{one-loop source}};
+\node[res,right=2mm of b9] (c9) {\GMr{Thm~\ref{thm:HC-pointwise}}{pointwise bounds}};
+\node[res,right=2mm of c9] (d9) {\GMr{Thm~\ref{thm:weak-bg}}{background map}};
+\node[res,anchor=east] (f9) at (15.3,-9*\h) {\GMr{Prop.~\ref{prop:one-loop-local}}{one-loop locality}};
+% Part X
+\node[res,anchor=west] (a10) at (\xo,-10*\h) {\GMr{Prop.~\ref{prop:AB}}{(AB)}};
+\node[res,right=2mm of a10] (b10) {\GMr{Prop.~\ref{prop:complex-ext}}{complex references}};
+\node[res,right=2mm of b10] (c10) {\GMr{Thm~\ref{thm:sf-step} (\ref{thm:L})}{step in polymer form}};
+\node[res,anchor=west] (a11) at (\xo,-11*\h) {\GMr{Prop.~\ref{prop:period-iso}}{isotropy}};
+\node[res,right=1.5mm of a11] (b11) {\GMr{Prop.~\ref{prop:extraction}}{extraction}};
+\node[res,right=1.5mm of b11] (c11) {\GMr{Props~\ref{prop:first-step}, \ref{prop:vacuum}, \ref{prop:old-activities}}{first step, vacuum, old activities}};
+\node[res,right=1.5mm of c11] (d11) {\GMr{Thm~\ref{thm:gen-step}}{generation form}};
+\node[head,anchor=east] (e11) at (14.93,-11*\h) {\GMr{Thm~\ref{thm:sf-flow} (\ref{thm:N})}{small-field flow}};
+% Part XI
+\node[res,anchor=west] (a12) at (\xo,-12*\h) {\GMr{Props~\ref{prop:ol-laplace}, \ref{prop:ol-composition}, Lem.~\ref{lem:ol-symmetry}}{one-loop term, composition}};
+\node[res,right=2mm of a12] (b12) {\GMr{Thm~\ref{thm:ol-chart}}{Landau chart}};
+\node[res,right=2mm of b12] (c12) {\GMr{Prop.~\ref{prop:ol-reduction}, Thm~\ref{thm:ol-log}}{Feynman part, logarithm}};
+\node[res,anchor=west] (a13) at (\xo,-13*\h) {\GMr{Thm~\ref{thm:ol-cumulative} (\ref{thm:M}(iii))}{cumulative coefficient}};
+\node[res,anchor=east,minimum width=2.5cm] (c13) at (15.3,-13*\h) {\GMr{Prop.~\ref{prop:flow-F}}{(F1)--(F3)}};
+\node[head] (b13) at ($(a13.east)!0.5!(c13.west)$) {\GMr{Thm~\ref{thm:ol-uv} (\ref{thm:M}(iv))}{ultraviolet limit}};
+\node[off,anchor=west] (a14) at (\xo,-14*\h) {\GMr{Thm~\ref{thm:gen-locality}}{generation locality}};
+\node[off,right=9mm of a14] (b14) {\GMr{Prop.~\ref{prop:beta-identification}}{Ba\l aban's coefficient}};
+\node[anchor=west,font=\scriptsize,text=black!60] at ([xshift=2mm]b14.east) {not used by Theorem~\ref{thm:M}};
+% arrows: the main line
+\foreach \u/\v in {a0/a1,a1/a2,a2/a3,a3/a4,a4/a5,a5/a6,a6/a7,a7/a9,a9/a10,a10/a11,a12/a13}
+  \draw[spine] ([xshift=4mm]\u.south west) -- ([xshift=4mm]\v.north west);
+\draw[use] (a6.west) -- ++(-0.15,0) |- (a12.west);
+\draw[use] (a13) -- (b13);
+\draw[use] (c13) -- (b13);
+\draw[use] (e11.south) -- (e11.south |- c13.north);
+\draw[use] ([xshift=-2mm]f9.south east) -- ([xshift=-2mm]f9.south east |- c13.north);
+\draw[use,dashed,draw=black!60] (a14) -- (b14);
+\end{tikzpicture}
+\caption{The main line of the proof. Each band is a Part; Part~X is split into the step (Sections~\ref{sec:complex-references}--\ref{sec:cluster}) and the flow (Sections~\ref{sec:flow}--\ref{sec:flow4}), and Part~XI into Sections~\ref{sec:ol-composite}--\ref{sec:ol-feynman}, Section~\ref{sec:ol-uv} and Section~\ref{sec:gen-locality}. A box names results by their printed numbers; the letter in parentheses is the theorem of Section~\ref{sec:intro} that collects them. A thick arrow: the next band of the main line uses the band above it. The thin arrow on the left: Sections~\ref{sec:ol-composite}--\ref{sec:ol-feynman} use Parts~I--VII and, from Part~X, mainly Propositions~\ref{prop:jacobians}, \ref{prop:first-step} and Lemma~\ref{lem:first-step-formula}. The thin arrows on the right: Proposition~\ref{prop:flow-F}, the properties (F1)--(F3), uses the flow and the torus independence of the one-loop pieces (the reading guide in Section~\ref{sec:intro}). Double frames: Theorem~\ref{thm:sf-flow}, the small-field flow (Theorem~\ref{thm:N}), and Theorem~\ref{thm:ol-uv}, the ultraviolet limit (Theorem~\ref{thm:M}(iv)). Grey dashed frames: results off the main line. These are the radius-type results of Part~VIII, superseded by Parts~IX and~X (the status paragraphs of Sections~\ref{sec:localization}--\ref{sec:interaction-local}); Theorem~\ref{thm:ID}(d),(e), used only in Section~\ref{sec:interaction-local}; Proposition~\ref{prop:schauder}, not used outside Section~\ref{sec:interior-lp}; and Theorem~\ref{thm:gen-locality}, which gives Proposition~\ref{prop:beta-identification}. Theorem~\ref{thm:M} does not use Proposition~\ref{prop:beta-identification}.}
+\label{fig:G-mainline}
+\end{gfigure}

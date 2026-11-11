@@ -1,0 +1,319 @@
+\section{Weakened inverses by nested walks}\label{sec:nested-walks}
+
+In this section domains are arbitrary unions of blocks, together with the empty set. The family of domains is closed under intersection with the $\Lam^v_j$. For domains $X'\subset X$ and a width $w>0$, let $\Sigma_w(X,X')$ be the set of blocks within distance $w$ of $X\setminus X'$, the \emph{seam}. The width depends on the level of the construction: $w=10M$ at the levels (L1)--(L4) below, and $w=R_0+10M+2L$ at the level (L5), with $R_0=R_0(L,M)$ from Proposition~\ref{prop:local-fluct}. We fix $\rho$ so large that
+\begin{equation}\label{eq:rho-choice}
+(\rho-1)M-w\ge\tfrac14(\rho-1)M\qquad\text{at every level},
+\end{equation}
+e.g.\ $\rho\ge2R_0/M+30$. This is possible because $R_0(L,M)\le C_LM$. The number $\mathsf N_{\rm b}$ of Section~\ref{sec:weakenable} then depends on $L$, but not on $M$.
+
+\subsection{Seam norms}
+
+For an operator $F$, a set of blocks $\Sigma$ and $\gamma\ge0$, let $|F|_{\gamma,\Sigma}$ be the decay norm of Section~\ref{sec:weakenable}, with the weight $e^{\gamma|y-y'|}$ replaced by $e^{\gamma(|y-y'|+d_\Sigma(y)+d_\Sigma(y'))}$, where $d_\Sigma=\operatorname{dist}(\cdot,\Sigma)$. A kernel of seam form,
+\[
+\|\one_yF\one_{y'}\|\le C\sum_{w\in\Sigma}e^{-\gamma'(|y-w|+|w-y'|)},
+\]
+has $|F|_{\gamma'/4,\Sigma}\le CS_{\gamma'/2}^2$. Indeed $|y-y'|\le|y-w|+|w-y'|$, $d_\Sigma(y)\le|y-w|$ and $d_\Sigma(y')\le|w-y'|$. Conversely, $|F|_{\gamma,\Sigma}<\infty$ gives $\|\one_AF\one_{A'}\|\le|F|_{\gamma,\Sigma}e^{-\gamma(d_\Sigma(A)+d_\Sigma(A'))}$. If $F$ is supported on $\Sigma\times\Tf$ or $\Tf\times\Sigma$, then $|F|_{\gamma,\Sigma}\le|F|_{2\gamma}$. Since $d_\Sigma(y)\le|y-y_1|+d_\Sigma(y_1)$,
+\begin{equation}\label{eq:seam-product}
+|AFB|_{\gamma,\Sigma}\le|A|_{2\gamma}\,|F|_{\gamma,\Sigma}\,|B|_{2\gamma}.
+\end{equation}
+For weakenable families, $\|O\|_{\kappa,\gamma,\Sigma}$ is defined with $|O_\omega|_{\gamma,\Sigma}$. By \eqref{eq:seam-product}, Lemma~\ref{lem:weak-chain} holds with one factor measured in the seam norm and the others in $|\cdot|_{2\gamma}$.
+
+\paragraph{Factorized families.} On the fine lattice the non-local parts of the operators contain derivatives, and are unbounded uniformly in $\eta$. As in Parts~II and~III, they are written as finite sums of products with derivatives outside. Here we write them as $\sum_iX_i^TM_iY_i$ with $X_i^T\in\{1,D^T\}$ and $Y_i\in\mathfrak D\cup\{1\}$. A left gradient $D$, where present, is made part of the middle factor $M_i$. A \emph{factorized weakenable family} is such a sum in which each $M_i$ is a weakenable family. Its norm is $\sum_i\|M_i\|_{\kappa,\gamma}$: the middle factors are measured without further derivatives. The derivatives $X_i^T$, $Y_i$ are kept outside the terms. A left $D^T$ is absorbed by the factor to its left in a product, and $Y_i$ by the local propagator to its right, whose derivative norms are controlled by (A2) below.
+
+Derivative norms of the middle factors are neither used nor available in general. At level~(L3) the middle factor $M=WDG'R$ has $DM$ containing the derivatives of the coefficients of $W$, which are only H\"older continuous: for $W=w_qI$ with $w_q(x)=c\eps q^{-\alpha}\sin(qx_1)$ and $c$ small, a member of $\cW_{\rm loc}(\eps)$, $|DM|$ is at least of order $\eps q^{1-\alpha}$ for $1\ll q\lesssim\eta^{-1}$. In the same way, derivatives of the curvature factor $\mathfrak F$ are not controlled at complex references.
+
+\begin{definition}[Compatible representations]\label{def:compatible}
+Factorized weakenable representations $O^X(s)=\sum_iX_i^TM^X_i(s)Y_i$ of operators $O^X$ on $\ell^2(X)$, one for each domain $X$, are \emph{compatible}, with constants $(C_O,\gamma)$ and seam width $w$, if:
+\begin{itemize}
+\item the index sets do not depend on $X$, matched terms carry the same domain and monomial, and a term vanishes on $X$ if one of its local domains does not meet $X$;
+\item $\|M^X_i\|_{\kappa,2\gamma}\le C_O$ for all $X$ and $i$;
+\item for $X'\subset X$, the differences $\one_{X'}M^X_i(s)\one_{X'}-M^{X'}_i(s)$ satisfy $\|\cdot\|_{\kappa,\gamma,\Sigma_w(X,X')}\le C_O$.
+\end{itemize}
+\end{definition}
+
+The last condition is the weakened form of the comparison of domains (Theorem~\ref{thm:reg-scalar}(e), Theorem~\ref{thm:reg-locality}(a), Proposition~\ref{prop:dirichlet-averaged}(d), Proposition~\ref{prop:local-fluct}(c)). On $2$-forms, $\one_X$ denotes the projection onto the fields vanishing on the plaquettes with no corner in $X$.
+
+\subsection{The walk}
+
+Let $\fA^X$ be operators on $\ell^2(X)$, one for each domain $X$, with $\fA=\fA^{\Tf}$, satisfying:
+\begin{enumerate}[label=(A\arabic*)]
+\item \emph{Structure.} $\fA^X=\fA^X_{\rm loc}+\kappa_mm_X+\mathfrak N^X$, where:
+  \begin{itemize}
+  \item $\fA^X_{\rm loc}$ is a local operator of range $r_0$, possibly of second order and containing a block-local averaging term, which depends on $X$ only through cut terms at $\partial X$. For example, $\one_XDD^T\one_X$ differs from $D\one_XD^T$ by a cut term.
+  \item $\kappa_mm_X$ is the mass term of Section~\ref{sec:reg-gauge} in the gauge case, and $0$ otherwise.
+  \item $\mathfrak N^X$ is the non-local part.
+  \end{itemize}
+\item \emph{Local propagators.} For every $j$ and every domain $X$, $\fA^{\Lam^v_j\cap X}$ is invertible on $\ell^2(\Lam^v_j\cap X)$. Its inverse $G^X_j$, extended by zero, depends on the data only on $(\Lam^v_j\cap X)^\wedge$, satisfies $|G^X_j|^D_{\gamma_0}\le C_G$, and obeys the comparison of domains in seam form with width $w$, with derivatives, and constants $(C_G,\gamma_0)$. Here, and in the derivative norms of the outputs below, $D$ stands for every first-order derivative that occurs as a factor $Y_i$, $X_i^T$ or as an external derivative. In the gauge case these are $D$ and the divergence $D^T_{X_j}$ of the local domain $X_j=\Lam^v_j\cap X$. The bounds for $D^T_{X_j}G^X_j$ and $D^T_{X_j}G^X_jD^T$ come from the norm $\tn\cdot_{X_j,+}$ (Theorem~\ref{thm:reg-gauge}(a)). In the gauge case (A2) also includes the full gradient $\nabla G^X_j$, $\nabla G^X_jD^T$, and the comparison of domains for these and for the torus divergence (Theorem~\ref{thm:reg-locality}(a)). With the Dirichlet conditions of Section~\ref{sec:reg-gauge}, even the torus divergence $D^TG^X_j$ is bounded. The regrouping in the proof of Lemma~\ref{lem:step-small} is kept, since it needs only the divergence of the local domain.
+\item \emph{Non-local part.} $\mathfrak N^X=\sum_iX_i^T\mathfrak N^X_iY_i$ has compatible factorized representations $\mathfrak N^X(s)$ with constants $(C_{\mathfrak N},\gamma_0)$ at $\kappa+2\delta$. Lemma~\ref{lem:step-small} at $\kappa'$ uses $\mathfrak N$ at $\kappa'+\delta$, and Theorem~\ref{thm:weak-inverse} at $\kappa$ uses Lemma~\ref{lem:step-small} at $\kappa+\delta$. So each walk costs $2\delta$ in the weakening rate.
+\end{enumerate}
+
+\begin{lemma}[Parametrix on domains]\label{lem:parametrix-X}
+Under (A1), (A2), with $K^X=\sum_jh_jG^X_j$ on $\ell^2(X)$,
+\[
+\begin{aligned}
+\fA^XK^X&=I-\sum_j\mathcal R^X_j,\\
+\mathcal R^X_j&=-\Big([\fA^X_{\rm loc},h_j]+[\mathfrak N^X,h_j]+h_j\big(\mathfrak N^X\one_{\Lam^v_j\cap X}-\one_{\Lam^v_j\cap X}\mathfrak N^{\Lam^v_j\cap X}\one_{\Lam^v_j\cap X}\big)\Big)G^X_j .
+\end{aligned}
+\]
+\end{lemma}
+
+\begin{proof}
+As in Lemma~\ref{lem:parametrix}, $\fA^Xh_jG^X_j=h_j\fA^XG^X_j+[\fA^X,h_j]G^X_j$, and $m_X$ commutes with $h_j$.
+\begin{itemize}
+\item \emph{Local parts.} On $\supp h_j$ the local parts of $\fA^X$ and $\fA^{\Lam^v_j\cap X}$ agree on fields supported in $\Lam^v_j\cap X$. The only possible difference is a cut term at $\partial\Lam^v_j$, which is at distance at least $(\rho-1)M>r_0$ from $\supp h_j\subset K_j$.
+\item \emph{Mass profiles.} These agree on $K_j$. If $K_i\cap K_j\ne\emptyset$, then $\Lam_i\subset\Lam^v_j$ for $\rho\ge6$. So $\Lam_i\subset X$ iff $\Lam_i\subset\Lam^v_j\cap X$, i.e.\ $i\in J(X)$ iff $i\in J(\Lam^v_j\cap X)$, and only such $i$ contribute to $m$ on $K_j$.
+\end{itemize}
+Hence $h_j\fA^XG^X_j=h_j+h_j(\mathfrak N^X\one_{\Lam^v_j\cap X}-\one\mathfrak N^{\Lam^v_j\cap X}\one)G^X_j$. Sum over $j$, using $\sum_jh_j=1$.
+\end{proof}
+
+Since $h_j\one_{X\setminus(\Lam^v_j\cap X)}=0$, the seam term equals $h_j\one_{X'}(\mathfrak N^X-\mathfrak N^{X'})\one_{X'}G^X_j$ with $X'=\Lam^v_j\cap X$.
+
+\paragraph{The weakened step.} Insert the representations of (A3), and give each step the monomial $s^{X(j)}$. Each term of $\mathcal R^X_j$ is then of the form $D^TA+B$, with the left derivative coming from $X_i^T$, and
+\[
+\begin{aligned}
+\mathcal R^X(s)&=-\sum_js^{X(j)}\Big([\fA^X_{\rm loc},h_j]+[\mathfrak N^X(s),h_j]+h_j\one_{X'}\big(\mathfrak N^X(s)-\mathfrak N^{X'}(s)\big)\one_{X'}\Big)G^X_j\\
+&=D^T\mathcal A^X(s)+\mathcal B^X(s),
+\end{aligned}
+\]
+with weakenable families $\mathcal A^X$ and $\mathcal B^X$ ($\mathcal A^X=0$ at the scalar levels). Each term has domain $X(j)\cup X_\omega$. This is a polymer, since $X_\omega$ meets $X(j)$ for every non-vanishing term. Put
+\[
+G^X(s)=\sum_{n\ge0}\Big(\sum_js^{X(j)}h_jG^X_j\Big)\mathcal R^X(s)^n .
+\]
+In a product, every $D^T$ in front of $\mathcal A$ is absorbed by the factor on its left, which is one of $h_jG^X_jD^T$, $\mathcal A^XD^T$, $\mathcal B^XD^T$. So the products are products of the bounded factors
+\[
+\mathcal F_0=\sum_js^{X(j)}h_jG^X_j,\quad\mathcal F_0D^T,\quad\mathcal A^X,\quad\mathcal A^XD^T,\quad\mathcal B^X,\quad\mathcal B^XD^T .
+\]
+This replaces the use of the identity of Lemma~\ref{lem:div-curvature}. That identity needs a real background, while the weakened walks are needed for complex perturbations as well.
+
+\begin{lemma}[Step operators]\label{lem:step-small}
+Assume (A1)--(A3) and
+\[
+|[\fA^X_{\rm loc},h_j]G^X_j|_{\gamma_0}+|[\fA^X_{\rm loc},h_j]G^X_jD^T|_{\gamma_0}\le C_GC_{\rm loc}M^{-1}.
+\]
+Then, with $\gamma=\gamma_0/8$ and $\gamma_0\le1$,
+\[
+\begin{aligned}
+&\|\mathcal A^X\|_{\kappa,\gamma}+\|\mathcal A^XD^T\|_{\kappa,\gamma}+\|\mathcal B^X\|_{\kappa,\gamma}+\|\mathcal B^XD^T\|_{\kappa,\gamma}\le\theta,\\
+&\theta:=C\,e^{\kappa\mathsf N_{\rm b}}\Big(C_GC_{\rm loc}M^{-1}+C\delta^{-1}(\gamma_0M)^{-1}C_{\mathfrak N}C_G+C\delta^{-1}C_{\mathfrak N}C_Ge^{-\gamma_0(\rho-1)M/16}\Big).
+\end{aligned}
+\]
+The constant $C$ includes the number of $j$ with $\Box\subset X(j)$, which is bounded independently of $M$.
+\end{lemma}
+
+\begin{proof}
+\emph{The local commutator.} This is the hypothesis, times $e^{\kappa\mathsf N_{\rm b}}$ from the monomial.
+
+\emph{Regrouping.} Let $X'=\Lam^v_j\cap X$. Consider a term $X_i^TM^X_iY^X_i$ of $\mathfrak N^X$ with $Y^X_i=D^T_X$; the matching term of $\mathfrak N^{X'}$ has $Y^{X'}_i=D^T_{X'}$. Put $\sigma_j=(D^T_X-D^T_{X'})G_j$. It is supported at points of $X\setminus X'$, so $h_j\sigma_j=0$, and $h_jD^T_XG_j=h_jD^T_{X'}G_j$. Then the non-local commutator and the seam term of this term are
+\[
+\begin{aligned}
+{}[X_i^TM^X_iD^T_X,h_j]G_j&=[X_i^TM^X_i,h_j]D^T_{X'}G_j+X_i^TM^X_i[D^T_X,h_j]G_j-h_jX_i^TM^X_i\sigma_j,\\
+h_j\big(X_i^TM^X_iD^T_X-X_i^TM^{X'}_iD^T_{X'}\big)G_j&=h_jX_i^T\big(M^X_i-M^{X'}_i\big)D^T_{X'}G_j+h_jX_i^TM^X_i\sigma_j ,
+\end{aligned}
+\]
+and the terms with $\sigma_j$ cancel exactly. We use the steps in this regrouped form. Then only $D^T_{X'}G_j$ and $D^T_{X'}G_jD^T$ enter, which (A2) bounds, and $[D^T_X,h_j]$ is a multiplication by differences of $h_j$.
+
+\emph{The non-local commutator.} It is bounded by Lemma~\ref{lem:weak-local-ops}(b), applied to the factors $M_i$, together with the commutators $[X_i^T,h_j]$, $[Y_i,h_j]$, which are of size $CM^{-1}$. The derivatives $Y_i$ are absorbed by $G^X_j$, using $|G^X_j|^D$. In the terms $X_i^T[M_i,h_j]Y_iG_j$ and $X_i^TM_i[Y_i,h_j]G_j$ a left $D^T$ stays in front and gives the form $D^T\mathcal A$; then $\mathcal AD^T$ contains $Y_iG_jD^T$, again controlled by (A2). So only the norms $\|M_i\|$ enter, never derivatives of $M_i$.
+
+\emph{The seam term.} By Definition~\ref{def:compatible}, the differences $\one_{X'}(\mathfrak N^X_i-\mathfrak N^{X'}_i)\one_{X'}$ are of seam form for $\Sigma_w(X,X')$. By \eqref{eq:rho-choice}, every block of this seam lies at distance at least $\frac14(\rho-1)M$ from $K_j$. The factor $h_j$ restricts the output to $K_j$, so the seam norm and \eqref{eq:seam-product} give the factor $e^{-\gamma_0(\rho-1)M/16}$.
+
+\emph{Counting.} The terms of the non-local commutator and of the seam term built from a term $\omega$ of $\mathfrak N$ carry the monomial $s^{X(j)}s^{n_\omega}$, of degree $|X(j)|+\deg\omega\le\mathsf N_{\rm b}+\deg\omega$. So the factor $e^{\kappa\mathsf N_{\rm b}}$ multiplies them as well. For a fixed term $\omega$ of $\mathfrak N$, the number of $j$ for which the commutator or the seam term is non-zero is at most $C|X_\omega|\le C\deg\omega$. This is absorbed by evaluating $\|\mathfrak N\|$ at $\kappa+\delta$, at the cost of $\delta^{-1}$. The versions with $D^T$ on the right follow from (A2) and (A3) in the same way.
+
+\emph{The power of $C_G$.} Each term of $\mathcal A^X$, $\mathcal B^X$, $\mathcal A^XD^T$ and $\mathcal B^XD^T$ contains exactly one factor of the form $PG^X_jP'$ with $P,P'\in\{1,D,D^T\}$, which (A2) bounds by $C_G$; so $\theta$ is linear in $C_G$. This matters at level~(L5), where $C_G=C_L(\frac1{16}c_L+r)^{-1}<1$ for large $r$.
+\end{proof}
+
+\begin{theorem}[Weakened inverses]\label{thm:weak-inverse}
+Assume (A1)--(A3) and the hypothesis of Lemma~\ref{lem:step-small}. For (b) assume also the comparison of domains of the local commutators: for domains $X'\subset X$ the zero extensions of $[\fA^X_{\rm loc},h_j]G^X_j-[\fA^{X'}_{\rm loc},h_j]G^{X'}_j$ and of $[\fA^X_{\rm loc},h_j]G^X_jD^T-[\fA^{X'}_{\rm loc},h_j]G^{X'}_jD^T$ are of seam form for $\Sigma_w(X,X')$, with constants $(C_GC_{\rm loc},\gamma_0)$. Let $\delta\in(0,1]$. If $M\ge M_1(\kappa,\delta,C_G,C_{\rm loc},C_{\mathfrak N},\gamma_0,\rho,C_v)$, then for every domain $X$:
+\begin{enumerate}[label=(\alph*)]
+\item $G^X(s)$ is a weakenable family with margin at most $r+2r_0$ that represents $(\fA^X)^{-1}$, with
+\[
+\|G^X\|^D_{\kappa,\gamma_0/8}\le C(\kappa,\delta)e^{(\kappa+\delta)\mathsf N_{\rm b}}C_G ;
+\]
+\item the representations of $G^X(s)$, $DG^X(s)$, $G^X(s)D^T$ and $DG^X(s)D^T$ are compatible with constants $(C_{\rm cpt},\gamma_0/32)$ and seam width $w$. Here $C_{\rm cpt}$ depends only on $\kappa$, $\delta$, $\gamma_0$, $C_G$, $C_{\rm loc}$, $C_{\mathfrak N}$ and on $\rho$ and $C_v$ (through $\mathsf N_{\rm b}$); it may be taken independent of $M\ge M_1$, of $X$ and of $k$, $n$, $\eta$;
+\item each term is covariant under real gauge transformations if the $G^X_j$ and the terms of $\mathfrak N^X(s)$ are.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) After the regrouping of the derivatives, the $n$-th term is a sum of $2^n$ products of $n+1$ bounded factors from the list above. By Lemma~\ref{lem:weak-chain} and Lemma~\ref{lem:step-small} at $\kappa+\delta$,
+\[
+\Big\|\mathcal F_0\mathcal R^X(s)^n\Big\|_{\kappa,\gamma}\le(n+1)\big(C\delta^{-2}e^{(\kappa+\delta)\mathsf N_{\rm b}}C_G\big)\big(2C\delta^{-2}\theta\big)^n .
+\]
+The series converges if $2C\delta^{-2}\theta\le\frac12$, which holds for $M$ large, by the form of $\theta$. With derivatives, $D$ falls on the first factor, which is controlled by $|DG^X_j|$ and $[D,h_j]$. $D^T$ falls on the last factor, controlled by $\|\mathcal A^XD^T\|$, $\|\mathcal B^XD^T\|$ or $|G^X_jD^T|$. At $s=1$ the series is $K^X\sum_n(\sum_j\mathcal R^X_j)^n$, which by Lemma~\ref{lem:parametrix-X} is a right inverse of $\fA^X$. The space $\ell^2(X)$ is finite-dimensional, since the torus is finite. So this right inverse of $\fA^X$ is its inverse. No coercivity or positivity of any operator at $s\ne1$ is used: the series is the definition of $G^X(s)$. Data locality and the domains hold term by term.
+
+(b) Use the same index set on $X$ and on $X'\subset X$. On $X'$ a term vanishes if one of its local domains $\Lam^v_j\cap X'$ is empty. The sets $X(j)$ and the monomials do not depend on the domain, so matched terms have the same domain and monomial. On each field space let $P=\one_{X'}$ be the orthogonal projection onto the fields of $X'$ (Definition~\ref{def:domain}; on $2$-forms, the fields vanishing on the plaquettes with no corner in $X'$), and $Q=\one_X-P$. On gauge fields $Q$ is not $\one_{X\setminus X'}$: a bond from $X'$ to $X\setminus X'$ is a field of both domains. The fields in the range of $Q$ lie within one lattice step of $X\setminus X'$. After the regrouping, a term on $X$ is a product of bounded pieces: the $h_j$; the local propagators $G^X_j$ with the derivatives of (A2), among them the external $D$ of the first factor and the external $D^T$ of the last; the local commutators $[\fA^X_{\rm loc},h_j]G^X_j$, also with $D^T$ on the right; the middle factors of the non-local parts, also commuted with $h_j$; and the multiplications $[X_i^T,h_j]$, $[Y_i,h_j]$ and, with an external $D$, $[D,h_j]$. Every factor of a word ends with a local propagator, possibly with a derivative of (A2) on its left, so the left $D^T$ of the next step is absorbed into it, as in $G^X_jD^T$ or $[\fA^X_{\rm loc},h_j]G^X_jD^T$. Insert $P+Q$ between the pieces of a term on $X$, and telescope, using $P\Phi'P=\Phi'$ for the pieces $\Phi'$ on $X'$. The difference $P(\text{term on }X)P-(\text{term on }X')$ is a sum of products, each containing one of the following factors:
+\begin{itemize}
+\item a difference of local propagators $P(G^X_j-G^{X'}_j)P$, with the derivatives applied before the comparison, of seam form by (A2), since $\Lam^v_j\cap X'\subset\Lam^v_j\cap X$ and $(\Lam^v_j\cap X)\setminus(\Lam^v_j\cap X')\subset X\setminus X'$;
+\item a difference of non-local parts, on $X$ and $X'$ or on $\Lam^v_j\cap X$ and $\Lam^v_j\cap X'$, of seam form by (A3), also after commutation with $h_j$, which commutes with $P$;
+\item a difference of local commutators $P[\fA^X_{\rm loc},h_j]G^X_jP-[\fA^{X'}_{\rm loc},h_j]G^{X'}_j$, also with $D^T$ on the right, of seam form by the hypothesis of (b);
+\item a cross term $P\Phi Q$ of a piece $\Phi$, a difference $P\Phi P-\Phi'$ of the multiplications $[X_i^T,h_j]$, $[Y_i,h_j]$, $[D,h_j]$, or a piece containing $G^X_j$ whose domain $\Lam^v_j\cap X'$ is empty. These are bounded and supported on the seam, where $|\cdot|_{\gamma,\Sigma}\le|\cdot|_{2\gamma}$.
+\end{itemize}
+By \eqref{eq:seam-product} and Lemma~\ref{lem:weak-chain}, each such product is bounded in the seam norm. No bare derivative stands next to $P$ or $Q$: every derivative is part of a bounded piece. A local commutator $[\fA_{\rm loc},h_j]$ never stands without its propagator: at (L1) and (L3) it is a differential operator, not bounded uniformly in $\eta$. A term with $n$ steps has at most $C(n+1)$ pieces, so the sum over the position of the distinguished factor costs a factor $C(n+1)$, which is absorbed. The steps are taken in the regrouped form of the proof of Lemma~\ref{lem:step-small} on both domains. On $X'$ the divergences of the local domains agree at the points of $X'$, so their differences are again of seam form: $P\one_{\Lam^v_j\cap X}D^TG^X_jP-\one_{\Lam^v_j\cap X'}D^TG^{X'}_j=\one_{\Lam^v_j\cap X'}D^T(G^X_j-G^{X'}_j)P$, which (A2) bounds through the torus divergence. The constant $C_{\rm cpt}$ collects the bound of (a), which is proportional to $C_G$, and the seam constants of (A2), (A3) and of the local commutators. It may be taken as its value at $M=M_1$, since the bounds of the series decrease in $M$. It cannot be taken independent of $C_G$: for $\fA^X=tI_X$ on unit-lattice fields and $\mathfrak N=0$ the family is $t^{-1}\sum_js^{X(j)}h_j$, whose norm is at least $2^{-d}t^{-1}$ by Lemma~\ref{lem:weak-basic}(a).
+
+(c) is clear.
+\end{proof}
+
+\subsection{The levels}
+
+Theorem~\ref{thm:weak-inverse} is applied at five levels, and (L3), (L4) are applied twice, without and with the potential $W_2$. At each level the hypotheses follow from the previous levels and from Parts~III, VII and VIII. There is no circularity: the order is
+\[
+\text{(L1)}\to\text{(L2)}\to\text{(L3), (L4) with }W=0\to\omega_0,\ W_2\to\text{(L3), (L4) with }W_2\to\text{(L5)}.
+\]
+Every use of Lemma~\ref{lem:weak-chain} costs $\delta$ in $\kappa$, every use of Theorem~\ref{thm:weak-inverse} costs $2\delta$, each costs a fixed factor in $\gamma$, and there are boundedly many of them. The parameters are chosen in the order $L$, then $\kappa$ (see below), then $\rho$ by \eqref{eq:rho-choice}, then $M$ large depending on all of these, and finally $\eps$ small depending on $M$. The constants $C_G$, $C_{\rm loc}$, $C_{\mathfrak N}$ and the rates $\gamma_0$ of all levels do not depend on $M$: for $M\ge M_0$, and, at a level whose non-local parts come from Theorem~\ref{thm:weak-inverse}(b) at earlier levels, for $M$ at least the thresholds $M_1$ of those levels, with $C_{\rm cpt}$ taken at these thresholds. So the thresholds are fixed level by level, in the order above, and $M_1$ denotes the largest of them. At (L1)--(L3) this holds for the torus operators by Lemma~\ref{lem:regular-monotone} and Step~0 of the proof of Lemma~\ref{lem:uniformity}, for the Dirichlet operators by Theorem~\ref{thm:reg-coercive} (Remark~\ref{rem:uniformity-limits}(c)), and for the non-local parts by Theorem~\ref{thm:weak-inverse}(b) at the earlier levels. At (L4) and (L5) the inputs are Propositions~\ref{prop:dirichlet-averaged}, \ref{prop:dirichlet-hessian} and~\ref{prop:local-fluct}. They are built from these Dirichlet operators, from the averaging operators, whose proofs do not use $M$ (Section~\ref{sec:AB-proof}, Setting), and from the constants $c_L$, $C_L$, $C'_L$, $\gamma_1$ and $\gamma_C$ of Part~VII, which do not depend on $M\ge M_0$ (Remark~\ref{rem:step-M}). Theorem~\ref{thm:reg-locality}(b), the one result of Part~III whose constant contains $e^{CM}$, does not enter the constants of (A2): (A2) uses Theorem~\ref{thm:reg-locality}(a), and (b) enters only through the coercivity of Part~VII, in Lemma~\ref{lem:local-comparison}, where it is absorbed by the choice of $M'_L$ and $\eps_L$. The margin $R_0\le C_LM$ enters only $\rho$ and the seam width. So each threshold $M_1$ is a number, fixed before $M$. The smallness of $\eps$ is another matter. The thresholds of Parts~II and~III do not depend on $M$, and $\eps_{\rm B}$ of Lemma~\ref{lem:uniformity}(c) may be taken at $M=M_0$ (Lemma~\ref{lem:regular-monotone}). The thresholds of Parts~VI--VIII depend on $M$, for instance $a_1$ of Theorem~\ref{thm:balaban} (whose constant $B_3$ also depends on $M$), $a_\delta$ of Proposition~\ref{prop:sharp-curvature} and $\eps_L\le\eps_{\rm cmp}(M'_L)$ with $M'_L\ge M$ (Theorem~\ref{thm:step-coercive}); this is why $\eps$ is chosen last.
+
+\begin{enumerate}[label=(L\arabic*)]
+\item \emph{Scalar operators.}
+  \begin{itemize}
+  \item $\fA'^X=\one_X(D^TD+aQ'^TQ')\one_X$, with $\mathfrak N=0$, since $Q'^TQ'$ is block-local and is counted in $\fA_{\rm loc}$.
+  \item (A2) is Theorem~\ref{thm:reg-scalar}(b),(e), on the domains $\Lam^v_j\cap X$.
+  \item The hypothesis of Lemma~\ref{lem:step-small} is $|[\fA',h_j]G'_j|_{\gamma_0}\le CM^{-1}$, in the decay norm, with $D^T$ on the right, from Theorem~\ref{thm:random-walk}(a), whose proof applies verbatim on the domains $\Lam^v_j\cap X$. The comparison of the local commutators in Theorem~\ref{thm:weak-inverse}(b) holds as well. Since $h_j$ commutes with $\one_X$ and $\one_X\one_{X'}=\one_{X'}$, the difference is $\one_X[\fA',h_j](G'_{\Lam^v_j\cap X}-G'_{\Lam^v_j\cap X'})+(\one_X-\one_{X'})[\fA',h_j]G'_{\Lam^v_j\cap X'}$, with $\fA'=D^TD+aQ'^TQ'$. By the discrete Leibniz rule, $[\fA',h_j]u$ is a sum of multiplications of size $CM^{-1}$ applied to $u$ and to $Du$, up to shifts by $\eta$, and of $a[Q'^TQ',h_j]u$. So the first term is of seam form by Theorem~\ref{thm:reg-scalar}(e) for $G'$ and $DG'$, also with $D^T$ on the right. The second is bounded by the same expansion and Theorem~\ref{thm:reg-scalar}(b), and supported at the points of $X\setminus X'$.
+  \end{itemize}
+  This gives weakened $G'^X(s)$, together with $DG'^X(s)$, $G'^X(s)D^T$ and $DG'^X(s)D^T$. The walk has only local steps, as in \cite[Lemma~6]{DimockI}.
+\item \emph{Scalar averaged operators.}
+  \begin{itemize}
+  \item $Q'G'^XQ'^T$ and $M'^X=Q'(G'^X)^2Q'^T$ on $\ell^2(X_1)$, with $\fA_{\rm loc}=0$.
+  \item Their weakened representations come from (L1), Lemma~\ref{lem:weak-chain} and Lemma~\ref{lem:weak-local-ops}(a). Compatibility follows from (L1).
+  \item (A2) holds for the Dirichlet versions on $\Lam^v_j\cap X$, by Theorem~\ref{thm:reg-scalar}(c),(e).
+  \end{itemize}
+  Theorem~\ref{thm:weak-inverse} gives $\Gamma'^X(s)$ and $(M'^X)^{-1}(s)$. Products then give $H'^X$, $P^X_\cV$, $R_X$, $S_X$, $DS_X$ and $\Pi_X$, with derivatives.
+\item \emph{Gauge-field operators.}
+  \begin{itemize}
+  \item $\fA^{X,\kappa_m}$, with $\fA^X_{\rm loc}=\one_X(D^TD+DD^T+W+a\bQ^T\bQ)\one_X$ on $\ell^2_1(X)$, the Dirichlet restriction of the torus operator, which includes the exterior divergence term $\fA^{\rm ext}_X$, and mass term $\kappa_mm_X$.
+  \item Using $E=0$ as in Lemma~\ref{lem:local-system},
+  \[
+  \mathfrak N^X=-DP_{\cV,X}D^T_X-\mathfrak B_XDS_X-(\mathfrak B_XDS_X)^T+S_X^TD^T_X\mathfrak B_XDS_X ,
+  \]
+  with $\mathfrak B_XD=D^T\mathfrak F+WD$.
+  This is a factorized family with $X_i^T\in\{1,D^T\}$. Its terms are listed in the proof of Lemma~\ref{lem:N-tier}. For example, $D^T\mathfrak FS_X$ has $X_i^T=D^T$, $M_i=\mathfrak FG'_XR_X$ and $Y_i=D^T_X$; $-DP_{\cV,X}D^T_X$ has $X_i^T=1$, $M_i=DP_{\cV,X}$ and $Y_i=D^T_X$. Every middle factor is bounded in the plain norm by (L1), (L2) with derivatives, by the sup bound on $\mathfrak F$, and by the norm of $W$: the sup bound of its coefficients for $W\in\cW_{\rm loc}$, the family norm for $W_2$. A left gradient always falls on a scalar propagator, never on the coefficients of $\mathfrak F$ or $W$, so no derivative of these coefficients is needed. The compatibility of the middle factors follows from Theorem~\ref{thm:weak-inverse}(b) at (L1), (L2), which includes the derivatives of $G'^X$ and $P^X_\cV$, and from the locality of $\mathfrak F$ and $W$.
+  \item (A2) is Theorem~\ref{thm:reg-gauge}(a) and Theorem~\ref{thm:reg-locality}(a) on the domains $\Lam^v_j\cap X$.
+  \item The hypothesis of Lemma~\ref{lem:step-small} holds on every domain. The local commutator is $[\fA^X_{\rm loc},h_j]=\one_X[D^TD+DD^T+W+a\bQ^T\bQ,h_j]\one_X$, since $h_j$ commutes with $\one_X$. The terms $D^T[D,h_j]G_j$ and $D[D^T,h_j]G_j$ need the full gradient of $G_j$ on the support of $\partial h_j$, also where it meets $\partial X$. This is bounded by Lemma~\ref{lem:full-gradient} and Theorem~\ref{thm:reg-gauge}(a). The same holds with $D^T$ on the right, and at complex perturbations. On the torus one may also use the localized Hodge identity at interior blocks, as in the proof of Lemma~\ref{lem:int-factors}. The comparison of the local commutators in Theorem~\ref{thm:weak-inverse}(b) follows from the same expansion. With $\fA^{\Tf}_{\rm loc}=D^TD+DD^T+W+a\bQ^T\bQ$, the difference is $\one_X[\fA^{\Tf}_{\rm loc},h_j](G^X_j-G^{X'}_j)+(\one_X-\one_{X'})[\fA^{\Tf}_{\rm loc},h_j]G^{X'}_j$. In the first term $[\fA^{\Tf}_{\rm loc},h_j]$ acts through $D$, the torus divergence $D^T$, $\nabla$, $\bQ$ and $W$, with coefficients and local maps of size $CM^{-1}$; Theorem~\ref{thm:reg-locality}(a) compares these derivatives of the local propagators, also with $D^T$ on the right, in seam form. In the second term $\one_X-\one_{X'}$ projects onto the bonds within one lattice step of $X\setminus X'$, and $[\fA^{\Tf}_{\rm loc},h_j]G^{X'}_j$ is bounded as above.
+  \end{itemize}
+  The result is $\bG^X(s)$, together with $D\bG^X(s)$, $\bG^X(s)D^T$ and $D\bG^X(s)D^T$.
+\item \emph{Averaged gauge operators and the Hessian.}
+  \begin{itemize}
+  \item $\bQ_X\bG^X\bQ_X^T$ on $\ell^2(\mathfrak B(X))$, with $\fA_{\rm loc}=0$.
+  \item (A2) is Proposition~\ref{prop:dirichlet-averaged}(a),(d), and (e) at complex perturbations of the background.
+  \end{itemize}
+  This gives $\boldsymbol\Gamma^X(s)$, hence $\bH^X(s)$, $\bC^X(s)$ and $\omega_0^X(s)=\bH_0^X(s)^T\one_XJ_U$. Then
+  \[
+  W_2^X(s)=d^2\mathcal N(0)\big|_X-\omega_0^X(s)\cdot d^2C_k(0)
+  \]
+  is a weakenable family. Its first term is local, and the second is $\omega_0^X(s)$ times the bounded local kernel of $d^2C_k(0)$ (Proposition~\ref{prop:Q-expansion}(c)).
+
+  For complex perturbations of the background, $J_U$ is not bounded uniformly in $\eta$. There one writes $\ip b{\omega_0}=\ip{J_U}{\bH_0b}$ with $J_U=D^TF^s_U$ (Lemma~\ref{lem:current}), and moves the derivative onto $\bH_0b$, using $|D\bH_0|$. The same remark applies to Proposition~\ref{prop:dirichlet-hessian}(c).
+
+  In the repetition of (L3) the potential $W_2^X(s)$ is put into the non-local part $\mathfrak N$, with $X_i=Y_i=1$, not into $\fA_{\rm loc}$. It depends on $X$ globally, through $\omega^X_0$, so it does not satisfy the requirement of (A1) on local parts. Its plain norm and its compatibility follow from (L3), (L4) with $W=0$ and Theorem~\ref{thm:weak-inverse}(b). In this repetition the local propagators are the inverses of the Dirichlet operators with the potential $W_2^{X_j}$, $X_j=\Lam^v_j\cap X$, which depends on $U$ on all of $\hat X_j$. So (A2) is not Theorems~\ref{thm:reg-gauge}(a) and~\ref{thm:reg-locality}(a) literally. Existence, $\Rea$-coercivity and decay come from Proposition~\ref{prop:reg-complex}, whose hypotheses $W_2^{X_j}$ satisfies (Proposition~\ref{prop:dirichlet-hessian}(b),(c)); the comparison of domains comes from Propositions~\ref{prop:dirichlet-averaged}(d), which allows different potentials on the two domains, and~\ref{prop:dirichlet-hessian}(d), as stated in Section~\ref{sec:reg-gauge}. These comparisons include $P\in\{D,D^T,\nabla\}$, so the comparison of the local commutators in Theorem~\ref{thm:weak-inverse}(b) follows as at the first pass of (L3); the local part is the same. Repeating (L3) and (L4) with the potential $W_2^X$ gives $\boldsymbol\Gamma^X[W_2^X](s)$ and the Dirichlet Hessians $\Delta^{0,X}(s)$. Through the local maps $\hat Z^1$, $\hat Z^2$ it gives the operators $\Delta^{(X)}_k(s)$ and $\Delta_Y(s)$ of Section~\ref{sec:localization}.
+\item \emph{The fluctuation operator.}
+  \begin{itemize}
+  \item $\fA^X=\Delta_X+r$ on $\ell^2(\mathfrak F(X))$, for $r\ge0$, with $\fA_{\rm loc}=r$ and $\mathfrak N^X=\Delta_X$ from (L4). Since $\Delta_X$ is built from $\Delta^{(X^+)}_k$, the representations of (L4) are used on the domains $X^+=X^{(R_0)}$.
+  \item (A2) is Proposition~\ref{prop:local-fluct}(c),(d), with the seam width $w=R_0+10M+2L$. The local propagators on $Y=\Lam^v_j\cap X$ depend on the background on $\widehat{Y^+}$ (Proposition~\ref{prop:local-fluct}(b)), not only on $\hat Y$; this set lies in $(\Lam^v_j)^{(R_v)}$ by the choice of $R_v$ in Section~\ref{sec:weakenable}, which is the form of the data dependence of (A2) used at this level.
+  \item The local operators satisfy $\Rea(\Delta_{\Lam^v_j\cap X}+r)\ge\frac1{16}c_L+r$. So the local propagators $(\Delta_{\Lam^v_j\cap X}+r)^{-1}$ have norm at most $(\frac1{16}c_L+r)^{-1}$ and decay $\big(C_L(\frac1{16}c_L+r)^{-1},\gamma_C\big)$, uniformly in $r$ (Proposition~\ref{prop:local-fluct}(d)).
+  \item The margin $R_v$ of $X(j)$ is at least $R_0+4+2r_{\rm loc}$ (Section~\ref{sec:weakenable}).
+  \end{itemize}
+  The constant $C_G=C_L(\frac1{16}c_L+r)^{-1}$ of (A2) is at most $16C_L/c_L$. Since $[r,h_j]=0$, $C_{\rm loc}=0$, and $C_{\mathfrak N}$ does not depend on $r$. So $M_1$ and the constants of Theorem~\ref{thm:weak-inverse} are uniform in $r$, and the bound of (a) carries the factor $C_G$. It gives $R_r(s)$, a representation of $(\Delta_k+r)^{-1}$, with $\|R_r\|_{\kappa,\gamma}\le C(c_L+r)^{-1}$.
+\end{enumerate}
+
+\begin{remark}[Boundary conditions of the gauge-field operators]\label{rem:L3-domains}
+The verification of 31 October 2026 found that an earlier version of the gauge-field Dirichlet operators did not support the walks on proper domains.
+\begin{itemize}
+\item \emph{The old operators.} They contained only the interior divergence $D^T_X$, so the normal components on the bonds crossing $\partial X$ were free. These are relative boundary conditions, and the normal trace of $\bG^Xg$ was then of order $1$. The local commutator $[D\one_XD^T,h_j]$ produced, on a crossing bond at the inner point $x$, the term $-\eta^{-1}([D^T,h_j]u)(x)$, whose main part is $\eta^{-1}(\partial_nh_j)u_n$. In $L^2$ this is of order $\eta^{-1/2}M^{-1}$. So the hypothesis of Lemma~\ref{lem:step-small} failed uniformly in $\eta$ on every proper domain.
+\item \emph{The repair.} The operators now contain the exterior divergence term $\fA^{\rm ext}_X$ (Section~\ref{sec:reg-gauge}). Their local part is the Dirichlet restriction of the torus operator, so all components satisfy Dirichlet conditions. Coercivity holds in $\tn\cdot_{X,+}$, and the full gradient is controlled up to $\partial X$ (Lemma~\ref{lem:full-gradient}). The local commutators are then bounded, and the cutoff proof of the comparison of domains (Theorem~\ref{thm:reg-locality}(a)) leaves no boundary terms.
+\item \emph{What did not change.} The torus operators, since $\fA^{\rm ext}_{\Tf}=0$, and hence Parts~IV--VII. The scalar operators and the slice objects $S_X$, $R_X$, $P_{\cV,X}$. Enlarging the scalar domain is not needed, and would not restore exact identities on domains, since gradients of scalars supported at exterior points do not lie in $\ell^2_1(X)$. The mass term is kept, because the exterior divergence alone gives no $L^2$ control near the boundary.
+\end{itemize}
+\end{remark}
+
+\begin{corollary}[Weakened covariance]\label{cor:weak-covariance}
+For $M\ge M_1(\kappa,L)$, the formula
+\[
+C_k^{1/2}(s)=\frac1\pi\int_0^\infty\frac{dr}{\sqrt r}\,R_r(s)
+\]
+defines a weakenable family representing $C_k^{1/2}$. Its norm $\|C_k^{1/2}\|_{\kappa',\gamma'}$ is finite for $\kappa'=\kappa-C\delta$, and some $\gamma'>0$ depending on $L$. Here $C\le20$. The walks of (L1)--(L5) and the repetitions of (L3), (L4) with $W_2$, seven in all, cost at most $2\delta$ each. The products between them, at most six, cost $\delta$ each. Its terms are covariant and depend on the background only on their domains. Its margin is that of the families $R_r(s)$, independent of $r$ and of $M$; it is at most $M/16$ for $M$ large, as the definition of weakenable families requires (Section~\ref{sec:weakenable}). The norm is bounded uniformly in the background, real or complex as in Section~\ref{sec:weakenable}; the terms are analytic in the complex perturbation of the background, and real for real backgrounds and real $s$. In the same way the diagonal entries
+\[
+\ell_k(b)=\sum_jh_j(b)\,\ell_{\Lam^v_j}(b)-\int_0^\infty\operatorname{tr}_{\mathfrak g}\big[R^{(\ge1)}_t(b,b)\big]\,dt
+\]
+are represented by weakenable families of numbers $(X_\omega,n_\omega,O_\omega)_{\omega\in\Omega_b}$. Here $R^{(\ge1)}_t$ collects the walk terms of $(\Delta_k+t)^{-1}$ with at least one step, and $\ell_{\Lam^v_j}$ are the densities of Section~\ref{sec:det-local}. Moreover $O_\omega=0$ unless $b\in X_\omega^{(r)}$, and
+\[
+\|\ell_k(b)\|_{\kappa'}:=\sup_\Box\sum_{\omega\in\Omega_b:\,\Box\subset X_\omega}e^{\kappa'\deg\omega}|O_\omega|\le C,
+\]
+uniformly in $b$ and in the background, real or complex as in Section~\ref{sec:weakenable}.
+\end{corollary}
+
+\begin{proof}
+By (L5), $\|R_r\|_{\kappa',\gamma'}\le C(c_L+r)^{-1}$, which is integrable against $r^{-1/2}dr$. Interchanging the sum over terms with the integral gives a representation whose terms are $r$-integrals of terms of $R_r$, with the same domains. At $s=1$ it is $C_k^{1/2}$, by $\frac1\pi\int_0^\infty r^{-1/2}(\lambda+r)^{-1}dr=\lambda^{-1/2}$, which also holds for operators with positive real part \cite[(192)--(193)]{DimockI}. The bound of (L5) is uniform in the background and in $r$, and the terms of $R_r(s)$ are analytic in the background and real at real backgrounds and real $s$, since they are built from real operators by sums, products and resolvents at real $r$; the $r$-integral preserves these properties.
+
+For the determinant, the walk terms of $(\Delta_k+t)^{-1}$ with no steps are $\sum_jh_j(\Delta_{\Lam^v_j}+t)^{-1}$. Since $\sum_jh_j(b)=1$, the constant $\frac1{1+t}$ in the formula of Proposition~\ref{prop:det-densities} splits accordingly. So these terms contribute $\sum_jh_j(b)\ell_{\Lam^v_j}(b)$. The terms with $n\ge1$ steps contain $n+1$ resolvents and are $O((c_L+t)^{-2})$, hence integrable in $t$. More precisely, by (L5), $\|R^{(\ge1)}_t\|_{\kappa',\gamma'}\le C(c_L+t)^{-2}$, uniformly in $t$ and in the background. Since $|\operatorname{tr}_{\mathfrak g}O(b,b)|\le C|O|_{\gamma'}$, integration in $t$ gives the norm bound for the terms with steps. The terms without steps are bounded by $|\ell_{\Lam^v_j}(b)|\le C_L$, and their monomials $s^{X(j)}$ have degree at most $C(\rho)$. The index set does not depend on $t$, so the $t$-integral commutes with the sum over terms.
+\end{proof}
+
+By Lemma~\ref{lem:weak-basic}(b), at $s_\Box=0$ outside a union of boxes $Z$, all these unit-lattice objects split into independent blocks, one for each $*$-component of $Z$. After the conversion to margin $0$ of Section~\ref{sec:weakenable}, each block acts on fields and depends on the background only inside its component.
+\begin{itemize}
+\item \emph{Scope.} This is the volume-type localization of the fluctuation covariance, of the coarse Hessian and of the determinant. Dimock's localization step \cite[(225)--(233)]{DimockI} uses in addition sup bounds on the field $W_k(s)$ \cite[Lemma~16, (100)]{DimockI}. Its Yang--Mills analogue needs the fine-lattice field $\bH(s)Z$ pointwise, which is the subject of Section~\ref{sec:pointwise-weak}.
+\item \emph{The first cube.} Unlike \cite[(102)]{DimockI}, the first cube of a walk is included in its monomial. So $G^X(0)=0$, and the background dependence is cut together with the field; the price is a factor $e^{\kappa\mathsf N_{\rm b}}$ per step, which is harmless.
+\item \emph{The order of the parameters.} In \cite{DimockI} the analyticity radius is $M^{1/2}$, i.e.\ $\kappa_1=\frac12\log M$. Here $\kappa$ is fixed first. The rate $\kappa'_w=\kappa-C\delta$ must satisfy the conditions of Proposition~\ref{prop:sources} and Proposition~\ref{prop:localized-pieces}. These involve $\kappa_n$, $\kappa_0$, $c_\sharp$, $c'_\sharp$, $c_\natural$, $c_\flat$ and $C_d$, not $L$. Choosing $\kappa$ after $L$ and before $M$ is consistent with this.
+\end{itemize}
+
+\subsection{The one-loop source in polymer form}\label{sec:one-loop-polymer}
+
+Corollary~\ref{cor:one-loop} bounds the one-loop term by pieces of radius type. The polymer expansion needs pieces of volume type, at the complex points of the activity domain D3$'''$ (blueprint, Appendices~B and~F). Both follow from Corollary~\ref{cor:weak-covariance} and Lemma~\ref{lem:quadratic-bound}.
+
+For $b\in\mathfrak F$ let $(X_\omega,n_\omega,O_\omega)_{\omega\in\Omega_b}$ be the weakenable family of numbers of Corollary~\ref{cor:weak-covariance} that represents $\ell_k(b)$, converted to margin $0$, and write $X^\sharp_\omega$ for its polymers; $\deg\omega$ denotes the degree before the conversion. The index set, the polymers and the monomials are determined by the geometry of the walks (Lemma~\ref{lem:weak-chain}), not by the background; only the numbers $O_\omega=O_\omega(U)$ depend on it. For a polymer $X$ put
+\[
+\mathfrak e(X,U)=-\frac12\sum_{b\in\mathfrak F}\ \sum_{\omega\in\Omega_b:\,X^\sharp_\omega=X}\big(O_\omega(U)-O_\omega(1)\big).
+\]
+We write $\kappa'$ for the rate of Corollary~\ref{cor:weak-covariance}, $\kappa_2=3^{-d}\kappa'$, and $C$ for constants that may depend on $L$, $M$, $\kappa$ and $\rho$.
+
+\begin{proposition}[One-loop source in polymer form]\label{prop:one-loop-polymer}
+Let $G$ be semisimple and $q=2p+6$, with $p$ from Lemma~\ref{lem:large-cubes}. There is $c_a>0$ such that the following holds.
+\begin{enumerate}[label=(\alph*)]
+\item $-\frac12\log\det\Delta_k(U)=-\frac12\log\det\Delta_k(1)+\sum_X\mathfrak e(X,U)$, with absolute convergence, for real $U$ in the setting of Section~\ref{sec:weakenable}, and for complex $U$ in the ball $\mathcal B$ of the proof of Proposition~\ref{prop:complex-ext}.
+\item Each $\mathfrak e(X,\cdot)$ depends only on $U$ on the bonds of $X$, and is a normalized graded activity at $X$ on $\mathcal U(X;c_a,c_a,c_a)$ (Definition~\ref{def:graded}). Moreover
+\[
+\sup_{\mathcal U(X;c_a,c_a,c_a)}|\mathfrak e(X,\cdot)|\le C|X|^2e^{-\kappa_2|X|} .
+\]
+\item Let $X$ have diameter at most $n/2-8$, and let $U=e^{\ii\eta A'}U_r\in\mathcal U(X;c_a,c_a,c_a)$ with $|F_{U_r}|,|J_{U_r}|\le\theta$. Put
+\[
+\mathfrak t=|\nabla A'|_{X^{(3)}}+[\nabla A']_{\alpha,X^{(3)}}+|A'|^2+\theta .
+\]
+If $C(1+|X|)^q(\mathfrak t+|A'|)\le1$, then
+\[
+|\mathfrak e(X,U)|\le C(1+|X|)^q\,\mathfrak t^2\,e^{-\kappa_2|X|} .
+\]
+\item Let $0<\epsilon<\frac14$ and $h\le h_0$, with $h_0$ depending on $L$, $M$, $\kappa$, $\rho$ and $\epsilon$. For every polymer $X$ of diameter at most $n/2-8$, and every $U\in\mathcal U(X;h^{1-\epsilon/2},h^{1-\epsilon},h^{1-2\epsilon})$, i.e.\ every point of D3$'''$ at $X$,
+\[
+|\mathfrak e(X,U)|\le C\,h^{2-2\epsilon}\,e^{-(\kappa_2-1)|X|} .
+\]
+For polymers of larger diameter, $|\mathfrak e(X,U)|\le C|X|^2e^{-\kappa_2|X|}\le Ce^{-(\kappa_2-1)|X|}e^{-cn/M}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) For real $U$: by Proposition~\ref{prop:det-densities}, $\log\det\Delta_k=\sum_{b\in\mathfrak F}\ell_k(b)$, at $U$ and at $1$. By Corollary~\ref{cor:weak-covariance}, $\ell_k(b)=\sum_{\omega\in\Omega_b}O_\omega$, with absolute convergence. Group the terms by $X^\sharp_\omega$. For complex $U$, both sides are holomorphic in the perturbation on the convex ball $\mathcal B$, and they agree at its real points; the identity theorem applies as in step~(iii) of the proof of Proposition~\ref{prop:complex-ext}.
+
+(b) Each $O_\omega$ depends on the background only on $X_\omega^{(r)}\subset X^\sharp_\omega$. It is invariant under real gauge transformations, since it is the diagonal trace of a covariant kernel or a term $h_j(b)\ell_{\Lam^v_j}(b)$. It is analytic under the complex perturbations of Section~\ref{sec:weakenable}. These are those of Proposition~\ref{prop:reg-complex}. The averaging and the averaged backgrounds at complex references are given by Proposition~\ref{prop:AB}, and the remaining inputs by Proposition~\ref{prop:complex-ext}. A configuration of Definition~\ref{def:bg-activity} with $\eps_a\le\eps_{\max}$ is a complex reference of size at most $C_{\rm cmp}\delta_a$, with $C_{\rm cmp}=4$ of the first item of Section~\ref{sec:complex-references}; so this needs $\eps_a\le\eps_{\max}$ and $C_{\rm cmp}\delta_a<\delta_P$. So $\mathfrak e(X,\cdot)$ is a normalized background activity at $X$ in the sense of Definition~\ref{def:bg-activity}, for some $\eps_a,\delta_a>0$. Remark~\ref{rem:bg-to-graded} makes it a graded activity on $\mathcal U(X;c_a,c_a,c_a)$, if $c_a\le a_2$, $\max(1,B_5)c_a\le\eps_a$ and $2Cc_a<\delta_a$. For the bound, let $\omega$ satisfy $X^\sharp_\omega=X$. Every box of $X$ touches a box of $X_\omega$, so $\deg\omega\ge|X_\omega|\ge3^{-d}|X|$. Hence
+\[
+\sum_{\omega\in\Omega_b:\,X^\sharp_\omega=X}|O_\omega|\le\sum_{\Box\subset X}\ \sum_{\omega:\,\Box\subset X_\omega}e^{\kappa'\deg\omega}|O_\omega|\,e^{-\kappa'3^{-d}|X|}\le C|X|e^{-\kappa_2|X|},
+\]
+by the norm bound of Corollary~\ref{cor:weak-covariance}, uniformly in $b$ and in the background. At most $CM^d|X|$ bonds $b\in\mathfrak F$ contribute.
+
+(c) Apply Lemma~\ref{lem:quadratic-bound} with $P=X$, $\theta_r=\delta_1=\delta_0=c_a\le\frac12c_0$, and a cube $\Lam\supset X^{(3)}$ of side $2R=2\operatorname{diam}(X)+8<n$. Since $\operatorname{diam}(X)\le M|X|$, $R/(4M+2)\le C(1+|X|)$, so $B_P\le C(1+|X|)^p$. Also $D_N\le CM(1+|X|)$, since $X$ is a $*$-connected union of boxes of side at most $M$. Hence
+\[
+\mathfrak m_1\le C\big(\mathfrak m+|A'|^2+(1+|X|)^{p+1}|A'|\theta\big),\qquad\mathfrak s\le C(1+|X|)^{p+2}\mathfrak t ,
+\]
+and $c_*\le\frac12c_0+C(1+|X|)^{p+1}(|A'|+\theta)$, $RB_P\theta\le C(1+|X|)^{p+1}\theta$. For a suitable $C$, the condition $C(1+|X|)^q(\mathfrak t+|A'|)\le1$ implies all hypotheses of the lemma and $\mathfrak s\le\frac12$. The lemma and (b) give $|\mathfrak e(X,U)|\le2\mathfrak s^2C|X|^2e^{-\kappa_2|X|}\le C(1+|X|)^{2p+6}\mathfrak t^2e^{-\kappa_2|X|}$.
+
+(d) The domain $\mathcal U(X;h^{1-\epsilon/2},h^{1-\epsilon},h^{1-2\epsilon})$ lies in $\mathcal U(X;c_a,c_a,c_a)$ for $h$ small. At its points, $\mathfrak t\le h^{1-\epsilon}+h^{2-4\epsilon}+h^{1-\epsilon/2}\le3h^{1-\epsilon}$, since $\epsilon<\frac13$, and $|A'|<h^{1-2\epsilon}$. If $C(1+|X|)^q\cdot4h^{1-2\epsilon}\le1$, (c) gives $|\mathfrak e(X,U)|\le9C(1+|X|)^qh^{2-2\epsilon}e^{-\kappa_2|X|}$, and $(1+|X|)^qe^{-|X|}\le C$. Otherwise $|X|\ge ch^{-(1-2\epsilon)/q}$, and (b) gives $|\mathfrak e(X,U)|\le C|X|^2e^{-\kappa_2|X|}\le h^{2-2\epsilon}e^{-(\kappa_2-1)|X|}$ for $h\le h_0$. For polymers of diameter larger than $n/2-8$, $|X|\ge cn/M$.
+\end{proof}
+
+\begin{remark}[Use in the renormalization group]\label{rem:one-loop-polymer}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Why the affine gauge matters.} Without the complex gauge step of Lemma~\ref{lem:quadratic-bound}, the sup norm $|A'|<h^{1-2\epsilon}$ would enter $\mathfrak s$ linearly, and (d) would give only $h^{2-4\epsilon}$. With it, $|A'|$ enters only through $|A'|^2$ and the smallness condition.
+\item \emph{The next step.} In the units of step $k$, the activity domain of step $k+1$ lies in that of step $k$, and $h_k\le h_{k+1}$. So (d) gives $|\mathfrak e(X,U)|\le Ch_{k+1}^{2-2\epsilon}e^{-(\kappa_2-1)|X|}$ there. These are the one-loop sources of size $O(h_{k+1}^{2-2\epsilon})$ required by the recursion. The constant depends on $L$ and $M$, which is allowed, since $g_*$ is chosen last. The scaling of the next domain (blueprint, Appendix~F) gives an extra factor $L^{-4}$ per polymer of step $k$, which the recursion does not need.
+\item \emph{What is achieved.} All polymers, wrapping ones included, are normalized by construction: $\mathfrak e(X,1)=0$. Each $\mathfrak e(X,\cdot)$ depends on the background only inside $X$. Joint analyticity in the weakening parameters is not needed, since the determinant lies outside the fluctuation integral (Theorem~\ref{thm:step}) and $\mathfrak e$ is extracted at $s=1$.
+\item \emph{The domain.} Part~(d) uses D3$'''$ in the form of Definition~\ref{def:graded}, with the complex part controlled on $X^{(3)}$. In the blueprint's notation this means a domain margin of at least $3$, not $0$. (In Section~\ref{sec:cluster}, $r_E$ denotes the margin of dependence of an activity; the domain margin is then $r_E+3$.)
+\item \emph{Inputs supplied in Part~X.} Four further points are needed to use (d) in the flow; they are proved in Part~X.
+  \begin{itemize}
+  \item \emph{The decay rate.} $\kappa_2-1>0$ needs $\kappa'>3^d$. Matching the rate of the activity norm needs $3^{-d}\kappa'-1$ above that rate, a factor $3^d$ from the conversion of margins on top of the blueprint's condition $\kappa_1\ge\kappa+3\kappa_0+4$. The rates are fixed in Proposition~\ref{prop:sources} and Theorem~\ref{thm:one-step}(3).
+  \item \emph{The polymer scale.} The polymers here are unions of boxes of the paving, with sides between $M/4$ and $M$, while the activity norm uses $d_{\tilde M}$. The paving is matched to the polymer grid of Section~\ref{sec:flow}.
+  \item \emph{Reblocking and the background.} The polymers are reblocked into polymers of step $k+1$ by Lemma~\ref{lem:reblocking} and Remark~\ref{rem:reblock-margins}. The background $U$ is related to the next coarse configuration through the base $W=U'^{(k)}$ (Section~\ref{sec:step-quantities}, Setting).
+  \item \emph{Wrap-around.} The polymers whose $3$-neighbourhood lies in no cube of side less than $n$ give the sources $Ce^{-cn/M}$. They are controlled by the size of the final torus (Lemma~\ref{lem:torus}).
+  \end{itemize}
+\end{enumerate}
+\end{remark}

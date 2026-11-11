@@ -1,0 +1,234 @@
+\section{Polymers, scales and parameters of the flow}\label{sec:flow}
+
+This section and Section~\ref{sec:target-flow} collect the parts of the small-field flow that are common to all steps. This section contains the small-field parameters, the polymer grids of all scales and their alignment, the reblocking, the classes of the polymers of an old generation at a later scale, and the conditions on all parameters of Parts~VII--X. Section~\ref{sec:target-flow} contains the scales of the torus, the first step, the vacuum energy and the bookkeeping of the modified model. Sections~\ref{sec:generations} and~\ref{sec:extraction} begin the four-dimensional flow itself: the generations of activities, their symmetrization over the grid symmetries and their coefficient $\beta$, and the extraction of the marginal part of an old generation at every later scale. Section~\ref{sec:flow4} puts one step into generation form and iterates it over all scales (Theorem~\ref{thm:sf-flow}; Remark~\ref{rem:flow-status}).
+
+\begin{remark}[Plan of the flow]\label{rem:flow-status}
+The four-dimensional small-field flow is Theorem~\ref{thm:sf-flow}, with Proposition~\ref{prop:flow-continuity} and Corollaries~\ref{cor:bare-continuity} and~\ref{cor:sf-stability} (Section~\ref{subsec:flow4-flow}); it is summarized in Theorem~\ref{thm:N}. It follows Ba\l aban \cite[(0.22)--(0.30), Sects.~1--5]{BalYM4I}, \cite[Sects.~1--2]{BalYM4II}, and is organized as follows.
+\begin{itemize}
+\item \emph{Generations.} The density of step $k$ has the form
+\[
+\mathcal Z_k\exp\Big(-\frac1{g_k^2}S(U_k)-\eps_k|\T^{(k)}|+\sum_{j\le k}\big(E^{(j)}-\beta_jS\big)(U_k)\Big).
+\]
+The generation $j$ consists of a family $E^{(j)}$ of normalized, gauge-invariant graded activities on the polymers of the grid of scale $j$ (Definition~\ref{def:generation}), and of the counterterm $-\beta_jS$. It is created by the step from scale $j-1$ to scale $j$, as the symmetrization of the new terms of that step over the symmetries of the grid (Lemma~\ref{lem:raw-new}, Lemma~\ref{lem:symmetrization}). Its bounds are stated only at that scale, on the domains $\mathcal U^\flat$ of Section~\ref{sec:generations}, slightly smaller than those of Remark~\ref{rem:domain-constants}. At later scales only the background field in its argument changes, and this background field is again a background field of scale $j$ (Lemma~\ref{lem:later-small-field}).
+\item \emph{Extraction of $\beta$.} At later scales the quadratic order of an old generation in the curvature is marginal in four dimensions (Remark~\ref{rem:one-loop-polymer}(b)). It is cancelled by the counterterm $-\beta_jS$: Section~\ref{sec:extraction} extracts the marginal part of an old generation at every later scale (Proposition~\ref{prop:extraction}) and bounds its other polymers (Lemma~\ref{lem:large-later}), and Section~\ref{sec:flow4} groups every generation with its counterterm into old activities that are bounded uniformly in the scale (Proposition~\ref{prop:old-activities}). The coefficient $\beta_{j+1}$ of the new generation is $\beta_E$ of Proposition~\ref{prop:period-iso}, read off from the period density of the symmetrized generation, and $g_{j+1}^{-2}=g_j^{-2}-\beta_{j+1}$ (Theorem~\ref{thm:gen-step}). Part~XI computes the one-loop coefficient. The one-loop part of $\beta_{j+1}$ is compared with it in (F2) of Proposition~\ref{prop:flow-F}. The comparison, at fixed couplings and as the torus grows, of $\beta_j$ with the coefficient that Ba\l aban's vacuum polarization \cite[(1.20)--(1.22)]{BalYM4I} assigns to the generations is Proposition~\ref{prop:beta-identification}, through the generation locality of Section~\ref{sec:gen-locality}.
+\item \emph{Iteration without contraction.} The activities are of order one, not small in the coupling, and the iteration does not contract them. Smallness comes from the fluctuation cutoff \cite[(2.41)]{BalYM4II}. One step in generation form is Theorem~\ref{thm:gen-step}, with Proposition~\ref{prop:gen-one} for the first step, and the iteration over all scales is Theorem~\ref{thm:sf-flow}: as long as the couplings stay in $(0,\gamma]$, the density of every scale has the generation form, with bounds uniform in the scale and in the torus.
+\end{itemize}
+From Parts~VII--X the flow uses:
+\begin{itemize}
+\item one step, as constructed in Sections~\ref{sec:fluctuations}--\ref{sec:cluster}: Theorem~\ref{thm:step} with Lemma~\ref{lem:gf-step-invariance}, the localization of Parts~VIII and~IX, and the step in polymer form, Theorem~\ref{thm:sf-step};
+\item the domains of Remark~\ref{rem:domain-constants}, whose constants do not depend on the coupling, the step, the torus or the polymer;
+\item the interior estimates, the tier results and the weakened background map of Sections~\ref{sec:interior-lp}--\ref{sec:weak-background};
+\item the covariance of the step under the lattice symmetries, Proposition~\ref{prop:symmetry} and Lemma~\ref{lem:gf-step-invariance}(iii); only sums over polymers are covariant, and single activities of a step are not claimed to be covariant (Theorem~\ref{thm:sf-step}); the generations are made covariant under the symmetries of their grid by the symmetrization (Section~\ref{subsec:gen-symmetrization});
+\item this section and Section~\ref{sec:target-flow}: the small-field parameters, the polymer grids and their alignment, the reblocking (applied to the new generation only), the polymer classes, the conditions of Remark~\ref{rem:parameters}, Lemma~\ref{lem:torus}, the first step and its formula (Proposition~\ref{prop:first-step}, Lemma~\ref{lem:first-step-formula}), the vacuum energy (Section~\ref{subsec:tf-vacuum}) and the modified model (Remark~\ref{rem:sf-reference}).
+\end{itemize}
+Section~\ref{sec:flow4} supplies the raw new generation and its bound (Lemma~\ref{lem:raw-new}), the old activities with a bound uniform in $k$ (Proposition~\ref{prop:old-activities}), the mixed class through them, $g_{k+1}\le2g_k$ (Theorem~\ref{thm:gen-step}), the growth bound on the couplings needed in Proposition~\ref{prop:vacuum}(c) (Theorem~\ref{thm:sf-flow}(f)), and the continuity in the couplings (Proposition~\ref{prop:flow-continuity}, Corollary~\ref{cor:bare-continuity}). The properties (F1)--(F3) of the flow that Theorem~\ref{thm:ol-uv} uses are proved in Proposition~\ref{prop:flow-F}. The wrapping polymers are bounded at all later scales by Lemma~\ref{lem:torus}(c)--(e). The large-field stage is not treated (Remark~\ref{rem:sf-reference}(d)).
+\end{remark}
+
+\paragraph{Why generations.} In four dimensions the Wilson action does not change under the change of units (Section~\ref{sec:rg-step}), and the new terms of a step are of order one: the one-loop pieces are bounded independently of the coupling (Remark~\ref{rem:one-loop-polymer}(b)). Their quadratic order in the curvature is marginal. A point of the domain of scale $k=j+m$, read in the units of scale $j$, has its curvature budget multiplied by $L^{-2m}$ (Remark~\ref{rem:domain-constants}(i)). So the quadratic part of an activity of a polymer of scale $j$ is of order $L^{-4m}$, while a grid cube of scale $k$ contains $L^{4m}$ grid cubes of scale $j$ (Lemma~\ref{lem:grid-nesting}(b)). Summed over a cube of scale $k$, the quadratic part stays of order one at every later scale (Remark~\ref{rem:one-loop-polymer}(b), Section~\ref{sec:extraction}). Reblocking the activities of a step into activities of the next scale therefore gives no contraction. Instead, the activities created at scale $j$ are kept as a generation, bounded only at scale $j$ and evaluated at the background fields of the later scales (Lemma~\ref{lem:later-small-field}). At every later scale their marginal part is cancelled by the counterterm $-\beta_jS$. In a grid cube of scale $k$, for $m\ge m_0$, the small polymers sum to $\beta_jS_\Box$ up to $C_{\rm ex}\|E\|_jL^{-\alpha m}$, since the rest of their normal form is of order $L^{-(4+\alpha)m}$ per cell (Proposition~\ref{prop:extraction}, Remark~\ref{rem:extraction}(a)); the other polymers carry a factor $L^{-m}$ (Lemma~\ref{lem:large-later}). These gains are summable over $m$. So the old generations, each grouped with its counterterm, are bounded uniformly in the scale, and no contraction is needed (Remark~\ref{rem:extraction}(d), Proposition~\ref{prop:old-activities}). The counterterm must stay with the small polymers of its cube, since $\sum_{j\le k}\beta_j=g_0^{-2}-g_k^{-2}$ is not bounded uniformly in $k$ (Remark~\ref{rem:extraction}(c)). The small factors of a step come from the cutoffs: the fluctuation field is bounded by $w$, of order $L^dg_kp_{0,k}$ (Remark~\ref{rem:parameters}, the couplings), so the terms of the step that contain old activities are of order $\tau$ times their norm, with $\tau\le C_PL^dg_kp_{0,k}/\delta_1$ (Proposition~\ref{prop:composed} and the paragraph after it, Theorem~\ref{thm:sf-step}); and the pure sources are of order $g_k^2p_{0,k}^6$, by parity in the coupling (Proposition~\ref{prop:pure-sources}).
+
+\subsection{Small-field parameters}\label{subsec:flow-parameters}
+
+Let $g_p\in(0,1]$, and let $p,p_0:(0,g_p]\to[1,\infty)$ be functions with the following properties:
+\begin{itemize}
+\item $p$ is decreasing, and $g\mapsto g\,p(g)$ is increasing;
+\item $p_0(g)/p(g)\to0$ as $g\to0$;
+\item $g^\nu p(g)\to0$ as $g\to0$, for every $\nu>0$; so also $g^\nu p_0(g)\to0$;
+\item $p_0$ is continuous and decreasing, and $g\mapsto g\,p_0(g)$ is increasing; that is, $p_0$ is continuous and
+\begin{equation}\label{eq:p0-standing}
+p_0(g)\ge p_0(g'),\qquad g\,p_0(g)\le g'p_0(g')\qquad\text{for }0<g\le g'\le g_p .
+\end{equation}
+\end{itemize}
+For instance $p_0(g)=(\log g^{-1})^q$ and $p(g)=(\log g^{-1})^{q'}$ with $0<q<q'$, on $(0,g_p]$ with $g_p=e^{-\max(1,q')}$; compare \cite{DimockI}. These have all the properties above; for the monotonicity, $g\,p_0(g)$ is increasing for $g<e^{-q}$ and $g\,p(g)$ for $g<e^{-q'}$, and $g_p\le e^{-q'}<e^{-q}$. The continuity of $p_0$ is used for the continuity of the flow in the couplings (Proposition~\ref{prop:flow-continuity}, Corollary~\ref{cor:bare-continuity}), where the white-noise cutoff is sharp, and \eqref{eq:p0-standing} for the bound on the vacuum energy (Theorem~\ref{thm:sf-flow}(f)). At step $k$ put
+\[
+p_k=p(g_k),\qquad p_{0,k}=p_0(g_k),\qquad h_k=p_kg_k .
+\]
+The density of step $k$ is given on the small-field set $\mathfrak U_k(h_k)$, i.e.\ \eqref{eq:rho-form} holds with the threshold $\tilde h=h_k$, and $p_0=p_{0,k}$ bounds the white noise of step $k$ (Section~\ref{sec:cluster}). The couplings stay in $(0,\gamma]$, with $\gamma\le g_p$ fixed last (Remark~\ref{rem:parameters}(6)). In Sections~\ref{sec:flow}, \ref{sec:target-flow} and~\ref{sec:ol-uv} the letter $\gamma$ denotes this bound on the couplings, except in the kernel bound of Lemma~\ref{lem:period-vacpol}(d), where $\gamma>0$ is a decay rate; it is not one of the decay rates $\gamma$, $\gamma_0$ of the operators in Parts~I--IX. So $h_k\le\gamma p(\gamma)$, which is small. In four dimensions $h_k$ enters the small-field conditions of the fluctuation and the set on which the sum of a generation is required to be invariant (Definition~\ref{def:generation}), but not the domains of the activities, whose constants are fixed (Remark~\ref{rem:domain-constants}).
+
+\emph{Consecutive thresholds.} If $g_{k+1}\le2g_k$, then $h_{k+1}\le2h_k$. Indeed, if $g_{k+1}\le g_k$, then $h_{k+1}\le h_k$, since $g\mapsto gp(g)$ is increasing. Otherwise $p_{k+1}\le p_k$, since $p$ is decreasing, and $h_{k+1}\le p_k\cdot2g_k$. This is the relation $h'\le2h$ used in Section~\ref{sec:rg-step}.
+
+\emph{Admissible thresholds.} A number $h>0$ is an \emph{admissible threshold} if:
+\begin{itemize}
+\item $h\le\min\big(a_{\delta=1},\,a_1/(2C_*+2)\big)$ and $(C_*+1)h\le c_1$; these are the hypotheses of Lemma~\ref{lem:composition} on $\eps'_1$;
+\item $h$ satisfies the smallness condition on $\eps_1$ of Lemma~\ref{lem:critical-current};
+\item $(1+C_J)(C_*+1)h<\theta_r$, with $C_J$ of Lemma~\ref{lem:critical-current} and $\theta_r$ of Remark~\ref{rem:domain-constants}.
+\end{itemize}
+These are upper bounds on $h$, so with $h$ every number in $(0,h]$ is an admissible threshold. They involve the parameters up to the domain constants, and not the couplings. By the choice of $\gamma$ (Remark~\ref{rem:parameters}(6)), $\gamma p(\gamma)$ is an admissible threshold, and so is $h_k$ for every coupling $g_k\in(0,\gamma]$. The consequences of admissibility are collected in Section~\ref{sec:generations}.
+
+\subsection{The polymer grid}\label{subsec:flow-norm}
+
+\emph{Scales and units.} The \emph{scale} $j$, $0\le j\le K$, is that of the lattice $\T^{(j)}$ of step $j$ (Section~\ref{subsec:tf-scales}). In the units of scale $j$, $\T^{(j)}$ is the unit lattice, of side $n_j$; for $i\ge j$ the lattice $\T^{(i)}$ has spacing $L^{i-j}$; all these lattices contain the origin; and the fine lattice $\Tf$ has spacing $\eta=L^{-j}$. Activities are functions of configurations on $\Tf$, which is the same lattice at every scale. A change of units changes the domains and the norms in which they are measured (Remark~\ref{rem:domain-constants}(i)), not the functions. Two parities are used. The block factor $L$ is odd (Remark~\ref{rem:parameters}(2)), and $M$ is a power of $L$ (Remark~\ref{rem:parameters}(4)), so $M$ is odd as well. Moreover $M$ divides $n_j$ for $j\le K$, since $n_j=L^{K-j}n_K$, and $n_K$ and $M$ are powers of $L$ with $n_K\ge M$ (Section~\ref{subsec:tf-scales}).
+
+\emph{Grid cubes and polymers.} Let $j\le K$, and use the units of scale $j$; distances are $\ell^\infty$-distances on the torus. For a point $c\in M\Z^4$ of $\T^{(j)}$, the \emph{grid cube of scale $j$ centred at $c$} is the union of the $M^4$ blocks $B(y)$, $y\in\T^{(j)}$, with $|y-c|_\infty\le\frac12(M-1)$. By Lemma~\ref{lem:grid-nesting}(a) below, it is the set of the points $x\in\Tf$ with $|x-c|_\infty\le\frac12(M-\eta)$, and the grid cubes of scale $j$ pave $\Tf$. It fills the closed cube $c+[-\frac12M,\frac12M]^4$ of the continuum torus. These are Ba\l aban's cubes of size $M$, with centres at the points of the lattice of spacing $M$ \cite[p.~257]{BalYM4I}. The \emph{polymer grid} of scale $j$ is the paving of Section~\ref{sec:weakenable} with all intervals of length $M$, centred at the points of $M\Z$; this is the paving used at step $j$ (Section~\ref{sec:cluster}). A \emph{polymer of scale $j$} is a $*$-connected union of grid cubes of scale $j$; two cubes are $*$-adjacent if the closed cubes of the continuum that they fill share a point. For a polymer $X$, let $d_M(X)$ be the length, in units of $M$, of the shortest tree in the continuum that meets every cube of $X$ \cite[(119)]{DimockI}, and $|X|_M$ the number of its cubes. Then \cite[(122), (123)]{DimockI}
+\begin{equation}\label{eq:dM-facts}
+d_M(X)\le\sqrt d(|X|_M-1),\qquad|X|_M\le3^d(1+d_M(X)),\qquad\sum_{X\supset\Box}e^{-\kappa_0d_M(X)}\le K_0 ,
+\end{equation}
+with $\kappa_0\ge1$ and $K_0$ depending only on $d$. For $d=4$ the constants are $\sqrt d=2$ and $3^d=81$. The first inequality holds since the centres of two $*$-adjacent cubes are at distance at most $\sqrt d$, in units of $M$, so the segments along a spanning tree of the adjacency graph form a tree that meets every cube. It replaces $d_M\le|X|_M$ of \cite{DimockI}, which is stated there for connected polymers. There, polymers are connected through common faces \cite[Sect.~3.1]{DimockI}, and the second and the third inequality hold for $*$-connected polymers as well. For the second, let $T$ be a tree that meets every cube of $X$, a finite union of segments, of length $\ell$ in units of $M$, and lift it to $\R^d$. Every cube of $X$ contains a point $t$ of $T$, so, in units of $M$, it is the image of a subset of $t+[-1,1]^d$, and the union of the cubes lies in the image of $T+[-1,1]^d$. A tree is obtained from a point by adding segments $[p,p+su]$, with $p$ a point of the tree already built, $s>0$ and $|u|=1$. Each such segment enlarges $T+[-1,1]^d$ by at most $s$ times the $(d-1)$-volume $2^{d-1}|u|_1\le2^{d-1}\sqrt d$ of the projection of $[-1,1]^d$ along $u$. So $T+[-1,1]^d$ has volume at most $2^d+2^{d-1}\sqrt d\,\ell$, and the projection to the torus does not increase volume. The cubes have volume $1$ and disjoint interiors, so $|X|_M\le2^d+2^{d-1}\sqrt d\,\ell\le3^d(1+\ell)$; the infimum over the trees gives the second inequality. In the proof of the third \cite[Lemma~25]{DimockI}, the polymers $X\supset\Box$ with $|X|_M=n$ are counted by paths of length $2(n-1)$ along a spanning tree of the adjacency graph. Under $*$-adjacency a cube has $3^d-1$ neighbours, so there are at most $(3^d-1)^{2(n-1)}$ such paths. The proof then uses the second inequality, in the form $d_M(X)\ge3^{-d}|X|_M-1$. So the third inequality holds for $*$-connected polymers, with $\kappa_0$ and $K_0$ depending only on $d$. So $d_M$ is a decay functional (Definition~\ref{def:decay-functional}), with the constants given there: $c_\flat=3^{-d}$, $c_\sharp=\sqrt d$, $c_\natural=2\sqrt d$. For a polymer $X$ of scale $j$ we write $d_j(X)$ for $d_M(X)$, computed with the grid of scale $j$, in the units of scale $j$.
+
+\begin{lemma}[Nesting of the grids]\label{lem:grid-nesting}
+Let $0\le j\le i\le K$, and use the units of scale $j$.
+\begin{enumerate}[label=(\alph*)]
+\item The grid cube of scale $i$ centred at $c\in L^{i-j}M\Z^4$ is the set of the points $x\in\Tf$ with $|x-c|_\infty\le\frac12(L^{i-j}M-\eta)$. The grid cubes of scale $i$ pave $\Tf$.
+\item It is the disjoint union of the $L^{4(i-j)}$ grid cubes of scale $j$ centred at the points $c+Mt$, $t\in\Z^4$, $|t|_\infty\le\frac12(L^{i-j}-1)$. Every grid cube of scale $j$ lies in exactly one grid cube of scale $i$.
+\item Let $X$ be a polymer of scale $j$, and let $\operatorname{cl}_iX$ be the union of the grid cubes of scale $i$ that meet $X$. These are the grid cubes of scale $i$ that contain a cube of $X$. The set $\operatorname{cl}_iX$ is a polymer of scale $i$, $\operatorname{cl}_jX=X$, and
+\[
+d_j(X)\ge L^{i-j}\,d_i(\operatorname{cl}_iX).
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:grid-nesting}
+The integers $\eta^{-1}=L^j$, $L$ and $M$ are odd. We use two facts on an odd positive integer $B$, as in Section~\ref{sec:averaging}. First, every integer $s$ has exactly one representation $s=Bu+r$ with integers $u$ and $|r|\le\frac12(B-1)$. Second, for an odd positive integer $q$, the integers $s$ with $|s|\le\frac12(qB-1)$ are exactly the sums $Bt+r$ with integers $|t|\le\frac12(q-1)$ and $|r|\le\frac12(B-1)$, each obtained once. Indeed, by the first fact the $qB$ sums are distinct, and they lie in this interval of $qB$ integers. We apply both facts in each coordinate to $s=(x-c)_\mu/\eta$, for points $x\in\Tf$ and a point $c$ of $\Tf$; this is an integer. Since $L^{i-j}M$ divides $n_j$, i.e.\ $M\mid n_i$, the representations are compatible with the periodicity of the torus.
+
+(a) In the units of scale $i$, the cube is the union of the blocks $B(y)$, $y\in\T^{(i)}$, with $|y-c|_\infty\le\frac12(M-1)$. In the units of scale $j$, these blocks are the sets $\{x\in\Tf:|x-y|_\infty\le\frac12(L^{i-j}-\eta)\}$ (Section~\ref{sec:averaging}), with $y\in c+L^{i-j}\Z^4$ and $|y-c|_\infty\le\frac12(M-1)L^{i-j}$. The second fact with $B=L^{i-j}/\eta=L^i$ and $q=M$ gives the first claim. The first fact with $B=L^{i-j}M/\eta=ML^i$ and $c=0$ shows that these sets, for $c\in L^{i-j}M\Z^4$, pave $\Tf$: every point $x$ lies in the one centred at $L^{i-j}Mu$, with $x_\mu/\eta=ML^iu_\mu+r_\mu$.
+
+(b) By (a) with $i=j$, the grid cube of scale $j$ centred at $c+Mt$ is $\{x\in\Tf:|x-c-Mt|_\infty\le\frac12(M-\eta)\}$. The second fact with $B=M/\eta=ML^j$ and $q=L^{i-j}$, for which $qB=ML^i$ as in (a), gives the first claim. The grid cubes of scale $j$ are disjoint, so a grid cube of scale $j$ that meets a grid cube of scale $i$ is one of the cubes of this union. Since the grid cubes of scale $i$ are disjoint and pave $\Tf$, every grid cube of scale $j$ lies in exactly one of them.
+
+(c) By (b), a grid cube of scale $i$ that meets $X$ contains a cube of $X$, and $\operatorname{cl}_jX=X$. The closed cube of the continuum filled by a grid cube of scale $j$ lies in the one filled by the grid cube of scale $i$ that contains it. So two $*$-adjacent cubes of scale $j$ lie in equal or $*$-adjacent cubes of scale $i$, and $\operatorname{cl}_iX$ is $*$-connected, a polymer of scale $i$. A tree that meets every cube of $X$ meets every cube of $\operatorname{cl}_iX$, since each of them contains a cube of $X$. In the units of scale $j$ the cubes of scale $i$ have side $L^{i-j}M$. So $d_i(\operatorname{cl}_iX)$ is at most the length of the tree divided by $L^{i-j}M$, and the infimum over the trees gives $d_j(X)\ge L^{i-j}d_i(\operatorname{cl}_iX)$.
+\end{proof}
+
+So the grids of all scales are aligned: every grid cube of scale $i$ is a union of grid cubes of scale $j\le i$, and its centre is the centre of one of them. At step $k$, the grid points of the partitions of unity of Section~\ref{sec:domains} at the scale $M$ are the centres of the grid cubes of scale $k$, since $M\mid n_k$ gives $\check M=M$ there; the partition at the IMS scale of Theorem~\ref{thm:step-coercive} enters only proofs of lower bounds.
+
+\emph{Neighbourhoods and the action of a cube.} For a grid cube $\Box$ of scale $k$, centred at $c$, let $\Box^+$ be the union of the grid cubes of scale $k$ centred at the points of $c+M\{-1,0,1\}^4$, in the units of scale $k$: the cube $\Box$ and the grid cubes that share a corner with it. This is Ba\l aban's cube $\Box^1$ of size $3M$ with the centre of $\Box$ \cite[p.~257]{BalYM4I}. By the second fact in the proof of Lemma~\ref{lem:grid-nesting}, with $q=3$, $\Box^+$ is the set of the points $x\in\Tf$ with $|x-c|_\infty\le\frac12(3M-\eta)$, in the units of scale $k$. Write $S=\sum_ps_p$, as in Section~\ref{sec:step-quantities}, the sum running over the positively oriented plaquettes $p=p_{\mu\nu}(x)$ of $\Tf$, and call $x=p_-$ the \emph{base point} of $p$ (Definition~\ref{def:curvature}). For a grid cube $\Box$ of any scale put
+\[
+S_\Box(U)=\sum_{p:\,p_-\in\Box}s_p(U).
+\]
+Since the grid cubes of one scale pave $\Tf$, the sum of $S_\Box$ over them is $S$. Each $S_\Box$ is analytic in complex configurations, invariant under real gauge transformations, real at real configurations and zero at $U=1$. It depends only on $U$ on the bonds of $\Box^{(1)}$, since the corners of a plaquette are at distance at most $\eta\le1$ from its base point. Like $S$, it does not depend on the units (Section~\ref{sec:action}). Moreover $S_{\Box+a}(\tau_aU)=S_\Box(U)$ for every translation $a$ that maps the grid of the scale of $\Box$ onto itself, where $(\tau_aU)(b)=U(b-a)$.
+
+\emph{Base cubes.} Let $X$ be a polymer of scale $j$. Recall that $X$ is \emph{wrapping} if its diameter, the largest distance between two of its points, is larger than $\frac12n_j-8$ (Section~\ref{subsec:tf-scales}). Suppose that $X$ is not wrapping. Consider the projection to a coordinate circle $\R/n_j\Z$ of the union of the closed cubes of the continuum that the cubes of $X$ fill. It is connected, since $X$ is $*$-connected. It is not the whole circle: otherwise $X$ would contain two points whose coordinates in this direction differ by at least $\frac12n_j-\eta$ on the circle, and $\operatorname{diam}X>\frac12n_j-8$. So it is a closed arc of length less than $n_j$, and $X$ lies in the product of these four arcs. This product is the injective image of a box in $\R^4$, which is unique up to translations by $n_j\Z^4$. The \emph{base cube} $Q(X)$ is the cube of $X$ whose centre, read in this box, is lexicographically least. If $X$ is wrapping, $Q(X)$ is the cube of $X$ whose centre, with coordinates in $[0,n_j)$, is lexicographically least. For a polymer $X$ that is not wrapping and every $a\in M\Z^4$, the polymer $X+a$ is not wrapping, its arcs are those of $X$ translated by $a$, and
+\[
+Q(X+a)=Q(X)+a .
+\]
+A polymer $X$ of scale $j$ is \emph{based in} a grid cube $\Box$ of scale $k\ge j$ if $Q(X)\subset\Box$. By Lemma~\ref{lem:grid-nesting}(b), every polymer of scale $j$ is based in exactly one grid cube of each scale $k\ge j$. So a sum over the polymers of scale $j$ is the sum over the grid cubes $\Box$ of scale $k$ of the sums over the polymers based in $\Box$. For $k=j$, $X$ is based in $\Box$ if and only if $Q(X)=\Box$.
+
+\subsection{Reblocking}\label{subsec:flow-reblock}
+
+For a polymer $X$ of step $k$ let $\bar X$ be the union of the $LM$-cubes that contain a cube of $X$; equivalently, that meet $X$, by Lemma~\ref{lem:grid-nesting}(b). In the notation of Lemma~\ref{lem:grid-nesting}(c), $\bar X=\operatorname{cl}_{k+1}X$. For a family $\{F(X,\cdot)\}$ indexed by the polymers of step $k$ put $(\mathcal BF)(Y,\cdot)=\sum_{X:\,\bar X=Y}F(X,\cdot)$, and let $\mathcal BF$ act on the configurations in the units of step $k+1$ by rescaling. The $LM$-cubes are the grid cubes of step $k+1$, by (T1) and Lemma~\ref{lem:grid-nesting}(a), and $d_{LM}(Y)$ in the units of step $k$ is $d_M(Y)$ in those of step $k+1$.
+
+\begin{lemma}[Reblocking; {\cite[Lemma~10]{DimockI}}]\label{lem:reblocking}
+Let $\kappa\ge\kappa_0+1$ and $\kappa'=L(\kappa-\kappa_0-1)$. For nonnegative numbers $a(X)$ with $a(X)\le Ae^{-\kappa d_M(X)}$,
+\[
+\sum_{X:\,\bar X=Y}a(X)\le3^dK_0L^dAe^{-\kappa'd_{LM}(Y)} .
+\]
+If $a(X)=0$ unless $d_M(X)\ge L$, then the same holds with the factor $3^dK_0L^de^{-L}$ and the rate $L(\kappa-\kappa_0-2)$, for $\kappa\ge\kappa_0+2$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:reblocking}
+A minimal tree for $X$ is a tree on the $LM$-cubes of $\bar X$, so $d_M(X)\ge Ld_{LM}(\bar X)$. Then $e^{-\kappa d_M(X)}\le e^{-(\kappa-\kappa_0)Ld_{LM}(Y)}e^{-\kappa_0d_M(X)}$. Every $X$ with $\bar X=Y$ contains a grid cube of $Y$, so \eqref{eq:dM-facts} gives $\sum_{\bar X=Y}e^{-\kappa_0d_M(X)}\le K_0L^d|Y|_{LM}\le3^dK_0L^de^{d_{LM}(Y)}$. (Dimock writes $9$ in place of $3^d$ in \cite[(132)]{DimockI}, which is inconsistent with his (122).) For the last statement use $e^{-(\kappa_0+1)d_M}\le e^{-L}e^{-\kappa_0d_M}$, with $\kappa-1$ in place of $\kappa$. This is \cite[(130)--(132), (139)]{DimockI}.
+\end{proof}
+
+\begin{remark}[Pieces with margins]\label{rem:reblock-margins}
+The pieces of Sections~\ref{sec:step-quantities} and~\ref{sec:cluster} are indexed by polymers $Z$ and depend on the data on $Z^{(r')}$, with $r'<M/8<LM$. For them use the enlarged closure $\hat Z$, the union of the $LM$-cubes meeting $Z^{(r')}$. Then $Ld_{LM}(\hat Z)\le d_M(Z)+C|\hat Z|_{LM}$, with $C$ depending only on $d$, since $r'/(LM)<1/(8L)$. Indeed a minimal tree of $Z$ meets every cube of $Z$, hence every $LM$-cube of $\bar Z$. Every other $LM$-cube of $\hat Z$ contains a point within $r'$ of a cube of $Z$, so a branch of Euclidean length at most $\sqrt d(M+r')\le2\sqrt dM$ from the tree reaches it, since $r'$ is an $\ell^\infty$-distance and $r'<M$. One branch per such cube costs at most $2\sqrt d/L$ in units of $LM$. The loss is counted in $LM$-cubes. With $|\hat Z|_{LM}\le3^d(1+d_{LM}(\hat Z))$ it is absorbed by the $L$-gain of Lemma~\ref{lem:reblocking} once $L\ge C3^d$, at the price of a constant $e^{C\kappa3^d}$.
+\end{remark}
+
+\subsection{Old polymers at later scales}\label{subsec:flow-classes}
+
+A generation of scale $j$ (Section~\ref{sec:generations}) is a family of activities indexed by the polymers of scale $j$. At a later scale $k$ these polymers fall into the following classes. Only the small ones are expanded at scale $k$ (Section~\ref{sec:extraction}); the others are bounded through the decay of the generation in the size of the polymer.
+
+\begin{definition}[Polymer classes]\label{def:polymer-classes}
+Let $1\le j\le k\le K$ and $m=k-j$. Let
+\[
+c'=\frac{10\log L}{\kappa_n-\kappa_0},
+\]
+with $\kappa_n$ of Remark~\ref{rem:parameters}(1) and $\kappa_0$ of \eqref{eq:dM-facts}, and let $m_0\ge1$ be the integer of Remark~\ref{rem:parameters}(5). A polymer $X$ of scale $j$ is, at scale $k$,
+\begin{itemize}
+\item \emph{recent} if $m<m_0$;
+\item \emph{small} if $m\ge m_0$ and $d_j(X)\le c'm$;
+\item \emph{large} if $m\ge m_0$ and $d_j(X)>c'm$.
+\end{itemize}
+It is \emph{wrapping} if it is wrapping at its own scale, i.e.\ if its diameter, in the units of scale $j$, is larger than $\frac12n_j-8$ (Section~\ref{subsec:tf-scales}). For a grid cube $\Box$ of scale $k$, the \emph{small polymers of $\Box$} are the small polymers of scale $j$ based in $\Box$.
+\end{definition}
+
+So, at scale $k$, every polymer of scale $j$ is exactly one of recent, small and large. The class depends on $j$ and $k$ only through $m$, and $X+a$ is in the class of $X$ for every translation $a$ that maps the grid of scale $j$ onto itself. Wrapping is a property of $X$ at scale $j$. By Lemma~\ref{lem:small-polymers}(a), a wrapping polymer is large or recent at every scale $k\ge j$.
+
+\begin{lemma}[Small polymers]\label{lem:small-polymers}
+Let $1\le j<k\le K$ with $m=k-j\ge m_0$, and let $X$ be a polymer of scale $j$ with $d_j(X)\le c'm$, based in the grid cube $\Box$ of scale $k$. In the units of scale $j$:
+\begin{enumerate}[label=(\alph*)]
+\item $\operatorname{diam}X\le M(2+c'm)\le\frac12n_j-8$; so $X$ is not wrapping;
+\item $X^{(3)}\subset\Box^+$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:small-polymers}
+(a) By Lemma~\ref{lem:torus}(b) at scale $j$, whose first claim uses no condition on the torus, $\operatorname{diam}X\le M(2+d_j(X))\le M(2+c'm)$. By Remark~\ref{rem:parameters}(5), $L^m\ge2(2+c'm)+1$, so $M(2+c'm)\le\frac12M(L^m-1)$. Since $M\mid n_k$, we have $n_j=L^mn_k\ge L^mM$. With $M\ge64$ (Remark~\ref{rem:parameters}(4)),
+\[
+M(2+c'm)+8\le\tfrac12L^mM-\tfrac12M+8\le\tfrac12L^mM\le\tfrac12n_j .
+\]
+
+(b) Let $c$ be the centre of $\Box$, and let $x\in X^{(3)}$. There is a point $x'\in X$ with $|x-x'|_\infty\le3$. Let $q$ be a point of the base cube $Q(X)\subset\Box$. In the units of scale $j$, Lemma~\ref{lem:grid-nesting}(a) gives $|q-c|_\infty\le\frac12(L^mM-\eta)$, and $\Box^+$ is the set of the points at distance at most $\frac12(3L^mM-\eta)$ from $c$ (the description of $\Box^+$ above, rescaled by $L^m$). By (a), $|x'-q|_\infty\le\frac12M(L^m-1)$. Hence
+\[
+|x-c|_\infty\le3+\tfrac12M(L^m-1)+\tfrac12(L^mM-\eta)\le\tfrac12(3L^mM-\eta),
+\]
+since $3\le\frac12M(L^m+1)$. So $x\in\Box^+$.
+\end{proof}
+
+\begin{remark}[The constants $c'$ and $m_0$]\label{rem:polymer-classes}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Why $c'$ has the factor $10$.} An old activity is expanded at a later scale in a gauge chosen for each polymer (Lemma~\ref{lem:later-normal-form}). That gauge is built from the regularity of scale $k$ on a cube of radius at most $1$ in the units of scale $k$, so the lemma applies only to polymers whose radius $R_X=M(2+d_j(X))+3$ of Section~\ref{sec:extraction} is less than $L^{m/2}$, while the polymers based in a cube of scale $k$ can be of any size. The polynomial factors in its error are absorbed by the decay of the generation. We use the cutoff $d_j(X)\le c'm$, inside this range, and bound the other polymers through their decay. Let $E$ be a generation of scale $j$ with norm $\|E\|_j$ (Definition~\ref{def:generation}), let $m\ge1$, and let $\Box$ be a grid cube of scale $k$. Then
+\[
+\sum_{X\text{ based in }\Box:\ d_j(X)>c'm}\|E(X)\|\,e^{\frac12(\kappa_n-\kappa_0)d_j(X)}\le K_0L^{-m}\|E\|_j .
+\]
+Indeed, $\|E(X)\|e^{\frac12(\kappa_n-\kappa_0)d_j(X)}\le\|E\|_je^{-\kappa_0d_j(X)}e^{-\frac12(\kappa_n-\kappa_0)d_j(X)}$, and the last factor is less than $e^{-\frac12(\kappa_n-\kappa_0)c'm}=L^{-5m}$. Each $X$ contains its base cube, one of the $L^{4m}$ grid cubes of scale $j$ in $\Box$ (Lemma~\ref{lem:grid-nesting}(b)), and by \eqref{eq:dM-facts} the sum of $e^{-\kappa_0d_j(X)}$ over the polymers $X$ that contain a given cube is at most $K_0$. The factor $e^{\frac12(\kappa_n-\kappa_0)d_j(X)}$ kept on the left gives decay at scale $k$, since $d_j(X)\ge L^md_k(\operatorname{cl}_kX)$ (Lemma~\ref{lem:grid-nesting}(c)). So half of the rate $\kappa_n-\kappa_0$ pays for the $L^{4m}$ base cubes and the gain $L^{-m}$, and the other half is left for the decay at scale $k$. Hence the factor $10=2(4+1)$.
+\item \emph{The integer $m_0$.} It is the least integer $m_0\ge1$ such that, for all $m\ge m_0$, $L^m\ge2(2+c'm)+1$ (used in Lemma~\ref{lem:small-polymers}) and the conditions \eqref{eq:nf-m0} of Lemma~\ref{lem:later-normal-form} hold with $\Theta^\flat=4\Theta-3$ in place of $\Theta$ (Section~\ref{subsec:extraction-cells}), with the constant $c'$ above (Remark~\ref{rem:parameters}(5)). The first condition is implied by \eqref{eq:nf-m0}, since $L^m\ge R_m^2\ge R_m=M(2+c'm)+4$. Each of these conditions bounds a function of $m$ of polynomial growth by a power of $L^m$, so $m_0$ is finite. It depends on $d$, $\alpha$, $G$, $a$, $L$, $\kappa_n$, $M$ and the domain constants, but not on the couplings, the scales $j,k$ or the torus. There is no circularity: $c'$ is fixed before $m_0$, and the constants in these conditions do not depend on $m_0$.
+\end{enumerate}
+\end{remark}
+
+\subsection{The order of the parameters}\label{subsec:flow-order}
+
+\begin{remark}[Parameters]\label{rem:parameters}
+The parameters of Parts~VII--X are chosen in the following order. Each may depend on those chosen before it. The functions $p$, $p_0$ on $(0,g_p]$ of Section~\ref{subsec:flow-parameters}, and in Theorem~\ref{thm:ol-uv} the exponent $q$, are fixed at the outset and depend on no parameter below.
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{The rate $\kappa_n$.} The activities of the flow are bounded in norms of the form $\sup_X\|\mathcal E(X)\|e^{\kappa_nd_M(X)}$, with $\|\cdot\|$ the supremum of Definition~\ref{def:graded} on the domains $\mathcal U^\flat$ of Section~\ref{sec:generations} (on the domains $\mathcal U$ of Remark~\ref{rem:domain-constants} for the raw output of a step); for a generation this is the norm of Definition~\ref{def:generation}. The rate satisfies
+\[
+\kappa_n\ge2(1+C_d+\kappa_0),
+\]
+with $C_d$ of Theorem~\ref{thm:mayer} for the decay functional $d_M$, and $\kappa_0$ of \eqref{eq:dM-facts}.
+\item \emph{The block size.} $L$ is odd, and
+\[
+L\ge C3^d+3,\qquad L^2\ge8(C_*+1),
+\]
+with $C$ of Remark~\ref{rem:reblock-margins} and $C_*$ of Proposition~\ref{prop:sharp-curvature}. The first condition is for the reblocking of pieces with margins, below. The second is the compatibility of the thresholds of consecutive steps (Section~\ref{sec:rg-step}), given $h_{k+1}\le2h_k$. Parts~I--VI need only $L\ge3$. Then $c'=10\log L/(\kappa_n-\kappa_0)$ (Definition~\ref{def:polymer-classes}).
+\item \emph{The weakening rate.} The rate $\kappa$ and the loss $\delta$ of Part~IX, with $\kappa'_w=\kappa-C\delta$ the rate $\kappa'$ of Corollary~\ref{cor:weak-covariance}, satisfy
+\[
+\frac{3^{-d}\kappa'_w-1}{c_\sharp}\ge\kappa_n+\kappa_0+2,\qquad\frac{\kappa'_w-2}{c'_\sharp}-C_d\ge\kappa_n+\kappa_0+2,\qquad\kappa'_w-1\ge c_\natural\kappa_n+\log(1/c_\flat),
+\]
+with the constants of $d_M$ as a decay functional and $c'_\sharp=\max(c_\sharp,c_\natural)$. The third condition is that of Proposition~\ref{prop:localized-pieces}. These conditions do not involve $L$, so $\kappa$ may be chosen after $L$ and before $M$ (Section~\ref{sec:nested-walks}).
+\item \emph{The scales.} $\rho$, then $M$, with $M>32(L+1)$, $M$ a power of $L$, and
+\[
+M\ge\max\big(M_0,\,5L,\,M_1,\,M_1^{(0)},\,M'_1,\,64\big).
+\]
+Here $M_0$ and $5L$ are the conditions of Theorem~\ref{thm:balaban}; $M_1=M_1(\kappa,\delta,C_G,C_{\rm loc},C_{\mathfrak N},\gamma_0,\rho,C_v)$ is the largest of the thresholds of Theorem~\ref{thm:weak-inverse} at the levels of Section~\ref{sec:nested-walks}, fixed level by level (the paragraph before the levels), and $M_1^{(0)}$ its value for the operators of the first step (Proposition~\ref{prop:first-step}(c)); $M'_1$ and $64$ are the conditions of Section~\ref{sec:weak-background}, and $M'_1\ge M_{\mathfrak N}$ of Proposition~\ref{prop:nl-tiers}. $M_1$ is computed with the multiplicative constants of Part~IX doubled, and $M'_1$ with $\theta'$ replaced by $2\theta'$ (Theorem~\ref{thm:tier-walk}); for both, the coercivity constants are the fixed ones of Proposition~\ref{prop:complex-ext}, and every decay bound that enters is taken at the fixed rate of the differences there, a quarter of the minimum of the perturbation rate and the two chosen inverse decay rates in Lemma~\ref{lem:perturbed-inverse}; neither depends on $\delta_c$, so the same numbers serve at real and at complex references (Proposition~\ref{prop:complex-ext}, step~(vii) of the proof). At complex references of size $\delta_c<\delta_P$ the inputs of $M_1$ change by at most a factor~$2$, and those of $\theta'$ by at most $1+\sigma_{\rm cx}$ with $(1+\sigma_{\rm cx})^3\le2$. So $M_1$ and $M'_1$ serve at complex references and do not depend on $\bar\delta$. The constants $C_G$, $C_{\rm loc}$, $C_{\mathfrak N}$ and $\gamma_0$ entering $M_1$ do not depend on $M$ (Section~\ref{sec:nested-walks}, the paragraph before the levels). Both depend also on the H\"older exponent $\alpha$, which is fixed at the outset, with $\alpha\le\frac12$ from Section~\ref{sec:weak-background} on. The threshold $M_1^{(0)}$ is computed with the bounds of Proposition~\ref{prop:first-step}(b) and its proof at complex references ($\Rea\Delta_0\ge\frac12C_{\rm P}^{-1}$, a norm change of at most $\frac18C_{\rm P}^{-1}$, range $2L+2$), which do not depend on $\delta_{P,0}$. Further, $M\ge16r$, where $r$ is the largest margin of the weakened families used (Section~\ref{sec:step-quantities}, Setting); $r$ does not depend on $M$, and $M\ge16r$ is required by the definition of weakenable families (Section~\ref{sec:weakenable}). Then the scale $M'\ge M'_L$ of Theorem~\ref{thm:step-coercive} and of Proposition~\ref{prop:first-step}(b). Since $L$ is odd, so is $M$; the alignment of the grids of different scales uses this (Lemma~\ref{lem:grid-nesting}).
+\item \emph{The domains.} The cap $\bar\delta$ and the threshold $\eps_{\max}$ of Remark~\ref{rem:domain-constants}; then the constants of the complex references, $\delta_P\le\bar\delta$ (Proposition~\ref{prop:complex-ext}) and $\delta_{P,0}$ (Proposition~\ref{prop:first-step}); then $c_a\le cL^{-d-2}$ (Remark~\ref{rem:step-quantities-output}(c)), the domain constants $\delta_1\le\delta_0$, and then $\theta_r$. All of these are subject to the conditions (DC1)--(DC6) of Remark~\ref{rem:domain-constants}; (DC6) bounds $\theta_r$ by $\delta_1/(C_{\rm sym}\delta_0)$. Put $\delta_1^\flat=\frac14\delta_1$ (Section~\ref{sec:generations}). Finally the integer $m_0\ge1$ of Definition~\ref{def:polymer-classes}: the least integer such that $L^m\ge2(2+c'm)+1$ and \eqref{eq:nf-m0}, with $\Theta$ replaced by $\Theta^\flat=1+(B_5\theta_r+\delta_0^2)/\delta_1^\flat$, hold for all $m\ge m_0$; since $\Theta\le\Theta^\flat$, \eqref{eq:nf-m0} then holds with $\Theta$ as well (Remark~\ref{rem:polymer-classes}(b)); the first condition is implied by \eqref{eq:nf-m0}, since $L^m\ge R_m^2$.
+\item \emph{The couplings.} $\gamma\le g_p$, and all couplings lie in $(0,\gamma]$. The bound $\gamma$ is small depending on all parameters above. In particular $\gamma p(\gamma)$ is an admissible threshold (Section~\ref{subsec:flow-parameters}). The constants of Section~\ref{sec:flow4} are fixed between (5) and (6) (Remark~\ref{rem:flow-constants}(i),(ii)). All the conditions on $\gamma$ in the note are the following:
+\begin{itemize}
+\item ($\Gamma$1)--($\Gamma$4) of Remark~\ref{rem:flow-constants}. Conditions ($\Gamma$1)--($\Gamma$3) are those of the flow (Section~\ref{sec:flow4}); they contain the conditions of one step on the coupling, listed below. Condition ($\Gamma$4) is used only in Part~XI (Proposition~\ref{prop:flow-F}).
+\item In Theorem~\ref{thm:ol-uv} only, where $p_0(g)=(\log g^{-1})^q$: $\gamma\le e^{-3q}$ and $C_3\gamma^2p_0(\gamma)^6\le\frac12\beta_\infty$, with $C_3$ of Proposition~\ref{prop:flow-F} and $\beta_\infty$ of Theorem~\ref{thm:ol-log}.
+\end{itemize}
+Each of them is an upper bound on $\gamma$ by quantities fixed before $\gamma$, and it remains true when $\gamma$ is decreased; for the last one this uses that $g^2p_0(g)^6$ is increasing on $(0,e^{-3q}]$. So all of them hold for $\gamma$ small enough, and there is no circularity.
+\end{enumerate}
+The torus satisfies (T0)--(T2) of Section~\ref{subsec:tf-scales}; its side $n_*(L,M,\rho)$ in (T0) depends on the parameters up to~(4).
+
+\emph{The rates.} The rate conditions in (1)--(3) make every source of the step decay at the rate $\kappa_n$ after reblocking. Let $a(Z)\ge0$ be indexed by polymers $Z$, with data on $Z^{(r')}$, and $a(Z)\le\bar Ae^{-\lambda d_M(Z)}$ with $\lambda\ge\kappa_0+1$. Every $Z$ with $\hat Z=Y$ contains a grid cube of $Y$. By Remark~\ref{rem:reblock-margins} and the counting in the proof of Lemma~\ref{lem:reblocking},
+\[
+\sum_{Z:\,\hat Z=Y}a(Z)\le3^dK_0L^de^{C(\lambda-\kappa_0)3^d}\bar A\,e^{-[(\lambda-\kappa_0)(L-C3^d)-1]\,d_{LM}(Y)} .
+\]
+For $L\ge C3^d+3$ the rate in brackets is at least $3(\lambda-\kappa_0)-1$. This is at least $\kappa_n$ if $\lambda\ge\kappa_n+\kappa_0+2$. It is also at least $\kappa_n$ for $\lambda=\kappa_n-1-C_d$, since $\kappa_n\ge2(1+C_d+\kappa_0)$. The sources are:
+\begin{itemize}
+\item the one-loop pieces, with $|\mathfrak e(X,U)|\le Ce^{-(\kappa_2-1)|X|}$ and $\kappa_2=3^{-d}\kappa'_w$ (Proposition~\ref{prop:one-loop-polymer}(d)). Since $|X|\ge d_M(X)/c_\sharp$, their rate in $d_M$ is at least $(\kappa_2-1)/c_\sharp$;
+\item the Jacobians $\log\mathfrak j_c$, each supported on a polymer of bounded size, with at most $C(L,M)$ of them per grid cube; they satisfy the bound for every $\lambda$, with $\bar A$ depending on $\lambda$;
+\item the pure class, with the rate $(\kappa'_w-2)/c'_\sharp-C_d$ (Proposition~\ref{prop:pure-sources});
+\item the mixed class, with the rate $\kappa_n-1-C_d$ (Corollary~\ref{cor:two-classes}).
+\end{itemize}
+By (3), the first and the third have $\lambda\ge\kappa_n+\kappa_0+2$.
+
+\emph{The couplings.} The conditions of one step on the coupling hold uniformly for couplings in $(0,\gamma]$, with $\tilde h=h_k$, $\eps'_1=h_{k+1}$ and $p_0=p_{0,k}$, for $\gamma$ small:
+\begin{itemize}
+\item the thresholds: every $h_j$ is an admissible threshold (Section~\ref{subsec:flow-parameters}), which includes $h_k\le a_1$ and $(1+C_J)(C_*+1)h_{k+1}<\theta_r$ (Remark~\ref{rem:domain-constants}, the coupling); $h_{k+1}\le a_{\rm step}$; and $h_1\le a^{(0)}_{\rm step}$ of Lemma~\ref{lem:first-step-formula}. These hold since $h_j\le\gamma p(\gamma)$;
+\item (Q1) of Section~\ref{sec:cluster}, and $2g_k\le r_t$ of Proposition~\ref{prop:pure-sources}, since $w=C_wL^dC_Tg_kp_{0,k}$, $r_t\ge cp_{0,k}^{-3}$ with $c$ fixed before $\gamma$, and $gp_0(g)^3\to0$;
+\item (Q3), i.e.\ $\tau\le C_PL^dg_kp_{0,k}/\delta_1<\frac12$, since $gp_0(g)\to0$;
+\item (Q2), if $g_{k+1}\le2g_k$. Then $h_{k+1}\le2h_k$ (Section~\ref{subsec:flow-parameters}), so $2(C_*+1)L^{-2}h_{k+1}\le\frac12h_k$ by (2); and $Cw\le\frac12h_k$, since $2CC_wL^dC_Tp_0(g)\le p(g)$ for $g\le\gamma$, as $p_0/p\to0$;
+\item the hypotheses $\epsilon_{\rm p}\le\frac12\epsilon_*$ and $\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)}\le\frac14\epsilon_*$ of Corollary~\ref{cor:two-classes}. Here $\epsilon_{\rm p}=C_Pg_kp_{0,k}^3$, and $\epsilon_{\rm m}=C_P\tau\|\mathcal E_k\|$ is small if the old activities are bounded by a constant fixed before $\gamma$.
+\end{itemize}
+With the bound $C_{\rm old}\mathsf K$ on the old activities (Proposition~\ref{prop:old-activities}), these are condition ($\Gamma$2) of Remark~\ref{rem:flow-constants}, which adds ($\Gamma$1), ($\Gamma$3) and the constants $\mathsf K$, $C_{\rm old}$, $C_\beta$, $C_{\rm new}$ to this list; $g_{k+1}\le2g_k$ is Theorem~\ref{thm:gen-step}(c). Along the flow all of them hold at every step (Theorem~\ref{thm:sf-flow}(e)).
+\end{remark}
+
+\paragraph{Three constants fixed in Part~VIII.} The order above also contains three constants that are fixed inside proofs in Part~VIII. The radius $\delta_*$ and the constant $C_W=C(1+2\delta_*)/\delta_*$ are fixed in the proof of Proposition~\ref{prop:dirichlet-hessian}(c), depending on $d$, $L$, $G$, $\alpha$ and $M$. The constant $c''_L$ is fixed in the proof of Lemma~\ref{lem:coercive-general}, with $C_{\rm AB}c''_L\le c'_L$, $C_{\rm cmp}c''_L\le\delta_*$, and $C''_Lc''_L\le\frac18c_L$ for a constant $C''_L$ that absorbs $C_W$; it depends on $L$ and $M$, and through $\delta_*$ and $C_W$ also on $d$, $G$ and $\alpha$. All three are fixed after $M$ and before the cap $\bar\delta$ of (5): $C_W$ enters the constant $C_{\rm cx}$ of Proposition~\ref{prop:complex-ext} (step~(vii) of its proof), hence $\bar\delta$, and $c''_L$ enters the condition $\delta_P\le c''_L$ of that proposition. The conventions paragraph before Proposition~\ref{prop:complex-ext} displays this part of the order. In (6), as everywhere in Sections~\ref{sec:flow}, \ref{sec:target-flow} and~\ref{sec:ol-uv}, $\gamma$ is the bound on the couplings (Section~\ref{subsec:flow-parameters}), not a decay rate, except in the kernel bound of Lemma~\ref{lem:period-vacpol}(d). Table~\ref{tab:G-parameters} in Section~\ref{g:parameters} of the guide lists the parameters of Parts~VII--XI in this order, with their roles.

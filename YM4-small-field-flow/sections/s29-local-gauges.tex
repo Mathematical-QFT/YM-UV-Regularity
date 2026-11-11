@@ -1,0 +1,176 @@
+\section{Local gauges and splicing}\label{sec:local-gauges}
+
+Theorem~\ref{thm:variational} solves the variational problem relative to a regular reference configuration $U_0$. It bounds the regularity of the minimizer by $\eps+C_6(\eps+\beta)$, where $\eps$ is the regularity parameter of $U_0$. Ba\l aban's Theorem~1 \cite{BalVar} is proved by induction over $k$. The reference at step $k$ is the solution at step $k-1$, and passing from units of $\delta_{k-1}$ to units of $\delta_k$ multiplies its regularity parameter by a power of $L$. Without improvement the constants would grow geometrically in $k$. Ba\l aban's Section~F \cite{BalVar} closes the induction with a local argument. On a cube around a given point the minimizer is compared with the solution of a variational problem relative to the trivial configuration. That problem is posed on nested domains: the configuration is frozen outside the cube, and the averaging becomes finer towards its boundary.
+
+We stay on the torus. The observation is that Theorem~\ref{thm:variational} holds uniformly for \emph{all} regular references. Near a point $y$ we replace the induction reference by a configuration that is trivial (in a local gauge) near $y$ and coincides with the minimizer far from $y$. Relative to this \emph{spliced} reference, the first-order formula of Theorem~\ref{thm:variational}(c) shows that the minimizer near $y$ is determined by the coarse field near $y$. The errors are exponentially small in the splicing radius, or quadratic in the a priori bound. The coarse field near $y$, in the gauge of the coordinate-ordered contours from $y$, is controlled by the curvature of $V$ alone. This gives the improvement (Section~\ref{sec:improvement}), and the induction closes (Section~\ref{sec:induction}).
+
+This section provides the geometric input: gauges on large cubes (Lemma~\ref{lem:large-cubes}), a local gauge adapted to a coarse contour gauge (Lemma~\ref{lem:adapted-gauge}), and the splicing (Lemma~\ref{lem:splice}).
+
+\paragraph{Conventions for Part VI.} We keep the conventions of Parts~IV and~V and assume in addition $M\ge5L$. The torus has side $n\ge n_0$, where $n_0$ is fixed in Lemma~\ref{lem:improvement}. All boxes below have sides smaller than $n$, so they are identified with boxes in $\eta\Z^d$. Side lengths and shifts of boxes are tacitly rounded to multiples of $\eta$; this changes the constants below only by bounded factors. A \emph{box} is a set $\{x\in\Tf:\ a_\mu\le x_\mu\le b_\mu\}$, and the bonds of a box are the bonds with both endpoints in it. We write $\Lam_r(z)=\{x:|x-z|_\infty\le r\}$, as in Section~\ref{sec:regularity}.
+
+\subsection{Regularity on a box}\label{ss:28.1}
+
+\begin{definition}[Regularity on a box]\label{def:box-regular}
+Let $\Lam$ be a box, and let $A$ be a fine Lie field on the bonds of $\Lam$. Put
+\[
+\|A\|_{1,\alpha;\Lam}=|A|_\Lam+|\partial A|_\Lam+\sup\big\{\Hol{\partial A}{\Lam_3(z')}:\ \Lam_3(z')\subset\Lam\big\},
+\]
+where $|\partial A|_\Lam$ is the maximum of $|\partial_\nu A_\mu(x)|$ over all differences that involve only points of $\Lam$, and the H\"older quotient on $\Lam_3(z')$ is taken over the pairs of differences that involve only points of $\Lam_3(z')$, as in Definition~\ref{def:regular}. A real configuration $U$ is \emph{$\sigma$-regular on $\Lam$} if there is a real gauge transformation $u$ on $\Lam$ with $U^u=e^{\ii\eta A}$ on the bonds of $\Lam$ and $\|A\|_{1,\alpha;\Lam}\le\sigma$.
+\end{definition}
+
+This property is invariant under real gauge transformations of $U$, and it passes to sub-boxes. By Definition~\ref{def:regular}, an $(M,\eps)$-regular configuration is $3\eps$-regular on every cube $\Lam_{4M+2}(z)$. Conversely, if $0<\sigma\le1$, a configuration that is $\sigma$-regular on every cube $\Lam_{4M+2}(z)$ is $(M,\sigma)$-regular.
+
+Two facts on gauge transformations of configurations of the form $e^{\ii\eta A}$ are used repeatedly. Let $\lambda$ be a real scalar field on a box with $|\lambda|\le1$. Then $(e^{\ii\eta A})^{e^{\ii\lambda}}=e^{\ii\eta A^\lambda}$, where, by \eqref{eq:gauge-formula} with $U_0=1$,
+\begin{equation}\label{eq:gauge-formula-1}
+A^\lambda(b)=e^{\ii\operatorname{ad}\lambda(b_-)}A(b)-\mathfrak d\big(-\operatorname{ad}\lambda(b_-)\big)\partial\lambda(b)+\eta\,\mathfrak b\big(-\lambda(b_-),A(b),-\partial\lambda(b)\big).
+\end{equation}
+Consequently
+\begin{equation}\label{eq:gauge-bound}
+\|A^\lambda\|_{1,\alpha;\Lam}\le C\big(\|A\|_{1,\alpha;\Lam}+|\partial\lambda|_\Lam+|\partial\partial\lambda|_\Lam+\sup_{\Lam_3(z')\subset\Lam}\Hol{\partial\partial\lambda}{\Lam_3(z')}\big),
+\end{equation}
+provided the right-hand side is at most $1$. Indeed, $A^\lambda(b)$ is an analytic function of $\lambda(b_-)$, $A(b)$ and $\partial\lambda(b)$, and its first differences and their H\"older quotients are controlled by the chain rule for lattice differences, as in the proof of Lemma~\ref{lem:curvature}. The term with the factor $\eta$ is handled by \eqref{eq:lattice-trick}.
+
+\subsection{Gauges on large cubes}\label{ss:28.2}
+
+\begin{lemma}[Patching]\label{lem:patching}
+There is $C^{\rm patch}_P\ge1$, depending only on $d$, $\alpha$ and $G$, with the following property. Let $\Lam$ be a box, $\mu$ a direction, $a\in\R$ and $w\ge18$. Put $\Lam'=\{x\in\Lam:x_\mu\le a+w\}$ and $\Lam''=\{x\in\Lam:x_\mu\ge a\}$, and suppose that all sides of $\Lam$ are at most $3w$. If $U$ is $\sigma$-regular on $\Lam'$ and on $\Lam''$, and $C^{\rm patch}_Pw\sigma\le1$, then $U$ is $C^{\rm patch}_P\sigma$-regular on $\Lam$.
+\end{lemma}
+
+\begin{proof}
+Let $u',u''$ be the gauges, with $U^{u'}=e^{\ii\eta A'}$ on $\Lam'$ and $U^{u''}=e^{\ii\eta A''}$ on $\Lam''$. On the slab $O=\Lam'\cap\Lam''$ the transformation $g=u'(u'')^{-1}$ satisfies
+\[
+e^{\ii\eta A'(b)}=g(b_-)\,e^{\ii\eta A''(b)}\,g(b_+)^{-1}\qquad\text{for the bonds }b\text{ of }O .
+\]
+Fix $x_0\in O$. Replacing $u''$ by $g(x_0)u''$, which replaces $A''$ by $R(g(x_0))A''$ and does not change its norm, we may assume $g(x_0)=1$.
+
+\emph{Size of $g$.} By the relation above, $g(b_+)=e^{-\ii\eta A'(b)}g(b_-)e^{\ii\eta A''(b)}$. Every point of $O$ is joined to $x_0$ by a lattice path in $O$ of length at most $3dw$. By the bi-invariance of the metric (Lemma~\ref{lem:log-estimates}(b)), $g=e^{\ii\lambda}$ on $O$ with $\lambda$ real and $|\lambda|\le6dw\sigma\le c_G$; here we take $C^{\rm patch}_P\ge6d/c_G$.
+
+\emph{Derivatives of $\lambda$.} The relation gives $\lambda(b_+)=\ell\big(e^{-\ii\eta A'(b)}e^{\ii\lambda(b_-)}e^{\ii\eta A''(b)}\big)$. Hence $\partial\lambda(b)=\mathfrak p\big(\lambda(b_-),\eta A'(b),\eta A''(b);A'(b),A''(b)\big)$, where $\mathfrak p$ is analytic, linear in the last two arguments, and bounded by $C(|A'(b)|+|A''(b)|)$. Taking one more difference and using the chain rule, $|\partial\lambda|_O+|\partial\partial\lambda|_O+\Hol{\partial\partial\lambda}{\Lam_3(z')}\le C\sigma$ for every $\Lam_3(z')\subset O$.
+
+\emph{Gluing.} Let $\chi_1$ be a smooth function on $\R$ with $\chi_1=1$ on $(-\infty,\frac13]$ and $\chi_1=0$ on $[\frac23,\infty)$, and put $\chi(x)=\chi_1((x_\mu-a)/w)$. Define
+\[
+u=u'\ \text{ on }\{x_\mu\le a+\tfrac w3\},\qquad u=e^{\ii\chi\lambda}u''\ \text{ on }O,\qquad u=u''\ \text{ on }\{x_\mu\ge a+\tfrac{2w}3\}.
+\]
+The definitions agree on the overlaps, because $e^{\ii\lambda}u''=gu''=u'$. Hence $U^u=e^{\ii\eta A}$ on the bonds of $\Lam$, with $A=A'$, $A=A''$, or $A=(A'')^{\chi\lambda}$ as in \eqref{eq:gauge-formula-1}, on the three regions. Since $|\partial^\beta\chi|\le Cw^{-|\beta|}$ and $|\lambda|\le6dw\sigma$, the field $\chi\lambda$ satisfies $|\partial(\chi\lambda)|+|\partial\partial(\chi\lambda)|+\Hol{\partial\partial(\chi\lambda)}{\Lam_3(z')}\le C\sigma$; the terms in which derivatives fall on $\chi$ carry factors $w^{-1}\cdot w\sigma$ or $w^{-2}\cdot w\sigma$. By \eqref{eq:gauge-bound}, $\|(A'')^{\chi\lambda}\|_{1,\alpha;O}\le C\sigma$.
+
+Finally, since $w\ge18$, every cube $\Lam_3(z')\subset\Lam$ (of side $6\le w/3$) and every difference lie entirely in one of the three regions. Hence $\|A\|_{1,\alpha;\Lam}\le C^{\rm patch}_P\sigma$.
+\end{proof}
+
+\begin{lemma}[Large cubes]\label{lem:large-cubes}
+There are $C_E\ge1$ and $p\ge1$, depending only on $d$, $\alpha$ and $G$, with the following property. Let $18\le r\le R$, and let $U$ be $\sigma$-regular on every cube $\Lam_r(z)$, $z\in\Tf$. If $C_E(R/r)^pR\sigma\le1$, then $U$ is $C_E(R/r)^p\sigma$-regular on every cube $\Lam_R(z)$.
+\end{lemma}
+
+\begin{proof}
+We enlarge boxes in rounds. Let $T=2\eta\lfloor R/\eta\rfloor$ be the side of the cubes $\Lam_R(z)$; $T<n$ by the conventions of Part~VI, under which the cubes $\Lam_R(z)$ are boxes. At the beginning of a round all sides equal some $\ell$. If $\ell<T$, put
+\[
+\delta=\min\Big(T-\ell,\ \eta\Big\lfloor\frac{\ell}{2\eta}\Big\rfloor\Big),
+\]
+and, for $\mu=1,\dots,d$ in turn, pass to the boxes whose side in direction $\mu$ is $\ell+\delta$; each of them is the union of two boxes of the current shape, shifted against each other by $\delta$ in direction $\mu$. The overlap has width $w=\ell-\delta\ge\frac\ell2$, and during the round all sides lie between $\ell$ and $\ell+\delta\le\frac32\ell\le3w$. Initially $\ell=\ell_0=2\eta\lfloor r/\eta\rfloor\ge36$, since $18$ is a multiple of $\eta$. Hence $w\ge18$, all sides of the unions are at most $3w$, and all boxes have sides at most $T<n$, so none of them wraps around the torus. By Lemma~\ref{lem:patching} and induction, after $j$ steps $U$ is $(C^{\rm patch}_P)^j\sigma$-regular on every box of the current shape, as long as $C^{\rm patch}_P\cdot3R\cdot (C^{\rm patch}_P)^j\sigma\le1$. A round with $\delta<T-\ell$ gives the side $\ell+\delta\ge\frac32\ell-\eta$, so after $i$ such rounds the side is at least $(\frac32)^i(\ell_0-2\eta)+2\eta\ge(\frac32)^i\cdot\frac{16}9r$, since $\ell_0-2\eta\ge2r-4\eta\ge\frac{16}9r$. Since a round with $\delta<T-\ell$ ends with a side less than $T\le2R$, the number $i$ of such rounds satisfies $(\frac32)^i<\frac98\cdot\frac Rr$; as $\frac98<\frac32$, this gives $i\le\lceil\log_{3/2}(R/r)\rceil$. So after at most $\lceil\log_{3/2}(R/r)\rceil+1$ rounds, the last one with $\delta=T-\ell$, all sides equal $T$, and every cube $\Lam_R(z)$ is a box of the current shape. The number of steps is $m\le d\big(\log_{3/2}(R/r)+2\big)$, so $(C^{\rm patch}_P)^m\le (C^{\rm patch}_P)^{2d}(R/r)^{d\log C^{\rm patch}_P/\log(3/2)}$. Hence the lemma holds with $p=d\log C^{\rm patch}_P/\log(3/2)$ and $C_E=3(C^{\rm patch}_P)^{2d+1}$. The rounding to multiples of $\eta$ costs at most one round, so it changes $C_E$ but not $p$.
+\end{proof}
+
+The loss is only polynomial in $R/r$. This is what makes the splicing below possible: the polynomial loss is beaten by the exponential decay of the operators of Part~III.
+
+\subsection{A gauge adapted to a coarse contour gauge}\label{ss:28.3}
+
+For $y,y'\in\T$ let $\Gamma^{\rm co}_{y,y'}$ be the coordinate-ordered contour on $\T$ from $y$ to $y'$ that changes the coordinates in the order $d,d-1,\dots,1$. It has at most $d|y'-y|_\infty$ bonds. The contours $\Gamma^{\rm co}$ are a proof device. The gauge they define on $\T$ is not invariant under the permutations of the axes, and it is not the averaged axial gauge of Section~\ref{sec:adapted}. Apart from Lemma~\ref{lem:adapted-gauge}, it enters only proofs: those of Lemma~\ref{lem:improvement}, Proposition~\ref{prop:sharp-curvature} and the case $k=0$ of Theorem~\ref{thm:balaban}. Their statements do not refer to it. A single contour suffices here, and it gives the bound~(ii) below, which is linear in $|c_--y|_\infty$ with an absolute constant. Let $\phi_1\in C^\infty(\R)$ be supported in $[-1,1]$, with $\phi_1(0)=1$ and $\sum_{m\in\Z}\phi_1(t-m)=1$. For instance, $\phi_1(t)=\vartheta(1-|t|)$, where $\vartheta:[0,1]\to[0,1]$ is smooth, vanishes with all its derivatives at $0$, and satisfies $\vartheta(s)+\vartheta(1-s)=1$. Put $\phi(x)=\prod_\mu\phi_1(x_\mu)$. Then $\phi(y'-y'')=\delta_{y'y''}$ for $y',y''\in\T$, and $\sum_{y'\in\T}\phi(x-y')=1$.
+
+\begin{lemma}[Adapted local gauge]\label{lem:adapted-gauge}
+There are $C_8,q\ge1$, depending only on $d$, $L$, $G$, $\alpha$ and $M$, with the following property. Let $U\in\mathfrak U_0(\eps_0)$ be real and $(M,\eps_0)$-regular, with $\eps_0\le c_1$. Suppose that $V=U^{(k)}\in\mathfrak U_k(\eps_1)$ with $\eps_1\le2\eps_0$. Let $R\ge4M+2$ be an integer and $y\in\T$, and assume $C_8R^q\eps_0\le1$. Then there is a real gauge transformation $u$ on $\Lam_R(y)$ such that:
+\begin{enumerate}[label=(\roman*)]
+\item $U^u=e^{\ii\eta A}$ on the bonds of $\Lam_R(y)$, with $\|A\|_{1,\alpha;\Lam_R(y)}\le C_8R^q\eps_0$;
+\item for every bond $c$ of $\T$ with both endpoints in $\Lam_R(y)$,
+\[
+V^u(c):=u(c_-)V(c)u(c_+)^{-1}=e^{\ii B_y(c)},\qquad|B_y(c)|\le d\,(|c_--y|_\infty+1)\,\eps_1 .
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\emph{Step 1: a gauge on a large cube.} By Lemma~\ref{lem:large-cubes} with $r=4M+2\ge18$, $\Lam_{R+3}(y)$ carries a real gauge $u_1$ with $U^{u_1}=e^{\ii\eta A_1}$ and $\|A_1\|_{1,\alpha;\Lam_{R+3}(y)}\le\sigma:=3C_E(R+3)^p\eps_0$.
+
+\emph{Step 2: the coarse contour gauge.} Let $c$ be a bond of $\T$ with both endpoints in $\Lam_{R+1}(y)$. Then $B(c_-)\cup B(c_+)\subset\Lam_{R+3}(y)$. By Lemma~\ref{lem:avg-local-gauge}, applied to $U^{u_1}$ with the union of blocks $B(c_-)\cup B(c_+)$ (the averages are local, so $u_1$ may be extended arbitrarily outside the cube), $V^{u_1}(c)=e^{\ii B_1(c)}$ with $|B_1(c)|\le\sigma_1:=\sigma+32\eps_0$. For unit points $y'\in\Lam_{R+1}(y)$ put $h(y')=V^{u_1}(\Gamma^{\rm co}_{y,y'})$, so that $h(y)=1$ and $|\lambda(y')|\le d(R+1)\sigma_1$ for $\lambda(y')=\ell(h(y'))$. For a bond $c=(y',y'')$ as above,
+\[
+(V^{u_1})^h(c)=h(y')V^{u_1}(c)h(y'')^{-1}=V^{u_1}\big(\Gamma^{\rm co}_{y,y'}\cup c\cup(\Gamma^{\rm co}_{y,y''})^{-1}\big)
+\]
+is the holonomy of a closed contour based at $y$. The two contours are coordinate-ordered for the same order, from $y$ to the neighbouring points $y'$ and $y''$. By Lemma~\ref{lem:stokes}(ii) the loop is spanned by at most $d|y'-y|_\infty\le d(|y'-y|_\infty+1)$ plaquettes of $\T$. Holonomies of closed contours are conjugated by gauge transformations, so Lemma~\ref{lem:stokes} applied to $V$ gives $|\ell((V^{u_1})^h(c))|\le d(|y'-y|_\infty+1)\eps_1$. Moreover $h(y'')=(V^{u_1})^h(c)^{-1}\,h(y')\,V^{u_1}(c)$. By bi-invariance, the distance between $h(y'')$ and $h(y')$ is at most $|\ell((V^{u_1})^h(c))|+|B_1(c)|$. Near $1$ the logarithm is Lipschitz with respect to this distance. Hence
+\[
+|\lambda(y'')-\lambda(y')|\le C\big(\sigma_1+R\eps_1\big)\le C\sigma'\quad\text{for neighbours }y',y'',\qquad\sigma'=\sigma_1+R\eps_0 .
+\]
+
+\emph{Step 3: smooth extension.} For fine points $x\in\Lam_R(y)$ put $\tilde\lambda(x)=\sum_{y'}\phi(x-y')\lambda(y')$; only points $y'$ with $|y'-x|_\infty<1$ contribute. Then $\tilde\lambda=\lambda$ at the points of $\T$ and $|\tilde\lambda|\le\max|\lambda|$. Since the lattice differences of $\sum_{y'}\phi(x-y')=1$ vanish, every difference of order $1$, $2$ or $3$ of $\tilde\lambda$ is $\sum_{y'}\partial^\beta\phi(x-y')\big(\lambda(y')-\lambda(y_x)\big)$, where $y_x$ is a unit point with $|x-y_x|_\infty<1$. Hence these differences are bounded by $C\sigma'$. The same holds for the H\"older quotients of $\partial\partial\tilde\lambda$, which are bounded by the third differences on short distances and by twice the second differences on distances at least $1$.
+
+Let $u=e^{\ii\tilde\lambda}u_1$ on $\Lam_R(y)$. At the unit points, $u=hu_1$, which gives (ii). By \eqref{eq:gauge-bound}, $U^u=e^{\ii\eta A}$ with $\|A\|_{1,\alpha;\Lam_R(y)}\le C(\sigma+\sigma')\le C_8R^q\eps_0$, for suitable $C_8$ and $q=p+1$. The smallness conditions used ($\sigma\le1$, $|\tilde\lambda|\le c_G$, and the hypotheses of Lemmas~\ref{lem:avg-local-gauge} and~\ref{lem:stokes}) follow from $C_8R^q\eps_0\le1$ if $C_8$ is large.
+\end{proof}
+
+\subsection{Splicing}\label{ss:28.4}
+
+Fix a smooth function $\chi_0$ on $\R^d$ with $\chi_0=1$ on $\{|x|_\infty\le\frac14\}$, $\chi_0=0$ on $\{|x|_\infty\ge\frac12\}$ and $0\le\chi_0\le1$. For $R\ge1$ and $y\in\T$ put $\chi(x)=\chi_0((x-y)/R)$, so that $|\partial^\beta\chi|\le C_\beta R^{-|\beta|}$. For a positively oriented bond $b$ write $\chi(b)=\chi(b_-)$. Definition~\ref{def:splice} below prescribes $U^\sharp$ on positively oriented bonds, and $U^\sharp(-b)=U^\sharp(b)^{-1}$.
+
+\begin{definition}[Spliced configuration]\label{def:splice}
+Let $U$ be real, $y\in\T$, and let $u$ be a real gauge transformation on $\Lam_R(y)$ with $U^u=e^{\ii\eta A}$ on the bonds of $\Lam_R(y)$. The \emph{spliced configuration} $U^\sharp$ is defined by
+\[
+(U^\sharp)^u=e^{\ii\eta(1-\chi)A}\ \text{ on the bonds of }\Lam_R(y),\qquad U^\sharp=U\ \text{ on all other bonds.}
+\]
+\end{definition}
+
+This is consistent: a bond of $\Lam_R(y)$ with no endpoint in $\Lam_{R/2}(y)$ has $\chi(b)=0$, so the two prescriptions agree on it, and every bond with an endpoint in $\Lam_{R/2}(y)$ is a bond of $\Lam_R(y)$. See Figure~\ref{fig:splice}.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[scale=0.95]
+\fill[fgreen!8] (-3,-3) rectangle (3,3);
+\fill[forange!12] (-1.5,-1.5) rectangle (1.5,1.5);
+\fill[fblue!12] (-0.75,-0.75) rectangle (0.75,0.75);
+\draw[gray,thick] (-3,-3) rectangle (3,3);
+\draw[forange!80!black,thick] (-1.5,-1.5) rectangle (1.5,1.5);
+\draw[fblue,thick] (-0.75,-0.75) rectangle (0.75,0.75);
+\fill (0,-0.2) circle (1.5pt) node[right,font=\small] {$y$};
+\node[fblue,font=\small] at (0,0.35) {$U^\sharp\sim1$};
+\node[forange!80!black,font=\small] at (0,1.12) {$e^{\ii\eta(1-\chi)A}$};
+\node[fgreen!50!black,font=\small] at (0,2.4) {$U^\sharp=U$};
+\node[gray,font=\small,anchor=north east] at (3,-3) {$\Lam_R$};
+\node[forange!80!black,font=\small,anchor=north east] at (1.5,-1.5) {$\Lam_{R/2}$};
+\node[fblue,font=\small,anchor=north east] at (0.75,-0.75) {$\Lam_{R/4}$};
+\node[align=left,anchor=west,font=\small] at (3.4,1.2) {In the gauge $u$ of Lemma~\ref{lem:adapted-gauge}:\\[2pt]
+$\bullet$ if $B(c_-)\cup B(c_+)\subset\Lam_{R/4}$, the reference\\ \quad average is $1$, the data are the coarse field\\ \quad in the gauge of $\Gamma^{\rm co}$, $|B^\sharp(c)|\le d(|c_--y|+1)\eps_1$;\\[2pt]
+$\bullet$ in the transition region the bounds are $O(R^q\eps_0)$;\\[2pt]
+$\bullet$ $B^\sharp(c)=0$ if $B(c_-)\cup B(c_+)$ does not meet $\Lam_{R/2}$;\\[2pt]
+$\bullet$ $J_{U^\sharp}=J_U$ on bonds with no endpoint in $\Lam_{R/2+1}$.};
+\end{tikzpicture}
+\caption{The spliced reference configuration of Definition~\ref{def:splice}.}
+\label{fig:splice}
+\end{figure}
+
+\begin{lemma}[Splicing]\label{lem:splice}
+There is $C_9\ge1$, depending only on $d$, $L$, $G$, $\alpha$ and $M$, with the following property. Let $R\ge16M+16$, and let $U$ be real and $(M,\eps_0)$-regular with $U\in\mathfrak U(\eps_0)$. Let $y$, $u$ and $A$ be as in Definition~\ref{def:splice}, with $\|A\|_{1,\alpha;\Lam_R(y)}\le s$ and $C_9(\eps_0+s)\le c_1$. Then:
+\begin{enumerate}[label=(\alph*)]
+\item $U^\sharp=U$ on all bonds with no endpoint in $\Lam_{R/2}(y)$, and $(U^\sharp)^u=1$ on the bonds of $\Lam_{R/4}(y)$.
+\item $U^\sharp$ is $(M,C_9(\eps_0+s))$-regular, $|F_{U^\sharp}|\le C_9(\eps_0+s)$ and $|J_{U^\sharp}|\le\eps_0+C_9s$. Moreover $J_{U^\sharp}=J_U$ on bonds with no endpoint in $\Lam_{R/2+1}(y)$, and $J_{U^\sharp}=0$ on the bonds of $\Lam_{R/4-1}(y)$.
+\item Let $W^\sharp=(U^\sharp)^{(k)}$ and $V=U^{(k)}$. For every bond $c$ of $\T$, $|\ell(V(c)W^\sharp(c)^{-1})|\le C_9(\eps_0+s)$. If $B(c_-)\cup B(c_+)$ does not meet $\Lam_{R/2}(y)$, then $W^\sharp(c)=V(c)$. If $B(c_-)\cup B(c_+)\subset\Lam_{R/4}(y)$, then $u(c_-)W^\sharp(c)u(c_+)^{-1}=1$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) follows from the definition, since $\chi=1$ on $\Lam_{R/4}(y)$.
+
+(b) \emph{Regularity.} If $\Lam_{4M+2}(z)\subset\Lam_R(y)$, the gauge $u$ gives $(U^\sharp)^u=e^{\ii\eta(1-\chi)A}$ there, and $\|(1-\chi)A\|_{1,\alpha}\le Cs$ by the Leibniz rule, since $R\ge1$. Otherwise $|z-y|_\infty>R-4M-2$. Then every point of $\Lam_{4M+2}(z)$ has distance more than $R-8M-4\ge R/2$ from $y$, so $U^\sharp=U$ on $\Lam_{4M+2}(z)$, and the gauges of $U$ apply. The curvature is bounded in the same way, using $|F_{e^{\ii\eta B}}|\le C(|\partial B|+|B|^2)$.
+
+\emph{Current.} The current at a bond depends only on the configuration on the plaquettes containing it and on their neighbours. This gives the two identities. In general, compute in the gauge $u$, which does not change $|J|$. For a configuration $e^{\ii\eta B}$ and a plaquette $p$ with bonds $b_1,\dots,b_4$ as in Definition~\ref{def:curvature},
+\[
+F^s_{e^{\ii\eta B}}(p)=\eta^{-2}\mathfrak S\big(\eta B(b_1),\eta B(b_2),\eta B(b_3),\eta B(b_4)\big),\qquad\mathfrak S(z)=P_{\mathfrak g}\sin\ell\big(e^{\ii z_1}e^{\ii z_2}e^{-\ii z_3}e^{-\ii z_4}\big),
+\]
+with $F^s$ as in Lemma~\ref{lem:current}. The function $\mathfrak S$ is analytic near $0$, and $\mathfrak S(z)=z_1+z_2-z_3-z_4+\mathfrak S_2(z)$ with $|\mathfrak S_2(z)|\le C|z|^2$ and $|\nabla\mathfrak S_2(z)|\le C|z|$. Let $t=1-\chi$ and $A^\sharp=tA$, and let $x_p$ be the base point of $p$. Then
+\[
+F^s_{e^{\ii\eta A^\sharp}}(p)=t(x_p)F^s_{e^{\ii\eta A}}(p)+E(p),
+\]
+\[
+E(p)=\sum_{i=1}^4\pm\frac{t(b_i)-t(x_p)}\eta\,A(b_i)+\eta^{-2}\Big(\mathfrak S_2\big(\eta A^\sharp(b_1),\dots\big)-t(x_p)\,\mathfrak S_2\big(\eta A(b_1),\dots\big)\Big).
+\]
+Since $|\partial^\beta t|\le CR^{-|\beta|}$ and $|A|+|\partial A|\le s$, we get $|E|\le Cs$. Between neighbouring plaquettes, the arguments $\eta A^\sharp(b_i)$, $\eta A(b_i)$ and $t(x_p)$ change by at most $C\eta^2s$ and $C\eta/R$. With $|\nabla\mathfrak S_2(z)|\le C|z|$ and the product rule, the difference quotients of $E$ are bounded by $Cs$. By Lemma~\ref{lem:cov-expansion}, $D^T_{e^{\ii\eta B}}=\partial^*+T_B^T$ with $T_B$ local and bounded by $C|B|$. Using $J_{e^{\ii\eta A}}=D^T_{e^{\ii\eta A}}F^s_{e^{\ii\eta A}}=R(u)J_U$ (Lemma~\ref{lem:current}(a)),
+\[
+J_{e^{\ii\eta A^\sharp}}=t\,R(u)J_U+[\partial^*,t]F^s_{e^{\ii\eta A}}+\big(T^T_{A^\sharp}t-tT^T_A\big)F^s_{e^{\ii\eta A}}+D^T_{e^{\ii\eta A^\sharp}}E .
+\]
+Each term after the first is bounded by $Cs$, because $|F^s_{e^{\ii\eta A}}|\le Cs$ and $|\partial t|\le C/R$. Hence $|J_{U^\sharp}|\le\eps_0+Cs$.
+
+(c) The average $U^{(k)}(c)$ depends only on the bonds of $B(c_-)\cup B(c_+)$ (Lemma~\ref{lem:one-step-basic}). This gives the first identity. The second follows from (a) and covariance, since $\mathfrak a^{(k)}(1)=1$; the gauge $u$ may be extended arbitrarily outside $\Lam_R(y)$. In the remaining case $B(c_-)\cup B(c_+)\subset\Lam_{R/2+2}(y)\subset\Lam_R(y)$. Lemma~\ref{lem:avg-local-gauge}, applied to $U^u$ and to $(U^\sharp)^u$ on the union of blocks $B(c_-)\cup B(c_+)$, gives $V^u(c)=e^{\ii B'}$ and $(W^\sharp)^u(c)=e^{\ii B''}$ with $|B'|\le s+32\eps_0$ and $|B''|\le s+32C'(\eps_0+s)$. Here $C'\ge1$ is the constant obtained in (b) for the curvature of $U^\sharp$. So (c) holds with $C_9\ge33(1+C')$; the same bound applies in the second case. By covariance and Lemma~\ref{lem:log-estimates}(b), $|\ell(VW^{\sharp-1})(c)|=|\ell(e^{\ii B'}e^{-\ii B''})|\le|B'|+|B''|$.
+\end{proof}

@@ -1,0 +1,330 @@
+\section{The lattice Feynman-gauge coefficient}\label{sec:ol-feynman}
+
+This section computes the isotropic coefficient $\beta_{\rm F}$ of the tensor $T_{\rm F}$ of Section~\ref{subsec:ol-vp-split}. It is the $p^2$-coefficient of the vacuum polarization, at $U=1$, of
+\[
+\widehat\Gamma_{\rm F}(U)=-\tfrac12\log\det\big(D_U^TD_U+D_UD_U^T+\mathcal F_U+m^2\big)+\log\det\big(D_U^TD_U+m^2\big)
+\]
+on the fine lattice of spacing $\eta=L^{-k}$, with $m=1$. Let $G$ be compact, connected and simple, with the matrix trace of a representation $\rho$ in the action, $\operatorname{tr}_\rho(T^aT^b)=T_\rho\delta^{ab}$ for Hermitian generators $T^a$, and $C_A$ the Casimir of the adjoint representation, $\sum_a\operatorname{ad}T^a\operatorname{ad}T^a=C_A$ on $\mathfrak g$. Traces without index are $\operatorname{tr}_\rho$, as in Section~\ref{sec:action}. Put $\kappa_\rho=C_A/T_\rho$. Then
+\begin{equation}\label{eq:ol-kappa}
+\operatorname{tr}_{\mathfrak g^c}\big(\operatorname{ad}\xi\operatorname{ad}\zeta\big)=\kappa_\rho\operatorname{tr}(\xi\zeta),\qquad \xi,\zeta\in\mathfrak g^c .
+\end{equation}
+Indeed, on $\mathfrak g$ both sides are $\operatorname{Ad}$-invariant symmetric bilinear forms, so they are proportional, since $\mathfrak g$ is simple. The factor is $\kappa_\rho$, since $\sum_a\operatorname{tr}_{\mathfrak g}(\operatorname{ad}T^a\operatorname{ad}T^a)=C_A\dim\mathfrak g$ and $\sum_a\operatorname{tr}(T^aT^a)=T_\rho\dim\mathfrak g$. Both sides are complex bilinear, so the identity extends from $\mathfrak g$ to $\mathfrak g^c$.
+
+\begin{theorem}[The logarithm]\label{thm:ol-log}
+There is a constant $c_{\log}$, depending only on $G$ and $\rho$, such that, as $k\to\infty$,
+\[
+\beta_{\rm F}=\frac{11C_A}{24\pi^2T_\rho}\log\frac1\eta+c_{\log}+o(1)=k\,\beta_\infty+c_{\log}+o(1),\qquad\beta_\infty=\frac{11C_A}{24\pi^2T_\rho}\log L .
+\]
+In particular $\beta_{\rm F}=k\beta_\infty+O(1)$, uniformly in $k\ge1$. For $SU(N)$ in the fundamental representation, $\beta_\infty=\frac{11N}{12\pi^2}\log L$.
+\end{theorem}
+
+\paragraph{Normalization of the coupling.} The density of the note is $\exp(-g^{-2}S)$, and the continuum limit of the Wilson action is $\frac{T_\rho}4\sum_{\mu\nu}F^aF^a$ (Remark~\ref{rem:ol-heat-kernel}). So $g$ is related to the coupling $g_{\rm std}$ of the continuum action $\frac1{4g_{\rm std}^2}\sum_{\mu\nu}F^aF^a$ by $g_{\rm std}^2=g^2/T_\rho$; for $SU(N)$ in the fundamental representation, $T_\rho=\frac12$ and $g_{\rm std}^2=2g^2$. In the continuum normalization the coefficient of Remark~\ref{rem:ol-heat-kernel} changes $g_{\rm std}^{-2}$ by $\frac{11C_A}{24\pi^2}\log L=2b_0\log L$ per factor $L$ of the cutoff, with the usual one-loop coefficient $b_0=\frac{11C_A}{48\pi^2}$. Hence $\beta_\infty=2b_0\log L/T_\rho$: per step, $g^{-2}$ changes by $1/T_\rho$ times the change of $g_{\rm std}^{-2}$. In $\frac{11}3=4-\frac13$ the $4$ is the spin part of the vector determinant and $-\frac13$ the orbital part of both determinants (proof of Lemma~\ref{lem:ol-classical}).
+
+\subsection{Reduction to the unit lattice}\label{ss:57.1}
+
+\begin{lemma}[Scaling]\label{lem:ol-scaling}
+$\beta_{\rm F}=f(m\eta)$, where $f(\mathrm m)$ is the isotropic $p^2$-coefficient, at $U=1$, of
+\[
+\widehat\Gamma_{\rm F}^{(\mathrm m)}(U)=-\tfrac12\log\det\big(D_U^TD_U+D_UD_U^T+\mathcal F_U+\mathrm m^2\big)+\log\det\big(D_U^TD_U+\mathrm m^2\big)
+\]
+on the lattice $\mathbb Z^4$ of unit spacing.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:ol-scaling}
+Rescale positions by $\eta^{-1}$. A fine configuration $e^{\ii\eta A}$ becomes a configuration $e^{\ii A'}$ on $\mathbb Z^4$ with $A'=\eta A$. The difference operators scale by $\eta^{-1}$, so the operators in $\widehat\Gamma_{\rm F}$ become $\eta^{-2}$ times their unit-lattice versions, with $m^2$ replaced by $(m\eta)^2$. The factor $\eta^{-2}$ does not change the second variations of $\log\det$: on a torus $\log\det(cX)-\log\det X$ does not depend on $U$, and in infinite volume $S_{cX}=S_X$ in \eqref{eq:ol-second-variation}. After the rescaling, a unit cell contains $\eta^{-4}$ sites of $\Z^4$, and the field $A_{p,\eps}$ becomes $A'=\eta A_{p,\eps}$, which is the field $A_{\eta p,\eta\eps}$ on the bonds of $\Z^4$. The part of second order in the momentum of the second variation per site at the momentum $\eta p$ and the amplitude $\eta\eps$ is $\eta^2\cdot\eta^2$ times its value at $p$ and $\eps$. With the factor $\eta^{-4}$ for the sites of a cell, the $p^2$-coefficient per unit cell is that of the unit lattice with the mass $m\eta$. The same computation applies to the action. In $d=4$, with the pairing $\eta^d\sum\operatorname{tr}(AB)$ of Section~\ref{sec:action}, the action does not change under the rescaling, and its marginal tensor is $\delta_{\mu\nu}|p|^2-p_\mu p_\nu$ on both lattices. So the normalization relative to $S$ does not change either.
+\end{proof}
+
+So Theorem~\ref{thm:ol-log} is the statement
+\begin{equation}\label{eq:ol-f-asymptotics}
+f(\mathrm m)=\frac{11C_A}{24\pi^2T_\rho}\log\frac1{\mathrm m}+c+o(1)\qquad(\mathrm m\to0),
+\end{equation}
+with $c_{\log}=c$, since $m\eta=L^{-k}$. It is proved at the end of this section.
+
+\subsection{The lattice integral}\label{subsec:ol-lattice-integral}
+
+On $\Z^4$ we use the notation of Sections~\ref{sec:background} and~\ref{sec:action} with $\eta=1$. A configuration is $U=e^{\ii A}$, with a $\mathfrak g^c$-valued gauge field $A$; it is real if $A$ is. The operators
+\[
+X_{\rm V}(U)=D_U^TD_U+D_UD_U^T+\mathcal F_U+\mathrm m^2,\qquad X_{\rm S}(U)=D_U^TD_U+\mathrm m^2
+\]
+act on $\mathfrak g^c$-valued gauge fields and scalar fields, respectively, with $D_U$ as in Section~\ref{subsec:ol-vp-split}. Here $D_U^TD_U+\mathcal F_U=\operatorname{Hess}_U$ is the Hessian of the Wilson action in the chart $e^{\ii h}U$: the operator of the bilinear form $\frac{d^2}{ds^2}S(e^{\ii sh}U)|_{s=0}$ in the pairing $\mathrm b$ of Section~\ref{sec:background}. For real $U$, $\mathcal F_U=d^2\mathcal N_U(0)$ is the operator of Section~\ref{subsec:ol-vp-split}, by Proposition~\ref{prop:action}. The matrix entries of $D_U$, $D_U^T$ and $\operatorname{Hess}_U$ are polynomials in the matrix entries of $U(b)^{\pm1}$ for the bonds $b$ at one site, respectively of one plaquette; for $\operatorname{Hess}_U$ this is \eqref{eq:ol-wilson-hessian} below. So the matrix entries of $X_{\rm V}(e^{\ii A})$ and $X_{\rm S}(e^{\ii A})$ are entire functions of finitely many values of $A$, and they vanish between sites at distance more than $2$. At $A=0$, $X_{\rm V}(1)=X_{\rm S}(1)=-\Lap+\mathrm m^2$ componentwise (Lemma~\ref{lem:hodge}; $\mathcal F_1=0$). Background derivatives at $U=1$ are derivatives of $A\mapsto X(e^{\ii A})$ at $A=0$; on real directions they are those of the real configurations, and they extend complex-linearly.
+
+\emph{Symbols.} An operator $Y$ \emph{transfers the momentum} $p$ if it maps plane waves to plane waves, $Y(e^{\ii q\cdot x}\phi)=e^{\ii(q+p)\cdot x}y(q)\phi$, with a matrix $y(q)$, its symbol. Translation-invariant operators of finite range transfer the momentum $0$, and their symbols are trigonometric polynomials in $q$. If $Y$ and $Y'$ transfer $p$ and $p'$, with symbols $y$ and $y'$, then $Y'Y$ transfers $p+p'$, with the symbol $y'(q+p)y(q)$. The symbol of $-\Lap+\mathrm m^2$ is $|\hat q|^2+\mathrm m^2$, with $|\hat q|^2=\sum_\nu4\sin^2(q_\nu/2)$. For $\mathrm m>0$ we put $G_{\mathrm m}(q)=(|\hat q|^2+\mathrm m^2)^{-1}$, the symbol of $X(1)^{-1}$. We write $\operatorname{Tr}$ for the trace of a linear map of the fibre, $(\mathfrak g^c)^4$ or $\mathfrak g^c$, to distinguish it from $\operatorname{tr}=\operatorname{tr}_\rho$; this is the trace $\operatorname{tr}$ of the fibres in Lemma~\ref{lem:ol-trace-tools}.
+
+\emph{Vertices.} For $p\in\R^4$ and $\eps\in(\mathfrak g^c)^4$ let $A_{p,\eps}(b)=e^{\ii p\cdot b_-}\eps_\mu$ on the bonds $b$ of direction $\mu$, as in Section~\ref{sec:ol-vacpol}, and $\bar\eps=(\eps_\mu^*)$. Since $\mathfrak g$ consists of Hermitian matrices, $A_{p,\eps}+A_{-p,\bar\eps}$ is real. For $X=X_{\rm V},X_{\rm S}$ the background derivatives at $U=1$ act by
+\[
+\delta X[A_{p,\eps}]\,e^{\ii q\cdot x}\phi=e^{\ii(q+p)\cdot x}\,v_1^X(q;p,\eps)\phi,\qquad\delta^2X[A_{-p,\bar\eps},A_{p,\eps}]\,e^{\ii q\cdot x}\phi=e^{\ii q\cdot x}\,v_2^X(q;p,\eps)\phi .
+\]
+The \emph{vertices} $v_1^X$ and $v_2^X$ are trigonometric polynomials in $(q,p)$, i.e.\ finite sums $\sum_jc_je^{\ii(z_j\cdot q+z'_j\cdot p)}$ with $z_j,z'_j\in\Z^4$ and matrices $c_j$; $v_1^X$ is linear and $v_2^X$ is sesquilinear in $\eps$. Indeed, the matrix entry of $\delta X[A_{p,\eps}]$ between two sites is a finite sum of derivatives at $A=0$ of the local entire functions above, times values $e^{\ii p\cdot b_-}\eps_\mu$ on nearby bonds; likewise for $\delta^2X$. They extend to entire functions of complex $(q,p)$.
+
+\emph{The integrand.} On $\Z^4$ the unit cell is a single site. By Fourier inversion, the trace per cell of a translation-invariant operator with symbol $y(q)$ is $\int_{[-\pi,\pi]^4}\operatorname{Tr}y(q)\,d^4q/(2\pi)^4$. In \eqref{eq:ol-second-variation} both operators are translation invariant, with the symbols $G_{\mathrm m}(q)v_2^X(q;p,\eps)$ and $G_{\mathrm m}(q)v_1^X(q+p;-p,\bar\eps)G_{\mathrm m}(q+p)v_1^X(q;p,\eps)$, by the composition rule. So the second variation of $\widehat\Gamma^{(\mathrm m)}_{\rm F}$ at $U=1$, per site, in the directions $A_{-p,\bar\eps}$ and $A_{p,\eps}$, is the integral over $q\in[-\pi,\pi]^4$, against $d^4q/(2\pi)^4$, of $P=-\frac12P_{X_{\rm V}}+P_{X_{\rm S}}$, where
+\begin{equation}\label{eq:ol-lattice-P}
+P_X(q,p,\mathrm m)=G_{\mathrm m}(q)\operatorname{Tr}v_2^X(q;p,\eps)-G_{\mathrm m}(q)G_{\mathrm m}(q+p)\operatorname{Tr}\big(v_1^X(q+p;-p,\bar\eps)\,v_1^X(q;p,\eps)\big).
+\end{equation}
+By Lemma~\ref{lem:ol-torus-limit}(a),(b), rescaled as in Lemma~\ref{lem:ol-scaling}, the integral is the second variation per site of the infinite-volume limit. On a torus of side $n$ it is replaced by the average over $q\in(2\pi/n)\Z^4\cap[-\pi,\pi)^4$, for $p$ on the same grid, which converges to it exponentially fast in $n$ at fixed $\mathrm m>0$. Fix $\xi_0\in\mathfrak g$ with $\operatorname{tr}\xi_0^2=1$, and take $\eps=c\otimes \xi_0$, i.e.\ $\eps_\mu=c_\mu \xi_0$, with $c\in\C^4$. Then $P$ is sesquilinear in $c$, and we write $P=\sum_{\mu\nu}\bar c_\mu c_\nu P_{\mu\nu}(q,p,\mathrm m)$. In the convention of Definition~\ref{def:marginal-tensor}, which suppresses the Lie algebra indices relative to the trace pairing, the vacuum polarization is
+\[
+\Pi^{(\mathrm m)}(p)_{\mu\nu}=\int_{[-\pi,\pi]^4}P_{\mu\nu}(q,p,\mathrm m)\,\frac{d^4q}{(2\pi)^4}.
+\]
+For $\mathrm m>0$, $P$ is a real-analytic function of $(q,p)\in\R^4\times\R^4$, $2\pi$-periodic in $q$, since $|\hat q|^2+\mathrm m^2\ge\mathrm m^2$. So $\Pi^{(\mathrm m)}$ is smooth, and its Taylor coefficients at $p=0$ are the integrals of those of $P$. Put
+\begin{equation}\label{eq:ol-integrand}
+\mathcal I(q,\mathrm m)(p)_{\mu\nu}=\sum_{\kappa\lambda}\mathcal I_{\mu\nu\kappa\lambda}(q,\mathrm m)\,p_\kappa p_\lambda,\qquad\mathcal I_{\mu\nu\kappa\lambda}(q,\mathrm m)=\frac12\,\partial_{p_\kappa}\partial_{p_\lambda}P_{\mu\nu}(q,p,\mathrm m)\big|_{p=0}.
+\end{equation}
+Then the $p^2$-tensor of $\Pi^{(\mathrm m)}$ is
+\[
+T^{(\mathrm m)}=\int_{[-\pi,\pi]^4}\mathcal I(q,\mathrm m)\,\frac{d^4q}{(2\pi)^4}.
+\]
+The function $\mathcal I$ is a rational function of the $e^{\ii q_\nu}$ and of $\mathrm m^2$, whose denominators are powers of $|\hat q|^2+\mathrm m^2$. So it is defined and continuous also at $\mathrm m=0$, for $q\notin2\pi\Z^4$. For a tensor $T(p)_{\mu\nu}=\sum_{\kappa\lambda}T_{\mu\nu\kappa\lambda}p_\kappa p_\lambda$, symmetric in $\kappa,\lambda$, let $\operatorname{iso}T$ be its isotropic coefficient (Definition~\ref{def:marginal-tensor}). It is linear in $T$, and $\operatorname{iso}T=\frac13(2t_1-t_2)$ for $T(p)_{\mu\nu}=t_1\delta_{\mu\nu}|p|^2+t_2p_\mu p_\nu$. Hence
+\[
+f(\mathrm m)=\operatorname{iso}T^{(\mathrm m)}=\int_{[-\pi,\pi]^4}\operatorname{iso}\mathcal I(q,\mathrm m)\,\frac{d^4q}{(2\pi)^4}.
+\]
+By Remark~\ref{rem:ol-symmetry}, rescaled as in Lemma~\ref{lem:ol-scaling}, $T^{(\mathrm m)}(p)=f(\mathrm m)(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$. The proof of Theorem~\ref{thm:ol-log} does not use this; Lemma~\ref{lem:ol-classical} gives the transversality of the leading term directly. On the lattice the integral is invariant under shifts of $q$, so the routing of the loop momentum does not matter for $T^{(\mathrm m)}$.
+
+\subsection{The vertices and their naive continuum limit}\label{subsec:ol-vertices}
+
+The vector operator splits by the lattice Weitzenb\"ock identity. It is derived in the proof of Lemma~\ref{lem:weitzenbock} as an identity of quadratic forms at real backgrounds; we restate it for operators and complex configurations.
+
+\begin{lemma}[Lattice Weitzenb\"ock identity]\label{lem:ol-lattice-weitzenbock}
+Let $U$ be a $G^c$-valued configuration on $\eta\Z^4$ or on a torus of spacing $\eta$. On $\mathfrak g^c$-valued gauge fields,
+\[
+D_U^TD_U+D_UD_U^T=\nabla_U^T\nabla_U+\mathsf W_U,\qquad(\mathsf W_Uh)_\mu=\sum_{\nu\ne\mu}[D_\mu,D_\nu^T]h_\nu .
+\]
+Here $D_U$ is the covariant curl in the first term and the covariant gradient of scalar fields in the second, $\nabla_U^T\nabla_U=\sum_\nu D_\nu^TD_\nu$ acts on each component $h_\mu$ as on a scalar field, and
+\[
+\begin{aligned}
+[D_\mu,D^T_\nu]f(x)=\eta^{-2}\Big(&R\big(U_\mu(x)U_\nu(x+\eta e_\mu-\eta e_\nu)^{-1}\big)\\
+&-R\big(U_\nu(x-\eta e_\nu)^{-1}U_\mu(x-\eta e_\nu)\big)\Big)f(x+\eta e_\mu-\eta e_\nu)
+\end{aligned}
+\]
+for all $\mu,\nu$. In particular $[D_\mu,D_\mu^T]=0$, and $\mathsf W_1=0$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:ol-lattice-weitzenbock}
+Transposes are taken in the bilinear pairing $\mathrm b$. Since $\operatorname{tr}\big((R(u)\xi)\zeta\big)=\operatorname{tr}\big(\xi\,R(u)^{-1}\zeta\big)$ for $u\in G^c$,
+\[
+(D_\nu^Tg)(x)=\eta^{-1}\big(R(U_\nu(x-\eta e_\nu))^{-1}g(x-\eta e_\nu)-g(x)\big).
+\]
+For the gradient of scalar fields, $D_U^Th=\sum_\mu D_\mu^Th_\mu$. For the curl and antisymmetric $F$,
+\[
+\mathrm b(F,D_Uh)=\tfrac12\sum_{\mu\nu}\mathrm b\big(F_{\mu\nu},D_\mu h_\nu-D_\nu h_\mu\big)=\sum_{\mu\nu}\mathrm b\big(F_{\mu\nu},D_\mu h_\nu\big),
+\]
+so $(D_U^TF)_\nu=\sum_\mu D_\mu^TF_{\mu\nu}$. Hence
+\[
+(D_U^TD_Uh+D_UD_U^Th)_\nu=\sum_\mu D_\mu^T(D_\mu h_\nu-D_\nu h_\mu)+D_\nu\sum_\mu D_\mu^Th_\mu=\sum_\mu D_\mu^TD_\mu h_\nu+\sum_\mu[D_\nu,D_\mu^T]h_\mu .
+\]
+Expanding $D_\mu D_\nu^T$ and $D_\nu^TD_\mu$, all terms cancel except those at $x+\eta e_\mu-\eta e_\nu$, which gives the formula. This is the computation in the proof of Lemma~\ref{lem:weitzenbock}. For $\mu=\nu$ the two transports are $U_\mu(x)U_\mu(x)^{-1}=1$ and $U_\mu(x-\eta e_\mu)^{-1}U_\mu(x-\eta e_\mu)=1$, so $[D_\mu,D_\mu^T]=0$; this is the cancellation of the diagonal terms there. At $U=1$ all transports are $1$.
+\end{proof}
+
+For $\eps\in(\mathfrak g^c)^4$ and $p\in\C^4$ let $\cK(p,\eps)$ be the operator on $(\mathfrak g^c)^4$ with the entries
+\[
+\cK(p,\eps)_{\mu\nu}=\operatorname{ad}\big(p_\mu\eps_\nu-p_\nu\eps_\mu\big),\qquad\text{i.e.}\quad(\cK(p,\eps)\phi)_\mu=\sum_\nu\big[p_\mu\eps_\nu-p_\nu\eps_\mu,\phi_\nu\big].
+\]
+
+\begin{lemma}[The naive continuum limit of the vertices]\label{lem:ol-naive-limit}
+Let $\eps\in(\mathfrak g^c)^4$, and put
+\[
+v^0_{\rm S}(q;p,\eps)=\sum_\nu(2q+p)_\nu\operatorname{ad}\eps_\nu,\qquad v^0_{\rm V}(q;p,\eps)=v^0_{\rm S}(q;p,\eps)\otimes1+2\cK(p,\eps),
+\]
+where $\otimes1$ means the action on each component. Then $v_1^{X_{\rm S}}(0;0,\eps)=0$ and $v_1^{X_{\rm V}}(0;0,\eps)=0$. The functions $\lambda^{-1}v_1^{X_{\rm S}}(\lambda q;\lambda p,\eps)$ and $\lambda^{-1}v_1^{X_{\rm V}}(\lambda q;\lambda p,\eps)$, $\lambda\ne0$, extend to entire functions of $(\lambda,q,p)\in\C\times\C^4\times\C^4$, with the values $v^0_{\rm S}(q;p,\eps)$ and $v^0_{\rm V}(q;p,\eps)$ at $\lambda=0$. In $v^0_{\rm V}$, one term $\cK(p,\eps)$ comes from $\mathsf W_U$ and the other from $\mathcal F_U$.
+\end{lemma}
+
+These are the vertices of the continuum operators $-D^2$ on scalar fields and $-D^2\delta_{\mu\nu}+\mathsf E_{\mu\nu}$ on gauge fields, in the background $A_{p,\eps}$, to first order in $\eps$. Here $D_\mu=\partial_\mu+\ii\operatorname{ad}A_\mu$, $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu+\ii[A_\mu,A_\nu]$, so that $[D_\mu,D_\nu]=\ii\operatorname{ad}F_{\mu\nu}$, and
+\[
+\mathsf E_{\mu\nu}=2\cK_{\mu\nu},\qquad\cK_{\mu\nu}=-\ii\operatorname{ad}F_{\mu\nu}=[D_\mu,D_\nu^T]\quad(D_\nu^T=-D_\nu).
+\]
+Indeed, $-D^2=-\partial^2-\ii\sum_\nu(\partial_\nu\operatorname{ad}A_\nu+\operatorname{ad}A_\nu\,\partial_\nu)+O(\eps^2)$ maps $e^{\ii q\cdot x}\phi$ to $e^{\ii(q+p)\cdot x}v^0_{\rm S}(q;p,\eps)\phi+O(\eps^2)$, and $F_{\mu\nu}=\ii(p_\mu\eps_\nu-p_\nu\eps_\mu)e^{\ii p\cdot x}+O(\eps^2)$, so $\cK_{\mu\nu}=e^{\ii p\cdot x}\cK(p,\eps)_{\mu\nu}+O(\eps^2)$. In the continuum, $D^TD+DD^T=-D^2+\cK$ (the Weitzenb\"ock identity), and the expansion of $\frac12\|F(A+h)\|^2$ contains $\ip F{\ii[h,h]}=\frac12\mathrm b(h,\cK h)$, the second factor $\cK$. The lemma says that the lattice operators reproduce both, with the same sign, which is the background-field result \cite{LuscherWeisz}. The sign of $\mathsf E$ does not enter the coefficient below; the factor $2$ does.
+
+\begin{proof}\hasdetail{lem:ol-naive-limit}
+Throughout, $U_t=e^{\ii tA_{p,\eps}}$. Each vertex is a trigonometric polynomial $v=\sum_jc_je^{\ii(z_j\cdot q+z'_j\cdot p)}$. If $v(0;0)=\sum_jc_j=0$, then
+\[
+\lambda^{-1}v(\lambda q;\lambda p)=\sum_jc_j\,\ii(z_j\cdot q+z'_j\cdot p)\,\varphi\big(\ii\lambda(z_j\cdot q+z'_j\cdot p)\big),\qquad\varphi(w)=\frac{e^w-1}w,
+\]
+which is entire, with the value $\ii\sum_jc_j(z_j\cdot q+z'_j\cdot p)$ at $\lambda=0$: the linear part of $v$ at $(0;0)$. So it suffices to show $v_1^X(0;0,\eps)=0$ and to compute the linear parts. We use: if a product of trigonometric polynomials has one factor vanishing at $(0;0)$, its linear part is the linear part of that factor times the values at $(0;0)$ of the others; if two factors vanish at $(0;0)$, its linear part is $0$.
+
+\emph{The scalar vertex.} At $U=1$ the symbols of $D_\mu$ and $D_\mu^T$ are $e^{\ii q_\mu}-1$ and $e^{-\ii q_\mu}-1$. Since $\frac d{dt}R(U_{t,\mu}(x))|_{t=0}=\ii\operatorname{ad}A_\mu(x)$, the operators $\delta D_\mu[A_{p,\eps}]$ and $\delta D_\mu^T[A_{p,\eps}]=(\delta D_\mu[A_{p,\eps}])^T$ transfer $p$, with the symbols $\ii e^{\ii q_\mu}\operatorname{ad}\eps_\mu$ and $-\ii e^{-\ii(q+p)_\mu}\operatorname{ad}\eps_\mu$. By the composition rule, $\delta(D^T_\mu D_\mu)=\delta D_\mu^T\,D_\mu+D_\mu^T\,\delta D_\mu$ has the symbol
+\[
+\big[-\ii e^{-\ii(q+p)_\mu}(e^{\ii q_\mu}-1)+\ii(e^{-\ii(q+p)_\mu}-1)e^{\ii q_\mu}\big]\operatorname{ad}\eps_\mu=2e^{-\ii p_\mu/2}\sin\big(q_\mu+\tfrac{p_\mu}2\big)\operatorname{ad}\eps_\mu .
+\]
+Summed over $\mu$ this is $v_1^{X_{\rm S}}(q;p,\eps)$. It vanishes at $(0;0)$, and its linear part is $v^0_{\rm S}$.
+
+\emph{The vector vertex.} By Lemma~\ref{lem:ol-lattice-weitzenbock}, $X_{\rm V}(U)=X_{\rm S}(U)\otimes1+\mathsf W_U+\mathcal F_U$, where $X_{\rm S}(U)\otimes1=\nabla_U^T\nabla_U+\mathrm m^2$ acts on each component. So $v_1^{X_{\rm V}}=v_1^{X_{\rm S}}\otimes1+w+f$, with the vertices $w$ of $\mathsf W$ and $f$ of $\mathcal F$. For a plaquette $\square=p_{\mu\nu}(x)$, $\mu<\nu$ (here $\square$ is a plaquette, not a grid cube),
+\[
+(dA_{p,\eps})(\square)=A_\nu(x+e_\mu)-A_\nu(x)-A_\mu(x+e_\nu)+A_\mu(x)=e^{\ii p\cdot x}\mathfrak f_{\mu\nu}(p,\eps),
+\]
+with $\mathfrak f_{\mu\nu}(p,\eps)=(e^{\ii p_\mu}-1)\eps_\nu-(e^{\ii p_\nu}-1)\eps_\mu$. We extend $\mathfrak f$ antisymmetrically to all $\mu,\nu$. It vanishes at $p=0$, and its linear part is $\ii(p_\mu\eps_\nu-p_\nu\eps_\mu)$.
+
+\emph{The Weitzenb\"ock vertex.} Differentiate the formula of Lemma~\ref{lem:ol-lattice-weitzenbock} at $t=0$, with $\eta=1$: $\frac d{dt}R\big(U_{t,\mu}(x)U_{t,\nu}(y)^{-1}\big)=\ii\operatorname{ad}\big(A_\mu(x)-A_\nu(y)\big)$. For $\mu\ne\nu$ this gives
+\[
+\delta[D_\mu,D_\nu^T]f(x)=\ii\operatorname{ad}\big(A_\mu(x)-A_\nu(x+e_\mu-e_\nu)+A_\nu(x-e_\nu)-A_\mu(x-e_\nu)\big)f(x+e_\mu-e_\nu),
+\]
+and with $A=A_{p,\eps}$ the argument of $\operatorname{ad}$ is $-e^{\ii p\cdot(x-e_\nu)}\mathfrak f_{\mu\nu}(p,\eps)$. So
+\[
+w_{\mu\nu}(q;p,\eps)=-\ii e^{\ii(q_\mu-q_\nu-p_\nu)}\operatorname{ad}\mathfrak f_{\mu\nu}(p,\eps),\qquad w_{\mu\mu}=0 .
+\]
+It vanishes at $p=0$, and its linear part is $-\ii\cdot\ii\operatorname{ad}(p_\mu\eps_\nu-p_\nu\eps_\mu)=\cK(p,\eps)_{\mu\nu}$.
+
+\emph{The Wilson vertex.} For a plaquette $\square$ with bonds $b_1,\dots,b_4$ as in Definition~\ref{def:curvature}, holonomy $H_\square=U(\partial\square)$ and a gauge field $h$, let $a_1,\dots,a_4$ be as in \eqref{eq:plaquette-product}, with $\eta=1$, let $\sigma=(1,1,-1,-1)$, and put
+\[
+\alpha_\square=\sum_i\sigma_ia_i,\qquad\beta_\square=\ii\sum_{i<j}\sigma_i\sigma_j[a_i,a_j],\qquad H^+_\square=\tfrac12\big(H_\square+H_\square^{-1}\big),\qquad H^-_\square=\tfrac1{2\ii}\big(H_\square-H_\square^{-1}\big).
+\]
+Then, for every configuration $U$,
+\begin{equation}\label{eq:ol-wilson-hessian}
+\frac{d^2}{ds^2}S(e^{\ii sh}U)\Big|_{s=0}=\sum_\square\Big(\operatorname{tr}\big(\alpha_\square^2H^+_\square\big)+\operatorname{tr}\big(\beta_\square H^-_\square\big)\Big).
+\end{equation}
+Indeed, by \eqref{eq:plaquette-product}, $(e^{\ii sh}U)(\partial\square)=e^{\ii Z(s)}H_\square$ with $Z(s)=\ell(e^{\ii sa_1}e^{\ii sa_2}e^{-\ii sa_3}e^{-\ii sa_4})=s\alpha_\square+\frac{s^2}2\beta_\square+O(s^3)$, by the Baker--Campbell--Hausdorff formula $\log(e^{Y_1}\cdots e^{Y_4})=\sum_iY_i+\frac12\sum_{i<j}[Y_i,Y_j]+O(|Y|^3)$. The summand of $S$ is $\mathfrak s(Z,H_\square)$, and $\mathfrak s(Z,H)-\mathfrak s(0,H)=\operatorname{tr}(ZH^-)+\frac12\operatorname{tr}(Z^2H^+)+O(|Z|^3)$, as in the proof of Proposition~\ref{prop:action}, with $H^\pm$ formed from $H$ as $H^\pm_\square$ from $H_\square$. Differentiating twice at $s=0$ gives \eqref{eq:ol-wilson-hessian}.
+
+At $U=1$: $H_\square=1$, $H^+_\square=1$, $H^-_\square=0$ and $\alpha_\square=(dh)(\square)$. Since $\frac d{dt}H_\square=\ii(dA)(\square)$ at $t=0$, $\frac d{dt}H^+_\square=0$ and $\frac d{dt}H^-_\square=(dA)(\square)$. By the definition of $a_3,a_4$, and since $(D_Uh)(\square)=a_1+a_2-R(U(b_4))h(b_3)-h(b_4)$,
+\[
+\alpha_\square=(D_Uh)(\square)-\big(R(H_\square)-1\big)\big(R(U(b_4))h(b_3)+h(b_4)\big).
+\]
+The operator $D_U^TD_U$ is that of $\sum_\square\operatorname{tr}((D_Uh)(\square)^2)$. Subtracting it from \eqref{eq:ol-wilson-hessian} and differentiating at $t=0$, with $\frac d{dt}R(H_\square)=\ii\operatorname{ad}(dA)(\square)$, gives the quadratic form of $\delta\mathcal F[A]$:
+\begin{equation}\label{eq:ol-F-vertex}
+\frac d{dt}\,\mathrm b\big(h,\mathcal F_{U_t}h\big)\Big|_{t=0}=\sum_\square\Big(\operatorname{tr}\big(\beta^0_\square\,(dA)(\square)\big)-2\ii\operatorname{tr}\big((dh)(\square)\big[(dA)(\square),h(b_3)+h(b_4)\big]\big)\Big),
+\end{equation}
+where $\beta^0_\square=\ii\sum_{i<j}\sigma_i\sigma_j[h(b_i),h(b_j)]$. The operator $\delta\mathcal F[A_{p,\eps}]$ is symmetric, and its symbol $f(q;p,\eps)$ is read off from the polarization of \eqref{eq:ol-F-vertex}. For $h=e^{\ii q\cdot x}\phi$ and $h'=e^{-\ii(q+p)\cdot x}\psi$ it equals $\mathrm b(\psi,f(q;p,\eps)\phi)$ per site, where the sum over plaquettes per site runs over $\mu<\nu$. Each term contains the factor $\mathfrak f_{\mu\nu}(p,\eps)$ of $(dA)(\square)$, so $f(q;0,\eps)=0$. The second term contains in addition the symbol of $dh$ or of $dh'$, which vanishes at $(0;0)$; so it contributes nothing to the linear part. In the first term the other factors are evaluated at $q=p=0$, where all phases are $1$. There $h(b_1),\dots,h(b_4)$ become $\phi_\mu,\phi_\nu,\phi_\mu,\phi_\nu$, and the polarization of $\beta^0_\square$ becomes $\ii\big([\psi_\mu,\phi_\nu]-[\psi_\nu,\phi_\mu]\big)$, the polarization of $2\ii[h_\mu,h_\nu]$. So the linear part of $\mathrm b(\psi,f\phi)$ is
+\[
+\sum_{\mu<\nu}\operatorname{tr}\Big(\ii\big([\psi_\mu,\phi_\nu]-[\psi_\nu,\phi_\mu]\big)\,\ii\big(p_\mu\eps_\nu-p_\nu\eps_\mu\big)\Big)=\sum_{\mu\nu}\operatorname{tr}\Big(\psi_\mu\big[p_\mu\eps_\nu-p_\nu\eps_\mu,\phi_\nu\big]\Big)=\mathrm b\big(\psi,\cK(p,\eps)\phi\big),
+\]
+using $\operatorname{tr}([a,b]Y)=-\operatorname{tr}(a[Y,b])$ and the antisymmetry in $\mu,\nu$. Hence the linear part of $f$ is $\cK(p,\eps)$.
+
+Altogether $v_1^{X_{\rm V}}(0;0,\eps)=0$, and the linear part of $v_1^{X_{\rm V}}$ is $v^0_{\rm S}\otimes1+\cK+\cK=v^0_{\rm V}$.
+\end{proof}
+
+\subsection{The continuum integrand}\label{ss:57.4}
+
+Let $P_0$ be the function obtained from $P$ by replacing $G_{\mathrm m}$ by $G^0_{\mathrm m}(q)=(|q|^2+\mathrm m^2)^{-1}$, each $v_1^X$ by $v^0_X$, and each $v_2^X(q;p,\eps)$ by the constant $v_2^X(0;0,\eps)$, and let $\mathcal I_0(q,\mathrm m)$ be obtained from $P_0$ as $\mathcal I$ from $P$ in \eqref{eq:ol-integrand}.
+
+\begin{lemma}[Comparison with the continuum]\label{lem:ol-continuum-integrand}
+The tensor $\mathcal I_0(q,\mathrm m)$ is a rational function of $q$ and $\mathrm m^2$, with denominators powers of $|q|^2+\mathrm m^2$, homogeneous of degree $-4$ in $(q,\mathrm m)$. Explicitly,
+\begin{equation}\label{eq:ol-continuum-P}
+P_{0,\mu\nu}(q,p,\mathrm m)=\kappa_\rho\,G^0_{\mathrm m}(q)\,G^0_{\mathrm m}(q+p)\Big((2q+p)_\mu(2q+p)_\nu+4\big(\delta_{\mu\nu}|p|^2-p_\mu p_\nu\big)\Big)+t_{\mu\nu}(q,\mathrm m),
+\end{equation}
+where $t_{\mu\nu}$ does not depend on $p$. Moreover there is $C$ such that
+\[
+|\mathcal I(q,\mathrm m)-\mathcal I_0(q,\mathrm m)|\le C\,(|q|^2+\mathrm m^2)^{-3/2}\qquad\text{for }|q|\le1,\ 0\le\mathrm m\le1,\ (q,\mathrm m)\ne0 .
+\]
+\end{lemma}
+
+So $\mathcal I_0$ is the integrand of the $p^2$-tensor of the continuum one-loop term $-\frac12\log\det(-D^2\delta_{\mu\nu}+\mathsf E_{\mu\nu}+\mathrm m^2)+\log\det(-D^2+\mathrm m^2)$ in the background Feynman gauge, with the routing of the lattice integral. The first term of \eqref{eq:ol-continuum-P} is the orbital part, the second the spin part. The tadpoles give only $t_{\mu\nu}$, since the continuum seagull vertex does not depend on $p$.
+
+\begin{proof}\hasdetail{lem:ol-continuum-integrand}
+\emph{The formula.} With $\eps=c\otimes \xi_0$, Lemma~\ref{lem:ol-naive-limit} gives $v^0_{\rm S}(q;p,\eps)=((2q+p)\cdot c)\operatorname{ad}\xi_0$ and $v^0_{\rm V}(q;p,\eps)=\operatorname{ad}\xi_0\otimes M(q,p,c)$, with the $4\times4$ matrix $M(q,p,c)=((2q+p)\cdot c)1+2N(p,c)$, $N(p,c)_{\mu\nu}=p_\mu c_\nu-p_\nu c_\mu$. Since $\xi_0^*=\xi_0$ and $2(q+p)-p=2q+p$, the vertices at $(q+p;-p,\bar\eps)$ are $((2q+p)\cdot\bar c)\operatorname{ad}\xi_0$ and $\operatorname{ad}\xi_0\otimes\big(((2q+p)\cdot\bar c)1-2N(p,\bar c)\big)$. By \eqref{eq:ol-kappa}, $\operatorname{tr}_{\mathfrak g^c}(\operatorname{ad}\xi_0)^2=\kappa_\rho$. Moreover $\operatorname{Tr}N=0$ and $\operatorname{Tr}\big(N(p,\bar c)N(p,c)\big)=-2\big(|p|^2\,\bar c\cdot c-(p\cdot\bar c)(p\cdot c)\big)$ for real $p$. So the traces in the bubbles of \eqref{eq:ol-lattice-P} are $\kappa_\rho|(2q+p)\cdot c|^2$ for the scalar field and $\kappa_\rho\big(4|(2q+p)\cdot c|^2+8(|p|^2|c|^2-|p\cdot c|^2)\big)$ for the vector field. With the factors $-\frac12$ and $1$ of the two determinants and the sign of the bubble, this is \eqref{eq:ol-continuum-P}; the tadpoles $G^0_{\mathrm m}(q)\operatorname{Tr}v_2^X(0;0,\eps)$ give $t_{\mu\nu}$. Since $P_0(sq,sp,s\mathrm m)=s^{-2}P_0(q,p,\mathrm m)$ for $s>0$, $\mathcal I_0$ is homogeneous of degree $-4$. The derivatives in $p$ of $G^0_{\mathrm m}(q+p)$ at $p=0$ are polynomials in $q$ times powers of $G^0_{\mathrm m}(q)$, which gives the form of $\mathcal I_0$.
+
+\emph{Scaling.} For $\lambda>0$ put $\Psi(\lambda;q,p,\mathrm m)=\lambda^2P(\lambda q,\lambda p,\lambda\mathrm m)$. Since $\partial_p=\lambda\partial_{p'}$ for $p'=\lambda p$,
+\[
+\lambda^4\,\mathcal I(\lambda q,\lambda\mathrm m)=\tfrac12\,\partial_p^2\Psi(\lambda;q,p,\mathrm m)\big|_{p=0}.
+\]
+In $\Psi$ write $\lambda^2G_{\lambda\mathrm m}(\lambda q)=\big(\sum_\nu s_\lambda(q_\nu)^2+\mathrm m^2\big)^{-1}$, with $s_\lambda(t)=2\lambda^{-1}\sin(\lambda t/2)$, and the same at $q+p$; the bubbles contain $\lambda^2G\cdot\lambda^2G\cdot\lambda^{-1}v_1\cdot\lambda^{-1}v_1$, and the tadpoles $\lambda^2G\cdot v_2$. The function $s_\lambda(t)$ is entire in $(\lambda,t)$, with $s_0(t)=t$. By Lemma~\ref{lem:ol-naive-limit}, the scaled vertices $\lambda^{-1}v_1^X(\lambda\,\cdot\,;\lambda\,\cdot\,)$, at the arguments $(q;p,\eps)$ and $(q+p;-p,\bar\eps)$, and $v_2^X(\lambda q;\lambda p,\eps)$ are entire in $(\lambda,q,p)$, with the values $v^0_X$ and $v_2^X(0;0,\eps)$ at $\lambda=0$. So $\Psi$ extends to $\lambda=0$, with $\Psi(0;q,p,\mathrm m)=P_0(q,p,\mathrm m)$, and it is real-analytic wherever the two denominators do not vanish.
+
+\emph{Compactness.} Let $K=\{(q,p,\mathrm m):|q|^2+\mathrm m^2=1,\ \mathrm m\ge0,\ |p|\le\frac14\}$, a compact set. For $|t|\le\pi/\lambda$ we have $|s_\lambda(t)|\ge\frac2\pi|t|$. For $(q,p,\mathrm m)\in K$ and $0\le\lambda\le\sqrt2$, $\lambda|q_\nu|\le\sqrt2<\pi$ and $\lambda|(q+p)_\nu|\le\frac54\sqrt2<\pi$. So the first denominator is at least $\frac4{\pi^2}(|q|^2+\mathrm m^2)=\frac4{\pi^2}$, and the second at least $\frac4{\pi^2}(|q+p|^2+\mathrm m^2)\ge\frac1{\pi^2}$: if $|q|\ge\frac12$, then $|q+p|\ge\frac12|q|$, and otherwise $\mathrm m^2\ge\frac34$. By continuity the denominators do not vanish on a neighbourhood of $[0,\sqrt2]\times K$. There $\Psi$ is real-analytic, so $\partial_\lambda\partial_p^2\Psi$ is bounded on $[0,\sqrt2]\times K$, by some $2C$. Hence
+\[
+\big|\lambda^4\mathcal I(\lambda q,\lambda\mathrm m)-\mathcal I_0(q,\mathrm m)\big|\le C\lambda\qquad\text{for }0<\lambda\le\sqrt2,\ |q|^2+\mathrm m^2=1,\ \mathrm m\ge0 .
+\]
+Now let $|q|\le1$, $0\le\mathrm m\le1$, and $\lambda=(|q|^2+\mathrm m^2)^{1/2}\in(0,\sqrt2]$. Apply this to $(q,\mathrm m)/\lambda$ and use the homogeneity of $\mathcal I_0$: $|\mathcal I(q,\mathrm m)-\mathcal I_0(q,\mathrm m)|\le C\lambda^{-3}$.
+\end{proof}
+
+Numerically the bound is not sharp: the difference is of order $(|q|^2+\mathrm m^2)^{-1}$ (Remark~\ref{rem:ol-integrand-numerical}). We do not need this. The coefficient below does not depend on the routing either. Replacing $P_0(q,p,\mathrm m)$ by $P_0(q+sp,p,\mathrm m)$ adds to each component of $\mathcal I_0(q,0)(p)$ the divergence in $q$ of a field $W$ homogeneous of degree $-3$, smooth on $\R^4\setminus0$, namely $W(q)=s\,p\,\big(p\cdot\partial_{p'}P_0(q,p',0)\big)|_{p'=0}+\frac{s^2}2\,p\,\big(p\cdot\nabla_qP_0(q,0,0)\big)$, by Taylor's formula in $sp$. For such $W$, $\nabla\cdot W$ is homogeneous of degree $-4$, and by the divergence theorem
+\[
+\log R\int_{|\omega|=1}\nabla\cdot W\,d\sigma=\int_{1<|q|<R}\nabla\cdot W\,d^4q=\int_{|q|=R}W\cdot\frac q{|q|}\,d\sigma-\int_{|q|=1}W\cdot q\,d\sigma=0,
+\]
+since the flux through $|q|=R$ is $R^{-3}R^3$ times that through $|q|=1$. So the spherical average of $\nabla\cdot W$ vanishes.
+
+\subsection{The infrared asymptotics and the continuum coefficient}\label{ss:57.5}
+
+Let $d\sigma$ be the surface measure on the unit sphere $S^3\subset\R^4$, and $B=\{q\in\R^4:|q|\le1\}$.
+
+\begin{lemma}[The infrared asymptotics]\label{lem:ol-infrared}
+As $\mathrm m\to0$,
+\[
+T^{(\mathrm m)}=\mathsf B\log\frac1{\mathrm m}+\mathsf C+o(1),\qquad\mathsf B=\frac1{(2\pi)^4}\int_{|\omega|=1}\mathcal I_0(\omega,0)\,d\sigma(\omega),
+\]
+with the tensor
+\begin{equation}\label{eq:ol-infrared-constant}
+(2\pi)^4\,\mathsf C=\int_{[-\pi,\pi]^4\setminus B}\mathcal I(q,0)+\int_B\big(\mathcal I(q,0)-\mathcal I_0(q,0)\big)+\int_B\mathcal I_0(q,1)+\int_{\R^4\setminus B}\big(\mathcal I_0(q,1)-\mathcal I_0(q,0)\big),
+\end{equation}
+the integrals taken against $d^4q$ and absolutely convergent. Hence $f(\mathrm m)=\mathsf b\log(1/\mathrm m)+c+o(1)$, with $\mathsf b=\operatorname{iso}\mathsf B$ and $c=\operatorname{iso}\mathsf C$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:ol-infrared}
+Write $(2\pi)^4T^{(\mathrm m)}$ as the sum of the integrals of $\mathcal I(q,\mathrm m)$ over $[-\pi,\pi]^4\setminus B$, of $\mathcal I(q,\mathrm m)-\mathcal I_0(q,\mathrm m)$ over $B$, and of $\mathcal I_0(q,\mathrm m)$ over $B$.
+
+On $[-\pi,\pi]^4\setminus B$, $|\hat q|^2\ge\frac4{\pi^2}|q|^2\ge\frac4{\pi^2}$. So $\mathcal I$ is continuous on the compact set $([-\pi,\pi]^4\setminus\operatorname{int}B)\times[0,1]$, and its integral converges to that of $\mathcal I(q,0)$ as $\mathrm m\to0$.
+
+On $B\setminus0$, $\mathcal I(q,\mathrm m)-\mathcal I_0(q,\mathrm m)\to\mathcal I(q,0)-\mathcal I_0(q,0)$ pointwise, and by Lemma~\ref{lem:ol-continuum-integrand} it is bounded by $C|q|^{-3}$, which is integrable in four dimensions. By dominated convergence its integral converges to the second term of \eqref{eq:ol-infrared-constant}.
+
+For the last integral substitute $q=\mathrm mq'$ and use the homogeneity of $\mathcal I_0$:
+\[
+\begin{aligned}
+\int_B\mathcal I_0(q,\mathrm m)\,d^4q&=\int_{|q'|\le1/\mathrm m}\mathcal I_0(q',1)\,d^4q'\\
+&=\int_B\mathcal I_0(q',1)+\int_{1<|q'|\le1/\mathrm m}\big(\mathcal I_0(q',1)-\mathcal I_0(q',0)\big)+\int_{1<|q'|\le1/\mathrm m}\mathcal I_0(q',0).
+\end{aligned}
+\]
+The first term is finite, since $\mathcal I_0(\cdot,1)$ is smooth. For $|q'|=r\ge1$, $\mathcal I_0(q',1)-\mathcal I_0(q',0)=r^{-4}\big(\mathcal I_0(\omega,1/r)-\mathcal I_0(\omega,0)\big)$ with $\omega=q'/r$, and $\mathcal I_0(\omega,s)$ is a rational function of $\omega$ and $s^2$ with denominators powers of $1+s^2$. So this difference is at most $Cr^{-6}$, which is integrable on $\R^4\setminus B$, and the second term converges to the last term of \eqref{eq:ol-infrared-constant}. In polar coordinates the third term is $\int_1^{1/\mathrm m}r^3\,r^{-4}\,dr\int_{|\omega|=1}\mathcal I_0(\omega,0)\,d\sigma=(2\pi)^4\mathsf B\log(1/\mathrm m)$. This proves the expansion of $T^{(\mathrm m)}$, and that of $f$ follows, since $\operatorname{iso}$ is linear.
+\end{proof}
+
+\begin{lemma}[The classical coefficient]\label{lem:ol-classical}
+\[
+\mathsf B=\frac{11\kappa_\rho}{24\pi^2}\big(\delta_{\mu\nu}|p|^2-p_\mu p_\nu\big),\qquad\text{hence}\qquad\mathsf b=\frac{11C_A}{24\pi^2T_\rho}.
+\]
+This is the coefficient relative to the Wilson action: in the trace pairing, the marginal tensor of $S$ is $\delta_{\mu\nu}|p|^2-p_\mu p_\nu$, with isotropic coefficient $1$.
+\end{lemma}
+
+\begin{proof}\hasdetail{lem:ol-classical}
+We compute the full tensor $\mathsf B$, without assuming transversality. Let $|\omega|=1$ and $\mathrm m=0$. Then $G^0_0(\omega)=1$ and
+\[
+G^0_0(\omega+p)=\big(1+2\omega\cdot p+|p|^2\big)^{-1}=1-2\omega\cdot p-|p|^2+4(\omega\cdot p)^2+O(|p|^3).
+\]
+By \eqref{eq:ol-continuum-P}, $\mathcal I_0(\omega,0)(p)$ is the part of second order in $p$ of $\kappa_\rho\big((2\omega+p)_\mu(2\omega+p)_\nu+4(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)\big)G^0_0(\omega+p)$:
+\[
+\kappa_\rho^{-1}\mathcal I_0(\omega,0)(p)_{\mu\nu}=p_\mu p_\nu-4(\omega_\mu p_\nu+p_\mu\omega_\nu)(\omega\cdot p)-4\omega_\mu\omega_\nu|p|^2+16\,\omega_\mu\omega_\nu(\omega\cdot p)^2+4\big(\delta_{\mu\nu}|p|^2-p_\mu p_\nu\big).
+\]
+On $S^3$ the averages of the monomials are
+\begin{equation}\label{eq:ol-sphere-moments}
+\langle\omega_\alpha\omega_\beta\rangle=\tfrac14\delta_{\alpha\beta},\qquad\langle\omega_\alpha\omega_\beta\omega_\gamma\omega_\delta\rangle=\tfrac1{24}\big(\delta_{\alpha\beta}\delta_{\gamma\delta}+\delta_{\alpha\gamma}\delta_{\beta\delta}+\delta_{\alpha\delta}\delta_{\beta\gamma}\big),
+\end{equation}
+by the symmetry under $O(4)$, the normalization $\sum_\alpha\omega_\alpha^2=1$, and $\langle\omega_1^4\rangle=3\langle\omega_1^2\omega_2^2\rangle$, which follows from the invariance under the rotation by $\pi/4$ in the $(1,2)$-plane. Hence the averages of the orbital terms are
+\[
+\begin{aligned}
+&\big\langle p_\mu p_\nu-4(\omega_\mu p_\nu+p_\mu\omega_\nu)(\omega\cdot p)-4\omega_\mu\omega_\nu|p|^2+16\,\omega_\mu\omega_\nu(\omega\cdot p)^2\big\rangle\\
+&\qquad=p_\mu p_\nu-2p_\mu p_\nu-\delta_{\mu\nu}|p|^2+\tfrac23\big(\delta_{\mu\nu}|p|^2+2p_\mu p_\nu\big)=-\tfrac13\big(\delta_{\mu\nu}|p|^2-p_\mu p_\nu\big),
+\end{aligned}
+\]
+and the spin term does not depend on $\omega$. So
+\[
+\big\langle\mathcal I_0(\omega,0)\big\rangle=\kappa_\rho\big(-\tfrac13+4\big)\big(\delta_{\mu\nu}|p|^2-p_\mu p_\nu\big)=\frac{11\kappa_\rho}3\big(\delta_{\mu\nu}|p|^2-p_\mu p_\nu\big).
+\]
+In the form $a\,\delta_{\mu\nu}\delta_{\kappa\lambda}+b\,(\delta_{\mu\kappa}\delta_{\nu\lambda}+\delta_{\mu\lambda}\delta_{\nu\kappa})$ this is $a=\frac{11\kappa_\rho}3$ and $b=-\frac{11\kappa_\rho}6$; transversality, $a=-2b$, comes out of the computation. The orbital part splits into $+\frac13\kappa_\rho$ from the scalar determinant and $-\frac23\kappa_\rho$ from the vector determinant; with the spin part this is the split $\frac{11}3=4-\frac13$. Since $|S^3|=2\pi^2$, $(2\pi)^{-4}|S^3|=\frac1{8\pi^2}$, and $\mathsf B=\frac{11\kappa_\rho}{24\pi^2}(\delta_{\mu\nu}|p|^2-p_\mu p_\nu)$. Its isotropic coefficient is $\mathsf b=\frac{11\kappa_\rho}{24\pi^2}=\frac{11C_A}{24\pi^2T_\rho}$. For $SU(N)$ in the fundamental representation, $C_A=N$ and $T_\rho=\frac12$, so $\mathsf b=\frac{11N}{12\pi^2}$.
+
+\emph{Normalization.} All second variations are taken in the trace pairing $\mathrm b$ of Section~\ref{sec:action}, and $T^{(\mathrm m)}$ is the $p^2$-tensor of the vacuum polarization in it (Definition~\ref{def:marginal-tensor}). On $\Z^4$ at $U=1$, $J_1=0$ and $\mathcal F_1=0$, so the second variation of $S$ is $\frac{d^2}{dt^2}S(e^{\ii th})|_{t=0}=\|dh\|^2$ for real gauge fields $h$ (Proposition~\ref{prop:action}). Its kernel is $d^Td$, whose Fourier transform in the bond-midpoint convention is $|\hat p|^2\delta_{\mu\nu}-\hat p_\mu\hat p_\nu$, with $\hat p_\mu=2\sin(p_\mu/2)$ (Remark~\ref{rem:marginal-orders}). So the marginal tensor of $S$ is $\delta_{\mu\nu}|p|^2-p_\mu p_\nu$, with isotropic coefficient $1$, and $\mathsf b$ is the coefficient of $\log(1/\mathrm m)$ relative to $S$.
+
+\emph{Sign.} The one-loop term enters the density as $\exp(-g^{-2}S+\Gamma^{(1)})$. So the effective coefficient of $-S$ is $g^{-2}-\mathsf b\log(1/\mathrm m)$, which decreases towards the infrared: this is asymptotic freedom.
+\end{proof}
+
+\begin{remark}[The heat-kernel coefficient]\label{rem:ol-heat-kernel}
+The value of $\mathsf b$ agrees with the heat-kernel computation of the logarithmic divergence of the continuum one-loop term; we do not use it in the proof. For an operator $-D^2+\mathsf E$ on a bundle over $\R^4$ with curvature $\Omega_{\mu\nu}=[D_\mu,D_\nu]$, the heat-kernel coefficient $a_4$ contains $(4\pi)^{-2}\int\operatorname{Tr}\big(\frac12\mathsf E^2+\frac1{12}\Omega_{\mu\nu}\Omega_{\mu\nu}\big)$, up to total derivatives \cite{Vassilevich} (there the operator is written $-(D^2+E)$, so $E=-\mathsf E$), and $\log\det(-D^2+\mathsf E+\mathrm m^2)$, with a cutoff $\Lambda$, contains $-\log(\Lambda^2/\mathrm m^2)$ times this coefficient. In the adjoint representation $\Omega_{\mu\nu}=\ii\operatorname{ad}F_{\mu\nu}=-\cK_{\mu\nu}$, and $\operatorname{tr}_{\rm ad}(\Omega_{\mu\nu}\Omega_{\mu\nu})=-C_AF^a_{\mu\nu}F^a_{\mu\nu}$, summed over $\mu,\nu$, for $F=F^aT^a$.
+\begin{itemize}
+\item The scalar operator $-D^2$ gives $\frac1{12}\operatorname{Tr}\Omega\Omega=-\frac1{12}C_AF^2$. With the factor $+1$, the ghost contributes $+\frac1{12}C_AF^2\cdot\frac{\log(\Lambda^2/\mathrm m^2)}{16\pi^2}$.
+\item The vector operator has curvature $\Omega\otimes1$, so $\frac1{12}\operatorname{Tr}\Omega\Omega=-\frac4{12}C_AF^2$, and $\mathsf E=2\cK$ on the vector index, so $\frac12\operatorname{Tr}\mathsf E^2=2C_AF^2$. With the factor $-\frac12$, it contributes $\frac12\big(2-\frac13\big)C_AF^2\cdot\frac{\log(\Lambda^2/\mathrm m^2)}{16\pi^2}$.
+\end{itemize}
+The total is $\frac{11}{12}C_AF^2\cdot\frac{\log(\Lambda^2/\mathrm m^2)}{16\pi^2}=\frac{11C_A}{96\pi^2}\log\frac\Lambda{\mathrm m}\sum_{\mu\nu}F^aF^a$. The continuum limit of $S$ is $\frac{T_\rho}4\sum_{\mu\nu}F^aF^a$, since $\mathsf N-\operatorname{Re}\operatorname{tr}e^{\ii F_p}=\frac12\operatorname{tr}F_p^2+\dots$. So the one-loop term contains $\frac{11C_A}{24\pi^2T_\rho}\log\frac\Lambda{\mathrm m}$ times $S$, in agreement with Lemma~\ref{lem:ol-classical}. To use this as a proof one would have to show that the logarithm of Lemma~\ref{lem:ol-infrared} is the heat-kernel logarithm; the direct computation makes this unnecessary.
+\end{remark}
+
+\begin{proof}[Proof of Theorem~\ref{thm:ol-log}]\hasdetail{thm:ol-log}
+By Lemma~\ref{lem:ol-scaling} with $m=1$, $\beta_{\rm F}=f(\eta)$, $\eta=L^{-k}$. By Lemmas~\ref{lem:ol-infrared} and~\ref{lem:ol-classical}, $f(\eta)=\frac{11C_A}{24\pi^2T_\rho}\log\frac1\eta+c+o(1)$ as $\eta\to0$, and $\log(1/\eta)=k\log L$. This is the claim, with $c_{\log}=c$, which depends only on $G$ and $\rho$. The function $f$ is continuous on $(0,1]$, and $f(\mathrm m)-\mathsf b\log(1/\mathrm m)$ has a limit as $\mathrm m\to0$; so it is bounded on $(0,1]$, and $\beta_{\rm F}=k\beta_\infty+O(1)$ for all $k\ge1$.
+\end{proof}
+
+\begin{remark}[Numerical evaluation of $f$]\label{rem:ol-f-numerical}
+For $G=SU(2)$ in the fundamental representation, $\mathsf b=\frac{11}{6\pi^2}=0.185756$. We evaluated $f(\mathrm m)$ numerically for eight masses $0.0625\le\mathrm m\le1$, with a real background along a Cartan generator; the method and the values are in Appendix~\ref{app:numerics}. Three conclusions:
+\begin{enumerate}[label=(\roman*)]
+\item \emph{Ward identity.} $\Pi(0)$ vanishes for all $\mathrm m$, and the longitudinal part at $p_1=0.5$, $\mathrm m=1$, to the accuracy of the computation, while the tadpole and bubble terms are separately of order $0.3$.
+\item \emph{The logarithm and its sign.} Fits of $f$ give $\mathsf b$ to within $1.2\cdot10^{-4}$, and to within $2\cdot10^{-5}$ for the fits that use only $\mathrm m\le\frac14$ and for those with six parameters. The function $f$ increases as $\mathrm m\to0$. This is the sign of asymptotic freedom.
+\item \emph{The constant.} With $\mathsf b$ fixed, the fitted constant $c$ agrees to $10^{-5}$ with the value $0.563267$ predicted by the one-loop relation between the bare Wilson coupling and the $\overline{\rm MS}$ coupling \cite{DashenGross,HasenfratzLambda}, together with the $\overline{\rm MS}$ value of the continuum term of Lemma~\ref{lem:ol-continuum-integrand} (Appendix~\ref{app:numerics}).
+\end{enumerate}
+So the lattice integral of Lemma~\ref{lem:ol-scaling} reproduces a known lattice constant, independently of the arguments of this section. In particular, the normalization of Lemma~\ref{lem:ol-classical} is confirmed for $SU(2)$.
+\end{remark}
+
+\begin{remark}[Numerical checks of the integrand and of the tensor]\label{rem:ol-integrand-numerical}
+Two further checks, described in Appendix~\ref{app:numerics}:
+\begin{enumerate}[label=(\roman*)]
+\item \emph{The spherical average, in exact arithmetic.} Computed in rational arithmetic from the vertices of Lemma~\ref{lem:ol-naive-limit}, the four-index tensor $\langle\mathcal I_0(\omega,0)\rangle$ has the form $a\,\delta_{\mu\nu}\delta_{\kappa\lambda}+b\,(\delta_{\mu\kappa}\delta_{\nu\lambda}+\delta_{\mu\lambda}\delta_{\nu\kappa})$, with $(a,b)=(\frac{11}3,-\frac{11}6)\kappa_\rho$; the scalar determinant, the orbital and the spin parts of the vector determinant give $(\frac13,-\frac16)\kappa_\rho$, $(-\frac23,\frac13)\kappa_\rho$ and $(4,-2)\kappa_\rho$. So $a=-2b$ holds for each part separately, and the isotropic coefficient is $\frac{11}3\kappa_\rho$, as in the proof of Lemma~\ref{lem:ol-classical}.
+\item \emph{The scaling of the lattice integrand.} For $G=SU(2)$, one random polarization and one random direction of $p$, the largest difference between $\lambda^4\mathcal I(\lambda\omega)$ and $\mathcal I_0(\omega)$ over $200$ random directions $\omega$ decreases like $4\lambda^2$ for the scale factors $\lambda=2^{-j}$, $0\le j\le12$, faster than the bound $C\lambda$ of Lemma~\ref{lem:ol-continuum-integrand}. The vertices of this test come from the Taylor coefficients of the plaquette, not from the proof of Lemma~\ref{lem:ol-naive-limit}. So it checks the limits of the vertices at the level of the integrand, including the factor $2$ of the spin term and the weight of the ghost, independently of the fits of Remark~\ref{rem:ol-f-numerical}.
+\end{enumerate}
+\end{remark}

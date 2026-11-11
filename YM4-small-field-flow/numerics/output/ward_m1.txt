@@ -1,0 +1,6 @@
+Pi(+p)=2.515571896882e-07 Pi(-p)=2.515571896886e-07 Pi(0)=-1.931067313831e-11
+second difference / p^2 = 0.5031530007
+parts(+p): vec tad 2.880129e-01 vec bub 2.880134e-01 gh tad 7.200333e-02 gh bub 7.200332e-02
+Pi(+p)=-1.843453167893e-11 Pi(-p)=-1.843459412898e-11 Pi(0)=-1.843859093187e-11
+second difference / p^2 = 0.0000000000
+parts(+p): vec tad 2.880133e-01 vec bub 2.880133e-01 gh tad 7.200333e-02 gh bub 7.200333e-02

@@ -1,0 +1,92 @@
+\section{Dirichlet operators for the averaged problem}\label{sec:dirichlet-averaged}
+
+The objects of Part~VII depend on the background field everywhere on the torus. The cluster expansion and the renormalization of the next stage need them as sums of terms that depend on the background only locally, with exponential decay in the size of the localization region. This part constructs such representations. The principle is simple:
+\begin{itemize}
+\item every object is approximated by a version computed with Dirichlet operators on a domain $X$, which depends only on the background in a fixed neighbourhood of $X$;
+\item the approximations on increasing domains are compared, and the differences are telescoped.
+\end{itemize}
+The comparison of domains is the content of Theorem~\ref{thm:reg-locality}(a), extended here to the averaged operators $\boldsymbol\Gamma$, $\bH$, $\bC$ (this section), to the coarse Hessian and the fluctuation covariance (Section~\ref{sec:localization}), to the determinant (Section~\ref{sec:det-local}), and, with interior pointwise bounds proved in Section~\ref{sec:interior}, to the nonlinear background map and the interaction (Section~\ref{sec:interaction-local}). No truncation of the background itself is needed, so no gauge has to be fixed on large regions. The Dirichlet versions are covariant by construction.
+
+\paragraph{Conventions for Part VIII.} We keep the setting of Part~VII and work in the units of step $k$. The background $U$ is a real configuration on $\Tf$ that is $(M,\eps)$-regular with $|J_U|\le\eps$, and all operators are taken with the averaging pair $(Q'_k(U),\bQ_k(U))$. In applications $U=U'$ is the background of the step, but criticality is not used except where stated. Domains are unions of unit blocks, as in Definition~\ref{def:domain}. For a domain $X$ and $r\ge0$ let $X_{(r)}$ be the union of the blocks $B(y)\subset X$ with $\operatorname{dist}(y,\Tf\setminus X)>r$, and $X^{(r)}$ the union of the blocks within distance $r$ of $X$. In these definitions, and in the definitions of the seams $\Sigma$ below, distances are $\infty$-distances. Put
+\[
+\mathfrak B(X)=\{c\text{ bond of }\T:\ B(c_-)\cup B(c_+)\subset X\}.
+\]
+Potentials $W$ are allowed to have range $r_W\le3$: $(WA)(b)$ depends on $A$ and $U$ on bonds within distance $r_W$ of $b$. They are real for real $U$: $W(U)$ maps real fields to real fields. With this change the $L^2$ statements of Section~\ref{sec:reg-gauge} (coercivity, decay, comparison of domains) hold verbatim, with $\hat X$ replaced by $X^{(r_W+1)}$. Their proofs use $W$ only through its norm, its range in $A$, its decay, its covariance and its reality; its range in $U$ enters only the locality, i.e.\ the dependence on $U$ only on $X^{(r_W+1)}$. The pointwise statements additionally require H\"older coefficients and are not used for such $W$. The potential $W_2$ of Section~\ref{sec:localization} on the torus depends on $U$ non-locally, through $\omega_0$; this is harmless for torus statements, and on domains we use its Dirichlet version $W_2^X$, which depends only on $U$ on $\hat X$. It has range $\le3$ in $A$ and is real symmetric at real $U$, but it depends on $U$ on all of $\hat X$. So existence, coercivity and decay hold for it as above, while its comparison of domains is Proposition~\ref{prop:dirichlet-averaged}(d) with $W\ne W'$, together with Proposition~\ref{prop:dirichlet-hessian}(d). We write $\hat X$ for $X^{(4)}$.
+
+\subsection{Definitions}
+
+Let $\bG^X=(\fA^{X,\kappa})^{-1}$ be the Dirichlet Green function of Theorem~\ref{thm:reg-gauge}, built with a potential $W$ supported in $X$. Let $\bQ_X$ be $\bQ$ restricted to $\ell^2_1(X)$ followed by the restriction to $\mathfrak B(X)$; for $c\in\mathfrak B(X)$, $(\bQ A)(c)$ depends only on $A$ on the bonds of $B(c_-)\cup B(c_+)$. Define, on $\ell^2(\mathfrak B(X))$,
+\[
+\boldsymbol\Gamma^X=\big(\bQ_X\bG^X\bQ_X^T\big)^{-1},\qquad\bH^X=\bG^X\bQ_X^T\boldsymbol\Gamma^X,\qquad\bC^X=\bG^X-DG'_XR_XG'_XD^T_X-\bH^X\bQ_X\bG^X .
+\]
+When the potential matters we write $\boldsymbol\Gamma^X[W]$, and so on. For $X=\Tf$ these are the operators of Theorem~\ref{thm:reg-min}, because $m_{\Tf}=0$ and $\bQ_\pi=\bQ$ when $E=0$ (Lemma~\ref{lem:slice}(c)).
+
+Since $E=0$, the slice projection drops out on domains as well: $\bQ_XDS_X=D_VQ'S_X=0$ on $\mathfrak B(X)$, because $Q'G'_XR_X=0$ (Theorem~\ref{thm:reg-scalar}(d)). The mass term $\kappa m_X$ near $\Tf\setminus X$ and the exterior divergence term $\fA^{\rm ext}_X$ destroy some of the exact identities of Section~\ref{sec:cov-gauge}, e.g.\ $\bG^XDR_X=DG'_XR_X$. They are not needed here: the Dirichlet operators serve only as approximants.
+
+\subsection{Bounds}
+
+\begin{proposition}[Dirichlet averaged operators]\label{prop:dirichlet-averaged}
+There are $c,C,\gamma>0$, independent of $X$, $k$, $n$, $\eta$ and of $M\ge M_0$, such that for every domain $X$ with $\mathfrak B(X)\ne\emptyset$ and every potential $W$ of range $\le3$, real for real $U$, with $\|W\|\le\eps$ and supported in $X$:
+\begin{enumerate}[label=(\alph*)]
+\item $c\le\bQ_X\bG^X\bQ_X^T\le C$ (for non-symmetric $W$ the lower bound means $\Rea\ip b{\bQ_X\bG^X\bQ_X^Tb}\ge c\|b\|^2$, as in (e)); $\boldsymbol\Gamma^X$ has decay $(C,\gamma)$.
+\item $\bQ_X\bH^X=I$. The operators $\bH^X$, $D\bH^X$, $\bC^X$, $D\bC^X$, $\bC^XD^T$ and $D\bC^XD^T$ have decay $(C,\gamma)$.
+\item They depend only on $U$ and $W$ on the bonds of $\hat X$, and they are covariant under real gauge transformations on $\hat X$.
+\item \emph{(Comparison of domains.)} Let $X'\subset X$, let $W$ and $W'$ be potentials supported in $X$ and $X'$, and let $\Sigma$ be the set of unit points within distance $10M$ of $X\setminus X'$. For $y,y'\in X'_1$ and each $F\in\{\boldsymbol\Gamma,\bH,\bC\}$ (for $\boldsymbol\Gamma$, and on the coarse side of $\bH$, the indices are unit bonds starting at $y$, $y'$ and lying in $\mathfrak B(X')$),
+\[
+\begin{aligned}
+\|\one_y(F^X[W]-F^{X'}[W'])\one_{y'}\|\le{}&C\sum_{w\in\Sigma}e^{-\gamma(|y-w|+|w-y'|)}\\
+&+\frac C\eps\sum_{w\in X'_1}e^{-\gamma(|y-w|+|w-y'|)}\,\|W-W'\|_w ,
+\end{aligned}
+\]
+where $\|W-W'\|_w$ is the norm of $\one_w(W-W')$. The same bounds hold for $DF$, and for $\bC D^T_X$ and $D\bC D^T_X$ (derivatives on the left, and $D^T_X$ on the right). They also hold for $\bG$ itself and for $P\bG Q$ with $P\in\{1,D,D^T,\nabla\}$ and $Q\in\{1,D^T,D\}$, as in Theorem~\ref{thm:reg-locality}(a), with the potential $W$ on $X$ and $W'$ on $X'$, for all unit points $y,y'$. For $\bH$, $D\bH$, $\bC$ and their derivatives the bound holds on the fine side for all unit points as well, with the operators extended by zero.
+\item \emph{(Complex perturbations.)} Let $U_\delta$ be as in Proposition~\ref{prop:reg-complex}, with $\delta\le\delta_0$ and $C\delta S_{\gamma/4}\le\frac c2$, and let $W$ extend holomorphically to $U_\delta$ as there. Then (a), (b) and (d) hold at $U_\delta$, with the lower bound in (a) replaced by $\Rea$-coercivity with the constant $\frac c2$, and the operators are analytic in $\delta\!A$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) The upper bound follows from $\|\bG^X\|\le C$ and $\|\bQ\|\le C$. For the lower bound, let $b$ be a field on $\mathfrak B(X)$. The trial fields of Lemma~\ref{lem:trial-gauge} for the bonds $c\in\mathfrak B(X)$ are supported in tubes inside $B(c_-)\cup B(c_+)\subset X$, so they lie in $\ell^2_1(X)$. The matrix $T_U$ of that proof, restricted to $\mathfrak B(X)$, is still diagonally dominant. This gives $\Phi_b\in\ell^2_1(X)$ with $\bQ_X\Phi_b=b$ and $\tn{\Phi_b}_X\le C\|b\|$. Put $u=\bG^X\bQ_X^Tb$. By Theorem~\ref{thm:reg-coercive}, $\Rea\ip b{\bQ_X\bG^X\bQ_X^Tb}=\Rea\ip u{\fA^{X,\kappa}u}\ge c_*\tn u_{X,+}^2$. On the other hand $\|b\|^2=\ip{\bQ_X^Tb}{\Phi_b}=\ip{\fA^{X,\kappa}u}{\Phi_b}\le C\tn u_{X,+}\tn{\Phi_b}_X\le C\tn u_{X,+}\|b\|$. Here $\ip{\fA^{\rm ext}_Xu}{\Phi_b}=\ip{\one_{\Tf\setminus X}D^Tu}{\one_{\Tf\setminus X}D^T\Phi_b}=0$, since $\Phi_b$ lives on bonds with both endpoints in $B(c_-)\cup B(c_+)\subset X$. Hence $\Rea\ip b{\bQ_X\bG^X\bQ_X^Tb}\ge c\|b\|^2$, which is the lower bound in (a); the argument does not use the symmetry of $W$. Decay follows from Lemma~\ref{lem:CT-bounded}.
+
+(b) The identity is the definition. Decay follows from (a), Theorem~\ref{thm:reg-gauge}(a), Theorem~\ref{thm:reg-scalar}(b),(d) and Lemma~\ref{lem:decay-calculus}.
+
+(c) holds for the ingredients by Sections~\ref{sec:reg-scalar} and~\ref{sec:reg-gauge}, and for $\bQ_X$ by Proposition~\ref{prop:linearized-averages}(d),(f).
+
+(d) For $\bG$ this is Theorem~\ref{thm:reg-locality}(a) when $W=W'$ on $X'$. A change of the potential is handled by the resolvent identity $\bG^{X'}[W]-\bG^{X'}[W']=-\bG^{X'}[W]\,\Pi_{X'}^T(W-W')\Pi_{X'}\,\bG^{X'}[W']$ and the decay of both factors. For $\bQ_X\bG^X\bQ_X^T$ the kernel bound follows, since $\bQ$ is local. For $\boldsymbol\Gamma$ apply Lemma~\ref{lem:compare-inverse} on the unit lattice, with $\fA=\bQ_X\bG^X\bQ_X^T$ and $\fA'=\bQ_{X'}\bG^{X'}\bQ_{X'}^T$. The operator $\Delta$ of that lemma has two kinds of entries. For $c\in\mathfrak B(X')$ they are the entries of $\bQ(\bG^X-\bG^{X'})\bQ^T$, which have seam form. For $c\in\mathfrak B(X)\setminus\mathfrak B(X')$ they are entries $(\bQ\bG^X\bQ^T)(c,c')$ with $c$ within distance $2$ of $X\setminus X'$, so again of seam form. For $\bH$ and $\bC$ use the telescoping argument of Theorem~\ref{thm:reg-scalar}(e). With derivatives the argument is the same: Theorem~\ref{thm:reg-locality}(a) holds with derivatives, the factors $D\bG^X$, $\bG^XD^T_X$, $D\bG^XD^T_X$, $DG'_X$, $G'_XD^T_X$ have decay, and $\bC^X[W]^T=\bC^X[W^T]$, where $W^T$ has the properties of a potential that these bounds use (see below). Indeed $\fA^{X,\kappa}[W]^T=\fA^{X,\kappa}[W^T]$, since only $\mathfrak B_X$ contains $W$. So the bound for $\bC^XD^T_X$ follows from that for $D\bC^X$ at $W^T$, since kernel bounds pass to transposes; the bound for $D\bC^XD^T_X$ follows by applying $D$ on the left to the telescoping identity for $\bC^XD^T_X$. The transpose $W^T$ is real for real $U$, covariant, supported in $X$, of norm at most $\eps$ and of range $\le3$ in $A$, and it extends holomorphically with $W$; the bounds of (a), (b) and (d) use the potential only through these properties (Conventions). Its range in $U$ can be larger, up to $2r_W$, since an entry $W(b',b)$ depends on $U$ near $b'$. This range is not used: $\bC^X[W^T]=\bC^X[W]^T$ depends only on $U$ and $W$ on $\hat X$, by (c) for $W$. For $W\ne W'$, $\|W^T-W'^T\|_w=\|(W-W')\one_w\|$ is bounded by the norms $\|W-W'\|_{w'}$ of the boundedly many blocks $w'$ near $w$, since $W-W'$ has range $\le3$ in $A$. A block $w'\notin X'_1$ among them contributes only if $B(w')\subset X\setminus X'$; then $w'\in\Sigma$ and $\|W-W'\|_{w'}=\|\one_{w'}W\|\le\eps$, so its term joins the first sum. For $P\bG Q$ with $W\ne W'$, apply $P$ and $Q$ to the resolvent identity. The factors $P\bG^{X'}[W]\Pi_{X'}^T$ and $\Pi_{X'}\bG^{X'}[W']Q$ have decay, by Theorem~\ref{thm:reg-gauge}(a), which holds for these potentials (Conventions), and Theorem~\ref{thm:reg-scalar}(d) for $S_{X'}$. This gives the bound for $\bG$ stated at the end of (d). For $\bH$, $\bC$ and their derivatives on the fine side, the telescoping uses only Theorem~\ref{thm:reg-locality}(a), which holds for all unit points, and the decay of all factors at all blocks; so the bound holds at all fine unit points.
+
+\emph{The constants.} They do not depend on $M\ge M_0$. The proof uses Theorems~\ref{thm:reg-scalar}, \ref{thm:reg-gauge}(a) and~\ref{thm:reg-locality}(a), Lemma~\ref{lem:trial-gauge} and the locality of $\bQ$. The constants of these results do not depend on $M\ge M_0$: $M$ enters the Dirichlet operators only through the mass profile $m_X$, whose coefficient $\kappa$ and coercivity constant are those of Theorem~\ref{thm:reg-coercive} (Remark~\ref{rem:uniformity-limits}(c)), and the seam width $10M$ enters only through $\Sigma$.
+
+(e) Let $U_\delta$ and $W$ be as in (e). The averages at $U_\delta$ are those of Proposition~\ref{prop:AB}, with the real reference $U$, and $\bQ_X(U_\delta)-\bQ_X(U)$ is a local operator of size $C\delta$ (Proposition~\ref{prop:AB}(v)). By Proposition~\ref{prop:reg-complex}, $\bG^X(U_\delta)$ exists, with the decay of Theorem~\ref{thm:reg-gauge}(a), and $\bG^X(U_\delta)-\bG^X(U)$ has decay $(C\delta,\gamma/4)$ by Lemma~\ref{lem:perturbed-inverse}, with $\gamma$ the common rate $\gamma_0$ there. So $\bQ_X\bG^X\bQ_X^T$ at $U_\delta$ is $K_0+\delta K$, where $K_0\ge c$ is its value at $U$, by (a), and $\delta K$ has decay $(C\delta,\gamma/4)$. By Lemma~\ref{lem:perturbed-inverse} in its unit-lattice form, for $C\delta S_{\gamma/4}\le\frac c2$, the operator $K_0+\delta K$ is invertible, with $\Rea\ip b{(K_0+\delta K)b}\ge\frac c2\|b\|^2$, and its inverse $\boldsymbol\Gamma^X(U_\delta)$ has decay. Then (b) holds at $U_\delta$ by the same compositions, and (d) by the same proof, since Theorem~\ref{thm:reg-locality} holds at $U_\delta$ (Proposition~\ref{prop:reg-complex}) and Lemma~\ref{lem:compare-inverse} is algebraic. So (a), (b) and (d) hold at $U_\delta$, with the lower bound in (a) replaced by $\Rea$-coercivity with the constant $\frac c2$. The operators are analytic in $\delta\!A$, as compositions and inverses of analytic families.
+\end{proof}
+
+
+\subsection{Interior pointwise bounds}
+
+Sections~\ref{sec:localization} and~\ref{sec:det-local} use Proposition~\ref{prop:dirichlet-averaged} only through kernel bounds in block $L^2$ norms. The nonlinear constructions of Section~\ref{sec:interaction-local} also need pointwise bounds with derivatives at interior points of a domain. They are provided by the following theorem, which is proved in Section~\ref{sec:interior}. For a field $h$ and a block $B(y)$ put
+\[
+|h|_{1,\alpha;y}=|h|_{B(y)}+|\nabla h|_{B(y)}+\Hol{\nabla\tilde h_y}{B(y)},
+\]
+where $\nabla$ is the covariant gradient and $\tilde h_y$ is $h$ in a real gauge in which (B) holds on $\Lam_4(c_y)$. For a coarse field, $|B(y')|$ is the maximum over the unit bonds starting at $y'$.
+
+\begin{theorem}[Interior pointwise bounds]\label{thm:ID}
+Let $W\in\cW_{\rm loc}(\eps)$, and build the Dirichlet operators on a domain $X$ with the potential $\one_XW\one_X$. There are $\eps_{\rm ID},C,\gamma>0$, independent of $X$, $k$, $n$, $\eta$ and of $M\ge M_0$, such that the following holds for $\eps\le\eps_{\rm ID}$, every domain $X$ and every $y\in X_{(4)}$; the sums run over unit points $y'$, and $|f|_{B(y')}$, $|g|_{B(y')}$ are suprema over the bonds, respectively plaquettes, that have a point in $B(y')$.
+\begin{enumerate}[label=(\alph*)]
+\item $|\bC^Xf|_{1,\alpha;y}\le C\sum_{y'}e^{-\gamma|y-y'|}|f|_{B(y')}$ for fine fields $f\in\ell^2_1(X)$.
+\item $|\bC^XD^T_Xg|_{1,\alpha;y}\le C\sum_{y'}e^{-\gamma|y-y'|}\big(|g|_{B(y')}+\Hol{\tilde g_{y'}}{\Lam_1(c_{y'})}\big)$ for $2$-forms $g$, where $D^T_X=\one_XD^T$.
+\item $|\bH^XB|_{1,\alpha;y}\le C\sum_{y'}e^{-\gamma|y-y'|}|B(y')|$ for coarse fields $B$ on $\mathfrak B(X)$.
+\item $|D^TD\bH^XY|_{B(y)}\le C\sum_{y'}e^{-\gamma|y-y'|}|Y(y')|$ for coarse fields $Y$ on $\mathfrak B(X)$.
+\item \emph{(Comparison of domains.)} Let $X'\subset X$, let $\Sigma$ be the set of unit points within distance $10M$ of $X\setminus X'$, and put $K_\Sigma(y,y')=\sum_{w\in\Sigma}e^{-\gamma(|y-w|+|w-y'|)}$. For $y\in X'_{(4)}$ and sources supported on bonds and plaquettes inside $X'$, respectively on $\mathfrak B(X')$, the differences between the operators of (a)--(d) on $X$ and on $X'$ satisfy the bounds (a)--(d) with $e^{-\gamma|y-y'|}$ replaced by $K_\Sigma(y,y')$.
+\end{enumerate}
+Part~(d), and (e) for it, use the bound $|J_U|\le\eps$ on the current; the other parts do not. The theorem is stated for the real background $U$; (d) is not claimed at the complex backgrounds of Proposition~\ref{prop:reg-complex}.
+\end{theorem}
+
+For $X=\Tf$ there is no mass term, and (c), (d) are contained in Theorem~\ref{thm:reg-min}, Lemma~\ref{lem:sup-bounds} and the identity $D^TD\bH=\bQ^T(\boldsymbol\Gamma_\pi-a)+S^T\mathfrak F^TD\bH$ of Lemma~\ref{lem:V-bounds}; (a) and (b) add H\"older bounds on the gradient. On a proper domain that identity fails. The mass term and the exterior divergence term break $\bG^XDR_X=DG'_XR_X$, so $\bH^X$ need not lie in the Dirichlet slice, and $S_X\bH^X\ne0$. Then $D^TD\bH^X$ contains the term $D^T\mathfrak FS_X\bH^X$, whose coefficient involves second derivatives of the background. Part~(d) is a consequence of gauge invariance of the action, which replaces these second derivatives by the current (Lemma~\ref{lem:div-curvature}).
+
+\begin{remark}[Why Part~III does not give Theorem~\ref{thm:ID} directly]\label{rem:ID}
+The pointwise bounds of Parts~II and~III are proved by a \emph{global} bootstrap (Lemmas~\ref{lem:bootstrap} and~\ref{lem:bootstrap-local}). The local regularity estimate at a block $y$ involves sup norms of the solution on neighbouring blocks with a small factor $\eps$, and these are absorbed by taking a maximum over \emph{all} blocks. On a domain $X$ the maximum would include blocks adjacent to the Dirichlet cut, where no pointwise estimate is available. Comparison with torus operators (Lemma~\ref{lem:compare-inverse}) does not help either: it produces sources at the seam that are controlled only in $L^2$.
+
+Section~\ref{sec:interior} replaces the global maximum by an absorption inside one cube, at all scales. Two observations make this work:
+\begin{itemize}
+\item The small nonlocal terms of $\fA^{X,\kappa}$, of Riesz type, all come from the slice projection $\Pi_X$. They become local once two scalar potentials are treated as unknowns. The other nonlocal terms factor through the unit lattice and are bounded by local $L^2$ norms; for the averaging term this uses $E=0$, through $\Pi_X^T\bQ^T\bQ\Pi_X=\bQ^T\bQ$.
+\item For local systems, lower-order terms carry positive powers of the radius, so only the principal perturbations must be small.
+\end{itemize}
+Two alternatives are not needed here: Ba\l aban's treatment of Dirichlet propagators with the random-walk expansion \cite{BalPropI,BalBackground}, and a canonical truncation of the background in a Coulomb gauge on boxes.
+\end{remark}

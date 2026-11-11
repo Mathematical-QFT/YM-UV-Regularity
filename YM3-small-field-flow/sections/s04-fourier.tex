@@ -1,0 +1,102 @@
+\section{Two Fourier estimates}\label{sec:fourier}
+
+Fourier analysis plays only a small role in this paper. Its main use is to show that averaged Green functions such as $Q_\sigma G_\sigma Q_\sigma^*$ are bounded \emph{below} uniformly in $\eta$. Upper bounds and decay are proved in position space. We also need one estimate on ``biharmonic extensions'' in the gauge-field coercivity proof.
+
+\subsection{Fourier transform and Bloch decomposition}
+
+The dual of the fine torus is $\Tf^*=\big((2\pi/n)\Z\big/(2\pi/\eta)\Z\big)^d$. We represent it by the momenta $p$ with $-\pi/\eta<p_\mu\le\pi/\eta$. For a scalar field $f$ we put
+\[
+\hat f(p)=\eta^d\sum_{x\in\Tf}e^{-\ii p\cdot x}f(x),\qquad f(x)=n^{-d}\sum_{p\in\Tf^*}e^{\ii p\cdot x}\hat f(p),\qquad \|f\|^2=n^{-d}\sum_p|\hat f(p)|^2 .
+\]
+On the unit torus, $\hat g(q)=\sum_{y\in\T}e^{-\ii q\cdot y}g(y)$ for $q\in\T^*$, which we represent by $-\pi<q_\mu\le\pi$, and $\|g\|^2=n^{-d}\sum_q|\hat g(q)|^2$.
+
+Every $p\in\Tf^*$ can be written uniquely as $p=q+2\pi l$ with $q\in\T^*$ and $l\in\Z^d$. For fixed $q$ exactly $N^d$ vectors $l$ occur. This is the \emph{Bloch decomposition}.
+
+A directional convolution with kernel $\kappa$ in direction $\mu$ acts in momentum space as multiplication by $\tilde\kappa(p_\mu)$, where $\tilde\kappa(\theta)=\sum_s\eta\,\kappa(s)e^{\ii\theta s}$. Its adjoint has symbol $\overline{\tilde\kappa}$. In particular
+\[
+\widehat{\partial_\mu f}(p)=\frac{e^{\ii\eta p_\mu}-1}\eta\,\hat f(p),\qquad
+\widehat{-\Lap f}(p)=\hat\Lap(p)\hat f(p),\quad \hat\Lap(p)=\sum_\mu\frac4{\eta^2}\sin^2\frac{\eta p_\mu}2,
+\]
+and $a_\mu$ has symbol $\alpha(p_\mu)$, with
+\[
+\alpha(\theta)=\eta\sum_{j=0}^{N-1}e^{\ii j\eta\theta}=\eta\,\frac{e^{\ii\theta}-1}{e^{\ii\eta\theta}-1},\qquad |\alpha(\theta)|=\frac{|\sin(\theta/2)|}{N|\sin(\eta\theta/2)|}.
+\]
+Restriction to the unit lattice and its adjoint satisfy the \emph{Poisson summation formula}:
+\begin{equation}\label{eq:poisson}
+\widehat{\iota f}(q)=\sum_{l}\hat f(q+2\pi l),\qquad \widehat{\iota^*g}(p)=\hat g(q)\quad\text{for }p=q+2\pi l .
+\end{equation}
+The first identity follows by inserting the inversion formula for $f$ into $\sum_ye^{-\ii q\cdot y}f(y)$ and using $\sum_{y\in\T}e^{\ii(p-q)\cdot y}=n^d\one[p-q\in2\pi\Z^d]$. The second is immediate from the definition of $\iota^*$.
+
+\begin{lemma}[Symbol bounds]\label{lem:symbols}
+Let $|\theta|\le\pi/\eta$.
+\begin{enumerate}[label=(\alph*)]
+\item $\frac4{\pi^2}\theta^2\le\frac4{\eta^2}\sin^2\frac{\eta\theta}2\le\theta^2$. Hence $\frac4{\pi^2}|p|^2\le\hat\Lap(p)\le|p|^2$ on the fundamental domain.
+\item $|\alpha(\theta)|\le1$, and $|\alpha(\theta)|\ge2/\pi$ if $|\theta|\le\pi$.
+\item If $\theta=q+2\pi l$ with $|q|\le\pi$ and $l\in\Z\setminus\{0\}$, then $|\theta|\ge\pi|l|$ and $|\alpha(\theta)|\le|q|/(2|l|)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) uses $\frac2\pi t\le\sin t\le t$ for $0\le t\le\pi/2$. (b) The first bound is the triangle inequality. For $|\theta|\le\pi$, $|\sin(\theta/2)|\ge|\theta|/\pi$ and $N|\sin(\eta\theta/2)|\le|\theta|/2$. (c) $|\theta|\ge2\pi|l|-|q|\ge\pi|l|$. Moreover $|\sin(\theta/2)|=|\sin(q/2)|\le|q|/2$, and $N|\sin(\eta\theta/2)|\ge N\frac2\pi\frac{\eta|\theta|}2=|\theta|/\pi\ge|l|$.
+\end{proof}
+
+\subsection{The lower bound}
+
+\begin{lemma}[Fourier lower bound]\label{lem:fourier-lower}
+Let $K$ be a translation-invariant operator on scalar fields of $\Tf$ with symbol $\hat K(p)\ge0$ on $\Tf^*$, and let $\cK$ be a product convolution with symbol $\kappa(p)$. Represent each $q\in\T^*$ by $-\pi<q_\mu\le\pi$; this is a point of $\Tf^*$. Then for every field $g$ on $\T$,
+\[
+\ip{\cK^*\iota^*g}{K\cK^*\iota^*g}\ \ge\ m\,\|g\|^2,\qquad m=\min_{q\in\T^*}\hat K(q)|\kappa(q)|^2 .
+\]
+\end{lemma}
+
+\begin{proof}
+By \eqref{eq:poisson}, $h=\cK^*\iota^*g$ has $\hat h(q+2\pi l)=\overline{\kappa(q+2\pi l)}\,\hat g(q)$. Therefore
+\[
+\ip h{Kh}=n^{-d}\sum_q|\hat g(q)|^2\sum_l\hat K(q+2\pi l)|\kappa(q+2\pi l)|^2\ \ge\ n^{-d}\sum_q|\hat g(q)|^2\,\hat K(q)|\kappa(q)|^2,
+\]
+where we kept only the term $l=0$. The claim follows from Parseval on $\T$.
+\end{proof}
+
+\begin{corollary}\label{cor:QKQ-lower}
+For every $\sigma\in\{0,\dots,d\}$ and $a>0$,
+\[
+Q_\sigma(-\Lap+2a)^{-1}Q_\sigma^*\ \ge\ c_F,\qquad c_F=\Big(\frac2\pi\Big)^{2d+2}\frac1{d\pi^2+2a}.
+\]
+\end{corollary}
+
+\begin{proof}
+Apply Lemma~\ref{lem:fourier-lower} with $K=(-\Lap+2a)^{-1}$ and $\cK=\cK_\sigma$. The symbol of $\cK_\sigma$ is a product of at most $d+1$ factors $\alpha(p_\nu)$, each of modulus at least $2/\pi$ on $[-\pi,\pi]^d$, which contains the representatives of $\T^*$. Moreover $\hat\Lap(p)\le|p|^2\le d\pi^2$ there.
+\end{proof}
+
+\subsection{Biharmonic extensions}
+
+The following estimate is used in Section~\ref{sec:gauge-coercivity}. Given a unit-lattice field $\omega$ with mean zero, the field $\lambda=(-\Lap)^{-2}Q_0^*\omega$ is the smoothest (in the sense of $\|\Lap\lambda\|$) fine field with prescribed block averages $Q_0\lambda$, which then have mean zero. We will see that this is exactly the gradient part of a gauge field in Ba\l aban's gauge. Its energy is controlled by the unit-lattice gradient of its averages.
+
+\begin{lemma}[Biharmonic extensions]\label{lem:biharmonic}
+There is $C_B$, depending only on $d$, with the following property. Let $\omega$ be a field on $\T$ with mean zero, and let $\lambda=(-\Lap)^{-2}Q_0^*\omega$ (the inverse taken on mean-zero fields). Then
+\[
+\|\partial\lambda\|\le C_B\,\|\dl Q_0\lambda\| .
+\]
+\end{lemma}
+
+\begin{proof}
+Let $\beta(p)=\prod_\nu\alpha(p_\nu)$ be the symbol of $b$. By \eqref{eq:poisson}, $\hat\lambda(p)=\overline{\beta(p)}\,\hat\omega(q)\,\hat\Lap(p)^{-2}$ for $p=q+2\pi l\ne0$, and $\hat\lambda(0)=0$. For $j\in\{2,3\}$ and $q\in\T^*\setminus\{0\}$ put $S_j(q)=\sum_l|\beta(q+2\pi l)|^2\hat\Lap(q+2\pi l)^{-j}$. Then
+\[
+\|\partial\lambda\|^2=\ip\lambda{-\Lap\lambda}=n^{-d}\sum_{q\ne0}|\hat\omega(q)|^2S_3(q).
+\]
+The term $q=0$ is absent, because $\hat\omega(0)=0$, and because for $l\ne0$ some factor $\alpha(2\pi l_\nu)$ vanishes. Similarly, $g=Q_0\lambda=\iota b\lambda$ has $\hat g(q)=\sum_l\beta(q+2\pi l)\hat\lambda(q+2\pi l)=\hat\omega(q)S_2(q)$, and
+\[
+\|\dl g\|^2=n^{-d}\sum_{q\ne0}\hat\Lap_1(q)\,S_2(q)^2\,|\hat\omega(q)|^2,\qquad \hat\Lap_1(q)=\sum_\nu4\sin^2\frac{q_\nu}2 .
+\]
+It therefore suffices to show $S_3(q)\le C_B^2\hat\Lap_1(q)S_2(q)^2$ for $q\in[-\pi,\pi]^d\setminus\{0\}$.
+
+By Lemma~\ref{lem:symbols}, keeping only the term $l=0$ in $S_2$, we get $S_2(q)\ge(2/\pi)^{2d}|q|^{-4}$, and $\hat\Lap_1(q)\ge\frac4{\pi^2}|q|^2$. Hence
+\[
+\hat\Lap_1(q)S_2(q)^2\ge\frac4{\pi^2}\Big(\frac2\pi\Big)^{4d}|q|^{-6}.
+\]
+In $S_3$, the term $l=0$ is at most $(\pi/2)^6|q|^{-6}$. For $l\ne0$, Lemma~\ref{lem:symbols}(a),(c) gives $\hat\Lap(q+2\pi l)\ge\frac4{\pi^2}|q+2\pi l|^2\ge4|l|^2\ge4$ and $|\beta(q+2\pi l)|^2\le\prod_{\nu:\,l_\nu\ne0}\frac{\pi^2}{4l_\nu^2}$. Hence
+\[
+\sum_{l\ne0}\frac{|\beta(q+2\pi l)|^2}{\hat\Lap(q+2\pi l)^3}\le\frac1{64}\prod_{\nu=1}^d\Big(1+2\sum_{m\ge1}\frac{\pi^2}{4m^2}\Big)=\frac1{64}\Big(1+\frac{\pi^4}{12}\Big)^d .
+\]
+Since $|q|^2\le d\pi^2$, this constant is at most $\frac1{64}(1+\pi^4/12)^d(d\pi^2)^3|q|^{-6}$, and the lemma follows.
+\end{proof}

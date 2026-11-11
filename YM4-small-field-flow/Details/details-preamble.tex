@@ -1,0 +1,95 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,patterns}
+\setlist{itemsep=3pt,topsep=5pt}
+\setlength{\emergencystretch}{2em}
+\numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{maintheorem}{Theorem}
+\renewcommand{\themaintheorem}{\Alph{maintheorem}}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\definecolor{fblue}{RGB}{42,95,155}
+\definecolor{forange}{RGB}{180,98,35}
+\definecolor{fgreen}{RGB}{35,130,120}
+\definecolor{fpurple}{RGB}{125,47,145}
+\definecolor{fred}{RGB}{170,40,40}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\T}{\mathbb T}
+\newcommand{\Tf}{\mathbb T_\eta}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\dd}{\mathrm d}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\cK}{\mathcal K}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cG}{\mathcal G}
+\newcommand{\cV}{\mathcal V}
+\newcommand{\cW}{\mathcal W}
+\newcommand{\cX}{\mathcal X}
+\newcommand{\cD}{\mathcal D}
+\newcommand{\cN}{\mathcal N}
+\newcommand{\bQ}{\mathbf Q}
+\newcommand{\bG}{\mathbf G}
+\newcommand{\bH}{\mathbf H}
+\newcommand{\bC}{\mathbf C}
+\newcommand{\bD}{\mathbf D}
+\newcommand{\bL}{\boldsymbol{\Delta}}
+\newcommand{\Lap}{\Delta}
+\newcommand{\dl}{d_1}
+\newcommand{\Hol}[2]{[#1]_{\alpha,#2}}
+\newcommand{\Lam}{\Lambda}
+\newcommand{\tn}[1]{|\!|\!|#1|\!|\!|}
+\newcommand{\fA}{\mathfrak A}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\Rea}{Re}
+
+
+
+% --- Details volume additions ---
+\usepackage{booktabs,tabularx,longtable}
+\usepackage{xr-hyper}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\externaldocument[N-]{../main}[../YM4-small-field-flow.pdf]   % links go to the shipped note
+\newcommand{\Nref}[1]{\ref{N-#1}}
+\newcommand{\Neqref}[1]{\eqref{N-#1}}
+\newtheorem{step}{Step}[section]
+\newtheorem{detail}[theorem]{Detail}
+% Steps are numbered within each Detail.
+\counterwithin*{step}{theorem}\renewcommand{\thestep}{\arabic{step}}
+\makeatletter
+% Named destination N:<note label>, emitted once (the first Detail for a label wins).
+\newcommand{\Ntarget}[1]{\@for\RL@t:=#1\do{\ifcsname RL@tgt@\RL@t\endcsname\else
+  \expandafter\gdef\csname RL@tgt@\RL@t\endcsname{}%
+  \edef\RL@x{\noexpand\hypertarget{N:\RL@t}{}}\RL@x\fi}}
+\makeatother
+% A step that opens a detail: start the detail's paragraph first, so that the step's link anchor is emitted once.
+\makeatletter\AddToHook{env/step/before}{\if@inlabel\leavevmode\fi}\makeatother
+\newcommand{\status}[1]{\par\noindent\textbf{Status:} #1\par}
+% Names of table (ii) of the note (as in ../rl-preamble.tex).
+\newcommand{\Cav}{C^{\rm av}}
+\newcommand{\Av}{\operatorname{Av}}
+\newcommand{\cJ}{\mathcal J}
+\newcommand{\Eloop}{E_{\rm loop}}

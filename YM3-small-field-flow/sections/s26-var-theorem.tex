@@ -1,0 +1,75 @@
+\section{The variational theorem}\label{sec:var-theorem}
+
+\subsection{The problem}
+
+Let $V$ be a real configuration on $\T$. The \emph{variational problem} is to minimize the Wilson action $S$ on
+\[
+\mathfrak B(V)=\{U\in\mathfrak U_0(c_1)\ \text{real}:\ U^{(k)}=V\},
+\]
+the set of fine configurations of small curvature whose $k$-fold average is $V$ \cite[(3), (5), (6)]{BalVar}. Both $S$ and $\mathfrak B(V)$ are invariant under the residual gauge group $\mathfrak G_0$. A \emph{critical orbit} is a $\mathfrak G_0$-orbit of critical points of $S$ restricted to $\mathfrak B(V)$. Its elements are Ba\l aban's \emph{background fields} (minimal configurations) $U_k(V)$.
+
+Ba\l aban's Theorem~1 \cite{BalVar} solves this problem by induction over the number $k$ of averaging steps. The $k$-th step starts from a reference configuration $U_0$, the solution of the $(k-1)$-step problem for an extension of $V$. It solves the problem near $U_0$ by a contraction, and then re-establishes the regularity of the solution with constants independent of $k$, by a local analysis on cubes. The theorem below is the first part of this scheme: the problem relative to a given regular reference configuration \cite[Sects.~A--E, G]{BalVar}. The induction over $k$, with the local improvement of \cite[Sect.~F]{BalVar}, is carried out in Part~VI (Theorem~\ref{thm:balaban}).
+
+\subsection{Statement}
+
+Throughout this part, $U_0$ is a real reference configuration that is $(M,\eps)$-regular with $|J_{U_0}|_\infty\le\eps$. As before, $W_k=U_0^{(k)}$, and the operators of Parts~II and~III are taken at $U_0$ with the averaging pair $(Q'_k(U_0),\bQ_k(U_0))$. We fix once and for all a small constant $\theta_0>0$; the uniqueness statements refer to the class $\mathfrak U(\theta_0)$.
+
+\begin{theorem}[The variational problem relative to a regular reference]\label{thm:variational}
+Let $d\ge3$. There are $\theta_0,c_6,C_6,\gamma'>0$ such that the following holds. Let $U_0$ be as above, and let $V$ be a real configuration on $\T$ with
+\[
+V(c)W_k(c)^{-1}=e^{\ii B(c)},\qquad|B|_\infty\le\beta .
+\]
+If $\eps+\beta\le c_6$, then:
+\begin{enumerate}[label=(\alph*)]
+\item \emph{(Existence and uniqueness.)} $S|_{\mathfrak B(V)}$ has exactly one critical orbit in $\mathfrak B(V)\cap\mathfrak U(\theta_0)$.
+\item \emph{(Minimality.)} This orbit is the set of minimizers of $S$ on $\mathfrak B(V)\cap\mathfrak U(\theta_0)$.
+\item \emph{(Landau representative.)} The orbit contains $U_*=\mathsf U(A_*)=\big(e^{\ii\eta A_*}U_0\big)^{\mathsf w_k(e^{\ii\eta A_*})}$, where $A_*$ is real, $R(U_0)D^T_{U_0}A_*=0$, $\mathcal Q(e^{\ii\eta A_*})=e^{\ii B}$, and
+\[
+|A_*|_{C^1}+|\Lap_{U_0}A_*|_\infty+\sup_y\Hol{\nabla\tilde A_{*,y}}{B(y)}\le C_6(\eps+\beta).
+\]
+The proof gives the H\"older bound on the unit cubes $\Lam_1(c_y)$ in place of $B(y)$ (Theorem~\ref{thm:local-regularity}), and, by Remark~\ref{rem:cubes}, on every cube $\Lam_1(z)$. This is the form used in the proof of (e) and in Corollary~\ref{cor:regularity}.
+To first order, $A_*=\bH B-\bC J_{U_0}+O\big((\eps+\beta)^2\big)$ in $|\cdot|_{C^1}$.
+\item \emph{(Euler--Lagrange equation.)} There is a unique unit-lattice field $\omega$ with $\nabla\Phi(A_*)=d\mathcal Q(A_*)^T\omega$, where $\Phi(A)=S(e^{\ii\eta A}U_0)$ and $d\mathcal Q(A)$ is the derivative of $A\mapsto\ell(\mathcal Q(e^{\ii\eta A}))$. It satisfies $|\omega|_\infty\le C_6(\eps+\beta)$.
+\item \emph{(Regularity of the minimizer.)} $U_*$ is $(M,\eps+C_6(\eps+\beta))$-regular and $U_*\in\mathfrak U(C_6(\eps+\beta))$.
+\item \emph{(Analyticity and decay.)} $B\mapsto A_*(B)$ extends to an analytic map on complex unit-lattice fields with $\eps+|B|_\infty<c_6$, with $|A_*(B)|_{C^1}\le C_6(\eps+|B|_\infty)$. For complex $B$ the $C^1$ bound and the decay below are claimed, but not the second-order and H\"older bounds of (c). For real and complex $B$, if $\delta B$ is supported on the bond $c$, then
+\[
+\big|\,dA_*(B)\delta B\,(x)\big|+\big|\nabla\big(dA_*(B)\delta B\big)(x)\big|\le C_6e^{-\gamma'|x-c|}|\delta B| .
+\]
+\item \emph{(Covariance.)} For a real $v$ on $\T$, the critical orbit for $V^v$ is the image of the critical orbit for $V$ under any real $u$ with $u|_\T=v$.
+\end{enumerate}
+\end{theorem}
+
+Parts (a)--(c) and (e) are Ba\l aban's Theorem~1 \cite{BalVar}, relative to a reference and on a single torus; the regularity bounds are \cite[(9), (10)]{BalVar} with the reference-dependent constant. Parts (d) and (f) are \cite[(171), (178)]{BalVar} and \cite[Prop.~9, (190)]{BalVar}. The constants do not depend on $k$, $n$ or $\eta$. They depend on $L$. They may be taken independent of $M\ge M_0$, for $\eps$ below the threshold at $M=M_0$; this threshold includes $\eps_{\rm B}$ of Lemma~\ref{lem:uniformity}(c), taken at $M=M_0$. Indeed, an $(M,\eps)$-regular reference is $(M_0,\eps)$-regular (Lemma~\ref{lem:regular-monotone}), the torus operators of Parts~II and~III do not depend on the regularity scale (Step~0 of the proof of Lemma~\ref{lem:uniformity}), and the proof of the regularity statement in (e) uses only local estimates on the cubes of Definition~\ref{def:regular}. The thresholds that depend on $M$ are those of Parts~VI--VIII, for instance $a_1$ of Theorem~\ref{thm:balaban} (whose constant $B_3$ also depends on $M$), $a_\delta$ of Proposition~\ref{prop:sharp-curvature} and $\eps_L\le\eps_{\rm cmp}(M'_L)$ with $M'_L\ge M$ (Theorem~\ref{thm:step-coercive}); the constants of Part~VII do not (Remark~\ref{rem:step-M}).
+
+In (c), $A_*$ is the Landau representative of the orbit relative to $U_0$, and $U_*=\mathsf U(A_*)$ is its axial representative. The configuration $e^{\ii\eta A_*}U_0$ is gauge equivalent to $U_*$, but it need not lie in $\mathfrak B(V)$, since $\mathsf w_k(e^{\ii\eta A_*})$ need not be $1$ on $\T$.
+
+Part~(g) does not need (a): for real $u$ with $u|_\T=v$, the map $U\mapsto U^u$ is a bijection from $\mathfrak B(V)\cap\mathfrak U(\theta_0)$ onto $\mathfrak B(V^v)\cap\mathfrak U(\theta_0)$, because $\mathfrak a^{(k)}(U^u)=\mathfrak a^{(k)}(U)^{u|_\T}$. It preserves $S$ and critical points, and it maps $\mathfrak G_0$-orbits to $\mathfrak G_0$-orbits, since $u\mathfrak G_0u^{-1}=\mathfrak G_0$. The rest of this part proves (a)--(f). The proof has four steps:
+\begin{enumerate}[label=\arabic*.]
+\item Reduction to the Landau chart, by Corollary~\ref{cor:parametrization} (Section~\ref{subsec:reduction}).
+\item Linearization of the constraint and solution by contraction (Section~\ref{sec:var-solution}).
+\item Convexity, which gives minimality (Section~\ref{sec:var-solution}).
+\item The Euler--Lagrange equation, which shows that the constructed point is critical on $\mathfrak B(V)$ and gives the second-order bounds (Section~\ref{sec:var-regularity}).
+\end{enumerate}
+
+\subsection{Reduction to the Landau chart}\label{subsec:reduction}
+
+Let $\theta_0\le c_4/3$ and $\eps+\beta\le c_6\le c_4/3$, so that Theorem~\ref{thm:chart} and Corollary~\ref{cor:parametrization} apply with $\theta=\theta_0$. Let
+\[
+\mathcal M_V=\big\{A\ \text{real}:\ RD^TA=0,\ \ell(\mathcal Q(e^{\ii\eta A}))=B,\ |A|_{C^1}<\rho_1\big\},\qquad\rho_1=2B_1(\eps+\theta_0+\beta).
+\]
+
+\begin{lemma}\label{lem:reduction}
+\begin{enumerate}[label=(\alph*)]
+\item $\mathcal M_V$ is a smooth manifold, and $\Phi=S\circ\mathsf U$ on $\mathcal M_V$, with $\mathsf U$ as in Corollary~\ref{cor:parametrization}.
+\item Every $U$ in a critical orbit in $\mathfrak B(V)\cap\mathfrak U(\theta_0)$ has an axial representative $\mathsf U(A)$ with $A\in\mathcal M_V$, and $A$ is a critical point of $\Phi|_{\mathcal M_V}$.
+\item For every $U\in\mathfrak B(V)\cap\mathfrak U(\theta_0)$ there is $A\in\mathcal M_V$ with $S(U)=\Phi(A)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) The map $A\mapsto\ell(\mathcal Q(e^{\ii\eta A}))$, restricted to the slice $\{RD^TA=0\}$, has derivative $\bQ+dC_k(A)$. This is onto: $\bQ\bH=I$, $\bH$ maps into the slice, and $|dC_k(A)\bH|\le C\rho_1<1$ in the sup norm by Proposition~\ref{prop:Q-expansion}(b). Hence $\mathcal M_V$ is a submanifold. The identity $\Phi=S\circ\mathsf U$ holds by gauge invariance of $S$.
+
+(b), (c) The orbit of $U$ has a unique axial representative (Lemma~\ref{lem:axial}(c)). By Corollary~\ref{cor:parametrization} it equals $\mathsf U(A)$ for some $A\in\mathcal S_V$, and by Theorem~\ref{thm:chart}, $|A|_{C^1}\le B_1(\eps+\theta_0+\beta)<\rho_1$, so $A\in\mathcal M_V$. For (b), let $A(t)$ be a smooth curve in $\mathcal M_V$ with $A(0)=A$. Since $\rho_1\le\frac43B_1c_4\le\frac23r_u$, the configurations $\mathsf U(A(t))$ are defined, real and smooth in $t$, and $\mathsf U(A(t))^{(k)}=\mathcal Q(e^{\ii\eta A(t)})W_k=V$. At $t=0$ the curvature is that of $U$, at most $\theta_0\le c_4/3<c_1$; by continuity, $\mathsf U(A(t))\in\mathfrak U_0(c_1)$ for small $|t|$. So $\mathsf U(A(t))$ is a curve in $\mathfrak B(V)$ through the critical point $\mathsf U(A)$, and $\frac{d}{dt}\Phi(A(t))\big|_{t=0}=\frac{d}{dt}S(\mathsf U(A(t)))\big|_{t=0}=0$.
+\end{proof}
+
+By Lemma~\ref{lem:reduction}(b), uniqueness in (a) follows once we show that $\Phi|_{\mathcal M_V}$ has at most one critical point. Existence requires the converse: the critical point of $\Phi|_{\mathcal M_V}$ that we construct gives a critical point of $S|_{\mathfrak B(V)}$. The converse is not a formal consequence of (b), because $\mathsf U$ involves the gauge transformation $\mathsf w_k$, which depends on $A$. It is proved in Section~\ref{sec:var-regularity} via the Euler--Lagrange equation.

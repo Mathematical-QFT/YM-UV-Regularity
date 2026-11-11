@@ -1,0 +1,18 @@
+moment formula: <1> = 1, <w1^2> = 1/4, <w1^4> = 1/8, <w1^2 w2^2> = 1/24; |w|^2 = 1 consistency failures: 0
+
+Spherical average of the p^2-tensor of I_0(omega,0), per unit kappa = C_A/T_rho;
+form a delta_{mu nu} delta_{kl} + b (delta_{mu k} delta_{nu l} + delta_{mu l} delta_{nu k}); transversality <=> a + 2b = 0
+scalar          a = 1/3      b = -1/6      O(4) residual = 0   a + 2b = 0   isotropic coefficient = 1/3
+orbital-vector  a = -2/3     b = 1/3       O(4) residual = 0   a + 2b = 0   isotropic coefficient = -2/3
+spin            a = 4        b = -2        O(4) residual = 0   a + 2b = 0   isotropic coefficient = 4
+total           a = 11/3     b = -11/6     O(4) residual = 0   a + 2b = 0   isotropic coefficient = 11/3
+
+orbital x spin cross terms vanish identically: True
+
+Total: isotropic coefficient 11/3 * kappa of the spherical average; exact value 11/3: True
+Orbital (vector + scalar) = -1/3, spin = 4  (expected -1/3 and 4)
+Per log det(-D^2+m^2) (scalar, coefficient +1, bubble sign -1): 1/3  (expected +1/3)
+b = (2 pi)^{-4} |S^3| * 11/3 * kappa = 11/3 kappa / (8 pi^2) = 11 kappa / (24 pi^2): True
+SU(2), fundamental (kappa = 4): b = 0.185756 ;  11/(6 pi^2) = 0.185756
+
+N-b: PASS

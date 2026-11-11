@@ -1,0 +1,59 @@
+\section{Ba\l aban's random-walk expansion}\label{sec:random-walk}
+
+The estimates of Sections~\ref{sec:reg-scalar} and~\ref{sec:reg-gauge} were obtained with Combes--Thomas, IMS localization and comparison of domains. In the renormalization group one also needs an \emph{explicit} representation of the global operators as convergent sums of products of local propagators, each term depending on the background only in a bounded region. This is Ba\l aban's random-walk expansion \cite{BalGreen,BalPropII,BalBackground}. We give it here for the scalar Green function $G'$, with the local propagators of the previous sections. For the gauge-field Green function $\bG$ the remainder is kept in factorized form, with the derivatives outside. That walk is constructed in Section~\ref{sec:nested-walks}; part~(b) of Theorem~\ref{thm:random-walk} states what it gives.
+
+\subsection{The parametrix}
+
+Let $M\ge M_0$ and let $U$ be $(M,\eps)$-regular with $\eps\le\eps_0$. For each $j$ let $\Lam^w_j$ be the union of the blocks meeting $\{x:|x-z_j|_\infty\le9M\}$. If $|z_k-z_j|_\infty\le2M$, then $\Lam_k\subset\Lam^w_j$, so $k\in J(\Lam^w_j)$. Since the sets $K_k$ with $|z_k-z_j|_\infty\le2M$ cover $K_j$, the mass profile $m_{\Lam^w_j}$ vanishes on $K_j$. Let $\fA$ be either the scalar operator $\fA'_{\Tf}$ or the gauge-field operator $\fA_\pi=\fA^{\Tf}$, and define the local propagators
+\[
+G^w_j=\big(\fA'_{\Lam^w_j}\big)^{-1}\ \ \text{(scalar case)},\qquad G^w_j=\big(\fA^{\Lam^w_j,\kappa}\big)^{-1}\ \ \text{(gauge case)}.
+\]
+They depend on $U$ only on $\hat\Lam^w_j$ and have the bounds of Theorems~\ref{thm:reg-scalar}(b) and~\ref{thm:reg-gauge}(a). With the partition of unity $h_j=\chi_j^2$ ($\sum_jh_j=1$) put
+\[
+K=\sum_jh_jG^w_j,\qquad \mathcal R_j=-\Big([\fA,h_j]+h_j\big(\fA\one_{\Lam^w_j}-\one_{\Lam^w_j}\fA^{\Lam^w_j}\one_{\Lam^w_j}\big)\Big)G^w_j,\qquad\mathcal R=\sum_j\mathcal R_j .
+\]
+In the scalar case $\fA^{\Lam^w_j}$ means $\fA'_{\Lam^w_j}$.
+
+\begin{lemma}\label{lem:parametrix}
+$\fA K=I-\mathcal R$.
+\end{lemma}
+
+\begin{proof}
+$\fA h_jG^w_j=h_j\fA G^w_j+[\fA,h_j]G^w_j$. Since $h_j$ is supported in $K_j\subset\Lam^w_j$, $h_jm_{\Lam^w_j}=0$ and $h_j\fA^{\rm ext}_{\Lam^w_j}=0$, we have $h_j\fA^{\Lam^w_j,\kappa}G^w_j=h_j$. Hence $h_j\fA G^w_j=h_j+h_j(\fA\one_{\Lam^w_j}-\one_{\Lam^w_j}\fA^{\Lam^w_j}\one_{\Lam^w_j})G^w_j$. Sum over $j$.
+\end{proof}
+
+\begin{theorem}[Random-walk expansion]\label{thm:random-walk}
+There is $M_1\ge M_0$ such that for $M\ge M_1$ and $\eps\le\eps_0$ the following holds; in (b), $M_1$ depends also on $\rho$.
+\begin{enumerate}[label=(\alph*)]
+\item \emph{The scalar Green function.} Let $\fA=\fA'_{\Tf}$, so that $\fA^{-1}=G'$ and $\mathcal R_j=-[\fA',h_j]G^w_j$, and let $\hat K_j=\{x:\operatorname{dist}_\infty(x,K_j)\le1\}$. The operator $\mathcal R_j$ vanishes unless it acts from $\Lam^w_j$ to $\hat K_j$, and $\mathcal R_j$ and $\mathcal R_jD^T$ have decay $(CM^{-1},\gamma)$. Hence $\|\mathcal R\|+\|\mathcal RD^T\|\le C/M\le\frac12$, and
+\[
+G'=K\sum_{n\ge0}\mathcal R^n=\sum_{\omega}G_\omega,\qquad G_\omega=h_{j_0}G^w_{j_0}\mathcal R_{j_1}\cdots\mathcal R_{j_n},
+\]
+where $\omega=(j_0,\dots,j_n)$ runs over all finite sequences of indices. The series converges in norm, also after applying $D$ on the left and $D^T$ on the right. The term $G_\omega$ vanishes unless $|z_{j_{i+1}}-z_{j_i}|_\infty\le10M+2$ for all $i$. It depends on $U$ only on $\bigcup_i\hat\Lam^w_{j_i}$, and $\|G_\omega\|\le C(C/M)^n$. For fixed $j_0$ the sum of $\|G_\omega\|$ over all $\omega$ converges. The expansion reproduces the exponential decay of $G'$, with a rate of order $M^{-1}\log M$.
+\item \emph{The gauge-field Green function.} Let $\rho\ge15$, so that \eqref{eq:rho-choice} holds with $w=10M$, let $\Lam^v_j$ be the domains of Section~\ref{sec:weakenable} for this $\rho$, and let $n\ge C(\rho+C_v)M$, with $C_v$ the margin of level~(L3) of Section~\ref{sec:nested-walks}. Lemma~\ref{lem:parametrix-X} with $X=\Tf$ gives $\fA_\pi K^v=I-\mathcal R^v$, where $K^v=\sum_jh_j(\fA^{\Lam^v_j,\kappa})^{-1}$ and $\mathcal R^v=D^T\mathcal A+\mathcal B$, with $\mathcal A$, $\mathcal AD^T$, $\mathcal B$ and $\mathcal BD^T$ of norm at most $C/M$ (Lemma~\ref{lem:step-small} at $s=1$). Every $D^T$ in front of $\mathcal A$ is absorbed by the factor on its left. The series $K^v\sum_n(\mathcal R^v)^n$ converges in norm, also with $D$ on the left and $D^T$ on the right, and it equals $\bG=\fA_\pi^{-1}$. This is Theorem~\ref{thm:weak-inverse}(a) at level~(L3), with $X=\Tf$ and $s=1$. The scalar ingredients $G'$, $\Gamma'$ and $(M')^{-1}$ of $\fA_\pi$ are expanded at levels~(L1) and~(L2). The expansion reproduces the exponential decay of $\bG$, with some rate $\gamma>0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{(a), the commutator.} We have $[\fA',h_j]=D^T[D,h_j]+[D^T,h_j]D+a[Q'^TQ',h_j]$. The first two terms form a first-order operator whose coefficients are differences of $h_j$, bounded by $CM^{-1}$ and supported where $\partial h_j\ne0$, as in the proof of Theorem~\ref{thm:reg-scalar}(e). The last term is block-local, with norm at most $CM^{-1}$, and it reaches every point of a unit block that meets $K_j$. So $[\fA',h_j]$ maps into fields supported in $\hat K_j$. By the decay of $G^w_j$, $DG^w_j$, $G^w_jD^T$ and $DG^w_jD^T$ (Theorem~\ref{thm:reg-scalar}(b)), $\mathcal R_j$ and $\mathcal R_jD^T$ have decay $(CM^{-1},\gamma)$.
+
+\emph{(a), the second term.} It vanishes: $\fA'$ is local and $h_j$ is supported at distance $\ge8M-1$ from $\Tf\setminus\Lam^w_j$, so $h_j\fA'\one_{\Lam^w_j}=h_j\one_{\Lam^w_j}\fA'\one_{\Lam^w_j}$.
+
+\emph{(a), summation.} Every point lies in at most $3^d$ sets $K_j$, so a unit block meets boundedly many sets $\hat K_j$. Hence $\mathcal R$ and $\mathcal RD^T$ have decay $(CM^{-1},\gamma)$, and Lemma~\ref{lem:decay-calculus}(a) gives $\|\mathcal R\|+\|\mathcal RD^T\|\le C/M$. Since $\fA'K=I-\mathcal R$ with $\|\mathcal R\|\le\frac12$, $K(I-\mathcal R)^{-1}$ is a right inverse of $\fA'$. It equals $G'$, which exists by coercivity. With derivatives, $D$ falls on $K$ and $D^T$ on the last factor. The operators $DK$, $KD^T$ and $DKD^T$ are bounded, since $[D,h_j]$ is bounded, and $\mathcal RD^T$ is bounded. No derivative on the left of $\mathcal R$ is needed.
+
+\emph{(a), localization.} Since $\Lam^w_j\subset\{x:|x-z_j|_\infty\le9M+1\}$ and $\hat K_j\subset\{x:|x-z_j|_\infty\le M+1\}$, $G^w_{j_i}\mathcal R_{j_{i+1}}$ vanishes unless $|z_{j_{i+1}}-z_{j_i}|_\infty\le10M+2$. The dependence on $U$ is that of the local propagators. Since the grid spacing $M'$ of Lemma~\ref{lem:partition} satisfies $M'\ge8M/9$ (proof of that lemma), each step has at most $28^d$ choices, so the sum of $\|G_\omega\|\le C(C/M)^n$ over the $\omega$ with fixed $j_0$ converges for $M$ large. Finally $\one_yG_\omega\one_{y'}=0$ unless $n\ge|y-y'|/(C_dM)-1$. Hence $\|\one_yG'\one_{y'}\|\le C\sum_{n\ge|y-y'|/(C_dM)-1}(C/M)^n$, which decays like $e^{-c|y-y'|M^{-1}\log M}$. If the side of $\T$ is less than $8M$, the partition is trivial (Section~\ref{sec:domains}): $\Lam^w_0=\Tf$, $K=G'$ and $\mathcal R=0$. Then (a) holds with the single term $G'$, whose decay is Theorem~\ref{thm:reg-scalar}(b).
+
+\emph{(b).} For the parametrix of Lemma~\ref{lem:parametrix} with $\fA=\fA_\pi$, the argument of (a) gives no bound on $\mathcal R_j$ uniform in $\eta$: $[\fA_\pi,h_j]$ contains $D^T\mathfrak F[S,h_j]$, and the coefficients of $\mathfrak F$ are only H\"older continuous. This is why the parametrix $K^v$ of Lemma~\ref{lem:parametrix-X} and the factorized remainder are used. Section~\ref{sec:nested-walks} is written in the conventions of Part~VIII, with Ba\l aban's averaging pair and $E=0$. This is used only in the formula for the non-local part $\mathfrak N^X$ at level~(L3). For a pair with $E\ne0$, $\bQ\Pi_X=\bQ-(D_VQ'+E)S_X=\bQ-ES_X$, since $Q'S_X=Q'G'_XR_XD^T_X=0$ (Theorem~\ref{thm:reg-scalar}(d)). So $\mathfrak N^X$ contains in addition
+\[
+-a\big(\bQ^TES_X+S_X^TE^T\bQ\big)+aS_X^TE^TES_X .
+\]
+Since $S_X=G'_XR_XD^T_X$, these are factorized terms with $X_i^T=1$, $Y_i\in\{1,D^T_X\}$ and middle factors $\bQ^TEG'_XR_X$, $DR_XG'_XE^T\bQ$ and $DR_XG'_XE^TEG'_XR_X$. They are bounded and compatible by (L1), (L2), Lemma~\ref{lem:weak-local-ops}(a) and the locality of $E$ (Lemma~\ref{lem:cov-avg}(c)). So (A3) holds, and the rest of the proof of Theorem~\ref{thm:weak-inverse} is unchanged. The inputs of (L1)--(L3) are Theorems~\ref{thm:reg-scalar}, \ref{thm:reg-gauge}(a), \ref{thm:reg-locality}(a) and Lemma~\ref{lem:full-gradient}. Their thresholds and constants do not depend on $M\ge M_0$ (Theorem~\ref{thm:reg-coercive}). Theorem~\ref{thm:reg-locality}(b), whose bound contains $e^{CM}$, is not used. So (b) holds for $\eps\le\eps_0$, with $\eps_0$ independent of $M$. This threshold is that of Part~III for the model pair, whose averaging parameter is $C_{\rm mod}\eps$ (Section~\ref{sec:rg-step}). For Ba\l aban's pair one needs in addition $\eps\le\eps_{\rm B}$ (Lemma~\ref{lem:uniformity}(c)); by Lemma~\ref{lem:regular-monotone} it may be taken at $M=M_0$, so this threshold does not depend on $M$ either (compare Section~\ref{sec:nested-walks}).
+\end{proof}
+
+\begin{remark}[What the expansion adds]
+For the bounds of Parts~I--VIII the random-walk expansion is not needed; in Part~IX its weakened form also gives the bounds on the weakened inverses (Theorem~\ref{thm:weak-inverse}, Corollary~\ref{cor:weak-covariance}). Decay comes from Combes--Thomas, and locality in the background from Theorem~\ref{thm:reg-locality}. What it adds is a representation of $G'$ and of $\bG$ by terms that are local in the background, with explicit smallness: $\|G_\omega\|\le C(C/M)^{|\omega|}$ in (a), and, in (b), $(C/M)^n$ for each of the $2^n$ regrouped products of bounded factors in $K^v(\mathcal R^v)^n$. For $W\in\cW^{\rm an}_{\rm loc}(\eps)$ and averaging pairs with property~(v) of Remark~\ref{rem:general-averaging}, the terms are analytic in the complex perturbations of Proposition~\ref{prop:reg-complex}. Ba\l aban's cluster expansions of the fluctuation integrals and of the effective actions are built on this representation \cite{BalBackground}.
+
+In the gauge case a fully local representation needs walk expansions of the scalar ingredients as well, including the averaged inverses $\Gamma'$ and $(M')^{-1}$. They are constructed in Section~\ref{sec:nested-walks}, levels~(L1)--(L3), with bounds on the sum of the norms of all terms. The averaged operators $\boldsymbol\Gamma_\pi$, $\bH$ and $\bC$ are expanded there at level~(L4), in the setting of Part~VIII.
+
+The local propagators used here differ from Ba\l aban's. Ba\l aban works with Dirichlet operators and proves their positivity from local estimates in the axial gauge \cite[Lemma~2.4]{BalPropII}. We add a mass term near the boundary of the localization domain instead, and impose Dirichlet conditions on all components of the gauge field (Section~\ref{sec:reg-gauge}). Both additions act only near the boundary: the mass term in blocks at Euclidean distance at most $c_{\rm seam}(d)M$ from the complement of the domain, and the exterior divergence on the bonds that cross its boundary. So the local expressions of the two operators coincide away from the boundary. Their inverses differ in general, also away from the boundary. The parametrix uses the local expressions only on $\supp h_j$, where they agree with those of the operator being inverted (proofs of Lemmas~\ref{lem:parametrix} and~\ref{lem:parametrix-X}), and it uses the local propagators only through their own properties (Lemma~\ref{lem:parametrix}, hypothesis (A2) of Section~\ref{sec:nested-walks}), never through a comparison with Ba\l aban's.
+\end{remark}

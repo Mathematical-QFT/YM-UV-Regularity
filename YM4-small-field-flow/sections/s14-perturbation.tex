@@ -1,0 +1,97 @@
+\section{Perturbation lemmas}\label{sec:perturbation}
+
+Under hypothesis (B), every operator of Part~II will be written as the corresponding operator of Part~I plus a perturbation of a specific structure. This section shows that the three tools of Part~I (Combes--Thomas, inversion with decay, local regularity) are stable under such perturbations.
+
+\subsection{Complex fields}\label{ss:13.1}
+
+Lemmas~\ref{lem:CT-bounded}, \ref{lem:neumann} and~\ref{lem:CT-form} hold for operators on complex ($\mathfrak g^c$-valued) fields that are not necessarily symmetric, provided the lower bounds are imposed on $\Rea\ip u{Ku}$ for all complex fields $u$ (not only real ones). The proofs are unchanged: $\Rea\ip u{K_\alpha u}\ge\delta\|u\|^2$ implies $\|K_\alpha u\|\ge\delta\|u\|$, and in the proof of Lemma~\ref{lem:CT-form} one uses $|\ip uh|\ge\Rea\ip uh$. We use these lemmas in this form without further comment.
+
+\subsection{Admissible perturbations}\label{ss:13.2}
+
+Let $\mathfrak D$ be the set of operators consisting of the identity and all $\partial_\mu$, $\partial^*_\mu$, $D_\mu$, $D^T_\mu$, acting on scalar fields, on gauge fields (componentwise), or between gauge fields and $2$-forms. Under (B) with $\eps\le1$, every $X\in\mathfrak D$ satisfies $\|Xu\|\le2\|\partial u\|+C\|u\|$ and $\|X^*u\|\le2\|\partial u\|+C\|u\|$. By Lemma~\ref{lem:conj-derivative} and Lemma~\ref{lem:cov-expansion}, $X_\alpha-X$ is bounded by $C|\alpha|$ for $|\alpha|\le1$ and $1$-Lipschitz $\rho$.
+
+\begin{definition}[Admissible perturbations]\label{def:admissible}
+An operator $\delta$ is an \emph{admissible perturbation of size $\eps$ and rate $\gamma$} if $\delta=\sum_{i=1}^mX_iM_iY_i$ with $m\le m_0$, $X_i,Y_i\in\mathfrak D$, and each $M_i$ has decay $(\eps,\gamma)$. Here $m_0$ is a fixed absolute number.
+\end{definition}
+
+\begin{lemma}[Stability of Combes--Thomas]\label{lem:CT-stable}
+Let $\mathfrak A_0$ satisfy the hypotheses of Lemma~\ref{lem:CT-form} with constants $c,C_1,\alpha_1$, and let $\delta$ be admissible of size $\eps$ and rate $\gamma$. There is $\eps_1>0$, depending only on $c$, $\gamma$ and $m_0$, such that for $\eps\le\eps_1$ the operator $\mathfrak A=\mathfrak A_0+\delta$ satisfies these hypotheses with constants $c/2$, $C_1+1$ and $\min(\alpha_1,\gamma/2,1)$. In particular $\mathfrak A^{-1}$, $\partial\mathfrak A^{-1}$, $\mathfrak A^{-1}\partial^*$ and $\partial\mathfrak A^{-1}\partial^*$ have decay $(C,\gamma_0)$ with $C,\gamma_0$ depending only on $c,C_1,\alpha_1,\gamma,m_0$. The same holds with $\partial$ replaced by $D$.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:decay-calculus}(a), $|\ip u{X_iM_iY_iu}|\le\|X_i^*u\|\,\eps S_\gamma\,\|Y_iu\|\le C\eps(\|u\|^2+\|\partial u\|^2)$. This gives (i) with $c/2$ if $C\eps\le c/2$. For (ii), note that $(XMY)_\alpha-XMY$ is a sum of three terms, each containing one of the differences $X_\alpha-X$, $M_\alpha-M$, $Y_\alpha-Y$. The first and last have norm at most $C|\alpha|$, and $\|M_\alpha-M\|\le\eps c_1(\gamma)|\alpha|$ by Lemma~\ref{lem:conjugation}. Every term is therefore bounded in form sense by $C\eps|\alpha|(\|u\|^2+\|\partial u\|^2)$. Replacing $\partial$ by $D$ in the conclusions costs a bounded operator of size $C\eps$, by Lemma~\ref{lem:cov-expansion}.
+\end{proof}
+
+\begin{lemma}[Perturbed inverses]\label{lem:perturbed-inverse}
+In the situation of Lemma~\ref{lem:CT-stable}, let $r$ and $r_0$ be decay rates of $\mathfrak A^{-1}$ and $\mathfrak A_0^{-1}$, respectively (with derivatives), and set $\gamma_0=\min(\gamma,r,r_0)$. Then $\mathfrak A^{-1}-\mathfrak A_0^{-1}=-\mathfrak A^{-1}\delta\mathfrak A_0^{-1}$. This operator, as well as its compositions with $\partial$ on the left and with $\partial^*$ on the right, has decay $(C\eps,\gamma_0/4)$. The same statements hold, with $\partial$ replaced by $1$, for bounded operators $K=K_0+\delta$ on unit-lattice fields, where $K_0$ has decay, $\Rea\ip f{K_0f}\ge c\|f\|^2$, and $\delta$ has decay $(\eps,\gamma)$ with $\eps S_\gamma\le c/2$. In this bounded case, set $\gamma_0=\min(\gamma,r_K,r_{K_0})$, where $r_K,r_{K_0}$ are chosen decay rates of $K^{-1},K_0^{-1}$.
+\end{lemma}
+
+\begin{proof}
+The identity is algebraic. Each term $\mathfrak A^{-1}X_iM_iY_i\mathfrak A_0^{-1}$ is a product of the operators $\mathfrak A^{-1}X_i$ and $Y_i\mathfrak A_0^{-1}$ and of $M_i$, which has decay $(\eps,\gamma)$. Lemma~\ref{lem:CT-stable} gives decay of $\mathfrak A^{-1}\partial^*$ and $\partial\mathfrak A_0^{-1}$. The remaining combinations reduce to these: $\partial_\mu=-\partial^*_\mu S_\mu$ and $\partial^*_\mu=-S_\mu^{-1}\partial_\mu$, where the shifts $S_\mu^{\pm1}$ by $\eta$ are local isometries, and $D_\mu=\partial_\mu+T_\mu$ with $T_\mu$ local and bounded. All three factors have decay at the common rate $\gamma_0$, by Lemma~\ref{lem:decay-calculus}(c). Apply Lemma~\ref{lem:decay-calculus}(b) twice; each application halves the rate. In the bounded case use Lemma~\ref{lem:CT-bounded} for $K$.
+\end{proof}
+
+\subsection{Pointwise admissibility and the bootstrap}\label{ss:13.3}
+
+For pointwise bounds we need perturbations whose action is controlled locally. For a field $u$ on $\Tf$ and $y\in\T$ put
+\[
+N^0_y(u)=|u|_{\Lam_1(c_y)},\qquad N^1_y(u)=|u|_{\Lam_1(c_y)}+|\partial u|_{\Lam_1(c_y)} .
+\]
+
+\begin{definition}[Pointwise admissibility]\label{def:pointwise-admissible}
+Let $i\in\{0,1\}$. A linear operator $\delta$ is \emph{pointwise admissible of type $i$}, with constants $(\eps,C_\delta,\gamma)$, if for every field $u$ there are fields $F_u$, $g_u$ with $\delta u=F_u+\sum_\mu\partial^*_\mu g_{u,\mu}$ and, for every $y$,
+\[
+|F_u|_{\Lam_2(c_y)}+|g_u|_{\Lam_3(c_y)}+i\,\Hol{g_u}{\Lam_3(c_y)}\le\sum_{y'}e^{-\gamma|y-y'|}\Big(\eps N^i_{y'}(u)+C_\delta\|u\|_{B(y')}\Big).
+\]
+\end{definition}
+
+The smallness is required only for the terms controlled by $N^i$. Terms controlled by local $L^2$ norms, such as $dP_\cV d^*$ in Section~\ref{sec:gauge-green}, may be large.
+
+\begin{lemma}[Bootstrap]\label{lem:bootstrap}
+Let $\delta$ be pointwise admissible of type $i$ with constants $(\eps,C_\delta,\gamma)$. There is $\eps_*>0$, depending only on $\alpha$ and $\gamma$, such that the following holds if $\eps\le\eps_*$; it does not depend on $C_\delta$, $M$ or $\gamma_2$. Let
+\[
+-\Lap u=J+\delta u\qquad\text{on }\Tf,
+\]
+with $J=J_F+\sum_\mu\partial^*_\mu J_{g,\mu}$. Suppose that for some $y_0$, $M>0$ and $\gamma_2>0$, and for all $y$,
+\[
+\|u\|_{B(y)}+|J_F|_{\Lam_2(c_y)}+|J_g|_{\Lam_3(c_y)}+i\,\Hol{J_g}{\Lam_3(c_y)}\le Me^{-\gamma_2|y-y_0|}.
+\]
+Let $\gamma'=\frac12\min(\gamma,\gamma_2)$. Then, with $C$ depending only on $\alpha,\gamma,\gamma_2,C_\delta$,
+\begin{align*}
+&\text{type }1: & |u|_{B(y)}+|\partial u|_{B(y)}+\Hol{\partial u}{B(y)}&\le CMe^{-\gamma'|y-y_0|},\\
+&\text{type }0: & |u|_{B(y)}+\Hol{u}{B(y)}&\le CMe^{-\gamma'|y-y_0|}.
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+We give the proof for type $1$; type $0$ is identical, with Theorem~\ref{thm:local-regularity}(b) in place of (d). The lattice is finite, so
+\[
+\mathcal N=\max_ye^{\gamma'|y-y_0|}N^1_y(u)<\infty .
+\]
+Fix $y$ and apply Theorem~\ref{thm:local-regularity}(d) on the cubes $\Lam_r(c_y)$, with $F=J_F+F_u$ and $g=J_g+g_u$:
+\[
+N^1_y(u)+\Hol{\partial u}{\Lam_1(c_y)}\le C\big(|F|_{\Lam_2}+|g|_{\Lam_3}+\Hol g{\Lam_3}+\|u\|_{\Lam_2}\big).
+\]
+The cube $\Lam_2(c_y)$ meets at most $C$ blocks, all within distance $C$ of $y$, so $\|u\|_{\Lam_2}\le CMe^{-\gamma_2|y-y_0|}$. By the definition of pointwise admissibility and $N^1_{y'}(u)\le e^{-\gamma'|y'-y_0|}\mathcal N$,
+\[
+|F_u|+|g_u|+[g_u]_\alpha\le\sum_{y'}e^{-\gamma|y-y'|}\Big(\eps e^{-\gamma'|y'-y_0|}\mathcal N+C_\delta Me^{-\gamma_2|y'-y_0|}\Big)\le S_{\gamma/2}\,e^{-\gamma'|y-y_0|}\big(\eps\mathcal N+C_\delta M\big),
+\]
+where we used $\gamma|y-y'|+\gamma'|y'-y_0|\ge\gamma'|y-y_0|+\frac\gamma2|y-y'|$. Multiplying by $e^{\gamma'|y-y_0|}$ and maximizing over $y$ gives $\mathcal N\le C_0M+C_{\rm reg}S_{\gamma/2}\,\eps\,\mathcal N$. Here $C_{\rm reg}$ is the constant of Theorem~\ref{thm:local-regularity}, which depends only on $\alpha$, and $C_0$ depends on $\alpha,\gamma,\gamma_2,C_\delta$. For $\eps\le\eps_*=1/(2C_{\rm reg}S_{\gamma/2})$ this yields $\mathcal N\le2C_0M$, and the H\"older bound follows from the same inequality.
+\end{proof}
+
+\subsection{Building blocks}\label{ss:13.4}
+
+The perturbations in Sections~\ref{sec:cov-scalar}--\ref{sec:cov-min} are assembled from the following pieces.
+
+\begin{lemma}[Building blocks]\label{lem:blocks}
+Assume (B) with $\eps\le1$.
+\begin{enumerate}[label=(\alph*)]
+\item The differential parts $D^TD+\Lap$ (on scalar fields) and $D^TD+DD^T+\Lap$ (on gauge fields) are admissible of size $C\eps$ and pointwise admissible of both types with constants $(C\eps,0,1)$.
+\item Every $W\in\cW(\eps,\gamma)$ is admissible of size $\eps$ and pointwise admissible of type $1$ with constants $(C\eps,0,\gamma)$, since $\Hol u{\Lam_1}\le C(|u|+|\partial u|)_{\Lam_1}$.
+\item The operators $Q'(U)^TQ'(U)-Q_0^*Q_0$ and $\bQ(U)^T\bQ(U)-\bQ^*\bQ$ are admissible of size $C\eps$ and pointwise admissible of both types with constants $(C\eps,0,1)$. The operators $Q_0^*Q_0$ and $\bQ^*\bQ$ themselves are pointwise admissible with constants $(0,C,1)$.
+\item If $K$ is an operator with values in fine fields such that $u\mapsto Ku$ satisfies $|Ku|_{B(y)}+|\partial Ku|_{B(y)}+\Hol{\partial Ku}{B(y)}\le C_K\sum_{y'}e^{-\gamma|y-y'|}\|u\|_{B(y')}$, then $\partial_\mu K$ is pointwise admissible with constants $(0,C\,C_K,\gamma)$ (it contributes only to $F_u$).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) By \eqref{eq:DTD-normal}, $(D^TD+\Lap)u=\sum_\mu\partial^*_\mu(a_\mu u)+bu$, and $[a_\mu u]_\alpha\le C\eps(|u|+|\partial u|)$ on each cube. For type $0$ the H\"older quotient is not needed. Admissibility in the sense of Definition~\ref{def:admissible} follows from the same formula: $\partial^*\circ a_\mu\circ1$ and $1\circ b\circ1$ with $a_\mu,b$ local of size $C\eps$. (b) is the definition of $\cW$. (c) By Lemma~\ref{lem:cov-avg}(b), the differences are local, bounded by $C\eps$, and their values are bounded pointwise by $C\eps|u|$ on neighbouring blocks. They contribute only to $F_u$. The second statement follows from $|Q_0^*Q_0u|\le\max|Q_0u|\le\|u\|$ on blocks (Lemma~\ref{lem:avg}). (d) is immediate.
+\end{proof}

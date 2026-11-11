@@ -1,0 +1,41 @@
+% Figure of the guide (G11): the order in which the parameters are chosen. Owner: WP7.
+\begin{gfigure}[tp]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,
+  pm/.style={draw,rounded corners=1.5pt,fill=white,align=flush left,text width=6.45cm,font=\scriptsize,inner xsep=3pt,inner ysep=2pt},
+  key/.style={pm,line width=1.1pt},
+  tg/.style={anchor=east,font=\scriptsize\bfseries,inner sep=1pt},
+  ar/.style={-{Stealth[length=1.5mm]},semithick},
+  ]
+\def\P#1{{\footnotesize #1}}
+% left column: up to M'
+\node[pm,anchor=north west] (l0) at (0.75,0) {\P{$d=4$, $G$, $a$, $\alpha$; the functions $p$, $p_0$; $q$}\\ fixed at the outset;\\ they depend on no parameter below};
+\node[pm,below=3mm of l0] (l1) {\P{constants of $d$, $G$, $a$, $\alpha$: $M_0$, $\eps_0$, \dots, $C_*$}\\ $C_*$ (Proposition~\ref{prop:sharp-curvature}) does not depend on $L$};
+\node[pm,below=3mm of l1] (l2) {\P{$\kappa_n\ge2(1+C_d+\kappa_0)$}\\ the rate of the norms of the flow};
+\node[key,below=3mm of l2] (l3) {\P{$L$ odd, $L\ge C3^d+3$, $L^2\ge8(C_*+1)$}\\ then the constants of $L$, and those of Part~V:\\ $c_7\to\theta_0\to C_6\to c_6$ (proof of Theorem~\ref{thm:variational})};
+\node[pm,below=3mm of l3] (l4) {\P{$\kappa$, $\delta$}: three rate conditions, not involving $L$};
+\node[key,below=3mm of l4] (l5) {\P{$\rho$, then $M\ge\max(M_0,5L,M_1,M^{(0)}_1,M'_1,64)$}\\ a power of $L$; $M_1$, $M'_1$ are computed with doubled\\ constants, so they do not depend on $\bar\delta$};
+\node[pm,below=3mm of l5] (l6) {\P{the constants of $M$}: $B_3$, $a_1$ (Theorem~\ref{thm:balaban});\\ $a_{\rm step}$, $r_2$ (Theorem~\ref{thm:step}); $\delta_*$, $C_W$ (proof of\\ Proposition~\ref{prop:dirichlet-hessian}(c)) and $c''_L$ (Lemma~\ref{lem:coercive-general})};
+\node[pm,below=3mm of l6] (l7) {\P{$M'\ge M'_L$} (Theorem~\ref{thm:step-coercive}); the torus: $n_K\ge n_{\min}$\\ (Section~\ref{subsec:tf-scales})};
+% right column: the domains, the flow constants, the couplings
+\node[pm,anchor=north west] (r0) at (8.4,0) {\P{$C_{\rm cx}$, then the cap $\bar\delta\le\min(\delta_{AB},1/C_{\rm cx})$;}\\ \P{the threshold $\eps_{\max}$}, computed with the constants\\ doubled (Remark~\ref{rem:domain-constants}, Proposition~\ref{prop:complex-ext})};
+\node[key,below=3mm of r0] (r1) {\P{$\delta_P\le\bar\delta$, $\delta_P\le c''_L$, \dots; then $\delta_{P,0}$}\\ Proposition~\ref{prop:complex-ext}, Proposition~\ref{prop:first-step}};
+\node[pm,below=3mm of r1] (r2) {\P{$c_a$, $\delta_1\le\delta_0$, $\theta_r$}: (DC1)--(DC6) of Remark~\ref{rem:domain-constants};\\ $\delta_1^\flat=\frac14\delta_1$; the integer $m_0$};
+\node[pm,below=3mm of r2] (r3) {\P{$\mathsf K=2\max(B_{\rm new},B^{(0)}_{\rm new})$; $C_{\rm old}$, $C_\beta$, $C_{\rm new}$}\\ the constants of the flow, Remark~\ref{rem:flow-constants}(i), (ii)};
+\node[key,below=3mm of r3] (r4) {\P{$\gamma\le g_p$ with ($\Gamma$1)--($\Gamma$4)}\\ Remark~\ref{rem:flow-constants}(iii); for Theorem~\ref{thm:ol-uv} also\\ $\gamma\le e^{-3q}$ and $C_3\gamma^2p_0(\gamma)^6\le\frac12\beta_\infty$};
+\node[pm,below=3mm of r4] (r5) {\P{the couplings $g_k\in(0,\gamma]$}:\\ $h_k=p(g_k)g_k$, $p_{0,k}=p_0(g_k)$, $w=C_wL^dC_Tg_kp_{0,k}$\\ (Remark~\ref{rem:flow-constants})};
+\node[pm,below=3mm of r5] (r6) {\P{$g_{\rm uv}$, $C$, $m_1$} of Theorem~\ref{thm:ol-uv}};
+% tags: the items of Remark 49.8
+\foreach \n/\t in {l0/(0),l1/(0),l2/(1),l3/(2),l4/(3),l5/(4),l6/(4),l7/(4),r0/(5),r1/(5),r2/(5),r3/(5$'$),r4/(6),r6/(7)}
+  \node[tg] at ([xshift=-1mm]\n.west) {\t};
+% the order
+\foreach \u/\v in {l0/l1,l1/l2,l2/l3,l3/l4,l4/l5,l5/l6,l6/l7,r0/r1,r1/r2,r2/r3,r3/r4,r4/r5,r5/r6} \draw[ar] (\u) -- (\v);
+\draw[ar] (l7.east) -- ++(0.3,0) |- ([yshift=3mm]r0.north) -- (r0.north);
+% no dependence of eps_max on delta_P
+\draw[dashed,semithick] (r1.east) -- ++(0.25,0) coordinate (xa);
+\draw[ar,dashed] (xa) -- (xa |- r0.east) -- (r0.east);
+\node[fill=white,inner sep=0.3pt,font=\footnotesize] at ($(xa)!0.5!(xa |- r0.east)$) {$\times$};
+\end{tikzpicture}
+\caption{The order in which the parameters are chosen. Each box may depend on the boxes before it, in the order of the arrows: the left column, then the right one (Remark~\ref{rem:parameters}). A tag is the stage of the box: (1)--(6) are the items of Remark~\ref{rem:parameters}, (0) the data fixed at the outset and their constants, (5$'$) the constants of the flow, which Remark~\ref{rem:flow-constants} places between items~(5) and~(6), and (7) the constants of Theorem~\ref{thm:ol-uv}. Thick frames: the block size $L$, the scale $M$, the size $\delta_P$ of the complex references, and the bound $\gamma$ on the couplings. The radius $\delta_*$ and the constant $C_W$ are fixed in the proof of Proposition~\ref{prop:dirichlet-hessian}(c), and $c''_L$ with $C_{\rm cmp}c''_L\le\delta_*$ in the proof of Lemma~\ref{lem:coercive-general}; they depend on $M$, and $\delta_P\le c''_L$ (Proposition~\ref{prop:complex-ext}). Crossed dashed arrow: $\eps_{\max}$ does not depend on $\delta_P$, since its thresholds are computed with every multiplicative constant doubled (Remark~\ref{rem:domain-constants}). Every condition on $\gamma$ is an upper bound by quantities fixed before it, so the order has no cycle (Remark~\ref{rem:parameters}(6)).}
+\label{fig:G-parameters}
+\end{gfigure}

@@ -1,0 +1,42 @@
+% ===== Guide, reading aids and links to the companion. Nothing here steps an existing counter. =====
+\usepackage{framed}
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}                 % unnumbered remark
+\makeatletter
+% Guide sections: own counter gsec, printed G0..G14; the section counter is never touched.
+\newcounter{gsec}\setcounter{gsec}{-1}
+\renewcommand{\thegsec}{G\arabic{gsec}}       % hyperref anchors: gsec.N / section*.N (unique)
+\newcommand{\gsection}[1]{\par\refstepcounter{gsec}%
+  \section*{\thegsec\quad #1}%
+  \addcontentsline{toc}{gsection}{\protect\numberline{\thegsec}#1}}
+% Contents entry of a guide section: as \l@section of article.cls, with a 2.3em number box (G10..G14 fit).
+\newcommand*\l@gsection[2]{%
+  \ifnum\c@tocdepth>\z@
+    \addpenalty\@secpenalty\addvspace{1.0em \@plus\p@}%
+    \setlength\@tempdima{2.3em}%
+    \begingroup
+      \parindent\z@ \rightskip\@pnumwidth \parfillskip-\@pnumwidth
+      \leavevmode\bfseries
+      \advance\leftskip\@tempdima \hskip-\leftskip
+      #1\nobreak\hfil\nobreak\hb@xt@\@pnumwidth{\hss #2\kern-\p@\kern\p@}\par
+    \endgroup
+  \fi}
+\def\toclevel@gsection{1}                     % bookmark level of a section
+% Floats of the guide: counter gfigure, printed "Figure G1", ...
+\newcounter{gfigure}\renewcommand{\thegfigure}{G\arabic{gfigure}}
+\def\fps@gfigure{tbp}\def\ftype@gfigure{1}\def\ext@gfigure{lof}
+\def\fnum@gfigure{Figure~\thegfigure}
+\newenvironment{gfigure}{\@float{gfigure}}{\end@float}
+\makeatother
+% Unnumbered reading box; may break across pages. No footnotes, floats or \hasdetail inside.
+\newenvironment{readingbox}[1][]{\begin{framed}\small
+  \if\relax\detokenize{#1}\relax\else\noindent\textbf{#1.}\ \fi\ignorespaces}{\end{framed}}
+% Link from a proof to the companion: named destination N:<note label> in Details/details.pdf.
+\newcommand{\detailsfile}{Details/details.pdf}
+\newcommand{\hasdetail}[1]{\leavevmode\marginpar{\footnotesize\raggedright
+  \href{\detailsfile\#N:#1}{\textsf{Details}}}\ignorespaces}
+% Names of table (ii) (also in Details/details-preamble.tex).
+\newcommand{\Cav}{C^{\rm av}}                 % averaging remainder (Proposition 22.9)
+\newcommand{\Av}{\operatorname{Av}}           % group average (Lemma 21.5)
+\newcommand{\cJ}{\mathcal J}                  % functional of Section 26
+\newcommand{\Eloop}{E_{\rm loop}}             % loop average (Lemma 46.3)

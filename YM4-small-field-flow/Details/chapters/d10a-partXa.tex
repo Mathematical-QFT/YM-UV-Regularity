@@ -1,0 +1,1558 @@
+\providecommand{\xaabs}[1]{\lvert#1\rvert}
+\providecommand{\xanorm}[1]{\lVert#1\rVert}
+\section{Part X, first half: complex references, step quantities and the cluster expansion}\label{xa:sec}
+
+This chapter expands Sections~\Nref{sec:complex-references}--\Nref{sec:cluster} of the note, together with the reblocking of Section~\Nref{subsec:flow-reblock}. The heading of each Detail names the result of the note that it expands. Results of the note are cited by their printed numbers, and the links go to the note.
+
+\paragraph{Conventions.}
+\begin{itemize}
+\item Other chapters of this volume are cited by number:
+  \begin{itemize}
+  \item the parameter ledger, Section~\ref{sec:ledger}, for the global order of the parameters and the disambiguation of names;
+  \item the chapters on Parts~VIII and~IX, Sections~\ref{d8:sec} and~\ref{d9:sec};
+  \item the chapter on the second half of Part~X, Section~\ref{xb:sec}.
+  \end{itemize}
+\item Where a letter of the note has several meanings, we add the meaning in parentheses, as in the table of names of the ledger. For example, $C_T$ is the bound on $C_k^{1/2}(s)$, not the tier constant.
+\item Throughout, $U_r$ is a real $(M,\eps)$-regular configuration on $\Tf$, and $A'$ is a $\mathfrak g^c$-valued field on its bonds. We write
+\[
+U=e^{\ii\eta A'}U_r\quad(\text{bondwise}),
+\]
+and call $U$ a complex reference.
+\end{itemize}
+
+The longest verification in these sections is that of Proposition~\Nref{prop:complex-ext}, whose proof in the note is a list of modifications of earlier proofs. We therefore treat it first, in Section~\ref{xa:sec-ext}. It uses Proposition~\Nref{prop:AB} (Section~\ref{xa:sec-AB}) only through statements~(i)--(vi) of that proposition, and these rest only on Part~IV at real references. So the order of the subsections is not the logical order, but no argument below is circular (Detail~\ref{xa:d-dag}).
+
+%======================================================================
+\subsection{The extension of Part IX to complex references (Proposition~\texorpdfstring{\Nref{prop:complex-ext}}{46.7})}\label{xa:sec-ext}
+
+\paragraph{What this subsection does, and why.} The norm of the flow requires activities that are analytic in the background on complex graded domains (Definition~\Nref{def:graded}). So the step evaluates the operators of Part~IX, the interior estimates and the weakened background map at complex references $U=e^{\ii\eta A'}U_r$, and Proposition~\Nref{prop:complex-ext} states that the results needed later extend to them. The note explains this at the opening of Section~\Nref{sec:complex-references}. Remark~\Nref{rem:complex-ext-use} says which references occur: the points of the graded domain of step $k+1$, read in the units of step $k$ (Detail~\ref{xa:d-ext-use}). Three mechanisms carry the extension.
+\begin{enumerate}[label=(\arabic*)]
+\item Identities are proved at real points and continued holomorphically over a convex ball of complex references, whose real points are real backgrounds (Details~\ref{xa:d-dag} and~\ref{xa:d-identity}).
+\item The operators at a complex reference are perturbed inverses, with fixed coercivity constants and fixed decay rates ((R2) of Detail~\ref{xa:d-ext-reading}; Detail~\ref{xa:d-step-i}).
+\item Every other constant is a monotone majorant of its inputs, so at a complex reference of size $\delta_c<\delta_P$ it is at most doubled (Detail~\ref{xa:d-majorant}).
+\end{enumerate}
+Downstream only the reading (R1)--(R3), the bound $K'\le2K$ and the condition $\delta_c<\delta_P$ are used. The parameters are chosen in the order: the real constants; then $M_1(2x)$, $M_{\mathfrak N}$ and $M'_1$; then $M$; then $\delta_*$, $C_W$ and $c''_L$; then $M'$; then $C_{\rm cx}$; then $\bar\delta$; then $\eps_{\max}$; then $\delta_P$ (Detail~\ref{xa:d-majorant}, Step~4; the conditions on $\delta_P$ are in Detail~\ref{xa:d-deltaP}).
+
+\emph{Statement used: Proposition~\Nref{prop:AB}.} The Details of this subsection use the six parts of Proposition~\Nref{prop:AB}, written AB(i)--AB(vi), before Section~\ref{xa:sec-AB} expands their proofs. Let $a\le c'_3$, let $U_r\in\mathfrak U_0(a)$ be real, and let $U=e^{\ii\eta A'}U_r$ with $\xaabs{A'}_\infty\le\delta_c<\delta_{AB}$. Uniformly in $k$, $\eta$ and $j\le k$:
+\begin{itemize}
+\item AB(i): the averaged backgrounds $W_j(U)$ are defined, and relative to $W_j(U_r)$ they are complex perturbations of size at most $C_{\rm AB}\delta_c$;
+\item AB(ii): Lemma~\Nref{lem:one-step-expansion} holds at the complex background $W_{j-1}(U)$, with the bounds on $q_j$, $r_j$, $\gamma_j$ modified as stated there;
+\item AB(iii): Proposition~\Nref{prop:Q-expansion} holds at the reference $U$, with its kernel bounds multiplied by $e^{C_L\delta_c}$;
+\item AB(iv): $Q'_k(U)Q'_k(U)^T=I$ for the bilinear transpose; part (d) of Proposition~\Nref{prop:linearized-averages}, and part (f) for real gauge transformations, hold as stated (written AB(iv)(d), AB(iv)(f)), part (e) holds with $\eps$ replaced by $\eps+\delta_c$ (written AB(iv)(e)), and the chain transports are bounded by $e^{\kappa_{\rm AB}\delta_c}$;
+\item AB(v): $\bQ_k(U)$, $Q'_k(U)$ and $D_{W_k(U)}$ differ from their values at $U_r$ by local operators of size $C_L\delta_c$;
+\item AB(vi): these objects are holomorphic in $A'$ on $\{\xaabs{A'}_\infty<\delta_{AB}\}$.
+\end{itemize}
+
+\begin{detail}[Proposition~\Nref{prop:complex-ext}: the precise reading of the statement]\label{xa:d-ext-reading}\Ntarget{prop:complex-ext}
+ Let $U_r$ be real and $(M,\eps)$-regular with $\eps\le\eps_{\max}$, and let $U=e^{\ii\eta A'}U_r$ be a complex reference of size $\delta_c<\delta_P$ (Detail~\ref{xa:d-cmp}). Wherever the Hessian is used, assume also $\xaabs{J_{U_r}}\le\eps$. The proposition says that each result in its list (a)--(d) holds at $U$ in the following sense.
+\begin{enumerate}[label=(R\arabic*)]
+\item Every smallness parameter $\eps$ in a hypothesis or a conclusion is replaced by $\eps+C\delta_c$. Examples are the (B)-parameter of the local gauges and the bounds $C\eps$ on coefficients, on $\xaabs{F^s}$ and on $\xanorm{W}$.
+\item The $\Rea$-coercivity constants and the decay rates are \emph{fixed} numbers:
+  \begin{itemize}
+  \item for the operators of Parts~II, III and~VIII, Lemma~\Nref{lem:CT-stable} gives the hypotheses of Lemma~\Nref{lem:CT-form} with the constants $c/2$, $C_1+1$ and $\min(\alpha_1,\gamma/2,1)$. The third number is the range of the conjugation parameter, not a rate. The rate produced is $\gamma_{\rm c}=\min(\alpha_1,\gamma/2,\frac13,c/(4(C_1+1)))$, and by Lemma~\Nref{lem:perturbed-inverse} the differences from the operators at $U_r$ decay at $\gamma_{\rm c}/4$; since $\gamma_{\rm c}\le\gamma/2$, this is a quarter of the minimum of the perturbation rate and the two chosen inverse decay rates;
+  \item at level~(L5), the lower bounds $\frac18c_L$ and $\frac1{16}c_L$ of Lemma~\Nref{lem:coercive-general} and Proposition~\Nref{prop:local-fluct}, and again a quarter of the minimum of the perturbation rate and the two chosen inverse decay rates for the differences.
+  \end{itemize}
+  Every input decay bound is taken at these quarter rates. The decay rates of the outputs are those that the real-reference proofs give at such inputs.
+\item Every other constant $K$ is replaced by a constant $K'\le(1+C_{\rm cx}\delta_c)K\le2K$. Here $K$ is the \emph{real-reference constant computed with the coercivity constants and the quarter rates of (R2)}. The qualification is necessary. At the rate $\gamma_{\rm c}$ of the operators, the difference $G(U)-G(U_r)$ is bounded only at the rate $\gamma_{\rm c}/4$. So a bound $K'\le(1+C\delta_c)K$ for a constant computed at a larger rate $\gamma'$ would not be uniform in the size of the torus: the difference term grows like $e^{(\gamma'-\gamma_{\rm c}/4)D}$ with the diameter $D$. At the rate $\gamma_{\rm c}$ itself, Lemma~\Nref{lem:CT-form} applies at $U$ directly with $\frac c2$, and gives only a bound by about twice the real constant, not by $1+C\delta_c$ times it.
+\end{enumerate}
+Not extended, by the last paragraph of the statement:
+\begin{itemize}
+\item Theorem~\Nref{thm:ID}(d);
+\item the identity of Lemma~\Nref{lem:div-curvature} (its bound on $W_0$ does extend, through the proof of Proposition~\Nref{prop:dirichlet-hessian}(c));
+\item Lemma~\Nref{lem:critical-current};
+\item Theorem~\Nref{thm:weak-bg}(c);
+\item the statements ``real for real arguments''.
+\end{itemize}
+Details~\ref{xa:d-cmp}--\ref{xa:d-deltaP} prove (R1)--(R3), step by step, in the order of the proof of Proposition~\Nref{prop:complex-ext}.
+\status{Expanded. The statement of Proposition~\Nref{prop:complex-ext} names the coercivity constants and the fixed rate of the differences, as in (R2), (R3). Downstream only the bound $K'\le2K$ is used (Detail~\ref{xa:d-majorant}).}
+\end{detail}
+
+\begin{detail}[Section~\Nref{sec:complex-references}, the paragraph ``Complex references'': the comparison of sizes]\label{xa:d-cmp}\Ntarget{sec:complex-references}
+\emph{The comparison constant $C_{\rm cmp}$.} Two measures of the size of a complex perturbation are used.
+\begin{itemize}
+\item \emph{The size of a complex reference.} With $\tilde A'_y$ the field $A'$ written in a real gauge in which $U_r$ satisfies (B) on $\Lam_4(c_y)$,
+\[
+S(A')=\xaabs{A'}_\infty+\xaabs{\nabla A'}_\infty+\sup_y\Hol{\partial\tilde A'_y}{\Lam_1(c_y)} .
+\]
+Here $\nabla=\nabla_{U_r}$ is the covariant gradient, and $\partial$ is the flat gradient in the gauge of $y$. If $\nabla$ is used in the H\"older term as well, this changes the term by at most $C\eps(\xaabs{A'}+\xaabs{\partial\tilde A'_y})$, by \Neqref{eq:cov-vs-flat}. All the comparisons below absorb this change.
+\item \emph{The norm of Proposition~\Nref{prop:reg-complex}.} Write $U=U_r e^{\ii\eta\,\delta\!A}$, that is $\delta\!A(b)=R(U_r(b))^{-1}A'(b)$. For each $z$ let $u_z$ be the gauge of Definition~\Nref{def:regular} on $\hat\Lam(z)=\{\xaabs{x-z}_\infty\le4M+2\}$, with $U_r^{u_z}=e^{\ii\eta A_z}$, and let $\delta\!A^{(z)}$ be $\delta\!A$ in this gauge. Put
+\[
+N(\delta\!A)=\sup_z\max\Big(\xaabs{\delta\!A}_{\hat\Lam(z)},\ \xaabs{\partial\delta\!A^{(z)}}_{\hat\Lam(z)},\ \sup_{\Lam_3(z')\subset\hat\Lam(z)}\Hol{\partial\delta\!A^{(z)}}{\Lam_3(z')}\Big).
+\]
+\end{itemize}
+
+\textbf{Claim.} There is $\eps_{\rm cc}>0$, depending only on $d$, $\alpha$ and $G$, such that for $\eps\le\eps_{\rm cc}$
+\[
+N(\delta\!A)\le C_{\rm cmp}\,S(A'),\qquad S(A')\le C_{\rm cmp}\,N(\delta\!A),\qquad C_{\rm cmp}:=4 .
+\]
+
+\begin{step}[The two fields in one gauge]
+Fix $z$, put $u=u_z$ and $A_r=A_z$, so that $\xaabs{A_r},\xaabs{\partial A_r},[\partial A_r]_\alpha\le\eps$ on $\hat\Lam(z)$.
+\begin{itemize}
+\item \emph{The two gauge laws.} Under $u$:
+  \begin{itemize}
+  \item $e^{\ii\eta A'}U_r\mapsto e^{\ii\eta\tilde A'}U_r^u$, with $\tilde A'(b)=R(u(b_-))A'(b)$;
+  \item $U_re^{\ii\eta\delta\!A}\mapsto U_r^ue^{\ii\eta\,\delta\!\tilde A}$, with $\delta\!\tilde A(b)=R(u(b_+))\delta\!A(b)$.
+  \end{itemize}
+\item \emph{The relation between them.} $\tilde A'(b)=R(U_r^u(b))\,\delta\!\tilde A(b)$. Indeed $R(u(b_-))R(U_r(b))=R(U_r^u(b))R(u(b_+))$.
+\item \emph{The difference.} Put $\varrho_b=R(e^{\ii\eta A_r(b)})-1$. Then $\tilde A'-\delta\!\tilde A=\varrho\,\delta\!\tilde A$.
+\end{itemize}
+By \Neqref{eq:Ad-bound} and $\eta\eps\le\frac14$, $\xanorm{\varrho_b}\le e^{2\eta\xaabs{A_r}}-1\le4\eta\eps$. The map $X\mapsto R(e^{\ii X})$ is analytic, with derivative bounded by $4$ for $\xaabs{X}\le\frac14$. So the flat difference quotient satisfies $\xaabs{\partial\varrho}\le C\eta\xaabs{\partial A_r}\le C\eta\eps$, and on cubes of bounded side $[\partial\varrho]_\alpha\le C\eta\eps$; here $\xaabs{x-x'}^{1-\alpha}\le C$ is used.
+
+From the discrete Leibniz rule $\partial_\nu(\varrho f)=(\partial_\nu\varrho)f(\cdot+\eta e_\nu)+\varrho\,\partial_\nu f$, and from $\Hol f{}\le C\xaabs{\partial f}$ on such cubes:
+\[
+\xaabs{\partial(\tilde A'-\delta\!\tilde A)}\le C\eta\eps\big(\xaabs{\delta\!A}+\xaabs{\partial\delta\!\tilde A}\big),\qquad[\partial(\tilde A'-\delta\!\tilde A)]_\alpha\le C\eps\big(\xaabs{\delta\!A}+\xaabs{\partial\delta\!\tilde A}+[\partial\delta\!\tilde A]_\alpha\big).
+\]
+Also $\xaabs{\tilde A'}=\xaabs{A'}=\xaabs{\delta\!A}$, since $R$ is unitary on real elements.
+\end{step}
+
+\begin{step}[Covariant and flat derivatives]
+By \Neqref{eq:cov-vs-flat} with $\sigma=\eps$ on $\hat\Lam(z)$:
+\[
+\xaabs{\nabla A'-\partial\tilde A'}\le C\eps\xaabs{A'},\qquad\big|[\nabla A']_\alpha-[\partial\tilde A']_\alpha\big|\le C\eps\big(\xaabs{A'}+\xaabs{\partial\tilde A'}\big).
+\]
+\end{step}
+
+\begin{step}[Cubes $\Lam_1(c_y)$ versus $\Lam_3(z')$]
+Let $x\ne x'$ lie in a cube $\Lam_3(z')$.
+\begin{itemize}
+\item If $\xaabs{x-x'}_\infty<1$, let $m$ be their midpoint and $c_y$ a point of the unit lattice with $\xaabs{m-c_y}_\infty\le\frac12$. Then $\xaabs{x-c_y}_\infty,\xaabs{x'-c_y}_\infty<1$, so both points lie in $\Lam_1(c_y)$.
+\item Otherwise $\xaabs{x-x'}\ge1$, and the quotient is at most $2\sup\xaabs{\partial\,\cdot}$.
+\end{itemize}
+Hence
+\[
+\Hol{\cdot}{\Lam_3(z')}\le\max\Big(\sup_y\Hol{\cdot}{\Lam_1(c_y)},\ 2\sup\xaabs{\cdot}\Big).
+\]
+Conversely $\Lam_1(c_y)\subset\Lam_3(c_y)\subset\hat\Lam(c_y)$.
+\end{step}
+
+\begin{step}[Change of gauge]
+Let $Q$ be a box contained in $\Lam_4(c_y)\cap\hat\Lam(z)$. The gauge $u_z$ and the block gauge of $y$ both satisfy (B) with parameter $\eps$ on $Q$. So on $Q$ they differ by a real gauge transformation $w$ that is constant up to errors $C\eps\xaabs{x-x'}$, with $\xaabs{\partial R(w)}+[\partial R(w)]_\alpha\le C\eps$. This is the argument of the proof of Theorem~\Nref{thm:ID}(b), quoted in the Setting of Section~\Nref{sec:weak-background}.
+
+Writing $\tilde A'_y=R(w)\tilde A'$, the flat gradients and their H\"older quotients on $Q$ in the two gauges differ by at most $C\eps(\xaabs{A'}+\xaabs{\partial\tilde A'})$. We use $Q=\Lam_1(c_y)\cap\hat\Lam(z)$, and $Q=\Lam_1(c_y)$ when $z=c_y$.
+\end{step}
+
+\begin{step}[Conclusion]
+Choose $\eps_{\rm cc}$ so that every constant $C\eps$ of Steps~1--4 is at most $\frac1{20}$; recall $\eta\le1$. All norms are taken in the gauge $u_z$, for a fixed $z$, and $\xaabs{\delta\!A}=\xaabs{A'}$.
+\begin{itemize}
+\item \emph{$N\le\frac52S$.} By Steps~1 and~2, $\xaabs{\partial\delta\!\tilde A}\le\xaabs{\partial\tilde A'}+\frac1{20}(\xaabs{A'}+\xaabs{\partial\delta\!\tilde A})$ and $\xaabs{\partial\tilde A'}\le\xaabs{\nabla A'}+\frac1{20}\xaabs{A'}$. So $\frac{19}{20}\xaabs{\partial\delta\!\tilde A}\le\xaabs{\nabla A'}+\frac1{10}\xaabs{A'}\le S$, and $\xaabs{\partial\delta\!\tilde A}\le1.1S$. Let $x\ne x'$ lie in a cube $\Lam_3(z')\subset\hat\Lam(z)$. If $\xaabs{x-x'}_\infty\ge1$, their quotient is at most $2\cdot1.1S$. Otherwise both lie in $Q=\Lam_1(c_y)\cap\hat\Lam(z)$ for some $y$ (Step~3). On $Q$, Steps~4 and~1 give
+  \[
+  [\partial\delta\!\tilde A]_Q\le[\partial\tilde A'_y]_{\Lam_1(c_y)}+\tfrac1{20}\big(\xaabs{A'}+\xaabs{\partial\tilde A'}+\xaabs{\delta\!A}+\xaabs{\partial\delta\!\tilde A}+[\partial\delta\!\tilde A]_Q\big).
+  \]
+  With $\xaabs{\partial\tilde A'}\le1.05S$ this gives $\frac{19}{20}[\partial\delta\!\tilde A]_Q\le S+\frac{4.15}{20}S$, so $[\partial\delta\!\tilde A]_Q\le1.3S$. Hence $N\le\max(S,\,1.1S,\,2.2S,\,1.3S)\le\frac52S$.
+\item \emph{$S\le3.5N$.} First, $\xaabs{A'}\le N$. By Steps~1 and~2, $\xaabs{\partial\tilde A'}\le\xaabs{\partial\delta\!\tilde A}+\frac1{20}(\xaabs{\delta\!A}+\xaabs{\partial\delta\!\tilde A})\le1.1N$, and $\xaabs{\nabla A'}\le\xaabs{\partial\tilde A'}+\frac1{20}\xaabs{A'}\le1.2N$. For the H\"older term take $z=c_y$, so that $\Lam_1(c_y)\subset\Lam_3(c_y)\subset\hat\Lam(c_y)$. By Steps~4 and~1,
+  \begin{align*}
+  [\partial\tilde A'_y]_{\Lam_1(c_y)}&\le[\partial\delta\!\tilde A]_{\Lam_3(c_y)}+\tfrac1{20}\big(\xaabs{A'}+\xaabs{\partial\tilde A'}\big)+\tfrac1{20}\big(\xaabs{\delta\!A}+\xaabs{\partial\delta\!\tilde A}+[\partial\delta\!\tilde A]_{\Lam_3(c_y)}\big)\\
+  &\le N+\tfrac{5.1}{20}N\le1.3N .
+  \end{align*}
+  Hence $S\le N+1.2N+1.3N=3.5N$.
+\end{itemize}
+Both bounds hold with $C_{\rm cmp}=4$.
+\end{step}
+
+\emph{Consequences.}
+\begin{enumerate}[label=(\roman*)]
+\item A complex reference of size $\delta_c$ is a perturbation $U_\delta$ of Proposition~\Nref{prop:reg-complex} with $\delta\le C_{\rm cmp}\delta_c$. So the Setting of Section~\Nref{sec:weakenable} covers it as soon as $C_{\rm cmp}\delta_c\le\delta_0$. This settles the hypothesis match needed in Section~\ref{d9:sec} (Lemma~\Nref{lem:torus-transfer} at the complex flat references of Section~\Nref{sec:gen-locality}, whose real part is $1$, so $\eps=0$) and in Sections~\ref{d11a:sec} and~\ref{d11b}.
+\item Every condition on $\delta_P$ stated through $\delta_0$ of Proposition~\Nref{prop:reg-complex} carries the factor $C_{\rm cmp}$. In the note's list these conditions are all covered by $\delta_P\le c''_L$ with $C_{\rm cmp}c''_L\le\delta_*$ (Detail~\ref{xa:d-deltaP}, (P1)).
+\item The norm $S$ is a norm on the complex vector space of $\mathfrak g^c$-valued fields. Each of its three terms is a seminorm, because $\nabla$ and $A'\mapsto\tilde A'_y$ are complex-linear. The first term is a norm. This is used in Detail~\ref{xa:d-identity}.
+\end{enumerate}
+\status{New argument. The note states $C_{\rm cmp}=4$ and the threshold $\eps_{\rm cc}$, with a sketch of this proof, in the first item of the paragraph ``Complex references'' of Section~\Nref{sec:complex-references}. The threshold $\eps_{\rm cc}$ is in the list of $\eps_{\max}$ (Remark~\Nref{rem:domain-constants}), and the factor $C_{\rm cmp}$ is in the note's conditions on $\delta_P$.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:complex-ext}, proof: the order of the arguments]\label{xa:d-dag}\Ntarget{prop:complex-ext}
+\emph{The order of the arguments at complex references.} The results used at complex references are obtained in the following order. Each arrow uses only what stands to its left.
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Part~IV at real references.}
+  \begin{itemize}
+  \item Lemmas~\Nref{lem:log-estimates}, \Nref{lem:group-average}, \Nref{lem:one-step-basic} and \Nref{lem:one-step-expansion};
+  \item Propositions~\Nref{prop:Q-expansion} and \Nref{prop:linearized-averages};
+  \item Theorem~\Nref{thm:correspondence}(c),(d), which hold for complex relative configurations (paragraph after Theorem~\Nref{thm:correspondence}).
+  \end{itemize}
+\item \emph{Proposition~\Nref{prop:AB}.} It uses only~(1), by the proofs in Section~\ref{xa:sec-AB}. Its statements (iv)--(vi) give properties (i), (ii), (iv) and the holomorphy in property~(v) of Remark~\Nref{rem:general-averaging} for the pair $(Q'_k(U),\bQ_k(U))$.
+\item \emph{The identity $E=0$ at complex references.} This is stage~(iii-a) of Detail~\ref{xa:d-identity}. It needs only the holomorphy of $\bQ_k(U)$, $Q'_k(U)$ and $D_{W_k(U)}$, which is AB(vi) (Detail~\ref{xa:d-AB-vi}). It needs no inverse operator. Together with~(2), this completes property~(v) of Remark~\Nref{rem:general-averaging} (last paragraph of that remark).
+\item \emph{Proposition~\Nref{prop:reg-complex} for Ba\l aban's averaging (Corollary~\Nref{cor:parts-apply}).} It gives the operators of Parts~II and~III at $U$.
+\item \emph{Part~VIII at complex perturbations.}
+  \begin{itemize}
+  \item Proposition~\Nref{prop:dirichlet-averaged}(e), with its condition $C\delta S_{\gamma/4}\le\frac c2$;
+  \item Propositions~\Nref{prop:dirichlet-hessian}(c) and~\Nref{prop:local-fluct}(b),(d);
+  \item Lemma~\Nref{lem:coercive-general}.
+  \end{itemize}
+\item \emph{Part~IX at complex perturbations, at the $L^2$ level.} The Setting of Section~\Nref{sec:weakenable} and the levels of Section~\Nref{sec:nested-walks} take their local inputs from~(4) and~(5).
+\item \emph{Stage~(iii-b) of Detail~\ref{xa:d-identity}.} The identities that involve inverse operators.
+\item \emph{Steps~(ii) and~(iv)--(viii) of the proof of Proposition~\Nref{prop:complex-ext}.} These use Part~IX at real references, together with~(2) and~(4)--(7).
+\end{enumerate}
+There is no backward arrow:
+\begin{itemize}
+\item Proposition~\Nref{prop:AB} does not use Parts~III, VIII or~IX (Section~\ref{xa:sec-AB}; at real references, the proof of Corollary~\Nref{cor:parts-apply}).
+\item Step~(iii-a) uses no operator of~(4)--(6).
+\item Part~VIII uses at complex references only (2)--(4) (proof of Proposition~\Nref{prop:dirichlet-averaged}(e)).
+\end{itemize}
+\status{Expanded. Step~(iii) of the proof of Proposition~\Nref{prop:complex-ext} has the same two stages.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:complex-ext}, step~(i) of the proof: the $L^2$ theory]\label{xa:d-step-i}\Ntarget{prop:complex-ext}
+\emph{Statement used: Remark~\Nref{rem:general-averaging}.} The proofs of Parts~II and~III use the averaging pair $(Q',\bQ)$ only through the following properties, in every local gauge: (i) $Q'Q'^T=I$, and reality at real $U$; (ii) the closeness and locality bounds of Lemma~\Nref{lem:cov-avg}(b); (iii) a covariance identity $\bQ D_U=D_VQ'+E$, with the bounds of Lemma~\Nref{lem:cov-avg}(c) on the defect $E$; (iv) gauge covariance as in Lemma~\Nref{lem:cov-avg}(d), and locality of the dependence on $U$; (v) a holomorphic extension of the pair to the complex backgrounds of the analytic statements, on which (i)--(iii) hold uniformly, with the bilinear transpose in (i). Property (v) is used only for the analytic statements, such as Proposition~\Nref{prop:reg-complex}. The parts AB(i)--AB(vi) of Proposition~\Nref{prop:AB} are recalled at the head of Section~\ref{xa:sec-ext}.
+
+\emph{The operators of Parts~III and~VIII at a complex reference.} Let $U=U_re^{\ii\eta\,\delta\!A}$ with $N(\delta\!A)\le\delta:=C_{\rm cmp}\delta_c$ (Detail~\ref{xa:d-cmp}).
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Property (v) of Remark~\Nref{rem:general-averaging} for $(Q'_k(U),\bQ_k(U))$.}
+  \begin{itemize}
+  \item (i) $Q'_kQ'^T_k=I$ with the bilinear transpose. This is AB(iv) (Detail~\ref{xa:d-AB-iv}). It is an algebraic identity, valid wherever the averaged contour variables are defined.
+  \item (ii) Closeness and locality: AB(iv)(e), with $\eps$ replaced by $\eps+\delta_c$, and AB(iv)(d).
+  \item (iii) $\bQ_kD_U=D_{W_k(U)}Q'_k$, that is $E=0$: stage~(iii-a).
+  \item (iv) Gauge covariance under real gauge transformations: AB(iv)(f). Locality of the dependence on $U$: AB(iv)(d).
+  \item Holomorphy: AB(vi).
+  \end{itemize}
+  The hypotheses of Proposition~\Nref{prop:AB}: $U_r\in\mathfrak U_0(a)$ with $a\le c'_3$ (since $a\le C\eps$ by Lemma~\Nref{lem:curvature}, this needs $C\eps_{\max}\le c'_3$), and $\xaabs{A'}_\infty\le S(A')<\delta_P\le\delta_{AB}$.
+\item \emph{Proposition~\Nref{prop:reg-complex}.} For $\delta\le\delta_0(W)$ it gives existence, $\Rea$-coercivity with $c/2$ and decay with the fixed rate for all operators of Sections~\Nref{sec:reg-scalar}--\Nref{sec:reg-gauge}. Here $W$ is a potential in $\cW^{\rm an}_{\rm loc}$, or $W=0$. The changes from the operators at $U_r$ are perturbed inverses (Lemma~\Nref{lem:perturbed-inverse}) of decay $(C\delta,\gamma_{\rm c}/4)$, with the fixed rate $\gamma_{\rm c}$ of Detail~\ref{xa:d-ext-reading}, (R2). Lemma~\Nref{lem:CT-stable} needs $C\delta\le\eps_1(c,\gamma,m_0)$, which is part of the definition of $\delta_0$.
+\item \emph{The averaged operators $\boldsymbol\Gamma^X,\bH^X,\bC^X$ (Proposition~\Nref{prop:dirichlet-averaged}(e)).}
+  \begin{itemize}
+  \item $\bQ_X\bG^X\bQ_X^T$ at $U$ is $K_0+\delta K$. Here $K_0\ge c$ is its value at $U_r$, and $\delta K$ has decay $(C\delta,\gamma/4)$, by~(b) and AB(v).
+  \item The unit-lattice form of Lemma~\Nref{lem:perturbed-inverse} needs
+    \[
+    C\delta S_{\gamma/4}\le\tfrac c2 .
+    \]
+    This condition is one of the radius conditions fixed with $\delta_*$ (Detail~\ref{xa:d-deltaP}, (P1)).
+  \item Then $\boldsymbol\Gamma^X$ exists, with $\Rea$-coercivity $\frac c2$, and $\bH^X,\bC^X$ follow by composition.
+  \end{itemize}
+\item \emph{The potential $W_2^X$ and the Dirichlet Hessians (Proposition~\Nref{prop:dirichlet-hessian}(c)).} The step needs two bounds at complex references:
+  \begin{itemize}
+  \item the $L^2$ bound $\xanorm{d^2\mathcal N(0)}\le C(\eps+\delta)$, uniform in $\eta$;
+  \item the change of size $C\delta$ of $W_2^X$.
+  \end{itemize}
+  The proof of Proposition~\Nref{prop:dirichlet-hessian}(c) gives both. The ingredient is the plaquette form of $d^2\mathcal N(0)$ at $U_\delta$, with the bounds of step~(v) of the proof of Proposition~\Nref{prop:complex-ext}, which use $\xaabs{\partial\,\delta\!A}\le\delta$; then the Schwarz lemma on the ball of radius $2\delta_*$ gives the change $C_W\delta$. The step is written out in Detail~\ref{d8:A1}, with $\delta_*$ fixed once. Here we use its conclusion. The other half of Proposition~\Nref{prop:dirichlet-hessian}(c), the bound $\xaabs{\omega_0}\le C(\eps+\delta)$, is proved in Detail~\ref{xa:d-hessian}.
+\item \emph{The local fluctuation operators.}
+  \begin{itemize}
+  \item Lemma~\Nref{lem:coercive-general}, for complex perturbations of size at most $c''_L$, gives $\Rea\Delta_k\ge\frac18c_L$.
+  \item Proposition~\Nref{prop:local-fluct}(b),(d) gives $\Rea\Delta_Y\ge\frac1{16}c_L$, by the norm estimate of~(a) with $R_0\ge R_0(L,M)$.
+  \end{itemize}
+  The current enters only through $\ip b{\omega_0^X}=\ip{F^s_U}{D\bH^X_0b}$ (Proposition~\Nref{prop:local-fluct}).
+\item \emph{Part~IX.} The Setting of Section~\Nref{sec:weakenable} allows the complex perturbations of Proposition~\Nref{prop:reg-complex}. By Detail~\ref{xa:d-cmp}(i), these include the complex references of size $\delta_c$ with $C_{\rm cmp}\delta_c\le\delta_0$. The inputs (W1)--(W3) of the levels come from (b)--(e).
+\end{enumerate}
+\status{Expanded. The factor $C_{\rm cmp}$ and the condition $C\delta S_{\gamma/4}\le\frac c2$ enter the note's conditions on $\delta_P$ through $\delta_*$. Item~(d) uses Detail~\ref{d8:A1}.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:complex-ext}, step~(iii) of the proof: the identity theorem, in two stages]\label{xa:d-identity}\Ntarget{prop:complex-ext}
+\emph{Statement used.} Let $\Omega\subset\C^N$ be open and connected, and let $f$ be holomorphic on $\Omega$. If $f$ vanishes on a nonempty subset of $\Omega\cap\R^N$ that is open in $\R^N$, then $f\equiv0$ on $\Omega$. Indeed, at a point of that set the Taylor series of $f$ vanishes on a real neighbourhood, so all its coefficients vanish. Then $f$ vanishes on a neighbourhood, and connectedness gives the claim.
+
+\begin{step}[The ball]
+Fix $U_r$. Identify the $\mathfrak g^c$-valued fields $A'$ with $\C^N$ through a basis of $\mathfrak g$, so that the real fields are $\R^N$. Put
+\[
+\mathcal B=\{A':\ S(A')<\delta_P\}.
+\]
+By Detail~\ref{xa:d-cmp}(iii), $S$ is a norm. So $\mathcal B$ is convex, hence connected and simply connected, and $\mathcal B\cap\R^N$ is a nonempty open subset of $\R^N$. The set of all complex references is not used, and it need not be connected (step~(iii) of the proof of Proposition~\Nref{prop:complex-ext}).
+\end{step}
+
+\begin{step}[The real points, and why they are the Part~IV objects]
+Let $A'\in\mathcal B$ be real, so that $U=e^{\ii\eta A'}U_r$ is $G$-valued.
+\begin{itemize}
+\item \emph{Regularity.} In the gauge $u_z$ we have $U^{u_z}=e^{\ii\eta(\tilde A'\oplus A_z)}$, where $\oplus$ is the bondwise Baker--Campbell--Hausdorff combination. Lemma~\Nref{lem:log-estimates}(c) and \Neqref{eq:lattice-trick} give $\xaabs{\tilde A'\oplus A_z}$, $\xaabs{\partial(\tilde A'\oplus A_z)}$, $[\partial(\tilde A'\oplus A_z)]_\alpha\le\eps+C_{\rm cmp}\delta_P+C\eps\delta_P$. So $U$ is $(M,\eps+C\delta_P)$-regular.
+\item \emph{Curvature.} By Lemma~\Nref{lem:curvature}, $U\in\mathfrak U_0(a)$ with $a\le C(\eps+\delta_P)$.
+\item \emph{Which operators.} Proposition~\Nref{prop:AB} defines every object at the reference $U$ intrinsically: $W_j(U)=U^{(j)}$, $\tilde{\mathfrak a}_j$, $\mathcal Q_j$, $l_j$ and $Q'_k$, all relative to the backgrounds $W_j(U)$ (Proposition~\Nref{prop:AB}). At a real $U$ these are, formula by formula, the objects of Section~\Nref{sec:adapted} at the real background $U_0=U$. Likewise the operators of Proposition~\Nref{prop:reg-complex} at a real $U_\delta$ are the inverses of the same real operators. Inverses are unique, so they are the operators of Parts~III and~VIII at the real background $U$.
+\end{itemize}
+So, for $\eps_{\max}+C\delta_P\le\min(\eps_0,c'_3)$ (step~(iii) of the proof of Proposition~\Nref{prop:complex-ext}), every identity proved in the note for real regular backgrounds of small curvature holds at the real points of $\mathcal B$.
+\end{step}
+
+\begin{step}[Stage (iii-a): identities among objects without inverses]
+These identities hold on all of $\mathcal B$ as soon as both sides are holomorphic on $\mathcal B$. For the objects of Proposition~\Nref{prop:AB} this holds by AB(vi), since $\xaabs{A'}_\infty\le S(A')<\delta_P\le\delta_{AB}$. The objects of Lemma~\Nref{lem:current} and Proposition~\Nref{prop:action} are polynomials in the matrix entries of $U$ and $U^{-1}$, hence entire.
+\begin{itemize}
+\item $\bQ_k(U)D_U=D_{W_k(U)}Q'_k(U)$, i.e.\ $E=0$. At real points this is Proposition~\Nref{prop:linearized-averages}(b), which needs $a\le c_3$.
+\item $J_U=D_U^TF^s_U$, with $F^s_U$ built with the complex-linear projection $P_{\mathfrak g^c}$. At real points this is Lemma~\Nref{lem:current}(a).
+\item $\ip{\rho^{(1)}(A)}{F^s}=0$ in the proof of Proposition~\Nref{prop:action}. At real points this is shown there.
+\end{itemize}
+The identity $Q'_kQ'^T_k=I$ needs no continuation: it is algebraic (AB(iv)). After this stage, property~(v) of Remark~\Nref{rem:general-averaging} holds on $\mathcal B$, and Proposition~\Nref{prop:reg-complex} applies (Detail~\ref{xa:d-step-i}).
+
+The same proof gives these identities on every ball $\{S(A')<\varrho\}$ whose real points satisfy $\eps+C\varrho\le\min(\eps_0,c'_3)$ and with $\varrho\le\delta_{AB}$. In particular $E=0$ holds on the ball of radius $2\delta_*$ of the proof of Proposition~\Nref{prop:dirichlet-hessian}(c), which is larger than $\mathcal B$. That proof applies Proposition~\Nref{prop:reg-complex} on this ball, so it needs property~(v) there, as the note says in step~(iii) of the proof of Proposition~\Nref{prop:complex-ext}.
+\end{step}
+
+\begin{step}[Stage (iii-b): identities that involve inverses]
+After Detail~\ref{xa:d-step-i}, the following operators are holomorphic on $\mathcal B$:
+\begin{itemize}
+\item $G'_X$, $R_X$, $S_X$, $\bG^X$, $\bG$, $\boldsymbol\Gamma$, $\bH$, $\bC$;
+\item the weakened families at $s=1$;
+\item $\Delta_k$ and the densities $\ell_k(b)$.
+\end{itemize}
+Holomorphy holds because each is a composition and inverse of holomorphic families with inverses bounded uniformly on $\mathcal B$. For the inverses this needs $C_{\rm cmp}\delta_P\le\delta_*$, which leaves room for Cauchy estimates on the ball of twice the size (Detail~\ref{xa:d-deltaP}, (P1)). The weakened families are uniformly convergent walk series of such operators. The identities are:
+\begin{enumerate}[label=(b\arabic*)]
+\item Lemma~\Nref{lem:domain-identities}, used in Lemma~\Nref{lem:local-system};
+\item $\bG DR=DG'R$ (Lemma~\Nref{lem:Api-identities}(a)) and \Neqref{eq:C-identity};
+\item $(\bG^Z)^T=\bG^Z$ for the $\mathrm b$-transpose (proof of Lemma~\Nref{lem:cut-term}), used in the duality step of Lemma~\Nref{lem:cut-term};
+\item the one-loop identity of Proposition~\Nref{prop:one-loop-polymer}(a):
+\[
+-\tfrac12\log\det\Delta_k(U)=-\tfrac12\log\det\Delta_k(1)+\sum_X\mathfrak e(X,U).
+\]
+\end{enumerate}
+Step~(iii) of the note's proof lists (b1)--(b4). Parts~VIII--X use the identity theorem at complex references only here. The analytic continuations in the proofs of Proposition~\Nref{prop:coarse-action}, Lemma~\Nref{lem:complex-gauge} and Lemma~\Nref{lem:symmetrization} are separate arguments, on their own domains.
+\end{step}
+
+\begin{step}[The branch of $\log\det\Delta_k$]
+For (b4) the left side must be a holomorphic function on $\mathcal B$.
+\begin{itemize}
+\item \emph{Definition.} Put $\operatorname{Tr}\log\Delta_k:=\sum_{b\in\mathfrak F}\ell_k(b)$, with $\log\Delta_k=\int_0^\infty\big(\frac1{1+t}-(\Delta_k+t)^{-1}\big)dt$ as in Proposition~\Nref{prop:det-densities}(c).
+\item \emph{Convergence.} On $\mathcal B$, $\Rea\Delta_k\ge\frac18c_L$ (Detail~\ref{xa:d-step-i}(e)). Lemma~\Nref{lem:coercive-general} needs $\xaabs{J_{U_r}}\le\eps$. This holds at every reference where Proposition~\Nref{prop:one-loop-polymer} is applied (Section~\Nref{sec:step-quantities}, Setting). Its other conditions, $\eps\le\eps_{\rm cc}$ and those of the proof of Proposition~\Nref{prop:dirichlet-hessian}(c), hold since $\eps\le\eps_{\max}$. So the numerical range of $\Delta_k$ lies in $\{\Rea z\ge\frac18c_L\}$, and $\xanorm{(\Delta_k+t)^{-1}}\le(\frac18c_L+t)^{-1}$. The integral converges in norm, locally uniformly on $\mathcal B$, so $\operatorname{Tr}\log\Delta_k$ is holomorphic on $\mathcal B$.
+\item \emph{It is a branch of $\log\det$.} The spectrum of $\Delta_k$ lies in the open right half-plane, and for $\Rea\lambda>0$ the scalar identity $\int_0^\infty\big(\frac1{1+t}-\frac1{\lambda+t}\big)dt=\operatorname{Log}\lambda$ holds, with the principal branch. So by the holomorphic functional calculus the integral is the principal logarithm of $\Delta_k$. Hence $\exp(\operatorname{Tr}\log\Delta_k)=\det\Delta_k$.
+\item \emph{Reality.} At real points $\operatorname{Tr}\log\Delta_k$ is the real logarithm.
+\end{itemize}
+So $\operatorname{Tr}\log\Delta_k$ is the branch of $\log\det\Delta_k$ that is real at the real points. This is the branch meant in the proof of Proposition~\Nref{prop:one-loop-polymer}(a).
+
+The right side of (b4) is holomorphic on $\mathcal B$. Indeed, the series $\sum_X\mathfrak e(X,U)$ converges uniformly there, by the bound of Proposition~\Nref{prop:one-loop-polymer}(b), uniform in the background (Corollary~\Nref{cor:weak-covariance}). Both sides agree at the real points, so they agree on $\mathcal B$.
+\end{step}
+
+\begin{step}[The transposes are algebraic]
+Some transposes need no continuation:
+\begin{itemize}
+\item $S_X^T=DR_XG'_X$;
+\item $D^TD^T=\mathfrak F^T$ in Lemma~\Nref{lem:local-system};
+\item the $\mathrm b$-symmetry of $G'_X=(D^TD+aQ'^TQ'+\dots)^{-1}$.
+\end{itemize}
+They follow from $(XY)^T=Y^TX^T$, $(X^{-1})^T=(X^T)^{-1}$ and the $\mathrm b$-symmetry of the defining operators, which is visible term by term. So they hold at complex references without the identity theorem.
+\end{step}
+\status{Expanded. Step~(iii) of the note's proof has the two stages, the list (b1)--(b4), the stage~(iii-a) on the ball of radius $2\delta_*$, and the branch of $\log\det$. Added here: the step ``the real points are the Part~IV objects'', and the proof that the integral is the principal logarithm.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:complex-ext}, step~(ii) of the proof, and where the proofs of the results (a)--(d) use reality]\label{xa:d-step-ii}\Ntarget{prop:complex-ext}
+\emph{The local gauge.} In the gauge $u_z$ of $U_r$, $U^{u_z}=e^{\ii\eta A_0}$ with $A_0=\tilde A'\oplus A_z$ complex. As in Detail~\ref{xa:d-identity}, Step~2, but now for complex $\tilde A'$,
+\[
+\xaabs{A_0}+\xaabs{\partial A_0}+[\partial A_0]_\alpha\le\eps+C\delta_c .
+\]
+Lemma~\Nref{lem:cov-expansion} applies to such $A_0$. Its coefficient $\tau_\mu=\eta^{-1}(R(e^{\ii\eta A_\mu})-1)$ is a linear map of $\mathfrak g^c$, and its bounds use only \Neqref{eq:Ad-bound} and the entire function $\phi(Z)=(e^{\ii\operatorname{ad}Z}-1)/(\ii\operatorname{ad}Z)$, both valid for complex $Z$. Lemma~\Nref{lem:curvature} applies as well: its proof expands analytic functions of the four arguments $\eta A(\cdot)$, with no reality. So the normal form \Neqref{eq:DTD-normal} holds with complex coefficients $a_\mu,b$ of size $C(\eps+\delta_c)$, and $\xaabs{c_{\mu\nu}}+[c_{\mu\nu}]_\alpha\le C(\eps+\delta_c)$.
+
+\emph{Where reality is used.} Table~\ref{xa:tab-sweep} lists every place where the proofs of Sections~\Nref{sec:dirichlet-averaged}, \Nref{sec:interior}, \Nref{sec:interior-lp} and~\Nref{sec:tiers} use reality, positivity, extremal principles, self-adjointness, symmetry, orthogonality, unitarity, invariance or conjugation, and every structural input that they take from a real background. The other results use only sup norms, $L^p$ norms, quotients and absorption. These are valid for complex-valued fields, componentwise and with the hermitian norms on $\mathfrak g^c$.
+
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.3\textwidth}@{}}
+\toprule
+result (location) & use of reality in the real proof & replacement at $U$\\
+\midrule
+Lemmas~\Nref{lem:iteration}, \Nref{lem:rescaled}; Thm~\Nref{thm:local-regularity}; Lemma~\Nref{lem:lp-kernels}; Thm~\Nref{thm:lp-local}; Lemma~\Nref{lem:local-sobolev} & none: flat estimates, with the duality of $L^p$ kernels in the proof of Lemma~\Nref{lem:lp-kernels} & componentwise\\
+Props~\Nref{prop:scalar-interior}, \Nref{prop:system-interior}, \Nref{prop:scalar-lp}, \Nref{prop:system-lp}; Cor~\Nref{cor:lp-dirichlet} & a real gauge with (B) on $\Lam_4$ (Conventions of Section~\Nref{sec:interior}; proof of Lemma~\Nref{lem:endpoint-factors}); a real mass profile $m$ (Proposition~\Nref{prop:system-interior}) and fixed positive weights (its proof), which do not involve the background & the gauge of $U_r$ with complex $A_0$ (above); thresholds $\eps_S,\eps_L,\eps'_S,\eps'_L,\eps'$ in (P2) of Detail~\ref{xa:d-deltaP}\\
+Lemma~\Nref{lem:local-system} & $E=0$; Lemma~\Nref{lem:domain-identities}; transposes & (iii-a); (b1); algebraic (Detail~\ref{xa:d-identity}, Step~6)\\
+Thm~\Nref{thm:ID}(a)--(c) & the above, the decay of Prop~\Nref{prop:dirichlet-averaged}(b), and the positivity of $\fA^{X,\kappa}$ in the proof of Prop~\Nref{prop:dirichlet-averaged}(a) & Detail~\ref{xa:d-step-i}(b),(c): the perturbation argument of Prop~\Nref{prop:dirichlet-averaged}(e) replaces the variational characterization\\
+Thm~\Nref{thm:ID}(d) & Lemma~\Nref{lem:div-curvature}: real gauge transformations, $\xaabs{J_U}\le\eps$ & not extended, not used (Detail~\ref{xa:d-notext})\\
+Lemmas~\Nref{lem:int-factors}, \Nref{lem:endpoint-factors} & a real gauge; the bounds on $Q'$, $Q'^T$, $Q'^TQ'$ & as above; AB(iv)\\
+Lemma~\Nref{lem:trace} & a real gauge (Step~4 of its proof) & stated for complex perturbations: $D_{U_\delta}=D_U+T_\delta$\\
+Lemma~\Nref{lem:cut-term} & duality through $\mathrm b$ and $(\bG^Z)^T=\bG^Z$ (its proof) & (b3)\\
+Lemmas~\Nref{lem:lift}, \Nref{lem:N-tier}; Prop~\Nref{prop:nl-tiers} & walks; comparison of domains; Prop~\Nref{prop:scalar-interior}; Lemmas~\Nref{lem:trace}, \Nref{lem:cut-term}; $c_{\mu\nu}$ & Detail~\ref{xa:d-step-i}; the rows above; Lemma~\Nref{lem:curvature} with complex $A_0$\\
+Thm~\Nref{thm:tier-walk} (L1), (L3); Thm~\Nref{thm:HC-pointwise} & products and walks of the above; \Neqref{eq:C-identity} & the rows above; (b2)\\
+Prop~\Nref{prop:action}(a)--(c) & real summand $\Rea\operatorname{tr}$; $P_{\mathfrak g}$; $\xaabs{F^s}\le C\eps$ & Detail~\ref{xa:d-step-v}\\
+Thm~\Nref{thm:weak-bg}(a),(b),(d) & contraction; locality; reality in (b) & Detail~\ref{xa:d-step-viii}\\
+\bottomrule
+\end{tabularx}
+\refstepcounter{table}\label{xa:tab-sweep}
+Table~\ref{xa:tab-sweep}: where the real-reference proofs use reality.
+\end{center}
+The estimates of Lemmas~\Nref{lem:int-factors}, \Nref{lem:endpoint-factors}, Proposition~\Nref{prop:nl-tiers} and Theorems~\Nref{thm:tier-walk}, \Nref{thm:HC-pointwise} at complex references are not re-derived here. Their real-reference proofs are expanded in Section~\ref{d9:sec}.
+\status{Expanded, for the places listed in Table~\ref{xa:tab-sweep}; the estimates themselves are not re-derived. Apart from the replacements of the table, reality enters only where the note treats it: the variational step of Prop~\Nref{prop:dirichlet-averaged}(a) and the duality through $\mathrm b$ in Lemma~\Nref{lem:cut-term}.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:complex-ext}, steps~(iv)--(vi) of the proof]\label{xa:d-step-v}\Ntarget{prop:complex-ext}
+\emph{(iv)} This is Proposition~\Nref{prop:AB} (Section~\ref{xa:sec-AB}).
+
+\emph{(v) The action at $U$.} In the gauge of Step~(ii), with $H_p=U(\partial p)$:
+\begin{itemize}
+\item \emph{The summand.} $\mathfrak s(Z,H)=\mathsf N-\frac12\operatorname{tr}(e^{\ii Z}H+H^{-1}e^{-\ii Z})$ is entire in $(Z,H,H^{-1})$, so the expansion in the proof of Proposition~\Nref{prop:action} holds term by term. The linear coefficient is $\operatorname{tr}(Z\,(H-H^{-1})/2\ii)$. Since $Z\in\mathfrak g^c$, this equals $\operatorname{tr}\big(Z\,P_{\mathfrak g^c}(H-H^{-1})/2\ii\big)$, where $P_{\mathfrak g^c}$ is the complex-linear extension of the trace-form orthogonal projection onto $\mathfrak g$. This defines $F^s$.
+\item \emph{Size.} $H_p=e^{\ii\eta^2F_U(p)}$ with
+\[
+F_U(p)=(\partial A_0)_{\mu\nu}-(\partial A_0)_{\nu\mu}+O\big(\xaabs{A_0}^2+\eta\xaabs{A_0}\,\xaabs{\partial A_0}\big),
+\]
+as in the proof of Lemma~\Nref{lem:curvature}. The term of order $\xaabs{A_0}^2$ comes from the group commutator of the bond variables. Since $\xaabs{A_0},\xaabs{\partial A_0}\le C(\eps+\delta_c)$ and $\eps+\delta_c\le2$, $\xaabs{F_U}\le C(\eps+\delta_c)$, $\xaabs{R(H_p)-1}\le C\eta^2(\eps+\delta_c)$ and $\xaabs{F^s}\le C(\eps+\delta_c)$. This uses the derivative part of $\delta_c$. With a sup bound on $A'$ alone, $\xaabs{F_U}$ would be of order $\eta^{-1}\delta_c$.
+\end{itemize}
+With these replacements, the proof of Proposition~\Nref{prop:action}(a)--(c) gives the bounds with $\eps+C\delta_c$, for complex $A$ and complex $h$ in~(c). It uses only Cauchy estimates and the bounds just listed.
+
+\emph{The current.} $J_U=D_U^TF^s_U$ (stage (iii-a)) contains difference quotients of $F^s$, so it involves second differences of $A_0$, which are controlled only as $\eta^{\alpha-1}[\partial A_0]_\alpha$. So $J_U$ is not bounded uniformly in $\eta$. In Part~X it enters only in two places:
+\begin{itemize}
+\item as $(D\bH(s))^T\mathsf F$ in $n_0$ (Section~\Nref{sec:weak-background});
+\item as $\omega_0=(D\bH_0)^TF^s$ (Section~\Nref{subsec:sq-hessian}).
+\end{itemize}
+
+\emph{(vi)} Lemma~\Nref{lem:trace} is stated for complex perturbations.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:complex-ext}, step~(vii) of the proof: the factor $1+C_{\rm cx}\delta_c$, and the thresholds $M_{\mathfrak N}$, $M'_1$]\label{xa:d-majorant}\Ntarget{prop:complex-ext}
+The factor $1+C_{\rm cx}\delta_c$ must cover constants built by sums, products and inversions from a bounded number of input bounds, and also two infinite constructions:
+\begin{itemize}
+\item the walk series of Theorem~\Nref{thm:weak-inverse}, with $n$-th term at most $(n+1)C(2C\delta^{-2}\theta)^n$;
+\item the contractions of Theorem~\Nref{thm:weak-bg} and Lemma~\Nref{lem:Ds}.
+\end{itemize}
+Step~(vii) of the note's proof uses the following lemma.
+
+\textbf{Lemma (monotone majorants).} Let $F(x)=\sum_{\alpha\in\N^m}a_\alpha x^\alpha$ with $a_\alpha\ge0$, let $x\in(0,\infty)^m$, let $t_0>0$, and suppose $F((1+t_0)x)<\infty$ and $F(x)>0$. Then for $t\in[0,t_0]$ and every $x'\in[0,\infty)^m$ with $x'\le(1+t)x$ componentwise,
+\[
+F(x')\le F\big((1+t)x\big)\le F(x)\Big(1+\frac t{t_0}\Big(\frac{F((1+t_0)x)}{F(x)}-1\Big)\Big).
+\]
+The same holds, with the same proof, if the monomials $x^\alpha$ are replaced by products of nonnegative, nondecreasing, positively $1$-homogeneous functions of $x$, such as $\max(x_i,x_j)$. Then $F((1+t)x)$ is still a nonnegative combination of the powers $(1+t)^n$.
+
+\emph{Proof.} The first inequality holds because $F$ is increasing in each variable. Next, $\varphi(t)=F((1+t)x)=\sum_\alpha a_\alpha x^\alpha(1+t)^{\xaabs\alpha}$ is a convergent sum of convex functions of $t\in[0,t_0]$, so it is convex. Hence $\varphi(t)\le(1-\frac t{t_0})\varphi(0)+\frac t{t_0}\varphi(t_0)$. \qed
+
+We use the lemma with $t_0=\sigma_{\rm cx}=2^{1/3}-1$, so that $(1+\sigma_{\rm cx})^3\le2$. The letter $s$ is kept for the weakening parameter of Part~IX.
+
+\begin{step}[The constants are majorants]
+Fix the coercivity constants and the quarter rates of Detail~\ref{xa:d-ext-reading}, (R2). Order the levels of Sections~\Nref{sec:nested-walks} and~\Nref{sec:tiers}, and the constants of Section~\Nref{sec:weak-background}, as in Section~\Nref{sec:nested-walks}: $\ell=1,\dots,N$. Every multiplicative constant $K$ of level $\ell$ is, in the note's proofs, the value $F_K(x_\ell)$ of a function of the lemma's type. Here $x_\ell$ collects the primitive inputs and the constants of the earlier levels: the local propagator bounds $C_G$, the commutator bounds $C_{\rm loc}$, the bounds $C_{\mathfrak N}$ on the non-local parts, the interior factor bounds $C_T$, and the averaging kernel bounds. The mechanisms are:
+\begin{enumerate}[label=(m\arabic*)]
+\item products and local factors: $\xanorm{F_1\cdots F_n}\le n\prod_i(C_d\delta^{-2}\xanorm{F_i})$ (Lemma~\Nref{lem:weak-chain}) and $\xanorm{\mathcal LO}\le\xaabs{\mathcal L}_\gamma\xanorm O$ (Lemma~\Nref{lem:weak-local-ops});
+\item the step constant $\theta$ of Lemma~\Nref{lem:step-small}, a sum of products of at most three inputs;
+\item the walks: $\xanorm{G^X}\le C\,C_G\sum_n(n+1)(2C\delta^{-2}\theta)^n$ (proof of Theorem~\Nref{thm:weak-inverse}), a power series in $\theta$;
+\item Neumann series and perturbed inverses: $(1-q)^{-1}=\sum_nq^n$, with $q$ of the same type;
+\item integrals of such functions with nonnegative weights, as in the resolvent integral $C_k^{1/2}(s)=\frac1\pi\int_0^\infty r^{-1/2}R_r(s)\,dr$ of Corollary~\Nref{cor:weak-covariance}, which gives $C_T$;
+\item composite constants, $C'_{\mathfrak N}$, $\theta_{\mathfrak N}$ (Proposition~\Nref{prop:nl-tiers}), $C^D_{\mathfrak N}$ and $\theta'$ (Theorem~\Nref{thm:tier-walk}): sums of products of at most three constants of earlier levels, with maxima such as $\max(C_T,C_G)$.
+\end{enumerate}
+The thresholds $M_1$, $M_{\mathfrak N}$ and $M'_1$ are not such constants. They are lower bounds for $M$, defined by conditions on the walk ratios. This structural claim rests on the mechanisms (m1)--(m6) and on the explicit formulas just cited. The constant-by-constant expansion of Sections~\Nref{sec:nested-walks}--\Nref{sec:weak-background} is in Section~\ref{d9:sec}.
+
+The radii $R_P$, $r_P$ are \emph{decreasing} functions of the constants, so the lemma does not apply to them. They are fixed once, computed with the multiplicative constants doubled, and $2K_H$ is used in place of $K_H$ (Proposition~\Nref{prop:complex-ext}, end of the proof). The conditions $4C_P(\eps_P+2\varrho_P)\le1$ and $C(\eps_P+R_P)\le K_H$ of the contraction of Theorem~\Nref{thm:weak-bg} are then imposed with the doubled constants. So the ball stays invariant, with constant $\frac14$, at every complex reference.
+\end{step}
+
+\begin{step}[The primitive inputs change by a factor $1+C_{\rm in}\delta_c$]
+At $U$, every primitive input satisfies $x'_i\le(1+C_{\rm in}\delta_c)x_i$, with $C_{\rm in}$ depending on $L$, $M$, $G$ and the real constants:
+\begin{itemize}
+\item the averaging kernels and their transposes: factor $e^{C_L\delta_c}\le1+2C_L\delta_c$ (AB(iii)--(v)), valid for $C_L\delta_c\le1$;
+\item the local propagators: $G_j(U)=G_j(U_r)+(G_j(U)-G_j(U_r))$. The difference has decay $(C\delta,\gamma_{\rm c}/4)$ by Lemma~\Nref{lem:perturbed-inverse}, with $\delta\le C_{\rm cmp}\delta_c$. At the rate $\gamma_{\rm c}/4$ this gives $C'_G\le C_G(1+C'\delta_c/C_G)$, and likewise for the other (W2) constants and for $C_{\rm loc}$;
+\item $W_2^X$ changes by $C_{\rm cmp}C_W\delta_c$, with $C_W$ fixed through $\delta_*$ in the proof of Proposition~\Nref{prop:dirichlet-hessian}(c) (Detail~\ref{d8:A1}). The factor $C_{\rm cmp}$ appears because $C_W$ is per unit of the size $\delta\le C_{\rm cmp}\delta_c$ of Proposition~\Nref{prop:reg-complex}.
+\end{itemize}
+These changes are additive. They become factors because each input bound $K$ is taken free of $\eps$, with $\eps\le1$; for instance $\xanorm{W_2^X}\le C$. Then an additive change $C\delta_c$ is a factor $1+(C/K)\delta_c$. For inverses, Lemma~\Nref{lem:perturbed-inverse} gives the change relative to the bound, also at level~(L5), where $C_G<1$.
+
+The small parameters, namely $\eps$, the $C\eps$-bounds of coefficients and $\xaabs{F^s}$, are not inputs of this kind. They change to $\eps+C\delta_c$, which is (R1).
+\end{step}
+
+\begin{step}[$C_{\rm cx}$, level by level]
+For level $\ell$, put
+\[
+C^{(\ell)}=\frac{C^{(\ell)}_{\rm in}}{\sigma_{\rm cx}}\max\Big(1,\ \max_K\Big(\frac{F_K((1+\sigma_{\rm cx})x_\ell)}{F_K(x_\ell)}-1\Big)\Big),\qquad C^{(\ell)}_{\rm in}=\max\big(C_{\rm in},C^{(1)},\dots,C^{(\ell-1)}\big),
+\]
+with the maximum over the constants $K$ of level $\ell$. Let $C_{\rm cx}=\max_\ell C^{(\ell)}$, with $C_{\rm in}\ge2C_L$.
+
+\emph{Claim.} Let $\delta_c\le1/C_{\rm cx}$. Then every input of every level changes by at most a factor $1+\sigma_{\rm cx}$, and every constant by at most $1+C_{\rm cx}\delta_c\le2$.
+
+\emph{Proof, by induction over $\ell$.} Since $C^{(\ell)}\ge C^{(\ell)}_{\rm in}/\sigma_{\rm cx}$, we have $C^{(\ell)}_{\rm in}\le\sigma_{\rm cx}C_{\rm cx}$, so $t_\ell:=C^{(\ell)}_{\rm in}\delta_c\le\sigma_{\rm cx}$; also $C_L\delta_c\le\frac12C_{\rm in}\delta_c\le\frac12\sigma_{\rm cx}\le1$. Suppose every input of level $\ell$ changes by at most $1+t_\ell$: for the primitive inputs this is Step~2, and for the constants of earlier levels it is the induction hypothesis, since $C^{(m)}\le C^{(\ell)}_{\rm in}$ for $m<\ell$. The lemma with $t_0=\sigma_{\rm cx}$ and $t=t_\ell$ gives, for each $K$ of level $\ell$,
+\[
+K'\le F_K(x_\ell)\Big(1+\frac{t_\ell}{\sigma_{\rm cx}}\Big(\frac{F_K((1+\sigma_{\rm cx})x_\ell)}{F_K(x_\ell)}-1\Big)\Big)\le\big(1+C^{(\ell)}\delta_c\big)K .
+\]
+Since $C^{(\ell)}\le C_{\rm cx}$, this is at most $(1+C_{\rm cx}\delta_c)K\le2K$, and the outputs of level $\ell$ change by at most $1+C^{(\ell)}\delta_c$ with $C^{(\ell)}\le C^{(\ell+1)}_{\rm in}$. This closes the induction. \qed
+
+A single number $C_{\rm in}$ for all levels would not do. The inputs of a later level that are outputs of earlier levels change by $1+C_{\rm cx}\delta_c$, which is bounded only by $2$, not by $1+\sigma_{\rm cx}$. Then $\theta'$, cubic in such inputs, could grow by a factor up to $8$.
+
+\emph{The values $F_K((1+\sigma_{\rm cx})x_\ell)$ are finite.} The walk ratios are $2C\delta^{-2}\theta$ and $2C_d\delta^{-2}\theta'$, and $\theta$, $\theta'$ are sums of products of at most three inputs of their level. So their values at $(1+\sigma_{\rm cx})x_\ell$ are at most $(1+\sigma_{\rm cx})^3\le2$ times those at $x_\ell$. Now $M_1$ is chosen with the inputs doubled, and $M'_1$ with $\theta'$ replaced by $2\theta'$ (Remark~\Nref{rem:domain-constants}). So for $M\ge M_1,M'_1$ the walks at $(1+\sigma_{\rm cx})x_\ell$ converge with ratio at most $\frac12$, and $F_K((1+\sigma_{\rm cx})x_\ell)<\infty$. Doubling the composite $\theta'$, rather than its inputs, is enough precisely because the inputs move only by $1+\sigma_{\rm cx}$.
+
+\emph{Dependencies.} $C_{\rm cx}$ depends on $L,M,M',\kappa,\delta,\rho,\alpha,G$ and on real-reference constants that hold for all $\eps$ below thresholds fixed before $\bar\delta$. It does not depend on $\bar\delta$, $\eps_{\max}$ or $\delta_P$. The cap is $\bar\delta\le\min(\delta_{AB},1/C_{\rm cx})$ (Remark~\Nref{rem:domain-constants}). Downstream only the factor $2$ is used, so the Lipschitz form is stronger than needed. For instance $\theta_{\mathfrak N}$ is of degree $3$ in $(C'_{\mathfrak N},\max(C_T,C_G))$, so its ratio is at most $8$.
+\end{step}
+
+\begin{step}[The thresholds $M_{\mathfrak N}$ and $M'_1$ are not circular]
+\begin{itemize}
+\item \emph{What they are built from.} $M_{\mathfrak N}=\max\big(M_1(2x),16(r+1),(2R_N+22)/(\rho-1)\big)$ (Proposition~\Nref{prop:nl-tiers}), and $M'_1$ is defined by $2C_d\delta^{-2}\cdot2\theta'(\kappa+\delta)\le\frac12$ (Theorem~\Nref{thm:tier-walk}). The ingredients are real-reference constants free of $M$, namely $C'_{\mathfrak N},C_T,C_G,C_{\rm loc}$ (Lemma~\Nref{lem:N-tier}, the proof of Proposition~\Nref{prop:nl-tiers}, Section~\Nref{ss:41.3}), the fixed rates, and $r,R_N,\rho,\kappa,\delta$. None involves $\bar\delta$, $\eps_{\max}$, $\delta_P$ or $C_{\rm cx}$.
+\item \emph{Why the doubling suffices at complex references.} By Step~3, the inputs of $\theta'$ move by at most $1+\sigma_{\rm cx}$, so $\theta'$ moves by at most $(1+\sigma_{\rm cx})^3\le2$. Hence ``$2\theta'$ bounds $\theta'$ at complex references''. The walks of (L1), (L2) that feed $C'_{\mathfrak N}$ converge there, since $M\ge M_1(2x)$.
+\item \emph{The order.} Real constants, then $M_1(2x)$, $M_{\mathfrak N}$ and $M'_1$, then $M$, then $C_{\rm cx}$ (which may depend on $M$), then $\bar\delta\le\min(\delta_{AB},1/C_{\rm cx})$, then $\eps_{\max}$, then $\delta_P\le\bar\delta$. No quantity is defined through one that comes after it.
+\end{itemize}
+\end{step}
+\status{Expanded. Step~(vii) of the note's proof contains the lemma and the level-by-level definition of $C_{\rm cx}$; Steps~1--4 write them out. Step~1 is a structural statement; the constant-by-constant expansion of Sections~\Nref{sec:nested-walks}--\Nref{sec:weak-background} is in Section~\ref{d9:sec}.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:complex-ext}, step~(viii) of the proof: analyticity, factorization and the class $\mathcal K$]\label{xa:d-step-viii}\Ntarget{prop:complex-ext}
+\emph{Claim.} At a complex reference $U'$ of size $\delta_c<\delta_P$, Theorem~\Nref{thm:weak-bg}(a), (b) (without reality) and (d) hold. The fixed point $A_*(s;B)$ is holomorphic in $(s,B,A')$ jointly. The class $\mathcal K$ of the proof of Theorem~\Nref{thm:weak-bg}(d) is preserved by the iteration.
+
+\begin{step}[The inputs at $U'$]
+\begin{itemize}
+\item The weakened operators $\bG(s)$, $\bH(s)$, $\bC(s)$ and their derivatives at $U'$ come from the levels of Part~IX at complex perturbations (Detail~\ref{xa:d-step-i}(f)). Each term is holomorphic in $A'$, and the family norms are bounded uniformly, with constants $\le2\times$ the real ones (Detail~\ref{xa:d-majorant}).
+\item So $s\mapsto\bH(s)$, and the others, are uniform limits of holomorphic functions of $(s,A')$, hence jointly holomorphic. Lemma~\Nref{lem:weak-basic}(a) holds with the complex data.
+\item $\Cav_k$ at the reference $U'$ is jointly holomorphic in $(A',A)$ (AB(vi)), with the bounds of AB(iii).
+\item $\nabla\mathcal N$ is jointly holomorphic, with the bounds of Detail~\ref{xa:d-step-v}.
+\item $\mathsf F=F^s_{U'}$ is holomorphic in $A'$, with $\xaabs{\mathsf F}\le C(\eps+\delta_c)$.
+\end{itemize}
+\end{step}
+
+\begin{step}[The contraction]
+With the doubled constants of Detail~\ref{xa:d-majorant}, Step~1 (that is, $2K_H$ and $R_P$, $\varrho_P$, $C_P$, $\eps_P$ computed with the multiplicative constants doubled), the proof of Theorem~\Nref{thm:weak-bg}(a) gives a contraction with constant $\frac14$ of $\{\xaabs{A_1}_*\le\varrho_P\}$, uniformly in $A'$ and $s$. The iterates from $0$ are jointly holomorphic and converge uniformly, so the fixed point is holomorphic in $(s,B,A')$. Also $A_*(s;0)=0$, since $\mathcal T_s(0)=0$ by the three bullets of the proof of (a), which are algebraic.
+\end{step}
+
+\begin{step}[The class $\mathcal K$]
+The preservation of $\mathcal K$ uses four facts. Each holds at complex references.
+\begin{enumerate}[label=(k\arabic*)]
+\item $\Cav_k(A)(c)$ depends only on $A$ on the bonds of $S_c$ and on the reference there, and vanishes with $A$ there. This is AB(iii)(a) (locality ``in the same form'') and AB(iv)(d). It uses Lemma~\Nref{lem:one-step-basic}(c), which is formal.
+\item $\nabla\mathcal N(A)(b)$ depends only on $A$ on the plaquettes containing $b$. The summand is plaquette-local and holomorphic.
+\item $\mathsf F$ is local in $U'$.
+\item The weakened operators vanish off $Z^{(r)}\times Z^{(r)}$ and are block diagonal (Lemma~\Nref{lem:weak-basic}(b)). This holds for any data, since Definition~\Nref{def:weak-family} allows complex data. The geometric separation $M/4-2r-2>2$ does not involve the reference.
+\end{enumerate}
+So the inner iteration of \Neqref{eq:Ds}, the outer iteration and the Neumann series for $d\mathcal D_s^T$ stay in $\mathcal K$, exactly as at real references. Hence the factorization (d) holds, including the dependence on $s$ only through the boxes of $Z_i$. Lemma~\Nref{lem:gl-bg} uses this.
+\end{step}
+\status{Expanded. The class $\mathcal K$ is stated, and the four facts that preserve it are proved at complex references.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:complex-ext}, last paragraph of the statement and step~(ix) of the proof: what is not extended]\label{xa:d-notext}\Ntarget{prop:complex-ext}
+\emph{Claim.} The results that are not extended are used only at real references.
+\begin{itemize}
+\item Theorem~\Nref{thm:ID}(d) and Lemma~\Nref{lem:div-curvature}. In Sections~\Nref{sec:complex-references}--\Nref{sec:gen-locality}, Theorem~\Nref{thm:ID} is cited only at the opening of Section~\Nref{sec:AB-proof}, in Remark~\Nref{rem:AB-remains}, in Proposition~\Nref{prop:complex-ext} and step~(ix) of its proof, and in Lemma~\Nref{lem:norm-conversion} and its proof; the last two cite part~(b). Lemma~\Nref{lem:div-curvature} is cited only in Proposition~\Nref{prop:complex-ext} and step~(ix) of its proof.
+\item Lemma~\Nref{lem:critical-current} and Theorem~\Nref{thm:weak-bg}(c). Their uses are: the Setting of Section~\Nref{sec:step-quantities}; the proof of Proposition~\Nref{prop:interaction-pieces}(c); Remark~\Nref{rem:source-free}; Section~\Nref{subsec:cl-loc}; Section~\Nref{subsec:flow-parameters}; the paragraph ``Background fields at an admissible threshold'' of Section~\Nref{sec:generations}; and Remark~\Nref{rem:symmetrization-flow}. All are at real critical references or at real background fields $U_j(V)$.
+\end{itemize}
+Only the \emph{identity} of Lemma~\Nref{lem:div-curvature} is not extended. Its first part, the bound on $W_0=d^2\mathcal N(0)$ through the plaquette form, does extend. It is used at complex perturbations in the proof of Proposition~\Nref{prop:dirichlet-hessian}(c), with the bounds of step~(v) and transports bounded by $2$. The last paragraph of the statement says so: ``the identity of Lemma~\Nref{lem:div-curvature} (its bound on $W_0$ extends)'', and step~(ix) agrees.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:complex-ext}, the paragraph ``Smallness'' of the proof: the conditions on $\delta_P$]\label{xa:d-deltaP}\Ntarget{prop:complex-ext}
+Each condition below is an upper bound on $\delta_P$ by quantities fixed before it: $L,M,M',\kappa,\delta,\rho,\alpha,G$, the real-reference constants, $\delta_*$, $\bar\delta$ and $\eps_{\max}$. The global order is in the ledger (Section~\ref{sec:ledger}). Every joint condition has the form $\eps_{\max}+C\delta_P\le T$, with $T$ fixed before both. Since $\eps_{\max}\le\frac12T$ by the definition of $\eps_{\max}$ (half the smallest threshold, Remark~\Nref{rem:domain-constants}), it holds if $C\delta_P\le\frac12T$. The list below is the note's list. For each item we say what it covers.
+\begin{enumerate}[label=(P\arabic*)]
+\item \emph{$\delta_P\le c''_L$ (Lemma~\Nref{lem:coercive-general}), with $C_{\rm cmp}c''_L\le\delta_*$.}
+  \begin{itemize}
+  \item $\delta_*$ is fixed once, in the proof of Proposition~\Nref{prop:dirichlet-hessian}(c) (Detail~\ref{d8:A1}). It fixes the radius conditions at size $2\delta_*$ of: Proposition~\Nref{prop:reg-complex} for $W=0$ and for $W_2$, $W_2^X$; Proposition~\Nref{prop:AB}; Proposition~\Nref{prop:action}; Proposition~\Nref{prop:dirichlet-averaged}(e), i.e.\ $C\delta S_{\gamma/4}\le\frac c2$; and $E=0$ on the ball of radius $2\delta_*$, which needs $\eps+2C\delta_*\le\min(\eps_0,c'_3)$.
+  \item A complex reference with $\delta_c<\delta_P$ is a perturbation of Proposition~\Nref{prop:reg-complex} of size $<C_{\rm cmp}\delta_P\le\delta_*$ (Detail~\ref{xa:d-cmp}). The ball of twice that size, used for the Cauchy estimate that gives the changes of $W_2^X$ (Proposition~\Nref{prop:dirichlet-hessian}), lies within these radii.
+  \item So the following conditions are all covered: $C_{\rm cmp}\delta_P\le\frac12\delta_0(0)$; $C_{\rm cmp}\delta_P\le\delta_0(W_2)$; the perturbed-inverse condition of Proposition~\Nref{prop:dirichlet-averaged}(e); $2\delta_P<\delta_{AB}$; $C(\eps_{\max}+2\delta_P)\le c_5$; and $E=0$ on the doubled ball.
+  \item The change of $W_2^X$ on that ball is at most $C_W\delta$ with $C_W$ fixed through $\delta_*$. So $\delta_0(W_2)$ does not depend on $\delta_P$.
+  \item With $C_{\rm AB}c''_L\le c'_L$, (P1) gives $C_{\rm AB}\delta_P\le c'_L$, for the complex-base elimination of Corollary~\Nref{cor:covariance}(c), with $\xaabs{\mathfrak r_c}\le\frac12$. Moreover $C_{\rm AB}\delta_P\le cL^{-d-1}$.
+  \end{itemize}
+\item $\eps_{\max}+C\delta_P\le\min(\eps_0,c'_3,\eps_{\rm ID},\eps_{\rm cc},\eps_S,\eps_L,\eps'_S,\eps'_L,\eps',\frac1{20})$, where $\frac1{20}$ is the bound on $\eps+C\delta_c$ used in the proof of Proposition~\Nref{prop:interaction-pieces}(b) (Detail~\ref{xa:d-int}(b)); the condition on $\eps$ depending on $M$ of Section~\Nref{sec:nested-walks}; and $C(\eps_{\max}+\delta_P)\le1$ for the normal form. Here $\eps_{\rm ID}$ is the threshold of Theorem~\Nref{thm:ID}, and $\eps_{\rm cc}$ that of Detail~\ref{xa:d-cmp}.
+\item $C(\eps_{\max}+\delta_P)\le c_5$ (Proposition~\Nref{prop:action}; Detail~\ref{xa:d-step-v}).
+\item $\eps_{\max}+C\delta_P\le\eps_P$, with $\eps_P$ of Theorem~\Nref{thm:weak-bg} computed with the multiplicative constants doubled.
+\item $(1+2K_H)r_P\le c'_3$ in Lemma~\Nref{lem:Ds}, with $r_P$ computed with the multiplicative constants doubled. With a worst-case reading over $\delta_c<\delta_P$, $\eps_P$ and hence $\eps_{\max}$ would depend on $\delta_P$. That would be a cycle; the doubled constants avoid it.
+\item $\delta_P\le c_{\rm DC}r_ML^{-1}$, which is (DC5). For $c_{\rm DC}$ small it gives $C_{\rm AB}\delta_P\le\frac1{32}c_0L^{-1}$ (Lemma~\Nref{lem:exp-gauge}(c) at $Z\star\beta$) and $LC_{\rm AB}\delta_P\le c$ with $c\le\frac14c_0$ (Lemma~\Nref{lem:avg-transport}(f)).
+\item $\delta_P\le\bar\delta\le\min(\delta_{AB},1/C_{\rm cx})$. It gives $C_{\rm cx}\delta_P\le1$, hence $C^{(\ell)}_{\rm in}\delta_c\le\sigma_{\rm cx}$ at every level and $C_L\delta_c\le1$ (Detail~\ref{xa:d-majorant}, Step~3).
+\end{enumerate}
+\emph{The radii.} At complex references, $2K_H$ is used in place of $K_H$, and $R_P$, $r_P$, $C_P$, $\eps_P$, $\varrho_P$ are computed with the multiplicative constants doubled. These are fixed before $\delta_P$.
+
+\emph{The reading of $\eps_{\max}$.} In Remark~\Nref{rem:domain-constants} the thresholds that define $\eps_{\max}$ are computed with every multiplicative constant doubled and with the fixed rates. A reading ``with the worst case of the constants over complex references of size $\delta_c\le\bar\delta$'' would not be defined for $\delta_P\le\delta_c\le\bar\delta$. By Detail~\ref{xa:d-majorant}, the doubled constants bound the constants at every complex reference with $\delta_c<\delta_P$. So this reading is not circular.
+\status{Expanded. The list closes. The $W_2$ part of (P1) rests on the proof of Proposition~\Nref{prop:dirichlet-hessian}(c), written out in Detail~\ref{d8:A1}.}
+\end{detail}
+
+\begin{detail}[Remark~\Nref{rem:complex-ext-use}: use in the renormalization group]\label{xa:d-ext-use}\Ntarget{rem:complex-ext-use}
+\emph{Claim.} The references of the step are complex references in the sense required.
+
+A point of the graded domain of step $k+1$, extended as in Remark~\Nref{rem:bg-to-graded} and read in the units of step $k$, is a complex reference of size
+\[
+\delta_c\le2C_{\rm ext}\big(L^{-1}\delta_0+L^{-2}\delta_1\big)
+\]
+(Remark~\Nref{rem:domain-constants}(ii)). Indeed, in the units of step $k+1$ the extension has $\xaabs{\chi A}<\delta_0$, and covariant differences and H\"older quotients at most $C_{\rm ext}(\delta_0+\delta_1)$. The change of units multiplies these by $L^{-1}$, $L^{-2}$ and $L^{-2-\alpha}$. So the size is at most $L^{-1}\delta_0+2L^{-2}C_{\rm ext}(\delta_0+\delta_1)$, and $1+2C_{\rm ext}/L\le2C_{\rm ext}$ for $C_{\rm ext}\ge1$ and $L\ge3$.
+
+So $\delta_c<\delta_P$ is (DC4), chosen after $\delta_P$, with no condition on the coupling. Its real part is $(M,B_5\theta_r)$-regular, with current at most $L^{-3}\theta_r$ (Corollary~\Nref{cor:regularity}).
+\status{Expanded.}
+\end{detail}
+
+%======================================================================
+\subsection{Averaged backgrounds at complex references (Section~\texorpdfstring{\Nref{sec:AB-proof}}{46.1})}\label{xa:sec-AB}
+
+\paragraph{The idea.} A complex transport has norm up to $e^{2\xaabs{Z}}$ per factor, so a scale-by-scale bound on the averaged backgrounds would lose a fixed factor at every scale, and these losses would compound. The note avoids this by working relative to the real reference (the opening of Section~\Nref{sec:AB-proof}). The averaged background $W_j(U)$ is a complex gauge transform, by $h_j$, of the real-reference object $X_jW_j(U_r)$ (Lemma~\Nref{lem:AB-rep}), and $\lambda_j=\ell(h_j)$ satisfies $\xaabs{\lambda_j}\le7d\,\delta_j\xaabs{A'}_\infty$ with $\delta_j=L^{j-k}$. Since $\sum_{i<j}\delta_{i+1}\le2\delta_j$, the losses are summable over the scales, and the relative fields are $O(\xaabs{A'}_\infty)$ uniformly in $j$ (Lemma~\Nref{lem:AB-bounds}). The Details below prove the three lemmas of Section~\Nref{sec:AB-proof} and the six parts of Proposition~\Nref{prop:AB} on this basis.
+
+\begin{detail}[Section~\Nref{sec:complex-references}, the paragraph ``Complex references'': the four items]\label{xa:d-AB-ref}\Ntarget{sec:complex-references}
+\emph{The four items of the paragraph ``Complex references''.}
+\begin{itemize}
+\item \emph{Relation to Proposition~\Nref{prop:reg-complex}.} This is Detail~\ref{xa:d-cmp}, with $C_{\rm cmp}=4$.
+\item \emph{The local gauge.} This is the first paragraph of Detail~\ref{xa:d-step-ii}: $A_0=\tilde A'\oplus A_r$ satisfies (B) with parameter $\eps+C\delta_c$.
+\item \emph{Potentials.} These are the potentials of $\cW^{\rm an}_{\rm loc}$, and $W_2^X$. For $W_2^X$ only the $L^2$ statements of Proposition~\Nref{prop:reg-complex} are used, as the range-$3$ clause of that proposition requires. That clause needs $W_2^X(U_\delta)-W_2^X(U)$ of norm at most $C_W\delta$. The proof of Proposition~\Nref{prop:dirichlet-hessian}(c) gives it, with $\delta_*$ fixed once; it is written out in Detail~\ref{d8:A1} (see Detail~\ref{xa:d-step-i}(d)). In Section~\Nref{sec:weak-background}, $W=0$.
+\item \emph{Graded domains.} The bound $\delta_c\le3C_{\rm ext}(\delta_0+\delta_1)$ is that of Remark~\Nref{rem:bg-to-graded}, with $1+2C_{\rm ext}\le3C_{\rm ext}$. The bound for the domain of step $k+1$ is Detail~\ref{xa:d-ext-use}. The real part has curvature and current below $\theta_r$, so it is $(M,B_5\theta_r)$-regular (Corollary~\Nref{cor:regularity}).
+\end{itemize}
+\status{Expanded. The third item uses Detail~\ref{d8:A1}.}
+\end{detail}
+
+\begin{detail}[Section~\Nref{sec:AB-proof}: the opening and the Setting]\label{xa:d-AB-setting}\Ntarget{sec:AB-proof}
+\emph{Claims.}
+\begin{enumerate}[label=(\alph*)]
+\item $U_r\in\mathfrak U_0(a)$ with $a\le C\eps$, $C$ independent of $M$.
+\item $\xaabs{A'}_\infty$ is invariant under real gauge transformations.
+\item The constants depend only on $d,L,G$.
+\item \Neqref{eq:AB-scales} holds.
+\end{enumerate}
+
+\emph{Proof.}
+\begin{enumerate}[label=(\alph*)]
+\item An $(M,\eps)$-regular $U_r$ is, on every cube $\hat\Lam(z)$, $e^{\ii\eta A_z}$ in a real gauge with $\xaabs{A_z},\xaabs{\partial A_z}\le\eps$. So its curvature is at most $C\eps$, by the expansion of Lemma~\Nref{lem:curvature}, with $C$ depending on $d$ and $G$ only. This is the proof of Corollary~\Nref{cor:parts-apply}.
+\item Under a real $u$, $A'(b)\mapsto R(u(b_-))A'(b)$, and $R(u(b_-))$ is unitary on $\mathfrak g^c$ for the hermitian norm. So $\xaabs{A'}_\infty$ is gauge invariant, as the Setting states.
+\item The proofs of Sections~\Nref{sec:averaging} and~\Nref{sec:adapted} do not use $M$. Their constants come from Lemmas~\Nref{lem:log-estimates} and~\Nref{lem:group-average}, from the contour counts (at most $2L$ bonds, at most $24$ contours per family in $d=4$) and from $L^{-d}\sum_x$. So $c_3$, $c'_3$ and the $C$ of this subsection depend only on $d,L,G$.
+\item With $\delta_i=L^{i-k}$:
+\[
+\sum_{i\le k}\delta_i=\sum_{m=0}^kL^{-m}\le\frac L{L-1}\le\frac32,\qquad\sum_{i<j}\delta_{i+1}=\delta_j\sum_{m=0}^{j-1}L^{-m}\le\frac32\delta_j,\qquad\sum_i\delta_i^2\le\frac98 .
+\]
+These are sharper than \Neqref{eq:AB-scales}, which uses $2$, and than the $\frac43$ in the proof of Proposition~\Nref{prop:AB}(iii).
+\end{enumerate}
+
+\emph{Why the per-scale bound fails.} A complex transport has norm up to $e^{2\xaabs{Z}}$ per factor. Bounding $W_j(U)$ scale by scale through the one-step formula loses a factor $1+C\xaabs{A'}$ at each scale, with $\xaabs{A'}$ of order one in the units of the scale. This compounds to a factor exponential in $j$. The two observations at the opening of Section~\Nref{sec:AB-proof} are proved in Details~\ref{xa:d-AB-rep} and~\ref{xa:d-AB-bounds}: $\xaabs{\ell(h_j)}\le7d\delta_j\xaabs{A'}$, and every relative field is $O(\xaabs{A'})$ uniformly in $j$.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:AB-cov}]\label{xa:d-AB-cov}\Ntarget{lem:AB-cov}
+\emph{Claim.} Let $j\ge1$ and let $Y$ be a configuration on $\T^{(j-1)}$ with:
+\begin{itemize}
+\item all families $\{Y(\Gamma)\}_{\Gamma\in G(y,x)}$ in $\cD_{r_M/2}$;
+\item $\xaabs{\Lambda_{c,x}(Y)-1}\le\frac12c_G$ for all bonds $c$ of $\T^{(j)}$, of both orientations, and all $x\in B_j(c_-)$.
+\end{itemize}
+Let $g:\T^{(j-1)}\to G^c$ with $\kappa(g(y))\le2$ for $y\in\T^{(j)}$. Then $\mathfrak a_j(Y^g)=\mathfrak a_j(Y)^{g|_{\T^{(j)}}}$.
+
+\begin{step}[The averaged contour variables]
+For $\Gamma\in G(y,x)$, $Y^g(\Gamma)=g(y)Y(\Gamma)g(x)^{-1}$. Since $y\in\T^{(j)}$, $\kappa(g(y))\le2$. Lemma~\Nref{lem:group-average}(b), last-but-one bullet, applies with $u=g(y)$ and $v=g(x)^{-1}$, which is arbitrary in $G^c$. So the family of $Y^g$ lies in $\cD_{r_M}$, and
+\[
+Y^g(y,x)=g(y)Y(y,x)g(x)^{-1}.
+\]
+This is \Neqref{eq:avg-contour-gauge} for complex $g$.
+\end{step}
+
+\begin{step}[The loops]
+$\Lambda_{c,x}=Y(c_-,x)\,Y([x,x(c)])\,Y(x(c),c_+)\,Y([c])^{-1}$, with $Y(x(c),c_+)=Y(c_+,x(c))^{-1}$. By Step~1 and the gauge law along contours, the inner factors $g(x)$ and $g(x(c))$ cancel, and the outer factors are $g(c_-)$ on the left and $g(c_+)g(c_+)^{-1}g(c_-)^{-1}$ on the right. So
+\[
+\Lambda_{c,x}(Y^g)=g(c_-)\Lambda_{c,x}(Y)g(c_-)^{-1}.
+\]
+\end{step}
+
+\begin{step}[The logarithms]
+Put $h=\Lambda_{c,x}(Y)$, so $\xaabs{h-1}\le\frac12c_G\le\frac18$. Then $\xaabs{ghg^{-1}-1}\le\kappa(g)\xaabs{h-1}\le c_G\le\frac14$. Lemma~\Nref{lem:log-estimates}(d) needs $\xaabs{h-1}\le\frac14$ and $\xaabs{ghg^{-1}-1}\le\frac12$, so it gives $\ell(ghg^{-1})=g\,\ell(h)\,g^{-1}$, and $\exp(\ii gZg^{-1})=ge^{\ii Z}g^{-1}$. In \Neqref{eq:one-step} the exponent is therefore conjugated by $g(c_-)$, and $Y^g([c])=g(c_-)Y([c])g(c_+)^{-1}$. This gives the claim. Definedness holds because $\xaabs{\Lambda_{c,x}(Y^g)-1}\le c_G$.
+\end{step}
+
+\begin{step}[The relative version]
+$X^{(g)}$ is defined by $X^{(g)}W_{j-1}=(XW_{j-1})^g$, and $\overline X=\mathfrak a_j(XW_{j-1})W_j^{-1}$. So
+\[
+\overline{X^{(g)}}\,W_j=\mathfrak a_j\big((XW_{j-1})^g\big)=\mathfrak a_j(XW_{j-1})^{g}=(\overline XW_j)^{g},
+\]
+that is $\overline{X^{(g)}}=\overline X^{(g|_{\T^{(j)}})}$.
+\end{step}
+
+The complex case is already part of Lemma~\Nref{lem:one-step-basic}(b), with the same hypotheses.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:AB-rep}]\label{xa:d-AB-rep}\Ntarget{lem:AB-rep}
+\emph{Setting.} $X_j=\mathcal Q_j(U')$ is computed relative to the real backgrounds $W^r_j$, with $U'=e^{\ii\eta A'}$ (Setting of Section~\Nref{sec:AB-proof}). So $X_i=e^{\ii\delta_iB_i}$, and by Proposition~\Nref{prop:Q-expansion}(a) at the real reference $U_r$,
+\[
+\xaabs{B_i}_\infty\le2\xaabs{A'}_\infty\qquad(\xaabs{A'}_\infty\le c_3).
+\]
+
+\begin{step}[(a): the size of $\tau_i$]
+Apply Lemma~\Nref{lem:one-step-expansion} at scale $i+1$, with the real background $W^r_i\in\mathfrak U_i(2a)$ (Proposition~\Nref{prop:avg-regular}). Its hypothesis $\xaabs{B_i}\le c_2/\delta_{i+1}$ holds, since $2\xaabs{A'}\le c_2$ for $\delta_{AB}\le c_2/2$. The lemma gives
+\[
+\tau_i=e^{\ii\delta_{i+1}(\gamma_{i+1}B_i+c^\tau_{i+1}(B_i))},\qquad\xaabs{\gamma_{i+1}B_i}\le d\cdot2\xaabs{A'},\qquad\xaabs{c^\tau_{i+1}(B_i)}\le C\delta_{i+1}(2\xaabs{A'})^2 .
+\]
+The exponent has size less than $\log2$, so Lemma~\Nref{lem:log-estimates}(d) gives $\ell(\tau_i)$ equal to the exponent. Hence
+\[
+\xaabs{\ell(\tau_i)}\le\delta_{i+1}\xaabs{A'}\big(2d+4C\xaabs{A'}\big)\le3d\,\delta_{i+1}\xaabs{A'}\qquad\text{for }\xaabs{A'}\le d/(4C).
+\]
+\end{step}
+
+\begin{step}[(a): the size of $\lambda_j$]
+At $y\in\T^{(j)}\subset\T^{(i+1)}$, $h_j(y)=e^{\ii\ell(\tau_0(y))}\cdots e^{\ii\ell(\tau_{j-1}(y))}$, and
+\[
+s:=\sum_{i<j}\xaabs{\ell(\tau_i)}\le3d\xaabs{A'}\sum_{i<j}\delta_{i+1}\le6d\,\delta_j\xaabs{A'}
+\]
+by Detail~\ref{xa:d-AB-setting}(d). For $s\le\frac14$, Lemma~\Nref{lem:log-estimates}(c) gives $\lambda_j=\sum_i\ell(\tau_i)+\beta$ with $\xaabs{\beta}\le Cs^2$, so $\xaabs{\lambda_j}\le s+Cs^2\le7d\delta_j\xaabs{A'}$ for $6dC\xaabs{A'}\le\frac16$.
+\end{step}
+
+\begin{step}[(b): the induction]
+For $j=0$, $W_0(U)=U=X_0W^r_0$ and $h_0=1$. Let $j\ge1$, assume $W_{j-1}(U)=Y^{h_{j-1}}$ with $Y=X_{j-1}W^r_{j-1}$, and check in order:
+\begin{enumerate}[label=(\roman*)]
+\item \emph{$Y$ is in the averaging domain.} The Analyticity paragraph of the proof of Lemma~\Nref{lem:one-step-expansion}, at the real $W^r_{j-1}$ and with $\xaabs{B_{j-1}}\le2\xaabs{A'}$, gives two things. The families of $Y$ lie in $\cD_{C(\xaabs{A'}+a\delta_j^2)}\subset\cD_{r_M/2}$. The averaged loops satisfy $\xaabs{\Lambda_{c,x}(Y)-1}\le C(\xaabs{A'}+a\delta_j^2)\le\frac12c_G$, for both orientations of $c$ (the proof treats a general bond $c$). This needs $\delta_{AB}$ and $c'_3$ small depending on $d,L,G$. The note's alternative remark (``Lemma~\Nref{lem:stokes-avg}(iv) gives a bound of the same kind'') is not needed.
+\item \emph{$\kappa(h_{j-1})\le2$ on $\T^{(j)}$.} $\kappa(e^{\ii\lambda})\le e^{2\xaabs{\lambda}}$, and $2\xaabs{\lambda_{j-1}}\le14d\delta_{j-1}\xaabs{A'}\le\log2$.
+\item \emph{Covariance.} Detail~\ref{xa:d-AB-cov} gives $W_j(U)=\mathfrak a_j(Y^{h_{j-1}})=\mathfrak a_j(Y)^{h_{j-1}|_{\T^{(j)}}}$.
+\item \emph{The algebra.}
+  \begin{itemize}
+  \item $\mathfrak a_j(Y)=\overline{X_{j-1}}\,W^r_j$, by the definition of the relative average.
+  \item $\tilde{\mathfrak a}_j(X)=\overline X^{(\tau_X^{-1})}$ (Definition~\Nref{def:adapted}). Since $(X^{(g)})^{(g')}=X^{(g'g)}$, this gives $\overline X=\tilde{\mathfrak a}_j(X)^{(\tau_X)}$.
+  \item With $\tilde{\mathfrak a}_j(X_{j-1})=X_j$ this yields $\mathfrak a_j(Y)=(X_jW^r_j)^{\tau_{j-1}}$.
+  \item Hence $W_j(U)=(X_jW^r_j)^{h_{j-1}\tau_{j-1}}=(X_jW^r_j)^{h_j}$.
+  \end{itemize}
+\end{enumerate}
+The equality $h_j=\mathsf w_j(U')^{-1}$ on $\T^{(j)}$ is Theorem~\Nref{thm:correspondence}(c). That part uses only the recursion and Lemma~\Nref{lem:axial}(a), so it holds for complex $U'$ (paragraph after Theorem~\Nref{thm:correspondence}). It is used only for the reformulation at the end of (b).
+\end{step}
+\status{Expanded. The alternative remark through Lemma~\Nref{lem:stokes-avg}(iv) is not needed.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:AB-bounds}]\label{xa:d-AB-bounds}\Ntarget{lem:AB-bounds}
+The four parts are proved in order.
+\begin{step}[(a): the relative field]
+By Detail~\ref{xa:d-AB-rep}, $V_j:=W_j(U)(W^r_j)^{-1}$ is
+\[
+V_j(b)=h_j(b_-)X_j(b)W^r_j(b)h_j(b_+)^{-1}W^r_j(b)^{-1}=e^{\ii\lambda_j(b_-)}e^{\ii\delta_jB_j(b)}e^{-\ii R(W^r_j(b))\lambda_j(b_+)} .
+\]
+The three exponents have total size
+\[
+s\le7d\delta_j\xaabs{A'}+2\delta_j\xaabs{A'}+7d\delta_j\xaabs{A'}=(14d+2)\delta_j\xaabs{A'}\le\tfrac14,
+\]
+since $R(W^r_j)$ is unitary. Lemma~\Nref{lem:log-estimates}(c) gives $\ell(V_j)=\lambda_j(b_-)+\delta_jB_j-R(W^r_j)\lambda_j(b_+)+\beta'$ with $\xaabs{\beta'}\le Cs^2$. Put $\beta_j=\beta'/\delta_j$. Then $\xaabs{\beta_j}\le C(14d+2)^2\delta_j\xaabs{A'}^2$ and
+\[
+\tilde B_j:=\delta_j^{-1}\ell(V_j)=B_j-D_{W^r_j}\lambda_j+\beta_j,\qquad D_W\lambda(b)=\delta_j^{-1}\big(R(W(b))\lambda(b_+)-\lambda(b_-)\big).
+\]
+From $\xaabs{D_{W^r_j}\lambda_j}\le\delta_j^{-1}\cdot2\cdot7d\delta_j\xaabs{A'}=14d\xaabs{A'}$,
+\[
+\xaabs{\tilde B_j}\le\big(2+14d+C(14d+2)^2\xaabs{A'}\big)\xaabs{A'}\le(14d+3)\xaabs{A'}=C_{\rm AB}\xaabs{A'}
+\]
+for $C(14d+2)^2\xaabs{A'}\le1$.
+
+\emph{Linear part.} Use $B_j=\bQ_jA'+\Cav_j(A')$ with $\xaabs{\Cav_j}\le C\xaabs{A'}^2$ (Proposition~\Nref{prop:Q-expansion}(b)). Then
+\[
+\ell(\tau_i)=\delta_{i+1}\gamma_{i+1}\bQ_iA'+\delta_{i+1}\big(\gamma_{i+1}\Cav_i(A')+c^\tau_{i+1}(B_i)\big),
+\]
+with error at most $C\delta_{i+1}\xaabs{A'}^2$. Summing over $i<j$ with Detail~\ref{xa:d-AB-setting}(d), and adding the BCH error $Cs^2\le C\delta_j^2\xaabs{A'}^2$, gives $\xaabs{\lambda_j-\boldsymbol\Gamma_jA'}\le C\delta_j\xaabs{A'}^2$. Since $D_W$ costs at most $2\delta_j^{-1}$, $\xaabs{\tilde B_j-\bQ_jA'+D_{W^r_j}\boldsymbol\Gamma_jA'}\le C\xaabs{A'}^2$.
+\end{step}
+
+\begin{step}[(b): holomorphy, reality, covariance]
+\begin{itemize}
+\item \emph{Holomorphy.} $B_j$ and $\tau_i$ are holomorphic in $A'$: $\Cav_j$ and $c^\tau$ are analytic (Proposition~\Nref{prop:Q-expansion}, Lemma~\Nref{lem:one-step-expansion}). So $\lambda_j=\ell(h_j)$ is holomorphic, since $h_j$ stays within the radius of the logarithmic series, and so is $\tilde B_j$.
+\item \emph{Reality.} For real $A'$ every configuration involved is real.
+\item \emph{Covariance.} $U^u=e^{\ii\eta R(u_-)A'}U_r^u$. At each scale, Lemma~\Nref{lem:one-step-basic}(b) with real $g$ gives $W_j(U^u)=W_j(U)^{u|_{\T^{(j)}}}$ and $W_j(U_r^u)=(W^r_j)^{u|_{\T^{(j)}}}$; the averages are defined by Detail~\ref{xa:d-AB-rep}. So $V_j(b)\mapsto u(b_-)V_j(b)u(b_-)^{-1}$, and $\tilde B_j(b)\mapsto R(u(b_-))\tilde B_j(b)$ by Lemma~\Nref{lem:log-estimates}(d).
+\end{itemize}
+\end{step}
+
+\begin{step}[(c): contours and averaged contour variables]
+\emph{Contours.} For $\gamma=b_1\cdots b_n$,
+\[
+W_j(U)(\gamma)=\Big(\prod_iR(W^r_j(\gamma_{<i}))V_j(b_i)\Big)W^r_j(\gamma),\qquad V_j(-b)=R(W^r_j(b))^{-1}\big(V_j(b)^{-1}\big).
+\]
+Every factor is $e^{\ii\delta_jZ_i}$ with $\xaabs{Z_i}\le C_{\rm AB}\xaabs{A'}$, by (a) and unitarity. For $s=C_{\rm AB}n\delta_j\xaabs{A'}\le s_0=\min(\frac14,C^{-1})$, BCH gives $\xaabs{Z_\gamma}\le s+Cs^2\le2s$. Then \Neqref{eq:Ad-bound} and the unitarity of $R(W^r_j(\gamma))$ give $\xanorm{R(W_j(U)(\gamma))^{\pm1}}\le e^{4s}$ and $\xanorm{R(W_j(U)(\gamma))-R(W^r_j(\gamma))}\le e^{4s}-1$.
+
+\emph{Averaged contour variables.}
+\begin{itemize}
+\item A contour $\Gamma\in G(y,x)$ has at most $2(L-1)$ bonds of $\T^{(j-1)}$, and $\delta_{j-1}=\delta_j/L$. So $\xaabs{Z_\Gamma}\le2\cdot2(L-1)C_{\rm AB}\delta_{j-1}\xaabs{A'}\le4C_{\rm AB}\delta_j\xaabs{A'}\le r_M/16$.
+\item The real family $\{W^r_{j-1}(\Gamma)\}$ lies in $\cD_{6a\delta_j^2}\subset\cD_{r_M/2}$ (Lemma~\Nref{lem:stokes-avg}(i)), and its average is $W^r_{j-1}(y,x)$.
+\item Lemma~\Nref{lem:group-average}(a),(e) gives that $\{e^{\ii Z_\Gamma}W^r_{j-1}(\Gamma)\}$ has a group average, which is $W_{j-1}(U)(y,x)$, and that $\xaabs{Z_{y,x}}\le C_M\max_\Gamma\xaabs{Z_\Gamma}\le4C_MC_{\rm AB}\delta_j\xaabs{A'}$.
+\end{itemize}
+
+\emph{The closing sentence.} At index $j-1$, a contour of at most $2L$ bonds has $s\le2L\,C_{\rm AB}\delta_{j-1}\delta_c=2C_{\rm AB}\delta_j\delta_c$, so $4s\le8C_{\rm AB}\delta_j\delta_c$. An averaged contour variable has $2\xaabs{Z_{y,x}}\le8C_MC_{\rm AB}\delta_j\delta_c$. Both are at most $\frac12\kappa_{\rm AB}\delta_j\delta_c$, since $\kappa_{\rm AB}=16C_MC_{\rm AB}$ and $C_M\ge1$. So a product of one transport of each kind has norm at most $e^{\kappa_{\rm AB}\delta_j\delta_c}$. The condition $2C_{\rm AB}\delta_j\delta_c\le s_0$ holds for $\delta_{AB}$ small.
+\end{step}
+
+\begin{step}[(d): the loops]
+The averaged loop $\Lambda_{c,x}(W_{j-1}(U))$ is a product of four factors. Each is the corresponding real factor multiplied by $e^{\ii\zeta}$ on the left (averaged contour variable from $c_-$; the straight contour $[x,x(c)]$) or on the right (the inverse of the averaged contour variable from $c_+$; $[c]^{-1}$). The sizes are:
+\begin{itemize}
+\item $\xaabs{\zeta}\le4C_MC_{\rm AB}\delta_j\xaabs{A'}$ for the two averaged contour variables, by~(c);
+\item $\xaabs{\zeta}\le2C_{\rm AB}\delta_j\xaabs{A'}$ for the two straight contours of $L$ bonds of $\T^{(j-1)}$, by~(c) at index $j-1$.
+\end{itemize}
+Moving the $e^{\ii\zeta}$ to the left conjugates them by real elements, which preserves their norms. The real factors multiply to $e^{\ii H}$ with $H=H_x(U_r)$ and $\xaabs{H}\le16a\delta_j^2$ (Lemma~\Nref{lem:one-step-basic}(a) with $W^r_{j-1}\in\mathfrak U_{j-1}(2a)$). So
+\[
+\Lambda_{c,x}=e^{\ii\eta_1}\cdots e^{\ii\eta_4}e^{\ii H},\qquad\sum\xaabs{\eta_i}\le(8C_M+4)C_{\rm AB}\delta_j\xaabs{A'}\le12C_MC_{\rm AB}\delta_j\xaabs{A'} .
+\]
+
+\emph{Schwarz lemma.} Put $\varphi(t)=\ell(e^{\ii t\eta_1}\cdots e^{\ii t\eta_4}e^{\ii H})-H$. For $\xaabs{t}\le r_0/\sum\xaabs{\eta_i}$ the total size is at most $r_0+16c'_3\le2r_0\le\frac14$. So $\varphi$ is holomorphic there, with $\xaabs{\varphi}\le K_{\rm S}:=2r_0+C(2r_0)^2+r_0$, and $\varphi(0)=0$. This needs $\sum\xaabs{\eta_i}\le r_0$, i.e.\ $12C_MC_{\rm AB}\delta_{AB}\le r_0$. The Schwarz lemma gives $\xaabs{\varphi(1)}\le(K_{\rm S}/r_0)\sum\xaabs{\eta_i}\le C_{\rm loop}\delta_j\xaabs{A'}$. The same bound for $\Eloop$ follows by averaging over $x$. Each difference in the first display of (d) is therefore at most $C_{\rm loop}\delta_j\xaabs{A'}$, as stated.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:AB}(i), (ii)]\label{xa:d-AB-ii}\Ntarget{prop:AB}
+(i) is Details~\ref{xa:d-AB-rep}--\ref{xa:d-AB-bounds}.
+
+(ii) Lemma~\Nref{lem:one-step-expansion} at the complex background $W=W_{j-1}(U)$. The real proof (the proof of Lemma~\Nref{lem:one-step-expansion}) uses reality only in the four places below; every other step is algebraic, or uses Lemma~\Nref{lem:avg-transport}(a) (which allows complex $W$), or analyticity and Cauchy estimates. We redo each, at a field $B$ with $\xaabs{B}\le\frac12c_2/\delta_j$.
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Analyticity.}
+  \begin{itemize}
+  \item A relative transport along a contour of at most $2L$ bonds is a product of at most $2L$ factors $e^{\ii\delta R(W(\gamma'))B(b)}$, with $\xanorm{R(W(\gamma'))}\le e^{\kappa_{\rm AB}\delta_j\delta_c}\le2$ (Detail~\ref{xa:d-AB-bounds}(c)). The factor $2$ is compensated by $\xaabs{B}\le\frac12c_2/\delta_j$, so $\xaabs{\ell(X_W(\gamma))}\le3c_2$ as in the real case.
+  \item The families $\{W(\Gamma)\}=\{e^{\ii Z_\Gamma}W^r_{j-1}(\Gamma)\}$ have diameter at most $6a\delta_j^2+C\delta_j\delta_c$. So the families of $XW$ lie in $\cD_{C(c_2+a\delta_j^2+\delta_j\delta_c)}\subset\cD_{r_M/2}$.
+  \item $X_W(y,x)$ is bounded by Lemma~\Nref{lem:group-average}(e).
+  \item All logarithms have arguments within $C(c_2+a\delta_j^2+\delta_j\delta_c)$ of $1$, by Detail~\ref{xa:d-AB-bounds}(d). So $\kappa(\tau_X)\le2$, and the Cauchy estimates for $c_j,c^\tau_j,c^p_j$ are those of the real case.
+  \end{itemize}
+\item \emph{The loops.} $\xaabs{H_x},\xaabs{\Eloop}\le16a\delta_j^2+C_{\rm loop}\delta_j\delta_c\le1$.
+  \begin{itemize}
+  \item $\mathfrak f(\operatorname{ad}H)$ is analytic for $\xanorm{\operatorname{ad}H}<2\pi$, and $\xanorm{\operatorname{ad}H}\le2\xaabs{H}\le2$. So it is Lipschitz on $\xaabs{H}\le1$: $\xaabs{\mathfrak f(\operatorname{ad}H_x)-1}\le C\xaabs{H_x}$.
+  \item $\mathfrak e$ is entire, so $\xaabs{\mathfrak e(\operatorname{ad}\Eloop)-1}\le C\xaabs{\Eloop}$.
+  \item $\xanorm{R(e^{\ii \Eloop})-R(e^{\ii H_x})}\le C(\xaabs{\Eloop}+\xaabs{H_x})$.
+  \item $W_j(c)=e^{\ii \Eloop}W([c])$ gives $R(h_xW([c]))-R(W_j(c))=\big(R(h_xe^{-\ii \Eloop})-1\big)R(W_j(c))$, of norm at most $2C(\xaabs{\Eloop}+\xaabs{H_x})$.
+  \end{itemize}
+\item \emph{The tube average and the weights.}
+  \begin{itemize}
+  \item In $(q_jB)(c)$ every value $B(b)$ carries $R(W(c_-,x))R(W(\gamma'))$, of norm at most $e^{\kappa_{\rm AB}\delta_j\delta_c}$, and the scalar weights are those at $W=1$. Jensen's inequality for the averages $L^{-d}\sum_x$ and $L^{-1}\sum_{b\in[x,x(c)]}$ gives the stated bound on $q_j$.
+  \item The weights satisfy $\sum_\Gamma\xaabs{\omega_\Gamma}\le1+C_M\max_\Gamma\xaabs{H_\Gamma}$ (Lemma~\Nref{lem:group-average}(d), family in $\cD_{r_M/2}$), with $\xaabs{H_\Gamma}\le C(a\delta_j^2+\delta_j\delta_c)$.
+  \item So $\xaabs{\lambda_W(y,x)[B]}\le2(L-1)(1+C(\dots))e^{\kappa_{\rm AB}\delta_j\delta_c}\max\xaabs{B}$, and $\xaabs{\gamma_jB}\le2(1+C(\dots))e^{\kappa_{\rm AB}\delta_j\delta_c}\max\xaabs{B}\le d\,e^{\kappa_{\rm AB}\delta_j\delta_c}\max\xaabs{B}$, for $d\ge3$ and $C(\dots)\le\frac12$.
+  \end{itemize}
+\item \emph{The remainder $r_j$.} The formula for $Lr_jB(c)$ in the proof of Lemma~\Nref{lem:one-step-expansion} is algebraic. Each term contains a difference from~(2), multiplied by one of $\Xi$, $\Xi_x$, $B^W([c])$, $\lambda_W(c_+,x(c))[B]$. These are bounded by $CLe^{\kappa_{\rm AB}\delta_j\delta_c}\max\xaabs{B}$, by~(3). With the prefactor $L^{-1}$, $\xaabs{r_jB}\le C(a\delta_j^2+\delta_j\delta_c)\max\xaabs{B}$.
+\end{enumerate}
+\emph{Part (f).} The factorization $\overline X(c)=\tau_X(c_-)\tilde{\mathfrak a}_j(X)(c)R(W_j(c))(\tau_X(c_+)^{-1})$ is Definition~\Nref{def:adapted}. Its three factors are $e^{\ii\delta_jZ}$ with $\xaabs{Z}\le C\max\xaabs{B}$, so the linear parts add (BCH), giving $p_j=l_j-\delta_jD_{W_j}\gamma_j$. The remainder $c^p_j$ is bounded by Cauchy estimates. The coefficient of $B(b_0(c))$ in $q_jB(c)$ is algebraic, for every $W$: for $x$ on the axis of $c$, $G(c_-,x)=\{[c_-,x]\}$. Part~(e), reality, is dropped.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:AB}(iii)]\label{xa:d-AB-iii}\Ntarget{prop:AB}
+We follow the proof of Proposition~\Nref{prop:Q-expansion}, part by part.
+\begin{step}[(a), (b): the induction]
+By~(ii), $\xaabs{l_jB}_\infty\le\big(1+C(a\delta_j^2+\delta_j\delta_c)\big)\xaabs{B}_\infty$. Indeed $\xaabs{q_jB}\le e^{\kappa_{\rm AB}\delta_j\delta_c}\xaabs{B}$ by Jensen, and $\xaabs{r_jB}\le C(a\delta_j^2+\delta_j\delta_c)\xaabs{B}$. Also $\xaabs{c_j(B)}\le C\delta_j\xaabs{B}^2$. As long as $\xaabs{B_i}\le2\xaabs{A}$ for $i<j$,
+\[
+\xaabs{B_j}\le\xaabs{A}\prod_{i\le j}\big(1+C(a\delta_i^2+\delta_i\delta_c)+2C\delta_i\xaabs{A}\big)\le\xaabs{A}\exp\Big(C\big(\tfrac98a+\tfrac32\delta_c+3\xaabs{A}\big)\Big)\le2\xaabs{A}
+\]
+for $C(2a+2\delta_c+4\xaabs{A})\le\log2$. This holds for $a,\xaabs{A}\le c'_3$ and $\delta_c<\delta_{AB}$ small. The induction hypothesis of~(ii), $\xaabs{B_{j-1}}\le\frac12c_2/\delta_j$, holds if $4c'_3\le c_2$. The bounds on $\Cav_j$, the Lipschitz bound and the locality follow as in Proposition~\Nref{prop:Q-expansion}(a),(b). The locality is formal: Lemma~\Nref{lem:one-step-expansion}(a) holds at complex $W$, and the blocks are nested.
+\end{step}
+
+\begin{step}[(c): kernels by nonnegative majorants]
+\emph{Definitions.} For a linear map $K$ between fields at two scales, with kernel $K(c',b')$ (linear maps of $\mathfrak g^c$), let $\xaabs K$ be the scalar kernel $\xanorm{K(c',b')}$. Then $\xaabs{K_1K_2}\le\xaabs{K_1}\,\xaabs{K_2}$ entrywise. The type of Proposition~\Nref{prop:Q-expansion}(c) is a bound on $\xaabs K$ together with a support condition. So type bounds for nonnegative kernels compose as in the real proof.
+\begin{itemize}
+\item \emph{Tube averages.} By~(ii)(3), $\xaabs{q_m}\le e^{\kappa_{\rm AB}\delta_m\delta_c}q^{(1)}_m$, with $q^{(1)}_m\ge0$ the tube average at $W=1$.
+\item \emph{Remainders.} By~(ii)(4), $\xaabs{r_m}\le r^{\rm maj}_m$, where $r^{\rm maj}_m\ge0$ has the support of the real case and at most $C_L$ entries per row, each at most $C(a\delta_m^2+\delta_m\delta_c)$.
+\end{itemize}
+Hence, entrywise,
+\[
+\xaabs{l_j\cdots l_{i+1}}\le e^{\kappa_{\rm AB}\delta_c\sum_m\delta_m}\prod_m\big(q^{(1)}_m+r^{\rm maj}_m\big),\qquad e^{\kappa_{\rm AB}\delta_c\sum_m\delta_m}\le e^{2\kappa_{\rm AB}\delta_c}.
+\]
+
+\emph{The real proof applies to the product.} The steps ``Transports'' and ``Insertions'' of the real proof (the proof of Proposition~\Nref{prop:Q-expansion}(c)) use only two facts:
+\begin{itemize}
+\item the composition of the $q^{(1)}_m$ is exactly the tube average from scale $i$ to scale $j$, of type $1$;
+\item an insertion $A\,r_m\,T$ with $T$ of type $M'$ is of type $C_L(\text{coefficient})L^dM'$, because for fixed output and input bonds at most $C_L$ pairs of intermediate bonds contribute.
+\end{itemize}
+Neither uses unitarity once the majorants are taken: the cancellation at $W=1$ is exact and is used only for the $q^{(1)}$. So the product is of type
+\[
+\prod_m\big(1+C_L(a\delta_m^2+\delta_m\delta_c)\big)\le e^{\frac98C_La}e^{\frac32C_L\delta_c}\le(1+Ca)e^{C_L\delta_c},
+\]
+for $C_La\le1$, renaming $C_L$. This gives $\xaabs{K(c,b)}\le(1+Ca)e^{C_L\delta_c}$, with the factor $e^{2\kappa_{\rm AB}\delta_c}$ included in $e^{C_L\delta_c}$.
+\end{step}
+
+\begin{step}[(c): derivatives]
+\begin{itemize}
+\item \emph{First derivatives.} $dB_j=(l_j+dc_j(B_{j-1}))dB_{j-1}$. By the Lipschitz bound of~(ii) (the Cauchy estimate of Lemma~\Nref{lem:one-step-expansion}(c)) and locality, $dc_j(B)v(c')$ is a combination of at most $C_L$ values of $v$, with coefficients at most $2C\delta_j\xaabs{B}\le4C\delta_j\xaabs{A}$. So $dc_m$ plays the role of $r_m$. The majorant argument gives type $(1+C(a+\xaabs{A}))e^{C_L\delta_c}$ for the products. The terms with at least one $dc_m$, which make up $d\Cav_k(A)$, are of type $C\xaabs{A}e^{C_L\delta_c}$.
+\item \emph{Second derivatives.} The source term of the recursion for $d^2B_j$ is bounded through the type of $dB_{j-1}$, now with the factor $e^{C_L\delta_c}$, and the Cauchy--Schwarz inequality. It is propagated by a map of type $Ce^{C_L\delta_c}$. Summing over $j$ gives $\xaabs{d^2\Cav_k(A)[h,h](c)}\le Ce^{C_L\delta_c}\xanorm h^2_{S_c}$.
+\item \emph{Consequences.} The pointwise bounds by $\xanorm h_{S_c}$ follow by Cauchy--Schwarz on $S_c$, which has volume $2$, and the sup bounds of the transposes by summing the kernel bounds, since each fine bond lies in at most $2d$ sets $S_c$. All carry the factor $e^{C_L\delta_c}$.
+\end{itemize}
+\end{step}
+
+\begin{step}[(d): the correspondence transformation]
+At the points of $\T$, $\mathsf w_k=\prod_i\tau_{X_i}^{-1}$ (Theorem~\Nref{thm:correspondence}(c), complex case), with $\xaabs{\ell(\tau_{X_i})}\le C\delta_{i+1}\xaabs{A}$ by~(ii). This gives $\boldsymbol\Gamma_k$ and $C^{\mathsf w}_k$ as in the real proof.
+
+At fine points, $g_{X_i}(x)=R(W_i(y,x))^{-1}\big(\tau_{X_i}(y)^{-1}(X_i)_W(y,x)\big)$. Here $R(W_i(U)(y,x))^{-1}$ has norm at most $e^{\kappa_{\rm AB}\delta_{i+1}\delta_c}\le2$, not $1$ as in the real proof (``conjugation does not change the norm''). So $\xaabs{\ell(g_{X_i}(x))}\le C\delta_{i+1}\xaabs{A}$, with $C$ doubled. The extensions $\mathcal E^{(i)}$ transport along chains of norm at most $e^{\kappa_{\rm AB}\delta_c}$ (AB(iv)).
+\end{step}
+\status{Expanded. The word ``verbatim'' in the proof of Proposition~\Nref{prop:AB}(iii) is justified by the majorant formulation, which the note leaves implicit.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:AB}(iv)]\label{xa:d-AB-iv}\Ntarget{prop:AB}
+\emph{The $\mathrm b$-transpose.} Let $\mathrm b(X,Z)=\operatorname{tr}(XZ)$. For $Y\in G^c$ we have $R(Y)^T=R(Y^{-1})$, since $\operatorname{tr}(YXY^{-1}Z)=\operatorname{tr}(XY^{-1}ZY)$. So $q'^{\,T}_jg(x)=R(W_{j-1}(U)(y,x))^{-1}g(y)$, with the volume factors $L^{-d}\delta_j^d/\delta_{j-1}^d=1$. Hence $q'_jq'^{\,T}_j=I$ and $Q'_kQ'^{\,T}_k=I$. This is algebraic. $Q'_kQ'^*_k\ne I$ in general.
+
+\emph{Locality and covariance.}
+\begin{itemize}
+\item Lemma~\Nref{lem:one-step-basic}(c) is formal, since the contours stay in the blocks. Lemma~\Nref{lem:one-step-expansion}(a) holds by~(ii). So Proposition~\Nref{prop:linearized-averages}(d) holds.
+\item Covariance (f) for real $u$ follows from Lemma~\Nref{lem:one-step-basic}(b) and \Neqref{eq:avg-contour-gauge}.
+\end{itemize}
+
+\emph{Chain transports.} $T_U(y,x)=\prod_{m<k}R(W_m(U)(x_{m+1},x_m))$, with $W_m(U)(x_{m+1},x_m)=e^{\ii Z_m}W_m(U_r)(x_{m+1},x_m)$ and $\xaabs{Z_m}\le4C_MC_{\rm AB}\delta_{m+1}\delta_c$ (Detail~\ref{xa:d-AB-bounds}(c) at index $m+1$). By \Neqref{eq:Ad-bound} and unitarity of the real factors,
+\[
+\xanorm{T_U}\le\exp\Big(8C_MC_{\rm AB}\delta_c\sum_m\delta_{m+1}\Big)\le e^{12C_MC_{\rm AB}\delta_c}\le e^{\kappa_{\rm AB}\delta_c}.
+\]
+Telescoping the product factor by factor gives $\xanorm{T_U-T_{U_r}}\le\prod_m(1+(e^{2\xaabs{Z_m}}-1))-1\le e^{\kappa_{\rm AB}\delta_c}-1$. Then $\xaabs{Q'_k\lambda(y)}\le\eta^d\sum_{x\in B(y)}\xanorm{T_U}\xaabs{\lambda(x)}\le e^{\kappa_{\rm AB}\delta_c}\xanorm\lambda_{B(y)}$, by Cauchy--Schwarz and $\eta^d\xaabs{B(y)}=1$. The transpose bound follows the same way.
+
+\emph{Closeness (e).}
+\begin{itemize}
+\item Compute in the given real gauge; this is allowed by~(f).
+\item By Lemma~\Nref{lem:avg-local-gauge}, $W_j(U_r)=e^{\ii\delta_jA_{r,j}}$ with $\xaabs{A_{r,j}}\le\eps+32a\le C\eps$. By Detail~\ref{xa:d-AB-bounds}(a), $W_j(U)=e^{\ii\delta_jA_{0,j}}$ with $A_{0,j}=\delta_j^{-1}\ell(e^{\ii\delta_j\tilde B_j}e^{\ii\delta_jA_{r,j}})$, so $\xaabs{A_{0,j}}\le C(\eps+\delta_c)$.
+\item A contour of at most $2L$ bonds of $\T^{(j-1)}$ then has transport within $2L\cdot C(\eps+\delta_c)\delta_{j-1}=C(\eps+\delta_c)\delta_j$ of $1$. By Lemma~\Nref{lem:group-average}(c), so do the averaged contour variables.
+\item Lemma~\Nref{lem:avg-transport}(e) allows complex $W$. With $\delta=\delta_{j-1}$ it gives $\xaabs{\lambda_W-\lambda_1}\le CL^2\delta_{j-1}(\eps+\delta_c)\max\xaabs{B}=CL\delta_j(\eps+\delta_c)\max\xaabs{B}$.
+\item With~(ii)(4) and $a\delta_j^2\le\eps\delta_j$, $l_j-q_j(1)$ is a combination of at most $C_L$ values with coefficients $C_L(\eps+\delta_c)\delta_j$.
+\item Telescoping $\bQ_k(U)-\bQ=\sum_jl_k\cdots l_{j+1}(l_j-q_j(1))q_{j-1}(1)\cdots q_1(1)$, with the types of~(iii), gives $\sum_jC_L(\eps+\delta_c)\delta_je^{C_L\delta_c}\le C_L(\eps+\delta_c)$.
+\item \emph{The same for $Q'_k$} (``the same argument applies''). The operator $q'_j-q'_j(1)$ has kernel $L^{-d}(R(W_{j-1}(y,x))-1)$, of norm at most $C(\eps+\delta_c)\delta_j$. Telescoping with $\xanorm{q'_m}\le e^{\kappa_{\rm AB}\delta_m\delta_c}$, in the majorant sense, gives the bound
+\[
+\sum_jC(\eps+\delta_c)\delta_je^{\kappa_{\rm AB}\delta_c}\le C_L(\eps+\delta_c).
+\]
+\item The transposes follow by summing kernels.
+\end{itemize}
+\status{Expanded. The sentence ``the same argument applies'' for $Q'_k$ is written out.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:AB}(v)]\label{xa:d-AB-v}\Ntarget{prop:AB}
+\emph{$Q'_k$ and $D_W$.} The bound for $Q'_k$ is the chain bound of Detail~\ref{xa:d-AB-iv}. Next, $W_k(U)(b)=e^{\ii\tilde B_k(b)}W_k(U_r)(b)$ with $\delta_k=1$ and $\xaabs{\tilde B_k}\le C_{\rm AB}\delta_c$. So $\xanorm{R(W_k(U)(b))-R(W_k(U_r)(b))}\le e^{2C_{\rm AB}\delta_c}-1$, and $D_{W_k(U)}-D_{W_k(U_r)}$ is a local operator of this size.
+
+\emph{$\bQ_k$, by telescoping.}
+\[
+\bQ_k(U)-\bQ_k(U_r)=\sum_{j\le k}l_k(U)\cdots l_{j+1}(U)\big(l_j(U)-l_j(U_r)\big)l_{j-1}(U_r)\cdots l_1(U_r).
+\]
+The formula for $l_jB(c)$ in the proof of Lemma~\Nref{lem:one-step-expansion} is a sum of at most $C_L$ terms. Each term is a product of a bounded number of factors applied to one value $B(b)$. The factors are $R(W(\gamma))$, $R(W(y,x))$, $\omega_\Gamma$, $R(e^{\ii \Eloop})$, $R(h_x)$, $\mathfrak e(\operatorname{ad}\Eloop)$ and $\mathfrak f(\operatorname{ad}H_x)$, each bounded by $2$. Each changes by at most $C\delta_j\delta_c$ from $U_r$ to $U$:
+\begin{itemize}
+\item the transports, by Detail~\ref{xa:d-AB-bounds}(c);
+\item $\Eloop$ and $H_x$, by Detail~\ref{xa:d-AB-bounds}(d), together with the Lipschitz bounds of the analytic functions $R(e^{\ii\cdot})$, $\mathfrak e$ and $\mathfrak f$ on $\xaabs{H}\le1$;
+\item the weights $\omega_\Gamma=(\sum_{\Gamma'}\mathfrak f(\operatorname{ad}H_{\Gamma'}))^{-1}\mathfrak f(\operatorname{ad}H_\Gamma)$, with $H_\Gamma=\ell(W(\Gamma)W(y,x)^{-1})$. Here $W(U)(\Gamma)W(U)(y,x)^{-1}=e^{\ii Z_\Gamma}\big(W^r(\Gamma)W^r(y,x)^{-1}\big)e^{-\ii Z_{y,x}}$, with $\xaabs{Z_\Gamma}+\xaabs{Z_{y,x}}\le C\delta_j\delta_c$. The Schwarz-lemma argument of Detail~\ref{xa:d-AB-bounds}(d) gives $\xaabs{H_\Gamma(U)-H_\Gamma(U_r)}\le C\delta_j\delta_c$. The map $(H_{\Gamma'})_{\Gamma'}\mapsto\omega_\Gamma$ is Lipschitz near $0$, since $\sum_{\Gamma'}\mathfrak f\approx\xaabs{G(y,x)}\,I$ is invertible.
+\end{itemize}
+So $l_j(U)-l_j(U_r)$ is a combination of at most $C_L$ values with coefficients $C_L\delta_j\delta_c$. The left and right products have the types of Detail~\ref{xa:d-AB-iii}. The insertion is composed with the counting factor $C_L$ of the Insertions step, so the kernel of the sum is at most $\sum_jC_L\delta_j\delta_c(1+Ca)^2e^{C_L\delta_c}\le C_L\delta_c$. The supports are those of Proposition~\Nref{prop:linearized-averages}(d), and the transposes follow by summing kernels.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:AB}(vi)]\label{xa:d-AB-vi}\Ntarget{prop:AB}
+\begin{itemize}
+\item $W_j(U)$ is holomorphic in $A'$ on $\{\xaabs{A'}_\infty<\delta_{AB}\}$, by Detail~\ref{xa:d-AB-bounds}(b).
+\item On the domain of~(ii), $\delta_j^{-1}\ell(\tilde{\mathfrak a}_j(e^{\ii\delta_{j-1}B})(c))$ is a composition of finitely many holomorphic maps of $B$ and of the finitely many bond variables of $W_{j-1}(U)$ on which it depends. These maps are group averages (holomorphic by Lemma~\Nref{lem:group-average}(a)), logarithms within their radius, products and exponentials. So the expression is jointly holomorphic.
+\item Its derivative at $B=0$ is $l_j$, which is therefore holomorphic in $A'$.
+\item $\bQ_k=l_k\cdots l_1$ and $Q'_k=q'_k\cdots q'_1$ are finite compositions, and $D_{W_k(U)}$ is polynomial in $R(W_k(U))$. So they are holomorphic.
+\item $\Cav_k(A)$ at the reference $U$ is the recursion $B_j=\tilde{\mathfrak a}_j$-composition, jointly holomorphic in $(A',A)$.
+\end{itemize}
+The bounds of (iii)--(v) are uniform in $k$. The torus is finite, so ``holomorphic'' refers to finitely many complex variables, and no uniformity in $k$ is needed for holomorphy itself.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Remarks~\Nref{rem:AB-outline} and~\Nref{rem:AB-remains}]\label{xa:d-AB-rem}\Ntarget{rem:AB-outline,rem:AB-remains}
+\emph{Remark~\Nref{rem:AB-outline}.}
+\begin{itemize}
+\item $\xaabs{p_jB}\le\xaabs{l_jB}+\delta_j\xaabs{D_{W_j}\gamma_jB}\le(1+Ca\delta_j^2)\xaabs{B}+2d\xaabs{B}$. So the plain one-step average loses up to $2d+1$, from the pure-gauge term.
+\item By Detail~\ref{xa:d-AB-bounds}(a), the plain iterated average has linear part $\bQ_j-D\boldsymbol\Gamma_j$. The term $\boldsymbol\Gamma_j$ is a $\delta_{i+1}$-weighted sum of contour averages, with $\xaabs{\boldsymbol\Gamma_jA}\le2d\sum_{i<j}\delta_{i+1}\xaabs{A}$. So it does not accumulate.
+\end{itemize}
+
+\emph{Remark~\Nref{rem:AB-remains}(1).}
+\begin{itemize}
+\item \emph{The claimed curvature bound $\xaabs{F_{W_k(U)}}\le2a+C\delta_c$.} At the unit scale a plaquette has $n=4$ bonds and $\delta_k=1$. So $W_k(U)(\partial p)=e^{\ii Z}W_k(U_r)(\partial p)$ with $\xaabs{Z}\le8C_{\rm AB}\delta_c$, by Detail~\ref{xa:d-AB-bounds}(c). Also $\xaabs{\ell(W_k(U_r)(\partial p))}\le2a$ (Proposition~\Nref{prop:avg-regular}). The Schwarz-lemma argument of Detail~\ref{xa:d-AB-bounds}(d) gives the bound.
+\item \emph{Downstream use.} Sections~\Nref{sec:complex-references}--\Nref{sec:gen-locality} use neither this bound, nor a complex curvature bound for $j<k$, nor derivative bounds of $\tilde B_j$, nor Theorem~\Nref{thm:correspondence}(a),(b),(e),(f) at complex configurations. Proposition~\Nref{prop:jacobians}(c) uses AB(i) only (Detail~\ref{xa:d-jac}).
+\end{itemize}
+
+\emph{Remark~\Nref{rem:AB-remains}(3).} The exact identities are continued only on the ball $\mathcal B$ (Detail~\ref{xa:d-identity}).
+\status{Expanded.}
+\end{detail}
+
+%======================================================================
+\subsection{The weakened step quantities (Section~\texorpdfstring{\Nref{sec:step-quantities}}{47})}\label{xa:sec-sq}
+
+\begin{detail}[Section~\Nref{sec:step-quantities}, the Setting]\label{xa:d-sq-setting}\Ntarget{sec:step-quantities}
+\emph{Statement used: the conditions (DC2)--(DC5) of Remark~\Nref{rem:domain-constants}.} With $c$ of Lemma~\Nref{lem:eliminate}, $C_{\rm ext}$ of Remark~\Nref{rem:bg-to-graded}, $r_M$ of Lemma~\Nref{lem:group-average}, $c_a$ of Propositions~\Nref{prop:one-loop-polymer} and~\Nref{prop:jacobians}, $B_5$ of Corollary~\Nref{cor:regularity} and $\delta_{P,0}$ of Proposition~\Nref{prop:first-step}, the domain constants $\theta_r,\delta_1,\delta_0$ satisfy
+\begin{itemize}
+\item[(DC2)] $\max(1,B_5)\theta_r\le\eps_{\max}$;
+\item[(DC3)] $2L^d\theta_r\le c$;
+\item[(DC4)] $2C_{\rm ext}(L^{-1}\delta_0+L^{-2}\delta_1)<\min(\delta_P,\delta_{P,0})$;
+\item[(DC5)] $c_a\le c_{\rm DC}\,r_ML^{-2}$ and $\delta_P\le c_{\rm DC}\,r_ML^{-1}$, with $c_{\rm DC}>0$ depending only on $d$ and $G$.
+\end{itemize}
+Part~(ii) of the remark reads them at the references of the step: a point of the domain of step $k+1$, extended and read in the units of step $k$, is a complex reference of size $\delta_c<\delta_P$, whose real part is $(M,B_5\theta_r)$-regular with current at most $L^{-3}\theta_r\le\eps_{\max}$, and the curvature parameter of Lemma~\Nref{lem:eliminate} at its base is at most $2\theta_r$.
+
+\begin{enumerate}[label=(\alph*)]
+\item \emph{The reference.} $U'$ is real and $(M,\eps)$-regular with $\xaabs{J_{U'}}\le\eps$, or a complex reference of size $\delta_c<\delta_P$ whose real part $U'_r$ has $\xaabs{J_{U'_r}}\le\eps$. In the second case, Theorem~\Nref{thm:weak-bg}(a),(b),(d) hold by Detail~\ref{xa:d-step-viii}. The current bound is used only in Lemma~\Nref{lem:coercive-general}, which needs it for the real part. On the graded domains of step $k+1$, read in the units of step $k$, the real part has $\xaabs{J_{U'_r}}<L^{-3}\theta_r\le\theta_r\le\eps_{\max}$ by (DC2), since currents scale by $L^{-3}$ (Remark~\Nref{rem:domain-constants}(ii)).
+
+The two readings of $\xaabs{\cdot}_*$, with respect to $U'_r$ and to $U'$, differ by a local term of size $C\delta_c\xaabs{A}$. Indeed $D_{U'}-D_{U'_r}=T_\delta$ is local, of size $C\delta$ with $\delta=C_{\rm cmp}\delta_c$, by the proof of Proposition~\Nref{prop:reg-complex} and Detail~\ref{xa:d-cmp}.
+\item \emph{The base.}
+  \begin{itemize}
+  \item $W=U'^{(k)}$ and $V'=U'^{(k+1)}$ are local and covariant (Lemma~\Nref{lem:one-step-basic}), and holomorphic in the reference (AB(vi)).
+  \item The proof of Lemma~\Nref{lem:eliminate} uses $\mathsf a$ only through Lemma~\Nref{lem:one-step-expansion}(f), in the units of step $k+1$. That lemma needs a bound on the curvature of the real base. On the graded domains the curvatures of $U'_r$ and of $(U'_r)^{(k)}$ are at most $2\theta_r$ in those units (Remark~\Nref{rem:domain-constants}(ii), Proposition~\Nref{prop:avg-regular}). So $L^d\mathsf a\le2L^d\theta_r\le c$ is (DC3).
+  \item In the units of step $k$, $W_r=(U'_r)^{(k)}$ has $\xaabs{\ell(W_r(\partial p))}\le L^{-2}\mathsf a\le L^{-2-d}c\le\frac18\eps_M=\frac{r_M}{64L^2}$, since $c\le r_M/64$. So $W_r\in\mathfrak M$ with the margin of \Neqref{eq:base-regular}.
+  \item At a complex base $W=e^{\ii\beta}W_r$, $\xaabs{\beta}_\infty\le C_{\rm AB}\delta_c$ (AB(i)). The elimination is constructed as in the proof of Corollary~\Nref{cor:covariance}(c). There $\ell_c$ at the base $W$ is $\ell(e^{\ii\ell_c(Z\star\beta)}e^{-\ii\ell_c(\beta)})$, with $\ell_c$ at $W_r$, and its derivative in $Z(b_0(c))$ differs from that at $\beta=0$ by $C_L\xaabs{\beta}$. So the contraction of Lemma~\Nref{lem:eliminate}(c) works for $C_{\rm AB}\delta_c\le c'_L$, which is part of (P1) of Detail~\ref{xa:d-deltaP}. It gives $\zeta_c$, $\hat Z$, $\hat Z^1$, $\hat Z^2$, analytic in $(Z,\beta)$, with $\xaabs{\hat Z(Z)}_\infty\le CL^d\xaabs{Z}_\infty$.
+  \end{itemize}
+\item \emph{Margins.}
+  \begin{itemize}
+  \item $r\le M/16$ is required by Definition~\Nref{def:weak-family}. It is a condition on $M$, since $r$ is a bounded sum of ranges that do not involve $M$ (Remark~\Nref{rem:parameters}(4)).
+  \item $r'=r+2L+2$ and $M>32(L+1)$ give $2r'\le M/8+4(L+1)<M/4$.
+  \item Boxes of a product paving that do not touch are separated by a whole interval, of length at least $M/4$ (Setting of Section~\Nref{sec:weakenable}). For the polymer grid the intervals have length $M$, so non-touching polymers are at distance at least $M>2r'$.
+  \item Here ``touch'' means that the closed cubes of the continuum filled by two boxes share a point. The boxes themselves, as sets of lattice points, are disjoint.
+  \end{itemize}
+\item \emph{The margin hypothesis $r_E+3\le r$.} Proposition~\Nref{prop:composed} and the paragraph after Definition~\Nref{def:decay-functional} assume it. For $r_E=0$ it requires $r\ge3$. This is harmless: a weakenable family with margin $r$ is also one with any margin $r''\in[r,M/16]$, since the kernel-support and data-dependence conditions are monotone. So one may take $r\ge3$, and the Setting of Section~\Nref{sec:step-quantities} does so. The stated reason, keeping $X^{(r_E+3)}$ inside $Z^{(r')}$, needs only $r_E+3\le r'$. Section~\ref{xb:sec} uses this.
+\end{enumerate}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:localization}]\label{xa:d-loc}\Ntarget{lem:localization}
+\emph{Hypothesis.} Let $f$ be continuous on $\mathbb D_\kappa=\{\xaabs{s_\Box}\le e^\kappa\}$ and analytic in the interior, with $\xaabs{f}\le F$. Suppose that for every union of boxes $Z'\supset Y$, with $*$-component $Z'_0\supset Y$, and every $s$ with $s_\Box=0$ for $\Box\not\subset Z'$, the value $f(s)$ depends on $s$ only through $s_\Box$, $\Box\subset Z'_0$, and on the data only on $(Z'_0)^{(r')}$.
+
+\begin{step}[The formula]
+Fix $s_\Box=1$ on $Y$. Apply $g(1)=g(0)+\int_0^1g'(t)dt$ once in each variable $s_\Box$, $\Box\not\subset Y$, successively; the variables are finitely many. This gives
+\[
+f(1)=\sum_S\int_{[0,1]^S}\partial_{s_S}f(s_{Y,S,t})\,dt,
+\]
+where $s_{Y,S,t}$ is $1$ on $Y$, $t$ on $S$ and $0$ elsewhere. Let $\Box_0\in S$ lie outside the $*$-component $Z'_0$ of $Z'=Y\cup S$ that contains $Y$. Varying $s_{\Box_0}$ keeps the support inside $Z'$. By the hypothesis, $f$ is constant in that direction, so $\partial_{s_{\Box_0}}f=0$ at these points, and with it $\partial_{s_S}f=0$. So only the $S$ with $S\subset Z'_0$ survive, i.e.\ those for which $Z=Y\cup S$ is a polymer.
+\end{step}
+
+\begin{step}[(a), (c)]
+At the points $s(Z,t)$ the support is $Z$, so the hypothesis with $Z'=Z$ gives the data dependence on $Z^{(r')}$. Derivatives in $s$ and integrals over $t$ preserve gauge invariance and joint analyticity in further parameters.
+\end{step}
+
+\begin{step}[(b)]
+For $\Box\in S$, $\xaabs{t_\Box}\le1$, so the circle of radius $e^\kappa-1$ around $t_\Box$ lies in $\{\xaabs{s_\Box}\le e^\kappa\}$. Cauchy's formula in each of the $\xaabs{S}$ variables, with the others fixed, is justified by continuity up to the boundary, by shrinking the radius. It gives
+\[
+\xaabs{\partial_{s_S}f}\le F(e^\kappa-1)^{-\xaabs{S}}.
+\]
+Finally $(e^\kappa-1)^{-1}\le e^{-(\kappa-1)}$ is equivalent to $e^\kappa\ge e/(e-1)$, i.e.\ to $\kappa\ge0.46$, so it holds for $\kappa\ge1$. Each variable is differentiated once, so no factorial appears.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Remark~\Nref{rem:localization-margins}]\label{xa:d-locmarg}\Ntarget{rem:localization-margins}
+\emph{The conversion $Z\to Z^\sharp$.} $\xaabs{Z^\sharp}\le3^d\xaabs{Z}$, so $e^{-(\kappa-1)\xaabs{Z\setminus Y}}\le e^{-3^{-d}(\kappa-1)\xaabs{Z^\sharp}+(\kappa-1)\xaabs{Y}}$. For composed activities $Y$ is the old polymer, and the factor $e^{(\kappa-1)\xaabs{Y}}$ would cancel its decay. So the margins are kept and $\hat Z$ is used.
+
+\emph{The reblocking cost $C\xaabs{\hat Z}_{LM}$.} This is Detail~\ref{xa:d-reblock}, Step~3, which uses $r'<M/8$.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Definition~\Nref{def:interaction-pieces} and Proposition~\Nref{prop:interaction-pieces}]\label{xa:d-int}\Ntarget{def:interaction-pieces,prop:interaction-pieces}
+\emph{The radius $r_I$ (the opening of Section~\Nref{subsec:sq-interaction}).} $r_I=\min(r_L,c_IL^{-d}R_P,\frac1{32}c_0L^{-1})$, with $c_I$ chosen so that $CL^dr_I<R_P$, i.e.\ $\xaabs{\hat Z(Z)}_\infty<R_P$ for $\xaabs{Z}_\infty<r_I$. Since $r_L=c^2L^{-2d-1}\le\frac1{32}c_0L^{-1}$ for $c$ small, the third entry is inactive.
+
+\begin{step}[(a)]
+For $\xaabs{Z}<r_I$ and $s$ in the interior of $\mathbb D_\kappa$, the map $Z\mapsto\hat Z(Z)$ is analytic, and $\xaabs{\hat Z(Z)}<R_P$ (Detail~\ref{xa:d-sq-setting}(b)). $A_*(s;B)$ is analytic for $\xaabs{B}<R_P$ (Theorem~\Nref{thm:weak-bg}(b); Detail~\ref{xa:d-step-viii} at complex references). The plaquette term $s_p$ is entire. So the composition is analytic. The Taylor coefficients at $Z=0$ are Cauchy integrals over a fixed circle, so they are analytic in $s$ and in the reference. Continuity up to the boundary in $s$ is inherited.
+\end{step}
+
+\begin{step}[(b): the bound, and why the current does not enter]
+Fix $s$ and $Z$ with $0<\xaabs{Z}\le\frac12r_I$, and put $h(t)=s_p(U''_t)-s_p(U')$ with $U''_t=e^{\ii\eta A_*(s;\hat Z(tZ))}U'$, for $\xaabs{t}<r_I/\xaabs{Z}$.
+\begin{itemize}
+\item $s_p(U)=\mathsf N-\operatorname{tr}\cos X_p$ with $X_p=\ell(U(\partial p))$, so $\xaabs{s_p(U)}\le C\xaabs{X_p}^2$ for $\xaabs{X_p}\le1$.
+\item \emph{The range.} By Theorem~\Nref{thm:weak-bg}(a), $\xaabs{A_*(s;B)}_*\le C_P\xaabs{B}_\infty\le C_PR_P=C_P\varrho_P/K_H\le\frac18$. Indeed $4C_P(\eps_P+2\varrho_P)\le1$ in the proof of that theorem, and $K_H\ge1$; at complex references these are the constants computed with the multiplicative constants doubled. In the gauge of $U'_r$, the four bond fields of $p$ at $U''_t$ therefore have sup norm at most $\frac18+\eps+C\delta_c\le\frac14$, since $\eps+C\delta_c\le\frac1{20}$ ((P2) of Detail~\ref{xa:d-deltaP}). For $k\ge1$, $\eta=L^{-k}\le\frac13$, so $\xaabs{U''_t(\partial p)-1}\le e^\eta-1\le\frac12$. At $k=0$ the proposition is used by Proposition~\Nref{prop:first-step}, with $\eta=1$ and $A_*=B$. There $B=\hat Z(tZ)$ with $\xaabs{tZ}<r_I\le r_L$, so $\xaabs{B}_\infty\le\rho_L$ by Lemma~\Nref{lem:eliminate}(c). With $\eps+C\delta_c\le\frac1{20}$ and $\rho_L\le\frac1{20}$, conditions of the first step, the bond fields then have sup norm at most $\frac1{10}$, and $\xaabs{U''_t(\partial p)-1}\le e^{4/10}-1\le\frac12$. In both cases $\xaabs{X_p}\le1$ by Lemma~\Nref{lem:log-estimates}(a). No expansion in $\eta$ is made, so the bound holds at $\eta=1$ as well.
+\item \emph{The size.} By the expansion of Lemma~\Nref{lem:curvature} in the gauge of Detail~\ref{xa:d-step-ii}, $X_p=\eta^2\big(F_{U'}(p)+O(\xaabs{A_*}_*)\big)$ at $U''_t$, and $\xaabs{F_{U'}}\le C(\eps+\delta_c)$ (Detail~\ref{xa:d-step-v}). So $\xaabs{s_p}\le C\eta^4=C\eta^d$ at $U''_t$ and at $U'$, and $\xaabs{h(t)}\le C_P\eta^d$ on the whole disc.
+\end{itemize}
+No expansion to first order in $A_*$ is made, so the current $J_{U'}$, which is not bounded uniformly in $\eta$ at complex references, does not appear. The note's proof states the range argument above.
+
+By Cauchy's estimate, the Taylor terms of $h$ of degree $0$, $1$ and $2$ are each at most $C_P\eta^d$ on the disc. So $g=h-T_2h$ is at most $4C_P\eta^d$ there, and vanishes to order three. The maximum principle for $g(t)/t^3$ on $\xaabs{t}\le\varrho<r_I/\xaabs{Z}$, and $\varrho\to r_I/\xaabs{Z}$, give $\xaabs{v_p(s;Z)}=\xaabs{g(1)}\le4C_P\eta^d(\xaabs{Z}/r_I)^3$. Note that $T_2[s_p(\cdots)]=T_2[s_p(\cdots)-s_p(U')]+s_p(U')$, so $v_p=h-T_2h$.
+\end{step}
+
+\begin{step}[(c): identification]
+Let $U'$ be real and critical, with $\xaabs{Z}\le\min(\frac12r_I,r_2)$ and $\xaabs{\hat Z(Z)}\le\beta_V$.
+\begin{itemize}
+\item Theorem~\Nref{thm:weak-bg}(c) gives $A_*(1;B)=A_*(B)$, so $\sum_ps_p(e^{\ii\eta A_*(1;\hat Z(Z))}U')=\mathcal S(\hat Z(Z))$.
+\item By Lemma~\Nref{lem:step-quadratic}, $\mathcal S(\hat Z(Z))=S(U')+\frac12\Delta^0(\hat Z^1Z,\hat Z^1Z)+\ip{\omega_0}{\hat Z^2(Z)}+\mathcal V(Z)$, where $\hat Z^2$ is the homogeneous quadratic part of $\hat Z$ and $\mathcal V$ vanishes to third order.
+\item Taking $T_2$ and using $\Delta_k=\Delta^0\circ\hat Z^1+2\ip{\omega_0}{\hat Z^2}+\ip{\mathfrak G_W\cdot}{\mathfrak G_W\cdot}$ gives
+\[
+\sum_pT_2[\cdots]=S(U')+\tfrac12\Delta_k(Z,Z)-\tfrac12\ip{\mathfrak G_WZ}{\mathfrak G_WZ},\qquad\sum_pv_p(1;Z)=\mathcal V(Z).
+\]
+\end{itemize}
+\end{step}
+
+\begin{step}[(d): factorization]
+Let $s_\Box=0$ off $Z'$, with components $Z'_i$. By Theorem~\Nref{thm:weak-bg}(d), $A_*$ vanishes off $Z'^{(r)}$. On $(Z'_i)^{(r)}$ it depends on $B$ only on the coarse bonds there, on $U'$ only on $(Z'_i)^{(r+1)}$, and on $s$ only in $Z'_i$.
+\begin{itemize}
+\item If $p$ has no point in $Z'^{(r+1)}$, then $A_*=0$ on its bonds, since a plaquette has diameter $\eta\le1$. So $v_p\equiv0$.
+\item Otherwise all bonds of $p$ lie in $(Z'_i)^{(r+2)}$ for exactly one $i$, since the components are more than $2r'$ apart.
+\end{itemize}
+$\hat Z$ has range $2L$ in $Z$, and the base is local (range $1$ in block units). So $v_p$ depends on $Z$ only on $(Z'_i)^{(r+2L)}$ and on $U'$ only on $(Z'_i)^{(r+2L+1)}\subset(Z'_i)^{(r')}$.
+\end{step}
+
+\begin{step}[(e): invariance]
+$A_*(s)$ and $\hat Z$ are covariant, and $s_p$ is invariant. So $Z\mapsto s_p(e^{\ii\eta A_*(s;\hat Z(Z))}U')$ is invariant under the joint action. Its Taylor coefficients at $0$ are therefore invariant multilinear forms, and $v_p$ is invariant.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[The box sums $V(\Box;s)$: the paragraph after Proposition~\Nref{prop:interaction-pieces}]\label{xa:d-VBox}\Ntarget{prop:interaction-pieces}
+Three points need checking.
+\begin{step}[The constant $C_T$]
+By Lemma~\Nref{lem:weak-basic}(a) and Corollary~\Nref{cor:weak-covariance}, $\xaabs{C_k^{1/2}(s)}_{\gamma'}\le2^d\xanorm{C_k^{1/2}}_{\kappa',\gamma'}$. The block $\one_{y'}$ of a field on $\mathfrak F$ consists of at most $d$ bonds, so $\xanorm\xi_{B(y')}\le\sqrt d\xaabs{\xi}_\infty$. Hence
+\[
+\xaabs{(C_k^{1/2}(s)\xi)(b)}\le\sum_{y'}\xanorm{\one_yC_k^{1/2}(s)\one_{y'}}\,\xanorm\xi_{B(y')}\le\sqrt d\,\xaabs{C_k^{1/2}(s)}_0\xaabs{\xi}_\infty\le C_T\xaabs{\xi}_\infty,
+\]
+with $C_T=2^d\sqrt d\xanorm{C_k^{1/2}}_{\kappa',\gamma'}$, uniform in the reference (Corollary~\Nref{cor:weak-covariance}).
+\end{step}
+
+\begin{step}[The bound on $F$]
+A box has at most $M^d$ unit blocks, hence at most $(M/\eta)^d$ fine points and $\frac{d(d-1)}2(M/\eta)^d$ plaquettes with base point in it. So $\sum_{p_-\in\Box}\eta^d\le\frac{d(d-1)}2M^d$. With $\xaabs{Z(s)}\le gC_Tp\le\frac12r_I$ and Detail~\ref{xa:d-int}(b),
+\[
+\sup_{\mathbb D_{\kappa'}}\xaabs{V(\Box;\cdot)}\le C_Pg^{-2}M^d(gC_Tp/r_I)^3=C_P\,g\,p^3 .
+\]
+\end{step}
+
+\begin{step}[The hypotheses of Lemma~\Nref{lem:localization} for $f=V(\Box;\cdot)$ on $\mathbb D_{\kappa'}$, with $Y=\Box$]
+Let $s$ be supported in $Z'\supset\Box$, with component $Z'_0\supset\Box$.
+\begin{itemize}
+\item Every plaquette with $p_-\in\Box$ has a point in $Z'_0$. By Detail~\ref{xa:d-int}(d), $v_p$ depends on $s$ only in $Z'_0$, on $Z$ only on $(Z'_0)^{(r+2L)}$, and on $U'$ only on $(Z'_0)^{(r')}$.
+\item By Lemma~\Nref{lem:weak-basic}(b) applied to $C_k^{1/2}(s)$, $Z(s)$ vanishes off $Z'^{(r)}$ and is block diagonal. Its restriction to $(Z'_0)^{(r)}$ depends on $\xi$ only on $(Z'_0)^{(r)}$, on $s$ only in $Z'_0$, and on $U'$ only on $(Z'_0)^{(r)}$. The set $(Z'_0)^{(r+2L)}$ does not meet $(Z'_i)^{(r)}$ for $i\ne0$, since $2r+2L<M/4$.
+\end{itemize}
+So $f$ depends on $s$ only in $Z'_0$, and on $(\xi,U')$ only on $(Z'_0)^{(r')}$. The bound $\xaabs{Z(s)}\le gC_Tp$ holds on all of $\mathbb D_{\kappa'}$, and analyticity in the interior and continuity follow from Detail~\ref{xa:d-int}(a) and Lemma~\Nref{lem:weak-basic}(a).
+\end{step}
+\status{Expanded, including the margins of the box sums.}
+\end{detail}
+
+\begin{detail}[Definition~\Nref{def:gf-pieces} and Proposition~\Nref{prop:gf-pieces}]\label{xa:d-gf}\Ntarget{def:gf-pieces,prop:gf-pieces}
+The pieces are built at the base $W=U'^{(k)}$ of the reference.
+\begin{step}[$H_{y,x}$ at a complex base]
+At a real reference, Lemma~\Nref{lem:exp-gauge}(c) at $W_\circ=W_r$ applies for $\xaabs{Z}\le c_0L^{-1}$ and gives $\xaabs{H_{y,x}(Z)}\le4C_ML\xaabs{Z}$.
+
+At a complex base $W=e^{\ii\beta}W_r$, write $e^{\ii Z}W=e^{\ii(Z\star\beta)}W_r$, with $Z\star\beta=\ell(e^{\ii Z}e^{\ii\beta})$ bondwise. For $\xaabs{Z}<r_I\le\frac1{32}c_0L^{-1}$ and $\xaabs{\beta}\le C_{\rm AB}\delta_P\le\frac1{32}c_0L^{-1}$ ((P6) of Detail~\ref{xa:d-deltaP}), Lemma~\Nref{lem:log-estimates}(c) gives $\xaabs{Z\star\beta}\le2(\xaabs{Z}+\xaabs{\beta})\le\frac18c_0L^{-1}$. By the definition of $H^r_{y,x}$ at $W_r$,
+\[
+(e^{\ii(Z\star\beta)}W_r)(y,x)=e^{\ii H^r_{y,x}(Z\star\beta)}W_r(y,x),\qquad W(y,x)=e^{\ii H^r_{y,x}(\beta)}W_r(y,x),
+\]
+so $H_{y,x}(Z)=\ell\big(e^{\ii H^r(Z\star\beta)}e^{-\ii H^r(\beta)}\big)$. Here $\xaabs{H^r(Z\star\beta)}\le4C_ML\cdot\frac18c_0L^{-1}=\frac12C_Mc_0\le\frac18$, and $\xaabs{H^r(\beta)}\le\frac18C_Mc_0\le\frac1{32}$. Both need $c_0\le1/(4C_M)$, which is part of ``$c_0$ small'' in Lemma~\Nref{lem:exp-gauge}(c), as the proof of Proposition~\Nref{prop:gf-pieces} states. The two exponents sum to at most $\frac14$, so Lemma~\Nref{lem:log-estimates}(c) applies: $H_{y,x}$ is holomorphic in $(Z,\beta)$, with $\xaabs{H_{y,x}}\le C$.
+\end{step}
+
+\begin{step}[(a)--(e)]
+\begin{itemize}
+\item \emph{(c).} By Lemma~\Nref{lem:avg-transport}(f) (hypothesis $L\xaabs{\beta}\le c$, (P6)), $W$ satisfies Definition~\Nref{def:avg-transport}. By Lemma~\Nref{lem:avg-transport}(a), the linear part of $H_{y,x}$ is $\mathfrak G_WZ(y,x)$, and $H_{y,x}(0)=0$. Since $f(H)=\frac12\operatorname{tr}H^2+O(H^4)$ and $H=H^{(1)}+O(Z^2)$, $T_2(f\circ H)=\frac12\operatorname{tr}(H^{(1)})^2$. At real references the sum over $x$ is $G_{3,y}$ by its definition (proof of Lemma~\Nref{lem:exp-gauge}(c)).
+\item \emph{(b).} For $\xaabs{t}<r_I/\xaabs{Z}$: $\xaabs{H(tZ)}\le C$, and $\xaabs{\mathfrak G_W(tZ)}\le CLr_I\le C$ by Lemma~\Nref{lem:avg-transport}(c),(f). Since $f$ is entire, $\xaabs{\varphi(tZ)}\le C$. The maximum principle for $\varphi(tZ)/t^3$ gives $C(\xaabs{Z}/r_I)^3$.
+\item \emph{(d).} The contours of $G(y,x)$ lie in the box spanned by $y$ and $x$, which lies in $B'(y)$ (Definition~\Nref{def:bonds}). So $\varphi_{y,x}$ involves only inner bonds, never a $b_0(c)$, and the base only there.
+\item \emph{(e).} $e^{\ii R(u)Z}W^u=(e^{\ii Z}W)^u$, and \Neqref{eq:avg-contour-gauge} for real $u$ gives $H\mapsto u(y)Hu(y)^{-1}$ (Lemma~\Nref{lem:log-estimates}(d)), and likewise $\mathfrak G_WZ(y,x)$ (Lemma~\Nref{lem:avg-transport}(d)). Both terms are conjugation-invariant. Reality at real references holds because $H,\mathfrak G_WZ\in\mathfrak g$ there.
+\end{itemize}
+\end{step}
+
+\begin{step}[$G_3(\Box;s)$]
+The number of pairs $(y,x)$ with $y\in\T'\cap\Box$ and $x\in B'(y)$ is at most $(M/L+1)^dL^d\le(2M)^d$. So $\sup\xaabs{G_3(\Box;\cdot)}\le C(2M)^dg^{-2}(gC_Tp/r_I)^3\le C_Pgp^3$.
+
+For the hypotheses of Lemma~\Nref{lem:localization}: $B'(y)\subset\Box^{(L)}$ for $y\in\Box$, and $Z(s)$ on $\Box^{(L)}\subset(Z'_0)^{(L)}$ depends only on $\xi$ on $(Z'_0)^{(r)}$ and on $s$ in $Z'_0$, as in Detail~\ref{xa:d-VBox}, Step~3. The base on $B'(y)$ depends on $U'$ on $(Z'_0)^{(L+1)}\subset(Z'_0)^{(r')}$.
+
+At real references and $s=1$, $\sum_\Box G_3(\Box;1)=g^{-2}G_3(gC_k^{1/2}\xi)$, by~(c) and $C_k^{1/2}(1)=C_k^{1/2}$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:jacobians}]\label{xa:d-jac}\Ntarget{prop:jacobians}
+We take the four parts in order.
+\begin{step}[(a): the terms, their invariance and their analyticity]
+\emph{Locality and bounds.} The terms are $\log(\sigma(Z(b))/\sigma(0))$ and $\log(\mathsf J_c(Z)/\mathsf J_c(0))$. They are local within range $2L$ (Lemma~\Nref{lem:eliminate}(a),(c)), and bounded as in Theorem~\Nref{thm:step}(e).
+
+\emph{Invariance.} Under a real $u$:
+\begin{itemize}
+\item $\sigma$ is $\operatorname{Ad}$-invariant;
+\item $\ell_c\mapsto R(u(c_-))\ell_c$, $Z(b_0(c))\mapsto R(u(b_0(c)_-))Z(b_0(c))$, and $\zeta_c\mapsto R(u(b_0(c)_-))\zeta_c$, by the uniqueness in Lemma~\Nref{lem:eliminate}(c);
+\item so $\det\partial\ell_c/\partial Z(b_0(c))$ is multiplied by $\det R(u(c_-))\det R(u(b_0(c)_-))^{-1}=1$, since $G$ is connected (Section~\Nref{ss:12.1}).
+\end{itemize}
+
+\emph{Analyticity at complex references.} Prop.~\Nref{prop:exact-step} writes $\mathsf J_c$ with $\det$, not $\xaabs{\det}$, because the determinant is positive for real $Z$ at real bases. The expression with $\det$ continues analytically to complex $(Z,\text{base})$. At a complex base,
+\[
+\frac{\mathsf J_c(Z)}{\mathsf J_c(0)}=\frac{\sigma(\zeta_c(Z))}{\sigma(\zeta_c(0))}\cdot\frac{\det(1+\mathfrak r_c(0))}{\det(1+\mathfrak r_c(Z))}.
+\]
+The factor $R(W([c_-,b_0(c)_-]))$ cancels. Both quotients are within $CL^{2d+1}\xaabs{Z}+CL^{d+2}c_a$ of $1$, so the principal logarithm is analytic and real at real points.
+\end{step}
+
+\begin{step}[(b)]
+$\zeta_c(0)=0$, since $\ell_c(0)=0$, and $\sigma(0)/\sigma(0)=1$. By Lemma~\Nref{lem:eliminate}(b) and $\det R=1$ on $\mathfrak g$,
+\[
+\det\partial\ell_c/\partial Z(b_0(c))=L^{(1-d)\dim\mathfrak g}\det(1+\mathfrak r_c(0)).
+\]
+So $\mathfrak j_c=L^{-(d-1)\dim\mathfrak g}\mathsf J_c(0)=\det(1+\mathfrak r_c(0))^{-1}$. At the trivial base, $l^{\rm pl}=q^{\rm pl}$ has the coefficient $L^{1-d}$ for $Z(b_0(c))$ exactly \Neqref{eq:q-plain}, so $\mathfrak r_c(0)=0$.
+\end{step}
+
+\begin{step}[(c): the size of $\mathfrak r_c(0)$]
+Let $U'\in\mathcal U(P;c_a,c_a,c_a)$, $P=B'(c_-)\cup B'(c_+)$, in the units of step $k$.
+\begin{itemize}
+\item \emph{Extension.} Extend $U'$ by the cutoff of Remark~\Nref{rem:bg-to-graded} to a global complex reference of size at most $3C_{\rm ext}\cdot2c_a$. The base on $P$ depends only on $U'$ on $P^{(1)}$ (Lemma~\Nref{lem:one-step-basic}), where the extension equals $U'$. So all statements below are independent of the extension.
+\item \emph{Units of step $k+1$.} Lie fields scale by $L$, curvatures by $L^2$. The real part has curvature at most $CL^2c_a$, and the complex part has size at most $LCc_a$. Prop.~\Nref{prop:AB} applies at the step $k\to k+1$, i.e.\ with $k+1$ in place of $k$, for $L^2Cc_a\le c'_3$ and $LCc_a<\delta_{AB}$. These hold for $c_a\le c_JL^{-d-2}$ with $c_J$ small.
+\item \emph{The coefficient of $Z(b_0(c))$.} With the plain constraint, $l^{\rm pl}=Lp'$, and $p'=l'-D_{W'}\gamma'_{\rm lin}$. The contour average $\gamma'_{\rm lin}(c_\pm)$ involves only inner bonds of $B'(c_\pm)$, so it does not contain $Z(b_0(c))$. In $q'$ the coefficient is $L^{-d}R(W([c_-,b_0(c)_-]))$ for every $W$, real or complex (Detail~\ref{xa:d-AB-ii}(f)). This factor is exactly the one pulled out in Lemma~\Nref{lem:eliminate}(b). So $q'$ contributes $1$ to $1+\mathfrak r_c(0)$, and only $r'$ contributes to $\mathfrak r_c(0)$.
+\item \emph{The bound.} By AB(ii) at $j=k+1$, with $\delta_{k+1}=1$, the coefficient of a single value in $r'$ is at most $C(a+\delta_c)\le C(L^2c_a+Lc_a)$. Multiply by $L$ (from $l^{\rm pl}=Lp'$) and by $\xanorm{(L^{1-d}R(W([c_-,b_0(c)_-])))^{-1}}\le2L^{d-1}$. This gives $\xaabs{\mathfrak r_c(0)}\le CL^{d+2}c_a$: from the real curvature, $CL^{d+2}c_a$ (this is $L^d\mathsf a$); from the complex part, $CL^{d+1}c_a$. So $\xaabs{\mathfrak r_c(0)}\le\frac12$ for $c_J$ small.
+\end{itemize}
+So $\log\mathfrak j_c=-\log\det(1+\mathfrak r_c(0))$, with the principal branch, is analytic and bounded by $C$. It is normalized and invariant by~(b), so it is a normalized graded activity at $P$.
+
+\emph{The quadratic bound.} Apply Lemma~\Nref{lem:quadratic-bound} with $\theta_r=\delta_1=\delta_0=c_a$, the connected domain $P$, and a cube $\Lam$ of side $C(L)$ around it (so $R$, $B_P$ and $D_N$ are constants $C_P$). Then $\mathfrak m\le\delta_1$, $\xaabs{A'}<\delta_0$ and $\theta\le\theta_r$, so $\mathfrak s\le C_P(\mathfrak m+\xaabs{A'}^2+\theta)\le C_P\mathfrak t_0$ and $c_*\le\frac12c_{\rm q}+C_P(\delta_0+\theta_r)$. The hypotheses $c_*\le c_{\rm q}$, $\xaabs{A'}<\frac12c_a$, $RB_P\theta\le1$ and $\mathfrak s\le\frac12$ all follow from $C_P(\mathfrak t_0+\delta_0)\le1$. The lemma gives $\xaabs{\log\mathfrak j_c}\le2\mathfrak s^2\cdot C\le C_P\mathfrak t_0^2$. Lemma~\Nref{lem:quadratic-bound} needs $G$ semisimple.
+\end{step}
+
+\begin{step}[(d): lattice covariance]
+Let $W$ be real and $r\in\mathfrak S_{k+1}$.
+\begin{itemize}
+\item By Lemmas~\Nref{lem:one-step-basic}(d) and~\Nref{lem:reversal}, the relative average at the base $rW$ is $r\overline X$.
+\item Let $c^r=\epsilon\,rc$ with $\epsilon=\pm1$. Then $\ell_{c^r}(r_WZ;rW)=O_c\ell_c(Z;W)$, with $O_c=1$ if $\epsilon=1$, and $O_c=-R(W'(c))^{-1}$ if $\epsilon=-1$, using $\overline X(-c)=R(W'(c))^{-1}(\overline X(c)^{-1})$ and Lemma~\Nref{lem:log-estimates}(d).
+\item $r$ maps $b_0(c)$ onto $\pm b_0(c^r)$ (paragraph after Definition~\Nref{def:bonds}), so $(r_WZ)(b_0(c^r))=O'_cZ(b_0(c))$ with $O'_c\in\{1,-R(W(b_0(c)))^{-1}\}$.
+\item Differentiating in $Z(b_0(c))$ at $Z=0$ gives $\partial\ell_{c^r}(0;rW)\,O'_c=O_c\,\partial\ell_c(0;W)$.
+\item $O_c$ and $O'_c$ are orthogonal maps of $\mathfrak g$, since $W$ and $W'$ are real. So the two determinants agree up to the sign $\det O_c/\det O'_c=\pm1$. Both determinants are positive at real bases (Prop.~\Nref{prop:exact-step}), so they are equal.
+\end{itemize}
+Since $\zeta_c(0)=0$, $\mathfrak j_c=L^{-(d-1)\dim\mathfrak g}(\det\partial\ell_c)^{-1}$, and so $\mathfrak j_{c^r}(rW)=\mathfrak j_c(W)$. The map $c\mapsto c^r$ is a bijection of the positively oriented bonds, which gives the sum.
+
+At $k=0$ the same one-step lemmas hold, by the proof of Prop.~\Nref{prop:first-step}(a). Moreover $rU'$ lies in the minimal orbit of $rV'$, by Theorem~\Nref{thm:balaban}(c) for the one-step problem.
+\end{step}
+\status{Expanded. The points compressed in the note are the extension, the exactness of the $q'$-part, and the hypotheses of Lemma~\Nref{lem:quadratic-bound}.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:norm-conversion}]\label{xa:d-conv}\Ntarget{lem:norm-conversion}
+\emph{The sup norm and the gradient.} Every bond lies in a block $B(y)$, and $\mathfrak n^3_y(A)$ contains $\xaabs{A}_{B(y)}$ and $\xaabs{\nabla A}_{B(y)}$. If the gradient of $\mathfrak n^3_y$ is read as a flat derivative in the gauge of $y$, \Neqref{eq:cov-vs-flat} with $\sigma=C\eps$ converts it, at a cost $C\eps\xaabs{A}$.
+
+\emph{The H\"older quotients.} Take $x\ne x'$ in $\Lam_3(z')\subset Y$.
+\begin{itemize}
+\item If $\xaabs{x-x'}\ge1$, the quotient is at most $\xaabs{\nabla A(x)}+\xaabs{\nabla A(x')}\le2\xaabs{\nabla A}_Y$, since $R(U'_r(\Gamma_{x,x'}))$ is orthogonal.
+\item If $\xaabs{x-x'}<1$, then $x,x'$ lie in a common $\Lam_1(c_y)$ (Detail~\ref{xa:d-cmp}, Step~3). In the gauge of $y$, $\xanorm{A_r}_{1,\alpha}\le C\eps$ on $\Lam_4(c_y)$ (Theorem~\Nref{thm:ID}(b), a real statement). By \Neqref{eq:cov-vs-flat}, whose H\"older part bounds the quotient of the difference $\nabla A-\partial\tilde A_y$ itself, and $\xanorm{R(U'_r(\Gamma_{x,x'}))-1}\le C\eps\xaabs{x-x'}$, the quotient is at most $[\partial\tilde A_y]_{\alpha,\Lam_1(c_y)}+C\eps(\xaabs{A}+\xaabs{\partial\tilde A_y})$.
+\end{itemize}
+The left side of the lemma is a sum of three suprema over $Y$, which may be attained at different blocks, while $\xaabs{A}_*$ is a supremum of sums over single blocks. Adding the three bounds gives $C_{\rm conv}=1+(1+C\eps)+2(1+C\eps)=4+3C\eps\le4+3C$, since $\eps\le1$; it depends only on $d,\alpha,G$. The factor $2$ of the far pairs is genuine, as the paragraph after the lemma remarks.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:composed}]\label{xa:d-comp}\Ntarget{prop:composed}
+The proof interpolates along the background map.
+\begin{step}[(a): the interpolation]
+Let $A_*=A_*(s;\hat Z(Z))$, with $\xaabs{\hat Z(Z)}\le\zeta\le\frac12R_P$.
+\begin{itemize}
+\item Theorem~\Nref{thm:weak-bg}(a) gives $\xaabs{A_*}_*\le C_P\zeta$.
+\item Lemma~\Nref{lem:norm-conversion} (Detail~\ref{xa:d-conv}) bounds the three quantities of Definition~\Nref{def:graded} of $A_*$ on $P^{(3)}$ by $C_{\rm conv}C_P\zeta$.
+\item On $P^{(3)}$, $e^{\ii\eta tA_*}U'=e^{\ii\eta(tA_*\oplus A')}U'_r$ with the same real part. By Lemma~\Nref{lem:log-estimates}(c) and \Neqref{eq:lattice-trick},
+\[
+tA_*\oplus A'=tA_*+A'+\eta\,O(\xaabs{tA_*}\xaabs{A'}),
+\]
+and the lattice derivatives of the correction are bounded through $\eta\xaabs{\nabla}\le2\xaabs{\cdot}$. So the sup norm, the gradient and the H\"older quotient exceed those of $A'$ by at most $C_1C_{\rm conv}C_P\xaabs{t}\zeta$.
+\item For $\xaabs{t}<1/(2\tau)$ this is less than $\frac12\min(\delta_1-\delta'_1,\delta_0-\delta'_0)$. So $e^{\ii\eta tA_*}U'\in\mathcal U(P;\theta_r,\delta_1,\delta_0)$, strictly. No bound on the current of $A_*$ is needed, since the real part is unchanged.
+\end{itemize}
+The map $t\mapsto\mathcal E(X,e^{\ii\eta tA_*}U')-\mathcal E(X,U')$ is holomorphic on $\xaabs{t}<1/(2\tau)$, since $\mathcal E(X,\cdot)$ is holomorphic on an open neighbourhood of $\mathcal U(P)|_P$. It is bounded by $2\xanorm{\mathcal E(X)}$ and vanishes at $0$. For $\tau<\frac12$, the Schwarz lemma at $t=1$ gives $\xaabs{f}\le2\xanorm{\mathcal E(X)}\cdot2\tau$.
+\end{step}
+
+\begin{step}[(a): analyticity; (b), (c)]
+\begin{itemize}
+\item \emph{Analyticity.} $A_*$ is jointly holomorphic in $(s,B,A')$ (Detail~\ref{xa:d-step-viii}). $\hat Z$ is analytic in $(Z,\beta)$, and $\beta$ in $A'$ (AB(vi)). The strict inclusion keeps the composition inside the holomorphy domain of $\mathcal E$.
+\item \emph{(b).} $\mathcal E(X,\cdot)$ depends on $P=X^{(r_E)}\subset(Z'_0)^{(r)}$, and $A_*$ on $(Z'_0)^{(r)}$ is determined by the data on $(Z'_0)^{(r+1)}$ and by $B$ there. $\hat Z$ adds the range $2L$, so the total is $(Z'_0)^{(r')}$.
+\item \emph{(c).} This follows from the covariance of $A_*$ and $\hat Z$.
+\end{itemize}
+\end{step}
+
+\begin{step}[The application in the step]
+On $X^{(3)}$ the reference is the point of the domain of step $k+1$, read in step-$k$ units, with budgets $\delta'_1=L^{-2}\delta_1$ and $\delta'_0=L^{-1}\delta_0$ (Remark~\Nref{rem:domain-constants}(i)). With $\delta^\flat_1=\frac14\delta_1$:
+\[
+\delta^\flat_1-\delta'_1\ge\big(\tfrac14-\tfrac19\big)\delta_1=\tfrac5{36}\delta_1\ge\tfrac18\delta_1,\qquad\delta_0-\delta'_0\ge\tfrac23\delta_0\ge\tfrac23\delta_1\ge\tfrac18\delta_1,
+\]
+using $L\ge3$ and $\delta_1\le\delta_0$. With $\zeta=w=C_wL^dC_Tg_kp_{0,k}$ this gives $\tau\le C_PL^dg_kp_{0,k}/\delta_1$. The inclusion $X^{(3)}\subset Z^{(r')}$ holds since $X\subset Z$ and $r'\ge3$.
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Remark~\Nref{rem:extension}]\label{xa:d-ext}\Ntarget{rem:extension}
+\emph{Where the extension is felt.} The cutoff of Remark~\Nref{rem:bg-to-graded} is applied in the units of step $k+1$, with $\chi=1$ at distance at most $1$ from $Y'$. So in the units of step $k$ the extension equals $U'$ on $(Y')^{(L)}\supset(Y')^{(3)}$, and the band lies at step-$k$ distance between $L$ and $2L$ from $Y'$.
+
+\emph{The restricted system.} For an output polymer $Y'$, keep only the input pieces with $Z\subset Y'$. Each retained mixed piece uses $\mathcal E_k(X)$ with $X\subset Z\subset Y'$. Its domain budget is needed on $X^{(3)}\subset(Y')^{(3)}$, where $U'$ is not modified. So Prop.~\Nref{prop:composed} applies to every retained mixed piece. The pure pieces are defined and bounded at every complex reference of size $<\delta_P$. Hence Theorem~\Nref{thm:mayer} applies to the restricted system.
+
+\emph{Collar inclusions.} If $\hat Y=Y'$, then $Y^{(r')}\subset Y'$, by the definition of $\hat Y$. By Theorem~\Nref{thm:mayer}(a), $E^\#(Y)$ uses only $E(Z)$ with $Z\subset Y$. These depend on the reference only on $Z^{(r')}\subset Y^{(r')}\subset Y'$, and their old activities need budgets on $X^{(3)}\subset Z^{(r')}\subset Y'$. So $E^\#(Y)$ with $\hat Y=Y'$ does not depend on the extension. The same holds for $E^\#_{\rm p}$ and for the $\lambda$-family of Cor.~\Nref{cor:two-classes}, which are outputs of the same construction.
+
+\emph{Agreement with the full system.} At a real critical $U'$ no extension is needed, and the restricted and full systems share all $E(Z)$ with $Z\subset Y$. By Theorem~\Nref{thm:mayer}(a) their outputs at $Y$ agree. Since $\sum_{Y'}\sum_{\hat Y=Y'}=\sum_Y$, the identity of Theorem~\Nref{thm:sf-step} is unchanged.
+
+\emph{Grouped old activities.} $\mathcal E_k(Y)$ is kept or dropped as a whole. A mixed piece using $\mathcal E_k(\Box^+)$ has $\Box^+\subset Z$, so the counterterm $-\beta_jS_\Box$ is never separated from the small polymers of $\Box$.
+\status{Expanded, including the collar inclusions.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:hessian-general}]\label{xa:d-hessian}\Ntarget{prop:hessian-general}
+\emph{The continuation of $\omega_0$.} At real references $J_U=D^TF^s_U$ (Lemma~\Nref{lem:current}), so $\bH_0^TJ_U=(D\bH_0)^TF^s_U$. The right side is holomorphic in the reference (Detail~\ref{xa:d-step-i}), and it is taken as the definition at complex references.
+
+\emph{(a).} At real critical references this is Lemma~\Nref{lem:hessian-gamma} and Prop.~\Nref{prop:dirichlet-hessian}(a), with $K^{\Tf}=\mathfrak G_W^T\mathfrak G_W$.
+
+\emph{(b).} Two halves.
+\begin{itemize}
+\item \emph{The bound on $\omega_0$.} $\omega_0$ is a field on the coarse bonds. So
+\[
+\xaabs{\omega_0(c)}\le\sum_{y'}\xanorm{\one_c(D\bH_0)^T\one_{y'}}\,\xanorm{F^s}_{B(y')}\le C\xaabs{F^s}_\infty\le C(\eps+\delta_c),
+\]
+by the block-$L^2$ decay of $D\bH_0$ at complex references (Detail~\ref{xa:d-step-i}(b),(c)), $\xanorm{F^s}_{B(y')}\le C\xaabs{F^s}_\infty$ (blocks have volume $1$) and Detail~\ref{xa:d-step-v}. No pointwise bound on $D\bH_0$ is used, so there is no loss of $\eta$.
+\item \emph{The bounds on $W_2$.} $\xanorm{W_2}\le C(\eps+\delta_c)$ and the $L^2$ decay at complex references need, besides $\omega_0$, the $L^2$ bound of $d^2\mathcal N(0)$ at complex references. The proof of Prop.~\Nref{prop:dirichlet-hessian}(c) gives it, and the proof of~(b) points to it: the plaquette form of $d^2\mathcal N(0)$ at $U_\delta$, with step~(v) of the proof of Prop.~\Nref{prop:complex-ext} and $\xaabs{\partial\,\delta\!A}\le\delta$, and the Schwarz lemma on the ball of radius $2\delta_*$. Detail~\ref{d8:A1} writes it out.
+\end{itemize}
+
+\emph{(c).} At real references this is Prop.~\Nref{prop:dirichlet-hessian}(b) for $X=\Tf$, with the locality of $\hat Z^1,\hat Z^2$ and the block-locality of $\mathfrak G_W$. At complex references:
+\begin{itemize}
+\item the coefficient operators change by local operators of size $C_L\delta_c$ (AB(v), Prop.~\Nref{prop:reg-complex});
+\item the inverses change by $C_L\delta_c$ in the decay norm (Lemma~\Nref{lem:perturbed-inverse}, with the radius conditions of (P1));
+\item $\mathfrak G_W$ changes by a block-local operator with entries at most $CL^2\xaabs{\beta}\le CL^2C_{\rm AB}\delta_c$ (Lemma~\Nref{lem:avg-transport}(f)).
+\end{itemize}
+Decay is preserved, with the same rate. For $W_2$ this uses the change $C_{\rm cmp}C_W\delta_c$ of Detail~\ref{d8:A1}.
+
+\emph{(d).} Lemma~\Nref{lem:coercive-general} applies at the real part $U'_r$ ($\xaabs{J_{U'_r}}\le\eps$; its conditions $\eps\le\eps_{\rm cc}$ and those of the proof of Prop.~\Nref{prop:dirichlet-hessian}(c) hold since $\eps\le\eps_{\max}$), for complex perturbations of size at most $c''_L$, which includes $\delta_c<\delta_P\le c''_L$ (P1). The lemma cites (b) for $\xaabs{\omega_0}$ only, so it is not circular. Its complex part uses $\Delta^{0,\Tf}$ changing by $O(c''_L)$ in norm, which for the $W_2$ part is again Detail~\ref{d8:A1}.
+
+\emph{(e).} Analyticity and covariance hold by Prop.~\Nref{prop:dirichlet-hessian}(c) and Lemma~\Nref{lem:avg-transport}(a),(d),(f). The representation at $s=1$ is level~(L4) with $W_2$, plus the block-local gauge-fixing part as in level~(L5) of Section~\Nref{ss:41.3}.
+\status{Expanded. The $W_2$ half of (b), and the $W_2$ parts of (c) and (d), rest on the proof of Prop.~\Nref{prop:dirichlet-hessian}(c), written out in Detail~\ref{d8:A1}.}
+\end{detail}
+
+\begin{detail}[Remarks~\Nref{rem:source-free} and~\Nref{rem:step-quantities-output}]\label{xa:d-sq-out}\Ntarget{rem:source-free,rem:step-quantities-output}
+\emph{The source-free step.} At a non-critical reference the exponent contains no terms of order $0$, $1$ or $2$ in $Z$, by Definition~\Nref{def:interaction-pieces} and Prop.~\Nref{prop:gf-pieces}(c). At real critical references, Detail~\ref{xa:d-int}(c) and Prop.~\Nref{prop:gf-pieces}(c) give
+\[
+\sum_pT_2[\cdots]+\tfrac12\ip{\mathfrak G_WZ}{\mathfrak G_WZ}=S(U')+\tfrac12\Delta_k(Z,Z),
+\]
+so the step quantities reproduce Theorem~\Nref{thm:step}.
+
+\emph{The parameter list.} The two conditions $gC_Tp\le\frac12r_I$ and $C_wL^dgC_Tp\le\zeta$ give $\xaabs{Z(s)}_\infty\le gC_Tp\le\frac12r_I$ (Section~\Nref{subsec:sq-interaction}) and $\xaabs{\hat Z(Z(s))}_\infty\le C_wL^d\xaabs{Z(s)}_\infty\le\zeta$ (Lemma~\Nref{lem:eliminate}(c),(d)), the two bounds of Remark~\Nref{rem:step-quantities-output}(a). At $p=p_0$ the first is part of (Q1), and the second holds with equality, since $\zeta=w=C_wL^dC_Tgp_0$.
+\status{Expanded.}
+\end{detail}
+
+%======================================================================
+\subsection{The cluster expansion (Section~\texorpdfstring{\Nref{sec:cluster}}{48}) and the reblocking}\label{xa:sec-cl}
+
+\begin{detail}[Section~\Nref{sec:cluster}, the parameters (Q1)--(Q3)]\label{xa:d-Q}\Ntarget{sec:cluster}
+\emph{The role of each entry of (Q1).}
+\begin{itemize}
+\item $gC_Tp_0\le\frac12r_I$: the step quantities are defined and bounded at $Z(s)$ (Details~\ref{xa:d-VBox}, \ref{xa:d-gf}).
+\item $w\le r_2$: Theorem~\Nref{thm:step}.
+\item $w\le r_L$: Prop.~\Nref{prop:exact-step}.
+\item $w\le\frac12c_G$: Definition~\Nref{def:chi-w}.
+\item $w\le\beta_V$: the identification of Theorem~\Nref{thm:weak-bg}(c).
+\item $w\le\frac12R_P$: Prop.~\Nref{prop:composed} with $\zeta=w$.
+\end{itemize}
+Since $C_wL^d\ge1$, $w\ge gC_Tp_0$. So $\xaabs{Z}\le w\le r_2$ in Detail~\ref{xa:d-int}(c) as well.
+
+\emph{The consequences (end of the paragraph ``Parameters'').} For couplings in $(0,\gamma]$:
+\begin{itemize}
+\item (Q1) and (Q3) hold, because $w=C_wL^dC_Tg_kp_{0,k}$ and $\tau\le C_PL^dg_kp_{0,k}/\delta_1$, while $g\,p_0(g)^3\to0$ (Remark~\Nref{rem:parameters}, ``The couplings''; ($\Gamma$2) of Remark~\Nref{rem:flow-constants}).
+\item (Q2) holds if $g_{k+1}\le2g_k$. Then $h_{k+1}\le2h_k$ (Section~\Nref{subsec:flow-parameters}), so $2(C_*+1)L^{-2}h_{k+1}\le\frac12h_k$ by $L^2\ge8(C_*+1)$. Also $4w\le\frac12h_k$, since $8C_wL^dC_Tp_0(g)\le p(g)$ for $g\le\gamma$, as $p_0/p\to0$. The thresholds $\tilde h=h_k\le a_1$ and $\eps'_1=h_{k+1}\le a_{\rm step}$ hold because the $h_j$ are admissible thresholds.
+\item $w\le r_L\le\frac18\eps_M$ (Lemma~\Nref{lem:eliminate}) and (Q2) give the hypotheses of Lemma~\Nref{lem:gf-step-invariance}(iv).
+\end{itemize}
+The constants of the flow are those of Section~\ref{xb:sec} and of the ledger (Section~\ref{sec:ledger}).
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Definition~\Nref{def:small-field-step}]\label{xa:d-sfstep-def}\Ntarget{def:small-field-step}
+\emph{The covariance of $\chi_\xi$.}
+\begin{itemize}
+\item Corollary~\Nref{cor:covariance}(a) gives $C_k^{\pm1/2}\mapsto R(u)C_k^{\pm1/2}R(u)^{-1}$ under $(W,U')\mapsto(W^{u|_\T},U'^u)$, with $R(u)$ bondwise orthogonal.
+\item Under the same transformation, $Z_V(b)=\ell(V(b)W(b)^{-1})$ becomes $R(u(b_-))Z_V(b)$, by Lemma~\Nref{lem:log-estimates}(d).
+\item So $\xi_{V^{\tilde u}}=R(\tilde u)\xi_V$, and $\xaabs{\xi_V(b)}$ is invariant.
+\item For $r\in\mathfrak S_{k+1}$, Corollary~\Nref{cor:covariance}(b) gives the conjugation by $r_W$. This map sends fields on $\mathfrak F$ orthogonally onto fields on $\mathfrak F$ (paragraph after Definition~\Nref{def:bonds}, since $\mathfrak F$ is $\mathfrak S_{k+1}$-invariant as a set of unoriented bonds). So $\xaabs{(r_W\xi)(b)}=\xaabs{\xi(r^{-1}b)}$.
+\end{itemize}
+Hence $\chi^{\rm w}\chi_\xi$ satisfies (C1), (C2). The proof of (C2) uses only the intrinsic objects (Remark~\Nref{rem:symmetry-reflections}).
+
+\emph{Consequences.} Lemma~\Nref{lem:gf-step-invariance}(i)--(iii) give the independence of the representative and the gauge and lattice invariance, and (iv) gives $\mathcal R_{\rm LF}\ge0$.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:white-noise} and Proposition~\Nref{prop:small-field-step}]\label{xa:d-sfstep}\Ntarget{lem:white-noise,prop:small-field-step}
+\emph{White noise.}
+\begin{itemize}
+\item For $\xaabs{\xi}_\infty\le p_0$ and $s\in\mathbb D_{\kappa'}$: $\xaabs{Z(s)}\le gC_Tp_0$ (Detail~\ref{xa:d-VBox}) and $\xaabs{\hat Z(Z(s))}\le C_wL^d\xaabs{Z(s)}\le w$.
+\item At $s=1$, $V=e^{\ii\hat Z(Z(1))}W$ satisfies the constraint, by Lemma~\Nref{lem:eliminate}(c), with relative field $\hat Z(Z(1))$ on all bonds. Since $w\le\frac12c_G$, this field is the unique logarithm, so $\chi^{\rm w}(V)=1$.
+\item The composed configurations lie in the old domains, by Prop.~\Nref{prop:composed} with $\zeta=w$ and (Q3).
+\end{itemize}
+
+\emph{The small-field step.}
+\begin{itemize}
+\item By (Q2), Theorem~\Nref{thm:step} applies with the cutoff $w$.
+\item Prop.~\Nref{prop:exact-step} holds for bounded measurable $\rho$, so it applies to $\chi_\xi\rho$. In its coordinates $V=e^{\ii\hat Z(Z)}W$ and $Z_V=Z$ on $\mathfrak F$, so $\chi_\xi$ is the function $\prod_b\one(\xaabs{g^{-1}C_k^{-1/2}Z(b)}\le p_0)$ of $Z$.
+\item In the Gaussian integral of the proof of Theorem~\Nref{thm:step}, substitute $Y=C_k^{1/2}\xi$, a linear change of variables of real fields, $C_k$ being real symmetric positive at real critical references. Then $d\mu_{C_k}(Y)=d\mu_I(\xi)$ and $\xi_V=g^{-1}C_k^{-1/2}(gY)=\xi$.
+\item On $\supp\chi_\xi$, $\xaabs{gY(b)}\le gC_Tp_0\le w$, so the convention ``$0$ if $\xaabs{Z(b)}>w$'' never acts, and $\chi^{\rm w}=1$.
+\item $\int d\mu_I\,\chi_\xi(\cdots)=N_\chi\int d\mu^*(\cdots)$ with $N_\chi=\int d\mu_I\chi_\xi$.
+\end{itemize}
+
+\emph{The value of $N_\chi$.} Let $n=\dim\mathfrak g$ and $P=P(\xaabs{\xi(b)}>p_0)$ for a standard Gaussian on $\mathfrak g$ with the trace form. Then $N_\chi=(1-P)^{\xaabs{\mathfrak F}}=e^{-\eps^0\xaabs{\mathfrak F}}$ with $\eps^0=-\log(1-P)\le P/P(\xaabs{\xi}\le1)$ for $p_0\ge1$. The chi-distribution tail gives $P\le C_np_0^{n-2}e^{-p_0^2/2}$ for $p_0\ge1$, and the bound holds also for $n=1$. So $\eps^0=O(p_0^{n-2}e^{-p_0^2/2})$, uniformly for $p_0\ge1$.
+
+\emph{$\mathfrak E(U')$.} It is pulled out, so that the integrand has $\mathfrak E(e^{\ii\hat Z}W)-\mathfrak E(U')$, as in J.~Dimock, \emph{The renormalization group according to Ba\l aban.~I. Small fields}, Rev.\ Math.\ Phys.\ \textbf{25} (2013), 1330010, equations (211)--(212) of arXiv:1108.1335v2.
+
+At other references the formula is the definition.
+\status{Expanded, given Theorem~\Nref{thm:step} and Prop.~\Nref{prop:exact-step}, which are expanded in Section~\ref{d7:sec}.}
+\end{detail}
+
+\begin{detail}[Section~\Nref{subsec:cl-loc}: the integrand, the decay functionals and the old activities]\label{xa:d-decay}\Ntarget{subsec:cl-loc,def:decay-functional}
+\emph{The integrand at $s=1$.} At real critical references, $\delta\mathcal E(\xi;1)=\delta\mathcal E(\xi)$:
+\begin{itemize}
+\item $C_k^{1/2}(1)=C_k^{1/2}$;
+\item $\sum_\Box V(\Box;1)=g^{-2}\mathcal V(Z)$ (Detail~\ref{xa:d-int}(c));
+\item $\sum_\Box G_3(\Box;1)=g^{-2}G_3(Z)$ (Detail~\ref{xa:d-gf});
+\item $f(X;1,Z)=\mathcal E(X,e^{\ii\eta A_*(\hat Z(Z))}U')-\mathcal E(X,U')$, by Theorem~\Nref{thm:weak-bg}(c). Summed over $X$, this is $\mathfrak E(e^{\ii\hat Z}W)-\mathfrak E(U')$ by Theorem~\Nref{thm:step}(f).
+\end{itemize}
+
+\emph{Decay functionals.}
+\begin{itemize}
+\item For $\xaabs{Z}-1$: $\xaabs{Z_1\cup Z_2}-1\le(\xaabs{Z_1}-1)+(\xaabs{Z_2}-1)+1$, so $c_\flat=c_\sharp=c_\natural=1$.
+\item For $d_M$: $c_\flat=3^{-d}$ and $c_\sharp=\sqrt d$ are the first two facts of \Neqref{eq:dM-facts}, since $\xaabs{X}\le3^d(1+d_M)$ gives $d_M\ge3^{-d}\xaabs{X}-1$. For $c_\natural=2\sqrt d$: if $Z_1$ and $Z_2$ touch, cubes $Q_i\subset Z_i$ share a point. Minimal trees $T_i$ meet $Q_i$ at $t_i$, with $\xaabs{t_1-t_2}\le\operatorname{diam}Q_1+\operatorname{diam}Q_2=2\sqrt d$ in units of $M$. Joining $T_1$ and $T_2$ by this segment gives a tree for $Z_1\cup Z_2$.
+\item \emph{The bound $\mathsf d(Z)\le\mathsf d(X)+c_\natural\xaabs{Z\setminus X}$.} A single box has $\mathsf d=0$, since $0\le\mathsf d\le c_\sharp(1-1)$. Order the boxes of $Z\setminus X$ by a breadth-first search in the touching graph of $Z$ starting from $X$. Each box touches the union of $X$ and the earlier ones, and each union is a polymer. Then add one box at a time.
+\end{itemize}
+
+\emph{The old activities.} $r_E\le r$ is needed for Prop.~\Nref{prop:composed}(b), and $r_E+3\le r$ is the convention of Detail~\ref{xa:d-sq-setting}(d). The paving is the polymer grid, so that boxes are the grid cubes; this needs $M\mid n$, which (T0) gives. For the grouped activities, $\xanorm{\mathcal E_k}\le C_{\rm old}\mathsf K$ with $r_E=0$ and $\mathsf d=d_M$ is Prop.~\Nref{prop:old-activities}, expanded in Section~\ref{xb:sec}.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:localized-pieces}]\label{xa:d-locpieces}\Ntarget{prop:localized-pieces}
+Each term of $\delta\mathcal E(\xi;s)$ is localized separately.
+\begin{step}[The four kinds of term]
+Lemma~\Nref{lem:localization} (Detail~\ref{xa:d-loc}) is applied on $\mathbb D_{\kappa'}$ to each term, with the hypotheses checked in Details~\ref{xa:d-VBox}, \ref{xa:d-gf}, \ref{xa:d-jac} and~\ref{xa:d-comp}.
+\begin{itemize}
+\item \emph{Interaction and gauge fixing.} $F\le C_Pgp_0^3$.
+\item \emph{Jacobians.} A box contains at most $dM^d$ bonds of $\mathfrak F$ and at most $dM^d$ coarse bonds $c$. The bounds of Theorem~\Nref{thm:step}(e) are $C\xaabs{Z}^2$ per bond and $CL^{2d+1}\xaabs{Z}$ per $c$. With $\xaabs{Z}\le gC_Tp_0$ this gives $F\le C_P(L^{2d+1}gp_0+g^2p_0^2)\le C_Pgp_0^3$, since $g\le1\le p_0$. The linear part of the Jacobian is odd in $\xi$; it does not spoil the order $g^2$ of Detail~\ref{xa:d-pure}.
+\item \emph{Pure pieces.} $E_{\rm p}(Z)=\sum_{\Box\subset Z}f_{\rm loc}(\Box,Z)$ over the three pure terms, so
+\[
+\xaabs{E_{\rm p}(Z)}\le3\xaabs{Z}F\,e^{-(\kappa'-1)(\xaabs{Z}-1)}=3e^{\kappa'-1}F\,\xaabs{Z}e^{-\xaabs{Z}}e^{-(\kappa'-2)\xaabs{Z}}\le C_Pgp_0^3e^{-(\kappa'-2)\xaabs{Z}},
+\]
+using $\xaabs{Z}e^{-\xaabs{Z}}\le1$.
+\end{itemize}
+\end{step}
+
+\begin{step}[The mixed pieces]
+\emph{The localization.} The localization is anchored at $Y$, the set of boxes of $X$. Its hypothesis holds: $\mathcal E_k(X,\cdot)$ depends on $X^{(r_E)}\subset(Z'_0)^{(r)}$, and $A_*$ on $(Z'_0)^{(r)}$ depends on $s$ only in $Z'_0$ (Detail~\ref{xa:d-comp}(b)). With $F\le4\tau\xanorm{\mathcal E_k}e^{-\kappa_n\mathsf d(X)}$:
+\[
+\xaabs{f_{\rm loc}(X,Z)}\le4\tau\xanorm{\mathcal E_k}e^{-\kappa_n\mathsf d(X)-(\kappa'-1)\xaabs{Z\setminus X}}\le4\tau\xanorm{\mathcal E_k}e^{-\kappa_n\mathsf d(Z)}e^{-(\kappa'-1-c_\natural\kappa_n)\xaabs{Z\setminus X}},
+\]
+by Detail~\ref{xa:d-decay}.
+
+\emph{The subset sum.} Sum over all subsets $X$ of the boxes of $Z$, which includes the connected ones. With $x=e^{-(\kappa'-1-c_\natural\kappa_n)}\le c_\flat$, the sum is $(1+x)^{\xaabs{Z}}\le e^{c_\flat\xaabs{Z}}\le e^{\mathsf d(Z)+1}$. So $\xaabs{E_{\rm m}(Z)}\le4e\tau\xanorm{\mathcal E_k}e^{-(\kappa_n-1)\mathsf d(Z)}$.
+\end{step}
+
+\begin{step}[Data, analyticity, reality]
+\begin{itemize}
+\item Data dependence on $Z^{(r')}$ holds by Lemma~\Nref{lem:localization}(a).
+\item Analyticity and invariance hold by Lemma~\Nref{lem:localization}(c). Pure pieces: on all complex references with $\delta_c<\delta_P$. Mixed pieces: where Prop.~\Nref{prop:composed}'s hypothesis on $U'$ holds for all $X\subset Z$.
+\item Reality: at a real reference, and for real $\xi$ and real $s$, all localized functions are real. The $s$-derivatives at real $t$ of a function real on the real points are real.
+\end{itemize}
+\end{step}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Section~\Nref{subsec:cl-mayer} and Theorem~\Nref{thm:mayer}]\label{xa:d-mayer}\Ntarget{thm:mayer}
+\emph{Kotecký--Preiss, the form used.} Let $\mathcal K$ be a finite set of objects with a reflexive and symmetric incompatibility relation, activities $k(\gamma)\in\C$, and functions $a,b\ge0$ with
+\[
+\sum_{\gamma'\not\sim\gamma}\xaabs{k(\gamma')}e^{a(\gamma')+b(\gamma')}\le a(\gamma)\qquad\text{for all }\gamma .
+\]
+Then $\log\sum_{\text{compatible sets}}\prod k=\sum_{\mathcal C}\phi^T(\mathcal C)\prod_{\gamma\in\mathcal C}k(\gamma)$, with absolute convergence. Moreover, for every $\gamma\in\mathcal K$,
+\[
+\sum_{\mathcal C\not\sim\gamma}\Big|\phi^T(\mathcal C)\prod_{\gamma'\in\mathcal C}k(\gamma')\Big|e^{\sum_{\gamma'\in\mathcal C}b(\gamma')}\le a(\gamma)
+\]
+(R.~Koteck\'y and D.~Preiss, Comm.\ Math.\ Phys.\ \textbf{103} (1986), 491--498). This is a textbook theorem, stated once.
+
+\begin{step}[The Mayer expansion]
+\begin{itemize}
+\item Put $K(Z)=e^{E(Z)}-1$. We have $\xaabs{E(Z)}\le\eps e^{-\kappa(\mathsf d+c_\natural)}\le\eps e^{-\kappa}$, since $\kappa\ge C_d\ge1$. For $\eps\le\eps_*\le\frac{e-1}2$ (Step~3) this gives $\xaabs{E}\le\frac{e-1}{2e}<\log2$, so $\xaabs{K}\le\xaabs{E}e^{\xaabs{E}}\le2\xaabs{E}$.
+\item Expand $\prod_Z(1+K(Z))$ over finite sets of distinct polymers. Decomposing a set into its touching-connected components is a bijection with the sets of pairwise compatible objects $\Gamma$.
+\item Distinct components do not touch, so their polymers are at distance at least $M>2r'$ (Detail~\ref{xa:d-sq-setting}(c)). So they depend on disjoint sets of bonds of $\mathfrak F$, and the product measure $d\mu^*$ factorizes over them.
+\item This gives $\int\prod(1+K)\,d\mu^*=\sum_{\text{compatible}}\prod k(\Gamma)$, with $\xaabs{k(\Gamma)}\le\prod_{Z\in\Gamma}2\eps e^{-\kappa(\mathsf d(Z)+c_\natural)}$, because $\mu^*$ is a probability measure.
+\end{itemize}
+\end{step}
+
+\begin{step}[The tree count]
+For weights $u\ge0$ let $S(\Box)$ be the sum of $\prod_{Z\in\Gamma}u(Z)$ over the objects $\Gamma$ with a polymer containing $\Box$, and $S_*=\sup_\Box S(\Box)$. Every such $\Gamma$ is obtained as follows:
+\begin{itemize}
+\item choose $Z_0\ni\Box$ in $\Gamma$;
+\item decompose $\Gamma\setminus\{Z_0\}$ into touching-connected families $\Gamma_i$;
+\item each $\Gamma_i$ touches $Z_0$, so it has a polymer containing a box $\Box'_i$ touching $Z_0$. Two families cannot have the same $\Box'$, since their polymers would touch.
+\end{itemize}
+So $\Gamma$ is generated by $Z_0$, a set of distinct boxes $\Box'$ among the at most $3^d\xaabs{Z_0}$ boxes touching $Z_0$, and one object in $S(\Box')$ for each. Over-counting is harmless for an upper bound. Hence $S(\Box)\le\sum_{Z_0\ni\Box}u(Z_0)(1+S_*)^{3^d\xaabs{Z_0}}$.
+
+On a finite torus, $S_*(\lambda)$ for the weights $\lambda u$ is the supremum over the finitely many boxes of polynomials in $\lambda\in[0,1]$. So it is continuous, nondecreasing, and $S_*(0)=0$. Put $\vartheta=\sup_\Box\sum_{Z\ni\Box}u(Z)e^{3^d\xaabs{Z}}$. While $S_*\le1$, $(1+S_*)^{3^d\xaabs{Z_0}}\le e^{3^d\xaabs{Z_0}}$, so $S_*(\lambda)\le\lambda\vartheta$. If $\vartheta\le1$ and $S_*$ first reached the value $1$ at some $\lambda_1$, then $1\le\lambda_1\vartheta$, so $\lambda_1=1$. So $S_*\le\lambda\vartheta$ on $[0,1]$, and $S_*\le\vartheta$.
+\end{step}
+
+\begin{step}[The criterion]
+Take $a(\Gamma)=A\eps\xaabs{\operatorname{supp}\Gamma}$ and $b(\Gamma)=\beta(\mathsf d(\operatorname{supp}\Gamma)+c_\natural)$ with $\beta=\kappa-C_d$.
+\begin{itemize}
+\item \emph{Subadditivity.} Along a spanning tree of the touching graph of $\Gamma$, $\mathsf d(\operatorname{supp}\Gamma)+c_\natural\le\sum_Z(\mathsf d(Z)+c_\natural)$. Also $\xaabs{\operatorname{supp}\Gamma}\le\sum\xaabs{Z}\le c_\flat^{-1}\sum(\mathsf d(Z)+c_\natural)$, using $c_\flat\xaabs{Z}\le\mathsf d+1\le\mathsf d+c_\natural$.
+\item \emph{The weights.} So $\xaabs{k(\Gamma')}e^{a+b}\le\prod u(Z)$, with
+\[
+u(Z)=2\eps e^{-(C_d-A\eps c_\flat^{-1})(\mathsf d+c_\natural)}\le2\eps e^{-(C_d-c_\flat^{-1})c_\flat\xaabs{Z}}\qquad(A\eps\le1).
+\]
+\item \emph{The left side.} Objects incompatible with $\Gamma$ have a polymer containing one of the at most $3^d\xaabs{\operatorname{supp}\Gamma}$ boxes touching $\operatorname{supp}\Gamma$. So the left side of the criterion is at most $3^d\xaabs{\operatorname{supp}\Gamma}\,S_*$.
+\item \emph{Counting.} The number of polymers $Z\ni\Box$ with $\xaabs{Z}=m$ is at most $C_0^m$, $C_0=3^{2d}$: count closed walks of length $2(m-1)$ along a spanning tree, each box touching at most $3^d$ boxes (Setting of Section~\Nref{sec:weakenable}). With $C_d=c_\flat^{-1}(\log C_0+3^d+2)$, $(C_d-c_\flat^{-1})c_\flat=\log C_0+3^d+1$. Hence
+\[
+\vartheta\le\sum_m C_0^m\,2\eps e^{-(\log C_0+3^d+1)m}e^{3^dm}=2\eps\sum_me^{-m}=\frac{2\eps}{e-1}=:C_1\eps .
+\]
+\item \emph{Conclusion.} For $\eps\le\eps_*:=\min(1/A,(e-1)/2)$ with $A=3^dC_1$: $\vartheta\le1$, so $S_*\le C_1\eps$, and the criterion holds.
+\end{itemize}
+\end{step}
+
+\begin{step}[The output]
+Put $E^\#(Y)=\sum_{\mathcal C:\cup\operatorname{supp}=Y}\phi^T(\mathcal C)\prod k(\Gamma)$.
+\begin{itemize}
+\item \emph{(a).} Each $k(\Gamma)$ uses only $E(Z)$ with $Z\in\Gamma$, and $\bigcup_{Z\in\Gamma}Z^{(r')}\subset Y^{(r')}$. The hypothesis that $E(Z)$ depends on all spatial data only on $Z^{(r')}$ is in the statement of Theorem~\Nref{thm:mayer}.
+\item \emph{(b).} Subadditivity over a connected cluster gives $e^{\beta(\mathsf d(Y)+c_\natural)}\le\prod_\Gamma e^{b(\Gamma)}$; repeated objects only add nonnegative terms. The clusters with $Y\supset\Box$ are incompatible with the object $\{\Box\}\in\mathcal K$. The second KP inequality at $\gamma=\{\Box\}$ gives $\le a(\{\Box\})=A\eps$.
+\item \emph{(c).} The series converge uniformly, so analyticity is inherited. For invariance, $d\mu^*$ is invariant under $\xi(b)\mapsto R(u(b_-))\xi(b)$, since the Gaussian on $\mathfrak g$ and the cutoff $\xaabs{\xi(b)}\le p_0$ are $\operatorname{Ad}$-invariant.
+\item \emph{(d).} $d\mu^*$ is even, so $k(\Gamma)$ is even in the parameter. The coefficients $\phi^T$ do not depend on $\xi$.
+\item \emph{(e).} $d\mu^*$ is real and the $\phi^T$ are real.
+\end{itemize}
+\end{step}
+\status{Expanded; the Koteck\'y--Preiss argument is written out.}
+\end{detail}
+
+\begin{detail}[Corollary~\Nref{cor:two-classes}]\label{xa:d-twoclass}\Ntarget{cor:two-classes}
+\emph{The pure class.} $\mathsf d+c_\natural\le c'_\sharp\xaabs{Z}$. Indeed:
+\begin{itemize}
+\item if $c_\natural\le c_\sharp$, then $c_\sharp(\xaabs{Z}-1)+c_\natural\le c_\sharp\xaabs{Z}$;
+\item otherwise $c_\sharp(\xaabs{Z}-1)+c_\natural\le c_\natural\xaabs{Z}$.
+\end{itemize}
+So the pure pieces have $\xaabs{E_{\rm p}}\le\eps_{\rm p}e^{-((\kappa'-2)/c'_\sharp)(\mathsf d+c_\natural)}$, and Theorem~\Nref{thm:mayer} applies with $\kappa=(\kappa'-2)/c'_\sharp\ge\kappa_n-1\ge C_d$.
+
+\emph{The mixed class.} $\xaabs{E_{\rm m}}\le\eps_{\rm m}e^{c_\natural(\kappa_n-1)}e^{-(\kappa_n-1)(\mathsf d+c_\natural)}$. Take the system $E_{\rm p}+\lambda E_{\rm m}$ at the rate $\kappa_n-1$; the pure pieces satisfy that rate as well.
+\begin{itemize}
+\item For $\xaabs{\lambda}\le R=\eps_*/(2\eps_{\rm m}e^{c_\natural(\kappa_n-1)})\ge2$, the constant is at most $\frac12\eps_*+\frac12\eps_*$.
+\item $E^\#(Y;\lambda)$ is analytic in $\lambda$, by Theorem~\Nref{thm:mayer}(c), and $E^\#(Y;0)=E^\#_{\rm p}(Y)$, since the cluster formula is canonical.
+\item Cauchy: $f(1)-f(0)=\frac1{2\pi\ii}\oint f(\lambda)\,\frac{d\lambda}{\lambda(\lambda-1)}$ on $\xaabs{\lambda}=R$, and $\xaabs{\lambda-1}\ge R/2$. So $\xaabs{E^\#(Y;1)-E^\#(Y;0)}\le\frac2R\frac1{2\pi}\oint\xaabs{E^\#(Y;\lambda)}\frac{\xaabs{d\lambda}}{\xaabs{\lambda}}$.
+\item Summing over $Y\supset\Box$ under the integral gives $\le\frac2RA\eps_*=4A\eps_{\rm m}e^{c_\natural(\kappa_n-1)}$.
+\end{itemize}
+The rate $\kappa_n-1-C_d$ is recovered by the reblocking (Detail~\ref{xa:d-reblock}) with $\kappa_n\ge2(1+C_d+\kappa_0)$. That recovery is Lemma~\Nref{lem:raw-new}, expanded in Section~\ref{xb:sec}.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Proposition~\Nref{prop:pure-sources}]\label{xa:d-pure}\Ntarget{prop:pure-sources}
+\emph{The interpolation.} Let $\xaabs{t}\le r_t$.
+\begin{itemize}
+\item \emph{The domain.} $\xaabs{t}\le r_I(2C_Tp_0)^{-1}$ gives $\xaabs{Z(s)}\le\frac12r_I$, which is all that the pure pieces need.
+\item \emph{The size.} The pieces with $t$ in place of $g$ have $\eps_{\rm p}(t)\le C_PM^dC_T^3p_0^3\xaabs{t}/r_I^3+C_P\xaabs{t}p_0$. The first term is the interaction and gauge fixing, with $t^{-2}\cdot(\xaabs{t}C_Tp_0)^3$; the second is the Jacobian. This is at most $\frac12\eps_*$ for $\xaabs{t}\le c\,r_I^3(C_PM^dC_T^3p_0^3)^{-1}$ with $c$ small.
+\end{itemize}
+
+\emph{Analyticity and parity.}
+\begin{itemize}
+\item The pieces are $t^{-2}v_p(s;tC^{1/2}(s)\xi)$, $t^{-2}\varphi_{y,x}(tC^{1/2}(s)\xi)$ and $\mathfrak J(tC^{1/2}(s)\xi)$, localized in $s$ at fixed $\xi$.
+\item $v_p$ and $\varphi$ vanish to order three, so $t^{-2}v_p(s;tY)$ is analytic at $t=0$ and vanishes there. Every piece is analytic in $t$ and invariant under $(t,\xi)\mapsto(-t,-\xi)$.
+\item By Theorem~\Nref{thm:mayer}(c),(d), $E^\#_{\rm p}(Y;t)$ is analytic and even in $t$. All pieces vanish at $t=0$, so $K=0$, $k=0$ and $E^\#_{\rm p}(Y;0)=0$.
+\item So $E^\#_{\rm p}(Y;t)/t^2$ is analytic on $\xaabs{t}\le r_t$.
+\end{itemize}
+
+\emph{Cauchy.} For $2g\le r_t$,
+\[
+\xaabs{E^\#_{\rm p}(Y;g)}=\Big|\frac{g^2}{2\pi\ii}\oint_{\xaabs{t}=r_t}\frac{E^\#_{\rm p}(Y;t)}{t^2(t-g)}dt\Big|\le2\Big(\frac g{r_t}\Big)^2\frac1{2\pi}\oint\xaabs{E^\#_{\rm p}(Y;t)}\frac{\xaabs{dt}}{r_t}.
+\]
+Sum over $Y\supset\Box$, with Theorem~\Nref{thm:mayer}(b), $\le A\eps_*/2$. Since $p_0\ge1$, both entries of $r_t$ give $r_t^{-2}\le C_Pp_0^6$. This gives $C_Pg^2p_0^6$.
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Theorem~\Nref{thm:sf-step}]\label{xa:d-sfthm}\Ntarget{thm:sf-step}
+\emph{The formula.} By Prop.~\Nref{prop:small-field-step}, the exponent contains $-\frac12\sum_{b\in\mathfrak F}\ell_k(b)$. By Prop.~\Nref{prop:one-loop-polymer}(a) and Prop.~\Nref{prop:det-densities},
+\[
+-\tfrac12\sum_b\ell_k(b)=-\tfrac12\log\det\Delta_k=-\tfrac12\sum_b\ell_k(b;1)+\sum_X\mathfrak e(X,U').
+\]
+Cor.~\Nref{cor:two-classes} gives $\int e^{\delta\mathcal E}d\mu^*=\exp\sum_Y(E^\#_{\rm p}+E^\#_{\rm m})$. Locality follows from Theorem~\Nref{thm:mayer}(a), and reality from~(e).
+
+\emph{Symmetry.}
+\begin{itemize}
+\item For $\rho\circ r=\rho$, the left side is invariant (Lemma~\Nref{lem:gf-step-invariance}(iii)), and positive for $\rho>0$.
+\item $\mathcal N_kN_\chi$ is constant, and $g^{-2}S(U')$ is invariant (Prop.~\Nref{prop:symmetry}(b)).
+\item All remaining terms are real at real references, and $\exp$ is injective on $\R$.
+\item So the real sum of the remaining terms equals $\log$ of an invariant positive quantity minus invariant terms, and is invariant.
+\item $rV'$ is small field and $rU'$ lies in its minimal orbit, so it may be taken as the reference (Lemma~\Nref{lem:gf-step-invariance}(i)).
+\end{itemize}
+The covariance of $\mathfrak e(X)$ and $\log\mathfrak j_c$ under $M\Z^4$ is Prop.~\Nref{prop:one-loop-local}(b),(c), expanded in Section~\ref{d9:sec}.
+
+\emph{Analyticity domains.}
+\begin{itemize}
+\item $\mathfrak e$ and $\log\mathfrak j_c$: on the graded domains of Props.~\Nref{prop:one-loop-polymer} and~\Nref{prop:jacobians}.
+\item $E^\#_{\rm p}$: on all complex references with $\delta_c<\delta_P$.
+\item $E^\#_{\rm m}$ and $\mathfrak E$: where Prop.~\Nref{prop:composed} applies to the old polymers involved; this suffices by Detail~\ref{xa:d-ext}.
+\end{itemize}
+\status{Expanded.}
+\end{detail}
+
+\begin{detail}[Lemma~\Nref{lem:reblocking} and Remark~\Nref{rem:reblock-margins}]\label{xa:d-reblock}\Ntarget{lem:reblocking,rem:reblock-margins}
+We write $\bar X=\operatorname{cl}_{k+1}X$ for the closure at step $k+1$.
+\begin{step}[The tree length decreases]
+By Lemma~\Nref{lem:grid-nesting}(c) with $i=k+1$, every grid cube of $\bar X$ contains a cube of $X$. So a minimal tree of $X$, of length $Md_M(X)$, meets every $LM$-cube of $\bar X$. Hence $d_{LM}(\bar X)\le d_M(X)/L$.
+\end{step}
+
+\begin{step}[The count]
+Write $e^{-\kappa d_M(X)}\le e^{-(\kappa-\kappa_0)Ld_{LM}(Y)}e^{-\kappa_0d_M(X)}$ for $\bar X=Y$. Every $X$ with $\bar X=Y$ contains one of the $L^d\xaabs{Y}_{LM}$ grid cubes of scale $k$ in $Y$. The third fact of \Neqref{eq:dM-facts} gives
+\[
+\sum_{\bar X=Y}e^{-\kappa_0d_M(X)}\le K_0L^d\xaabs{Y}_{LM}\le3^dK_0L^d(1+d_{LM}(Y))\le3^dK_0L^de^{d_{LM}(Y)}.
+\]
+So the sum is at most $3^dK_0L^dA\,e^{-((\kappa-\kappa_0)L-1)d_{LM}(Y)}$, and $(\kappa-\kappa_0)L-1\ge L(\kappa-\kappa_0-1)$.
+
+For polymers with $d_M\ge L$: $e^{-\kappa d_M}\le e^{-L}e^{-(\kappa-1)d_M}$, and the first part with $\kappa-1\ge\kappa_0+1$ gives the factor $3^dK_0L^de^{-L}$ and the rate $L(\kappa-\kappa_0-2)$.
+\end{step}
+
+\begin{step}[Pieces with margins]
+Let $\hat Z$ be the union of the $LM$-cubes meeting $Z^{(r')}$. Take a minimal tree $T$ of $Z$; it meets every $LM$-cube of $\bar Z$.
+
+An $LM$-cube $Q$ of $\hat Z\setminus\bar Z$ contains a point $q$ at $\infty$-distance at most $r'$ from a point $z$ of a cube $Q_0$ of $Z$. $T$ meets $Q_0$ at some $t$. So the Euclidean distance satisfies
+\[
+\xaabs{t-q}\le\xaabs{t-z}+\xaabs{z-q}\le\sqrt dM+\sqrt dr'\le2\sqrt dM,
+\]
+since $r'<M/8$. The factor $\sqrt d$ in front of $r'$ comes from the $\infty$-distance, as in the note's $\sqrt d(M+r')$. Add the segment $[t,q]$, one for each such $Q$. The result is a tree meeting every $LM$-cube of $\hat Z$, of length at most $Md_M(Z)+2\sqrt dM\xaabs{\hat Z}_{LM}$. In units of $LM$,
+\[
+Ld_{LM}(\hat Z)\le d_M(Z)+2\sqrt d\,\xaabs{\hat Z}_{LM},
+\]
+so $C=2\sqrt d$ depends only on $d$.
+
+\emph{Absorption.} With $\xaabs{\hat Z}_{LM}\le3^d(1+d_{LM}(\hat Z))$,
+\[
+e^{-\lambda d_M(Z)}\le e^{2\sqrt d\,3^d\lambda}e^{-\lambda(L-2\sqrt d\,3^d)d_{LM}(\hat Z)}.
+\]
+Every $Z$ with $\hat Z=Y$ contains a grid cube of scale $k$ inside $Y$, since $Z\subset\bar Z\subset Y$. So the count of Step~2, applied to $e^{-(\lambda-\kappa_0)d_M}e^{-\kappa_0d_M}$, gives the display of Remark~\Nref{rem:parameters} (``The rates'') with $C=2\sqrt d$. For $L\ge C3^d+3$ the rate is at least $3(\lambda-\kappa_0)-1$.
+\end{step}
+\status{Expanded. Section~\ref{xb:sec} uses it.}
+\end{detail}
+
+\begin{detail}[Sections~\Nref{sec:complex-references}--\Nref{sec:cluster} at the first step $k=0$]\label{xa:d-k0}
+\emph{Which statements are $k\ge1$ only, and what replaces them at $k=0$.} The replacements are those of Prop.~\Nref{prop:first-step}, which are verified in Section~\ref{xb:first}.
+\begin{itemize}
+\item \emph{Theorem~\Nref{thm:step}} ($k\ge1$): replaced by Lemma~\Nref{lem:first-step-formula}.
+\item \emph{The $k$-step objects} ($Q'_k,\bQ_k$, Prop.~\Nref{prop:AB}, the background map $A_*$, Theorem~\Nref{thm:weak-bg}):
+  \begin{itemize}
+  \item not used at $k=0$, where $W=U'$ and $\mathcal S(B)=S(e^{\ii B}U')$;
+  \item the base at a complex reference is the reference itself, of size $\delta_c$, so the factor $C_{\rm AB}$ in (P1), (P6) of Detail~\ref{xa:d-deltaP} is replaced by $1$, with $\delta_{P,0}$.
+  \end{itemize}
+\item \emph{Prop.~\Nref{prop:interaction-pieces}:} with $A_*(s;B)$ replaced by $B$; local within range $2L+2$. The plaquette bound of (b) at $\eta=1$ uses $\xaabs{B}_\infty\le\rho_L$ (Detail~\ref{xa:d-int}(b)). Part (d) is replaced by the factorization of the composed pieces $v_p(Z(s))$ in the proof of Prop.~\Nref{prop:first-step} (Detail~\ref{xb:d-k0-list}, item (1)).
+\item \emph{Props.~\Nref{prop:gf-pieces} and~\Nref{prop:jacobians}(a),(b),(d):} unchanged; (d) is stated for $k=0$. Prop.~\Nref{prop:jacobians}(c): the base is $U'$, and AB is not needed.
+\item \emph{Props.~\Nref{prop:composed}, Remark~\Nref{rem:extension}, the mixed class:} void ($\mathfrak E=0$, $E^\#_{\rm m}=0$).
+\item \emph{Prop.~\Nref{prop:hessian-general}:} replaced by Prop.~\Nref{prop:first-step}(b) ($\Rea\Delta_0\ge\frac12C_{\rm P}^{-1}$).
+\item \emph{Prop.~\Nref{prop:complex-ext}:} the walks at $k=0$ (Prop.~\Nref{prop:first-step}(c)), with $M_1^{(0)}$; the tiers are not used.
+\item \emph{Section~48:} unchanged, with $\mathfrak E=0$. Thm.~\Nref{thm:mayer} and Prop.~\Nref{prop:pure-sources} apply verbatim.
+\end{itemize}
+\status{Expanded. The use sites, and the first-step thresholds at non-critical references, are treated in Section~\ref{xb:first} and in the ledger (Section~\ref{sec:ledger}).}
+\end{detail}
+
+%======================================================================
+\subsection{Imported results and their hypotheses}\label{xa:sec-imp}
+
+The table lists the imported results on which the details above rest. For each it gives the exact form used, its hypotheses and where in this chapter they are checked. Results expanded in other chapters are marked by their section. Textbook facts (Cauchy estimates, the Schwarz lemma, the identity theorem, Kotecký--Preiss) are stated where used.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.2\textwidth}>{\raggedright\arraybackslash}p{0.44\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+\toprule
+result & form used, hypotheses & checked in\\
+\midrule\endfirsthead
+\toprule
+result & form used, hypotheses & checked in\\
+\midrule\endhead
+\bottomrule\endfoot
+Prop.~\Nref{prop:AB} & $U_r$ real with $U_r\in\mathfrak U_0(a)$, $a\le c'_3$; $c'_3$ and $\delta_{AB}$ depend on $d,L,G$ only; $\xaabs{A'}_\infty\le\delta_c<\delta_{AB}$; only the sup norm of $A'$ enters; bounds uniform in $k,\eta,j$ & Details~\ref{xa:d-AB-setting}--\ref{xa:d-AB-vi}\\
+Lemma~\Nref{lem:log-estimates} & (c): $s=\sum\xaabs{X_i}\le\frac14$, $\xaabs{\beta}\le Cs^2$, $C=C(\mathsf N)$; (d): $\xaabs{X}<\log2$, resp.\ $\xaabs{h-1}\le\frac14$, $\xaabs{uhu^{-1}-1}\le\frac12$ & Details~\ref{xa:d-AB-cov}, \ref{xa:d-AB-rep}, \ref{xa:d-AB-bounds}\\
+Lemma~\Nref{lem:group-average} & (b) with $\kappa(u)\le2$ on $\cD_{r_M/2}$, $v\in G^c$ arbitrary; (d) on $\cD_{r_M/2}$; (e) with $\max\xaabs{\xi_i}\le r_M/16$ & Details~\ref{xa:d-AB-cov}, \ref{xa:d-AB-bounds}(c), \ref{xa:d-AB-ii}\\
+Lemma~\Nref{lem:one-step-expansion} & real $W\in\mathfrak U_{j-1}(2a)$, $a\le c_2$, $\delta'=\delta_j\le1$, $\xaabs{B}\le c_2/\delta'$; ``other references'' (paragraph after the proof of Lemma~\Nref{lem:one-step-expansion}) & Detail~\ref{xa:d-AB-rep}; complex $W$: Detail~\ref{xa:d-AB-ii}\\
+Prop.~\Nref{prop:Q-expansion} & $a\le c_3$, $\xaabs{A}_\infty\le c_3$; the type bookkeeping of (c) at real references & Details~\ref{xa:d-AB-rep}, \ref{xa:d-AB-iii}\\
+Prop.~\Nref{prop:linearized-averages} & (b) at real $U_0\in\mathfrak U_0(a)$, $a\le c_3$; (e) in a real gauge with $\xaabs{A_0}\le\eps$, $a\le\eps\le c_3$ & Details~\ref{xa:d-identity}, \ref{xa:d-AB-iv}\\
+Thm.~\Nref{thm:correspondence}(c),(d) & complex relative configurations where the maps are defined (paragraph after Theorem~\Nref{thm:correspondence}) & Details~\ref{xa:d-AB-rep}, \ref{xa:d-AB-iii}\\
+Lemma~\Nref{lem:avg-transport} & (a) complex $W$ under Def.~\Nref{def:avg-transport}; (e) $L\delta\eps\le c$; (f) $W$ real in $\mathfrak U_{j-1}(b)$, $8b\delta_j^2\le\frac14r_M$, $L\delta\max\xaabs{\beta}\le c$, $c\le\frac14c_0$ & Details~\ref{xa:d-gf}, \ref{xa:d-AB-iv}, \ref{xa:d-hessian}\\
+Prop.~\Nref{prop:reg-complex} & $M\ge M_0$, $\eps\le\eps_0$, $W\in\cW^{\rm an}_{\rm loc}(\eps)$ or the range-$3$ class; $\delta\le\delta_0$ in the norm $N$; with $\delta=C_{\rm cmp}\delta_c$ & Details~\ref{xa:d-cmp}, \ref{xa:d-step-i}\\
+Rem.~\Nref{rem:general-averaging} & (i)--(v) for $(Q'_k(U),\bQ_k(U))$ & Details~\ref{xa:d-dag}, \ref{xa:d-step-i}\\
+Lemmas~\Nref{lem:CT-stable}, \Nref{lem:perturbed-inverse} & $\eps\le\eps_1(c,\gamma,m_0)$; unit-lattice form $\eps S_\gamma\le c/2$ & Detail~\ref{xa:d-step-i}, (P1)\\
+Lemmas~\Nref{lem:cov-expansion}, \Nref{lem:curvature} & (B) with $\eps\le1$, $\mathfrak g^c$-valued $A$ allowed & Detail~\ref{xa:d-step-ii}\\
+Prop.~\Nref{prop:dirichlet-averaged}(e) & $\delta\le\delta_0$, $C\delta S_{\gamma/4}\le c/2$ & Detail~\ref{xa:d-step-i}(c), (P1)\\
+Prop.~\Nref{prop:dirichlet-hessian}(c) & complex perturbations; $W_2$ half: Detail~\ref{d8:A1} & Details~\ref{xa:d-step-i}(d), \ref{xa:d-hessian}\\
+Lemma~\Nref{lem:coercive-general}, Prop.~\Nref{prop:local-fluct} & smallness of Cor.~\Nref{cor:covariance}; complex size $\le c''_L$; $R_0\ge R_0(L,M)$ & Detail~\ref{xa:d-hessian}, (P1)\\
+Lemma~\Nref{lem:exp-gauge}(c) & $W_\circ\in\mathfrak M$ real, $\xaabs{Z}\le c_0L^{-1}$; $c_0\le1/(4C_M)$ (proof of Prop.~\Nref{prop:gf-pieces}) & Detail~\ref{xa:d-gf}\\
+Lemma~\Nref{lem:eliminate} & $L^d\mathsf a\le c$, $\xaabs{Z}\le r_L$; complex base via Cor.~\Nref{cor:covariance}(c), $\xaabs{\hat\beta}\le c'_L$ & Details~\ref{xa:d-sq-setting}, \ref{xa:d-jac}\\
+Prop.~\Nref{prop:exact-step}, Thm.~\Nref{thm:step} & $k\ge1$; $\eps'_1\le a_{\rm step}$, $w\le r_2$, $a_1\ge\tilde h\ge2(C_*+1)L^{-2}\eps'_1+4w$; expanded in Section~\ref{d7:sec} & Details~\ref{xa:d-Q}, \ref{xa:d-sfstep}\\
+Lemma~\Nref{lem:gf-step-invariance} & $\chi\rho=0$ off $\mathfrak M$; (iv): $w\le\frac18\eps_M$ & Details~\ref{xa:d-Q}, \ref{xa:d-sfstep-def}\\
+Lemma~\Nref{lem:step-quadratic} & $\xaabs{Z}\le r_2$, $4(C_*+1)L^{-2}\eps'_1\le a'_1$ & Detail~\ref{xa:d-int}(c)\\
+Cor.~\Nref{cor:covariance} & $\eps\le\eps_L$, $CL^{3d+1}\eps\le\frac14c_L$; (a),(b) at real bases & Details~\ref{xa:d-sfstep-def}, \ref{xa:d-sfstep}\\
+Def.~\Nref{def:graded}, Rem.~\Nref{rem:bg-to-graded}, Rem.~\Nref{rem:domain-constants} & expanded in Section~\ref{d8:sec}; used: (i) budgets, (ii) references, (DC2)--(DC5) & Details~\ref{xa:d-ext-use}, \ref{xa:d-comp}, \ref{xa:d-ext}\\
+Lemma~\Nref{lem:quadratic-bound} & $G$ semisimple, $n\ge n_0$, $\theta_r\le a_2$, $\delta_1\le\delta_0$, $RB_P\theta\le1$, $c_*\le c_{\rm q}$, $\xaabs{A'}<\frac12\delta_0$, $\mathfrak s\le\frac12$ & Detail~\ref{xa:d-jac}(c)\\
+Prop.~\Nref{prop:one-loop-polymer} & (a) real $U$, complex on $\mathcal B$; (b) bound uniform in the background & Details~\ref{xa:d-identity}, \ref{xa:d-sfthm}\\
+Def.~\Nref{def:weak-family}, Lemmas~\Nref{lem:weak-basic}, \Nref{lem:weak-chain}, \Nref{lem:weak-local-ops} & $r\le M/16$; any data, complex allowed & Details~\ref{xa:d-VBox}, \ref{xa:d-step-viii}, \ref{xa:d-majorant}\\
+Thm.~\Nref{thm:weak-inverse}, Cor.~\Nref{cor:weak-covariance} & (W1)--(W3), the hypothesis of Lemma~\Nref{lem:step-small} and, for (b), the comparison of the local commutators; $M\ge M_1$; complex perturbations as in Prop.~\Nref{prop:reg-complex}; expanded in Section~\ref{d9:sec} & Details~\ref{xa:d-step-i}(f), \ref{xa:d-majorant}\\
+Thm.~\Nref{thm:weak-bg} & $\eps\le\eps_P$, $\xaabs{B}\le R_P$; (c) at real critical references only & Details~\ref{xa:d-step-viii}, \ref{xa:d-int}, \ref{xa:d-comp}\\
+Prop.~\Nref{prop:action}, Lemma~\Nref{lem:current} & $(1,\eps)$-regular, $\eps\le c_5$, $\xaabs{A}\le c_5$ & Detail~\ref{xa:d-step-v}\\
+\Neqref{eq:dM-facts}, Lemma~\Nref{lem:grid-nesting} & $*$-connected polymers; constants of $d$ only & Details~\ref{xa:d-decay}, \ref{xa:d-reblock}\\
+Rem.~\Nref{rem:parameters}, Rem.~\Nref{rem:flow-constants}, Prop.~\Nref{prop:old-activities} & expanded in Section~\ref{xb:sec} and in the ledger (Section~\ref{sec:ledger}) & Details~\ref{xa:d-Q}, \ref{xa:d-decay}\\
+\end{longtable}
+}

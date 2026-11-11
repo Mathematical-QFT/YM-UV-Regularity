@@ -1,0 +1,207 @@
+\section{The activity norm and one step of the flow}\label{sec:flow}
+
+This section defines the activity norm on the domain D3$'''$ and proves the bound for one step of the flow. The linear part follows from Lemma~\ref{lem:quadratic-bound}, and the sources from Sections~\ref{sec:step-quantities} and~\ref{sec:cluster}. The plan and its review are in the blueprint (Appendix~J). The iteration over the steps, the vacuum energy, the last steps and the target theorem are in Section~\ref{sec:target-flow}.
+
+\paragraph{Small-field parameters.} We take $d=3$. Let $g_{k+1}^2=Lg_k^2$, and let $p_k=p(g_k)$, $p_{0,k}=p_0(g_k)$ for functions $p,p_0\ge1$ with the following properties: $p$ is decreasing, so $p_{k+1}\le p_k$; $p(g)/p(L^{1/2}g)\to1$ as $g\to0$, for fixed $L$, so $p_k/p_{k+1}\to1$ uniformly; $p_0(g)/p(g)\to0$; and $g^\beta p(g)\to0$ as $g\to0$ for every $\beta>0$, so also $g^\beta p_0(g)\to0$. For instance powers of $1+\log g^{-1}$, as in \cite{DimockI}. Put $h_k=p_kg_k$, and fix $0<\epsilon<\frac14$. All statements are for $g_k\le g_*$, with $g_*$ small depending on all other parameters.
+
+\subsection{Polymers, domains and the norm}\label{subsec:flow-norm}
+
+At step $k$, in the units of step $k$, the \emph{polymer grid} is the paving of $\Tf$ by cubes of side $M$ (the paving of Section~\ref{sec:weakenable} with all intervals of length $M$, which needs $M\mid n_k$). A \emph{polymer} is a $*$-connected union of grid cubes. For a polymer $X$, let $d_M(X)$ be the length, in units of $M$, of the shortest tree in the continuum that meets every cube of $X$ \cite[(119)]{DimockI}, and $|X|_M$ the number of its cubes. Then \cite[(122), (123)]{DimockI}
+\begin{equation}\label{eq:dM-facts}
+d_M(X)\le\sqrt d(|X|_M-1),\qquad|X|_M\le3^d(1+d_M(X)),\qquad\sum_{X\supset\Box}e^{-\kappa_0d_M(X)}\le K_0 ,
+\end{equation}
+with $\kappa_0\ge1$, $K_0$ depending only on $d$. (The first inequality replaces $d_M\le|X|_M$ of \cite{DimockI}, which is stated there for connected polymers.) There, polymers are connected through common faces \cite[Sect.~3.1]{DimockI}, and the second and the third inequality hold for $*$-connected polymers as well. For the second, let $T$ be a tree that meets every cube of $X$, a finite union of segments, of length $\ell$ in units of $M$, and lift it to $\R^d$. Every cube of $X$ contains a point $t$ of $T$, so, in units of $M$, it is the image of a subset of $t+[-1,1]^d$, and the union of the cubes lies in the image of $T+[-1,1]^d$. A tree is obtained from a point by adding segments $[p,p+su]$, with $p$ a point of the tree already built, $s>0$ and $|u|=1$. Each such segment enlarges $T+[-1,1]^d$ by at most $s$ times the $(d-1)$-volume $2^{d-1}|u|_1\le2^{d-1}\sqrt d$ of the projection of $[-1,1]^d$ along $u$. So $T+[-1,1]^d$ has volume at most $2^d+2^{d-1}\sqrt d\,\ell$, and the projection to the torus does not increase volume. The cubes have volume $1$ and disjoint interiors, so $|X|_M\le2^d+2^{d-1}\sqrt d\,\ell\le3^d(1+\ell)$; the infimum over the trees gives the second inequality. In the proof of the third \cite[Lemma~25]{DimockI}, the polymers $X\supset\Box$ with $|X|_M=n$ are counted by paths of length $2(n-1)$ along a spanning tree of the adjacency graph. Under $*$-adjacency a cube has $3^d-1$ neighbours, so there are at most $(3^d-1)^{2(n-1)}$ such paths. The proof then uses the second inequality, in the form $d_M(X)\ge3^{-d}|X|_M-1$. So the third inequality holds for $*$-connected polymers, with $\kappa_0$ and $K_0$ depending only on $d$. So $d_M$ is a decay functional (Definition~\ref{def:decay-functional}), with the constants given there.
+
+\begin{definition}[Activities and norm]\label{def:activities}
+The activity domain of step $k$ at a polymer $X$ is $\mathcal U_k(X)=\mathcal U(X;h_k^{1-\epsilon/2},h_k^{1-\epsilon},h_k^{1-2\epsilon})$ (Definition~\ref{def:graded}). An \emph{activity of step $k$} is a family $\mathcal E=\{\mathcal E(X,\cdot)\}$, indexed by polymers, of graded activities at $X$ on $\mathcal U_k(X)$. It is \emph{normalized} if $\mathcal E(X,1)=0$ for all $X$, wrapping ones included. For $\kappa>0$ put
+\[
+\|\mathcal E(X)\|_k=\sup_{\mathcal U_k(X)}|\mathcal E(X,\cdot)|,\qquad\|\mathcal E\|_{k,\kappa}=\sup_X\|\mathcal E(X)\|_ke^{\kappa d_M(X)} .
+\]
+\end{definition}
+
+The domain is monotone, $\mathcal U_k(Y)\subset\mathcal U_k(X)$ for $X\subset Y$. Each $\mathcal E(X,\cdot)$ depends on the configuration only on $X$: the margin of dependence is $0$, while the domain has the margin $3$ of Definition~\ref{def:graded}.
+
+\paragraph{Hypotheses on the activities of step $k$.} With the rate $\kappa_n$ of the norm:
+\begin{enumerate}[label=(H\arabic*)]
+\item $\mathcal E_k$ is an activity of step $k$ in the sense of Definition~\ref{def:activities};
+\item each $\mathcal E_k(X,\cdot)$ depends on the configuration only on $X$;
+\item $\|\mathcal E_k\|_{k,\kappa_n}<\infty$;
+\item $\mathcal E_k$ is normalized, and invariant under real gauge transformations;
+\item its polymers are polymers of the grid of step $k$;
+\item $\mathcal E_k(X,U)$ is real for real $U$.
+\end{enumerate}
+
+\paragraph{Torus hypotheses.} Let $n_k$ be the side, in the units of step $k$, of the torus of step $k$. The configurations of step $k$ live on its unit lattice $\T^{(k)}$, and the background fields on its fine lattice $\Tf$, which has the same side in these units but spacing $\eta<1$; the two lattices are different sets. This is the $n$ of Parts~VI, VIII and~IX. In Part~VII, $n$ denotes the side of $\T'$, which is $n_{k+1}=n_k/L$. The torus side $n_k$ satisfies:
+\begin{enumerate}[label=(T\arabic*)]
+\setcounter{enumi}{-1}
+\item $n_k\ge n_*(L,M,\rho)$, the largest of the torus conditions of the inputs. These are:
+  \begin{itemize}
+  \item $n_0$ of Lemma~\ref{lem:quadratic-bound} and Corollary~\ref{cor:regularity}, for $n_k$; Lemma~\ref{lem:quadratic-bound} needs only that its cube $\Lam$ does not wrap around $\T^{(k)}$, i.e.\ $2R<n_k$;
+  \item $n_\delta$ of Proposition~\ref{prop:sharp-curvature}, for $n_{k+1}$;
+  \item $80M'$ with $M'\ge M'_L$ as in Theorem~\ref{thm:step-coercive}, also large enough for Proposition~\ref{prop:first-step}(b), for $n_{k+1}$;
+  \item $8M_0$ of Lemma~\ref{lem:uniformity}, for $n_{k+1}$;
+  \item $C(\rho+C_v)M$ of Section~\ref{sec:weakenable}, for $n_k$.
+  \end{itemize}
+  The conditions for $n_{k+1}=n_k/L$ are included in $n_*$ with the factor $L$;
+\item $LM\mid n_k$;
+\item $n_k\ge C_{\rm tor}LM$, with $C_{\rm tor}$ depending only on $d$. It is chosen so that every polymer with $d_M(X)<L$ has $X^{(3)}$ in a cube of side less than $\frac12n_k$, and diameter at most $\frac12n_k-8$. So such polymers are not wrapping in either sense: that of Lemma~\ref{lem:quadratic-bound}, and that of Proposition~\ref{prop:one-loop-polymer};
+\item either $n_k\ge CM\log h_k^{-1}$, or the wrap-around one-loop pieces $Ce^{-cn_k/M}$ are carried as a separate source.
+\end{enumerate}
+\emph{Wrapping} polymers are those with diameter larger than $\frac12n_k-8$.
+
+\subsection{Reblocking}\label{subsec:flow-reblock}
+
+For a polymer $X$ of step $k$ let $\bar X$ be the union of the $LM$-cubes that contain a cube of $X$; equivalently, that meet $X$, since the grids are aligned. For an activity $\mathcal E$ of step $k$ put $(\mathcal B\mathcal E)(Y,\cdot)=\sum_{X:\,\bar X=Y}\mathcal E(X,\cdot)$, and let $\mathcal B\mathcal E$ act on the configurations in the units of step $k+1$ by rescaling. The $LM$-cubes are the grid cubes of step $k+1$, by (T1), and $d_{LM}(Y)$ in the units of step $k$ is $d_M(Y)$ in those of step $k+1$.
+
+\begin{lemma}[Reblocking; {\cite[Lemma~10]{DimockI}}]\label{lem:reblocking}
+Let $\kappa\ge\kappa_0+1$ and $\kappa'=L(\kappa-\kappa_0-1)$. For nonnegative numbers $a(X)$ with $a(X)\le Ae^{-\kappa d_M(X)}$,
+\[
+\sum_{X:\,\bar X=Y}a(X)\le3^dK_0L^dAe^{-\kappa'd_{LM}(Y)} .
+\]
+If $a(X)=0$ unless $d_M(X)\ge L$, then the same holds with the factor $3^dK_0L^de^{-L}$ and the rate $L(\kappa-\kappa_0-2)$, for $\kappa\ge\kappa_0+2$.
+\end{lemma}
+
+\begin{proof}
+A minimal tree for $X$ is a tree on the $LM$-cubes of $\bar X$, so $d_M(X)\ge Ld_{LM}(\bar X)$. Then $e^{-\kappa d_M(X)}\le e^{-(\kappa-\kappa_0)Ld_{LM}(Y)}e^{-\kappa_0d_M(X)}$. Every $X$ with $\bar X=Y$ contains a grid cube of $Y$, so \eqref{eq:dM-facts} gives $\sum_{\bar X=Y}e^{-\kappa_0d_M(X)}\le K_0L^d|Y|_{LM}\le3^dK_0L^de^{d_{LM}(Y)}$. (Dimock writes $9$ in place of $3^d$ in \cite[(132)]{DimockI}, which is inconsistent with his (122).) For the last statement use $e^{-(\kappa_0+1)d_M}\le e^{-L}e^{-\kappa_0d_M}$, with $\kappa-1$ in place of $\kappa$. This is \cite[(130)--(132), (139)]{DimockI}.
+\end{proof}
+
+\begin{remark}[Pieces with margins]\label{rem:reblock-margins}
+The pieces of Sections~\ref{sec:step-quantities} and~\ref{sec:cluster} are indexed by polymers $Z$ and depend on the data on $Z^{(r')}$, with $r'<M/8<LM$. For them use the enlarged closure $\hat Z$, the union of the $LM$-cubes meeting $Z^{(r')}$. Then $Ld_{LM}(\hat Z)\le d_M(Z)+C|\hat Z|_{LM}$, with $C$ depending only on $d$, since $r'/(LM)<1/(8L)$. Indeed a minimal tree of $Z$ meets every cube of $Z$, hence every $LM$-cube of $\bar Z$. Every other $LM$-cube of $\hat Z$ contains a point within $r'$ of a cube of $Z$, so a branch of Euclidean length at most $\sqrt d(M+r')\le2\sqrt dM$ from the tree reaches it, since $r'$ is an $\ell^\infty$-distance and $r'<M$. One branch per such cube costs at most $2\sqrt d/L$ in units of $LM$. The loss is counted in $LM$-cubes. With $|\hat Z|_{LM}\le3^d(1+d_{LM}(\hat Z))$ it is absorbed by the $L$-gain of Lemma~\ref{lem:reblocking} once $L\ge C3^d$, at the price of a constant $e^{C\kappa3^d}$.
+\end{remark}
+
+\subsection{The linear part}\label{subsec:flow-linear}
+
+\begin{proposition}[Linear part]\label{prop:linear}
+Let $d=3$ and $G$ semisimple, and let $\mathcal E$ satisfy (H1)--(H5) at step $k$. Assume (T0)--(T2), $\kappa_n\ge2(\kappa_0+1)$, $L\ge4$ and $3^dK_0L^de^{-L}\le L^{-1}$. For a polymer $Y'$ of step $k+1$ and $U\in\mathcal U_{k+1}(Y')$ put
+\[
+(\mathcal L\mathcal E)(Y',U)=\sum_{X:\,\bar X=Y'}\mathcal E(X,U),
+\]
+with $U$ read in the units of step $k$. Then $\mathcal L\mathcal E$ is a normalized activity of step $k+1$ satisfying (H1)--(H5), and
+\[
+\|\mathcal L\mathcal E\|_{k+1,\kappa_n}\le\big(2\cdot3^dK_0L^{-\epsilon}(1+o(1))+L^{-1}\big)\|\mathcal E\|_{k,\kappa_n},
+\]
+where $o(1)\to0$ as $g_*\to0$, for fixed $L$ and $M$, uniformly in $k$.
+\end{proposition}
+
+\begin{proof}
+\emph{Domains.} Read a point $U\in\mathcal U_{k+1}(Y')$ in the units of step $k$. Fields scale by $L^{-1}$, gradients by $L^{-2}$, unit-scale H\"older quotients by at most $L^{-2-\alpha}$, curvatures by $L^{-2}$ and currents by $L^{-3}$. The margin-$3$ neighbourhood of $Y'$ contains that of every $X\subset Y'$ in the units of step $k$. With $h_{k+1}\le L^{1/2}h_k$, $U=e^{\ii\eta A'}U_r$ on $X^{(3)}$ with
+\[
+\mathfrak m=|\nabla A'|+[\nabla A']_\alpha\le L^{-2}h_{k+1}^{1-\epsilon},\qquad\theta\le L^{-2}h_{k+1}^{1-\epsilon/2},\qquad|A'|\le L^{-1/2-\epsilon}h_k^{1-2\epsilon}.
+\]
+So $U\in\mathcal U_k(X)$ with slack: with the same real part $U_r$,
+\begin{equation}\label{eq:domain-slack}
+\delta_1-\mathfrak m\ge(1-L^{-3/2-\epsilon/2})h_k^{1-\epsilon},\qquad\delta_0-|A'|\ge(1-L^{-1/2-\epsilon})h_k^{1-2\epsilon},
+\end{equation}
+where $\delta_1=h_k^{1-\epsilon}$, $\delta_0=h_k^{1-2\epsilon}$. Both are at least $\frac12h_k^{1-\epsilon}$ for $L^{1/2+\epsilon}\ge2$ and $h_k\le1$. The curvature and the current of $U_r$ are below $\theta_r=h_k^{1-\epsilon/2}$ by the factors $L^{-2+(1-\epsilon/2)/2}$ and $L^{-3+(1-\epsilon/2)/2}$. Thus $\mathcal L\mathcal E(Y',\cdot)$ is defined and analytic on an open neighbourhood of $\mathcal U_{k+1}(Y')$. It depends on $U$ only on $Y'$, is normalized and invariant, and $Y'$ is a grid polymer of step $k+1$.
+
+\emph{Small polymers}, $d_M(X)<L$. By (T2), $X^{(3)}$ lies in a cube $\Lam$ of side $2R<\frac12n_k+6<n_k$. Hence $B_P\le C(L,M)$ and $D_N\le CLM$. Apply Lemma~\ref{lem:quadratic-bound} with $\theta_r=h_k^{1-\epsilon/2}$, $\delta_1=h_k^{1-\epsilon}$, $\delta_0=h_k^{1-2\epsilon}$. Its hypotheses hold for $g_*$ small: $\theta<\theta_r$; $|A'|<\frac12\delta_0$ for $L\ge4$; $RB_P\theta\le1$ and $c_*\le c_0$, since $\theta$, $|A'|$ and $\delta_0$ are positive powers of $h_k$ times constants depending on $L$ and $M$. Then
+\begin{itemize}
+\item $\mathfrak m/\delta_1\le L^{-2}(h_{k+1}/h_k)^{1-\epsilon}\le L^{-3/2-\epsilon/2}$;
+\item $C_0|A'|(|A'|+(1+D_N)B_P\theta)/\delta_1\le C(L,M)h_k^{1-3\epsilon}$;
+\item $B_P\theta/\delta_1\le C(L,M)h_k^{\epsilon/2}$;
+\item $c_*$ and $D_N\delta_1/\delta_0$ are at most $C(L,M)h_k^{\epsilon}$.
+\end{itemize}
+So $\mathfrak s\le L^{-3/2-\epsilon/2}(1+o(1))$, and $|\mathcal E(X,U)|\le2L^{-3-\epsilon}(1+o(1))\|\mathcal E\|_{k,\kappa_n}e^{-\kappa_nd_M(X)}$. Lemma~\ref{lem:reblocking} gives the contribution $2\cdot3^dK_0L^{-\epsilon}(1+o(1))\|\mathcal E\|_{k,\kappa_n}e^{-\kappa'd_{LM}(Y')}$, with $\kappa'=L(\kappa_n-\kappa_0-1)\ge\kappa_n$.
+
+\emph{Large polymers}, $d_M(X)\ge L$, which include all wrapping ones. Here $|\mathcal E(X,U)|\le\|\mathcal E(X)\|_k$, since $U\in\mathcal U_k(X)$. Lemma~\ref{lem:reblocking} with the improved factor gives at most $3^dK_0L^de^{-L}\|\mathcal E\|_{k,\kappa_n}e^{-\kappa''d_{LM}(Y')}$, with $\kappa''=L(\kappa_n-\kappa_0-2)\ge\kappa_n$. This is at most $L^{-1}\|\mathcal E\|_{k,\kappa_n}e^{-\kappa_nd_{LM}(Y')}$, by hypothesis. This is \cite[(139)--(140)]{DimockI}.
+\end{proof}
+
+\begin{remark}[What the linear part uses]\label{rem:linear-uses}
+The constants $C(L,M)$ of Corollary~\ref{cor:regularity} and Lemma~\ref{lem:large-cubes} enter only multiplied by positive powers of $h_k$. The marginal factor $2\cdot3^dK_0L^{-\epsilon}$ contains no constant chosen after $L$. The quadratic gain comes from complex gauge invariance (Lemma~\ref{lem:complex-gauge}) and the vanishing of the linear term for semisimple $G$. The threshold $d_M(X)<L$ is Dimock's; it replaces the thresholds in $D_N$ and $B_P$ of the blueprint (Appendix~F), since for small polymers all constants are fixed.
+\end{remark}
+
+\subsection{The sources}\label{subsec:flow-sources}
+
+\begin{proposition}[Sources]\label{prop:sources}
+Assume the hypotheses of Theorem~\ref{thm:sf-step} and of Proposition~\ref{prop:linear}, with $\|\mathcal E_k\|_{k,\kappa_n}\le K_{\mathcal E}h_k^{2-2\epsilon}$. Assume also (T3), $\kappa_n\ge2(1+C_d+\kappa_0)$, and $L\ge C3^d+3$ with the constant $C$ of Remark~\ref{rem:reblock-margins}. Assume finally that the rates satisfy $(3^{-d}\kappa'_w-1)/c_\sharp\ge\kappa_n+\kappa_0+2$ and $(\kappa'_w-2)/c'_\sharp-C_d\ge\kappa_n+\kappa_0+2$, where $\kappa'_w$ is the weakening rate $\kappa'$ of Part~IX. Let the following terms of Theorem~\ref{thm:sf-step} be normalized by subtracting their values at $U'=1$, then reblocked and rescaled:
+\begin{itemize}
+\item the one-loop pieces $\mathfrak e(X)$ of all polymers, wrapping ones included;
+\item $\log\mathfrak j_c$;
+\item the pure class $E^\#_{\rm p}$;
+\item the mixed class $E^\#_{\rm m}$.
+\end{itemize}
+Call the resulting activities $\mathcal E^*_k$ (the first three) and $\mathcal E^{\rm mix}_k$. They are activities of step $k+1$ with (H1)--(H5), and
+\[
+\|\mathcal E^*_k\|_{k+1,\kappa_n}\le Bh_{k+1}^{2-2\epsilon},\qquad\|\mathcal E^{\rm mix}_k\|_{k+1,\kappa_n}\le o(1)\,\|\mathcal E_k\|_{k,\kappa_n},
+\]
+with $B$ depending on $L$, $M$ and the other fixed parameters, but not on $k$ or on the number of steps, under the first alternative of (T3). Under the second alternative of (T3), the same holds with $\mathcal E^*_k$ replaced by its part without the wrapping one-loop pieces. The wrapping pieces then form a separate activity, whose norm $\|\cdot\|_{k+1,\kappa_n}$ is at most $Ce^{-cn_k/M}$.
+\end{proposition}
+
+\begin{proof}
+\emph{One-loop.} By Proposition~\ref{prop:one-loop-polymer}(d), $|\mathfrak e(X,U)|\le Ch_k^{2-2\epsilon}e^{-(\kappa_2-1)|X|}$ on $\mathcal U_k(X)$, with $\kappa_2=3^{-d}\kappa'_w$. This holds on $\mathcal U_{k+1}(Y')$ by the inclusion in the proof of Proposition~\ref{prop:linear}. Since $|X|\ge d_M(X)/c_\sharp$, the rate in $d_M$ is $(\kappa_2-1)/c_\sharp$. Remark~\ref{rem:reblock-margins} and Lemma~\ref{lem:reblocking} give $C(L,M)h_k^{2-2\epsilon}\le C(L,M)h_{k+1}^{2-2\epsilon}$ in the norm of step $k+1$. For wrapping polymers, Proposition~\ref{prop:one-loop-polymer}(d) gives $|\mathfrak e(X)|\le Ce^{-(\kappa_2-1)|X|}e^{-cn_k/M}$. Under the first alternative of (T3) this is at most $Ch_k^{2-2\epsilon}e^{-(\kappa_2-1)|X|}$, and it is treated in the same way. Under the second it is the separate source. The $\mathfrak e(X)$ are already normalized.
+
+\emph{Jacobians.} By Proposition~\ref{prop:jacobians}(c), $|\log\mathfrak j_c|\le C_Ph^{2-2\epsilon}$ on D3$'''$, with $\log\mathfrak j_c=0$ at $U'=1$. Each term lives on one polymer of bounded size, and there are at most $C(L,M)$ of them per grid cube.
+
+\emph{Pure class.} By Proposition~\ref{prop:pure-sources}, the sum over $Y\supset\Box$ of $|E^\#_{\rm p}(Y)|e^{\beta_{\rm p}(d_M(Y)+c_\natural)}$ is at most $C_Pg^2p_0^6$, with $\beta_{\rm p}=(\kappa'_w-2)/c'_\sharp-C_d$. Subtracting the value at $U'=1$ at most doubles this. After reblocking it is $C(L,M)g_k^2p_{0,k}^6=o(h_{k+1}^{2-2\epsilon})$, since $g_k^2p_{0,k}^6/h_{k+1}^{2-2\epsilon}\le g_k^{2\epsilon}p_{0,k}^6\to0$.
+
+\emph{Mixed class.} By Corollary~\ref{cor:two-classes}, the sum over $Y\supset\Box$ of $|E^\#_{\rm m}(Y)|e^{\beta(d_M(Y)+c_\natural)}$ is at most $C\epsilon_{\rm m}e^{c_\natural\kappa_n}$, with $\beta=\kappa_n-1-C_d$ and $\epsilon_{\rm m}=C_P\tau\|\mathcal E_k\|_{k,\kappa_n}$. Here $\tau\le C_PL^dg_kp_{0,k}h_k^{-(1-\epsilon)}\to0$. Keep $e^{-\kappa_0d_M(Y)}$ for the counting, and use the rest for the $L$-gain. By Remark~\ref{rem:reblock-margins},
+\[
+e^{-(\beta-\kappa_0)d_M(Y)}\le e^{C(\beta-\kappa_0)3^d}e^{-(\beta-\kappa_0)(L-C3^d)d_{LM}(\hat Y)} .
+\]
+The counting of the $Y$ with given $\hat Y$ is that of the proof of Lemma~\ref{lem:reblocking}. For $L\ge C3^d+3$ and $\kappa_n\ge2(1+C_d+\kappa_0)$ the resulting rate $(\beta-\kappa_0)(L-C3^d)-1$ is at least $\kappa_n$. The bound is $C(L,M)e^{C\kappa_n3^d}e^{c_\natural\kappa_n}\tau\|\mathcal E_k\|=o(1)\|\mathcal E_k\|$, since $\kappa_n$ is fixed before $g_*$.
+
+\emph{Properties.} (H1) holds by Theorem~\ref{thm:sf-step} and the inclusion of domains, with the restriction of Remark~\ref{rem:extension}. (H2) and (H5) hold since the reblocked polymer is $\hat Y$. (H3) is the bound. (H4) holds by the subtraction at $U'=1$ and by Theorem~\ref{thm:sf-step}. (H6) holds since all pieces are real for real $s$, real $\xi$ and real references (Proposition~\ref{prop:localized-pieces}, Corollary~\ref{cor:weak-covariance}), and the Mayer expansion of real pieces against a real measure is real (Theorem~\ref{thm:mayer}(e)).
+\end{proof}
+
+\begin{remark}[Extended references]\label{rem:extension}
+A point of $\mathcal U_{k+1}(Y')$ fixes $U'$ only near $Y'$. It is extended by the cutoff of Remark~\ref{rem:bg-to-graded}. In the cutoff band, $|\nabla(\chi A)|\sim|A|$, which can exceed $h_k^{1-\epsilon}$. So composed configurations of old polymers meeting the band need not lie in $\mathcal U_k(X)$. Therefore, before the Mayer expansion, all old activities and all pieces whose polymer is not contained in $Y'$ (in the units of step $k$) are set to zero. By Theorem~\ref{thm:mayer}(a), the output $E^\#(Y)$ with $\hat Y=Y'$ is unchanged, since it depends only on the pieces of polymers inside $Y$. So the new activity at $Y'$ is defined at every point of $\mathcal U_{k+1}(Y')$ and does not depend on the extension. Pieces with $Z\subset Y'$ near $\partial Y'$ may depend on the extension, but they do not enter $E^\#(Y)$ with $\hat Y=Y'$. At a real critical $U'$, take $U_r=U'$ and $A=0$, so that no extension is needed. The restricted and the full systems then share every $E(Z)$ with $Z\subset Y$. By Theorem~\ref{thm:mayer}(a), applied also to $E^\#_{\rm p}$ and to the $\lambda$-family of Corollary~\ref{cor:two-classes}, their outputs agree. Since $\sum_{Y'}\sum_{\hat Y=Y'}=\sum_Y$, the identity of Theorem~\ref{thm:sf-step} is not affected.
+
+\emph{The collar inclusions.} Let $Y$ contribute to the output at $Y'$, i.e.\ $\hat Y=Y'$, with $\hat Y$ the enlarged closure of Remark~\ref{rem:reblock-margins}. Then $Y^{(r')}\subset Y'$, and the following holds.
+\begin{itemize}
+\item By Theorem~\ref{thm:mayer}(a), the output at $Y$ uses only pieces $E(Z)$ with $Z\subset Y$.
+\item Each such piece depends on the reference only on $Z^{(r')}\subset Y^{(r')}\subset Y'$.
+\item A mixed piece uses old activities $\mathcal E_k(X)$ with $X\subset Z$. Their domain budget is needed on $X^{(3)}\subset Z^{(r')}\subset Y'$, since $r'=r+2L+2\ge3$.
+\end{itemize}
+So on every set that matters the extension is not felt. The real part there is that of $U'$, and the slack \eqref{eq:domain-slack} gives the hypotheses of Proposition~\ref{prop:composed}. The same inclusions hold for the pure system and for the $\lambda$-family of Corollary~\ref{cor:two-classes}.
+
+To avoid an implicit definition, the restricted system for an output polymer $Y'$ is defined on the input pieces with $Z\subset Y'$ only. Equivalently, it may be defined on a cutoff extension that equals $U'$ on the $3$-neighbourhood of $Y'$, which is the margin of the next domain. Pieces near $\partial Y'$ whose collars cross it may depend on the extension, but they do not enter the outputs with $\hat Y=Y'$. At real critical references the restricted and the unrestricted systems share all inputs that enter, so their outputs coincide.
+\end{remark}
+
+\subsection{One step}\label{subsec:flow-step}
+
+\begin{theorem}[One step of the flow]\label{thm:one-step}
+Let $G$ be semisimple. Let the parameters be chosen in the following order:
+\begin{enumerate}[label=(\arabic*)]
+\item $\epsilon\in(0,\frac14)$, and $\kappa_n\ge2(1+C_d+\kappa_0)$;
+\item $L\ge\max(10\cdot3^dK_0,(8C_*)^{2/3},C3^d+3,4)$, with $L^{1/2+\epsilon}\ge3$ and $3^dK_0L^de^{-L}\le L^{-1}$. Since $C_*\ge1$, $L^{3/2}\ge8C_*$ implies $L^{3/2}\ge4(C_*+1)$;
+\item the weakening rate $\kappa$ and the loss $\delta$ of Part~IX, with $\kappa'_w=\kappa-C\delta$, the conditions of Proposition~\ref{prop:sources} and $\kappa'_w-1\ge c_\natural\kappa_n+\log(1/c_\flat)$ (Proposition~\ref{prop:localized-pieces});
+\item $\rho$, then $M$, with $M>32(L+1)$, $M$ a power of $L$, and
+\[
+M\ge\max\big(M_0,\,5L,\,M_1,\,M_1^{(0)},\,M'_1,\,64\big).
+\]
+Here $M_0$ and $5L$ are the conditions of Theorem~\ref{thm:balaban}; $M_1=M_1(\kappa,\delta,C_G,C_{\rm loc},\allowbreak C_{\mathfrak N},\gamma_0,\rho,C_v)$ is the largest of the thresholds of Theorem~\ref{thm:weak-inverse} at the levels of Section~\ref{sec:nested-walks}, fixed level by level (the paragraph before the levels), and $M_1^{(0)}$ its value for the operators of the first step (Proposition~\ref{prop:first-step}(c)); $M'_1$ and $64$ are the conditions of Section~\ref{sec:weak-background}. $M_1$ is computed with the multiplicative constants of Part~IX doubled, and $M'_1$ with $\theta'$ replaced by $2\theta'$ (Theorem~\ref{thm:tier-walk}); for both, the coercivity constants are the fixed ones of Proposition~\ref{prop:complex-ext}, and every decay bound that enters is taken at the fixed rate of the differences there, a quarter of the minimum of the perturbation rate and the two chosen inverse decay rates in Lemma~\ref{lem:perturbed-inverse}; neither depends on $\delta_c$, so the same numbers serve at real and at complex references (Proposition~\ref{prop:complex-ext}, the step ``The constants'' of the proof). At complex references of size $\delta_c<\delta_P$ the inputs of $M_1$ change by at most a factor~$2$, and those of $\theta'$ by at most $1+\sigma_{\rm cx}$ with $(1+\sigma_{\rm cx})^3\le2$. So $M_1$ and $M'_1$ serve at complex references and do not depend on $\delta_P$, and $M$ is chosen before $\delta_P$ without circularity. The threshold $M_1^{(0)}$ is computed with the bounds of Proposition~\ref{prop:first-step}(b) and its proof at complex references ($\Rea\Delta_0\ge\frac12C_{\rm P}^{-1}$, a norm change of at most $\frac18C_{\rm P}^{-1}$, range $2L+2$), which do not depend on $\delta_{P,0}$. Further, $M\ge16r$, where $r$ is the largest margin of the weakened families used (Section~\ref{sec:step-quantities}, Setting); $r$ does not depend on $M$, and $M\ge16r$ is required by the definition of weakenable families (Section~\ref{sec:weakenable}). Then the scales $M'\ge M'_L$ of Theorem~\ref{thm:step-coercive} and of Proposition~\ref{prop:first-step}(b);
+\item the constants of the complex references: the threshold $\eps_{\max}$, then $\delta_P$ (Proposition~\ref{prop:complex-ext}) and $\delta_{P,0}$ (Proposition~\ref{prop:first-step}), then $c_a\le cL^{-d-2}$;
+\item $g_*$, small enough that, in particular, the real parts of the complex references of the step are $(M,\eps)$-regular with $\eps\le\eps_{\max}$.
+\end{enumerate}
+Assume (T0)--(T3) at step $k$, and let $\mathcal E_k$ satisfy (H1)--(H6) with $\|\mathcal E_k\|_{k,\kappa_n}\le K_{\mathcal E}h_k^{2-2\epsilon}$, where $K_{\mathcal E}=2B$, $B$ from Proposition~\ref{prop:sources}. Let $\rho_k(V)=\mathcal Z_k\exp\big(-g_k^{-2}S(U_k(V))+\mathcal E_k(U_k(V))\big)$ on $\mathfrak U_k(p_kg_k)$, with $\mathcal E_k(U)=\sum_X\mathcal E_k(X,U)$. Then, for $V'$ small field at step $k+1$, in the units of step $k+1$,
+\[
+T_{\rm sf}(\rho_k)(V')=\mathcal Z'_{k+1}\exp\Big(-\frac1{g_{k+1}^2}S(U')+\mathcal E_{k+1}(U')\Big),\qquad U'=U_{k+1}(V'),
+\]
+where $\mathcal Z'_{k+1}>0$ is a constant (the vacuum part; positive by (H6)), and $\mathcal E_{k+1}=\mathcal L\mathcal E_k+\mathcal E^{\rm mix}_k+\mathcal E^*_k$. The activity $\mathcal E_{k+1}$ satisfies (H1)--(H6) at step $k+1$, and
+\[
+\|\mathcal E_{k+1}\|_{k+1,\kappa_n}\le A\|\mathcal E_k\|_{k,\kappa_n}+Bh_{k+1}^{2-2\epsilon}\le K_{\mathcal E}h_{k+1}^{2-2\epsilon},\qquad A=2\cdot3^dK_0L^{-\epsilon}(1+o(1))+L^{-1}+o(1).
+\]
+This holds under the first alternative of (T3). If the second alternative of (T3) is taken instead, then $\mathcal E_{k+1}=\mathcal L\mathcal E_k+\mathcal E^{\rm mix}_k+\mathcal E^*_k+\mathcal E^{\rm wr}_k$, where $\mathcal E^*_k$ is without the wrapping one-loop pieces and $\mathcal E^{\rm wr}_k$ is the separate activity of the wrapping pieces of Proposition~\ref{prop:sources}. Then $\mathcal E_{k+1}$ satisfies (H1)--(H6), and
+\[
+\|\mathcal E_{k+1}\|_{k+1,\kappa_n}\le A\|\mathcal E_k\|_{k,\kappa_n}+Bh_{k+1}^{2-2\epsilon}+Ce^{-cn_k/M} .
+\]
+The bound by $K_{\mathcal E}h_{k+1}^{2-2\epsilon}$ is not claimed then: a fixed exponential in the torus size is not absorbed by $h_{k+1}^{2-2\epsilon}$ as $g_k\to0$ at fixed $n_k$.
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{thm:sf-step}, with Proposition~\ref{prop:one-loop-polymer} for the determinant. The exponent consists of $-g_k^{-2}S(U')$, which is $-g_{k+1}^{-2}S(U')$ in the units of step $k+1$; the vacuum constants; $\mathfrak E(U')=\mathcal E_k(U')$; and the normalized pieces. The constants $\log\mathcal N_k$, $\log N_\chi$, $-\frac12\sum_b\ell_k(b;1)$ and $\sum_YE^\#(Y,1)$ are collected in $\mathcal Z'_{k+1}$. They are split into explicit normalizations and a vacuum energy in Section~\ref{subsec:tf-vacuum}. The vacuum part $\sum_YE^\#(Y,1)$ has a bound per grid cube, by Theorem~\ref{thm:mayer}(b) and Proposition~\ref{prop:pure-sources}. The normalizations are explicit; $\log\mathcal N_k$ contains $\log(2\pi g_k^2)$ per free bond, so they are not bounded per volume uniformly in $k$. Reblocking $\mathcal E_k(U')$ gives $\mathcal L\mathcal E_k$ (Proposition~\ref{prop:linear}); the other terms give $\mathcal E^*_k$ and $\mathcal E^{\rm mix}_k$ (Proposition~\ref{prop:sources}, Remark~\ref{rem:extension}). The hypotheses of Theorem~\ref{thm:sf-step} hold:
+\begin{itemize}
+\item (Q1)--(Q3), for $g_*$ small, since $p_{0,k}/p_k\to0$, $g_kp_{0,k}\to0$, $L^{3/2}\ge4(C_*+1)$ and $p_{k+1}\le p_k$ (Section~\ref{sec:cluster}); and $2g\le r_t$ of Proposition~\ref{prop:pure-sources}, since $r_t\ge cp_{0,k}^{-3}$ with $c$ depending on the fixed parameters, and $g_kp_{0,k}^3\to0$;
+\item $\epsilon_{\rm p}\le\frac12\epsilon_*$ and $\epsilon_{\rm m}e^{c_\natural(\kappa_n-1)}\le\frac14\epsilon_*$, since $\epsilon_{\rm p}=C_Pg_kp_{0,k}^3\to0$, $\epsilon_{\rm m}\le C_P\tau K_{\mathcal E}h_k^{2-2\epsilon}\to0$, and $\kappa_n$ is fixed before $g_*$;
+\item the decay of the old activities, which is (H3).
+\end{itemize}
+For the recursion, $h_{k+1}^{2-2\epsilon}=L^{1-\epsilon}(p_{k+1}/p_k)^{2-2\epsilon}h_k^{2-2\epsilon}$. So $AK_{\mathcal E}h_k^{2-2\epsilon}+Bh_{k+1}^{2-2\epsilon}\le K_{\mathcal E}h_{k+1}^{2-2\epsilon}$ holds if $AL^{-(1-\epsilon)}(p_k/p_{k+1})^{2-2\epsilon}\le\frac12$. This follows from $A\le\frac14L^{1-\epsilon}$, true for $L\ge10\cdot3^dK_0$ and $g_*$ small, and $(p_k/p_{k+1})^{2-2\epsilon}\le2$, true for $g_*$ small depending on $L$.
+\end{proof}
+
+\begin{remark}[From the step to the target]\label{rem:flow-remains}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{The vacuum energy.} The constants are split into explicit normalizations $\mathcal Z_k$ and a vacuum energy $\eps_k$ per volume in Section~\ref{subsec:tf-vacuum}. The flow $\eps_{k+1}=L^3\eps_k+\mathcal L_1\mathcal E_k+\eps^*_k$ needs only the per-volume bounds of the proof. The mixed class at $U'=1$ is part of $\mathcal L_1\mathcal E_k$.
+\item \emph{The iteration} over $k\le K$ and the first step are in Section~\ref{sec:target-flow}. Steps with $n_k<\max(C_{\rm tor}LM,n_*)$ are not covered by Theorem~\ref{thm:one-step}, so the final torus is chosen large enough (Lemma~\ref{lem:torus}). That section also makes the choice between the alternatives of (T3), imposes the divisibility $LM\mid n_k$ for all $k$ (with $M$ a power of $L$), and proves the corollary on the partition function.
+\item \emph{Not treated:} the large-field stage, which starts from $\mathcal R_{\rm LF}$ of Section~\ref{sec:cluster}.
+\end{enumerate}
+\end{remark}

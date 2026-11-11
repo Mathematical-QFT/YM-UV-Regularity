@@ -1,0 +1,206 @@
+\section{Introduction}\label{sec:intro}
+
+\subsection{Where the operators come from}
+
+Ba\l aban's construction of lattice Yang--Mills theory \cite{BalPropI,BalPropII,BalAvg,BalReg,BalBackground,BalVar,BalUV3} is a renormalization group (RG) analysis. A gauge field on a fine lattice of spacing $\eta=L^{-k}$ is averaged over blocks of side~$1$, and this averaging is performed in $k$ steps, each enlarging the blocks by a factor~$L$. After $k$ steps one has to integrate over all fine configurations whose block averages equal a given coarse configuration. Following the usual Gaussian strategy, one expands the action around its minimizer subject to the averaging constraint. This minimizer is called the \emph{background field} \cite{BalVar}. The fluctuations around it are then Gaussian to leading order, with an explicit covariance.
+
+Every estimate in this programme rests on properties of a small family of \emph{linear} operators:
+\begin{itemize}
+\item Green functions of the form $(\text{Laplace-type operator}+a\,Q^*Q)^{-1}$, where $Q$ is the $k$-step averaging operator;
+\item the \emph{minimizer map} $H$, which sends a coarse configuration $B$ to the fine configuration of least action with average~$B$;
+\item the \emph{constrained Green function}, i.e.\ the covariance of the fluctuation field, which has vanishing averages;
+\item inverses of averaged Green functions, such as $(QGQ^*)^{-1}$, which live on the coarse lattice.
+\end{itemize}
+The properties needed are \emph{exponential decay} on the unit scale and \emph{local regularity}: bounds on values, first derivatives and H\"older quotients of first derivatives. They must be uniform in the number $k$ of RG steps, which means uniform in the ratio $\eta^{-1}$ between the unit scale and the lattice scale, and uniform in the size of the volume.
+
+For the full non-abelian problem these operators depend on the background field $U$. Ba\l aban obtained them by perturbation from the case $U=1$ \cite{BalPropI}, through random-walk expansions \cite{BalPropII,BalBackground}. The case $U=1$ is the foundation of the whole analysis. It is also the case in which all the scales are already present, together with the gauge structure that distinguishes gauge fields from scalar fields.
+
+\subsection{What this paper does}
+
+We give a complete, self-contained treatment of these operators at the trivial background $U=1$. The setting is a single torus with $k$-fold averaging everywhere, i.e.\ without the nested domains $\Omega_j$ of \cite{BalVar}. The paper is meant to be readable by a PhD student who knows linear algebra, Fourier series and the basics of elliptic equations. All lattice computations are written out.
+
+Let us make precise what ``$U=1$'' means. The gauge field is $U=e^{\ii\eta A}$ with $A$ taking values in the Lie algebra $\mathfrak g$ of the gauge group. Expanding the Wilson action to second order around $U=1$ gives $\tfrac12\|dA\|^2$, and infinitesimal gauge transformations act as $A\mapsto A+d\lambda$. The non-abelian structure enters only at higher orders. At $U=1$ every operator acts componentwise in a basis of $\mathfrak g$. Hence it suffices to treat real-valued fields, and this is what we do. This is \emph{not} abelian gauge theory. It is the linearization of non-abelian theory at its trivial background. The operators obtained are those which Ba\l aban perturbs around in \cite{BalBackground,BalVar}.
+
+\paragraph{The operators.} The precise definitions are given in Sections~\ref{sec:setup}--\ref{sec:gauge-coercivity}. Here is an overview. We use a fine torus $\Tf$ of spacing $\eta$ and a unit torus $\T\subset\Tf$, the scalar block average $Q_0$, and the gauge-field average $\bQ$ of \cite{BalPropI}. The averaged gauge field $(\bQ A)_\mu$ is an average of $A_\mu$ over the block and along lines of unit length in direction~$\mu$. It satisfies $\bQ\,d=\dl Q_0$, where $\dl$ is the unit-lattice gradient (gauge covariance). We study:
+\begin{enumerate}[label=(\roman*)]
+\item the scalar Green functions $G_\sigma=(-\Lap+aQ_\sigma^*Q_\sigma)^{-1}$. Here $Q_\sigma$ is either the block average $Q_0$ or one of the ``tube'' averages $Q_1,\dots,Q_d$ that make up $\bQ$;
+\item the operators derived from them: $(Q_\sigma G_\sigma Q_\sigma^*)^{-1}$, the minimizer map $H_\sigma$, the constrained Green function $C_\sigma$, and the effective action. We also study the projection $R$ which defines Ba\l aban's Landau-type gauge;
+\item the gauge-field operator $\bL_a=d^*d+dRd^*+a\bQ^*\bQ$ and its inverse $\bG$;
+\item the gauge-field minimizer map $\bH=\bG\bQ^*(\bQ\bG\bQ^*)^{-1}$, the effective action $\bD$, and the constrained Green function $\bC$, which is the operator appearing in the Euler--Lagrange equation of the variational problem \cite[(110)--(111)]{BalVar}.
+\end{enumerate}
+
+\subsection{Main results}
+
+Throughout, $d\ge2$, $L\ge2$ and $k\ge1$ are integers, $\eta=L^{-k}$, and the unit torus has side $n\ge8$. The parameter $a>0$ in front of the averaging term is fixed. Ba\l aban takes $a=1$. Every constant in Part~I depends only on $d$, $a$ and a H\"older exponent $\alpha\in(0,1)$. In Part~II it depends in addition on $\dim\mathfrak g$ and on the decay rate $\gamma_W$ of the potential term $W$. In particular, it does not depend on $L$, $k$ or $n$. The statements about pointwise regularity assume $d\ge3$. This is only for convenience in Section~\ref{sec:regularity}, and $d=3$ is the case of interest.
+
+For a fine-lattice field $u$ (scalar or vector-valued) and a set $X$ we write
+\[
+|u|_X=\sup_{x\in X}|u(x)|,\qquad
+|\partial u|_X=\max_\mu\sup_{x\in X}|\partial_\mu u(x)|,\qquad
+\Hol{v}{X}=\sup_{x\ne x'\in X}\frac{|v(x)-v(x')|}{|x-x'|^\alpha}.
+\]
+Here $\partial_\mu$ is the forward lattice derivative, and the maximum also runs over components. $B(y)$ is the unit block with corner $y\in\T$, and $|y-y'|$ is the distance on the torus.
+
+\begin{maintheorem}[Coercivity; Corollary~\ref{cor:scalar-coercive}, Theorem~\ref{thm:gauge-coercive}]\label{thm:A}
+There is $c>0$ such that for all scalar fields $f$ and all $\sigma\in\{0,\dots,d\}$,
+\[
+\|\partial f\|^2+a\|Q_\sigma f\|^2\ \ge\ c\,\big(\|f\|^2+\|\partial f\|^2\big),
+\]
+and for all gauge fields $A$,
+\[
+\ip{A}{\bL_a A}=\|dA\|^2+\|Rd^*A\|^2+a\|\bQ A\|^2\ \ge\ c\,\big(\|A\|^2+\|\partial A\|^2\big).
+\]
+\end{maintheorem}
+
+\begin{maintheorem}[Scalar Green functions; Theorem~\ref{thm:scalar-green}]\label{thm:B}
+There are $C,\gamma>0$ such that for all $y,y'\in\T$ and all $f$ supported in $B(y')$:
+\begin{align*}
+|G_\sigma f|_{B(y)}+|\partial G_\sigma f|_{B(y)}+\Hol{\partial G_\sigma f}{B(y)}&\le Ce^{-\gamma|y-y'|}\,|f|_{B(y')},\\
+|G_\sigma \partial_\mu^* f|_{B(y)}+\Hol{G_\sigma\partial^*_\mu f}{B(y)}&\le Ce^{-\gamma|y-y'|}\,|f|_{B(y')}.
+\end{align*}
+Corresponding $L^2$ bounds hold for $G_\sigma$, $\partial G_\sigma$, $G_\sigma\partial^*$ and $\partial G_\sigma\partial^*$ between blocks.
+\end{maintheorem}
+
+\begin{maintheorem}[Averaged scalar operators; Section~\ref{sec:scalar-avg}]\label{thm:C}
+The operator $Q_\sigma G_\sigma Q_\sigma^*$ on the unit torus satisfies $c\le Q_\sigma G_\sigma Q_\sigma^*\le C$. Its inverse has a kernel bounded by $Ce^{-\gamma|y-y'|}$. The minimizer map $H_\sigma$ satisfies
+\[
+|H_\sigma g|_{B(y)}+|\partial H_\sigma g|_{B(y)}+\Hol{\partial H_\sigma g}{B(y)}\le C\sum_{y'}e^{-\gamma|y-y'|}|g(y')|,
+\]
+and the derivative bounds hold with $|g(y')|$ replaced by the unit-lattice gradient $|\dl g(y')|$. The constrained Green function $C_\sigma$ satisfies the bounds of Theorem~\ref{thm:B}. The effective action $\cD_\sigma$, defined by $\ip{g}{\cD_\sigma g}=\min\{\|\partial f\|^2:Q_\sigma f=g\}$, satisfies $c\|\dl g\|^2\le\ip{g}{\cD_\sigma g}\le C\|\dl g\|^2$ and has an exponentially decaying kernel. The projection $R$ is $I$ minus an operator with exponential decay.
+\end{maintheorem}
+
+\begin{maintheorem}[Gauge-field Green function; Theorem~\ref{thm:gauge-green}]\label{thm:D}
+The operator $\bG=\bL_a^{-1}$ satisfies, for $J$ supported in $B(y')$,
+\[
+|\bG J|_{B(y)}+|\partial\bG J|_{B(y)}+\Hol{\partial\bG J}{B(y)}\le Ce^{-\gamma|y-y'|}\,|J|_{B(y')},
+\]
+together with $L^2$ block bounds for $\bG$, $\partial\bG$, $\bG\partial^*$ and $\partial\bG\partial^*$.
+\end{maintheorem}
+
+\begin{maintheorem}[Gauge-field minimizer and fluctuation operators; Section~\ref{sec:gauge-min}]\label{thm:E}
+One has $c\le\bQ\bG\bQ^*\le C$, and $(\bQ\bG\bQ^*)^{-1}$ has an exponentially decaying kernel. The minimizer map $\bH$ sends $B$ to the minimizer of $\|dA\|^2$ subject to $\bQ A=B$ and $Rd^*A=0$, and it satisfies
+\[
+|\bH B|_{B(y)}+|\partial\bH B|_{B(y)}+\Hol{\partial\bH B}{B(y)}\le C\sum_{y'}e^{-\gamma|y-y'|}|B(y')|.
+\]
+The gauge-field effective action satisfies $c\|\dl B\|^2\le\ip{B}{\bD B}=\|d\bH B\|^2\le C\|\dl B\|^2$. The constrained Green function $\bC=\bG-\bG dRd^*\bG-\bH\bQ\bG$ is the Green function of $\|dA\|^2$ on $\{\bQ A=0,\ Rd^*A=0\}$, and, for $J$ supported in $B(y')$,
+\[
+|\bC J|_{B(y)}+|\partial\bC J|_{B(y)}+\Hol{\bC J}{B(y)}\le Ce^{-\gamma|y-y'|}\,|J|_{B(y')}.
+\]
+\end{maintheorem}
+
+These are, at $U=1$ and on a single torus, the bounds that Ba\l aban states in \cite[Sect.~F]{BalPropI} and \cite[Theorems~3.12, 3.13]{BalBackground} and uses in \cite{BalVar}.
+
+\paragraph{Backgrounds (Part II).} In Part~II the fields take values in the complexified Lie algebra $\mathfrak g^c$. The background $U=e^{\ii\eta A}$ satisfies $|A|,|\partial A|,[\partial A]_\alpha\le\eps$ in a global gauge (hypothesis (B)). Hypothesis (B) is restrictive. It forces all Wilson loops to obey a perimeter bound, so the background must be close to flat on scales larger than $O(1)$ (Section~\ref{sec:background}). The operators now involve parallel transport. We use a simplified averaging $\bQ(U)$, the main term of Ba\l aban's linearized averaging. It transforms exactly under gauge transformations, but it intertwines the covariant derivatives only up to a defect: $\bQ(U)D_U=D_VQ'(U)+E(U)$ with $E(U)=O(\eps)$. For Ba\l aban's full averaging $E=0$.
+
+\begin{maintheorem}[Backgrounds; Sections~\ref{sec:cov-scalar}--\ref{sec:cov-min}]\label{thm:F}
+Let $U$ satisfy (B) with parameter $\eps$, and let $W\in\cW(\eps,\gamma_W)$ in this gauge (Section~\ref{sec:background}). For $\eps$ small enough, with constants independent of $L,k,n$ and $U$:
+\begin{enumerate}[label=(\roman*)]
+\item $G'(U)=(D^TD+aQ'^TQ')^{-1}$ satisfies the bounds of Theorem~\ref{thm:B}. The inverse $\Gamma'(U)$ of $Q'G'Q'^T$, the minimizer map $H'(U)$, the constrained Green function $C'(U)$ and the projection $R(U)$ satisfy the decay and pointwise bounds of Theorem~\ref{thm:C}. Not claimed: the bounds in terms of $|\dl g|$ and the effective-action bounds (Theorem~\ref{thm:cov-scalar}, Proposition~\ref{prop:cov-R}).
+\item The gauge-field Green function $\bG(U)$ satisfies the bounds of Theorem~\ref{thm:D} (Theorem~\ref{thm:cov-gauge}).
+\item The inverse of $\bQ_\pi\bG\bQ_\pi^T$, the minimizer map $\bH(U)$ and the constrained Green function $\bC(U)$ satisfy the decay and pointwise bounds of Theorem~\ref{thm:E}. For every $J$, $\bC(U)J$ is the unique $A\in\cX(U)$ with $q_U(A',A)=\mathrm b(A',J)$ for all $A'\in\cX(U)$. For real $U$, real symmetric $W$ and real data $B$, $\bH(U)B$ is the unique minimizer of $q_U(A,A)$ among real $A$ with $\bQ(U)A=B$ and $R(U)D_U^TA=0$. Not claimed: the effective-action bounds (Theorem~\ref{thm:cov-min}).
+\end{enumerate}
+Here $\mathrm b(A,A')=\eta^d\sum_{x,\mu}\operatorname{tr}\big(A_\mu(x)A'_\mu(x)\big)$ is the bilinear form, $q_U(A,A')=\mathrm b(D_UA,D_UA')+\mathrm b(A,WA')$ is the quadratic form, with the small potential term $W$, $\cX(U)=\{A:\bQ(U)A=0,\ R(U)D_U^TA=0\}$, and $\bQ_\pi=\bQ(U)\Pi(U)$. For real $U$, real symmetric $W$ and real $A$, $q_U(A,A)=\|D_UA\|^2+\ip A{WA}$. The projection $\Pi(U)$ onto Ba\l aban's gauge slice $\{R(U)D_U^TA=0\}$ along the residual gauge directions is Ba\l aban's gauge-invariant extension \cite[(3.118)--(3.119)]{BalBackground}. All these operators depend analytically on $A$ and $W$ and transform covariantly under $G$-valued gauge transformations, with $W$ transformed accordingly. The identities $\bG DR=DG'R$, $RD^T\bG=RG'D^T$ and $\bQ_\pi\bG DR=0$ hold exactly.
+\end{maintheorem}
+
+The operators are covariant under $G$-valued gauge transformations $u$, with $W$ replaced by $R(u)WR(u)^{-1}$; the latter need not belong to $\cW(\eps,\gamma_W)$ in the new gauge. Hence Theorem~\ref{thm:F} transfers to every background gauge equivalent to one satisfying (B), as follows (Proposition~\ref{prop:covariance}): the bounds on values and the $L^2$ block bounds hold with $\partial$ replaced by the covariant derivative, the identities hold, and the H\"older bounds hold in the gauge in which (B) holds. The comparisons with the operators at $U=1$ proved in Sections~\ref{sec:cov-scalar}--\ref{sec:cov-min} hold only in that gauge; they fail for a pure gauge $U=1^u$.
+
+The proofs are perturbative: every operator is written as its $U=1$ counterpart plus a perturbation of a specific structure (Section~\ref{sec:perturbation}), and the three tools of Part~I are shown to be stable under such perturbations. For the pointwise bounds a further regularity estimate is needed, a lattice Schauder estimate for divergence-form equations (Theorem~\ref{thm:local-regularity}(d)).
+
+\paragraph{Local regularity (Part III).} In Part~III the global hypothesis (B) is replaced by a local one. A real background is \emph{$(M,\eps)$-regular} if on every cube of side of order $M$ there is a gauge in which (B) holds; the gauges on different cubes are unrelated. This is the form of Ba\l aban's regularity conditions on the background.
+
+\begin{maintheorem}[Regular backgrounds; Sections~\ref{sec:reg-scalar}--\ref{sec:random-walk} and~\ref{sec:nested-walks}]\label{thm:G}
+There is $M_0$ such that for $M\ge M_0$ and $(M,\eps)$-regular backgrounds with $\eps$ small (independent of $M$) the following hold.
+\begin{enumerate}[label=(\roman*)]
+\item The statements of Theorem~\ref{thm:F} remain true, with local potentials $W\in\cW_{\rm loc}(\eps)$ (Section~\ref{sec:reg-gauge}). The comparisons with the operators at $U=1$ of Sections~\ref{sec:cov-scalar}--\ref{sec:cov-min} need a global gauge, fail for a pure gauge $U=1^u$, and are not claimed. The scalar operators need only $(1,\eps)$-regularity. Sup norms of derivatives are taken with the covariant derivative, and H\"older quotients in local gauges.
+\item The operators whose inverses are $G'(U)$ and $\bG(U)$ have Dirichlet versions on arbitrary unions $X$ of blocks. These depend only on the background on the bonds of $\hat X$, the set of points at $\infty$-distance at most $1$ from $X$, and they are coercive (the gauge-field version with a mass term near the boundary and Dirichlet conditions for all components of the gauge field). Their inverses, the inverse of the averaged scalar Green function on $X$, and $\one_X-R_X$, with $R_X$ the Dirichlet version of the projection $R$, have exponential decay uniformly in the domain.
+\item \emph{Locality in the background:} if two regular backgrounds agree on a region, the propagators, the minimizer map and the fluctuation operator agree deep inside it up to errors that are exponentially small in the distance to the complement.
+\item Ba\l aban's random-walk expansion converges for $M$ large: for the scalar Green function $G'(U)$ as a sum of products of local propagators (Theorem~\ref{thm:random-walk}(a)); for the gauge-field Green function $\bG(U)$ in the factorized form of Section~\ref{sec:nested-walks}, with the domains $\Lam^v_j$ of Section~\ref{sec:weakenable} for a fixed $\rho\ge15$, so that \eqref{eq:rho-choice} holds with $w=10M$, for $M$ large depending on $\rho$, on tori of side $n\ge C(\rho+C_v)M$, with $C_v$ the margin of level~(L3) there (Theorem~\ref{thm:random-walk}(b)). Under the same hypotheses, $\Gamma'(U)$, $H'(U)$ and $R(U)$ are expanded at levels~(L1) and~(L2) there. Section~\ref{sec:nested-walks} is written for $E=0$; the additional terms for $E\ne0$ are treated in the proof of Theorem~\ref{thm:random-walk}(b).
+\item All results extend analytically to complex perturbations $Ue^{\ii\eta\delta A}$ of a regular background by a field $\delta A$ that is small in the local gauges, for potentials $W$ that depend analytically on the background, with coercivity replaced by $\Rea$-coercivity.
+\end{enumerate}
+\end{maintheorem}
+
+The key new step is a local proof of coercivity (Section~\ref{sec:reg-gauge}). An IMS localization at scale $M$ reduces it to cubes. On each cube one works in the local gauge, perturbs around $U=1$, and uses the coercivity of Part~I. Fourier analysis is used only at $U=1$.
+
+\paragraph{The nonlinear problem (Parts IV and V).} Ba\l aban's averaging of a gauge field is nonlinear and is performed one scale at a time. Its $k$-fold composition $U\mapsto U^{(k)}$ is covariant with respect to the values of gauge transformations at the points of $\T$. So the residual gauge group of the variational problem is $\mathfrak G_0=\{u:u|_\T=1\}$. Part~IV constructs the bridge to the linear theory. Following \cite{BalAvg,BalReg}, we introduce the multiscale axial gauge and the gauge-adapted averaging $\mathcal Q$. We show (Proposition~\ref{prop:linearized-averages}, Corollary~\ref{cor:parts-apply}) that the linearization of $\mathcal Q$ at a regular reference $U_0$ is an averaging pair $(Q'_k(U_0),\bQ_k(U_0))$ to which Parts~II and~III apply, with \emph{exact} covariance ($E=0$). We then prove Ba\l aban's axial-to-Landau theorem \cite[Theorem~2]{BalReg} on a single torus.
+
+\begin{maintheorem}[Axial-to-Landau chart; Theorem~\ref{thm:chart}]\label{thm:H}
+Let $U_0$ be $(M,\eps)$-regular with current at most $\eps$, where $\eps$ is small. Every real configuration $U$ with small curvature and current, and with $k$-fold averages close to those of $U_0$, has exactly one small representative $e^{\ii\eta A}$ relative to $U_0$ that lies in Ba\l aban's Landau gauge $R(U_0)D^T_{U_0}A=0$ and is related to the axial representative of $U$ by the correspondence transformation. It obeys $|A|+|\nabla A|+|\Lap_{U_0}A|+[\nabla A]_\alpha\le C(\eps+\text{curvature}+\text{current}+\text{difference of averages})$, uniformly in $k$, $n$ and $\eta$. The curvature and the current in this bound are those of $U$.
+\end{maintheorem}
+
+\begin{maintheorem}[The variational problem relative to a regular reference; Theorem~\ref{thm:variational}]\label{thm:I}
+Let $U_0$ be $(M,\eps)$-regular with current at most $\eps$, and let $V$ be a real configuration on $\T$ with $V(U_0^{(k)})^{-1}=e^{\ii B}$, $|B|\le\beta$. If $\eps+\beta$ is small, then the Wilson action restricted to $\{U:U^{(k)}=V\}$ has exactly one critical $\mathfrak G_0$-orbit among configurations of small curvature and current. The orbit consists of the minimizers of the action among these configurations. Its Landau representative relative to $U_0$ satisfies
+\[
+|A_*|+|\nabla A_*|+|\Lap_{U_0}A_*|+[\nabla A_*]_\alpha\le C(\eps+\beta),\qquad A_*=\bH B-\bC J_{U_0}+O\big((\eps+\beta)^2\big).
+\]
+The minimizer is again regular, it depends analytically on $B$, and the derivative with respect to $B$ decays exponentially.
+\end{maintheorem}
+
+This is the content of Ba\l aban's variational theorem \cite[Theorem~1]{BalVar} for one step $k$ of his induction, given the reference configuration $U_0$, on a single torus. Along the way we reprove Ba\l aban's results on the averaging \cite{BalAvg} and on gauge fixing \cite{BalReg} in the form needed.
+
+\paragraph{The induction (Part VI).} Ba\l aban proves his theorem by induction over $k$. The reference at step $k$ is the solution of the $(k-1)$-step problem for the trivial extension of $V$; it has exactly the prescribed averages. Theorem~\ref{thm:I} then gives the solution at step $k$. Its regularity bound is worse by a power of $L$, because units change by a factor $L$. Ba\l aban restores the bound by a local analysis on nested domains \cite[Sect.~F]{BalVar}. We stay on the torus and use the uniformity of Theorem~\ref{thm:I} in the reference. Near a given point we replace the reference by a configuration that is trivial, in a local gauge, near the point and equals the solution far away. Relative to it, the solution near the point is determined by the coarse field in an axial gauge centred at the point, which is controlled by the curvature of $V$ alone. The errors are exponentially small in the splicing radius, or quadratic.
+
+\begin{maintheorem}[Ba\l aban's variational theorem; Theorem~\ref{thm:balaban}, Corollary~\ref{cor:regularity}]\label{thm:J}
+There are $a_1,B_3,n_0$ such that the following holds on tori of side $n\ge n_0$, for every $k$ and every real configuration $V$ on $\T$ whose curvature is at most $\eps_1\le a_1$. The Wilson action on $\{U:U^{(k)}=V\}$ has exactly one critical $\mathfrak G_0$-orbit among configurations of small curvature and current. It consists of the minimizers of the action among these configurations, which have curvature and current at most $B_3\eps_1$ and are $(M,B_3\eps_1)$-regular. The constants do not depend on $k$, $n$ or $\eta$. Moreover, every real configuration whose curvature and current are at most $\theta$, with $\theta$ small, is $(M,C\theta)$-regular.
+\end{maintheorem}
+
+The last statement is the torus version of Ba\l aban's derivation of local regularity from gauge-invariant conditions \cite[Sect.~F]{BalReg}. So the hypothesis of Part~III holds for all configurations of Ba\l aban's small-field class.
+
+\paragraph{One renormalization group step (Part VII).} The renormalization group transformation integrates over configurations on $\T^{(k)}$ with prescribed averages on $\T^{(k+1)}$. We write it exactly as a Gaussian integral:
+\begin{itemize}
+\item the background of the step is the $(k+1)$-step background field (Lemma~\ref{lem:composition});
+\item the gauge is fixed by a one-step axial gauge, and the constraint is eliminated on one bond per coarse bond, with local Jacobians;
+\item the action becomes a function of the coarse fluctuation through the coarse effective action $V\mapsto S(U_k(V))$, whose gradient is the Lagrange multiplier and whose derivatives decay along trees (Proposition~\ref{prop:coarse-action}).
+\end{itemize}
+The fluctuation covariance is the inverse of a bounded operator on the unit lattice. It is coercive on the one-step constraint set, by a Poincar\'e inequality and an IMS localization, and has exponential decay (Theorem~\ref{thm:step-coercive}, Corollary~\ref{cor:covariance}). The background-dependent determinant is a sum of local, gauge-invariant densities (Proposition~\ref{prop:det-densities}). Finally, the curvature of background fields is bounded by $(C_*+\delta)$ times the curvature of the coarse configuration, with $C_*$ independent of $L$ (Proposition~\ref{prop:sharp-curvature}). This makes the small-field sets of consecutive steps compatible for $L$ large.
+
+\paragraph{Localization (Parts VIII and IX).} The renormalization group needs the background dependence of the step as a sum of local pieces. Part~VIII obtains this with Dirichlet approximants and telescoping, using interior pointwise bounds with derivatives for the Dirichlet operators (Theorem~\ref{thm:ID}). The pieces are of \emph{radius type}: a piece depending on a ball of radius $m$ is bounded by $e^{-\gamma m}$. A polymer expansion needs \emph{volume type}, a small factor for every cube of the dependence region. Part~IX provides it, as Ba\l aban and Dimock do, by random walks with weakening parameters $s\in\mathbb D_\kappa$. It constructs them for the covariance, its square root, the coarse Hessian and the determinant in $L^2$ norms (Section~\ref{sec:nested-walks}), proves pointwise $C^{1,\beta}$ bounds for the weakened propagators (Sections~\ref{sec:interior-lp} and~\ref{sec:tiers}), and builds the weakened background map $A_*(s;B)$, analytic in $s$ and factorizing over polymers (Theorem~\ref{thm:weak-bg}).
+
+\paragraph{The small-field flow (Part X).} The activities are analytic functions on a complex domain, so Part~X first extends Part~IX, and the averaged backgrounds of Part~IV, to complex references (Section~\ref{sec:complex-references}). Then it follows Dimock's scheme \cite{DimockI}:
+\begin{itemize}
+\item the step quantities (interaction, Jacobians, old activities composed with the background map, Hessian) become functions of the weakening parameters that factorize over polymers (Section~\ref{sec:step-quantities});
+\item with a cutoff on the white noise, the fluctuation integral is a Mayer and polymer expansion (Section~\ref{sec:cluster}). By parity in the coupling there is no term of order $g$; the pure sources are of order $g^2p_0^6$;
+\item the activity norm lives on a graded complex domain. On the domain of the next scale, a normalized gauge-invariant activity is smaller than its supremum by a factor quadratic in the ratio of the curvature, the current and the complex part to the size of the domain (Lemma~\ref{lem:quadratic-bound}). So the linear part of the flow is bounded by a constant times $L^{-\epsilon}$, which is beaten by the growth $L^{1-\epsilon}$ per step of the bound $h_k^{2-2\epsilon}$ (Section~\ref{sec:flow});
+\item the steps are iterated, and the vacuum energy is fixed by a counterterm (Section~\ref{sec:target-flow}).
+\end{itemize}
+The finest lattice has spacing $L^{-N}$ in physical units, and $g$ is the coupling, so the dimensionless couplings are $g_k^2=g^2L^{k-N}$. Fix $\epsilon\in(0,\frac14)$, put $h_k=p_kg_k$ with $p_k$ a slowly growing function of $g_k^{-1}$ (Sections~\ref{sec:flow} and~\ref{sec:target-flow}), and let $0<\beta'<2-2\epsilon$. The activity norm $\|\cdot\|_{k,\kappa_n}$ and the constant $K_{\mathcal E}$ are those of Section~\ref{sec:flow}.
+
+\begin{maintheorem}[Small-field flow; Theorem~\ref{thm:sf-flow}, Proposition~\ref{prop:vacuum}, Corollary~\ref{cor:sf-stability}]\label{thm:K}
+Let $d=3$ and $G$ compact, connected and semisimple. There are $L$, $M$, $g_*>0$ and $n_{\min}$ with the following property, for a torus of physical side $\ell$ with $\ell g^2/g_*^2\ge n_{\min}$ and $L^{-N}\le g_*^2/(Lg^2)$, such that $\ell L^N$ and $M$ are powers of $L$. Let $K$ be the largest integer with $g_K\le g_*$. There is a counterterm $E_0$, fixed by $\eps_K=0$ and with $|E_0|\le Cg_0^{\beta'}$ per lattice site, such that the small-field steps map $\rho_0=\exp(-g_0^{-2}S-E_0)$ to densities
+\[
+\rho_k(V)=\mathcal Z_k\exp\Big(-\frac1{g_k^2}S(U_k(V))-\eps_k|\T^{(k)}|+\sum_X\mathcal E_k(X,U_k(V))\Big),\qquad k\le K,
+\]
+on the small-field sets. Here $\mathcal Z_k$ is an explicit product of normalizations, $|\eps_k|\le Cg_k^{\beta'}$, and the $\mathcal E_k(X,\cdot)$ are polymer activities that are invariant under real gauge transformations, normalized at $U=1$, real for real configurations, and analytic on the complex domains $\mathcal U_k(X)$, which contain the background fields $U_k(V)$ of all small-field $V$; moreover $\|\mathcal E_k\|_{k,\kappa_n}\le K_{\mathcal E}h_k^{2-2\epsilon}$. The partition function of the resulting small-field model is $\mathcal Z_KI_K$, with $e^{-c|\T^{(K)}|}\le I_K\le e^{c|\T^{(K)}|}$. The constants $C$, $K_{\mathcal E}$, $c$ do not depend on $N$ or $k$.
+\end{maintheorem}
+
+\emph{Boundary conditions.} The verification of 31 October 2026 found that an earlier version of the gauge-field Dirichlet operators, with relative boundary conditions, did not support the weakened walks on proper domains. The operators now carry Dirichlet conditions for all components (Section~\ref{sec:reg-gauge}, Remark~\ref{rem:L3-domains}). This leaves the torus operators unchanged, and with them Theorems~\ref{thm:F}, \ref{thm:H}--\ref{thm:J} and the torus statements of Theorem~\ref{thm:G}.
+
+The small-field model is a modification of the lattice theory: at every step the integration is restricted to small fields and the rest is discarded (Remark~\ref{rem:sf-reference}). Controlling the discarded part is the large-field stage, the analogue of \cite{DimockII,DimockIII}, which is not treated here. So Theorem~\ref{thm:K} is the analogue of the small-field analysis of \cite{DimockI}; it says nothing yet about the partition function of the lattice theory itself. Ultraviolet stability bounds for the partition function of the full three-dimensional theory, large fields included, were obtained by Ba\l aban \cite{BalUV3}, in an outline that refers to his four-dimensional work for the details. Theorem~\ref{thm:K} writes out the small-field part of such an analysis in Dimock's scheme, on the operator theory of Parts~I--IX.
+
+\paragraph{Reading guide.} For the small-field flow the main line is Parts~I--VII, Section~\ref{sec:dirichlet-averaged} and the interior estimates of Section~\ref{sec:interior}, Section~\ref{sec:localization} up to Proposition~\ref{prop:local-fluct}, Section~\ref{sec:det-local} except Proposition~\ref{prop:det-local} and Corollary~\ref{cor:one-loop}, Part~IX and Part~X. The radius-type results of Part~VIII (Theorem~\ref{thm:local-covariance}, Corollary~\ref{cor:large-changes}, Proposition~\ref{prop:det-local}, Corollary~\ref{cor:one-loop}, and Section~\ref{sec:interaction-local}) are superseded on the main line by Parts~IX and~X. Each superseded part is marked as such where it appears.
+
+\subsection{Methods}
+
+Four tools are used. Each is introduced in its own section, before it is used.
+
+\paragraph{1. Coercivity (Section~\ref{sec:poincare} and Section~\ref{sec:gauge-coercivity}).} A Poincar\'e inequality on unit blocks shows that the averaging term controls exactly those modes that the Laplacian does not control. This gives the bounds of Theorem~\ref{thm:A} for scalars. For gauge fields the situation is subtler, because $\|dA\|^2+a\|\bQ A\|^2$ is invariant under gauge transformations $A\mapsto A+d\lambda$ with $Q_0\lambda=0$. The gauge-fixing term $\|Rd^*A\|^2$ removes this degeneracy. We prove the coercivity in position space. We split $A$ into a gradient part and a co-closed part, and show that the averaging operator nearly separates them: $\dl^*\bQ A$ differs from an average of $d^*A$ by the unit-lattice divergence of a quantity bounded by $\|\partial A\|$ (Lemma~\ref{lem:Q-divergence}). Ba\l aban's original proof \cite{BalPropI} is a computation in momentum space.
+
+\paragraph{2. The Combes--Thomas method (Section~\ref{sec:decay}).} If an operator is coercive and conjugation by $e^{\alpha\rho}$, for Lipschitz $\rho$, perturbs it by $O(\alpha)$, then its inverse decays exponentially \cite{CT}. This works for the fine-lattice operators $G_\sigma$ and $\bG$, which contain the large term $-\Lap$ of norm $\sim\eta^{-2}$, because the perturbation is controlled by the quadratic form itself. It also works for the coarse operators $(QGQ^*)^{-1}$. Ba\l aban and \cite{DST1} use Fourier analysis or random-walk expansions instead. We use neither: on a single torus at $U=1$, Combes--Thomas suffices, and it also survives perturbation in~$U$.
+
+\paragraph{3. Local regularity (Section~\ref{sec:regularity}).} Exponential decay is first obtained in $L^2$ between unit blocks. To pass to pointwise bounds on values and derivatives, uniformly in $\eta$, we prove a discrete interior regularity estimate. If $-\Lap u=F$ holds on a cube of side $4$ (with $u$ defined on a slightly larger cube), then $u$, $\partial u$ and the H\"older quotients of $\partial u$ on the concentric cube of side $2$ are bounded by $|F|$ and the $L^2$ norm of $u$. The proof uses a cutoff and the decay of the Green function of the fine lattice $\eta\Z^d$ and its derivatives. The latter is proved in Appendix~\ref{app:green}.
+
+\paragraph{4. One Fourier lower bound (Section~\ref{sec:fourier}).} Averaged Green functions $QGQ^*$ must be bounded \emph{below} uniformly in $k$. We deduce this from the operator inequality $G\ge(-\Lap+2a)^{-1}$ and an elementary computation in momentum space. The same computation gives one more estimate needed in the gauge-field coercivity proof.
+
+\subsection{What is not done here}
+
+The variational theorem is proved on a single torus with the small-field condition everywhere (Theorem~\ref{thm:J}), and the renormalization group is carried out for small fields only (Theorem~\ref{thm:K}). We do not treat:
+\begin{itemize}
+\item the large-field stage: the nested domains $\Omega_j$ of \cite{BalVar}, large fields, and with them the partition function and the correlation functions of the lattice theory itself, as opposed to the small-field model of Theorem~\ref{thm:K};
+\item gauges on cubes of size up to $c\,\eps_1^{-1}$ with bounds linear in the size \cite[(9), (10)]{BalVar}; we obtain polynomial bounds (Remark~\ref{rem:large-cubes});
+\item gauge groups with abelian factors in Part~X: the second-order bound for normalized activities (Lemma~\ref{lem:quadratic-bound}) uses semisimplicity;
+\item dimensions other than $3$ from Part~VII on.
+\end{itemize}
+Section~\ref{subsec:checklist} lists the input of the variational theorem and where it is provided.
+
+\paragraph{Relation to \cite{DST1}.} The paper \cite{DST1} gives a self-contained account of exponential decay for the \emph{scalar} operators of Ba\l aban's approach on general domains with Neumann boundary conditions, using the method of images and analytic continuation of Fourier transforms. Here the domain is a torus, the methods are different, and the emphasis is on gauge fields. The scalar part (Sections~\ref{sec:scalar}--\ref{sec:scalar-avg}) is included because the gauge-field operators are built from scalar ones: gauge transformations are scalar fields, and the projection $R$ is defined in terms of $G_0$.
+
+\paragraph{Status.} This is a first version, written with the assistance of Claude (Anthropic). It has not been checked by a human expert.

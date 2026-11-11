@@ -1,0 +1,26 @@
+% Figure of the guide (G6): the anatomy of one small-field step. Owner: WP7.
+\begin{gfigure}[tbp]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,
+  st/.style={draw,rounded corners=1.5pt,fill=white,align=flush left,text width=4.55cm,font=\scriptsize,inner xsep=3pt,inner ysep=2pt,minimum height=12.5mm},
+  key/.style={st,line width=1.1pt},
+  ar/.style={-{Stealth[length=1.6mm]},semithick},
+  ]
+\def\c#1{\textcolor{black!70}{#1}}
+% row 1, left to right
+\node[st,anchor=north west] (s1) at (0,0) {density of step $k$, on $\T=\T^{(k)}$:\\ $\rho_k(V)=e^{-g_k^{-2}S(U_k(V))+\mathfrak E_k(V)}$\\ for $V\in\mathfrak U_k(\tilde h)$\hfill\c{\eqref{eq:rho-form}, \eqref{eq:rg-map}}};
+\node[st,anchor=north west] (s2) at (5.25,0) {$V'$ on $\T'=\T^{(k+1)}$: reference\\ $U'=U_{k+1}(V')$, base $W=U'^{(k)}$,\\ $\mathfrak a'(W)=V'$; $V=e^{\ii Z}W$\hfill\c{Lemma~\ref{lem:composition}}};
+\node[st,anchor=north west] (s3) at (10.5,0) {gauge fixing by $\mathrm{gf}_W$ in the\\ averaged contour variables;\\ no Faddeev--Popov determinant\\ \mbox{}\hfill\c{Lemma~\ref{lem:exp-gauge}(a)}};
+% row 2, right to left
+\node[st,below=4.5mm of s3] (s4) {$Z(b_0(c))$ is fixed by $\mathfrak a'(V)=V'$;\\ the fluctuation field $Z$ lives on $\mathfrak F$\\ \c{Lemma~\ref{lem:eliminate}, Proposition~\ref{prop:exact-step}}};
+\node[st,below=4.5mm of s2] (s5) {$S(U_k(e^{\ii\hat Z}W))+\Phi_W(Z)$\\ \hspace*{1em}$=S(U')+\tfrac12\Delta_k(Z,Z)+\mathcal V+G_3$\\ \mbox{}\hfill\c{Lemma~\ref{lem:step-quadratic}}};
+\node[st,below=4.5mm of s1] (s6) {$\tfrac14c_L\|Z\|^2\le\Delta_k(Z,Z)\le C_L\|Z\|^2$;\\ the covariance $C_k=\Delta_k^{-1}$ decays\\ \c{Theorem~\ref{thm:step-coercive}, Corollary~\ref{cor:covariance}}};
+% row 3, left to right
+\node[key,below=4.5mm of s6] (s7) {cutoff $|\hat Z(b)|\le w$ ($\chi^{\rm w}$): exact\\ Gaussian representation of\\ $T^{\rm gf}(\chi^{\rm w}\rho)$\\ \c{\textbf{Theorem~\ref{thm:step}}, in Theorem~\ref{thm:K}}};
+\node[st,below=4.5mm of s5] (s8) {white noise $\xi=g^{-1}C_k^{-1/2}Z$,\\ cutoff $|\xi(b)|\le p_0$ \c{(Definition~\ref{def:small-field-step})}:\\ $T_{\rm sf}(\rho)=T^{\rm gf}(\chi^{\rm w}\chi_\xi\rho)$,\\ in polymer form\hfill\c{Theorem~\ref{thm:sf-step} (\ref{thm:L})}};
+\node[st,below=4.5mm of s4] (s9) {$\rho_{k+1}=\one_{\mathfrak U_{k+1}(h_{k+1})}T_{\rm sf}(\rho_k)$;\\ the discarded parts are $\ge0$\\ and are not treated\\ \c{Theorem~\ref{thm:N}; Lemma~\ref{lem:gf-step-invariance}(iv)}};
+\foreach \u/\v in {s1/s2,s2/s3,s3/s4,s4/s5,s5/s6,s6/s7,s7/s8,s8/s9} \draw[ar] (\u) -- (\v);
+\end{tikzpicture}
+\caption{One small-field step, from scale~$k$ to scale~$k+1$, for $k\ge1$ (for $k=0$, Lemma~\ref{lem:first-step-formula} and Proposition~\ref{prop:first-step}); follow the arrows. The gauge fixing and the elimination of the constraint are exact. Theorem~\ref{thm:step} (thick frame) holds for $V'$ of curvature $\eps'_1\le a_{\rm step}$, $w\le r_2$ and $a_1\ge\tilde h\ge2(C_*+1)L^{-2}\eps'_1+4w$. The cutoffs act on the variables of the gauge fixing relative to the base, so the steps define a modified model. Along the flow $w=C_wL^dC_Tg_kp_0(g_k)$ and $4w\le\frac12h_k$ (Remark~\ref{rem:flow-constants}). The blocks and the bonds $b_0(c)$ are drawn in Figures~\ref{fig:blocks-sym} and~\ref{fig:G-scales}.}
+\label{fig:G-step}
+\end{gfigure}
